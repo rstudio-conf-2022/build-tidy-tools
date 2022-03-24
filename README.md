@@ -25,7 +25,13 @@ can remove these instructions from the README.
 
 ## Overview
 
-ABSTRACT
+This is a two-day, hands-on workshop for those who have embraced the tidyverse and want to build their own packages. We’ll discuss how functions present to the user, functional programming tools, and Object-oriented programming with S3 (R's simplest system of OOP).  We will also cover the tidy eval system which allows you to use tidyverse grammar in your functions.
+
+-   Learn efficient workflows for developing high-quality R functions, using the set of conventions codified by a package. You’ll also learn workflows for unit testing, which helps ensure that your functions do exactly what you think they do.
+-   Master the art of writing functions that do one thing well and can be fluently combined together to solve more complex problems. We’ll cover common function writing pitfalls and how to avoid them.
+-   Learn how to write collections of functions that work well together, and adhere to existing conventions so they’re easy to pick up for newcomers.
+
+You should take this workshop if you have experience programming in R and want to learn how to tackle larger scale problems. You’ll get the most from it if you’re already familiar with functions and are comfortable with R’s basic data structures (vectors, matrices, arrays, lists, and data frames).
 
 ## Learning objectives
 
