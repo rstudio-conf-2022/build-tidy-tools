@@ -1,4 +1,4 @@
-WORKSHOP_TITLE
+Building tidy tools
 ================
 
 ### rstudio::conf 2022
