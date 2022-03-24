@@ -35,7 +35,7 @@ You should take this workshop if you have experience programming in R and want t
 
 ## Learning objectives
 
-LEARNING_OBJECTIVES
+[ADD AN ITEMIZED LIST OF LEARNING OBJECTIVES.]
 
 ## Is this course for me?
 
