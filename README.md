@@ -3,7 +3,7 @@ Building tidy tools
 
 ### rstudio::conf 2022
 
-by INSTRUCTOR_NAME
+by Emma Rand + Ian Lyttle
 
 -----
 
