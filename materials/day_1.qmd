@@ -1,0 +1,17 @@
+---
+title: "Day 1"
+---
+
+About this site
+
+```{r}
+1 + 1
+```
+
+<p>
+
+<iframe width="800" height="600" src="test.html" allow="fullscreen">
+
+</iframe>
+
+</p>

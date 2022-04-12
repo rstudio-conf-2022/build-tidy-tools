@@ -1,0 +1,22 @@
+project:
+  type: website
+  output-dir: materials/_site
+
+website:
+  title: "Building tidy tools"
+  navbar:
+    background: primary
+    left:
+      - href: materials/index.qmd
+        text: Home
+      - materials/day_1.qmd
+      - materials/day_2.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: materials/styles.css
+    toc: true
+
+editor: visual
+
