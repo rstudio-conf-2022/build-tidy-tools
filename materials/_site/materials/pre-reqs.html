@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="generator" content="quarto-0.9.233">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="author" content="Emma Rand and Ian Lyttle">
+  <title>Building tidy tools - Prerequisites</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+
+  <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+  <script src="../site_libs/quarto-nav/headroom.min.js"></script>
+  <script src="../site_libs/clipboard/clipboard.min.js"></script>
+  <meta name="quarto:offset" content="../">
+  <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+  <script src="../site_libs/quarto-search/fuse.min.js"></script>
+  <script src="../site_libs/quarto-search/quarto-search.js"></script>
+  <script src="../site_libs/quarto-html/quarto.js"></script>
+  <script src="../site_libs/quarto-html/popper.min.js"></script>
+  <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+  <script src="../site_libs/quarto-html/anchor.min.js"></script>
+  <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+  <link id="quarto-text-highlighting-styles" href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+  <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+  <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+  <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <script id="quarto-search-options" type="application/json">{
+    "location": "navbar",
+    "copy-button": false,
+    "collapse-after": 3,
+    "panel-placement": "end",
+    "type": "overlay",
+    "limit": 20,
+    "language": {
+      "search-no-results-text": "No results",
+      "search-matching-documents-text": "matching documents",
+      "search-copy-link-title": "Copy link to search",
+      "search-hide-matches-text": "Hide additional matches",
+      "search-more-match-text": "more match in this document",
+      "search-more-matches-text": "more matches in this document",
+      "search-clear-button-title": "Clear",
+      "search-detached-cancel-button-title": "Cancel",
+      "search-submit-button-title": "Submit"
+    }
+  }</script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="../materials/styles.css">
+</head>
+<body class="nav-fixed">
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Building tidy tools</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../materials/index.html">Home</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../materials/pre-reqs.html" aria-current="page">Prerequisites</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../materials/day_1.html">Day 1</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../materials/day_2.html">Day 2</a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+<h2 id="toc-title">On this page</h2>
+<ul>
+<li><a href="#install-r-and-rstudio" id="toc-install-r-and-rstudio" class="nav-link active" data-scroll-target="#install-r-and-rstudio">Install R and RStudio</a>
+<ul class="collapse">
+<li><a href="#installing-r" id="toc-installing-r" class="nav-link" data-scroll-target="#installing-r">Installing R</a></li>
+<li><a href="#installing-r-studio" id="toc-installing-r-studio" class="nav-link" data-scroll-target="#installing-r-studio">Installing R Studio</a></li>
+</ul></li>
+<li><a href="#install-r-package-development-toolchain" id="toc-install-r-package-development-toolchain" class="nav-link" data-scroll-target="#install-r-package-development-toolchain">Install R package development toolchain</a></li>
+<li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
+<li><a href="#git-and-a-github-account-and-verified-it-is-linked-to-rstudio" id="toc-git-and-a-github-account-and-verified-it-is-linked-to-rstudio" class="nav-link" data-scroll-target="#git-and-a-github-account-and-verified-it-is-linked-to-rstudio">Git and a GitHub account and verified it is linked to RStudio</a>
+<ul class="collapse">
+<li><a href="#git" id="toc-git" class="nav-link" data-scroll-target="#git">Git</a></li>
+<li><a href="#github-account" id="toc-github-account" class="nav-link" data-scroll-target="#github-account">GitHub account</a></li>
+<li><a href="#check-link-between-rstudio-and-github" id="toc-check-link-between-rstudio-and-github" class="nav-link" data-scroll-target="#check-link-between-rstudio-and-github">Check link between RStudio and GitHub</a></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+<header id="title-block-header" class="quarto-title-block default">
+
+
+<div class="quarto-title"><h1 class="title display-7">Prerequisites</h1></div><div class="quarto-title-meta"><div><div class="quarto-title-meta-heading">Author</div><div class="quarto-title-meta-contents"><div class="quarto-title-authors"><div><div>
+<p>Emma Rand and Ian Lyttle</p>
+</div></div></div></div></div></div></header>
+
+<p>You will need</p>
+<ul>
+<li><p><a href="#install-r-and-rstudio">R and RStudio</a></p></li>
+<li><p><a href="#install-r-package-development-toolchain">R package development toolchain</a>: Rtools(windows) or XCode (mac) or r-base-dev</p></li>
+<li><p>The following <a href="#packages">packages: devtools and assertthat</a></p></li>
+<li><p><a href="#git-and-a-github-account-and-verified-it-is-linked-to-rstudio">Git and a GitHub account and verified it is linked to RStudio</a></p></li>
+</ul>
+<p>You can verify your system is set up by running:</p>
+<p><code>devtools::has_devel()</code></p>
+<p>and</p>
+<p><code>usethis::git_sitrep()</code></p>
+<section id="install-r-and-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="install-r-and-rstudio">Install R and RStudio</h2>
+<p>You will need: - R 4.x. Version 3.6.x will likely be fine but we recommend that you install the latest versions if possible - RStudio 1.2 or above</p>
+<section id="installing-r" class="level3">
+<h3 class="anchored" data-anchor-id="installing-r">Installing R</h3>
+<p>Download the pre-compiled binary for your OS from https://cloud.r-project.org/ and install. More specifically, for version number #.#.# (e.g.&nbsp;4.0.0):</p>
+<section id="for-windows" class="level4">
+<h4 class="anchored" data-anchor-id="for-windows">For Windows</h4>
+<p>Click “Download R for Windows”, then “base”, then “Download R #.#.# for Windows”. This will download an <code>.exe</code> file; once downloaded, open to start the installation. If you do not have administrator rights, the installer will default to install in your Documents folder - if you prefer, you can change the location to another folder that you have write access to.</p>
+</section>
+<section id="for-mac" class="level4">
+<h4 class="anchored" data-anchor-id="for-mac">For Mac</h4>
+<p>Click “Download R for (Mac) OS X”, then “R-#.#.#.pkg” to download the installer. Run the installer to complete installation.</p>
+</section>
+<section id="for-linux" class="level4">
+<h4 class="anchored" data-anchor-id="for-linux">For Linux</h4>
+<p>Click “Download R for Linux”. Instructions on installing are given for Debian, Redhat, Suse and Ubuntu distributions. Where there is a choice, install both <code>r-base</code> and <code>r-base-dev</code>.</p>
+</section>
+</section>
+<section id="installing-r-studio" class="level3">
+<h3 class="anchored" data-anchor-id="installing-r-studio">Installing R Studio</h3>
+<p>Downloads are available from https://www.rstudio.com/products/rstudio/download/ (scroll to the end of the page to see the downloads). You want RStudio Desktop (Open Source License).</p>
+<section id="for-windows-with-no-admin-rights" class="level4">
+<h4 class="anchored" data-anchor-id="for-windows-with-no-admin-rights">For Windows with no admin rights</h4>
+<p>Download the <code>.zip</code> source archive under “Zip/Tarballs”. Extract the files to a folder where you have write access, e.g.&nbsp;<code>C:\Users\username\RStudio</code>. In this folder, open the <code>bin</code> directory and find the RStudio program: it is named <code>rstudio.exe</code>, but the file extension will typically be hidden, so look for <code>rstudio</code>. Right-click this executable to create a desktop shortcut. Double-click the executable or use the shortcut to open.</p>
+</section>
+<section id="for-all-other-operating-systems" class="level4">
+<h4 class="anchored" data-anchor-id="for-all-other-operating-systems">For all other operating systems</h4>
+<p>Download the relevant installer for your OS listed under “Installers for Supported Platforms”. Run the installer to complete installation.</p>
+</section>
+</section>
+</section>
+<section id="install-r-package-development-toolchain" class="level2">
+<h2 class="anchored" data-anchor-id="install-r-package-development-toolchain">Install R package development toolchain</h2>
+<section id="for-windows-with-no-admin-rights-1" class="level4">
+<h4 class="anchored" data-anchor-id="for-windows-with-no-admin-rights-1">For Windows with no admin rights</h4>
+<p>Download the latest (recommended) Rtools installer, <code>Rtools.exe</code>, from <a href="https://cran.r-project.org/bin/windows/Rtools/" class="uri">https://cran.r-project.org/bin/windows/Rtools/</a>. Run the installer keeping the default settings.</p>
+</section>
+<section id="for-windows-with-admin-rights" class="level4">
+<h4 class="anchored" data-anchor-id="for-windows-with-admin-rights">For Windows with admin rights</h4>
+<p>Download the latest (recommended) Rtools installer, <code>Rtools.exe</code>, from <a href="https://cran.r-project.org/bin/windows/Rtools/" class="uri">https://cran.r-project.org/bin/windows/Rtools/</a>. Run the installer making the following selections: keep the default settings for the installation location and components to install; check the box to add rtools to the system PATH.</p>
+</section>
+<section id="for-mac-1" class="level4">
+<h4 class="anchored" data-anchor-id="for-mac-1">For Mac</h4>
+<p>Install XCode. Either:</p>
+<ol type="1">
+<li><p>Download and install XCode from the Mac AppStore: <a href="http://itunes.apple.com/us/app/xcode/id497799835?mt=12" class="uri">http://itunes.apple.com/us/app/xcode/id497799835?mt=12</a></p></li>
+<li><p>Within XCode go to Preferences : Downloads and install the Command Line Tools</p></li>
+</ol>
+<p>Or for a smaller download size:</p>
+<ol type="1">
+<li><p>Register as an Apple Developer (free) here: <a href="https://developer.apple.com/programs/register/" class="uri">https://developer.apple.com/programs/register/</a></p></li>
+<li><p>Download the Command Line Tools for XCode appropriate for the version of OS X you are running from here: <a href="https://developer.apple.com/downloads/" class="uri">https://developer.apple.com/downloads/</a></p></li>
+</ol>
+</section>
+<section id="for-linux-1" class="level4">
+<h4 class="anchored" data-anchor-id="for-linux-1">For Linux</h4>
+<p>If you installed <code>r-base-dev</code>, when installing R, you should have all you need to build packages from source. Otherwise return to the instructions for installing R for your distribution and follow the instructions there to install the additional tools.</p>
+</section>
+</section>
+<section id="packages" class="level2">
+<h2 class="anchored" data-anchor-id="packages">Packages</h2>
+<p>Install <code>devtools</code></p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Install <code>assertthat</code></p>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"assertthat"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="git-and-a-github-account-and-verified-it-is-linked-to-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="git-and-a-github-account-and-verified-it-is-linked-to-rstudio">Git and a GitHub account and verified it is linked to RStudio</h2>
+<section id="git" class="level3">
+<h3 class="anchored" data-anchor-id="git">Git</h3>
+</section>
+<section id="github-account" class="level3">
+<h3 class="anchored" data-anchor-id="github-account">GitHub account</h3>
+</section>
+<section id="check-link-between-rstudio-and-github" class="level3">
+<h3 class="anchored" data-anchor-id="check-link-between-rstudio-and-github">Check link between RStudio and GitHub</h3>
+
+
+
+</section>
+</section>
+</main> <!-- /main -->
+<script type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    setTimeout(function() {
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+</body></html>

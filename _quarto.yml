@@ -9,6 +9,7 @@ website:
     left:
       - href: materials/index.qmd
         text: Home
+      - materials/pre-reqs.qmd
       - materials/day_1.qmd
       - materials/day_2.qmd
 
