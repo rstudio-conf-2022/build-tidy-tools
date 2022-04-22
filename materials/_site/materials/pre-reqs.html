@@ -75,6 +75,25 @@
     code span.va { color: #19177c; } /* Variable */
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
   </style>
 
   <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -163,11 +182,15 @@
 </ul></li>
 <li><a href="#install-r-package-development-toolchain" id="toc-install-r-package-development-toolchain" class="nav-link" data-scroll-target="#install-r-package-development-toolchain">Install R package development toolchain</a></li>
 <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
-<li><a href="#git-and-a-github-account-and-verified-it-is-linked-to-rstudio" id="toc-git-and-a-github-account-and-verified-it-is-linked-to-rstudio" class="nav-link" data-scroll-target="#git-and-a-github-account-and-verified-it-is-linked-to-rstudio">Git and a GitHub account and verified it is linked to RStudio</a>
+<li><a href="#git" id="toc-git" class="nav-link" data-scroll-target="#git">Git</a>
 <ul class="collapse">
-<li><a href="#git" id="toc-git" class="nav-link" data-scroll-target="#git">Git</a></li>
+<li><a href="#windows" id="toc-windows" class="nav-link" data-scroll-target="#windows">Windows</a></li>
+<li><a href="#mac" id="toc-mac" class="nav-link" data-scroll-target="#mac">Mac</a></li>
+</ul></li>
 <li><a href="#github-account" id="toc-github-account" class="nav-link" data-scroll-target="#github-account">GitHub account</a></li>
-<li><a href="#check-link-between-rstudio-and-github" id="toc-check-link-between-rstudio-and-github" class="nav-link" data-scroll-target="#check-link-between-rstudio-and-github">Check link between RStudio and GitHub</a></li>
+<li><a href="#check-link-between-rstudio-and-github" id="toc-check-link-between-rstudio-and-github" class="nav-link" data-scroll-target="#check-link-between-rstudio-and-github">Check link between RStudio and GitHub</a>
+<ul class="collapse">
+<li><a href="#personal-access-token" id="toc-personal-access-token" class="nav-link" data-scroll-target="#personal-access-token">Personal Access Token</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -186,7 +209,9 @@
 <li><p><a href="#install-r-and-rstudio">R and RStudio</a></p></li>
 <li><p><a href="#install-r-package-development-toolchain">R package development toolchain</a>: Rtools(windows) or XCode (mac) or r-base-dev</p></li>
 <li><p>The following <a href="#packages">packages: devtools and assertthat</a></p></li>
-<li><p><a href="#git-and-a-github-account-and-verified-it-is-linked-to-rstudio">Git and a GitHub account and verified it is linked to RStudio</a></p></li>
+<li><p>Git</p></li>
+<li><p>GitHub account</p></li>
+<li><p>GitHub to be linked to RStudio</p></li>
 </ul>
 <p>You can verify your system is set up by running:</p>
 <p><code>devtools::has_devel()</code></p>
@@ -263,22 +288,92 @@
 <div class="sourceCode" id="cb2"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"assertthat"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="git-and-a-github-account-and-verified-it-is-linked-to-rstudio" class="level2">
-<h2 class="anchored" data-anchor-id="git-and-a-github-account-and-verified-it-is-linked-to-rstudio">Git and a GitHub account and verified it is linked to RStudio</h2>
-<section id="git" class="level3">
-<h3 class="anchored" data-anchor-id="git">Git</h3>
+<section id="git" class="level2">
+<h2 class="anchored" data-anchor-id="git">Git</h2>
+<section id="windows" class="level3">
+<h3 class="anchored" data-anchor-id="windows">Windows</h3>
+<p><em>will add soon</em></p>
 </section>
-<section id="github-account" class="level3">
-<h3 class="anchored" data-anchor-id="github-account">GitHub account</h3>
+<section id="mac" class="level3">
+<h3 class="anchored" data-anchor-id="mac">Mac</h3>
+<p>Check if Git is installed by running <code>which git</code> in the <strong>Terminal</strong></p>
+<p>If asked to install the Xcode command line tools, say yes!</p>
+<p>If <code>which git</code> didn’t find Git installed, and if you weren’t prompted to install it, run the following in the <strong>Terminal</strong>: <code>xcode-select --install</code></p>
+<section id="other-options-for-installing-git-on-a-mac" class="level4">
+<h4 class="anchored" data-anchor-id="other-options-for-installing-git-on-a-mac">Other options for installing Git on a Mac</h4>
+<ul>
+<li><p>Recommended if you don’t want to use the Terminal:</p>
+<ul>
+<li><p>Download and install from https://git-scm.com/downloads</p></li>
+<li><p>If you’re developing version controlled packages, you should get to using the Terminal</p></li>
+</ul></li>
+<li><p>Recommended if you do lots of scientific computing and using software that needs to be installed and updated regularly:</p>
+<ul>
+<li><p>You might first need to install Homebrew if this is your first time using it, see <a href="https://brew.sh/">brew.sh</a> for instructions</p></li>
+<li><p>Use Homebrew: Run the following in the Terminal: <code>brew install git</code></p></li>
+</ul></li>
+</ul>
 </section>
-<section id="check-link-between-rstudio-and-github" class="level3">
-<h3 class="anchored" data-anchor-id="check-link-between-rstudio-and-github">Check link between RStudio and GitHub</h3>
+</section>
+</section>
+<section id="github-account" class="level2">
+<h2 class="anchored" data-anchor-id="github-account">GitHub account</h2>
+<p>Register a GitHub account at <a href="https://github.com/">github.com</a>.</p>
+<ul>
+<li><p>Incorporate your actual name!</p></li>
+<li><p>Reuse your username from other contexts.</p></li>
+<li><p>Pick a username you will be comfortable revealing to your future boss.</p></li>
+<li><p>Shorter is better than longer.</p></li>
+<li><p>Be as unique as possible in as few characters as possible.</p></li>
+<li><p>Make it timeless.</p></li>
+<li><p>Avoid words laden with special meaning in programming.</p></li>
+<li><p>Use all lower case letters.</p>
+<p>Advice and more information from Happy Git with R <span class="citation" data-cites="bryan">(<a href="#ref-bryan" role="doc-biblioref">Bryan and Hester, n.d.</a>)</span></p></li>
+</ul>
+</section>
+<section id="check-link-between-rstudio-and-github" class="level2">
+<h2 class="anchored" data-anchor-id="check-link-between-rstudio-and-github">Check link between RStudio and GitHub</h2>
+<p>Configure your <code>user.name</code> and <code>user.email</code> for git in RStudio with:</p>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_config</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">user.name =</span> <span class="st">"Jane Doe"</span>,          <span class="co"># actual first and last name</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">user.email =</span> <span class="st">"jane@example.com"</span>  <span class="co"># email associated with GitHub account</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can check this by asking for a “situation report”</p>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">git_sitrep</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="personal-access-token" class="level3">
+<h3 class="anchored" data-anchor-id="personal-access-token">Personal Access Token</h3>
+<p>Communicating with GitHub will require authentication. Instead of typing in your username and password each time, use a PAT (personal access token)</p>
+<p>Create a PAT with:</p>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_github_token</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Give the token a descriptive name</li>
+<li>Copy and also store this token somewhere (you won’t be able to see it again!)</li>
+</ul>
+<p>Now put your PAT into the Git credential store with:</p>
+<div class="cell">
+<div class="sourceCode" id="cb6"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>gitcreds<span class="sc">::</span><span class="fu">gitcreds_set</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="aside">
+<p>You may need to install gitcreds.</p>
+</div>
+<p>The <a href="https://usethis.r-lib.org/articles/articles/git-credentials.html">Managing Git(Hub) Credentials</a> vignette in the usethis package has all the details on PATs!</p>
 
 
 
+
 </section>
 </section>
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-bryan" class="csl-entry" role="doc-biblioentry">
+Bryan, Jenny, and Jim Hester. n.d. <span>“Happy Git and GitHub for the useR.”</span> <a href="https://happygitwithr.com/">https://happygitwithr.com/</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const icon = "";

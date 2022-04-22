@@ -4,6 +4,7 @@ author: "Emma Rand and Ian Lyttle"
 execute:
   echo: true
   eval: false
+bibliography: references.bib
 ---
 
 You will need
@@ -14,7 +15,11 @@ You will need
 
 -   The following [packages: devtools and assertthat](#packages)
 
--   [Git and a GitHub account and verified it is linked to RStudio](#git-and-a-github-account-and-verified-it-is-linked-to-rstudio)
+-   Git
+
+-   GitHub account
+
+-   GitHub to be linked to RStudio
 
 You can verify your system is set up by running:
 
@@ -98,10 +103,98 @@ Install `assertthat`
 install.packages("assertthat")
 ```
 
-## Git and a GitHub account and verified it is linked to RStudio {#git-and-a-github-account-and-verified-it-is-linked-to-rstudio}
+## Git {#git}
 
-### Git
+### Windows
 
-### GitHub account
+*will add soon*
 
-### Check link between RStudio and GitHub
+### Mac
+
+Check if Git is installed by running `which git` in the **Terminal**
+
+If asked to install the Xcode command line tools, say yes!
+
+If `which git` didn't find Git installed, and if you weren't prompted to install it, run the following in the **Terminal**: `xcode-select --install`
+
+#### Other options for installing Git on a Mac
+
+-   Recommended if you don't want to use the Terminal:
+
+    -   Download and install from https://git-scm.com/downloads
+
+    -   If you're developing version controlled packages, you should get to using the Terminal
+
+-   Recommended if you do lots of scientific computing and using software that needs to be installed and updated regularly:
+
+    -   You might first need to install Homebrew if this is your first time using it, see [brew.sh](https://brew.sh/) for instructions
+
+    -   Use Homebrew: Run the following in the Terminal: `brew install git`
+
+## GitHub account {#github-account}
+
+Register a GitHub account at [github.com](https://github.com/).
+
+-   Incorporate your actual name!
+
+-   Reuse your username from other contexts.
+
+-   Pick a username you will be comfortable revealing to your future boss.
+
+-   Shorter is better than longer.
+
+-   Be as unique as possible in as few characters as possible.
+
+-   Make it timeless.
+
+-   Avoid words laden with special meaning in programming.
+
+-   Use all lower case letters.
+
+    Advice and more information from Happy Git with R [@bryan]
+
+## Check link between RStudio and GitHub {#check-link-between-rstudio-and-github}
+
+Configure your `user.name` and `user.email` for git in RStudio with:
+
+```{r}
+#| eval: false
+usethis::use_git_config(
+  user.name = "Jane Doe",          # actual first and last name
+  user.email = "jane@example.com"  # email associated with GitHub account
+  )
+```
+
+You can check this by asking for a "situation report"
+
+```{r}
+#| eval: false
+usethis::git_sitrep()
+```
+
+### Personal Access Token
+
+Communicating with GitHub will require authentication. Instead of typing in your username and password each time, use a PAT (personal access token)
+
+Create a PAT with:
+
+```{r}
+#| eval: false
+usethis::create_github_token()
+```
+
+-   Give the token a descriptive name
+-   Copy and also store this token somewhere (you won't be able to see it again!)
+
+Now put your PAT into the Git credential store with:
+
+```{r}
+#| eval: false
+gitcreds::gitcreds_set()
+```
+
+::: aside
+You may need to install gitcreds.
+:::
+
+The [Managing Git(Hub) Credentials](https://usethis.r-lib.org/articles/articles/git-credentials.html) vignette in the usethis package has all the details on PATs!
