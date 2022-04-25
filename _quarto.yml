@@ -1,17 +1,22 @@
 project:
   type: website
   output-dir: materials/_site
+  repo-url: https://github.com/rstudio-conf-2022/build-tidy-tools
 
 website:
   title: "Building tidy tools"
   navbar:
     background: primary
+    search: true
     left:
       - href: materials/index.qmd
         text: Home
       - materials/pre-reqs.qmd
       - materials/day_1.qmd
       - materials/day_2.qmd
+    right:
+      - icon: github
+        href: https://github.com/rstudio-conf-2022/build-tidy-tools
 
 format:
   html:

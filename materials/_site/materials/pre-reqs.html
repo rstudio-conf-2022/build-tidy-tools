@@ -162,6 +162,13 @@
     <a class="nav-link" href="../materials/day_2.html">Day 2</a>
   </li>  
 </ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/rstudio-conf-2022/build-tidy-tools"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
               <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
@@ -206,12 +213,12 @@
 
 <p>You will need</p>
 <ul>
-<li><p><a href="#install-r-and-rstudio">R and RStudio</a></p></li>
-<li><p><a href="#install-r-package-development-toolchain">R package development toolchain</a>: Rtools(windows) or XCode (mac) or r-base-dev</p></li>
-<li><p>The following <a href="#packages">packages: devtools and assertthat</a></p></li>
-<li><p>Git</p></li>
-<li><p>GitHub account</p></li>
-<li><p>GitHub to be linked to RStudio</p></li>
+<li><a href="#install-r-and-rstudio">R and RStudio</a></li>
+<li><a href="#install-r-package-development-toolchain">R package development toolchain</a>: Rtools(windows) or XCode (mac) or r-base-dev</li>
+<li>The following <a href="#packages">packages: devtools and assertthat</a></li>
+<li><a href="#git">Git</a></li>
+<li><a href="#github-account">GitHub account</a></li>
+<li><a href="#check-link-between-rstudio-and-github">GitHub to be linked to RStudio</a></li>
 </ul>
 <p>You can verify your system is set up by running:</p>
 <p><code>devtools::has_devel()</code></p>
@@ -219,10 +226,14 @@
 <p><code>usethis::git_sitrep()</code></p>
 <section id="install-r-and-rstudio" class="level2">
 <h2 class="anchored" data-anchor-id="install-r-and-rstudio">Install R and RStudio</h2>
-<p>You will need: - R 4.x. Version 3.6.x will likely be fine but we recommend that you install the latest versions if possible - RStudio 1.2 or above</p>
+<p>You will need:</p>
+<ul>
+<li>R 4.x. Version 3.6.x will likely be fine but we recommend that you install the latest versions if possible.</li>
+<li>RStudio 2022.02.1 or above</li>
+</ul>
 <section id="installing-r" class="level3">
 <h3 class="anchored" data-anchor-id="installing-r">Installing R</h3>
-<p>Download the pre-compiled binary for your OS from https://cloud.r-project.org/ and install. More specifically, for version number #.#.# (e.g.&nbsp;4.0.0):</p>
+<p>Download the pre-compiled binary for your OS from <a href="https://cloud.r-project.org/" class="uri">https://cloud.r-project.org/</a> and install.</p>
 <section id="for-windows" class="level4">
 <h4 class="anchored" data-anchor-id="for-windows">For Windows</h4>
 <p>Click “Download R for Windows”, then “base”, then “Download R #.#.# for Windows”. This will download an <code>.exe</code> file; once downloaded, open to start the installation. If you do not have administrator rights, the installer will default to install in your Documents folder - if you prefer, you can change the location to another folder that you have write access to.</p>
@@ -238,7 +249,7 @@
 </section>
 <section id="installing-r-studio" class="level3">
 <h3 class="anchored" data-anchor-id="installing-r-studio">Installing R Studio</h3>
-<p>Downloads are available from https://www.rstudio.com/products/rstudio/download/ (scroll to the end of the page to see the downloads). You want RStudio Desktop (Open Source License).</p>
+<p>Downloads are available from <a href="https://www.rstudio.com/products/rstudio/download/" class="uri">https://www.rstudio.com/products/rstudio/download/</a>(scroll to the end of the page to see the downloads). You want RStudio Desktop (Open Source License).</p>
 <section id="for-windows-with-no-admin-rights" class="level4">
 <h4 class="anchored" data-anchor-id="for-windows-with-no-admin-rights">For Windows with no admin rights</h4>
 <p>Download the <code>.zip</code> source archive under “Zip/Tarballs”. Extract the files to a folder where you have write access, e.g.&nbsp;<code>C:\Users\username\RStudio</code>. In this folder, open the <code>bin</code> directory and find the RStudio program: it is named <code>rstudio.exe</code>, but the file extension will typically be hidden, so look for <code>rstudio</code>. Right-click this executable to create a desktop shortcut. Double-click the executable or use the shortcut to open.</p>
@@ -263,13 +274,13 @@
 <h4 class="anchored" data-anchor-id="for-mac-1">For Mac</h4>
 <p>Install XCode. Either:</p>
 <ol type="1">
-<li><p>Download and install XCode from the Mac AppStore: <a href="http://itunes.apple.com/us/app/xcode/id497799835?mt=12" class="uri">http://itunes.apple.com/us/app/xcode/id497799835?mt=12</a></p></li>
-<li><p>Within XCode go to Preferences : Downloads and install the Command Line Tools</p></li>
+<li>Download and install XCode from the Mac AppStore: <a href="http://itunes.apple.com/us/app/xcode/id497799835?mt=12" class="uri">http://itunes.apple.com/us/app/xcode/id497799835?mt=12</a></li>
+<li>Within XCode go to Preferences : Downloads and install the Command Line Tools</li>
 </ol>
 <p>Or for a smaller download size:</p>
 <ol type="1">
-<li><p>Register as an Apple Developer (free) here: <a href="https://developer.apple.com/programs/register/" class="uri">https://developer.apple.com/programs/register/</a></p></li>
-<li><p>Download the Command Line Tools for XCode appropriate for the version of OS X you are running from here: <a href="https://developer.apple.com/downloads/" class="uri">https://developer.apple.com/downloads/</a></p></li>
+<li>Register as an Apple Developer (free) here: <a href="https://developer.apple.com/programs/register/" class="uri">https://developer.apple.com/programs/register/</a></li>
+<li>Download the Command Line Tools for XCode appropriate for the version of OS X you are running from here: <a href="https://developer.apple.com/downloads/" class="uri">https://developer.apple.com/downloads/</a></li>
 </ol>
 </section>
 <section id="for-linux-1" class="level4">
@@ -292,7 +303,21 @@
 <h2 class="anchored" data-anchor-id="git">Git</h2>
 <section id="windows" class="level3">
 <h3 class="anchored" data-anchor-id="windows">Windows</h3>
-<p><em>will add soon</em></p>
+<p>Check if Git is installed by running <code>which git</code> in the <strong>Terminal</strong></p>
+<p>If <code>which git</code> didn’t find Git installed:</p>
+<ul>
+<li>Download and install from <a href="https://git-scm.com/downloads" class="uri">https://git-scm.com/downloads</a></li>
+<li>Keep all the default settings
+<ul>
+<li>If the installer hangs with the progress bar at 100%, close the installer with Task Manager (press Ctrl + Alt + Delete; select Task Manager; find Git for Windows installer and close).</li>
+</ul></li>
+<li>Open RStudio. In the menus go to Tools &gt; Global Options &gt; Git/SVN.</li>
+<li>Check RStudio has found git under “Git executable:”
+<ul>
+<li><p>You may need to click Browse and find the git executable.</p></li>
+<li><p>It may be under C:\Users\username\AppData\Local\Programs\Git\ - remember if file extensions are hidden it will show as git rather than git.exe. Restart RStudio before trying to use git.</p></li>
+</ul></li>
+</ul>
 </section>
 <section id="mac" class="level3">
 <h3 class="anchored" data-anchor-id="mac">Mac</h3>
@@ -302,12 +327,12 @@
 <section id="other-options-for-installing-git-on-a-mac" class="level4">
 <h4 class="anchored" data-anchor-id="other-options-for-installing-git-on-a-mac">Other options for installing Git on a Mac</h4>
 <ul>
-<li><p>Recommended if you don’t want to use the Terminal:</p>
+<li>Recommended if you don’t want to use the Terminal:
 <ul>
-<li><p>Download and install from https://git-scm.com/downloads</p></li>
+<li><p>Download and install from <a href="https://git-scm.com/downloads" class="uri">https://git-scm.com/downloads</a></p></li>
 <li><p>If you’re developing version controlled packages, you should get to using the Terminal</p></li>
 </ul></li>
-<li><p>Recommended if you do lots of scientific computing and using software that needs to be installed and updated regularly:</p>
+<li>Recommended if you do lots of scientific computing and using software that needs to be installed and updated regularly:
 <ul>
 <li><p>You might first need to install Homebrew if this is your first time using it, see <a href="https://brew.sh/">brew.sh</a> for instructions</p></li>
 <li><p>Use Homebrew: Run the following in the Terminal: <code>brew install git</code></p></li>

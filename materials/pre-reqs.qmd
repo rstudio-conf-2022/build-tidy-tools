@@ -10,16 +10,11 @@ bibliography: references.bib
 You will need
 
 -   [R and RStudio](#install-r-and-rstudio)
-
 -   [R package development toolchain](#install-r-package-development-toolchain): Rtools(windows) or XCode (mac) or r-base-dev
-
 -   The following [packages: devtools and assertthat](#packages)
-
--   Git
-
--   GitHub account
-
--   GitHub to be linked to RStudio
+-   [Git](#git)
+-   [GitHub account](#github-account)
+-   [GitHub to be linked to RStudio](#check-link-between-rstudio-and-github)
 
 You can verify your system is set up by running:
 
@@ -31,11 +26,14 @@ and
 
 ## Install R and RStudio {#install-r-and-rstudio}
 
-You will need: - R 4.x. Version 3.6.x will likely be fine but we recommend that you install the latest versions if possible - RStudio 1.2 or above
+You will need:
+
+-   R 4.x. Version 3.6.x will likely be fine but we recommend that you install the latest versions if possible.
+-   RStudio 2022.02.1 or above
 
 ### Installing R
 
-Download the pre-compiled binary for your OS from https://cloud.r-project.org/ and install. More specifically, for version number #.#.# (e.g. 4.0.0):
+Download the pre-compiled binary for your OS from <https://cloud.r-project.org/> and install.
 
 #### For Windows
 
@@ -51,7 +49,7 @@ Click "Download R for Linux". Instructions on installing are given for Debian, R
 
 ### Installing R Studio
 
-Downloads are available from https://www.rstudio.com/products/rstudio/download/ (scroll to the end of the page to see the downloads). You want RStudio Desktop (Open Source License).
+Downloads are available from <https://www.rstudio.com/products/rstudio/download/>(scroll to the end of the page to see the downloads). You want RStudio Desktop (Open Source License).
 
 #### For Windows with no admin rights
 
@@ -76,13 +74,11 @@ Download the latest (recommended) Rtools installer, `Rtools.exe`, from <https://
 Install XCode. Either:
 
 1.  Download and install XCode from the Mac AppStore: <http://itunes.apple.com/us/app/xcode/id497799835?mt=12>
-
 2.  Within XCode go to Preferences : Downloads and install the Command Line Tools
 
 Or for a smaller download size:
 
 1.  Register as an Apple Developer (free) here: <https://developer.apple.com/programs/register/>
-
 2.  Download the Command Line Tools for XCode appropriate for the version of OS X you are running from here: <https://developer.apple.com/downloads/>
 
 #### For Linux
@@ -107,7 +103,18 @@ install.packages("assertthat")
 
 ### Windows
 
-*will add soon*
+Check if Git is installed by running `which git` in the **Terminal**
+
+If `which git` didn't find Git installed:
+
+-   Download and install from <https://git-scm.com/downloads>
+-   Keep all the default settings
+    -   If the installer hangs with the progress bar at 100%, close the installer with Task Manager (press Ctrl + Alt + Delete; select Task Manager; find Git for Windows installer and close).
+-   Open RStudio. In the menus go to Tools \> Global Options \> Git/SVN.
+-   Check RStudio has found git under "Git executable:"
+    -   You may need to click Browse and find the git executable.
+
+    -   It may be under C:\\Users\\username\\AppData\\Local\\Programs\\Git\\ - remember if file extensions are hidden it will show as git rather than git.exe. Restart RStudio before trying to use git.
 
 ### Mac
 
@@ -120,13 +127,10 @@ If `which git` didn't find Git installed, and if you weren't prompted to install
 #### Other options for installing Git on a Mac
 
 -   Recommended if you don't want to use the Terminal:
-
-    -   Download and install from https://git-scm.com/downloads
+    -   Download and install from <https://git-scm.com/downloads>
 
     -   If you're developing version controlled packages, you should get to using the Terminal
-
 -   Recommended if you do lots of scientific computing and using software that needs to be installed and updated regularly:
-
     -   You might first need to install Homebrew if this is your first time using it, see [brew.sh](https://brew.sh/) for instructions
 
     -   Use Homebrew: Run the following in the Terminal: `brew install git`
