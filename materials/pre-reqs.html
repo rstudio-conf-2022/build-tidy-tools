@@ -4,7 +4,7 @@
   <meta name="generator" content="quarto-0.9.233">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <meta name="author" content="Emma Rand and Ian Lyttle">
-  <title>Building tidy tools - Prerequisites</title>
+  <title>Prerequisites</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -96,113 +96,26 @@
     }
   </style>
 
-  <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-  <script src="../site_libs/quarto-nav/headroom.min.js"></script>
-  <script src="../site_libs/clipboard/clipboard.min.js"></script>
-  <meta name="quarto:offset" content="../">
-  <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-  <script src="../site_libs/quarto-search/fuse.min.js"></script>
-  <script src="../site_libs/quarto-search/quarto-search.js"></script>
-  <script src="../site_libs/quarto-html/quarto.js"></script>
-  <script src="../site_libs/quarto-html/popper.min.js"></script>
-  <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-  <script src="../site_libs/quarto-html/anchor.min.js"></script>
-  <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-  <link id="quarto-text-highlighting-styles" href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
-  <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-  <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-  <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
-  <script id="quarto-search-options" type="application/json">{
-    "location": "navbar",
-    "copy-button": false,
-    "collapse-after": 3,
-    "panel-placement": "end",
-    "type": "overlay",
-    "limit": 20,
-    "language": {
-      "search-no-results-text": "No results",
-      "search-matching-documents-text": "matching documents",
-      "search-copy-link-title": "Copy link to search",
-      "search-hide-matches-text": "Hide additional matches",
-      "search-more-match-text": "more match in this document",
-      "search-more-matches-text": "more matches in this document",
-      "search-clear-button-title": "Clear",
-      "search-detached-cancel-button-title": "Cancel",
-      "search-submit-button-title": "Submit"
-    }
-  }</script>
+  <script src="pre-reqs_files/libs/clipboard/clipboard.min.js"></script>
+  <script src="pre-reqs_files/libs/quarto-html/quarto.js"></script>
+  <script src="pre-reqs_files/libs/quarto-html/popper.min.js"></script>
+  <script src="pre-reqs_files/libs/quarto-html/tippy.umd.min.js"></script>
+  <script src="pre-reqs_files/libs/quarto-html/anchor.min.js"></script>
+  <link href="pre-reqs_files/libs/quarto-html/tippy.css" rel="stylesheet">
+  <link id="quarto-text-highlighting-styles" href="pre-reqs_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+  <script src="pre-reqs_files/libs/bootstrap/bootstrap.min.js"></script>
+  <link href="pre-reqs_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+  <link href="pre-reqs_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet">
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
-  <link rel="stylesheet" href="../materials/styles.css">
 </head>
-<body class="nav-fixed">
-<div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
-      <div class="navbar-container container-fluid">
-      <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Building tidy tools</span>
-  </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../materials/index.html">Home</a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link active" href="../materials/pre-reqs.html" aria-current="page">Prerequisites</a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../materials/day_1.html">Day 1</a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../materials/day_2.html">Day 2</a>
-  </li>  
-</ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/rstudio-conf-2022/build-tidy-tools"><i class="bi bi-github" role="img">
-</i> 
- </a>
-  </li>  
-</ul>
-              <div id="quarto-search" class="" title="Search"></div>
-          </div> <!-- /navcollapse -->
-      </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
-<!-- sidebar -->
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
-<h2 id="toc-title">On this page</h2>
-<ul>
-<li><a href="#install-r-and-rstudio" id="toc-install-r-and-rstudio" class="nav-link active" data-scroll-target="#install-r-and-rstudio">Install R and RStudio</a>
-<ul class="collapse">
-<li><a href="#installing-r" id="toc-installing-r" class="nav-link" data-scroll-target="#installing-r">Installing R</a></li>
-<li><a href="#installing-r-studio" id="toc-installing-r-studio" class="nav-link" data-scroll-target="#installing-r-studio">Installing R Studio</a></li>
-</ul></li>
-<li><a href="#install-r-package-development-toolchain" id="toc-install-r-package-development-toolchain" class="nav-link" data-scroll-target="#install-r-package-development-toolchain">Install R package development toolchain</a></li>
-<li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
-<li><a href="#git" id="toc-git" class="nav-link" data-scroll-target="#git">Git</a>
-<ul class="collapse">
-<li><a href="#windows" id="toc-windows" class="nav-link" data-scroll-target="#windows">Windows</a></li>
-<li><a href="#mac" id="toc-mac" class="nav-link" data-scroll-target="#mac">Mac</a></li>
-</ul></li>
-<li><a href="#github-account" id="toc-github-account" class="nav-link" data-scroll-target="#github-account">GitHub account</a></li>
-<li><a href="#check-link-between-rstudio-and-github" id="toc-check-link-between-rstudio-and-github" class="nav-link" data-scroll-target="#check-link-between-rstudio-and-github">Check link between RStudio and GitHub</a>
-<ul class="collapse">
-<li><a href="#personal-access-token" id="toc-personal-access-token" class="nav-link" data-scroll-target="#personal-access-token">Personal Access Token</a></li>
-</ul></li>
-</ul>
-</nav>
-    </div>
-<!-- main -->
+<body class="fullcontent">
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  
+</div>
+
 <main class="content" id="quarto-document-content">
 <header id="title-block-header" class="quarto-title-block default">
 
@@ -210,7 +123,6 @@
 <div class="quarto-title"><h1 class="title display-7">Prerequisites</h1></div><div class="quarto-title-meta"><div><div class="quarto-title-meta-heading">Author</div><div class="quarto-title-meta-contents"><div class="quarto-title-authors"><div><div>
 <p>Emma Rand and Ian Lyttle</p>
 </div></div></div></div></div></div></header>
-
 <p>You will need</p>
 <ul>
 <li><a href="#install-r-and-rstudio">R and RStudio</a></li>
@@ -390,15 +302,14 @@
 <p>The <a href="https://usethis.r-lib.org/articles/articles/git-credentials.html">Managing Git(Hub) Credentials</a> vignette in the usethis package has all the details on PATs!</p>
 
 
-
-
 </section>
 </section>
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
 <div id="ref-bryan" class="csl-entry" role="doc-biblioentry">
 Bryan, Jenny, and Jim Hester. n.d. <span>“Happy Git and GitHub for the useR.”</span> <a href="https://happygitwithr.com/">https://happygitwithr.com/</a>.
 </div>
-</div></section></div></main> <!-- /main -->
+</div></section></div></main>
+<!-- /main column -->
 <script type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const icon = "";

@@ -2,7 +2,7 @@
 title: "Welcome!"
 ---
 
-# Building tidy tools
+# [Building tidy tools](https://rstudio-conf-2022.github.io/build-tidy-tools)
 
 ### rstudio::conf 2022
 
@@ -41,7 +41,7 @@ Have you written a few of your own R functions? Are you ready to start sharing y
 
 ## Prework
 
-\[ADD INFORMATION YOU WANT LEARNERS TO HAVE / STEPS THEY WANT THEM TO COMPLETE PRIOR TO THE WORKSHOP. THIS COULD BE A LINK TO A THREAD ON RSTUDIO COMMUNITY, PACKAGE INSTALL INSTRUCTIONS, HOW TO GET AN RSTUDIO.CLOUD ACCOUNT, ETC.\]
+[materials/pre-reqs.html](materials/pre-reqs.html)
 
 ## Schedule
 

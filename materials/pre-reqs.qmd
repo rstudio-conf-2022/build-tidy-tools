@@ -1,6 +1,7 @@
 ---
 title: "Prerequisites"
 author: "Emma Rand and Ian Lyttle"
+format: html
 execute:
   echo: true
   eval: false
