@@ -1,4 +1,4 @@
-# Building tidy tools
+# [Building tidy tools](https://rstudio-conf-2022.github.io/build-tidy-tools)
 
 ### rstudio::conf 2022
 
