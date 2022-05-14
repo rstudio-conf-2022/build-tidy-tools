@@ -10,10 +10,11 @@ INSTRUCTIONS FOR INSTRUCTORS: Please insert information about your workshop belo
 
 ------------------------------------------------------------------------
 
-:spiral_calendar: July 25 and 26, 2022  
-:alarm_clock: 09:00 - 17:00  
-:hotel: [ADD ROOM]  
-:writing_hand: [rstd.io/conf](http://rstd.io/conf)
+🗓 July 25 and 26, 2022  
+⏰ 9:00 - 17:00  
+🏨 [ADD ROOM]  
+✍️ [rstd.io/conf](http://rstd.io/conf)
+
 
 ------------------------------------------------------------------------
 
@@ -37,7 +38,21 @@ Have you written a few of your own R functions? Are you ready to start sharing y
 
 ## Prework
 
-[ADD INFORMATION YOU WANT LEARNERS TO HAVE / STEPS THEY WANT THEM TO COMPLETE PRIOR TO THE WORKSHOP. THIS COULD BE A LINK TO A THREAD ON RSTUDIO COMMUNITY, PACKAGE INSTALL INSTRUCTIONS, HOW TO GET AN RSTUDIO.CLOUD ACCOUNT, ETC.]
+To get the most out of this workshop you will need a laptop with the following installed:
+
+- R and RStudio
+
+- R package development toolchain: Rtools(windows) or XCode (mac) or r-base-dev
+
+- The following packages: `devtools` and TO ADD WHEN FINALISED
+
+- Git
+
+- GitHub account
+
+- GitHub to be linked to RStudio
+
+Detailed instructions for installing these are covered in [Prerequisites](https://rstudio-conf-2022.github.io/build-tidy-tools/materials/pre-reqs.html)
 
 ## Schedule
 
@@ -45,13 +60,13 @@ Have you written a few of your own R functions? Are you ready to start sharing y
 
 | Time          | Activity       |
 |:--------------|:---------------|
-| 09:00 - 10:30 | Session 1      |
+| 09:00 - 10:30 | Session 1: Introduction and the whole game |
 | 10:30 - 11:00 | *Coffee break* |
-| 11:00 - 12:30 | Session 2      |
+| 11:00 - 12:30 | Session 2: Unit testing      |
 | 12:30 - 13:30 | *Lunch break*  |
-| 13:30 - 15:00 | Session 3      |
+| 13:30 - 15:00 | Sessions 3 and 4: Documentation and Sharing TBC |
 | 15:00 - 15:30 | *Coffee break* |
-| 15:30 - 17:00 | Session 4      |
+| 15:30 - 17:00 | Sessions 3 and 4: Documentation and Sharing TBC |
 
 ### Day 2
 
@@ -65,9 +80,9 @@ Have you written a few of your own R functions? Are you ready to start sharing y
 | 15:00 - 15:30 | *Coffee break* |
 | 15:30 - 17:00 | Session 4      |
 
-## Instructor
+## Instructors
 
-Emma Rand is a Senior Lecturer in the Department of Biology at the University of York where she specialises in teaching data science and reproducibility, particularly to those who do not see themselves as programmers. She leads a UKRI funded project called Cloud-SPAN which trains researchers in cloud-based high performance computing for 'omics. She is a Software Sustainability Institute Fellow, a Teaching team lead for R Forwards and delivers data science training for the Royal Society of Biology and the Biochemical Society.
+Emma Rand is a Senior Lecturer (Associate Prof) in the Department of Biology at the University of York where she specialises in teaching data science and reproducibility, particularly to those who do not see themselves as programmers. She leads a UKRI funded project called Cloud-SPAN which trains researchers in cloud-based high performance computing for 'omics. She is a Software Sustainability Institute Fellow, a Teaching team lead for R Forwards and delivers data science training for the Royal Society of Biology and the Biochemical Society.
 
 Ian Lyttle is a Data Scientist at Schneider Electric. His technical interests include visualization, interactivity, and functional programming. He is a community contributor to tidyverse and r-lib, and maintains CRAN packages including vegawidget and boxr. He has delivered tutorials on a variety of R topics at UseR!, Uncoast Unconf, and the Iowa State University Graphics Group.
 
