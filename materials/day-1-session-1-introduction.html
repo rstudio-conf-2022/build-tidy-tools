@@ -2,9 +2,9 @@
 <html lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.233">
+<meta name="generator" content="quarto-0.9.214">
 <meta name="author" content="Emma Rand and Ian Lyttle">
-<title>👋  The Whole Game</title>
+<title>📦  Building tidy tools</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -400,11 +400,11 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="center"><h1 class="title">👋 <br>The Whole Game</h1>
-  <p class="subtitle">📦 Building tidy tools: Day 1 Session 1</p>
+<section id="title-slide" class="center"><h1 class="title">📦 <br>Building tidy tools</h1>
+  <p class="subtitle">Day 1 Session 1: 👋 &amp; The Whole Game</p>
   <p class="author">Emma Rand and Ian Lyttle</p>
   <p class="date"><br>🔗 <a href="https://bit.ly/..">bit.ly/…</a></p>
-</section><section><section id="welcome" class="title-slide slide level1 center"><h1>Welcome</h1>
+</section><section><section id="welcome" class="title-slide slide level1 center"><h1>👋 Welcome</h1>
 
 </section><section id="introductions" class="slide level2"><h2>Introductions</h2>
 <p>This is a two-day, hands-on workshop for those who have embraced the tidyverse and want to build their own packages.</p>
@@ -503,20 +503,20 @@
 </section><section id="where-do-r-packages-come-from" class="slide level2"><h2>Where do R packages come from?</h2>
 <p>CRAN:</p>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">install.packages</span>(<span class="st">"praise"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"praise"</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>GitHub:</p>
 <div class="cell">
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"rladies/praise"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"rladies/praise"</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Bioconductor</p>
 <div class="cell">
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"celaref"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">BiocManager</span><span class="fu">::</span><span class="fu">install</span><span class="op">(</span><span class="st">"celaref"</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="where-do-packages-live" class="slide level2"><h2>Where do packages live?</h2>
 <p>In a library! In</p>
 <div class="cell">
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">R.home</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Rhome.html">R.home</a></span><span class="op">(</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
 <pre><code>[1] "C:/PROGRA~1/R/R-41~1.3"</code></pre>
 </div>
@@ -525,7 +525,7 @@
 <p>Note: this is <strong>not</strong> the same as your working directory or your home directory.</p>
 </section><section id="your-r-installation" class="slide level2"><h2>Your R installation</h2>
 <div class="cell">
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">list.files</span>(<span class="fu">R.home</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/list.files.html">list.files</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Rhome.html">R.home</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
 <pre><code> [1] "bin"            "CHANGES"        "COPYING"        "doc"           
  [5] "etc"            "include"        "library"        "MD5"           
@@ -536,61 +536,64 @@
 </div>
 </section><section id="your-library" class="slide level2"><h2>Your library</h2>
 <div class="cell">
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>.Library</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">.Library</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
 <pre><code>[1] "C:/PROGRA~1/R/R-41~1.3/library"</code></pre>
 </div>
 </div>
 </section><section id="your-library-1" class="slide level2"><h2>Your library</h2>
 <div class="cell">
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">dir</span>(.Library)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span><span class="op">(</span><span class="va">.Library</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>  [1] "askpass"       "assertthat"    "backports"     "base"         
-  [5] "base64enc"     "bit"           "bit64"         "blob"         
-  [9] "boot"          "brew"          "brio"          "broom"        
- [13] "bslib"         "cachem"        "callr"         "cellranger"   
- [17] "class"         "cli"           "clipr"         "cluster"      
- [21] "codetools"     "colorspace"    "commonmark"    "compiler"     
- [25] "cpp11"         "crayon"        "credentials"   "curl"         
- [29] "data.table"    "datasets"      "DBI"           "dbplyr"       
- [33] "desc"          "devtools"      "diffobj"       "digest"       
- [37] "downlit"       "dplyr"         "dtplyr"        "ellipsis"     
- [41] "emo"           "engsoccerdata" "evaluate"      "fansi"        
- [45] "farver"        "fastmap"       "forcats"       "foreign"      
- [49] "fs"            "gargle"        "generics"      "gert"         
- [53] "ggplot2"       "gh"            "gitcreds"      "glue"         
- [57] "googledrive"   "googlesheets4" "graphics"      "grDevices"    
- [61] "grid"          "gtable"        "haven"         "highr"        
- [65] "hms"           "htmltools"     "httr"          "ids"          
- [69] "ini"           "isoband"       "jquerylib"     "jsonlite"     
- [73] "KernSmooth"    "knitr"         "labeling"      "lattice"      
- [77] "lifecycle"     "lubridate"     "magrittr"      "markdown"     
- [81] "MASS"          "Matrix"        "memoise"       "methods"      
- [85] "mgcv"          "mime"          "modelr"        "munsell"      
- [89] "nlme"          "nnet"          "openssl"       "parallel"     
- [93] "pillar"        "pkgbuild"      "pkgconfig"     "pkgload"      
- [97] "praise"        "prettyunits"   "processx"      "progress"     
-[101] "ps"            "purrr"         "R6"            "rappdirs"     
-[105] "rcmdcheck"     "RColorBrewer"  "readr"         "readxl"       
-[109] "rematch"       "rematch2"      "remotes"       "reprex"       
-[113] "rlang"         "rmarkdown"     "roxygen2"      "rpart"        
-[117] "rprojroot"     "rstudioapi"    "rversions"     "rvest"        
-[121] "sass"          "scales"        "selectr"       "sessioninfo"  
-[125] "spatial"       "splines"       "stats"         "stats4"       
-[129] "stringi"       "stringr"       "survival"      "sys"          
-[133] "tcltk"         "testthat"      "tibble"        "tidyr"        
-[137] "tidyselect"    "tidyverse"     "tinytex"       "tools"        
-[141] "translations"  "tzdb"          "usethis"       "ussie"        
-[145] "utf8"          "utils"         "uuid"          "vctrs"        
-[149] "viridisLite"   "vroom"         "waldo"         "whisker"      
-[153] "withr"         "xfun"          "xml2"          "xopen"        
-[157] "yaml"          "zip"          </code></pre>
+<pre><code>  [1] "askpass"        "assertthat"     "backports"      "base"          
+  [5] "base64enc"      "bit"            "bit64"          "blob"          
+  [9] "bookdown"       "boot"           "brew"           "brio"          
+ [13] "broom"          "bslib"          "cachem"         "callr"         
+ [17] "cellranger"     "class"          "cli"            "clipr"         
+ [21] "cluster"        "codetools"      "colorspace"     "commonmark"    
+ [25] "compiler"       "cpp11"          "crayon"         "credentials"   
+ [29] "curl"           "data.table"     "datasets"       "DBI"           
+ [33] "dbplyr"         "desc"           "devtools"       "diffobj"       
+ [37] "digest"         "downlit"        "dplyr"          "dtplyr"        
+ [41] "ellipsis"       "emo"            "engsoccerdata"  "evaluate"      
+ [45] "fansi"          "farver"         "fastmap"        "forcats"       
+ [49] "foreign"        "fs"             "gargle"         "generics"      
+ [53] "gert"           "ggplot2"        "gh"             "gitcreds"      
+ [57] "glue"           "googledrive"    "googlesheets4"  "graphics"      
+ [61] "grDevices"      "grid"           "gtable"         "haven"         
+ [65] "here"           "highr"          "hms"            "htmltools"     
+ [69] "httpuv"         "httr"           "ids"            "ini"           
+ [73] "isoband"        "jquerylib"      "jsonlite"       "KernSmooth"    
+ [77] "knitr"          "labeling"       "later"          "lattice"       
+ [81] "lifecycle"      "lubridate"      "magrittr"       "markdown"      
+ [85] "MASS"           "Matrix"         "memoise"        "methods"       
+ [89] "mgcv"           "mime"           "modelr"         "munsell"       
+ [93] "nlme"           "nnet"           "openssl"        "parallel"      
+ [97] "pillar"         "pkgbuild"       "pkgconfig"      "pkgload"       
+[101] "png"            "praise"         "prettyunits"    "processx"      
+[105] "progress"       "promises"       "ps"             "purrr"         
+[109] "R6"             "rappdirs"       "rcmdcheck"      "RColorBrewer"  
+[113] "Rcpp"           "RcppTOML"       "readr"          "readxl"        
+[117] "rematch"        "rematch2"       "remotes"        "renv"          
+[121] "reprex"         "reticulate"     "rlang"          "rmarkdown"     
+[125] "roxygen2"       "rpart"          "rprojroot"      "rstudioapi"    
+[129] "rversions"      "rvest"          "sass"           "scales"        
+[133] "selectr"        "servr"          "sessioninfo"    "spatial"       
+[137] "splines"        "stats"          "stats4"         "stringi"       
+[141] "stringr"        "survival"       "sys"            "tcltk"         
+[145] "testthat"       "tibble"         "tidyr"          "tidyselect"    
+[149] "tidyverse"      "tinytex"        "tools"          "translations"  
+[153] "tzdb"           "usethis"        "ussie"          "utf8"          
+[157] "utils"          "uuid"           "vctrs"          "viridisLite"   
+[161] "vroom"          "waldo"          "whisker"        "withr"         
+[165] "xaringan"       "xaringanthemer" "xfun"           "xml2"          
+[169] "xopen"          "yaml"           "zip"           </code></pre>
 </div>
 </div>
 </section></section><section><section id="explore-a-package" class="title-slide slide level1 center"><h1>Explore a package</h1>
 
 </section><section id="the-ussie-package" class="slide level2"><h2>The ussie package</h2>
-<p>Where we are going. discuss soem of the files</p>
+<p>Where we are going. discuss some of the files</p>
 </section></section><section><section id="package-states" class="title-slide slide level1 center"><h1>Package states</h1>
 
 </section><section id="package-states-1" class="slide level2"><h2>Package states</h2>
@@ -705,40 +708,100 @@
 </section></section><section><section id="create-a-package" class="title-slide slide level1 center"><h1>Create a package!</h1>
 
 </section><section id="create-a-package-1" class="slide level2"><h2>Create a package</h2>
+<p>We will create a version controlled package called <strong><code>ussie</code></strong> with a remote repo on GitHub.</p>
+<p><br></p>
+<div class="fragment">
+<p><strong><code>ussie</code></strong> will allow you to work with European football league data supplied by the <strong><code>engsoccerdata</code></strong> package <span class="citation" data-cites="engsoccerdata">Curley (<a href="#/ref-engsoccerdata" role="doc-biblioref" onclick="return false;">2016</a>)</span></p>
+<p><br></p>
+</div>
+<div class="fragment">
+<p>The CRAN version of <strong><code>engsoccerdata</code></strong> has data from the start of the league until 2016 for <code>england</code>, <code>germany</code>, <code>holland</code>, <code>italy</code> and <code>spain</code></p>
+<p><br></p>
+</div>
+<div class="fragment">
+<p>BUT the format of the data is <strong>not</strong> the same for all countries!!</p>
+</div>
+</section><section id="about-engsoccerdata" class="slide level2 smaller"><h2>About <strong><code>engsoccerdata</code></strong>
+</h2>
+<div class="cell">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="fu">engsoccerdata</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/engsoccerdata/man/england.html">england</a></span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>Rows: 192,004
+Columns: 12
+$ Date     &lt;fct&gt; 1888-12-15, 1889-01-19, 1889-03-23, 1888-12-01, 1888-10-13, 1~
+$ Season   &lt;dbl&gt; 1888, 1888, 1888, 1888, 1888, 1888, 1888, 1888, 1888, 1888, 1~
+$ home     &lt;fct&gt; Accrington F.C., Accrington F.C., Accrington F.C., Accrington~
+$ visitor  &lt;fct&gt; Aston Villa, Blackburn Rovers, Bolton Wanderers, Burnley, Der~
+$ FT       &lt;fct&gt; 1-1, 0-2, 2-3, 5-1, 6-2, 3-1, 1-2, 0-0, 2-0, 2-1, 4-4, 4-3, 6~
+$ hgoal    &lt;dbl&gt; 1, 0, 2, 5, 6, 3, 1, 0, 2, 2, 4, 4, 6, 6, 4, 4, 2, 9, 0, 5, 2~
+$ vgoal    &lt;dbl&gt; 1, 2, 3, 1, 2, 1, 2, 0, 0, 1, 4, 3, 1, 2, 2, 2, 1, 1, 2, 1, 0~
+$ division &lt;fct&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1~
+$ tier     &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1~
+$ totgoal  &lt;dbl&gt; 2, 2, 5, 6, 8, 4, 3, 0, 2, 3, 8, 7, 7, 8, 6, 6, 3, 10, 2, 6, ~
+$ goaldif  &lt;dbl&gt; 0, -2, -1, 4, 4, 2, -1, 0, 2, 1, 0, 1, 5, 4, 2, 2, 1, 8, -2, ~
+$ result   &lt;fct&gt; D, A, A, H, H, H, A, D, H, H, D, H, H, H, H, H, H, H, A, H, H~</code></pre>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="fu">engsoccerdata</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/engsoccerdata/man/spain.html">spain</a></span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>Rows: 23,915
+Columns: 12
+$ Date    &lt;chr&gt; "1929-02-10", "1929-02-10", "1929-02-10", "1929-02-10", "1929-~
+$ Season  &lt;dbl&gt; 1928, 1928, 1928, 1928, 1928, 1928, 1928, 1928, 1928, 1928, 19~
+$ home    &lt;chr&gt; "Arenas de Getxo", "Espanyol Barcelona", "Real Madrid", "Real ~
+$ visitor &lt;chr&gt; "Atletico Madrid", "Real Union", "CE Europa", "Athletic Bilbao~
+$ HT      &lt;chr&gt; "0-2", "1-0", "0-0", "1-1", "0-0", "0-1", "3-0", "0-3", "0-1",~
+$ FT      &lt;chr&gt; "2-3", "3-2", "5-0", "1-1", "0-2", "1-2", "9-0", "0-3", "3-1",~
+$ hgoal   &lt;dbl&gt; 2, 3, 5, 1, 0, 1, 9, 0, 3, 5, 3, 3, 1, 0, 2, 1, 2, 3, 2, 2, 3,~
+$ vgoal   &lt;dbl&gt; 3, 2, 0, 1, 2, 2, 0, 3, 1, 2, 0, 1, 1, 4, 1, 2, 1, 0, 2, 0, 3,~
+$ tier    &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,~
+$ round   &lt;chr&gt; "league", "league", "league", "league", "league", "league", "l~
+$ group   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA~
+$ notes   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA~</code></pre>
+</div>
+</div>
+<p><br></p>
+</section><section id="first-function" class="slide level2"><h2>First function</h2>
+<p>So the first function in our <strong><code>ussie</code></strong> package will turn these in to standard formats:</p>
+<ul>
+<li><p>use only the common columns</p></li>
+<li><p>give the same column the same data type</p></li>
+</ul></section><section id="create-a-package-2" class="slide level2"><h2>Create a package</h2>
 <p>Be deliberate about where you create your package</p>
 <p>Do not nest inside another RStudio project, R package or git repo.</p>
+<p><br></p>
 <p>🎬 Create a package:</p>
 <div class="cell">
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>usethis<span class="sc">::</span><span class="fu">create_package</span>(<span class="st">"~/Desktop/ussie"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/create_package.html">create_package</a></span><span class="op">(</span><span class="st">"~/Desktop/ussie"</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 <aside><div>
 <p>You may want a different path</p>
 </div></aside></section><section id="section" class="slide level2 smaller"><h2></h2>
-<div class="cell">
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>√ Creating <span class="st">'C:/Users/er13/Desktop/ussie/'</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a>√ Setting active project to <span class="st">'C:/Users/er13/Desktop/ussie'</span></span>
-<span id="cb13-3"><a href="#cb13-3"></a>√ Creating <span class="st">'R/'</span></span>
-<span id="cb13-4"><a href="#cb13-4"></a>√ Writing <span class="st">'DESCRIPTION'</span></span>
-<span id="cb13-5"><a href="#cb13-5"></a>Package<span class="sc">:</span> ussie</span>
-<span id="cb13-6"><a href="#cb13-6"></a>Title<span class="sc">:</span> What the Package <span class="fu">Does</span> (One Line, Title Case)</span>
-<span id="cb13-7"><a href="#cb13-7"></a>Version<span class="sc">:</span> <span class="dv">0</span>.<span class="dv">0</span>.<span class="fl">0.9000</span></span>
-<span id="cb13-8"><a href="#cb13-8"></a>Authors\<span class="sc">@</span><span class="fu">R</span> (parsed)<span class="sc">:</span></span>
-<span id="cb13-9"><a href="#cb13-9"></a>   <span class="er">*</span> First Last \<span class="sc">&lt;</span>first.last\<span class="sc">@</span>example.com\<span class="sc">&gt;</span> \[aut, cre\] (YOUR<span class="sc">-</span>ORCID<span class="sc">-</span>ID)</span>
-<span id="cb13-10"><a href="#cb13-10"></a>Description<span class="sc">:</span> What the package <span class="fu">does</span> (one paragraph).</span>
-<span id="cb13-11"><a href="#cb13-11"></a>License<span class="sc">:</span> \<span class="st">`</span><span class="at">use_mit_license()\</span><span class="st">`</span>, \<span class="st">`</span><span class="at">use_gpl3_license()\</span><span class="st">`</span> or friends to</span>
-<span id="cb13-12"><a href="#cb13-12"></a>    pick a license</span>
-<span id="cb13-13"><a href="#cb13-13"></a>Encoding<span class="sc">:</span> UTF<span class="dv">-8</span></span>
-<span id="cb13-14"><a href="#cb13-14"></a>LazyData<span class="sc">:</span> true</span>
-<span id="cb13-15"><a href="#cb13-15"></a>Roxygen<span class="sc">:</span> <span class="fu">list</span>(<span class="at">markdown =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb13-16"><a href="#cb13-16"></a>RoxygenNote<span class="sc">:</span> <span class="dv">7</span>.<span class="fl">1.1</span></span>
-<span id="cb13-17"><a href="#cb13-17"></a>√ Writing <span class="st">'NAMESPACE'</span></span>
-<span id="cb13-18"><a href="#cb13-18"></a>√ Writing <span class="st">'ussie.Rproj'</span></span>
-<span id="cb13-19"><a href="#cb13-19"></a>√ Adding <span class="st">'.Rproj.user'</span> to <span class="st">'.gitignore'</span></span>
-<span id="cb13-20"><a href="#cb13-20"></a>√ Adding <span class="st">'\^ussie</span><span class="sc">\\\\</span><span class="st">.Rproj\$'</span>, <span class="st">'\^</span><span class="sc">\\\\</span><span class="st">.Rproj</span><span class="sc">\\\\</span><span class="st">.user\$'</span> to <span class="st">'.Rbuildignore'</span></span>
-<span id="cb13-21"><a href="#cb13-21"></a>√ Opening <span class="st">'C:/Users/er13/Desktop/ussie/'</span> <span class="cf">in</span> new RStudio session</span>
-<span id="cb13-22"><a href="#cb13-22"></a>√ Setting active project to <span class="st">'\&lt;no active project\&gt;'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<pre><code>√ Creating 'C:/Users/er13/Desktop/ussie/'
+√ Setting active project to 'C:/Users/er13/Desktop/ussie'
+√ Creating 'R/'
+√ Writing 'DESCRIPTION'
+Package: ussie
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.9000
+Authors\@R (parsed):
+   * First Last \&lt;first.last\@example.com\&gt; \[aut, cre\] (YOUR-ORCID-ID)
+Description: What the package does (one paragraph).
+License: \`use_mit_license()\`, \`use_gpl3_license()\` or friends to
+    pick a license
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+√ Writing 'NAMESPACE'
+√ Writing 'ussie.Rproj'
+√ Adding '.Rproj.user' to '.gitignore'
+√ Adding '\^ussie\\\\.Rproj\$', '\^\\\\.Rproj\\\\.user\$' to '.Rbuildignore'
+√ Opening 'C:/Users/er13/Desktop/ussie/' in new RStudio session
+√ Setting active project to '\&lt;no active project\&gt;'</code></pre>
 </section><section id="create_package" class="slide level2"><h2><code>create_package()</code></h2>
 <p>What happens when we run <code>create_package()</code>?</p>
 <ul>
@@ -753,10 +816,10 @@
 </div></aside></section><section id="create_package-1" class="slide level2"><h2><code>create_package()</code></h2>
 <p>What happens when we run <code>create_package()</code>?</p>
 <ul>
-<li><p><code>ussie.Rproj</code> is the file that makes this directory an RStudio Project.</p></li>
+<li><p><code>ussie.Rproj</code></p></li>
 <li><p><code>DESCRIPTION</code> provides metadata about your package.</p></li>
 <li><p>The <code>R/</code> directory is where we will put <code>.R</code> files with function definitions.</p></li>
-<li><p><code>NAMESPACE</code> declares the functions your package exports for external use and the external functions your package imports from other packages.</p></li>
+<li><p><code>NAMESPACE</code> declares the functions your package exports and the functions your package imports from other packages.</p></li>
 </ul>
 
 <aside><div>
@@ -766,97 +829,235 @@
 <ul>
 <li><p><code>.Rbuildignore</code> lists files that we need but that should not be included when building the R package from source.</p></li>
 <li><p><code>.gitignore</code> anticipates Git usage and ignores some standard, behind-the-scenes files created by R and RStudio.</p></li>
-</ul></section><section id="add-a-function" class="slide level2"><h2>Add a function</h2>
+</ul></section><section id="make-package-a-git-repo" class="slide level2"><h2>Make package a git repo</h2>
+<p>🎬 Make your package a git repository</p>
+<div class="cell">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_git.html">use_git</a></span><span class="op">(</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="section-1" class="slide level2"><h2></h2>
+<pre><code>v Initialising Git repo
+v Adding '.Rhistory', '.Rdata', '.httr-oauth', '.DS_Store' to '.gitignore'
+There are 5 uncommitted files:
+* '.gitignore'
+* '.Rbuildignore'
+* 'DESCRIPTION'
+* 'NAMESPACE'
+* 'ussieprac.Rproj'
+Is it ok to commit them?
+
+1: Nope
+2: Absolutely not
+3: I agree</code></pre>
+<p><br></p>
+<p>🎬 Choose the option that means yes!</p>
+</section><section id="section-2" class="slide level2"><h2></h2>
+<pre><code>v Adding files
+v Making a commit with message 'Initial commit'
+* A restart of RStudio is required to activate the Git pane
+Restart now?
+
+1: Negative
+2: No way
+3: Yeah</code></pre>
+<p><br></p>
+<p>🎬 Choose the option that means yes!</p>
+<p><br></p>
+<p>Your session will restart.</p>
+</section><section id="put-a-remote-copy-on-github" class="slide level2"><h2>Put a remote copy on GitHub</h2>
+<p>🎬 Put on GitHub as a remote repository</p>
+<div class="cell">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_github.html">use_github</a></span><span class="op">(</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="section-3" class="slide level2 smaller"><h2></h2>
+<pre><code>i Defaulting to 'https' Git protocol
+v Setting active project to 'C:/Users/er13/OneDrive - University of York/Desktop/Desktop/ussieprac'
+v Creating GitHub repository '3mmaRand/ussieprac'
+v Setting remote 'origin' to 'https://github.com/3mmaRand/ussieprac.git'
+v Setting URL field in DESCRIPTION to 'https://github.com/3mmaRand/ussieprac'
+v Setting BugReports field in DESCRIPTION to 'https://github.com/3mmaRand/ussieprac/issues'
+There is 1 uncommitted file:
+* 'DESCRIPTION'
+Is it ok to commit it?
+
+1: Negative
+2: Yup
+3: Not now</code></pre>
+<p><br></p>
+<p>🎬 Choose the option that means yes!</p>
+</section><section id="section-4" class="slide level2"><h2></h2>
+<pre><code>v Adding files
+v Making a commit with message 'Add GitHub links to DESCRIPTION'
+v Pushing 'main' branch to GitHub and setting 'origin/main' as upstream branch
+v Opening URL 'https://github.com/3mmaRand/ussieprac'</code></pre>
+<p><br></p>
+<p>🎬 Quick check with:</p>
+<div class="cell">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/git_sitrep.html">git_sitrep</a></span><span class="op">(</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="add-the-first-function" class="slide level2"><h2>Add the first function</h2>
+<p>We will add <code>uss_make_matches()</code></p>
 <p>Functions will go in an <code>.R</code> file.</p>
+<p><br></p>
+<div class="fragment">
 <p>There’s a <code>usethis</code> helper for adding <code>.R</code> files!</p>
-<div class="cell">
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>usethis<span class="sc">::</span><span class="fu">use_r</span>(<span class="st">"file_name"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br></p>
 </div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_r.html">use_r</a></span><span class="op">(</span><span class="st">"file_name"</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
 <p><code><a href="https://usethis.r-lib.org/reference/use_r.html">usethis::use_r()</a></code> adds the file extension and saves in <code>R/</code> folder</p>
+</div>
 </section><section id="usethisuse_r" class="slide level2"><h2><code>usethis::use_r()</code></h2>
-<p>🎬 Create a new R file in your package called <code>animal_sounds.R</code></p>
+<p>🎬 Create a new R file in your package called <code>uss_make_matches.R</code></p>
+<p><br></p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>usethis<span class="sc">::</span><span class="fu">use_r</span>(<span class="st">"animal_sounds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_r.html">use_r</a></span><span class="op">(</span><span class="st">"uss_make_matches"</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<pre><code>√ Setting active project to 'C:/Users/er13/Desktop/ussie'
+• Modify 'R/uss_make_matches.R'
+• Call \`use_test()\` to create a matching test file</code></pre>
+<p><br></p>
 </div>
 <div class="fragment">
-<div class="cell">
-<div class="sourceCode" id="cb16" data-code-line-numbers="|3"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>√ Setting active project to <span class="st">'C:/Users/er13/Desktop/ussie'</span></span>
-<span id="cb16-2"><a href="#cb16-2"></a>• Modify <span class="st">'R/animal_sounds.R'</span></span>
-<span id="cb16-3"><a href="#cb16-3"></a>• Call \<span class="st">`</span><span class="at">use_test()\</span><span class="st">`</span> to create a matching test file</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<p>We want to be able to use the function like this: <code>uss_make_matches(engsoccerdata::italy)</code></p>
 </div>
 </section><section id="add-the-function" class="slide level2"><h2>Add the function</h2>
-<p>🎬 Put the following code into your script:</p>
+<p>🎬 Put the following <a href="intermediate/uss_make_matches.R">code</a> into your script:</p>
 <div class="cell">
-<div class="sourceCode" id="cb17" data-code-line-numbers="|2-4"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>animal_sounds <span class="ot">&lt;-</span> <span class="cf">function</span>(animal, sound) {</span>
-<span id="cb17-2"><a href="#cb17-2"></a>  assertthat<span class="sc">::</span><span class="fu">assert_that</span>(</span>
-<span id="cb17-3"><a href="#cb17-3"></a>    assertthat<span class="sc">::</span><span class="fu">is.string</span>(animal),</span>
-<span id="cb17-4"><a href="#cb17-4"></a>    assertthat<span class="sc">::</span><span class="fu">is.string</span>(sound)</span>
-<span id="cb17-5"><a href="#cb17-5"></a>  )</span>
-<span id="cb17-6"><a href="#cb17-6"></a>  <span class="fu">paste0</span>(<span class="st">"The "</span>, animal, <span class="st">" goes "</span>, sound, <span class="st">"!"</span>)</span>
-<span id="cb17-7"><a href="#cb17-7"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb28" data-code-line-numbers="|1|3|4|5-12"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>uss_make_matches <span class="ot">&lt;-</span> <span class="cf">function</span>(data_engsoc) {</span>
+<span id="cb28-2"><a href="#cb28-2"></a>  result <span class="ot">&lt;-</span></span>
+<span id="cb28-3"><a href="#cb28-3"></a>    data_engsoc <span class="sc">|&gt;</span></span>
+<span id="cb28-4"><a href="#cb28-4"></a>    tibble<span class="sc">::</span><span class="fu">as_tibble</span>() <span class="sc">|&gt;</span></span>
+<span id="cb28-5"><a href="#cb28-5"></a>    dplyr<span class="sc">::</span><span class="fu">transmute</span>(</span>
+<span id="cb28-6"><a href="#cb28-6"></a>      <span class="at">tier =</span> <span class="fu">as.integer</span>(tier),</span>
+<span id="cb28-7"><a href="#cb28-7"></a>      <span class="at">season =</span> <span class="fu">as.integer</span>(Season),</span>
+<span id="cb28-8"><a href="#cb28-8"></a>      <span class="at">date =</span> <span class="fu">as.Date</span>(Date),</span>
+<span id="cb28-9"><a href="#cb28-9"></a>      <span class="at">home =</span> <span class="fu">as.character</span>(home),</span>
+<span id="cb28-10"><a href="#cb28-10"></a>      <span class="at">visitor =</span> <span class="fu">as.character</span>(visitor),</span>
+<span id="cb28-11"><a href="#cb28-11"></a>      <span class="at">goals_home =</span> <span class="fu">as.integer</span>(hgoal),</span>
+<span id="cb28-12"><a href="#cb28-12"></a>      <span class="at">goals_visitor =</span> <span class="fu">as.integer</span>(vgoal)</span>
+<span id="cb28-13"><a href="#cb28-13"></a>    )</span>
+<span id="cb28-14"><a href="#cb28-14"></a>  result</span>
+<span id="cb28-15"><a href="#cb28-15"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section></section><section><section id="test-your-function" class="title-slide slide level1 center"><h1>Test your function</h1>
 
 </section><section id="development-workflow" class="slide level2"><h2>Development workflow</h2>
 <p>In a normal script you might use:</p>
 <div class="cell">
-<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">source</span>(<span class="st">"R/animal_sounds.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="st">"R/uss_make_matches.R"</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p><br></p>
 <div class="fragment">
 <p>but when building packages we use a <code>devtools</code> approach</p>
 </div>
 </section><section id="development-workflow-1" class="slide level2"><h2>Development workflow</h2>
 
-<img data-src="images/dev_cycle_before_testing.png" alt="there are three boxes with arrow joining them clockwise. The boxes are (clockwise from 3' oclock) 'devtools::load_all() Cmd/Ctrl + Shift +L', 'Explore in console' and 'Modify code'" class="r-stretch quarto-figure-center"><p class="caption">Development workflow</p></section></section><section><section id="load-your-package" class="title-slide slide level1 center"><h1>Load your package</h1>
+<img data-src="images/dev_cycle_before_testing.png" alt="there are three boxes with arrow joining them clockwise. The boxes are (clockwise from 3' oclock) 'devtools::load_all() Cmd/Ctrl + Shift +L', 'Explore in console' and 'Modify code'" width="1200" class="r-stretch quarto-figure-center"><p class="caption">Development workflow</p></section></section><section><section id="load-your-package" class="title-slide slide level1 center"><h1>Load your package</h1>
 
 </section><section id="devtoolsload_all" class="slide level2"><h2><code>devtools::load_all()</code></h2>
 <p>🎬 Load package with <code><a href="https://devtools.r-lib.org/reference/load_all.html">devtools::load_all()</a></code>.</p>
 <div class="cell">
-<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>devtools<span class="sc">::</span><span class="fu">load_all</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/load_all.html">load_all</a></span><span class="op">(</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<pre><code>Loading ussie</code></pre>
-</section><section id="test" class="slide level2"><h2>Test</h2>
-<p>Test the <code>animal_sounds()</code> function in the console.</p>
 <div class="cell">
-<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">animal_sounds</span>(<span class="st">"dog"</span>, <span class="st">"woof"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>Loading ussie</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<pre><code>[1] "The dog goes woof!"</code></pre>
-</section><section id="devtoolsload_all-1" class="slide level2"><h2><code>devtools::load_all()</code></h2>
-<p>🎬 Change some tiny thing about your function - maybe the animal “says” instead of “goes”?</p>
+</section><section id="test" class="slide level2"><h2>Test</h2>
+<p>Test the <code>uss_make_matches()</code> function in the console.</p>
+<div class="cell">
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">uss_make_matches</span><span class="op">(</span><span class="fu">engsoccerdata</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/engsoccerdata/man/italy.html">italy</a></span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<pre><code># A tibble: 25,404 x 7
+    tier season date       home      visitor goals_home goals_visitor
+   &lt;int&gt;  &lt;int&gt; &lt;date&gt;     &lt;chr&gt;     &lt;chr&gt;        &lt;int&gt;         &lt;int&gt;
+ 1     1   1934 1934-09-30 Lazio Ro~ US Liv~          6             1
+ 2     1   1934 1934-09-30 Torino FC Unione~          3             1
+ 3     1   1934 1934-09-30 Sampierd~ Bologn~          2             1
+ 4     1   1934 1934-09-30 SSC Napo~ US Ale~          0             1
+ 5     1   1934 1934-09-30 ACF Fior~ AS Roma          4             1
+ 6     1   1934 1934-09-30 Brescia ~ Juvent~          0             2
+ 7     1   1934 1934-09-30 Inter     US Pal~          3             0
+ 8     1   1934 1934-09-30 Pro Verc~ AC Mil~          1             2
+ 9     1   1934 1934-10-07 AC Milan  ACF Fi~          1             1
+10     1   1934 1934-10-07 US Livor~ Inter            1             1
+# ... with 25,394 more rows</code></pre>
+<p>&nbsp;</p>
+<p>🤔 There’s no column for the country - that could be confusing</p>
+</section><section id="update-the-function" class="slide level2"><h2>Update the function</h2>
+<p>🎬 Change the function so it takes an additional argument which is the name of the country. The country name should be in column called “country”. The aim is to use the function like this:</p>
+<div class="cell">
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">uss_make_matches</span><span class="op">(</span><span class="fu">engsoccerdata</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/engsoccerdata/man/spain.html">spain</a></span>, <span class="st">"Spain"</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
 <div class="fragment">
 <p>🎬 Load with <code><a href="https://devtools.r-lib.org/reference/load_all.html">devtools::load_all()</a></code> and test the updated function.</p>
+</div>
+</section><section id="an-answer" class="slide level2"><h2>An answer</h2>
+<div class="cell">
+<div class="sourceCode" id="cb35" data-code-line-numbers="|1,6"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>uss_make_matches <span class="ot">&lt;-</span> <span class="cf">function</span>(data_engsoc, country) {</span>
+<span id="cb35-2"><a href="#cb35-2"></a>  result <span class="ot">&lt;-</span></span>
+<span id="cb35-3"><a href="#cb35-3"></a>    data_engsoc <span class="sc">|&gt;</span></span>
+<span id="cb35-4"><a href="#cb35-4"></a>    tibble<span class="sc">::</span><span class="fu">as_tibble</span>() <span class="sc">|&gt;</span></span>
+<span id="cb35-5"><a href="#cb35-5"></a>    dplyr<span class="sc">::</span><span class="fu">transmute</span>(</span>
+<span id="cb35-6"><a href="#cb35-6"></a>      <span class="at">country =</span> <span class="fu">as.character</span>(country),</span>
+<span id="cb35-7"><a href="#cb35-7"></a>      <span class="at">tier =</span> <span class="fu">as.integer</span>(tier),</span>
+<span id="cb35-8"><a href="#cb35-8"></a>      <span class="at">season =</span> <span class="fu">as.integer</span>(Season),</span>
+<span id="cb35-9"><a href="#cb35-9"></a>      <span class="at">date =</span> <span class="fu">as.Date</span>(Date),</span>
+<span id="cb35-10"><a href="#cb35-10"></a>      <span class="at">home =</span> <span class="fu">as.character</span>(home),</span>
+<span id="cb35-11"><a href="#cb35-11"></a>      <span class="at">visitor =</span> <span class="fu">as.character</span>(visitor),</span>
+<span id="cb35-12"><a href="#cb35-12"></a>      <span class="at">goals_home =</span> <span class="fu">as.integer</span>(hgoal),</span>
+<span id="cb35-13"><a href="#cb35-13"></a>      <span class="at">goals_visitor =</span> <span class="fu">as.integer</span>(vgoal)</span>
+<span id="cb35-14"><a href="#cb35-14"></a>    )</span>
+<span id="cb35-15"><a href="#cb35-15"></a>  result</span>
+<span id="cb35-16"><a href="#cb35-16"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section></section><section><section id="check-your-package" class="title-slide slide level1 center"><h1>Check your package</h1>
 
 </section><section id="check-your-package-1" class="slide level2"><h2>Check your package</h2>
 <p><code>R CMD check</code> is the gold standard for checking that an R package is in full working order.</p>
+<p><br></p>
 <p>It is a programme that is executed in the shell.</p>
+<p><br></p>
 <p>However, <code>devtools</code> has the <code><a href="https://rdrr.io/r/utils/PkgUtils.html">check()</a></code> function to allow you to run this without leaving your R session.</p>
 </section><section id="devtoolscheck" class="slide level2"><h2><code>devtools::check()</code></h2>
-<p>🎬 Check your package</p>
+<p>🎬 Check your package:</p>
 <div class="cell">
-<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>devtools<span class="sc">::</span><span class="fu">check</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/check.html">check</a></span><span class="op">(</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="devtoolscheck-1" class="slide level2"><h2><code>devtools::check()</code></h2>
-<p>You will get lots of output ending with:</p>
-<div class="cell">
-<div class="sourceCode" id="cb24" data-code-line-numbers="|4-7|9-10"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="sc">--</span> R CMD check results <span class="sc">--------------------</span> ussie <span class="dv">0</span>.<span class="dv">0</span>.<span class="fl">0.9000</span> <span class="sc">----</span></span>
-<span id="cb24-2"><a href="#cb24-2"></a>  Duration<span class="sc">:</span> <span class="fl">12.5</span>s</span>
-<span id="cb24-3"><a href="#cb24-3"></a><span class="sc">&gt;</span> checking DESCRIPTION meta<span class="sc">-</span>information ... WARNING</span>
-<span id="cb24-4"><a href="#cb24-4"></a>  Non<span class="sc">-</span>standard license specification<span class="sc">:</span></span>
-<span id="cb24-5"><a href="#cb24-5"></a>    <span class="st">`</span><span class="at">use_mit_license()</span><span class="st">`</span>, <span class="st">`</span><span class="at">use_gpl3_license()</span><span class="st">`</span> or friends to pick a license</span>
-<span id="cb24-6"><a href="#cb24-6"></a>  Standardizable<span class="sc">:</span> <span class="cn">FALSE</span></span>
-<span id="cb24-7"><a href="#cb24-7"></a><span class="sc">&gt;</span> checking dependencies <span class="cf">in</span> R code ... WARNING</span>
-<span id="cb24-8"><a href="#cb24-8"></a>  <span class="st">'::'</span> or <span class="st">':::'</span> import not declared from<span class="sc">:</span> <span class="st">'assertthat'</span></span>
-<span id="cb24-9"><a href="#cb24-9"></a><span class="dv">0</span> errors √ <span class="sc">|</span> <span class="dv">2</span> warnings x <span class="sc">|</span> <span class="dv">0</span> notes √</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+</section><section id="devtoolscheck-1" class="slide level2 smaller"><h2><code>devtools::check()</code></h2>
+<pre><code>-- R CMD check results --------------------- ussiesun 0.0.0.9000 ----
+Duration: 18.8s
+
+&gt; checking DESCRIPTION meta-information ... WARNING
+  Non-standard license specification:
+    `use_mit_license()`, `use_gpl3_license()` or friends to pick a
+    license
+  Standardizable: FALSE
+
+&gt; checking dependencies in R code ... WARNING
+  '::' or ':::' imports not declared from:
+    'dplyr' 'tibble'
+
+&gt; checking R code for possible problems ... NOTE
+  uss_make_matches: no visible binding for global variable 'tier'
+  uss_make_matches: no visible binding for global variable 'Season'
+  uss_make_matches: no visible binding for global variable 'Date'
+  uss_make_matches: no visible binding for global variable 'home'
+  uss_make_matches: no visible binding for global variable 'visitor'
+  uss_make_matches: no visible binding for global variable 'hgoal'
+  uss_make_matches: no visible binding for global variable 'vgoal'
+  Undefined global functions or variables:
+    Date Season hgoal home tier vgoal visitor</code></pre>
 </section><section id="aside-in-case-of-error" class="slide level2"><h2>Aside: in case of error</h2>
 <p>On running <code><a href="https://devtools.r-lib.org/reference/check.html">devtools::check()</a></code> you may get an error if you are using a networked drive.</p>
 <pre><code>Updating ussie documentation  
 Error: The specified file is not readable: path-to\ussie\NAMESPACE</code></pre>
+<p><br></p>
 <p>This is covered <a href="https://stackoverflow.com/questions/40530968/overwriting-namespace-and-rd-with-roxygen2">here</a> and can be fixed.</p>
 </section><section id="aside-in-case-of-error-1" class="slide level2"><h2>Aside: in case of error</h2>
 <p>Save a copy of this file:</p>
@@ -865,20 +1066,40 @@ Error: The specified file is not readable: path-to\ussie\NAMESPACE</code></pre>
 <p>Open the file from the <code>ussie</code> project session</p>
 <p>Run the whole file</p>
 <p>You should now find that <code><a href="https://devtools.r-lib.org/reference/check.html">devtools::check()</a></code> proceeds normally</p>
-</section></section><section><section id="license" class="title-slide slide level1 center"><h1>License</h1>
+</section><section id="errors-v-2-warnings-x-1-note-x" class="slide level2"><h2>0 errors v | 2 warnings x | 1 note x</h2>
+<ul>
+<li><p>Non-standard license specification</p></li>
+<li><p>‘::’ or ‘:::’ imports not declared from:<br>
+‘dplyr’ ‘tibble’</p></li>
+<li><p>no visible binding for global variables</p></li>
+</ul></section><section id="errors-v-2-warnings-x-1-note-x-1" class="slide level2"><h2>0 errors v | 2 warnings x | 1 note x</h2>
+<ul>
+<li><p>Non-standard license specification<br>
+✅ Next!</p></li>
+<li><p>‘::’ or ‘:::’ imports not declared from:<br>
+‘dplyr’ ‘tibble’<br>
+✅ Afternoon!</p></li>
+<li><p>no visible binding for global variables<br>
+✅ Tomorrow!</p></li>
+</ul></section></section><section><section id="license" class="title-slide slide level1 center"><h1>License</h1>
 
 </section><section id="add-a-license" class="slide level2"><h2>Add a license</h2>
-<p><code>usethis</code> helps out again! <code>use_mit_license()</code>, <code>use_agpl_license()</code>, <code>use_ccby_license()</code> etc</p>
+<p><code>usethis</code> helps out again!</p>
+<p><br></p>
+<p><code>use_mit_license()</code>, <code>use_agpl_license()</code>, <code>use_ccby_license()</code> etc</p>
+<p><br></p>
 <p>🎬 Add a MIT license<sup>1</sup> - use your own name!</p>
 <div class="cell">
-<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>usethis<span class="sc">::</span><span class="fu">use_mit_license</span>(<span class="st">"Emma Rand"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/licenses.html">use_mit_license</a></span><span class="op">(</span><span class="st">"Emma Rand"</span><span class="op">)</span> </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="fragment">
+<aside><ol class="aside-footnotes"><li id="fn1" role="doc-endnote"><p>MIT: Simple and permissive license that lets people use and freely distribute your code</p></li></ol></aside></section><section id="use_mit_license" class="slide level2"><h2><code>use_mit_license()</code></h2>
 <p>🎬 What files have appeared?</p>
+<p><br></p>
 <p>🎬 How has the <code>DESCRIPTION</code> file changed?</p>
+<p><br></p>
 <p>🎬 Run <code><a href="https://devtools.r-lib.org/reference/check.html">devtools::check()</a></code> again. Has one of the warnings disappeared?</p>
-</div>
-<aside><ol class="aside-footnotes"><li id="fn1" role="doc-endnote"><p>MIT: Simple and permissive license that lets people use and freely distribute your code</p></li></ol></aside></section></section><section><section id="document-your-package" class="title-slide slide level1 center"><h1>Document your package</h1>
+<!-- May need to put next section later -->
+</section></section><section><section id="document-your-package" class="title-slide slide level1 center"><h1>Document your package</h1>
 
 </section><section id="levels-of-package-documentation" class="slide level2"><h2>Levels of package documentation</h2>
 <ul>
@@ -918,15 +1139,16 @@ Error: The specified file is not readable: path-to\ussie\NAMESPACE</code></pre>
 <li><p>Preview documentation with <code>?</code></p></li>
 <li><p>Rinse and repeat until the documentation looks the way you want.</p></li>
 </ul></section><section id="document-your-function" class="slide level2"><h2>Document your function</h2>
-<p>🎬 Open animal_sounds.R</p>
+<p>🎬 Open <code>uss_make_matches.R</code></p>
 <p>🎬 Go to Code &gt; Insert Roxygen Documentation</p>
 <p>🎬 Fill in the documentation: Give your function a title, then, in a new paragraph, a brief description, define the two parameters, and finally, describe what the function returns</p>
-<p>🎬 Save <code>animal_sounds.R</code>, run <code><a href="https://devtools.r-lib.org/reference/document.html">devtools::document()</a></code> followed by <code><a href="https://devtools.r-lib.org/reference/load_all.html">devtools::load_all()</a></code></p>
-<p>🎬 Preview the documentation with <code>?animal_sounds</code> and edit your documentation if anything needs to be changed</p>
+<p>🎬 Save <code>uss_make_matches.R</code>, run <code><a href="https://devtools.r-lib.org/reference/document.html">devtools::document()</a></code> followed by <code><a href="https://devtools.r-lib.org/reference/load_all.html">devtools::load_all()</a></code></p>
+<p>🎬 Preview the documentation with <code>uss_make_matches</code> and edit your documentation if anything needs to be changed</p>
 </section><section id="add-examples" class="slide level2"><h2>Add examples</h2>
 <p>🎬 Under <code>@examples</code>, add one example for using your function</p>
-<p>🎬 Save <code>animal_sounds.R</code>, run <code><a href="https://devtools.r-lib.org/reference/document.html">devtools::document()</a></code> followed by <code><a href="https://devtools.r-lib.org/reference/load_all.html">devtools::load_all()</a></code></p>
-<p>🎬 Preview the documentation with <code>?animal_sounds</code> and edit your documentation if anything needs to be changed</p>
+<p>🎬 Save <code>uss_make_matches.R</code>, run <code><a href="https://devtools.r-lib.org/reference/document.html">devtools::document()</a></code> followed by <code><a href="https://devtools.r-lib.org/reference/load_all.html">devtools::load_all()</a></code></p>
+<p>🎬 Preview the documentation with <code>?uss_make_matches</code> and edit your documentation if anything needs to be changed</p>
+<!-- May need to put prev section later -->
 </section></section><section><section id="woo-hoo-you-made-a-package" class="title-slide slide level1 center"><h1>📦 Woo hoo📦 <br> You made a package!</h1>
 
 </section><section id="summary" class="slide level2 smaller"><h2>Summary</h2>
@@ -974,6 +1196,9 @@ Error: The specified file is not readable: path-to\ussie\NAMESPACE</code></pre>
 <p><a href="https://bit.ly/.." class="uri">https://bit.ly/..</a></p>
 </div>
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-engsoccerdata" class="csl-entry" role="doc-biblioentry">
+Curley, James. 2016. <span>“Engsoccerdata: English and European Soccer Results 1871-2016.”</span> <a href="https://CRAN.R-project.org/package=engsoccerdata">https://CRAN.R-project.org/package=engsoccerdata</a>.
+</div>
 <div id="ref-wickham2021a" class="csl-entry" role="doc-biblioentry">
 Wickham, Charlotte, and Hadley Wickham. 2021. <em>Building Tidy Tools</em>. rstudio::conf 2020. <a href="https://github.com/rstudio-conf-2020/build-tidy-tools">https://github.com/rstudio-conf-2020/build-tidy-tools</a>.
 </div>

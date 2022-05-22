@@ -5,6 +5,13 @@ editor: visual
 ---
 
 <head>
-      <title>HTML Meta Tag</title>
-      <meta http-equiv = "refresh" content = "3; url = README.html" />
-   </head>
+
+<title>
+
+HTML Meta Tag
+
+</title>
+
+<meta http-equiv = "refresh" content = "3; url = README.html" />
+
+</head>

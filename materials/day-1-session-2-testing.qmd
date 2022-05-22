@@ -1,0 +1,47 @@
+---
+title: "📦 <br>Building tidy tools"
+subtitle: "Day 1 Session 2: ....."
+author: "Emma Rand and Ian Lyttle"
+date: "<br>🔗 [bit.ly/...](https://bit.ly/..)"
+format:
+  revealjs: 
+    theme: [simple, emma.scss]
+    slide-number: true
+    chalkboard: true
+    preview-links: auto
+    footer: <https://bit.ly/..>
+    margin: 0.07
+    code-link: true
+    code-line-numbers: false
+execute:
+  echo: true
+  eval: false
+bibliography: references.bib
+---
+
+# 👋 .
+
+## ...
+
+## 
+
+## Learning Objectives {.smaller}
+
+At the end of this section you will be able to:
+
+# 📦 Woo hoo📦 <BR> You .....
+
+## Summary {.smaller}
+
+-   ....
+    -   ....
+-   .
+    -   ...ed
+
+## Summary continued {.smaller}
+
+-   ...
+    -   .
+-   
+
+## References {.smaller}

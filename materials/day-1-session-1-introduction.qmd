@@ -1,6 +1,6 @@
 ---
-title: "👋 <br>The Whole Game"
-subtitle: "📦 Building tidy tools: Day 1 Session 1"
+title: "📦 <br>Building tidy tools"
+subtitle: "Day 1 Session 1: 👋 & The Whole Game"
 author: "Emma Rand and Ian Lyttle"
 date: "<br>🔗 [bit.ly/...](https://bit.ly/..)"
 format:
@@ -12,13 +12,14 @@ format:
     footer: <https://bit.ly/..>
     margin: 0.07
     code-link: true
+    code-line-numbers: false
 execute:
   echo: true
   eval: false
 bibliography: references.bib
 ---
 
-# Welcome
+# 👋 Welcome
 
 ## Introductions
 
@@ -202,7 +203,7 @@ dir(.Library)
 
 ## The ussie package
 
-Where we are going. discuss soem of the files
+Where we are going. discuss some of the files
 
 # Package states
 
@@ -370,9 +371,60 @@ We do not use `library()` for packages we are working on
 
 ## Create a package
 
+We will create a version controlled package called **`ussie`** with a remote repo on GitHub.
+
+\
+
+. . .
+
+**`ussie`** will allow you to work with European football league data supplied by the **`engsoccerdata`** package @engsoccerdata
+
+\
+
+. . .
+
+The CRAN version of **`engsoccerdata`** has data from the start of the league until 2016 for `england`, `germany`, `holland`, `italy` and `spain`
+
+\
+
+. . .
+
+BUT the format of the data is **not** the same for all countries!!
+
+## About **`engsoccerdata`** {.smaller}
+
+```{r}
+#| eval: true
+dplyr::glimpse(engsoccerdata::england)
+```
+\
+
+
+```{r}
+#| eval: true
+dplyr::glimpse(engsoccerdata::spain)
+```
+\
+
+
+
+
+## First function 
+
+So the first function in our **`ussie`** package will turn these in to standard formats:
+
+-   use only the common columns
+
+-   give the same column the same data type
+
+## Create a package
+
 Be deliberate about where you create your package
 
 Do not nest inside another RStudio project, R package or git repo.
+
+\
+
 
 🎬 Create a package:
 
@@ -386,7 +438,7 @@ You may want a different path
 
 ##  {.smaller}
 
-```{r}
+```
 √ Creating 'C:/Users/er13/Desktop/ussie/'
 √ Setting active project to 'C:/Users/er13/Desktop/ussie'
 √ Creating 'R/'
@@ -431,13 +483,13 @@ continued.....
 
 What happens when we run `create_package()`?
 
--   `ussie.Rproj` is the file that makes this directory an RStudio Project.
+-   `ussie.Rproj`
 
 -   `DESCRIPTION` provides metadata about your package.
 
 -   The `R/` directory is where we will put `.R` files with function definitions.
 
--   `NAMESPACE` declares the functions your package exports for external use and the external functions your package imports from other packages.
+-   `NAMESPACE` declares the functions your package exports and the functions your package imports from other packages.
 
 ::: aside
 continued.....
@@ -451,50 +503,173 @@ What happens when we run `create_package()`?
 
 -   `.gitignore` anticipates Git usage and ignores some standard, behind-the-scenes files created by R and RStudio.
 
-## Add a function
+## Make package a git repo
+
+🎬 Make your package a git repository
+
+```{r}
+usethis::use_git()
+```
+
+## 
+
+```
+v Initialising Git repo
+v Adding '.Rhistory', '.Rdata', '.httr-oauth', '.DS_Store' to '.gitignore'
+There are 5 uncommitted files:
+* '.gitignore'
+* '.Rbuildignore'
+* 'DESCRIPTION'
+* 'NAMESPACE'
+* 'ussieprac.Rproj'
+Is it ok to commit them?
+
+1: Nope
+2: Absolutely not
+3: I agree
+```
+\
+
+🎬 Choose the option that means yes!
+
+## 
+
+```
+v Adding files
+v Making a commit with message 'Initial commit'
+* A restart of RStudio is required to activate the Git pane
+Restart now?
+
+1: Negative
+2: No way
+3: Yeah
+```
+
+\
+
+🎬 Choose the option that means yes!
+
+\
+
+Your session will restart.
+
+## Put a remote copy on GitHub
+
+🎬 Put on GitHub as a remote repository
+
+```{r}
+usethis::use_github()
+```
+
+##  {.smaller}
+
+```
+i Defaulting to 'https' Git protocol
+v Setting active project to 'C:/Users/er13/OneDrive - University of York/Desktop/Desktop/ussieprac'
+v Creating GitHub repository '3mmaRand/ussieprac'
+v Setting remote 'origin' to 'https://github.com/3mmaRand/ussieprac.git'
+v Setting URL field in DESCRIPTION to 'https://github.com/3mmaRand/ussieprac'
+v Setting BugReports field in DESCRIPTION to 'https://github.com/3mmaRand/ussieprac/issues'
+There is 1 uncommitted file:
+* 'DESCRIPTION'
+Is it ok to commit it?
+
+1: Negative
+2: Yup
+3: Not now
+```
+
+\
+
+🎬 Choose the option that means yes!
+
+## 
+
+```
+v Adding files
+v Making a commit with message 'Add GitHub links to DESCRIPTION'
+v Pushing 'main' branch to GitHub and setting 'origin/main' as upstream branch
+v Opening URL 'https://github.com/3mmaRand/ussieprac'
+```
+
+\
+
+🎬 Quick check with:
+
+```{r}
+usethis::git_sitrep()
+```
+
+## Add the first function
+
+We will add `uss_make_matches()`
 
 Functions will go in an `.R` file.
 
+\
+
+. . .
+
 There's a `usethis` helper for adding `.R` files!
+
+\
+
+. . .
 
 ```{r}
 usethis::use_r("file_name")
 ```
 
+\
+
 `usethis::use_r()` adds the file extension and saves in `R/` folder
 
 ## `usethis::use_r()`
 
-🎬 Create a new R file in your package called `animal_sounds.R`
+🎬 Create a new R file in your package called `uss_make_matches.R`
+
+\
 
 . . .
 
 ```{r}
-usethis::use_r("animal_sounds")
+usethis::use_r("uss_make_matches")
 ```
 
-. . .
-
-```{r}
-#| code-line-numbers: "|3"
+```
 √ Setting active project to 'C:/Users/er13/Desktop/ussie'
-• Modify 'R/animal_sounds.R'
+• Modify 'R/uss_make_matches.R'
 • Call \`use_test()\` to create a matching test file
 ```
 
+\
+
+. . .
+
+We want to be able to use the function like this: `uss_make_matches(engsoccerdata::italy)`
+
 ## Add the function
 
-🎬 Put the following code into your script:
+🎬 Put the following [code](intermediate/uss_make_matches.R) into your script:
 
 ```{r}
-#| code-line-numbers: "|2-4"
-animal_sounds <- function(animal, sound) {
-  assertthat::assert_that(
-    assertthat::is.string(animal),
-    assertthat::is.string(sound)
-  )
-  paste0("The ", animal, " goes ", sound, "!")
+#| code-line-numbers: "|1|3|4|5-12"
+uss_make_matches <- function(data_engsoc) {
+  result <-
+    data_engsoc |>
+    tibble::as_tibble() |>
+    dplyr::transmute(
+      tier = as.integer(tier),
+      season = as.integer(Season),
+      date = as.Date(Date),
+      home = as.character(home),
+      visitor = as.character(visitor),
+      goals_home = as.integer(hgoal),
+      goals_visitor = as.integer(vgoal)
+    )
+  result
 }
+
 ```
 
 # Test your function
@@ -504,8 +679,10 @@ animal_sounds <- function(animal, sound) {
 In a normal script you might use:
 
 ```{r}
-source("R/animal_sounds.R")
+source("R/uss_make_matches.R")
 ```
+
+\
 
 . . .
 
@@ -513,7 +690,7 @@ but when building packages we use a `devtools` approach
 
 ## Development workflow
 
-![Development workflow](images/dev_cycle_before_testing.png){fig-alt="there are three boxes with arrow joining them clockwise. The boxes are (clockwise from 3' oclock) 'devtools::load_all() Cmd/Ctrl + Shift +L', 'Explore in console' and 'Modify code'"}
+![Development workflow](images/dev_cycle_before_testing.png){fig-alt="there are three boxes with arrow joining them clockwise. The boxes are (clockwise from 3' oclock) 'devtools::load_all() Cmd/Ctrl + Shift +L', 'Explore in console' and 'Modify code'" width="1200"}
 
 # Load your package
 
@@ -525,25 +702,83 @@ but when building packages we use a `devtools` approach
 devtools::load_all()
 ```
 
-    Loading ussie
+```{r}
+Loading ussie
+```
 
 ## Test
 
-Test the `animal_sounds()` function in the console.
+Test the `uss_make_matches()` function in the console.
 
 ```{r}
-animal_sounds("dog", "woof")
+uss_make_matches(engsoccerdata::italy)
 ```
 
-    [1] "The dog goes woof!"
+\
 
-## `devtools::load_all()`
+```
+# A tibble: 25,404 x 7
+    tier season date       home      visitor goals_home goals_visitor
+   <int>  <int> <date>     <chr>     <chr>        <int>         <int>
+ 1     1   1934 1934-09-30 Lazio Ro~ US Liv~          6             1
+ 2     1   1934 1934-09-30 Torino FC Unione~          3             1
+ 3     1   1934 1934-09-30 Sampierd~ Bologn~          2             1
+ 4     1   1934 1934-09-30 SSC Napo~ US Ale~          0             1
+ 5     1   1934 1934-09-30 ACF Fior~ AS Roma          4             1
+ 6     1   1934 1934-09-30 Brescia ~ Juvent~          0             2
+ 7     1   1934 1934-09-30 Inter     US Pal~          3             0
+ 8     1   1934 1934-09-30 Pro Verc~ AC Mil~          1             2
+ 9     1   1934 1934-10-07 AC Milan  ACF Fi~          1             1
+10     1   1934 1934-10-07 US Livor~ Inter            1             1
+# ... with 25,394 more rows
+```
 
-🎬 Change some tiny thing about your function - maybe the animal "says" instead of "goes"?
+\ 
+
+🤔 There's no column for the country - that could be confusing
+
+
+## Update the function
+
+🎬 Change the function so it takes an additional argument which is the name of the country. The country name should be in column called "country". The aim is to use the function like this:
+
+
+```{r}
+uss_make_matches(engsoccerdata::spain, "Spain")
+```
+
+
+\
 
 . . .
 
 🎬 Load with `devtools::load_all()` and test the updated function.
+
+
+
+## An answer
+
+```{r}
+#| code-line-numbers: "|1,6"
+uss_make_matches <- function(data_engsoc, country) {
+  result <-
+    data_engsoc |>
+    tibble::as_tibble() |>
+    dplyr::transmute(
+      country = as.character(country),
+      tier = as.integer(tier),
+      season = as.integer(Season),
+      date = as.Date(Date),
+      home = as.character(home),
+      visitor = as.character(visitor),
+      goals_home = as.integer(hgoal),
+      goals_visitor = as.integer(vgoal)
+    )
+  result
+}
+
+```
+
 
 # Check your package
 
@@ -551,41 +786,61 @@ animal_sounds("dog", "woof")
 
 `R CMD check` is the gold standard for checking that an R package is in full working order.
 
+\
+
 It is a programme that is executed in the shell.
+
+\
 
 However, `devtools` has the `check()` function to allow you to run this without leaving your R session.
 
 ## `devtools::check()`
 
-🎬 Check your package
+🎬 Check your package:
 
 ```{r}
 devtools::check()
 ```
 
-## `devtools::check()`
+## `devtools::check()` {.smaller}
 
-You will get lots of output ending with:
 
-```{r}
-#| code-line-numbers: "|4-7|9-10"
--- R CMD check results -------------------- ussie 0.0.0.9000 ----
-  Duration: 12.5s
+```
+-- R CMD check results --------------------- ussiesun 0.0.0.9000 ----
+Duration: 18.8s
+
 > checking DESCRIPTION meta-information ... WARNING
   Non-standard license specification:
-    `use_mit_license()`, `use_gpl3_license()` or friends to pick a license
+    `use_mit_license()`, `use_gpl3_license()` or friends to pick a
+    license
   Standardizable: FALSE
+
 > checking dependencies in R code ... WARNING
-  '::' or ':::' import not declared from: 'assertthat'
-0 errors √ | 2 warnings x | 0 notes √
+  '::' or ':::' imports not declared from:
+    'dplyr' 'tibble'
+
+> checking R code for possible problems ... NOTE
+  uss_make_matches: no visible binding for global variable 'tier'
+  uss_make_matches: no visible binding for global variable 'Season'
+  uss_make_matches: no visible binding for global variable 'Date'
+  uss_make_matches: no visible binding for global variable 'home'
+  uss_make_matches: no visible binding for global variable 'visitor'
+  uss_make_matches: no visible binding for global variable 'hgoal'
+  uss_make_matches: no visible binding for global variable 'vgoal'
+  Undefined global functions or variables:
+    Date Season hgoal home tier vgoal visitor
 ```
 
 ## Aside: in case of error
 
 On running `devtools::check()` you may get an error if you are using a networked drive.
 
-    Updating ussie documentation  
-    Error: The specified file is not readable: path-to\ussie\NAMESPACE
+```
+Updating ussie documentation  
+Error: The specified file is not readable: path-to\ussie\NAMESPACE
+```
+
+\
 
 This is covered [here](https://stackoverflow.com/questions/40530968/overwriting-namespace-and-rd-with-roxygen2) and can be fixed.
 
@@ -603,11 +858,50 @@ Run the whole file
 
 You should now find that `devtools::check()` proceeds normally
 
+
+
+## 0 errors v | 2 warnings x | 1 note x
+
+
+-   Non-standard license specification 
+
+-   '::' or ':::' imports not declared from:\
+    'dplyr' 'tibble'
+    
+-   no visible binding for global variables
+
+
+
+
+## 0 errors v | 2 warnings x | 1 note x
+
+
+-   Non-standard license specification \
+    ✅ Next!
+
+-   '::' or ':::' imports not declared from: \
+    'dplyr' 'tibble'\
+    ✅ Afternoon!
+    
+-   no visible binding for global variables \
+    ✅ Tomorrow!
+
+
+
+
+
+
 # License
 
 ## Add a license
 
-`usethis` helps out again! `use_mit_license()`, `use_agpl_license()`, `use_ccby_license()` etc
+`usethis` helps out again! 
+
+\
+
+`use_mit_license()`, `use_agpl_license()`, `use_ccby_license()` etc
+
+\
 
 🎬 Add a MIT license[^1] - use your own name!
 
@@ -617,13 +911,23 @@ You should now find that `devtools::check()` proceeds normally
 usethis::use_mit_license("Emma Rand") 
 ```
 
-. . .
+
+## `use_mit_license()`
+
 
 🎬 What files have appeared?
 
+\
+
 🎬 How has the `DESCRIPTION` file changed?
 
+\
+
 🎬 Run `devtools::check()` again. Has one of the warnings disappeared?
+
+
+<!-- May need to put next section later -->
+
 
 # Document your package
 
@@ -684,23 +988,28 @@ Much of the work is done by the `roxygen2` package, but we won't directly run `r
 
 ## Document your function
 
-🎬 Open animal_sounds.R
+🎬 Open `uss_make_matches.R`
 
 🎬 Go to Code \> Insert Roxygen Documentation
 
 🎬 Fill in the documentation: Give your function a title, then, in a new paragraph, a brief description, define the two parameters, and finally, describe what the function returns
 
-🎬 Save `animal_sounds.R`, run `devtools::document()` followed by `devtools::load_all()`
+🎬 Save `uss_make_matches.R`, run `devtools::document()` followed by `devtools::load_all()`
 
-🎬 Preview the documentation with `?animal_sounds` and edit your documentation if anything needs to be changed
+🎬 Preview the documentation with `uss_make_matches` and edit your documentation if anything needs to be changed
 
 ## Add examples
 
 🎬 Under `@examples`, add one example for using your function
 
-🎬 Save `animal_sounds.R`, run `devtools::document()` followed by `devtools::load_all()`
+🎬 Save `uss_make_matches.R`, run `devtools::document()` followed by `devtools::load_all()`
 
-🎬 Preview the documentation with `?animal_sounds` and edit your documentation if anything needs to be changed
+🎬 Preview the documentation with `?uss_make_matches` and edit your documentation if anything needs to be changed
+
+
+<!-- May need to put prev section later -->
+
+
 
 # 📦 Woo hoo📦 <BR> You made a package!
 
