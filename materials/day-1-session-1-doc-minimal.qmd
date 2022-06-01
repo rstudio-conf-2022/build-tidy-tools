@@ -1,0 +1,170 @@
+---
+title: "📦 <br>Building tidy tools"
+subtitle: "Day 1 Session 2: 🏷️Documentation - Minimal"
+author: "Emma Rand and Ian Lyttle"
+date: "<br>🔗 [bit.ly/...](https://bit.ly/..)"
+format:
+  revealjs: 
+    theme: [simple, emma.scss]
+    slide-number: true
+    chalkboard: true
+    preview-links: auto
+    footer: <https://bit.ly/..>
+    margin: 0.07
+    code-link: true
+    code-line-numbers: false
+execute:
+  echo: true
+  eval: false
+bibliography: references.bib
+---
+
+# 🏷️ Document your package
+
+
+
+## Learning Objectives {.smaller}
+
+At the end of this section you will be able to:
+
+-   lo
+-   lo
+-   lo
+-   lo
+-   
+
+
+
+# Overview
+
+## Levels of package documentation
+
+-   Metadata: The `DESCRIPTION` file -- "what's in this package?"
+
+-   Object documentation: for functions and data
+
+<!-- for each of the exported functions and datasets in the package, along with examples of usage -->
+
+-   Vignettes: Long form documentation
+
+<!-- generally discussing how to use a number of functions from the - package together and/or how a package fits into a larger ecosystem of packages -->
+
+-   pkgdown sites: Websites for your package!
+
+
+# `DESCRIPTION`
+
+## Sample `DESCRIPTION`
+
+🎬 Take a look at the `DESCRIPTION` for the following packages. What's common? What's different?
+
+-   **`ggplot2`** 
+    -   [CRAN Package page](https://cran.r-project.org/web/packages/ggplot2/index.html)
+    -   [DESCRIPTION on GitHub](https://github.com/tidyverse/ggplot2/blob/main/DESCRIPTION)
+
+-   **`palmerpenguins`** 
+    -   [CRAN Package page](https://cran.r-project.org/web/packages/palmerpenguins/index.html)
+    -   [DESCRIPTION on GitHub](https://github.com/allisonhorst/palmerpenguins/blob/master/DESCRIPTION)
+
+
+
+
+## Metadata in `DESCRIPTION` 
+
+-   Title: One line, title case, with no period. Fewer than 65 characters.
+
+-   Version
+
+    -   for release: MAJOR.MINOR.PATCH version.
+    -   for development version building on version MAJOR.MINOR.PATCH, use: MAJOR.MINOR.PATCH.9000
+
+-   Authors\@R: 
+    -  "aut" means author, "cre" means creator, "ctb" means contributor.
+
+
+## Update `DESCRIPTION`
+
+🎬 Add a title 
+
+\
+
+🎬 Add yourself as an author and creator.
+
+
+
+
+
+## Metadata in `DESCRIPTION` 
+
+-   Description: One paragraph describing what the package does. Keep the width of the paragraph to 80 characters; indent subsequent lines with 4 spaces.
+
+-   License
+
+-   Encoding: How to encode text, use UTF-8 encoding.
+
+-   LazyData: Use true to lazy-load data sets in the package.
+
+
+# Object documentation
+
+
+## Object documentation
+
+Object documentation is what you see when you use `?` or `help()` to find out more about a function or a dataset in a package.
+
+We will create object documentation using Roxygen comments, which start with #'
+
+Much of the work is done by the `roxygen2` package, but we won't directly run `roxygen2` functions, but instead run functions from devtools that call them
+
+## Object documentation workflow
+
+-   Add roxygen comments to your .R files.
+
+-   Run `devtools::document()` to convert roxygen comments to .Rd files.
+
+-   Load the current version of the package with `devtools::load_all()`
+
+-   Preview documentation with `?`
+
+-   Rinse and repeat until the documentation looks the way you want.
+
+## Document your function
+
+🎬 Open `uss_make_matches.R`
+
+🎬 Go to Code \> Insert Roxygen Documentation
+
+🎬 Fill in the documentation: Give your function a title, then, in a new paragraph, a brief description, define the two parameters, and finally, describe what the function returns
+
+🎬 Save `uss_make_matches.R`, run `devtools::document()` followed by `devtools::load_all()`
+
+🎬 Preview the documentation with `uss_make_matches` and edit your documentation if anything needs to be changed
+
+## Add examples
+
+🎬 Under `@examples`, add one example for using your function
+
+🎬 Save `uss_make_matches.R`, run `devtools::document()` followed by `devtools::load_all()`
+
+🎬 Preview the documentation with `?uss_make_matches` and edit your documentation if anything needs to be changed
+
+
+
+# 🏷️Yee haw! 🏷️ <BR> Your package has has documentation!
+
+## Summary {.smaller}
+
+-   .
+    -   .
+    -   .
+-   .
+    -   .
+
+
+## Summary continued {.smaller}
+
+
+-   
+-   We add documentation using **`roxygen2`** and `devtools::document()`
+
+## References {.smaller}
