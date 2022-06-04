@@ -21,8 +21,6 @@ bibliography: references.bib
 
 # 🏷️ Document your package
 
-
-
 ## Learning Objectives {.smaller}
 
 At the end of this section you will be able to:
@@ -32,8 +30,6 @@ At the end of this section you will be able to:
 -   lo
 -   lo
 -   
-
-
 
 # Overview
 
@@ -49,8 +45,7 @@ At the end of this section you will be able to:
 
 <!-- generally discussing how to use a number of functions from the - package together and/or how a package fits into a larger ecosystem of packages -->
 
--   pkgdown sites: Websites for your package!
-
+-   **`pkgdown`** sites: Websites for your package!
 
 # `DESCRIPTION`
 
@@ -58,18 +53,14 @@ At the end of this section you will be able to:
 
 🎬 Take a look at the `DESCRIPTION` for the following packages. What's common? What's different?
 
--   **`ggplot2`** 
+-   **`ggplot2`** @ggplot2
     -   [CRAN Package page](https://cran.r-project.org/web/packages/ggplot2/index.html)
     -   [DESCRIPTION on GitHub](https://github.com/tidyverse/ggplot2/blob/main/DESCRIPTION)
-
--   **`palmerpenguins`** 
+-   **`palmerpenguins`** @palmerpenguins
     -   [CRAN Package page](https://cran.r-project.org/web/packages/palmerpenguins/index.html)
     -   [DESCRIPTION on GitHub](https://github.com/allisonhorst/palmerpenguins/blob/master/DESCRIPTION)
 
-
-
-
-## Metadata in `DESCRIPTION` 
+## Metadata in `DESCRIPTION`
 
 -   Title: One line, title case, with no period. Fewer than 65 characters.
 
@@ -78,25 +69,73 @@ At the end of this section you will be able to:
     -   for release: MAJOR.MINOR.PATCH version.
     -   for development version building on version MAJOR.MINOR.PATCH, use: MAJOR.MINOR.PATCH.9000
 
--   Authors\@R: 
-    -  "aut" means author, "cre" means creator, "ctb" means contributor.
+-   Authors\@R:
 
+    -   "aut" means author, "cre" means creator, "ctb" means contributor.
 
 ## Update `DESCRIPTION`
 
-🎬 Add a title 
+🎬 Add a title
 
 \
 
 🎬 Add yourself as an author and creator.
 
+## Update `DESCRIPTION` {.smaller}
 
+    Package: ussie
+    Title: Work with European Football League Data
+    Version: 0.0.0.9000
+    Authors@R: 
+        person(given = "Emma",
+               family = "Rand", 
+               email = "emma.rand@york.ac.uk",
+               role = c("aut", "cre"),
+               comment = c(ORCID = "0000-0002-1358-8275"))
+    Description: What the package does (one paragraph).
+    License: MIT + file LICENSE
+    Encoding: UTF-8
+    Roxygen: list(markdown = TRUE)
+    RoxygenNote: 7.2.0
+    URL: https://github.com/3mmaRand/ussies
+    BugReports: https://github.com/3mmaRand/ussies/issues
 
+## 🔥 Tip: Set up your `.Rprofile`
 
+Write a few packages and that's going to get repetitive!
 
-## Metadata in `DESCRIPTION` 
+\
 
--   Description: One paragraph describing what the package does. Keep the width of the paragraph to 80 characters; indent subsequent lines with 4 spaces.
+You can edit your `.Rprofile` with `usethis::edit_r_profile`:\
+
+```{r}
+usethis::edit_r_profile()
+```
+
+\
+
+to set the following options....
+
+## 🔥 Tip: Set up your `.Rprofile` {.smaller}
+
+```{r}
+options(
+  usethis.full_name = "Emma Rand",
+  usethis.description = list(
+    `Authors@R` = 'person("Emma", "Rand",
+    email = "emma.rand@york.ac.uk",
+    role = c("aut", "cre"),
+    comment = c(ORCID = "0000-0001-6452-2420"))',
+    License = "MIT + file LICENSE",
+    Version = "0.0.0.9000"
+  )
+)
+
+```
+
+## Metadata in `DESCRIPTION`
+
+-   Description: One paragraph describing what the package does. Keep the width of the paragraph to 80 characters; indent subsequent lines with 4 spaces.[^1]
 
 -   License
 
@@ -104,51 +143,211 @@ At the end of this section you will be able to:
 
 -   LazyData: Use true to lazy-load data sets in the package.
 
+[^1]: You can set and show margins using Tools \| Global Options \| Code \| Display
 
 # Object documentation
 
+## Object documentation
+
+-   Object documentation is what you see when you use `?` or `help()`
+
+-   These helps files are written in a special "R documentation" format: `.Rd`
+
+-   `.Rd` resembles LaTeX,
+
+## `man/uss_make_matches.Rd` {.smaller}
+
+    \name{uss_make_matches}
+    \alias{uss_make_matches}
+    \title{Make a standard league-play tibble}
+    \usage{
+    uss_make_matches(data_engsoc, country)
+    }
+    \arguments{
+    \item{data_engsoc}{\code{data.frame} obtained from {engsoccerdata}. One of:
+    engsoccerdata::england, engsoccerdata::germany, engsoccerdata::holland,
+    engsoccerdata::italy, engsoccerdata::spain}
+
+    \item{country}{\code{character} scalar, specifies the league.}
+    }
+    \value{
+    a tibble with columns \code{country}, \code{date}, \code{season}, \code{tier}, \code{home},
+    \code{visitor}, \code{goals_home}, \code{goals_visitor}.
+    }
+    \description{
+    Given a league-play data frame from {engsoccer}, returns a tibble with
+    standardised colomn-names and types, e.g. \code{date} is a \code{Date}.
+    }
+    \examples{
+    uss_make_matches(engsoccerdata::italy, "Italy")
+    uss_make_matches(engsoccerdata::spain, "Spain")
+
+    }
 
 ## Object documentation
 
-Object documentation is what you see when you use `?` or `help()` to find out more about a function or a dataset in a package.
+🥳 We don't have to write it!!
 
-We will create object documentation using Roxygen comments, which start with #'
+. . .
 
-Much of the work is done by the `roxygen2` package, but we won't directly run `roxygen2` functions, but instead run functions from devtools that call them
+-   We write "roxygen comments" in the `.R` files
+
+## Roxygen comments
+
+    #' Make a standard league-play tibble
+    #'
+    #' Given a league-play data frame from {engsoccer}, returns a tibble with
+    #' standardised colomn-names and types, e.g. `date` is a `Date`.
+    #'
+    #' @param data_engsoc `data.frame` obtained from {engsoccerdata}. One of:
+    #'   engsoccerdata::england, engsoccerdata::germany, engsoccerdata::holland,
+    #'   engsoccerdata::italy, engsoccerdata::spain
+    #'
+    #' @param country `character` scalar, specifies the league.
+    #'
+    #' @return a tibble with columns `country`, `date`, `season`, `tier`, `home`,
+    #'   `visitor`, `goals_home`, `goals_visitor`.
+    #'
+    #' @export
+    #'
+    #' @examples
+    #' uss_make_matches(engsoccerdata::italy, "Italy")
+    #' uss_make_matches(engsoccerdata::spain, "Spain")
+    #'
+
+-   the `#'` indicates it is a roxygen comment
+
+-   **`roxygen2`** does the work but we can use **`devtools`** functions to call them
 
 ## Object documentation workflow
 
--   Add roxygen comments to your .R files.
+-   Add roxygen comments to your `.R` files.
 
--   Run `devtools::document()` to convert roxygen comments to .Rd files.
+-   Run `devtools::document()` to convert roxygen comments to `.Rd` files.
 
--   Load the current version of the package with `devtools::load_all()`
+-   Load the package with `devtools::load_all()`
 
 -   Preview documentation with `?`
 
--   Rinse and repeat until the documentation looks the way you want.
+-   Repeat until the documentation looks the way you want.
 
 ## Document your function
 
 🎬 Open `uss_make_matches.R`
 
-🎬 Go to Code \> Insert Roxygen Documentation
+🎬 Put your cursor anywhere in the function and do Code \| Insert Roxygen Documentation (Ctrl-Alt-Shift-R)
 
-🎬 Fill in the documentation: Give your function a title, then, in a new paragraph, a brief description, define the two parameters, and finally, describe what the function returns
+## Document your function {.smaller}
 
-🎬 Save `uss_make_matches.R`, run `devtools::document()` followed by `devtools::load_all()`
+    #' Title
+    #'
+    #' @param data_engsoc 
+    #' @param country 
+    #'
+    #' @return
+    #' @export
+    #'
+    #' @examples
+    uss_make_matches <- function(data_engsoc, country) {
+      result <-
+        data_engsoc |>
+        tibble::as_tibble() |>
+        dplyr::transmute(
+          country = as.character(country),
+          tier = as.integer(tier),
+          season = as.integer(Season),
+          date = as.Date(Date),
+          home = as.character(home),
+          visitor = as.character(visitor),
+          goals_home = as.integer(hgoal),
+          goals_visitor = as.integer(vgoal)
+        )
+      result
+    }
 
-🎬 Preview the documentation with `uss_make_matches` and edit your documentation if anything needs to be changed
+## Document your function
+
+-   `#'` indicates it is a roxygen comment
+
+-   `@` indicates a roxygen tag
+
+    -   `@param arg` --- describe the inputs
+    -   `@examples`--- show how the function works
+    -   `@seealso` --- point out related functions
+    -   `@returns` --- describe the outputs
+    -   `@param arg` --- is this a user visible function
+
+## Document your function
+
+🎬 Give your function a title and a brief description
+
+🎬 Define the two parameters
+
+🎬 Describe what the function returns
+
+## Document your function {.smaller}
+
+    #' Make a standard league-play tibble
+    #'
+    #' Given a league-play data frame from {engsoccer}, returns a tibble with
+    #' standardised colomn-names and types, e.g. `date` is a `Date`.
+    #'
+    #' @param data_engsoc `data.frame` obtained from {engsoccerdata}. One of:
+    #'   engsoccerdata::england, engsoccerdata::germany, engsoccerdata::holland,
+    #'   engsoccerdata::italy, engsoccerdata::spain
+    #'
+    #' @param country `character` scalar, specifies the league.
+    #'
+    #' @return a tibble with columns `country`, `date`, `season`, `tier`, `home`,
+    #'   `visitor`, `goals_home`, `goals_visitor`.
+
+## Take a look at your documentation
+
+🎬 Save `uss_make_matches.R` and run `devtools::document()`
+
+. . .
+
+    Warning message:
+    [uss_make_matches.R:17] @examples requires a value
+
+We will that fix later!
+
+. . .
+
+🎬 Load the package : `devtools::load_all()`
+
+🎬 Preview the documentation with `?uss_make_matches`
 
 ## Add examples
 
 🎬 Under `@examples`, add one example for using your function
 
+. . .
+
+    #' @examples
+    #' uss_make_matches(engsoccerdata::italy, "Italy")
+    #' uss_make_matches(engsoccerdata::spain, "Spain")
+    #' 
+
+## Take a look at your documentation
+
 🎬 Save `uss_make_matches.R`, run `devtools::document()` followed by `devtools::load_all()`
+
+. . .
 
 🎬 Preview the documentation with `?uss_make_matches` and edit your documentation if anything needs to be changed
 
+## `check()`
 
+## add a function?
+
+# document it?
+
+## check
+
+## Package dependecies
+
+## check
 
 # 🏷️Yee haw! 🏷️ <BR> Your package has has documentation!
 
@@ -160,11 +359,10 @@ Much of the work is done by the `roxygen2` package, but we won't directly run `r
 -   .
     -   .
 
-
 ## Summary continued {.smaller}
 
-
 -   
+
 -   We add documentation using **`roxygen2`** and `devtools::document()`
 
 ## References {.smaller}
