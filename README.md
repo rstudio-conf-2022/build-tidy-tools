@@ -62,7 +62,7 @@ Detailed instructions for installing these are covered in [Prerequisites](https:
 |:--------------|:---------------|
 | 09:00 - 10:30 | [Session 1: Introduction and the whole game](materials/day-1-session-1-introduction.html) |
 | 10:30 - 11:00 | *Coffee break* |
-| 11:00 - 12:30 | [Session 2: Documentation - Minimal subtitle](materials/day-1-session-1-doc-minimal.html)     |
+| 11:00 - 12:30 | [Session 2: Documentation - Minimal subtitle](materials/day-1-session-2-doc-minimal.html)     |
 | 12:30 - 13:30 | *Lunch break*  |
 | 13:30 - 15:00 | [Session 3: Unit testing]((materials/day-1-session-3-testing.html)) |
 | 15:00 - 15:30 | *Coffee break* |

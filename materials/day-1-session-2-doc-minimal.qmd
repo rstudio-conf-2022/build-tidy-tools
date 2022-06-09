@@ -79,7 +79,7 @@ At the end of this section you will be able to:
 
 \
 
-🎬 Add yourself as an author and creator.
+🎬 You should find that your information as an author is already included because you edited your `.RProfile` at the start of the session
 
 ## Update `DESCRIPTION` {.smaller}
 
@@ -100,42 +100,11 @@ At the end of this section you will be able to:
     URL: https://github.com/3mmaRand/ussies
     BugReports: https://github.com/3mmaRand/ussies/issues
 
-## 🔥 Tip: Set up your `.Rprofile`
 
-Write a few packages and that's going to get repetitive!
-
-\
-
-You can edit your `.Rprofile` with `usethis::edit_r_profile`:\
-
-```{r}
-usethis::edit_r_profile()
-```
-
-\
-
-to set the following options....
-
-## 🔥 Tip: Set up your `.Rprofile` {.smaller}
-
-```{r}
-options(
-  usethis.full_name = "Emma Rand",
-  usethis.description = list(
-    `Authors@R` = 'person("Emma", "Rand",
-    email = "emma.rand@york.ac.uk",
-    role = c("aut", "cre"),
-    comment = c(ORCID = "0000-0001-6452-2420"))',
-    License = "MIT + file LICENSE",
-    Version = "0.0.0.9000"
-  )
-)
-
-```
 
 ## Metadata in `DESCRIPTION`
 
--   Description: One paragraph describing what the package does. Keep the width of the paragraph to 80 characters; indent subsequent lines with 4 spaces.[^1]
+-   Description: One paragraph describing what the package does. Keep the width of the paragraph to 80 characters; indent subsequent lines with 4 spaces
 
 -   License
 
@@ -143,7 +112,7 @@ options(
 
 -   LazyData: Use true to lazy-load data sets in the package.
 
-[^1]: You can set and show margins using Tools \| Global Options \| Code \| Display
+
 
 # Object documentation
 
@@ -339,15 +308,127 @@ We will that fix later!
 
 ## `check()`
 
-## add a function?
+## add another function?
 
-# document it?
-
-## check
-
-## Package dependecies
+## document it?
 
 ## check
+
+
+# Package dependecies
+
+## Remember this? {.smaller}
+
+
+
+```
+> checking dependencies in R code ... WARNING
+  '::' or ':::' imports not declared from:
+    'dplyr' 'tibble'
+
+> checking for unstated dependencies in examples ... WARNING
+  '::' or ':::' import not declared from: 'engsoccerdata''
+```
+
+
+. . . 
+
+We have used packages that we have not declared officially.
+
+
+## Package dependencies
+
+- **Imports:** must be installed for your package to work. If they're not, they will get installed.
+
+- **Suggests:** used by your package, but not required. Might provide data for examples, to run tests, build vignettes.
+
+- **Depends:** Avoid where possible. When your package requires a specific version of R, e.g. `Depends: R (>= 3.4.0)`. Think critically: downstream effects on packages that depend on your package.
+
+## Package dependencies
+
+`use_package(package, type = "Imports")`
+
+Type -- one of "Imports", "Depends", "Suggests", "Enhances", or "LinkingTo" 
+The default is "Imports"
+
+## `usethis::use_package()`
+
+
+🎬 Use `usethis::use_package()` to add the **`dplyr`** package to `Imports`
+
+```{r}
+usethis::use_package("dplyr")
+```
+
+. . .
+
+```
+v Setting active project to 'C:/Users/er13/OneDrive - University of York/Desktop/Desktop/ussie'
+v Adding 'dplyr' to Imports field in DESCRIPTION
+* Refer to functions with `dplyr::fun()`
+```
+
+Look how your `DESCRIPTION` file changed!
+
+
+## `usethis::use_package()`
+
+
+Note: we get reminded to "Refer to functions with `dplyr::fun()`"
+
+That is, we do not use `library(dplyr)` to make functions available to our package.
+
+
+. . .
+
+
+🎬 Repeat for **`tibble`** 
+
+```{r}
+usethis::use_package("tibble")
+```
+
+## `check()`
+
+🎬 Run `check()` on your package again
+
+## {.smaller}
+
+```
+-- R CMD check results -------------------------------- ussiesun 0.0.0.9000 ----
+Duration: 53.5s
+
+> checking for unstated dependencies in examples ... WARNING
+  '::' or ':::' import not declared from: 'engsoccerdata'
+
+> checking R code for possible problems ... NOTE
+  uss_make_matches: no visible binding for global variable 'tier'
+  uss_make_matches: no visible binding for global variable 'Season'
+  uss_make_matches: no visible binding for global variable 'Date'
+  uss_make_matches: no visible binding for global variable 'home'
+  uss_make_matches: no visible binding for global variable 'visitor'
+  uss_make_matches: no visible binding for global variable 'hgoal'
+  uss_make_matches: no visible binding for global variable 'vgoal'
+  Undefined global functions or variables:
+    Date Season hgoal home tier vgoal visitor
+
+0 errors v | 1 warning x | 1 note x
+```
+
+## CITATION.cff
+
+https://docs.ropensci.org/cffr/
+
+```{r}
+cffr::cff_write()
+CITATION.cff generated
+Adding  CITATION.cff to .Rbuildignore
+
+cff_validate results-----
+Congratulations! This .cff file is valid
+```
+
+
 
 # 🏷️Yee haw! 🏷️ <BR> Your package has has documentation!
 

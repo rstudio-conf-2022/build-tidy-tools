@@ -99,6 +99,76 @@ At the end of this section you will be able to:
 -   use the package interactively with `devtools::load_all()`
 -   check package validity with `devtools::check()`
 
+# 🔥 Set up tips
+
+## 🔥 Global Options
+
+🎬 Tools \| Global Options \| General
+
+\
+
+
+🔲 Restore .RData into workspace at startup: **unchecked**
+
+Save workspace to .RData on exit: **Never**
+
+. . .
+
+
+🎬 Tools \| Global Options \| Code \| Display
+
+☑️ Show margin: **checked**
+
+   Margin column 80
+
+## 🔥 Set up your `.Rprofile`
+
+Add default information about you for that will be used in package development.
+
+\
+
+You can edit your `.Rprofile` with `usethis::edit_r_profile`:\
+
+```{r}
+usethis::edit_r_profile()
+```
+
+\
+
+to set the following options....
+
+## 🔥 Set up your `.Rprofile` {.smaller}
+
+```{r}
+options(
+  usethis.full_name = "Emma Rand",
+  usethis.description = list(
+    `Authors@R` = 'person("Emma", "Rand",
+    email = "emma.rand@york.ac.uk",
+    role = c("aut", "cre"),
+    comment = c(ORCID = "0000-0001-6452-2420"))',
+  )
+)
+
+```
+
+## 🔥 Set up your `.Rprofile`
+
+Load **`devtools`** on start up
+
+\
+
+```{r}
+if (interactive()) {
+  suppressMessages(require(devtools))
+  suppressMessages(require(testthat))
+}
+
+```
+
+
+Restart R.
+
 # Why make a package?
 
 ## Why make a package
@@ -802,22 +872,25 @@ However, `devtools` has the `check()` function to allow you to run this without 
 devtools::check()
 ```
 
-## `devtools::check()` {.smaller}
+## {.smaller}
 
 
 ```
--- R CMD check results --------------------- ussiesun 0.0.0.9000 ----
-Duration: 18.8s
+-- R CMD check results -------------------------- ussie 0.0.0.9000 ----
+Duration: 37.6s
 
 > checking DESCRIPTION meta-information ... WARNING
   Non-standard license specification:
-    `use_mit_license()`, `use_gpl3_license()` or friends to pick a
+    \`use_mit_license()\`, \`use_gpl3_license()\` or friends to pick a
     license
   Standardizable: FALSE
 
 > checking dependencies in R code ... WARNING
   '::' or ':::' imports not declared from:
     'dplyr' 'tibble'
+
+> checking for unstated dependencies in examples ... WARNING
+  '::' or ':::' import not declared from: 'engsoccerdata'
 
 > checking R code for possible problems ... NOTE
   uss_make_matches: no visible binding for global variable 'tier'
@@ -829,7 +902,10 @@ Duration: 18.8s
   uss_make_matches: no visible binding for global variable 'vgoal'
   Undefined global functions or variables:
     Date Season hgoal home tier vgoal visitor
+
+0 errors v | 3 warnings x | 1 note x
 ```
+
 
 ## Aside: in case of error
 
@@ -856,32 +932,61 @@ Open the file from the `ussie` project session
 
 Run the whole file
 
-You should now find that `devtools::check()` proceeds normally
+You should now find that `check()` proceeds normally
 
 
 
-## 0 errors v | 2 warnings x | 1 note x
+## {.smaller}
 
 
--   Non-standard license specification 
+```
+-- R CMD check results -------------------------- ussie 0.0.0.9000 ----
+Duration: 37.6s
 
--   '::' or ':::' imports not declared from:\
+> checking DESCRIPTION meta-information ... WARNING
+  Non-standard license specification:
+    \`use_mit_license()\`, \`use_gpl3_license()\` or friends to pick a
+    license
+  Standardizable: FALSE
+
+> checking dependencies in R code ... WARNING
+  '::' or ':::' imports not declared from:
     'dplyr' 'tibble'
-    
--   no visible binding for global variables
+
+> checking for unstated dependencies in examples ... WARNING
+  '::' or ':::' import not declared from: 'engsoccerdata'
+
+> checking R code for possible problems ... NOTE
+  uss_make_matches: no visible binding for global variable 'tier'
+  uss_make_matches: no visible binding for global variable 'Season'
+  uss_make_matches: no visible binding for global variable 'Date'
+  uss_make_matches: no visible binding for global variable 'home'
+  uss_make_matches: no visible binding for global variable 'visitor'
+  uss_make_matches: no visible binding for global variable 'hgoal'
+  uss_make_matches: no visible binding for global variable 'vgoal'
+  Undefined global functions or variables:
+    Date Season hgoal home tier vgoal visitor
+
+0 errors v | 3 warnings x | 1 note x
+```
 
 
 
 
-## 0 errors v | 2 warnings x | 1 note x
+## 0 errors v | 3 warnings x | 1 note x
 
 
--   Non-standard license specification \
+-   checking DESCRIPTION meta-information ... WARNING \
+    Non-standard license specification \
     ✅ Next!
 
--   '::' or ':::' imports not declared from: \
-    'dplyr' 'tibble'\
-    ✅ Afternoon!
+-   checking dependencies in R code ... WARNING \
+    '::' or ':::' imports not declared \
+    ✅ Next!
+
+-   checking for unstated dependencies in examples ... WARNING \
+    '::' or ':::' import not declared from: 'engsoccerdata'
+    ✅ Next!
     
 -   no visible binding for global variables \
     ✅ Tomorrow!
