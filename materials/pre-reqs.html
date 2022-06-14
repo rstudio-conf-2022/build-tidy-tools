@@ -290,49 +290,13 @@
 <p>You can check this by asking for a “situation report”</p>
 <div class="cell">
 <div class="sourceCode" id="cb6"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">git_sitrep</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stderr">
-<pre><code>Git config (global)
-* Name: 'Emma Rand'
-* Email: 'emma.rand@york.ac.uk'
-* Global (user-level) gitignore file: 'C:/Users/er13/.gitignore'
-* Vaccinated: TRUE
-i Defaulting to 'https' Git protocol
-* Default Git protocol: 'https'
-* Default initial branch name: 'master', 'main'
-GitHub
-* Default GitHub host: 'https://github.com'
-* Personal access token for 'https://github.com': '&lt;discovered&gt;'
-* GitHub user: '3mmaRand'
-* Token scopes: 'gist, repo, workflow'
-x Token lacks recommended scopes:
-  - 'user:email': needed to read user's email addresses
-  Consider re-creating your PAT with the missing scopes.
-  `create_github_token()` defaults to the recommended scopes.
-x Can't retrieve registered email addresses from GitHub.
-  Consider re-creating your PAT with the 'user' or at least 'user:email' scope.
-Git repo for current project
-* Active usethis project: 'C:/Users/er13/OneDrive - University of York/Desktop/Desktop/rstudio-conf-2022/build-tidy-tools'
-* Default branch: 'main'
-* Current local branch -&gt; remote tracking branch:
-  'main' -&gt; 'origin/main'
-GitHub remote configuration
-* Type = 'ours'
-* Host = 'https://github.com'
-* Config supports a pull request = TRUE
-* origin = 'rstudio-conf-2022/build-tidy-tools' (can push)
-* upstream = &lt;not configured&gt;
-* Desc = 'origin' is both the source and primary repo.
-  
-  Read more about the GitHub remote configurations that usethis supports at:
-  'https://happygitwithr.com/common-remote-setups.html'</code></pre>
-</div>
 </div>
 <section id="personal-access-token" class="level3">
 <h3 class="anchored" data-anchor-id="personal-access-token">Personal Access Token</h3>
 <p>Communicating with GitHub will require authentication. Instead of typing in your username and password each time, use a PAT (personal access token)</p>
 <p>Create a PAT with:</p>
 <div class="cell">
-<div class="sourceCode" id="cb8"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_github_token</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_github_token</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Give the token a descriptive name</li>
@@ -340,7 +304,7 @@ GitHub remote configuration
 </ul>
 <p>Now put your PAT into the Git credential store with:</p>
 <div class="cell">
-<div class="sourceCode" id="cb9"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>gitcreds<span class="sc">::</span><span class="fu">gitcreds_set</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>gitcreds<span class="sc">::</span><span class="fu">gitcreds_set</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="aside">
 <p>You may need to install <strong><code>gitcreds</code></strong>.</p>

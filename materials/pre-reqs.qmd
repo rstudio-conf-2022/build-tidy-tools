@@ -174,7 +174,6 @@ usethis::use_git_config(
 You can check this by asking for a "situation report"
 
 ```{r}
-#| eval: true
 usethis::git_sitrep()
 ```
 
