@@ -12,18 +12,10 @@ You will need
 
 -   [R and RStudio](#install-r-and-rstudio)
 -   [R package development toolchain](#install-r-package-development-toolchain): Rtools(windows) or XCode (mac) or r-base-dev
--   The following [packages: devtools and assertthat](#packages)
+-   To [install the **`devtools`** and **`btt22`** packages](#packages)
 -   [Git](#git)
 -   [GitHub account](#github-account)
 -   [GitHub to be linked to RStudio](#check-link-between-rstudio-and-github)
-
-You can verify your system is set up by running:
-
-`devtools::has_devel()`
-
-and
-
-`usethis::git_sitrep()`
 
 ## Install R and RStudio {#install-r-and-rstudio}
 
@@ -50,7 +42,7 @@ Click "Download R for Linux". Instructions on installing are given for Debian, R
 
 ### Installing R Studio
 
-Downloads are available from <https://www.rstudio.com/products/rstudio/download/>(scroll to the end of the page to see the downloads). You want RStudio Desktop (Open Source License).
+Downloads are available from <https://www.rstudio.com/products/rstudio/download/> (scroll to the end of the page to see the downloads). You want RStudio Desktop (Open Source License).
 
 #### For Windows with no admin rights
 
@@ -86,18 +78,34 @@ Or for a smaller download size:
 
 If you installed `r-base-dev`, when installing R, you should have all you need to build packages from source. Otherwise return to the instructions for installing R for your distribution and follow the instructions there to install the additional tools.
 
-## Packages {#packages}
+## Install the **`devtools`** and **`btt22`** packages {#packages}
 
-Install `devtools`
+The aim of **`devtools`** [@devtools] is to make package development easier by providing R functions that simplify and expedite common tasks. The [R Packages](https://r-pkgs.org/) book and the Building Tidy Tools workshop are based on a **`devtools`** workflow.
+
+Install **`devtools`**:
 
 ```{r}
 install.packages("devtools")
 ```
 
-Install `assertthat`
+After installing the [R package development toolchain](#install-r-package-development-toolchain) and **`devtools`**, you can verify your system is set up by running:
 
 ```{r}
-install.packages("assertthat")
+#| eval: true
+devtools::has_devel()
+```
+
+The central project for the Building Tidy Tools 2022 workshop is you will build a package called **`ussie`**, and populate it with functions. The goal of **`btt22`** is to help you build the **`ussie`** package. Its two main purposes are:
+
+-   installing **`btt22`** means you will have all the packages you need for the workshop and,
+-   **`btt22`** has functions that allow you to template code for workshop exercises and to reset the state of **`ussie`** to a particular point in the workshop if things go wrong.
+
+*We recommend you install **`btt22`** no sooner than a week before the workshop.*
+
+Install **`btt22`** from GitHub:
+
+```{r}
+devtools::install_github("rstudio-conf-2022/btt22")
 ```
 
 ## Git {#git}
@@ -141,29 +149,22 @@ If `which git` didn't find Git installed, and if you weren't prompted to install
 Register a GitHub account at [github.com](https://github.com/).
 
 -   Incorporate your actual name!
-
 -   Reuse your username from other contexts.
-
 -   Pick a username you will be comfortable revealing to your future boss.
-
 -   Shorter is better than longer.
-
 -   Be as unique as possible in as few characters as possible.
-
 -   Make it timeless.
-
 -   Avoid words laden with special meaning in programming.
-
 -   Use all lower case letters.
 
-    Advice and more information from Happy Git with R [@bryan]
+Advice and more information from [Happy Git with R](https://happygitwithr.com/) [@bryan]
 
 ## Check link between RStudio and GitHub {#check-link-between-rstudio-and-github}
 
 Configure your `user.name` and `user.email` for git in RStudio with:
 
 ```{r}
-#| eval: false
+
 usethis::use_git_config(
   user.name = "Jane Doe",          # actual first and last name
   user.email = "jane@example.com"  # email associated with GitHub account
@@ -173,7 +174,7 @@ usethis::use_git_config(
 You can check this by asking for a "situation report"
 
 ```{r}
-#| eval: false
+#| eval: true
 usethis::git_sitrep()
 ```
 
@@ -184,7 +185,6 @@ Communicating with GitHub will require authentication. Instead of typing in your
 Create a PAT with:
 
 ```{r}
-#| eval: false
 usethis::create_github_token()
 ```
 
@@ -194,12 +194,11 @@ usethis::create_github_token()
 Now put your PAT into the Git credential store with:
 
 ```{r}
-#| eval: false
 gitcreds::gitcreds_set()
 ```
 
 ::: aside
-You may need to install gitcreds.
+You may need to install **`gitcreds`**.
 :::
 
 The [Managing Git(Hub) Credentials](https://usethis.r-lib.org/articles/articles/git-credentials.html) vignette in the usethis package has all the details on PATs!

@@ -317,7 +317,7 @@ We will that fix later!
 
 # Package dependecies
 
-## Remember this? {.smaller}
+## Remember this?
 
 
 
@@ -348,8 +348,9 @@ We have used packages that we have not declared officially.
 
 `use_package(package, type = "Imports")`
 
-Type -- one of "Imports", "Depends", "Suggests", "Enhances", or "LinkingTo" 
-The default is "Imports"
+-   Type -- one of "Imports", "Depends", "Suggests", "Enhances", or "LinkingTo" 
+
+-   The default is "Imports"
 
 ## `usethis::use_package()`
 
@@ -415,20 +416,70 @@ Duration: 53.5s
 0 errors v | 1 warning x | 1 note x
 ```
 
+## Suggests
+
+-   Are used by your package, but not required for it to work
+
+
+-   Might provide data for examples
+
+
+`uss_make_matches.R`
+
+```
+#' @examples
+#' uss_make_matches(engsoccerdata::italy, "Italy")
+#' uss_make_matches(engsoccerdata::spain, "Spain")
+
+```
+
+## Suggests
+
+
+🎬 Add **`engsoccerdata`** 
+
+```{r}
+usethis::use_package("engsoccerdata", type = "Suggests")
+```
+
+```
+v Setting active project to 'C:/Users/er13/OneDrive - University of York/Desktop/Desktop/ussie'
+v Adding 'engsoccerdata' to Suggests field in DESCRIPTION
+* Use `requireNamespace("engsoccerdata", quietly = TRUE)` to test if package is installed
+* Then directly refer to functions with `engsoccerdata::fun()`
+
+```
+
+
+## Suggests
+
+-   Packages listed in Suggests are not automatically installed along with your package. 
+
+-   This means that you can’t assume the package is available
+
+```
+* Use `requireNamespace("engsoccerdata", quietly = TRUE)` to test if package is installed
+```
+
+
 ## CITATION.cff
 
 https://docs.ropensci.org/cffr/
 
 ```{r}
 cffr::cff_write()
+
+```
+
+. . .
+
+```
 CITATION.cff generated
 Adding  CITATION.cff to .Rbuildignore
 
 cff_validate results-----
 Congratulations! This .cff file is valid
 ```
-
-
 
 # 🏷️Yee haw! 🏷️ <BR> Your package has has documentation!
 

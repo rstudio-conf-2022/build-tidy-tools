@@ -661,7 +661,7 @@ uss_make_matches &lt;- function(data_engsoc, country) {
 </section><section id="check-1" class="slide level2"><h2>check</h2>
 </section></section><section><section id="package-dependecies" class="title-slide slide level1 center"><h1>Package dependecies</h1>
 
-</section><section id="remember-this" class="slide level2 smaller"><h2>Remember this?</h2>
+</section><section id="remember-this" class="slide level2"><h2>Remember this?</h2>
 <pre><code>&gt; checking dependencies in R code ... WARNING
   '::' or ':::' imports not declared from:
     'dplyr' 'tibble'
@@ -678,8 +678,10 @@ uss_make_matches &lt;- function(data_engsoc, country) {
 <li><p><strong>Depends:</strong> Avoid where possible. When your package requires a specific version of R, e.g.&nbsp;<code>Depends: R (&gt;= 3.4.0)</code>. Think critically: downstream effects on packages that depend on your package.</p></li>
 </ul></section><section id="package-dependencies-1" class="slide level2"><h2>Package dependencies</h2>
 <p><code>use_package(package, type = "Imports")</code></p>
-<p>Type – one of “Imports”, “Depends”, “Suggests”, “Enhances”, or “LinkingTo” The default is “Imports”</p>
-</section><section id="usethisuse_package" class="slide level2"><h2><code>usethis::use_package()</code></h2>
+<ul>
+<li><p>Type – one of “Imports”, “Depends”, “Suggests”, “Enhances”, or “LinkingTo”</p></li>
+<li><p>The default is “Imports”</p></li>
+</ul></section><section id="usethisuse_package" class="slide level2"><h2><code>usethis::use_package()</code></h2>
 <p>🎬 Use <code><a href="https://usethis.r-lib.org/reference/use_package.html">usethis::use_package()</a></code> to add the <strong><code>dplyr</code></strong> package to <code>Imports</code></p>
 <div class="cell">
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_package.html">use_package</a></span><span class="op">(</span><span class="st">"dplyr"</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -720,15 +722,41 @@ Duration: 53.5s
     Date Season hgoal home tier vgoal visitor
 
 0 errors v | 1 warning x | 1 note x</code></pre>
+</section><section id="suggests" class="slide level2"><h2>Suggests</h2>
+<ul>
+<li><p>Are used by your package, but not required for it to work</p></li>
+<li><p>Might provide data for examples</p></li>
+</ul>
+<p><code>uss_make_matches.R</code></p>
+<pre><code>#' @examples
+#' uss_make_matches(engsoccerdata::italy, "Italy")
+#' uss_make_matches(engsoccerdata::spain, "Spain")
+</code></pre>
+</section><section id="suggests-1" class="slide level2"><h2>Suggests</h2>
+<p>🎬 Add <strong><code>engsoccerdata</code></strong></p>
+<div class="cell">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_package.html">use_package</a></span><span class="op">(</span><span class="st">"engsoccerdata"</span>, type <span class="op">=</span> <span class="st">"Suggests"</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre><code>v Setting active project to 'C:/Users/er13/OneDrive - University of York/Desktop/Desktop/ussie'
+v Adding 'engsoccerdata' to Suggests field in DESCRIPTION
+* Use `requireNamespace("engsoccerdata", quietly = TRUE)` to test if package is installed
+* Then directly refer to functions with `engsoccerdata::fun()`
+</code></pre>
+</section><section id="suggests-2" class="slide level2"><h2>Suggests</h2>
+<ul>
+<li><p>Packages listed in Suggests are not automatically installed along with your package.</p></li>
+<li><p>This means that you can’t assume the package is available</p></li>
+</ul>
+<pre><code>* Use `requireNamespace("engsoccerdata", quietly = TRUE)` to test if package is installed</code></pre>
 </section><section id="citation.cff" class="slide level2"><h2>CITATION.cff</h2>
 <p>https://docs.ropensci.org/cffr/</p>
 <div class="cell">
-<div class="sourceCode" id="cb13"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>cffr<span class="sc">::</span><span class="fu">cff_write</span>()</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>CITATION.cff generated</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>Adding  CITATION.cff to .Rbuildignore</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>cff_validate results<span class="sc">-----</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>Congratulations<span class="sc">!</span> This .cff file is valid</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>cffr<span class="sc">::</span><span class="fu">cff_write</span>()</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>CITATION.cff generated</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>Adding  CITATION.cff to .Rbuildignore</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>cff_validate results<span class="sc">-----</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>Congratulations<span class="sc">!</span> This .cff file is valid</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section></section><section><section id="yee-haw-your-package-has-has-documentation" class="title-slide slide level1 center"><h1>🏷️Yee haw! 🏷️ <br> Your package has has documentation!</h1>
 

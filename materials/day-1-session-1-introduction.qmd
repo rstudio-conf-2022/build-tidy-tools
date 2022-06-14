@@ -297,7 +297,7 @@ Having a understanding of the different states a package can be helpful in under
 
 ## Package states
 
-![Schematic of package states](images/installation.png){fig-alt="schematic of package states and the functions that move them between states. One the horizontal axis: source, bundle, binary, installed, in memory. One the vertical axis the functions install.packages, R CMD install, install, build, install_github"}
+![Schematic of methods for moving between package states](images/installation.png){fig-alt="schematic of package states and the functions that move them between states. One the horizontal axis: source, bundle, binary, installed, in memory. One the vertical axis the functions install.packages, R CMD install, install, build, install_github"}
 
 ::: aside
 Figure from [R Packages](https://r-pkgs.org/) [@wickham2020]
