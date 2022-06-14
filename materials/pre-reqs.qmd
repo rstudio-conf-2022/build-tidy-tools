@@ -171,14 +171,6 @@ usethis::use_git_config(
   )
 ```
 
-You can check this by asking for a "situation report"
-
-```{r}
-usethis::git_sitrep()
-```
-
-### Personal Access Token
-
 Communicating with GitHub will require authentication. Instead of typing in your username and password each time, use a PAT (personal access token)
 
 Create a PAT with:
@@ -199,5 +191,13 @@ gitcreds::gitcreds_set()
 ::: aside
 You may need to install **`gitcreds`**.
 :::
+
+You can check your set up by asking for a "situation report"
+
+```{r}
+usethis::git_sitrep()
+```
+
+### Personal Access Token
 
 The [Managing Git(Hub) Credentials](https://usethis.r-lib.org/articles/articles/git-credentials.html) vignette in the usethis package has all the details on PATs!
