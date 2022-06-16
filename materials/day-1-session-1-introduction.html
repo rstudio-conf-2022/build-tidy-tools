@@ -1,8 +1,14 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="day-1-session-1-introduction_files/libs/clipboard/clipboard.min.js"></script>
+<script src="day-1-session-1-introduction_files/libs/quarto-html/tabby.min.js"></script>
+<script src="day-1-session-1-introduction_files/libs/quarto-html/popper.min.js"></script>
+<script src="day-1-session-1-introduction_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="day-1-session-1-introduction_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="day-1-session-1-introduction_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet">
+<link href="day-1-session-1-introduction_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.233">
+<meta name="generator" content="quarto-0.9.591">
 <meta name="author" content="Emma Rand and Ian Lyttle">
 <title>📦  Building tidy tools</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -43,43 +49,44 @@
         -khtml-user-select: none; -moz-user-select: none;
         -ms-user-select: none; user-select: none;
         padding: 0 4px; width: 4em;
-        color: #aaaaaa;
       }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
     div.sourceCode
-      {   }
+      { color: #f8f8f2;  }
     @media screen {
     pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
     }
-    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-    code span.at { color: #7d9029; } /* Attribute */
-    code span.bn { color: #40a070; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #4070a0; } /* Char */
-    code span.cn { color: #880000; } /* Constant */
-    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-    code span.dt { color: #902000; } /* DataType */
-    code span.dv { color: #40a070; } /* DecVal */
-    code span.er { color: #ff0000; font-weight: bold; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #40a070; } /* Float */
-    code span.fu { color: #06287e; } /* Function */
-    code span.im { } /* Import */
-    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-    code span.op { color: #666666; } /* Operator */
-    code span.ot { color: #007020; } /* Other */
-    code span.pp { color: #bc7a00; } /* Preprocessor */
-    code span.sc { color: #4070a0; } /* SpecialChar */
-    code span.ss { color: #bb6688; } /* SpecialString */
-    code span.st { color: #4070a0; } /* String */
-    code span.va { color: #19177c; } /* Variable */
-    code span.vs { color: #4070a0; } /* VerbatimString */
-    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    code span { color: #f8f8f2; } /* Normal */
+    code span.al { color: #f07178; background-color: #2a0f15; font-weight: bold; } /* Alert */
+    code span.an { color: #d4d0ab; } /* Annotation */
+    code span.at { color: #00e0e0; } /* Attribute */
+    code span.bn { color: #d4d0ab; } /* BaseN */
+    code span.bu { color: #abe338; } /* BuiltIn */
+    code span.cf { color: #ffa07a; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #abe338; } /* Char */
+    code span.cn { color: #ffd700; } /* Constant */
+    code span.co { color: #f8f8f2; font-style: italic; } /* Comment */
+    code span.cv { color: #ffd700; } /* CommentVar */
+    code span.do { color: #f8f8f2; } /* Documentation */
+    code span.dt { color: #ffa07a; } /* DataType */
+    code span.dv { color: #d4d0ab; } /* DecVal */
+    code span.er { color: #f07178; text-decoration: underline; } /* Error */
+    code span.ex { color: #00e0e0; font-weight: bold; } /* Extension */
+    code span.fl { color: #d4d0ab; } /* Float */
+    code span.fu { color: #ffa07a; } /* Function */
+    code span.im { color: #abe338; } /* Import */
+    code span.in { color: #d4d0ab; } /* Information */
+    code span.kw { color: #ffa07a; font-weight: bold; } /* Keyword */
+    code span.op { color: #ffa07a; } /* Operator */
+    code span.ot { color: #00e0e0; } /* Other */
+    code span.pp { color: #dcc6e0; } /* Preprocessor */
+    code span.re { color: #00e0e0; background-color: #f8f8f2; } /* RegionMarker */
+    code span.sc { color: #abe338; } /* SpecialChar */
+    code span.ss { color: #abe338; } /* SpecialString */
+    code span.st { color: #abe338; } /* String */
+    code span.va { color: #00e0e0; } /* Variable */
+    code span.vs { color: #abe338; } /* VerbatimString */
+    code span.wa { color: #dcc6e0; } /* Warning */
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
@@ -101,9 +108,6 @@
     }
   </style>
 <link rel="stylesheet" href="day-1-session-1-introduction_files/libs/revealjs/dist/theme/quarto.css" id="theme">
-<script src="day-1-session-1-introduction_files/libs/clipboard/clipboard.min.js"></script><script src="day-1-session-1-introduction_files/libs/quarto-html/tabby.min.js"></script><script src="day-1-session-1-introduction_files/libs/quarto-html/popper.min.js"></script><script src="day-1-session-1-introduction_files/libs/quarto-html/tippy.umd.min.js"></script><link href="day-1-session-1-introduction_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="day-1-session-1-introduction_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet">
-<link id="quarto-text-highlighting-styles" href="day-1-session-1-introduction_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet">
 <link href="day-1-session-1-introduction_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
 <link href="day-1-session-1-introduction_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
 <link href="day-1-session-1-introduction_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -119,7 +123,7 @@
   }
 
   .callout.callout-style-simple { 
-    padding: 0em 0.7em;
+    padding: 0em 0.5em;
     border-left: solid #acacac .3rem;
     border-right: solid 1px silver;
     border-top: solid 1px silver;
@@ -230,8 +234,7 @@
     display: none !important;
   }
 
-  .callout.callout-captioned .callout-body > :last-child,
-  .callout.callout-captioned .callout-body > div > :last-child {
+  .callout.callout-captioned .callout-body > .callout-content > :last-child {
     margin-bottom: 0.5rem;
   }
 
@@ -563,8 +566,8 @@
 <p>In a library! In</p>
 <div class="cell">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Rhome.html">R.home</a></span><span class="op">(</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
-<pre><code>[1] "C:/PROGRA~1/R/R-41~1.3"</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "/Library/Frameworks/R.framework/Resources"</code></pre>
 </div>
 </div>
 <p>The R home directory is the top-level directory of your R installation.</p>
@@ -572,68 +575,71 @@
 </section><section id="your-r-installation" class="slide level2"><h2>Your R installation</h2>
 <div class="cell">
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/list.files.html">list.files</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Rhome.html">R.home</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
-<pre><code> [1] "bin"            "CHANGES"        "COPYING"        "doc"           
- [5] "etc"            "include"        "library"        "MD5"           
- [9] "modules"        "README"         "README.R-4.1.3" "share"         
-[13] "src"            "Tcl"            "tests"          "unins000.dat"  
-[17] "unins000.exe"  </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "bin"          "COPYING"      "doc"          "etc"          "fontconfig"  
+ [6] "include"      "Info.plist"   "lib"          "library"      "man1"        
+[11] "modules"      "R"            "Rscript"      "share"        "SVN-REVISION"
+[16] "tests"       </code></pre>
 </div>
 </div>
 </section><section id="your-library" class="slide level2"><h2>Your library</h2>
 <div class="cell">
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">.Library</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
-<pre><code>[1] "C:/PROGRA~1/R/R-41~1.3/library"</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "/Library/Frameworks/R.framework/Resources/library"</code></pre>
 </div>
 </div>
 </section><section id="your-library-1" class="slide level2"><h2>Your library</h2>
 <div class="cell">
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span><span class="op">(</span><span class="va">.Library</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
-<pre><code>  [1] "askpass"       "assertthat"    "backports"     "base"         
-  [5] "base64enc"     "bit"           "bit64"         "blob"         
-  [9] "boot"          "brew"          "brio"          "broom"        
- [13] "bslib"         "btt22"         "cachem"        "callr"        
- [17] "cellranger"    "checkmate"     "class"         "cli"          
- [21] "clipr"         "cluster"       "codetools"     "colorspace"   
- [25] "commonmark"    "compiler"      "cpp11"         "crayon"       
- [29] "credentials"   "curl"          "data.table"    "datasets"     
- [33] "DBI"           "dbplyr"        "desc"          "devtools"     
- [37] "diffobj"       "digest"        "downlit"       "dplyr"        
- [41] "dtplyr"        "ellipsis"      "emo"           "engsoccerdata"
- [45] "evaluate"      "fansi"         "farver"        "fastmap"      
- [49] "fontawesome"   "forcats"       "foreign"       "fs"           
- [53] "gargle"        "generics"      "gert"          "ggplot2"      
- [57] "gh"            "gitcreds"      "glue"          "googledrive"  
- [61] "googlesheets4" "graphics"      "grDevices"     "grid"         
- [65] "gtable"        "haven"         "highr"         "hms"          
- [69] "htmltools"     "htmlwidgets"   "httpuv"        "httr"         
- [73] "ids"           "ini"           "isoband"       "jquerylib"    
- [77] "jsonlite"      "KernSmooth"    "knitr"         "labeling"     
- [81] "later"         "lattice"       "learnr"        "lifecycle"    
- [85] "lubridate"     "magrittr"      "markdown"      "MASS"         
- [89] "Matrix"        "memoise"       "methods"       "mgcv"         
- [93] "mime"          "modelr"        "munsell"       "nlme"         
- [97] "nnet"          "openssl"       "parallel"      "pillar"       
-[101] "pkgbuild"      "pkgconfig"     "pkgload"       "praise"       
-[105] "prettyunits"   "processx"      "progress"      "promises"     
-[109] "ps"            "purrr"         "R6"            "rappdirs"     
-[113] "rcmdcheck"     "RColorBrewer"  "Rcpp"          "readr"        
-[117] "readxl"        "rematch"       "rematch2"      "remotes"      
-[121] "renv"          "reprex"        "rlang"         "rmarkdown"    
-[125] "roxygen2"      "rpart"         "rprojroot"     "rstudioapi"   
-[129] "rversions"     "rvest"         "sass"          "scales"       
-[133] "selectr"       "sessioninfo"   "shiny"         "sourcetools"  
-[137] "spatial"       "splines"       "stats"         "stats4"       
-[141] "stringi"       "stringr"       "survival"      "sys"          
-[145] "tcltk"         "testthat"      "tibble"        "tidyr"        
-[149] "tidyselect"    "tidyverse"     "tinytex"       "tools"        
-[153] "translations"  "tzdb"          "usethis"       "ussie"        
-[157] "utf8"          "utils"         "uuid"          "vctrs"        
-[161] "viridisLite"   "vroom"         "waldo"         "whisker"      
-[165] "withr"         "xfun"          "xml2"          "xopen"        
-[169] "xtable"        "yaml"          "yesno"         "zip"          </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1] "askpass"       "assertthat"    "available"     "backports"    
+  [5] "base"          "base64enc"     "bit"           "bit64"        
+  [9] "blob"          "boot"          "brew"          "brio"         
+ [13] "broom"         "bslib"         "btt22"         "cachem"       
+ [17] "callr"         "cellranger"    "class"         "cli"          
+ [21] "clipr"         "clisymbols"    "cluster"       "codetools"    
+ [25] "colorspace"    "commonmark"    "compiler"      "conflicted"   
+ [29] "cpp11"         "crayon"        "credentials"   "curl"         
+ [33] "data.table"    "datasets"      "DBI"           "dbplyr"       
+ [37] "desc"          "devtools"      "diffobj"       "diffviewer"   
+ [41] "digest"        "downlit"       "dplyr"         "dtplyr"       
+ [45] "ellipsis"      "engsoccerdata" "evaluate"      "fansi"        
+ [49] "farver"        "fastmap"       "fontawesome"   "forcats"      
+ [53] "foreign"       "fs"            "gargle"        "generics"     
+ [57] "gert"          "ggplot2"       "gh"            "gitcreds"     
+ [61] "glue"          "googledrive"   "googlesheets4" "graphics"     
+ [65] "grDevices"     "grid"          "gtable"        "haven"        
+ [69] "highr"         "hms"           "htmltools"     "htmlwidgets"  
+ [73] "httpuv"        "httr"          "hunspell"      "ids"          
+ [77] "ini"           "isoband"       "janeaustenr"   "jquerylib"    
+ [81] "jsonlite"      "KernSmooth"    "knitr"         "labeling"     
+ [85] "later"         "lattice"       "lifecycle"     "lubridate"    
+ [89] "magrittr"      "markdown"      "MASS"          "Matrix"       
+ [93] "memoise"       "methods"       "mgcv"          "mime"         
+ [97] "modelr"        "munsell"       "nlme"          "nnet"         
+[101] "openssl"       "parallel"      "pillar"        "pkgbuild"     
+[105] "pkgconfig"     "pkgdown"       "pkgload"       "praise"       
+[109] "prettyunits"   "processx"      "progress"      "promises"     
+[113] "ps"            "purrr"         "R6"            "ragg"         
+[117] "rappdirs"      "rcmdcheck"     "RColorBrewer"  "Rcpp"         
+[121] "readr"         "readxl"        "rematch"       "rematch2"     
+[125] "remotes"       "renv"          "reprex"        "rlang"        
+[129] "rmarkdown"     "roxygen2"      "rpart"         "rprojroot"    
+[133] "rstudioapi"    "rversions"     "rvest"         "sass"         
+[137] "scales"        "selectr"       "sessioninfo"   "shiny"        
+[141] "sloop"         "SnowballC"     "sourcetools"   "spatial"      
+[145] "splines"       "stats"         "stats4"        "stringdist"   
+[149] "stringi"       "stringr"       "survival"      "sys"          
+[153] "systemfonts"   "tcltk"         "testthat"      "textshaping"  
+[157] "tibble"        "tidyr"         "tidyselect"    "tidytext"     
+[161] "tidyverse"     "tinytex"       "tokenizers"    "tools"        
+[165] "translations"  "tzdb"          "udapi"         "usethis"      
+[169] "ussie"         "utf8"          "utils"         "uuid"         
+[173] "vctrs"         "viridisLite"   "vroom"         "waldo"        
+[177] "whisker"       "withr"         "xfun"          "xml2"         
+[181] "xopen"         "xtable"        "yaml"          "yesno"        
+[185] "zip"          </code></pre>
 </div>
 </div>
 </section></section><section><section id="explore-a-package" class="title-slide slide level1 center"><h1>Explore a package</h1>
@@ -655,9 +661,13 @@
 <aside><div>
 <p>Having a understanding of the different states a package can be helpful in understanding package development.</p>
 </div></aside></section><section id="package-states-2" class="slide level2"><h2>Package states</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="images/installation.png" alt="schematic of package states and the functions that move them between states. One the horizontal axis: source, bundle, binary, installed, in memory. One the vertical axis the functions install.packages, R CMD install, install, build, install_github"></p>
+<p></p><figcaption aria-hidden="true">Schematic of methods for moving between package states</figcaption><p></p>
+</figure>
+</div>
 
-
-<img data-src="images/installation.png" alt="schematic of package states and the functions that move them between states. One the horizontal axis: source, bundle, binary, installed, in memory. One the vertical axis the functions install.packages, R CMD install, install, build, install_github" class="r-stretch quarto-figure-center"><p class="caption">Schematic of package states</p><aside><div>
+<aside><div>
 <p>Figure from <a href="https://r-pkgs.org/">R Packages</a> <span class="citation" data-cites="wickham2020">(<a href="#/ref-wickham2020" role="doc-biblioref" onclick="return false;">H. Wickham and Bryan 2020</a>)</span></p>
 </div></aside></section><section id="package-states-3" class="slide level2"><h2>Package states</h2>
 <div class="columns">
@@ -771,41 +781,41 @@
 </h2>
 <div class="cell">
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="fu">engsoccerdata</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/engsoccerdata/man/england.html">england</a></span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>Rows: 192,004
 Columns: 12
-$ Date     &lt;fct&gt; 1888-12-15, 1889-01-19, 1889-03-23, 1888-12-01, 1888-10-13, 1~
-$ Season   &lt;dbl&gt; 1888, 1888, 1888, 1888, 1888, 1888, 1888, 1888, 1888, 1888, 1~
-$ home     &lt;fct&gt; Accrington F.C., Accrington F.C., Accrington F.C., Accrington~
-$ visitor  &lt;fct&gt; Aston Villa, Blackburn Rovers, Bolton Wanderers, Burnley, Der~
-$ FT       &lt;fct&gt; 1-1, 0-2, 2-3, 5-1, 6-2, 3-1, 1-2, 0-0, 2-0, 2-1, 4-4, 4-3, 6~
-$ hgoal    &lt;dbl&gt; 1, 0, 2, 5, 6, 3, 1, 0, 2, 2, 4, 4, 6, 6, 4, 4, 2, 9, 0, 5, 2~
-$ vgoal    &lt;dbl&gt; 1, 2, 3, 1, 2, 1, 2, 0, 0, 1, 4, 3, 1, 2, 2, 2, 1, 1, 2, 1, 0~
-$ division &lt;fct&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1~
-$ tier     &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1~
-$ totgoal  &lt;dbl&gt; 2, 2, 5, 6, 8, 4, 3, 0, 2, 3, 8, 7, 7, 8, 6, 6, 3, 10, 2, 6, ~
-$ goaldif  &lt;dbl&gt; 0, -2, -1, 4, 4, 2, -1, 0, 2, 1, 0, 1, 5, 4, 2, 2, 1, 8, -2, ~
-$ result   &lt;fct&gt; D, A, A, H, H, H, A, D, H, H, D, H, H, H, H, H, H, H, A, H, H~</code></pre>
+$ Date     &lt;fct&gt; 1888-12-15, 1889-01-19, 1889-03-23, 1888-12-01, 1888-10-13, 1…
+$ Season   &lt;dbl&gt; 1888, 1888, 1888, 1888, 1888, 1888, 1888, 1888, 1888, 1888, 1…
+$ home     &lt;fct&gt; Accrington F.C., Accrington F.C., Accrington F.C., Accrington…
+$ visitor  &lt;fct&gt; Aston Villa, Blackburn Rovers, Bolton Wanderers, Burnley, Der…
+$ FT       &lt;fct&gt; 1-1, 0-2, 2-3, 5-1, 6-2, 3-1, 1-2, 0-0, 2-0, 2-1, 4-4, 4-3, 6…
+$ hgoal    &lt;dbl&gt; 1, 0, 2, 5, 6, 3, 1, 0, 2, 2, 4, 4, 6, 6, 4, 4, 2, 9, 0, 5, 2…
+$ vgoal    &lt;dbl&gt; 1, 2, 3, 1, 2, 1, 2, 0, 0, 1, 4, 3, 1, 2, 2, 2, 1, 1, 2, 1, 0…
+$ division &lt;fct&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…
+$ tier     &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…
+$ totgoal  &lt;dbl&gt; 2, 2, 5, 6, 8, 4, 3, 0, 2, 3, 8, 7, 7, 8, 6, 6, 3, 10, 2, 6, …
+$ goaldif  &lt;dbl&gt; 0, -2, -1, 4, 4, 2, -1, 0, 2, 1, 0, 1, 5, 4, 2, 2, 1, 8, -2, …
+$ result   &lt;fct&gt; D, A, A, H, H, H, A, D, H, H, D, H, H, H, H, H, H, H, A, H, H…</code></pre>
 </div>
 </div>
 <p><br></p>
 <div class="cell">
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="fu">engsoccerdata</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/engsoccerdata/man/spain.html">spain</a></span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>Rows: 23,915
 Columns: 12
-$ Date    &lt;chr&gt; "1929-02-10", "1929-02-10", "1929-02-10", "1929-02-10", "1929-~
-$ Season  &lt;dbl&gt; 1928, 1928, 1928, 1928, 1928, 1928, 1928, 1928, 1928, 1928, 19~
-$ home    &lt;chr&gt; "Arenas de Getxo", "Espanyol Barcelona", "Real Madrid", "Real ~
-$ visitor &lt;chr&gt; "Atletico Madrid", "Real Union", "CE Europa", "Athletic Bilbao~
-$ HT      &lt;chr&gt; "0-2", "1-0", "0-0", "1-1", "0-0", "0-1", "3-0", "0-3", "0-1",~
-$ FT      &lt;chr&gt; "2-3", "3-2", "5-0", "1-1", "0-2", "1-2", "9-0", "0-3", "3-1",~
-$ hgoal   &lt;dbl&gt; 2, 3, 5, 1, 0, 1, 9, 0, 3, 5, 3, 3, 1, 0, 2, 1, 2, 3, 2, 2, 3,~
-$ vgoal   &lt;dbl&gt; 3, 2, 0, 1, 2, 2, 0, 3, 1, 2, 0, 1, 1, 4, 1, 2, 1, 0, 2, 0, 3,~
-$ tier    &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,~
-$ round   &lt;chr&gt; "league", "league", "league", "league", "league", "league", "l~
-$ group   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA~
-$ notes   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA~</code></pre>
+$ Date    &lt;chr&gt; "1929-02-10", "1929-02-10", "1929-02-10", "1929-02-10", "1929-…
+$ Season  &lt;dbl&gt; 1928, 1928, 1928, 1928, 1928, 1928, 1928, 1928, 1928, 1928, 19…
+$ home    &lt;chr&gt; "Arenas de Getxo", "Espanyol Barcelona", "Real Madrid", "Real …
+$ visitor &lt;chr&gt; "Atletico Madrid", "Real Union", "CE Europa", "Athletic Bilbao…
+$ HT      &lt;chr&gt; "0-2", "1-0", "0-0", "1-1", "0-0", "0-1", "3-0", "0-3", "0-1",…
+$ FT      &lt;chr&gt; "2-3", "3-2", "5-0", "1-1", "0-2", "1-2", "9-0", "0-3", "3-1",…
+$ hgoal   &lt;dbl&gt; 2, 3, 5, 1, 0, 1, 9, 0, 3, 5, 3, 3, 1, 0, 2, 1, 2, 3, 2, 2, 3,…
+$ vgoal   &lt;dbl&gt; 3, 2, 0, 1, 2, 2, 0, 3, 1, 2, 0, 1, 1, 4, 1, 2, 1, 0, 2, 0, 3,…
+$ tier    &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
+$ round   &lt;chr&gt; "league", "league", "league", "league", "league", "league", "l…
+$ group   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ notes   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</code></pre>
 </div>
 </div>
 <p><br></p>
@@ -973,7 +983,7 @@ v Opening URL 'https://github.com/3mmaRand/ussieprac'</code></pre>
 </section><section id="add-the-function" class="slide level2"><h2>Add the function</h2>
 <p>🎬 Put the following <a href="intermediate/uss_make_matches.R">code</a> into your script:</p>
 <div class="cell">
-<div class="sourceCode" id="cb31" data-code-line-numbers="|1|3|4|5-12"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>uss_make_matches <span class="ot">&lt;-</span> <span class="cf">function</span>(data_engsoc) {</span>
+<div class="sourceCode cell-code" id="cb31" data-code-line-numbers="|1|3|4|5-12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>uss_make_matches <span class="ot">&lt;-</span> <span class="cf">function</span>(data_engsoc) {</span>
 <span id="cb31-2"><a href="#cb31-2"></a>  result <span class="ot">&lt;-</span></span>
 <span id="cb31-3"><a href="#cb31-3"></a>    data_engsoc <span class="sc">|&gt;</span></span>
 <span id="cb31-4"><a href="#cb31-4"></a>    tibble<span class="sc">::</span><span class="fu">as_tibble</span>() <span class="sc">|&gt;</span></span>
@@ -1010,7 +1020,7 @@ v Opening URL 'https://github.com/3mmaRand/ussieprac'</code></pre>
 <div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/load_all.html">load_all</a></span><span class="op">(</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb34"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>Loading ussie</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>Loading ussie</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="test" class="slide level2"><h2>Test</h2>
 <p>Test the <code>uss_make_matches()</code> function in the console.</p>
@@ -1045,7 +1055,7 @@ v Opening URL 'https://github.com/3mmaRand/ussieprac'</code></pre>
 </div>
 </section><section id="an-answer" class="slide level2"><h2>An answer</h2>
 <div class="cell">
-<div class="sourceCode" id="cb38" data-code-line-numbers="|1,6"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a>uss_make_matches <span class="ot">&lt;-</span> <span class="cf">function</span>(data_engsoc, country) {</span>
+<div class="sourceCode cell-code" id="cb38" data-code-line-numbers="|1,6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a>uss_make_matches <span class="ot">&lt;-</span> <span class="cf">function</span>(data_engsoc, country) {</span>
 <span id="cb38-2"><a href="#cb38-2"></a>  result <span class="ot">&lt;-</span></span>
 <span id="cb38-3"><a href="#cb38-3"></a>    data_engsoc <span class="sc">|&gt;</span></span>
 <span id="cb38-4"><a href="#cb38-4"></a>    tibble<span class="sc">::</span><span class="fu">as_tibble</span>() <span class="sc">|&gt;</span></span>
@@ -1246,11 +1256,10 @@ Wickham, Hadley, and Jenny Bryan. 2020. <em>R Packages</em>. The work-in-progres
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
 'chalkboard': {"buttons":true},
 'smaller': false,
-
+ 
         // Display controls in the bottom right corner
         controls: false,
 
@@ -1466,7 +1475,7 @@ Wickham, Hadley, and Jenny Bryan. 2020. <em>R Packages</em>. The work-in-progres
         }
 
       })();
-    </script><script type="application/javascript">
+    </script><script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
       tabsets.forEach(function(tabset) {
@@ -1484,7 +1493,10 @@ Wickham, Hadley, and Jenny Bryan. 2020. <em>R Packages</em>. The work-in-progres
         button.blur();
         // flash "checked"
         button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
         setTimeout(function() {
+          button.setAttribute("title", currentTitle);
           button.classList.remove('code-copy-button-checked');
         }, 1000);
         // clear code selection
