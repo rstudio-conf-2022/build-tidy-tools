@@ -34,3 +34,8 @@ $code-block-font-size: 0.80em;
   border-left: 3px solid $text-muted;
   padding-left: 1.5em;
 }
+
+// leave a little room under a code block
+.reveal .slide div.sourceCode {
+  margin-bottom: 20px;
+}
