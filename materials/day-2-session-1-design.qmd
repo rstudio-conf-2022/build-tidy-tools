@@ -18,3 +18,72 @@ execute:
   eval: false
 bibliography: references.bib
 ---
+
+# 👋 Welcome Back
+
+## The Team
+
+::: columns
+::: {.column width="50%"}
+Emma Rand 🐦[er13_r](https://twitter.com/er13_r?lang=en)
+
+Elliot Murphy
+
+Beatriz Milz
+:::
+
+::: {.column width="50%"}
+Ian Lyttle 🐦[ijlyttle](https://twitter.com/ijlyttle?lang=en)
+
+Haley Jeppson
+
+Ted Laderas
+:::
+:::
+
+Standing on the shoulders of Building Tidy Tools, rstudio::conf(2020) [@wickham2021a], R Packages [@wickham2020]
+
+## Code of conduct
+
+## Housekeeping
+
+-   Toilets
+
+-   Fire exits and alarms
+
+-   anything else?
+
+## How we will work
+
+-   stickies
+
+-   no stupid questions
+
+## Schedule
+
+ - Function design
+ 
+ - Working with side effects
+ 
+ - Tidy Eval
+ 
+ - Miscellany
+
+## Learning objectives 
+
+At the end of this section you will be able to:
+ 
+ - distinguish a pure function from a function that has or uses side effects.
+ - order and name your function's parameters.
+ - recognize type-stable functions and their importance.
+
+## Make R CMD CHECK happy
+
+## API design
+
+## Make a function
+ 
+## Pure functions vs. side effects
+
+## References {.smaller}
+
