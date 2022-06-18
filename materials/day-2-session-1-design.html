@@ -6,23 +6,87 @@
 <script src="day-2-session-1-design_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="day-2-session-1-design_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="day-2-session-1-design_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet">
-<link href="day-2-session-1-design_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-0.9.591">
-
-  <meta name="author" content="Emma Rand and Ian Lyttle">
-  <title>📦  Building tidy tools</title>
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="day-2-session-1-design_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="day-2-session-1-design_files/libs/revealjs/dist/reveal.css">
-  <style>
+<link href="day-2-session-1-design_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.591">
+<meta name="author" content="Emma Rand and Ian Lyttle">
+<title>📦  Building tidy tools</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<link rel="stylesheet" href="day-2-session-1-design_files/libs/revealjs/dist/reset.css">
+<link rel="stylesheet" href="day-2-session-1-design_files/libs/revealjs/dist/reveal.css">
+<style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     span.underline{text-decoration: underline;}
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #f8f8f2;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #f8f8f2; } /* Normal */
+    code span.al { color: #f07178; background-color: #2a0f15; font-weight: bold; } /* Alert */
+    code span.an { color: #d4d0ab; } /* Annotation */
+    code span.at { color: #00e0e0; } /* Attribute */
+    code span.bn { color: #d4d0ab; } /* BaseN */
+    code span.bu { color: #abe338; } /* BuiltIn */
+    code span.cf { color: #ffa07a; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #abe338; } /* Char */
+    code span.cn { color: #ffd700; } /* Constant */
+    code span.co { color: #f8f8f2; font-style: italic; } /* Comment */
+    code span.cv { color: #ffd700; } /* CommentVar */
+    code span.do { color: #f8f8f2; } /* Documentation */
+    code span.dt { color: #ffa07a; } /* DataType */
+    code span.dv { color: #d4d0ab; } /* DecVal */
+    code span.er { color: #f07178; text-decoration: underline; } /* Error */
+    code span.ex { color: #00e0e0; font-weight: bold; } /* Extension */
+    code span.fl { color: #d4d0ab; } /* Float */
+    code span.fu { color: #ffa07a; } /* Function */
+    code span.im { color: #abe338; } /* Import */
+    code span.in { color: #d4d0ab; } /* Information */
+    code span.kw { color: #ffa07a; font-weight: bold; } /* Keyword */
+    code span.op { color: #ffa07a; } /* Operator */
+    code span.ot { color: #00e0e0; } /* Other */
+    code span.pp { color: #dcc6e0; } /* Preprocessor */
+    code span.re { color: #00e0e0; background-color: #f8f8f2; } /* RegionMarker */
+    code span.sc { color: #abe338; } /* SpecialChar */
+    code span.ss { color: #abe338; } /* SpecialString */
+    code span.st { color: #abe338; } /* String */
+    code span.va { color: #00e0e0; } /* Variable */
+    code span.vs { color: #abe338; } /* VerbatimString */
+    code span.wa { color: #dcc6e0; } /* Warning */
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
@@ -43,14 +107,14 @@
       margin-left: 2em;
     }
   </style>
-  <link rel="stylesheet" href="day-2-session-1-design_files/libs/revealjs/dist/theme/quarto.css" id="theme">
-  <link href="day-2-session-1-design_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="day-2-session-1-design_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="day-2-session-1-design_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="day-2-session-1-design_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
-  <link href="day-2-session-1-design_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
-  <link href="day-2-session-1-design_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
-  <style type="text/css">
+<link rel="stylesheet" href="day-2-session-1-design_files/libs/revealjs/dist/theme/quarto.css" id="theme">
+<link href="day-2-session-1-design_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+<link href="day-2-session-1-design_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+<link href="day-2-session-1-design_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+<link href="day-2-session-1-design_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+<link href="day-2-session-1-design_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+<link href="day-2-session-1-design_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+<style type="text/css">
 
   .callout {
     margin-top: 1em;
@@ -247,7 +311,7 @@
   }
 
   </style>
-  <style type="text/css">
+<style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
       overflow: auto;
@@ -339,20 +403,13 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="center">
-  <h1 class="title">📦 <br>Building tidy tools</h1>
+<section id="title-slide" class="center"><h1 class="title">📦 <br>Building tidy tools</h1>
   <p class="subtitle">Day 2 Session 1: Function Design</p>
   <p class="author">Emma Rand and Ian Lyttle</p>
   <p class="date"><br>🔗 <a href="https://bit.ly/..">bit.ly/…</a></p>
-</section>
+</section><section><section id="welcome-back" class="title-slide slide level1 center"><h1>👋 Welcome Back</h1>
 
-<section>
-<section id="welcome-back" class="title-slide slide level1 center">
-<h1>👋 Welcome Back</h1>
-
-</section>
-<section id="the-team" class="slide level2">
-<h2>The Team</h2>
+</section><section id="the-team" class="slide level2"><h2>The Team</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>Emma Rand 🐦<a href="https://twitter.com/er13_r?lang=en">er13_r</a></p>
@@ -365,57 +422,119 @@
 </div>
 </div>
 <p>Standing on the shoulders of Building Tidy Tools, rstudio::conf(2020) <span class="citation" data-cites="wickham2021a">(<a href="#/ref-wickham2021a" role="doc-biblioref" onclick="return false;">C. Wickham and Wickham 2021</a>)</span>, R Packages <span class="citation" data-cites="wickham2020">(<a href="#/ref-wickham2020" role="doc-biblioref" onclick="return false;">H. Wickham and Bryan 2020</a>)</span></p>
-</section>
-<section id="code-of-conduct" class="slide level2">
-<h2>Code of conduct</h2>
-</section>
-<section id="housekeeping" class="slide level2">
-<h2>Housekeeping</h2>
+</section><section id="code-of-conduct" class="slide level2"><h2>Code of conduct</h2>
+</section><section id="housekeeping" class="slide level2"><h2>Housekeeping</h2>
 <ul>
 <li><p>Toilets</p></li>
 <li><p>Fire exits and alarms</p></li>
 <li><p>anything else?</p></li>
-</ul>
-</section>
-<section id="how-we-will-work" class="slide level2">
-<h2>How we will work</h2>
+</ul></section><section id="how-we-will-work" class="slide level2"><h2>How we will work</h2>
 <ul>
 <li><p>stickies</p></li>
 <li><p>no stupid questions</p></li>
-</ul>
-</section>
-<section id="schedule" class="slide level2">
-<h2>Schedule</h2>
+</ul></section><section id="schedule" class="slide level2"><h2>Schedule</h2>
 <ul>
 <li><p>Function design</p></li>
 <li><p>Working with side effects</p></li>
 <li><p>Tidy Eval</p></li>
 <li><p>Miscellany</p></li>
+</ul></section><section id="state-of-play" class="slide level2"><h2>State of play</h2>
+<p>We want to <em>concentrate on specific concepts</em>, rather than writing entire functions.</p>
+<p>We have created a set of checkpoints called <strong>states</strong>:</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">btt22</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/btt22/man/btt_state.html">btt_state</a></span><span class="op">(</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "2.1.1" "2.1.2" "2.2.1" "2.2.2" "2.2.3" "2.3.1" "2.3.2" "2.3.3" "2.3.4"
+[10] "2.3.5" "2.3.6" "2.3.7" "2.4.1" "2.4.2" "2.4.3"</code></pre>
+</div>
+</div>
+<p>For example, <code>"2.1.1"</code> means day <strong>2</strong>, session <strong>1</strong>, task <strong>1</strong>.</p>
+</section><section id="getting-new-files" class="slide level2"><h2>Getting new files</h2>
+<p>To get <em>new</em> files for a state:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># "2.1.1": day 2, session 1, task 1</span>
+<span class="fu">btt_get</span><span class="op">(</span><span class="st">"2.1.1"</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<ul>
+<li>files to directories <code>R</code>, <code>tests/testthat</code>.</li>
+<li>contains functions, tests that <em>you</em> will complete.</li>
 </ul>
-</section>
-<section id="learning-objectives" class="slide level2">
-<h2>Learning objectives</h2>
+</div>
+</section><section id="staying-on-the-happy-path" class="slide level2"><h2>Staying on the “happy path”</h2>
+<p>One example builds on another, so it’s important to keep up.</p>
+<div class="fragment">
+<p>We will do our best to help; in case you need to reset:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">btt_reset_hard</span><span class="op">(</span><span class="st">"2.1.1"</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<p>Overwrites:</p>
+<ul>
+<li>directories: <code>R</code>, <code>tests/testthat</code>
+</li>
+<li>
+<code>Imports</code>, <code>Suggests</code> sections of <code>DESCRIPTION</code>
+</li>
+</ul>
+</div>
+</section><section id="learning-objectives" class="slide level2"><h2>Learning objectives</h2>
 <p>At the end of this section you will be able to:</p>
 <ul>
-<li>distinguish a pure function from a function that has or uses side effects.</li>
 <li>order and name your function’s parameters.</li>
 <li>recognize type-stable functions and their importance.</li>
+<li>distinguish a pure function from a function that has or uses side effects.</li>
 </ul>
-</section>
-<section id="make-r-cmd-check-happy" class="slide level2">
-<h2>Make R CMD CHECK happy</h2>
-</section>
-<section id="api-design" class="slide level2">
-<h2>API design</h2>
-</section>
-<section id="make-a-function" class="slide level2">
-<h2>Make a function</h2>
-</section>
-<section id="pure-functions-vs.-side-effects" class="slide level2">
-<h2>Pure functions vs.&nbsp;side effects</h2>
-</section>
-<section id="references" class="slide level2 smaller scrollable">
-<h2>References</h2>
+<p>But first…</p>
+</section><section id="make-r-cmd-check-happy" class="slide level2 smaller"><h2>Make R CMD CHECK happy</h2>
+<p>When we finished yesterday:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>&gt; checking R code for possible problems ... NOTE</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable ‘tier’</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable ‘Season’</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable ‘Date’</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable ‘home’</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable ‘visitor’</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable ‘hgoal’</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable ‘vgoal’</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  Undefined global functions or variables:</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    Date Season hgoal home tier vgoal visitor</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>0 errors ✓ | 0 warnings ✓ | 1 note x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<p>Where does <code>tier</code>, etc. come from?</p>
+</div>
+<div class="fragment">
+<ul>
+<li><p>We know it’s a column in a data frame, but R doesn’t know that.</p></li>
+<li><p>How to specify “this comes from a data frame” ?</p></li>
+</ul>
+</div>
+</section><section id="preview-of-tidy-eval" class="slide level2"><h2>Preview of tidy eval</h2>
+<p>The {rlang} package provides pronouns.</p>
+<div class="fragment">
+<p>Interactively, we might write:</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">mtcars</span> |&gt;
+  <span class="fu">mutate</span><span class="op">(</span>consumption <span class="op">=</span> <span class="fl">235.215</span> <span class="op">/</span> <span class="va">mpg</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<p>In a package function, we would write:</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">mtcars</span> |&gt;
+  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>consumption <span class="op">=</span> <span class="fl">235.215</span> <span class="op">/</span> <span class="va">.data</span><span class="op">$</span><span class="va">mpg</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="your-turn" class="slide level2"><h2>Your turn</h2>
+<ol type="1">
+<li>Add the {rlang} package:</li>
+</ol>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_package.html">use_package</a></span><span class="op">(</span><span class="st">"rlang"</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li>Import the <code>.data</code> pronoun:</li>
+</ol>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># adds to R/ussie-package.R</span>
+<span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_import_from.html">use_import_from</a></span><span class="op">(</span><span class="st">"rlang"</span>, <span class="st">".data"</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="1">
+<li><p><code>R/matches.R</code>: use <code>.data</code> in <code>uss_make_matches()</code>.</p></li>
+<li><p><code><a href="https://devtools.r-lib.org/reference/check.html">devtools::check()</a></code>, should be happy now.</p></li>
+</ol></section><section id="api-design" class="slide level2"><h2>API design</h2>
+</section><section id="make-a-function" class="slide level2"><h2>Make a function</h2>
+</section><section id="pure-functions-vs.-side-effects" class="slide level2"><h2>Pure functions vs.&nbsp;side effects</h2>
+</section><section id="references" class="slide level2 smaller scrollable"><h2>References</h2>
 <div class="footer footer-default">
 <p><a href="https://bit.ly/.." class="uri">https://bit.ly/..</a></p>
 </div>
@@ -428,27 +547,10 @@ Wickham, Hadley, and Jenny Bryan. 2020. <em>R Packages</em>. The work-in-progres
 </div>
 </div>
 </section></section>
-    </div>
+</div>
   </div>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="day-2-session-1-design_files/libs/revealjs/dist/reveal.js"></script>
-  <!-- reveal.js plugins -->
-  <script src="day-2-session-1-design_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="day-2-session-1-design_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="day-2-session-1-design_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="day-2-session-1-design_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="day-2-session-1-design_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
-  <script src="day-2-session-1-design_files/libs/revealjs/plugin/quarto-support/support.js"></script>
-  
-
-  <script src="day-2-session-1-design_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="day-2-session-1-design_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="day-2-session-1-design_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="day-2-session-1-design_files/libs/revealjs/plugin/math/math.js"></script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
-
-  <script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="day-2-session-1-design_files/libs/revealjs/dist/reveal.js"></script><!-- reveal.js plugins --><script src="day-2-session-1-design_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script><script src="day-2-session-1-design_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script><script src="day-2-session-1-design_files/libs/revealjs/plugin/reveal-menu/menu.js"></script><script src="day-2-session-1-design_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script><script src="day-2-session-1-design_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script><script src="day-2-session-1-design_files/libs/revealjs/plugin/quarto-support/support.js"></script><script src="day-2-session-1-design_files/libs/revealjs/plugin/notes/notes.js"></script><script src="day-2-session-1-design_files/libs/revealjs/plugin/search/search.js"></script><script src="day-2-session-1-design_files/libs/revealjs/plugin/zoom/zoom.js"></script><script src="day-2-session-1-design_files/libs/revealjs/plugin/math/math.js"></script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><script>
 
       // Full list of configuration options available at:
       // https://revealjs.com/config/
@@ -640,8 +742,46 @@ Wickham, Hadley, and Jenny Bryan. 2020. <em>R Packages</em>. The work-in-progres
           RevealZoom
         ]
       });
-    </script>
-    <script id="quarto-html-after-body" type="application/javascript">
+    </script><script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          // dispatch for htmlwidgets
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for reveal
+        if (window.Reveal) {
+          window.Reveal.addEventListener("slidechanged", function(event) {
+            fireSlideChanged(event.previousSlide, event.currentSlide);
+          });
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script><script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
       tabsets.forEach(function(tabset) {
@@ -719,6 +859,6 @@ Wickham, Hadley, and Jenny Bryan. 2020. <em>R Packages</em>. The work-in-progres
       }
     });
     </script>
-    
+
 
 </body></html>

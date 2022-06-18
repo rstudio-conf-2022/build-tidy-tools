@@ -69,15 +69,132 @@ Standing on the shoulders of Building Tidy Tools, rstudio::conf(2020) [@wickham2
  
  - Miscellany
 
+## State of play
+
+We want to *concentrate on specific concepts*, rather than writing entire functions.
+
+We have created a set of checkpoints called **states**:
+
+```{r eval=TRUE}
+btt22::btt_state()
+```
+
+For example, `"2.1.1"` means day **2**, session **1**, task **1**.
+
+## Getting new files
+
+To get *new* files for a state:
+
+```r
+# "2.1.1": day 2, session 1, task 1
+btt_get("2.1.1")
+```
+
+. . . 
+
+- files to directories `R`, `tests/testthat`.
+- contains functions, tests that *you* will complete.
+
+## Staying on the "happy path"
+
+One example builds on another, so it's important to keep up.
+
+. . . 
+
+We will do our best to help; in case you need to reset:
+
+```r
+btt_reset_hard("2.1.1")
+```
+
+. . .
+
+Overwrites:
+
+- directories: `R`, `tests/testthat`
+- `Imports`, `Suggests` sections of `DESCRIPTION` 
+
+. . .
+
 ## Learning objectives 
 
 At the end of this section you will be able to:
  
- - distinguish a pure function from a function that has or uses side effects.
  - order and name your function's parameters.
  - recognize type-stable functions and their importance.
+ - distinguish a pure function from a function that has or uses side effects.
 
-## Make R CMD CHECK happy
+But first...
+ 
+## Make R CMD CHECK happy {.smaller}
+
+When we finished yesterday:
+ 
+```default
+> checking R code for possible problems ... NOTE
+  uss_make_matches: no visible binding for global variable ‘tier’
+  uss_make_matches: no visible binding for global variable ‘Season’
+  uss_make_matches: no visible binding for global variable ‘Date’
+  uss_make_matches: no visible binding for global variable ‘home’
+  uss_make_matches: no visible binding for global variable ‘visitor’
+  uss_make_matches: no visible binding for global variable ‘hgoal’
+  uss_make_matches: no visible binding for global variable ‘vgoal’
+  Undefined global functions or variables:
+    Date Season hgoal home tier vgoal visitor
+
+0 errors ✓ | 0 warnings ✓ | 1 note x
+``` 
+
+. . .
+
+Where does `tier`, etc. come from?
+
+. . . 
+
+- We know it's a column in a data frame, but R doesn't know that.
+
+- How to specify "this comes from a data frame" ? 
+
+## Preview of tidy eval
+
+The {rlang} package provides pronouns.
+
+. . . 
+
+Interactively, we might write:
+
+```r
+mtcars |>
+  mutate(consumption = 235.215 / mpg)
+```
+
+. . .
+
+In a package function, we would write:
+
+```r
+mtcars |>
+  dplyr::mutate(consumption = 235.215 / .data$mpg)
+```
+
+## Your turn
+
+1. Add the {rlang} package:
+
+```r
+usethis::use_package("rlang")
+```
+
+2. Import the `.data` pronoun:
+
+```r
+# adds to R/ussie-package.R
+usethis::use_import_from("rlang", ".data")
+```
+
+3. `R/matches.R`: use `.data` in `uss_make_matches()`.
+
+4. `devtools::check()`, should be happy now.
 
 ## API design
 
