@@ -15,7 +15,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
+      - uses: r-lib/actions/setup-renv@v2
+      
       - name: Install Quarto
         uses: quarto-dev/quarto-actions/install-quarto@v1
  
