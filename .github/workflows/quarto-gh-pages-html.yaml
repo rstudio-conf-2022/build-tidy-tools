@@ -20,10 +20,14 @@ jobs:
         with:
           use-public-rspm: true
 
-      - uses: r-lib/actions/setup-renv@v2
+        # hack to get curl system-dependencies installed
+      - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          cache-version: 2
-    
+          extra-packages: |
+            curl
+
+      - uses: r-lib/actions/setup-renv@v2
+
       - name: Install Quarto
         uses: quarto-dev/quarto-actions/install-quarto@v1
  
