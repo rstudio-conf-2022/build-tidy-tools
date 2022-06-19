@@ -21,11 +21,10 @@ jobs:
           use-public-rspm: true
 
         # hack to get curl system-dependencies installed
-      - uses: r-lib/actions/setup-r-dependencies@v2
-        with:
-          extra-packages: |
-            curl
-
+      - name: Install Curl
+        run: install.packages("curl")
+        shell: Rscript {0}
+        
       - uses: r-lib/actions/setup-renv@v2
 
       - name: Install Quarto
