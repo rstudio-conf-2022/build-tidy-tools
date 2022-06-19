@@ -20,10 +20,9 @@ jobs:
         with:
           use-public-rspm: true
 
-        # hack to get curl system-dependencies installed
-      - name: Install Curl
-        run: install.packages("curl")
-        shell: Rscript {0}
+      - name: Install libcurl on Linux
+        if: runner.os == 'Linux'
+        run: sudo apt-get update -y && sudo apt-get install -y libcurl4-openssl-dev
         
       - uses: r-lib/actions/setup-renv@v2
 
