@@ -198,7 +198,7 @@
 </section>
 <section id="packages" class="level2">
 <h2 class="anchored" data-anchor-id="packages">Install the <strong><code>devtools</code></strong> and <strong><code>btt22</code></strong> packages</h2>
-<p>The aim of <strong><code>devtools</code></strong> <span class="citation" data-cites="devtools">(<a href="#ref-devtools" role="doc-biblioref">Wickham et al. 2021</a>)</span> is to make package development easier by providing R functions that simplify and expedite common tasks. The <a href="https://r-pkgs.org/">R Packages</a> book and the Building Tidy Tools workshop are based on a <strong><code>devtools</code></strong> workflow.</p>
+<p>The aim of <strong><code>devtools</code></strong> <span class="citation" data-cites="devtools">(<a href="#ref-devtools" role="doc-biblioref">Wickham et al. 2021</a>)</span> is to make package development easier by providing R functions that simplify and expedite common tasks. The <a href="https://r-pkgs.org/">R Packages</a> <span class="citation" data-cites="wickham2020a">(<a href="#ref-wickham2020a" role="doc-biblioref">Wickham and Bryan 2020</a>)</span> book and the Building Tidy Tools workshop are based on a <strong><code>devtools</code></strong> workflow.</p>
 <p>Install <strong><code>devtools</code></strong>:</p>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -301,7 +301,7 @@
 <div class="sourceCode" id="cb7"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>gitcreds<span class="sc">::</span><span class="fu">gitcreds_set</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="aside">
-<p>You may need to install <strong><code>gitcreds</code></strong>.</p>
+<p>You may need to install <strong><code>gitcreds</code></strong> <span class="citation" data-cites="gitcreds">(<a href="#ref-gitcreds" role="doc-biblioref">Csárdi 2020</a>)</span>.</p>
 </div>
 <p>You can check your set up by asking for a “situation report”</p>
 <div class="cell">
@@ -309,7 +309,7 @@
 </div>
 <section id="personal-access-token" class="level3">
 <h3 class="anchored" data-anchor-id="personal-access-token">Personal Access Token</h3>
-<p>The <a href="https://usethis.r-lib.org/articles/articles/git-credentials.html">Managing Git(Hub) Credentials</a> vignette in the usethis package has all the details on PATs!</p>
+<p>The <a href="https://usethis.r-lib.org/articles/articles/git-credentials.html">Managing Git(Hub) Credentials</a> vignette in the <strong><code>usethis</code></strong> <span class="citation" data-cites="usethis">(<a href="#ref-usethis" role="doc-biblioref">Wickham, Bryan, and Barrett 2022</a>)</span>package has all the details on PATs!</p>
 
 
 </section>
@@ -317,6 +317,15 @@
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
 <div id="ref-bryan" class="csl-entry" role="doc-biblioentry">
 Bryan, Jenny, and Jim Hester. n.d. <span>“Happy Git and GitHub for the useR.”</span> <a href="https://happygitwithr.com/">https://happygitwithr.com/</a>.
+</div>
+<div id="ref-gitcreds" class="csl-entry" role="doc-biblioentry">
+Csárdi, Gábor. 2020. <span>“Gitcreds: Query ’Git’ Credentials from ’r’.”</span> <a href="https://CRAN.R-project.org/package=gitcreds">https://CRAN.R-project.org/package=gitcreds</a>.
+</div>
+<div id="ref-usethis" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, Jennifer Bryan, and Malcolm Barrett. 2022. <span>“Usethis: Automate Package and Project Setup.”</span> <a href="https://CRAN.R-project.org/package=usethis">https://CRAN.R-project.org/package=usethis</a>.
+</div>
+<div id="ref-wickham2020a" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, and Jenny Bryan. 2020. <em>R Packages</em>. The work-in-progress 2nd edition. Online. <a href="https://r-pkgs.org/index.html">https://r-pkgs.org/index.html</a>.
 </div>
 <div id="ref-devtools" class="csl-entry" role="doc-biblioentry">
 Wickham, Hadley, Jim Hester, Winston Chang, and Jennifer Bryan. 2021. <span>“Devtools: Tools to Make Developing r Packages Easier.”</span> <a href="https://CRAN.R-project.org/package=devtools">https://CRAN.R-project.org/package=devtools</a>.
