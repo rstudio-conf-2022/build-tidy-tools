@@ -363,12 +363,29 @@ pivot_longer <- function(
 
 ## Return value: type stability
 
+This is a key to tidyverse.
+
+. . .
+
+### In theory
+
+Type of return-value depends only on the **types** of the inputs.
+
+- no `return_tibble = TRUE` arguments.
+
+. . .
+
+### In practice
+
+ - return same type as data (first) argument
+ 
+ - return constant type, e.g. `double`
 
 ## Putting it all together
 
 When I think of tidyverse functions, I can remember type for:
 
-- first argument
+- data (first) argument
 
 - return value
 
