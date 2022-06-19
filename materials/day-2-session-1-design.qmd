@@ -120,7 +120,7 @@ Overwrites:
 
 At the end of this section you will be able to:
  
- - order and name your function's parameters.
+ - order and name your function's arguments.
  - recognize type-stable functions and their importance.
  - distinguish a pure function from a function that has or uses side effects.
 
@@ -165,7 +165,7 @@ Interactively, we might write:
 
 ```r
 mtcars |>
-  mutate(consumption = 235.215 / mpg)
+  mutate(cons_lper100km = 235.215 / mpg)
 ```
 
 . . .
@@ -174,10 +174,10 @@ In a package function, we would write:
 
 ```r
 mtcars |>
-  dplyr::mutate(consumption = 235.215 / .data$mpg)
+  dplyr::mutate(cons_lper100km = 235.215 / .data$mpg)
 ```
 
-## Your turn
+## Your turn `"2.1.1"`
 
 1. Add the {rlang} package:
 
@@ -197,6 +197,194 @@ usethis::use_import_from("rlang", ".data")
 4. `devtools::check()`, should be happy now.
 
 ## API design
+
+. . .
+
+A thing I like about tidyverse: 
+
+. . .
+
+ - *there should be a function to do* **this**; *it should look like* **this** 
+ 
+ . . .
+  
+ - there already is
+ 
+ . . . 
+ 
+ Because:
+ 
+  - functions and arguments follow naming conventions
+ 
+  - arguments are ordered according to purpose
+ 
+  - we know what to expect for return values
+
+## Evolving references
+
+The way we approach problems is always evolving; tidyverse is no exception:
+
+. . .
+
+- [Tidyverse Style Guide](https://style.tidyverse.org/){preview-link="true"}
+
+. . .
+
+- [Tidyverse Design Guide](https://design.tidyverse.org/){preview-link="true"}
+
+. . .
+
+- follow the GitHub repo of your favorite tidyverse/r-lib package (mine is {usethis}):
+  - issue discussions
+  - pull-request reviews
+
+## Naming functions
+
+If writing a smaller package, consider prefixing your functions:
+
+ - {ussie}: `uss_make_matches()`
+ 
+ - {btt22}: `btt_get()`
+
+. . .
+
+Use a *verb* next:
+
+ - `dplyr::mutate()`, `stringr::str_split()`
+
+. . . 
+
+Use a *noun* if building up a specific type of object:
+
+ - `ggplot2::ggplot()`, `ggplot2::geom_point()`
+
+## Casing
+
+- Tidyverse uses `snake_case`
+
+- Python prefers `snake_case`
+
+- JavaScript prefers:
+  - `camelCase` for functions 
+  - `PascalCase` for classes, interfaces
+
+. . . 
+
+Pick a convention according to your domain, follow it.
+
+## Arguments
+
+Here, `mtcars` is an *argument*:
+
+```r
+head(mtcars)
+```
+
+. . . 
+
+Here, `data` is a *formal argument*:
+
+```r
+head <- function(data){
+  ...
+}
+```
+
+. . .
+
+In R, we sometimes use these terms interchangeably; we sometimes use the term *formals*. 
+
+. . .
+
+`¯\_(ツ)_/¯`
+
+## Naming arguments
+
+Like naming functions, strive to be:
+
+- consistent
+- evocative
+- concise
+
+. . .
+
+> There are only two hard things in Computer Science: cache invalidation and naming things.
+>
+> -- Phil Karlton
+
+. . .
+
+> And off-by-one errors -- [Leon Bambrick](https://twitter.com/secretGeek/status/7269997868)
+
+## Ordering arguments
+
+- **data**: first argument, "the thing" 
+- **descriptors**: values the user should specify
+- **dots** (`...`): stuff that gets passed to other functions
+- **details**: values with defaults
+
+. . . 
+
+I have seen the order of **dots** and **details** reversed.
+
+However, **data** and **descriptors** almost always come first.
+
+## Discuss with neighbor
+
+Which are: data, descriptors, details?
+
+```r
+# there are acutally more args...
+pivot_longer <- function(
+  data,                
+  cols,                
+  names_to = "name",   
+  names_prefix = NULL  
+) {
+  ...
+}
+```
+
+## Discuss with neighbor (answer)
+
+Which are: data, descriptors, details?
+
+```r
+# there are acutally more args...
+pivot_longer <- function(
+  data,                # data
+  cols,                # descriptor
+  names_to = "name",   # details
+  names_prefix = NULL  #
+) {
+  ...
+}
+```
+
+## Return value: type stability
+
+
+## Putting it all together
+
+When I think of tidyverse functions, I can remember type for:
+
+- first argument
+
+- return value
+
+. . .
+
+For example:
+
+- `dplyr::mutate()`: tibble -> tibble
+
+- `tidyr::pivot_longer()`: tibble -> tibble
+
+. . .
+
+tibble -> tibble pattern makes it easy to work with the pipe: `|>`  
+
+
 
 ## Make a function
  

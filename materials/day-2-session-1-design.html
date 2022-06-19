@@ -478,7 +478,7 @@
 </section><section id="learning-objectives" class="slide level2"><h2>Learning objectives</h2>
 <p>At the end of this section you will be able to:</p>
 <ul>
-<li>order and name your function’s parameters.</li>
+<li>order and name your function’s arguments.</li>
 <li>recognize type-stable functions and their importance.</li>
 <li>distinguish a pure function from a function that has or uses side effects.</li>
 </ul>
@@ -511,14 +511,15 @@
 <div class="fragment">
 <p>Interactively, we might write:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">mtcars</span> |&gt;
-  <span class="fu">mutate</span><span class="op">(</span>consumption <span class="op">=</span> <span class="fl">235.215</span> <span class="op">/</span> <span class="va">mpg</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+  <span class="fu">mutate</span><span class="op">(</span>cons_lper100km <span class="op">=</span> <span class="fl">235.215</span> <span class="op">/</span> <span class="va">mpg</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p>In a package function, we would write:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">mtcars</span> |&gt;
-  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>consumption <span class="op">=</span> <span class="fl">235.215</span> <span class="op">/</span> <span class="va">.data</span><span class="op">$</span><span class="va">mpg</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>cons_lper100km <span class="op">=</span> <span class="fl">235.215</span> <span class="op">/</span> <span class="va">.data</span><span class="op">$</span><span class="va">mpg</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="your-turn" class="slide level2"><h2>Your turn</h2>
+</section><section id="your-turn-2.1.1" class="slide level2"><h2>Your turn <code>"2.1.1"</code>
+</h2>
 <ol type="1">
 <li>Add the {rlang} package:</li>
 </ol>
@@ -532,6 +533,177 @@
 <li><p><code>R/matches.R</code>: use <code>.data</code> in <code>uss_make_matches()</code>.</p></li>
 <li><p><code><a href="https://devtools.r-lib.org/reference/check.html">devtools::check()</a></code>, should be happy now.</p></li>
 </ol></section><section id="api-design" class="slide level2"><h2>API design</h2>
+<div class="fragment">
+<p>A thing I like about tidyverse:</p>
+</div>
+<div class="fragment">
+<ul>
+<li>
+<em>there should be a function to do</em> <strong>this</strong>; <em>it should look like</em> <strong>this</strong>
+</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>there already is</li>
+</ul>
+</div>
+<div class="fragment">
+<p>Because:</p>
+<ul>
+<li><p>functions and arguments follow naming conventions</p></li>
+<li><p>arguments are ordered according to purpose</p></li>
+<li><p>we know what to expect for return values</p></li>
+</ul>
+</div>
+</section><section id="evolving-references" class="slide level2"><h2>Evolving references</h2>
+<p>The way we approach problems is always evolving; tidyverse is no exception:</p>
+<div class="fragment">
+<ul>
+<li><a href="https://style.tidyverse.org/" data-preview-link="true">Tidyverse Style Guide</a></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><a href="https://design.tidyverse.org/" data-preview-link="true">Tidyverse Design Guide</a></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>follow the GitHub repo of your favorite tidyverse/r-lib package (mine is {usethis}):
+<ul>
+<li>issue discussions</li>
+<li>pull-request reviews</li>
+</ul>
+</li>
+</ul>
+</div>
+</section><section id="naming-functions" class="slide level2"><h2>Naming functions</h2>
+<p>If writing a smaller package, consider prefixing your functions:</p>
+<ul>
+<li><p>{ussie}: <code>uss_make_matches()</code></p></li>
+<li><p>{btt22}: <code>btt_get()</code></p></li>
+</ul>
+<div class="fragment">
+<p>Use a <em>verb</em> next:</p>
+<ul>
+<li>
+<code><a href="https://dplyr.tidyverse.org/reference/mutate.html">dplyr::mutate()</a></code>, <code><a href="https://stringr.tidyverse.org/reference/str_split.html">stringr::str_split()</a></code>
+</li>
+</ul>
+</div>
+<div class="fragment">
+<p>Use a <em>noun</em> if building up a specific type of object:</p>
+<ul>
+<li>
+<code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot2::ggplot()</a></code>, <code><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">ggplot2::geom_point()</a></code>
+</li>
+</ul>
+</div>
+</section><section id="casing" class="slide level2"><h2>Casing</h2>
+<ul>
+<li><p>Tidyverse uses <code>snake_case</code></p></li>
+<li><p>Python prefers <code>snake_case</code></p></li>
+<li>
+<p>JavaScript prefers:</p>
+<ul>
+<li>
+<code>camelCase</code> for functions</li>
+<li>
+<code>PascalCase</code> for classes, interfaces</li>
+</ul>
+</li>
+</ul>
+<div class="fragment">
+<p>Pick a convention according to your domain, follow it.</p>
+</div>
+</section><section id="arguments" class="slide level2"><h2>Arguments</h2>
+<p>Here, <code>mtcars</code> is an <em>argument</em>:</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<p>Here, <code>data</code> is a <em>formal argument</em>:</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">head</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">data</span><span class="op">)</span><span class="op">{</span>
+  <span class="va">...</span>
+<span class="op">}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<p>In R, we sometimes use these terms interchangeably; we sometimes use the term <em>formals</em>.</p>
+</div>
+<div class="fragment">
+<p><code>¯\_(ツ)_/¯</code></p>
+</div>
+</section><section id="naming-arguments" class="slide level2"><h2>Naming arguments</h2>
+<p>Like naming functions, strive to be:</p>
+<ul>
+<li>consistent</li>
+<li>evocative</li>
+<li>concise</li>
+</ul>
+<div class="fragment">
+<blockquote>
+<p>There are only two hard things in Computer Science: cache invalidation and naming things.</p>
+<p>– Phil Karlton</p>
+</blockquote>
+</div>
+<div class="fragment">
+<blockquote>
+<p>And off-by-one errors – <a href="https://twitter.com/secretGeek/status/7269997868">Leon Bambrick</a></p>
+</blockquote>
+</div>
+</section><section id="ordering-arguments" class="slide level2"><h2>Ordering arguments</h2>
+<ul>
+<li>
+<strong>data</strong>: first argument, “the thing”</li>
+<li>
+<strong>descriptors</strong>: values the user should specify</li>
+<li>
+<strong>dots</strong> (<code>...</code>): stuff that gets passed to other functions</li>
+<li>
+<strong>details</strong>: values with defaults</li>
+</ul>
+<div class="fragment">
+<p>I have seen the order of <strong>dots</strong> and <strong>details</strong> reversed.</p>
+<p>However, <strong>data</strong> and <strong>descriptors</strong> almost always come first.</p>
+</div>
+</section><section id="discuss-with-neighbor" class="slide level2"><h2>Discuss with neighbor</h2>
+<p>Which are: data, descriptors, details?</p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># there are acutally more args...</span>
+<span class="va">pivot_longer</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span>
+  <span class="va">data</span>,                
+  <span class="va">cols</span>,                
+  <span class="va">names_to</span> <span class="op">=</span> <span class="st">"name"</span>,   
+  <span class="va">names_prefix</span> <span class="op">=</span> <span class="cn">NULL</span>  
+<span class="op">)</span> <span class="op">{</span>
+  <span class="va">...</span>
+<span class="op">}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section><section id="discuss-with-neighbor-answer" class="slide level2"><h2>Discuss with neighbor (answer)</h2>
+<p>Which are: data, descriptors, details?</p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># there are acutally more args...</span>
+<span class="va">pivot_longer</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span>
+  <span class="va">data</span>,                <span class="co"># data</span>
+  <span class="va">cols</span>,                <span class="co"># descriptor</span>
+  <span class="va">names_to</span> <span class="op">=</span> <span class="st">"name"</span>,   <span class="co"># details</span>
+  <span class="va">names_prefix</span> <span class="op">=</span> <span class="cn">NULL</span>  <span class="co">#</span>
+<span class="op">)</span> <span class="op">{</span>
+  <span class="va">...</span>
+<span class="op">}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section><section id="return-value-type-stability" class="slide level2"><h2>Return value: type stability</h2>
+</section><section id="putting-it-all-together" class="slide level2"><h2>Putting it all together</h2>
+<p>When I think of tidyverse functions, I can remember type for:</p>
+<ul>
+<li><p>first argument</p></li>
+<li><p>return value</p></li>
+</ul>
+<div class="fragment">
+<p>For example:</p>
+<ul>
+<li><p><code><a href="https://dplyr.tidyverse.org/reference/mutate.html">dplyr::mutate()</a></code>: tibble -&gt; tibble</p></li>
+<li><p><code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">tidyr::pivot_longer()</a></code>: tibble -&gt; tibble</p></li>
+</ul>
+</div>
+<div class="fragment">
+<p>tibble -&gt; tibble pattern makes it easy to work with the pipe: <code>|&gt;</code></p>
+</div>
 </section><section id="make-a-function" class="slide level2"><h2>Make a function</h2>
 </section><section id="pure-functions-vs.-side-effects" class="slide level2"><h2>Pure functions vs.&nbsp;side effects</h2>
 </section><section id="references" class="slide level2 smaller scrollable"><h2>References</h2>
