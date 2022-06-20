@@ -17,7 +17,7 @@ by Emma Rand + Ian Lyttle
 
 ------------------------------------------------------------------------
 
-This repository contains materials for the "Building tidy tools" workshop at rstudio::conf(2022). See xx for rendered workshop materials.
+This repository contains materials for the "Building tidy tools" workshop at rstudio::conf(2022). See https://rstudio-conf-2022.github.io/build-tidy-tools/ for rendered workshop materials.
 
 
 ------------------------------------------------------------------------
