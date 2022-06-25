@@ -402,7 +402,149 @@ For example:
 tibble -> tibble pattern makes it easy to work with the pipe: `|>`  
 
 ## Our turn `"2.1.2"`
+
+Implement a function, `uss_get_matches()`:
+
+  - given a `country`
+  - return a *matches* tibble
  
+. . .
+
+<hr>
+**Only** *if needed*, `btt22::btt_reset_hard("2.1.2")`
+<hr>
+. . . 
+ 
+Get new files, `btt22::btt_get("2.1.2")`:
+
+ - `columns.R`
+ - `get-matches.R`
+ - `test-get-matches.R`
+
+## `columns.R`
+
+In {ussie} we (*will*) have all sorts of tibbles:
+
+ - engsoc
+ - matches
+ - *teams_matches*
+ - *seasons*
+
+. . .  
+ 
+and groupings:
+
+ - *seasons_grouping*
+ - *accumulate*
+ 
+## Build-time vs. run-time
+
+ - Put this code, temporarily, into `columns.R`:
+
+```r
+build_time <- Sys.time()
+
+run_time <- function() {
+  Sys.time()
+}
+```
+
+. . .
+
+ - `devtools::load_all()` 
+ - try `build_time`, `run_time()`
+ 
+. . . 
+
+If you need to delay evaluation, try a function.
+
+## `get_soccer_data()`
+
+Given name of dataset in {engsoccerdata}, return dataset:
+
+```r
+get_soccer_data <- function(data_name) {
+  # create isolated environment
+  e <- new.env()
+  
+  # put the data into environment
+  name <- utils::data(
+    list = data_name, 
+    package = "engsoccerdata", 
+    envir = e
+  )[1]
+  
+  # return data from environment
+  e[[name]]
+}
+```
+
+## `uss_countries()`
+
+Return set of valid values for `country`:
+
+```r
+uss_countries <- function() {
+  c("england", "germany", "holland", "italy", "spain")
+}
+```
+
+. . . 
+
+<hr>
+### Run-time vs. build-time
+
+Safer habit: delay evaluation by wrapping code in a function 
+
+## `best_wins_leeds()`
+
+- `usethis::use_package("engsoccerdata")` 
+
+```r
+best_wins_leeds <- function(n = 10) {
+  engsoccerdata::bestwins(
+    engsoccerdata::england,
+    teamname = "Leeds United",
+    N = n
+  )
+}
+```
+
+. . . 
+
+- `devtools::check()`
+
+- comment out body of `best_wins_leeds()`
+
+- `devtools::check()` again, what changed?
+
+- restore commented-out code
+
+## `uss_get_matches()`
+
+Given `country`, return *matches* data:
+
+```r
+uss_get_matches <- function(country = uss_countries()) {
+  
+  # validate country
+  country <- match.arg(country)
+  
+  # get data for country
+  data <- get_soccer_data(country)
+  
+  # capitalize
+  substr(country, 1, 1) <- toupper(substr(country, 1, 1))
+  
+  # make matches data, return
+  uss_make_matches(data, country) 
+}
+```
+
+## Document
+
+Show an example (or two) of using `uss_get_matches()` in your package vignette.
+
 ## Pure functions vs. side effects
 
 ## References {.smaller}
