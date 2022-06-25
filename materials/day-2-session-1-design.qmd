@@ -329,7 +329,7 @@ I have seen the order of **dots** and **details** reversed.
 
 However, **data** and **descriptors** almost always come first.
 
-## Discuss with neighbor
+## Discuss with neighbour
 
 Which are: data, descriptors, details?
 
@@ -491,7 +491,6 @@ uss_countries <- function() {
 
 . . . 
 
-<hr>
 ### Run-time vs. build-time
 
 Safer habit: delay evaluation by wrapping code in a function 
@@ -546,6 +545,143 @@ uss_get_matches <- function(country = uss_countries()) {
 Show an example (or two) of using `uss_get_matches()` in your package vignette.
 
 ## Pure functions vs. side effects
+
+ - I (Ian) have been programming since 1982, in some form.
+ 
+. . .  
+ 
+ - I studied mechanical engineering, not computer science; programming on the side.
+ 
+. . . 
+
+ - When I learned about this in 2016, it *changed* my view of programming.
+ 
+. . . 
+
+ - Keeping this distinction in mind simplifies a *lot* of challenges.
+
+## Pure function
+
+A function where:
+
+ - the return value depends *only* on argument values
+
+ - only change is the return value
+
+. . .
+
+Examples:
+
+. . .
+ 
+```r
+function(x, y) {
+  x + y
+}
+```
+
+. . .
+ 
+```r
+cos(pi)
+```
+
+## Side effects
+
+A function where:
+
+ - the return value can depend on "the outside universe"
+
+ - there is a change in the "the outside universe"
+ 
+. . .
+
+Examples:
+
+. . .
+
+```r
+readr::read_csv("myfile.csv")
+```
+
+. . .
+
+```r
+runif(1)
+```
+
+## Why is this important?
+
+. . . 
+
+- Pure functions easier to test than functions with side effects.
+
+. . . 
+
+- Side effects (interactions with universe) take time (Shiny).
+
+. . . 
+
+- Functions with side effects should document the effects.
+
+. . . 
+
+- Side effects are not inherently bad (we *do* need to write to the file system),
+  but they need extra care.
+  
+## Discuss with your neighbour
+
+Are these {ussie} functions pure?
+
+- `uss_countries()`
+
+- `uss_make_matches()`
+
+- `get_soccer_data()`
+
+- `uss_get_matches()`
+
+## Practical advice
+
+Try to separate tasks into pure functions and side effects:
+
+- easier to test the pure functions and side effects separately
+
+- use *these* functions in higher-level functions
+
+. . .
+
+For example:
+
+- `uss_make_matches()` is a pure function.
+
+- `get_soccer_data()` uses side effects.
+
+- `uss_get_matches()` calls each of these functions.
+
+## Summary
+
+. . .
+
+- **Naming**: be consistent, concise, yet evocative.
+  
+. . .
+
+- **Argument order**: data, descriptors, dots, details.
+  
+. . .
+
+- **Return value type**: be consistent, predictable.
+
+. . .
+
+- Easy to remember data (first) argument and return value:
+  - easy to use pipe, `|>`.
+
+. . .
+
+- Be mindful of side effects.
+
 
 ## References {.smaller}
 
