@@ -418,8 +418,7 @@ Implement a function, `uss_get_matches()`:
  
 Get new files, `btt22::btt_get("2.1.2")`:
 
- - `columns.R`
- - `get-matches.R`
+ - `columns.R`, `get-matches.R`
  - `test-get-matches.R`
 
 ## `columns.R`
@@ -500,23 +499,21 @@ Safer habit: delay evaluation by wrapping code in a function
 
 - `usethis::use_package("engsoccerdata")` 
 
-```r
-best_wins_leeds <- function(n = 10) {
-  engsoccerdata::bestwins(
-    engsoccerdata::england,
-    teamname = "Leeds United",
-    N = n
-  )
-}
-```
+  ```r
+  best_wins_leeds <- function(n = 10) {
+    engsoccerdata::bestwins(
+      engsoccerdata::england,
+      teamname = "Leeds United",
+      N = n
+    )
+  }
+  ```
 
 . . . 
 
-- `devtools::check()`
+- `devtools::check()`, comment `best_wins_leeds()`
 
-- comment out body of `best_wins_leeds()`
-
-- `devtools::check()` again, what changed?
+- `devtools::check()` 🤔
 
 - restore commented-out code
 
@@ -665,7 +662,7 @@ For example:
 . . .
 
 - **Naming**: be consistent, concise, yet evocative.
-  
+
 . . .
 
 - **Argument order**: data, descriptors, dots, details.
