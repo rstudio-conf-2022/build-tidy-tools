@@ -27,6 +27,7 @@ At the end of this section you will be able to:
 - create validator functions
 - manage the global state (leave no footprints) using {withr}
 - test functions that use or cause side-effects
+- use snapshot testing
 
 ## Errors
 
@@ -237,6 +238,7 @@ Get new files, `btt22::btt_get("2.2.1")`:
 
 ## Managing global state
 
+<<<<<<< HEAD
 Leave no footprints.
 
 Leave the global state how you found it, avoid surprises later:
@@ -372,7 +374,6 @@ With a couple of wrinkles:
 . . . 
 
 *No* new files.
- 
 
 ## Summary
 
