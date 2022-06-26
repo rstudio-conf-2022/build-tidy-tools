@@ -18,3 +18,218 @@ execute:
   eval: false
 bibliography: references.bib
 ---
+
+## Learning objectives 
+
+At the end of this section you will be able to:
+
+- write effective error messages
+- create validator functions
+- manage the global state (leave no footprints) using {withr}
+- test functions that use or cause side-effects
+- use snapshot testing
+
+## Errors
+
+- The most common type of side-effect is the **error condition**. 
+
+. . .
+
+- Sometimes, error messages can be cryptic: 
+
+  ```r
+  seq[10]
+  ```
+
+  ```
+  Error in seq[10] : object of type 'closure' is not subsettable
+  ```
+
+. . . 
+
+
+- You can write error messages that make things clearer for: 
+  - developers who call your functions
+  - end users
+
+## Creating an error condition 
+
+An effective error condition has:
+
+- **predicate** (logical expression used to identify condition)
+- clear **message** for end user
+- **class name** for developer
+- **more information** for developer
+
+## Using `cli::cli_abort()`
+
+```r
+# predicate
+if (y > 3) {
+  cli::cli_abort(
+    # message for end user
+    c(
+      "{.var y} cannot be greater than 3.", 
+      x = "{.var y} is {.val {y}}."
+    )
+    # class name
+    class = "ussie_error_threshold",  
+    # more information
+    y = y     
+  )
+}
+```
+
+## Predicate
+
+Prefer:
+
+ - simpler predicates and more error-conditions
+ 
+Over:
+
+ - complex predicates and fewer error-conditions
+ 
+. . .
+
+Finding simplest set of predicates is just as challenging as finding the "right" names for functions and arguments.
+
+## Message
+
+Content:
+
+- how did we violate the predicate?
+
+. . . 
+
+Formatting:
+
+- {cli} provides powerful formatting tools:
+
+  - use curly-braces and a tag, e.g. `{.var y}` 
+  - use more curly-braces to interpolate, e.g. `{.val {y}}`
+  
+- see [cli inline-markup](https://cli.r-lib.org/reference/inline-markup.html) for more details.
+
+## Class name
+
+- A developer, calling your function, can use the `class` name to handle the error, if they want.
+
+- Convention: 
+  
+  - `"{package}_error_{description}"`
+
+## Additional information
+
+This "stuff" is also available to an error handler.
+
+- Provide the data that went into the predicate.
+
+- Provide name of variable, e.g. `y = y`.
+
+- Avoid reserved names: `message`, `class`, `call`, `body`, `footer`, `trace`, `parent`, `use_cli_format`.
+
+## Validation
+
+If there will be an error, surface it quickly.
+
+Validating the arguments to a function is one way to do this.
+
+. . .
+
+For example:
+
+ - is *this* a data frame?
+ - does this data frame have *these* columns?
+
+. . . 
+ 
+Questions like these can be generalized into functions:
+
+ - throw an error if you need to.
+ - otherwise, return **data** argument invisibly.
+ 
+## Validate string-values 
+
+You may be familiar with `match.arg()`:
+
+ - uses "magic" to compare value (if any) to default
+ - argument default is vector of strings
+   - if value not among defaults, **error**
+   - if value among defaults, return it
+   - if no value, return *first* value in default
+
+. . .
+
+`rlang::arg_match()` does the same thing, but:
+
+  - partial match triggers error
+  - error messages conform to tidyverse standards
+   
+## Your turn `"2.2.1"`
+
+Implement validator-functions:
+
+ - string among choices.
+ - is *this* a data frame?
+ - does this data frame have *these* columns?
+ 
+. . .
+
+<hr>
+**Only** *if needed*, `btt22::btt_reset_hard("2.2.1")`
+<hr>
+
+. . . 
+ 
+Get new files, `btt22::btt_get("2.2.1")`:
+
+ - `validate.R`
+ - `test-validate.R`
+
+## Use `rlang::arg_match()`
+
+👉 `devtools::load_all()`, then:
+
+- 👉 `uss_get_matches("italy")` 🎉
+- 👉 `uss_get_matches("tatooine")` 🎉 
+- 👉 `uss_get_matches("ita")` 🤔
+
+`get-matches.R`: 
+
+ - replace `match.arg()` with `rlang::arg_match()`
+ 
+`test-get-matches.R`: 
+
+ - uncomment test for `2.2.1`, then repeat 👉
+ 
+## Build error constructor
+
+- `usethis::use_package("cli")`
+
+- review `validate_data_frame()` (`call` argument)
+
+- build constructor for `validate_cols()`:
+  - something like `{.field {cols}}` may be useful
+  - activate `2.2.1` tests in `test-validate.R`, as you go
+
+- hold off on snapshot test (we'll do together)
+
+. . .
+
+- add validator-functions to `uss_make_matches()`:
+  - `matches.R`
+  - `cols_engsoc()` may be useful
+
+## Managing global state
+
+## Testing functions with side effects
+
+## Snapshot testing
+
+## Summary
+
+## References
+
+
+ 
