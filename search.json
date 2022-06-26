@@ -1001,6 +1001,174 @@
     "text": "References\n\n\nhttps://bit.ly/..\n\n\n\nHorst, Allison Marie, Alison Presmanes Hill, and Kristen B Gorman. 2020. “Palmerpenguins: Palmer Archipelago (Antarctica) Penguin Data.” https://allisonhorst.github.io/palmerpenguins/.\n\n\nWickham, Hadley. 2016. “Ggplot2: Elegant Graphics for Data Analysis.” https://ggplot2.tidyverse.org."
   },
   {
+    "objectID": "materials/day-2-session-2-side-effects.html#learning-objectives",
+    "href": "materials/day-2-session-2-side-effects.html#learning-objectives",
+    "title": "📦 Building tidy tools",
+    "section": "Learning objectives",
+    "text": "Learning objectives\nAt the end of this section you will be able to:\n\nwrite effective error messages\ncreate validator functions\nmanage the global state (leave no footprints) using {withr}\ntest functions that use or cause side-effects\nuse snapshot testing"
+  },
+  {
+    "objectID": "materials/day-2-session-2-side-effects.html#errors",
+    "href": "materials/day-2-session-2-side-effects.html#errors",
+    "title": "📦 Building tidy tools",
+    "section": "Errors",
+    "text": "Errors\n\nThe most common type of side-effect is the error condition.\n\n\n\nSometimes, error messages can be cryptic:\nseq[10]\nError in seq[10] : object of type 'closure' is not subsettable\n\n\n\n\nYou can write error messages that make things clearer for:\n\ndevelopers who call your functions\nend users"
+  },
+  {
+    "objectID": "materials/day-2-session-2-side-effects.html#creating-an-error-condition",
+    "href": "materials/day-2-session-2-side-effects.html#creating-an-error-condition",
+    "title": "📦 Building tidy tools",
+    "section": "Creating an error condition",
+    "text": "Creating an error condition\nAn effective error condition has:\n\npredicate (logical expression used to identify condition)\nclear message for end user\nclass name for developer\nmore information for developer"
+  },
+  {
+    "objectID": "materials/day-2-session-2-side-effects.html#using-clicli_abort",
+    "href": "materials/day-2-session-2-side-effects.html#using-clicli_abort",
+    "title": "📦 Building tidy tools",
+    "section": "Using cli::cli_abort()",
+    "text": "Using cli::cli_abort()\n# predicate\nif (y > 3) {\n  cli::cli_abort(\n    # message for end user\n    c(\n      \"{.var y} cannot be greater than 3.\", \n      x = \"{.var y} is {.val {y}}.\"\n    )\n    # class name\n    class = \"ussie_error_threshold\",  \n    # more information\n    y = y     \n  )\n}"
+  },
+  {
+    "objectID": "materials/day-2-session-2-side-effects.html#predicate",
+    "href": "materials/day-2-session-2-side-effects.html#predicate",
+    "title": "📦 Building tidy tools",
+    "section": "Predicate",
+    "text": "Predicate\nPrefer:\n\nsimpler predicates and more error-conditions\n\nOver:\n\ncomplex predicates and fewer error-conditions\n\n\nFinding simplest set of predicates is just as challenging as finding the “right” names for functions and arguments."
+  },
+  {
+    "objectID": "materials/day-2-session-2-side-effects.html#message",
+    "href": "materials/day-2-session-2-side-effects.html#message",
+    "title": "📦 Building tidy tools",
+    "section": "Message",
+    "text": "Message\nContent:\n\nhow did we violate the predicate?\n\n\nFormatting:\n\n{cli} provides powerful formatting tools:\n\nuse curly-braces and a tag, e.g. {.var y}\nuse more curly-braces to interpolate, e.g. {.val {y}}\n\nsee cli inline-markup for more details."
+  },
+  {
+    "objectID": "materials/day-2-session-2-side-effects.html#class-name",
+    "href": "materials/day-2-session-2-side-effects.html#class-name",
+    "title": "📦 Building tidy tools",
+    "section": "Class name",
+    "text": "Class name\n\nA developer, calling your function, can use the class name to handle the error, if they want.\nConvention:\n\n\"{package}_error_{description}\""
+  },
+  {
+    "objectID": "materials/day-2-session-2-side-effects.html#additional-information",
+    "href": "materials/day-2-session-2-side-effects.html#additional-information",
+    "title": "📦 Building tidy tools",
+    "section": "Additional information",
+    "text": "Additional information\nThis “stuff” is also available to an error handler.\n\nProvide the data that went into the predicate.\nProvide name of variable, e.g. y = y.\nAvoid reserved names: message, class, call, body, footer, trace, parent, use_cli_format."
+  },
+  {
+    "objectID": "materials/day-2-session-2-side-effects.html#validation",
+    "href": "materials/day-2-session-2-side-effects.html#validation",
+    "title": "📦 Building tidy tools",
+    "section": "Validation",
+    "text": "Validation\nIf there will be an error, surface it quickly.\nValidating the arguments to a function is one way to do this.\n\nFor example:\n\nis this a data frame?\ndoes this data frame have these columns?\n\n\n\nQuestions like these can be generalized into functions:\n\nthrow an error if you need to.\notherwise, return data argument invisibly."
+  },
+  {
+    "objectID": "materials/day-2-session-2-side-effects.html#validate-string-values",
+    "href": "materials/day-2-session-2-side-effects.html#validate-string-values",
+    "title": "📦 Building tidy tools",
+    "section": "Validate string-values",
+    "text": "Validate string-values\nYou may be familiar with match.arg():\n\nuses “magic” to compare value (if any) to default\nargument default is vector of strings\n\nif value not among defaults, error\nif value among defaults, return it\nif no value, return first value in default\n\n\n\nrlang::arg_match() does the same thing, but:\n\npartial match triggers error\nerror messages conform to tidyverse standards"
+  },
+  {
+    "objectID": "materials/day-2-session-2-side-effects.html#snapshot-tests",
+    "href": "materials/day-2-session-2-side-effects.html#snapshot-tests",
+    "title": "📦 Building tidy tools",
+    "section": "Snapshot tests",
+    "text": "Snapshot tests\nDesigned for capturing side-effects:\n\nerror messages\ndplyr::glimpse() is a useful shortcut\n\n\nBe careful about accepting changes (don’t just accept).\nCan be temperamental - not run on CRAN.\nWe will go through, using examples."
+  },
+  {
+    "objectID": "materials/day-2-session-2-side-effects.html#your-turn-2.2.1",
+    "href": "materials/day-2-session-2-side-effects.html#your-turn-2.2.1",
+    "title": "📦 Building tidy tools",
+    "section": "Your turn \"2.2.1\"",
+    "text": "Your turn \"2.2.1\"\nImplement validator-functions:\n\nstring among choices.\nis this a data frame?\ndoes this data frame have these columns?\n\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.2.1\")\n\n\n\nGet new files, btt22::btt_get(\"2.2.1\"):\n\nvalidate.R\ntest-validate.R"
+  },
+  {
+    "objectID": "materials/day-2-session-2-side-effects.html#use-rlangarg_match",
+    "href": "materials/day-2-session-2-side-effects.html#use-rlangarg_match",
+    "title": "📦 Building tidy tools",
+    "section": "Use rlang::arg_match()",
+    "text": "Use rlang::arg_match()\n👉 devtools::load_all(), then:\n\n👉 uss_get_matches(\"italy\") 🎉\n👉 uss_get_matches(\"tatooine\") 🎉\n👉 uss_get_matches(\"ita\") 🤔\n\nget-matches.R:\n\nreplace match.arg() with rlang::arg_match()\n\ntest-get-matches.R:\n\nuncomment test for 2.2.1, then repeat 👉"
+  },
+  {
+    "objectID": "materials/day-2-session-2-side-effects.html#build-error-constructor",
+    "href": "materials/day-2-session-2-side-effects.html#build-error-constructor",
+    "title": "📦 Building tidy tools",
+    "section": "Build error constructor",
+    "text": "Build error constructor\n\nusethis::use_package(\"cli\")\nreview validate_data_frame() (call argument)\nbuild constructor for validate_cols():\n\nsomething like {.field {cols}} may be useful\nactivate 2.2.1 tests in test-validate.R, as you go\n\nhold off on snapshot test (we’ll do together)\n\n\n\nadd validator-functions to uss_make_matches():\n\nmatches.R\ncols_engsoc() may be useful"
+  },
+  {
+    "objectID": "materials/day-2-session-2-side-effects.html#managing-global-state",
+    "href": "materials/day-2-session-2-side-effects.html#managing-global-state",
+    "title": "📦 Building tidy tools",
+    "section": "Managing global state",
+    "text": "Managing global state\nLeave no footprints.\nLeave the global state how you found it, avoid surprises later:\n\npackages loaded\nalso: options, environment variables\n\n\nLoading {devtools} in .Rprofile changes the global state.\n\n\nWhen we hit the “Knit” button, or the Quarto “Render” button:\n\nit runs in a new R session\ndoes not execute user’s .Rprofile"
+  },
+  {
+    "objectID": "materials/day-2-session-2-side-effects.html#using-self-removing-footprints",
+    "href": "materials/day-2-session-2-side-effects.html#using-self-removing-footprints",
+    "title": "📦 Building tidy tools",
+    "section": "Using “self-removing footprints”",
+    "text": "Using “self-removing footprints”\nThe {withr} package gives us tools to:\n\nmodify global state\nspecify when to reverse the modification\n\n\nUseful family of functions:\n\nwithr::local_*()\nchanges the state back when a scope is exited\nif called within a function, normally when the function exits"
+  },
+  {
+    "objectID": "materials/day-2-session-2-side-effects.html#when-could-this-be-useful",
+    "href": "materials/day-2-session-2-side-effects.html#when-could-this-be-useful",
+    "title": "📦 Building tidy tools",
+    "section": "When could this be useful?",
+    "text": "When could this be useful?\nCRAN is (rightly) particular about “leave no footprints”.\nYou may need:\n\nwithr::local_options(): change an option\nwithr::local_dir(): change the working directory\nwithr::local_tempfile(): path to a temporary file\n\n\nUseful in testthat code and in R code."
+  },
+  {
+    "objectID": "materials/day-2-session-2-side-effects.html#example",
+    "href": "materials/day-2-session-2-side-effects.html#example",
+    "title": "📦 Building tidy tools",
+    "section": "Example",
+    "text": "Example\n\nusethis::use_test(\"validate\")\nchange:\nexpect_identical(error_condition$cols_req, \"foo\")\nto:\nexpect_identical(error_condition$cols_re, \"foo\")\nrerun tests 🤔\n\n\n\nBy default, $ accepts partial matching.\nWe want stricter testing, so we need to set some options."
+  },
+  {
+    "objectID": "materials/day-2-session-2-side-effects.html#our-turn-2.2.2",
+    "href": "materials/day-2-session-2-side-effects.html#our-turn-2.2.2",
+    "title": "📦 Building tidy tools",
+    "section": "Our turn \"2.2.2\"",
+    "text": "Our turn \"2.2.2\"\nTurn off $ partial matching when testing.\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.2.2\")\n\n\n\nGet new files, btt22::btt_get(\"2.2.2\"):\n\nutils-testing.R\n\nusethis::use_package(\"withr\")"
+  },
+  {
+    "objectID": "materials/day-2-session-2-side-effects.html#local_warn_partial_match",
+    "href": "materials/day-2-session-2-side-effects.html#local_warn_partial_match",
+    "title": "📦 Building tidy tools",
+    "section": "local_warn_partial_match()",
+    "text": "local_warn_partial_match()\nIn essence, this sets (temporarily) TRUE:\n\noptions(\"warnPartialMatchDollar\")\noptions(\"warnPartialMatchArgs\")\noptions(\"warnPartialMatchAttr\")\n\n\nWith a couple of wrinkles:\n\nwe need to treat NULL as FALSE.\nwe set things back when the calling scope exits."
+  },
+  {
+    "objectID": "materials/day-2-session-2-side-effects.html#our-turn-2.2.2-continued",
+    "href": "materials/day-2-session-2-side-effects.html#our-turn-2.2.2-continued",
+    "title": "📦 Building tidy tools",
+    "section": "Our turn \"2.2.2\", continued",
+    "text": "Our turn \"2.2.2\", continued\n\nusethis::use_test(\"validate\")\nadd local_warn_partial_match() to top of blocks.\ngetOption(\"warnPartialMatchDollar\")\nchange:\nexpect_identical(error_condition$cols_re, \"foo\")\ndevtools::test() 🎉\ngetOption(\"warnPartialMatchDollar\")\nchange back to $cols_req"
+  },
+  {
+    "objectID": "materials/day-2-session-2-side-effects.html#your-turn-2.2.3",
+    "href": "materials/day-2-session-2-side-effects.html#your-turn-2.2.3",
+    "title": "📦 Building tidy tools",
+    "section": "Your turn \"2.2.3\"",
+    "text": "Your turn \"2.2.3\"\nImplement testing with side effects\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.2.3\")\n\n\n\nNo new files.\n\n\n\nadd local_warn_partial_match() to all test-blocks.\ntest-marches.R:\n\nadd expect_error() calls for data-frame and columns (use class argument).\nat end, add:\n\nexpect_snapshot(dplyr::glimpse(italy))"
+  },
+  {
+    "objectID": "materials/day-2-session-2-side-effects.html#summary",
+    "href": "materials/day-2-session-2-side-effects.html#summary",
+    "title": "📦 Building tidy tools",
+    "section": "Summary",
+    "text": "Summary\n\nThe most-common side-effect is an error. Good design:\n\n\n\nsimple (as possible) predicate\nclear mesage\nadd a class using naming convention\nadd additional information\n\n\n\nUse snapshot tests to capture side-effects.\n\nbe very careful when accepting changes to snapshots.\n\n\n\nUse withr::local_*() functions to “leave no footprints”."
+  },
+  {
+    "objectID": "materials/day-2-session-2-side-effects.html#references",
+    "href": "materials/day-2-session-2-side-effects.html#references",
+    "title": "📦 Building tidy tools",
+    "section": "References",
+    "text": "References\n\n\nhttps://bit.ly/.."
+  },
+  {
     "objectID": "materials/day-1-session-3-testing.html#section-1",
     "href": "materials/day-1-session-3-testing.html#section-1",
     "title": "📦 Building tidy tools",
