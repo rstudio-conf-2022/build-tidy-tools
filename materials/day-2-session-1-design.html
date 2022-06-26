@@ -405,470 +405,621 @@
 
 <section id="title-slide" class="center">
   <h1 class="title">📦 <br>Building tidy tools</h1>
-  <p class="subtitle">Day 1 Session 2: 🏷️Documentation - Minimal</p>
+  <p class="subtitle">Day 2 Session 1: Function Design</p>
   <p class="author">Emma Rand and Ian Lyttle</p>
   <p class="date"><br>🔗 <a href="https://bit.ly/..">bit.ly/…</a></p>
 </section>
 
 <section>
-<section id="document-your-package" class="title-slide slide level1 center">
-<h1>🏷️ Document your package</h1>
+<section id="welcome-back" class="title-slide slide level1 center">
+<h1>👋 Welcome Back</h1>
 
 </section>
-<section id="learning-objectives" class="slide level2 smaller">
-<h2>Learning Objectives</h2>
+<section id="the-team" class="slide level2">
+<h2>The Team</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Emma Rand 🐦<a href="https://twitter.com/er13_r?lang=en">er13_r</a></p>
+<p>Elliot Murphy</p>
+<p>Beatriz Milz</p>
+</div><div class="column" style="width:50%;">
+<p>Ian Lyttle 🐦<a href="https://twitter.com/ijlyttle?lang=en">ijlyttle</a></p>
+<p>Haley Jeppson</p>
+<p>Ted Laderas</p>
+</div>
+</div>
+<p>Standing on the shoulders of Building Tidy Tools, rstudio::conf(2020) <span class="citation" data-cites="wickham2021a">(<a href="#/ref-wickham2021a" role="doc-biblioref" onclick="return false;">C. Wickham and Wickham 2021</a>)</span>, R Packages <span class="citation" data-cites="wickham2020">(<a href="#/ref-wickham2020" role="doc-biblioref" onclick="return false;">H. Wickham and Bryan 2020</a>)</span></p>
+</section>
+<section id="code-of-conduct" class="slide level2">
+<h2>Code of conduct</h2>
+</section>
+<section id="housekeeping" class="slide level2">
+<h2>Housekeeping</h2>
+<ul>
+<li><p>Toilets</p></li>
+<li><p>Fire exits and alarms</p></li>
+<li><p>anything else?</p></li>
+</ul>
+</section>
+<section id="how-we-will-work" class="slide level2">
+<h2>How we will work</h2>
+<ul>
+<li><p>stickies</p></li>
+<li><p>no stupid questions</p></li>
+</ul>
+</section>
+<section id="schedule" class="slide level2">
+<h2>Schedule</h2>
+<ul>
+<li><p>Function design</p></li>
+<li><p>Working with side effects</p></li>
+<li><p>Tidy Eval</p></li>
+<li><p>Miscellany</p></li>
+</ul>
+</section>
+<section id="state-of-play" class="slide level2">
+<h2>State of play</h2>
+<p>We want to <em>concentrate on specific concepts</em>, rather than writing entire functions.</p>
+<p>We have created a set of checkpoints called <strong>states</strong>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>btt22<span class="sc">::</span><span class="fu">btt_state</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "2.1.1" "2.1.2" "2.2.1" "2.2.2" "2.2.3" "2.3.1" "2.3.2" "2.3.3" "2.3.4"
+[10] "2.3.5" "2.3.6" "2.3.7" "2.4.1" "2.4.2" "2.4.3"</code></pre>
+</div>
+</div>
+<p>For example, <code>"2.1.1"</code> means day <strong>2</strong>, session <strong>1</strong>, task <strong>1</strong>.</p>
+</section>
+<section id="getting-new-files" class="slide level2">
+<h2>Getting new files</h2>
+<p>To get <em>new</em> files for a state:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># "2.1.1": day 2, session 1, task 1</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">btt_get</span>(<span class="st">"2.1.1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<ul>
+<li>files to directories <code>R</code>, <code>tests/testthat</code>.</li>
+<li>contains functions, tests that <em>you</em> will complete.</li>
+</ul>
+</div>
+</section>
+<section id="staying-on-the-happy-path" class="slide level2">
+<h2>Staying on the “happy path”</h2>
+<p>One example builds on another, so it’s important to keep up.</p>
+<div class="fragment">
+<p>We will do our best to help; in case you need to reset:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">btt_reset_hard</span>(<span class="st">"2.1.1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<p>Overwrites:</p>
+<ul>
+<li>directories: <code>R</code>, <code>tests/testthat</code></li>
+<li><code>Imports</code>, <code>Suggests</code> sections of <code>DESCRIPTION</code></li>
+</ul>
+</div>
+</section>
+<section id="learning-objectives" class="slide level2">
+<h2>Learning objectives</h2>
 <p>At the end of this section you will be able to:</p>
 <ul>
-<li>lo</li>
-<li>lo</li>
-<li>lo</li>
-<li>lo</li>
-<li></li>
+<li>order and name your function’s arguments.</li>
+<li>recognize type-stable functions and their importance.</li>
+<li>distinguish a pure function from a function that has or uses side effects.</li>
 </ul>
-</section></section>
-<section>
-<section id="overview" class="title-slide slide level1 center">
-<h1>Overview</h1>
-
+<p>But first…</p>
 </section>
-<section id="levels-of-package-documentation" class="slide level2">
-<h2>Levels of package documentation</h2>
-<ul>
-<li><p>Metadata: The <code>DESCRIPTION</code> file – “what’s in this package?”</p></li>
-<li><p>Object documentation: for functions and data</p></li>
-</ul>
-<!-- for each of the exported functions and datasets in the package, along with examples of usage -->
-<ul>
-<li>Vignettes: Long form documentation</li>
-</ul>
-<!-- generally discussing how to use a number of functions from the - package together and/or how a package fits into a larger ecosystem of packages -->
-<ul>
-<li><strong><code>pkgdown</code></strong> sites: Websites for your package!</li>
-</ul>
-</section></section>
-<section>
-<section id="description" class="title-slide slide level1 center">
-<h1><code>DESCRIPTION</code></h1>
-
-</section>
-<section id="sample-description" class="slide level2">
-<h2>Sample <code>DESCRIPTION</code></h2>
-<p>🎬 Take a look at the <code>DESCRIPTION</code> for the following packages. What’s common? What’s different?</p>
-<ul>
-<li><strong><code>ggplot2</code></strong> <span class="citation" data-cites="ggplot2">Wickham (<a href="#/ref-ggplot2" role="doc-biblioref" onclick="return false;">2016</a>)</span>
-<ul>
-<li><a href="https://cran.r-project.org/web/packages/ggplot2/index.html">CRAN Package page</a></li>
-<li><a href="https://github.com/tidyverse/ggplot2/blob/main/DESCRIPTION">DESCRIPTION on GitHub</a></li>
-</ul></li>
-<li><strong><code>palmerpenguins</code></strong> <span class="citation" data-cites="palmerpenguins">Horst, Hill, and Gorman (<a href="#/ref-palmerpenguins" role="doc-biblioref" onclick="return false;">2020</a>)</span>
-<ul>
-<li><a href="https://cran.r-project.org/web/packages/palmerpenguins/index.html">CRAN Package page</a></li>
-<li><a href="https://github.com/allisonhorst/palmerpenguins/blob/master/DESCRIPTION">DESCRIPTION on GitHub</a></li>
-</ul></li>
-</ul>
-</section>
-<section id="metadata-in-description" class="slide level2">
-<h2>Metadata in <code>DESCRIPTION</code></h2>
-<ul>
-<li><p>Title: One line, title case, with no period. Fewer than 65 characters.</p></li>
-<li><p>Version</p>
-<ul>
-<li>for release: MAJOR.MINOR.PATCH version.</li>
-<li>for development version building on version MAJOR.MINOR.PATCH, use: MAJOR.MINOR.PATCH.9000</li>
-</ul></li>
-<li><p>Authors@R:</p>
-<ul>
-<li>“aut” means author, “cre” means creator, “ctb” means contributor.</li>
-</ul></li>
-</ul>
-</section>
-<section id="update-description" class="slide level2">
-<h2>Update <code>DESCRIPTION</code></h2>
-<p>🎬 Add a title</p>
-<p><br>
-</p>
-<p>🎬 You should find that your information as an author is already included because you edited your <code>.RProfile</code> at the start of the session</p>
-</section>
-<section id="update-description-1" class="slide level2 smaller">
-<h2>Update <code>DESCRIPTION</code></h2>
-<pre><code>Package: ussie
-Title: Work with European Football League Data
-Version: 0.0.0.9000
-Authors@R: 
-    person(given = "Emma",
-           family = "Rand", 
-           email = "emma.rand@york.ac.uk",
-           role = c("aut", "cre"),
-           comment = c(ORCID = "0000-0002-1358-8275"))
-Description: What the package does (one paragraph).
-License: MIT + file LICENSE
-Encoding: UTF-8
-Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.0
-URL: https://github.com/3mmaRand/ussies
-BugReports: https://github.com/3mmaRand/ussies/issues</code></pre>
-</section>
-<section id="metadata-in-description-1" class="slide level2">
-<h2>Metadata in <code>DESCRIPTION</code></h2>
-<ul>
-<li><p>Description: One paragraph describing what the package does. Keep the width of the paragraph to 80 characters; indent subsequent lines with 4 spaces</p></li>
-<li><p>License</p></li>
-<li><p>Encoding: How to encode text, use UTF-8 encoding.</p></li>
-<li><p>LazyData: Use true to lazy-load data sets in the package.</p></li>
-</ul>
-</section></section>
-<section>
-<section id="object-documentation" class="title-slide slide level1 center">
-<h1>Object documentation</h1>
-
-</section>
-<section id="object-documentation-1" class="slide level2">
-<h2>Object documentation</h2>
-<ul>
-<li><p>Object documentation is what you see when you use <code>?</code> or <code>help()</code></p></li>
-<li><p>These helps files are written in a special “R documentation” format: <code>.Rd</code></p></li>
-<li><p><code>.Rd</code> resembles LaTeX,</p></li>
-</ul>
-</section>
-<section id="manuss_make_matches.rd" class="slide level2 smaller">
-<h2><code>man/uss_make_matches.Rd</code></h2>
-<pre><code>\name{uss_make_matches}
-\alias{uss_make_matches}
-\title{Make a standard league-play tibble}
-\usage{
-uss_make_matches(data_engsoc, country)
-}
-\arguments{
-\item{data_engsoc}{\code{data.frame} obtained from {engsoccerdata}. One of:
-engsoccerdata::england, engsoccerdata::germany, engsoccerdata::holland,
-engsoccerdata::italy, engsoccerdata::spain}
-
-\item{country}{\code{character} scalar, specifies the league.}
-}
-\value{
-a tibble with columns \code{country}, \code{date}, \code{season}, \code{tier}, \code{home},
-\code{visitor}, \code{goals_home}, \code{goals_visitor}.
-}
-\description{
-Given a league-play data frame from {engsoccer}, returns a tibble with
-standardised colomn-names and types, e.g. \code{date} is a \code{Date}.
-}
-\examples{
-uss_make_matches(engsoccerdata::italy, "Italy")
-uss_make_matches(engsoccerdata::spain, "Spain")
-
-}</code></pre>
-</section>
-<section id="object-documentation-2" class="slide level2">
-<h2>Object documentation</h2>
-<p>🥳 We don’t have to write it!!</p>
+<section id="make-r-cmd-check-happy" class="slide level2 smaller">
+<h2>Make R CMD CHECK happy</h2>
+<p>When we finished yesterday:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>&gt; checking R code for possible problems ... NOTE</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable ‘tier’</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable ‘Season’</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable ‘Date’</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable ‘home’</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable ‘visitor’</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable ‘hgoal’</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable ‘vgoal’</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  Undefined global functions or variables:</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    Date Season hgoal home tier vgoal visitor</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>0 errors ✓ | 0 warnings ✓ | 1 note x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<p>Where does <code>tier</code>, etc. come from?</p>
+</div>
 <div class="fragment">
 <ul>
-<li>We write “roxygen comments” in the <code>.R</code> files</li>
+<li><p>We know it’s a column in a data frame, but R doesn’t know that.</p></li>
+<li><p>How to specify “this comes from a data frame” ?</p></li>
 </ul>
 </div>
 </section>
-<section id="roxygen-comments" class="slide level2">
-<h2>Roxygen comments</h2>
-<pre><code>#' Make a standard league-play tibble
-#'
-#' Given a league-play data frame from {engsoccer}, returns a tibble with
-#' standardised colomn-names and types, e.g. `date` is a `Date`.
-#'
-#' @param data_engsoc `data.frame` obtained from {engsoccerdata}. One of:
-#'   engsoccerdata::england, engsoccerdata::germany, engsoccerdata::holland,
-#'   engsoccerdata::italy, engsoccerdata::spain
-#'
-#' @param country `character` scalar, specifies the league.
-#'
-#' @return a tibble with columns `country`, `date`, `season`, `tier`, `home`,
-#'   `visitor`, `goals_home`, `goals_visitor`.
-#'
-#' @export
-#'
-#' @examples
-#' uss_make_matches(engsoccerdata::italy, "Italy")
-#' uss_make_matches(engsoccerdata::spain, "Spain")
-#'</code></pre>
+<section id="preview-of-tidy-eval" class="slide level2">
+<h2>Preview of tidy eval</h2>
+<p>The {rlang} package provides pronouns.</p>
+<div class="fragment">
+<p>Interactively, we might write:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cons_lper100km =</span> <span class="fl">235.215</span> <span class="sc">/</span> mpg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<p>In a package function, we would write:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">cons_lper100km =</span> <span class="fl">235.215</span> <span class="sc">/</span> .data<span class="sc">$</span>mpg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="your-turn-2.1.1" class="slide level2">
+<h2>Your turn <code>"2.1.1"</code></h2>
+<ol type="1">
+<li>Add the {rlang} package:</li>
+</ol>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_package</span>(<span class="st">"rlang"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li>Import the <code>.data</code> pronoun:</li>
+</ol>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># adds to R/ussie-package.R</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_import_from</span>(<span class="st">"rlang"</span>, <span class="st">".data"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="1">
+<li><p><code>R/matches.R</code>: use <code>.data</code> in <code>uss_make_matches()</code>.</p></li>
+<li><p><code>devtools::check()</code>, should be happy now.</p></li>
+</ol>
+</section>
+<section id="api-design" class="slide level2">
+<h2>API design</h2>
+<div class="fragment">
+<p>A thing I like about tidyverse:</p>
+</div>
+<div class="fragment">
 <ul>
-<li><p>the <code>#'</code> indicates it is a roxygen comment</p></li>
-<li><p><strong><code>roxygen2</code></strong> does the work but we can use <strong><code>devtools</code></strong> functions to call them</p></li>
+<li><em>there should be a function to do</em> <strong>this</strong>; <em>it should look like</em> <strong>this</strong></li>
 </ul>
-</section>
-<section id="object-documentation-workflow" class="slide level2">
-<h2>Object documentation workflow</h2>
+</div>
+<div class="fragment">
 <ul>
-<li><p>Add roxygen comments to your <code>.R</code> files.</p></li>
-<li><p>Run <code>devtools::document()</code> to convert roxygen comments to <code>.Rd</code> files.</p></li>
-<li><p>Load the package with <code>devtools::load_all()</code></p></li>
-<li><p>Preview documentation with <code>?</code></p></li>
-<li><p>Repeat until the documentation looks the way you want.</p></li>
+<li>there already is</li>
 </ul>
-</section>
-<section id="document-your-function" class="slide level2">
-<h2>Document your function</h2>
-<p>🎬 Open <code>uss_make_matches.R</code></p>
-<p>🎬 Put your cursor anywhere in the function and do Code | Insert Roxygen Documentation (Ctrl-Alt-Shift-R)</p>
-</section>
-<section id="document-your-function-1" class="slide level2 smaller">
-<h2>Document your function</h2>
-<pre><code>#' Title
-#'
-#' @param data_engsoc 
-#' @param country 
-#'
-#' @return
-#' @export
-#'
-#' @examples
-uss_make_matches &lt;- function(data_engsoc, country) {
-  result &lt;-
-    data_engsoc |&gt;
-    tibble::as_tibble() |&gt;
-    dplyr::transmute(
-      country = as.character(country),
-      tier = as.integer(tier),
-      season = as.integer(Season),
-      date = as.Date(Date),
-      home = as.character(home),
-      visitor = as.character(visitor),
-      goals_home = as.integer(hgoal),
-      goals_visitor = as.integer(vgoal)
-    )
-  result
-}</code></pre>
-</section>
-<section id="document-your-function-2" class="slide level2">
-<h2>Document your function</h2>
+</div>
+<div class="fragment">
+<p>Because:</p>
 <ul>
-<li><p><code>#'</code> indicates it is a roxygen comment</p></li>
-<li><p><code>@</code> indicates a roxygen tag</p>
+<li><p>functions and arguments follow naming conventions</p></li>
+<li><p>arguments are ordered according to purpose</p></li>
+<li><p>we know what to expect for return values</p></li>
+</ul>
+</div>
+</section>
+<section id="evolving-references" class="slide level2">
+<h2>Evolving references</h2>
+<p>The way we approach problems is always evolving; tidyverse is no exception:</p>
+<div class="fragment">
 <ul>
-<li><code>@param arg</code> — describe the inputs</li>
-<li><code>@examples</code>— show how the function works</li>
-<li><code>@seealso</code> — point out related functions</li>
-<li><code>@returns</code> — describe the outputs</li>
-<li><code>@param arg</code> — is this a user visible function</li>
+<li><a href="https://style.tidyverse.org/" data-preview-link="true">Tidyverse Style Guide</a></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><a href="https://design.tidyverse.org/" data-preview-link="true">Tidyverse Design Guide</a></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>follow the GitHub repo of your favorite tidyverse/r-lib package (mine is {usethis}):
+<ul>
+<li>issue discussions</li>
+<li>pull-request reviews</li>
 </ul></li>
 </ul>
-</section>
-<section id="document-your-function-3" class="slide level2">
-<h2>Document your function</h2>
-<p>🎬 Give your function a title and a brief description</p>
-<p>🎬 Define the two parameters</p>
-<p>🎬 Describe what the function returns</p>
-</section>
-<section id="document-your-function-4" class="slide level2 smaller">
-<h2>Document your function</h2>
-<pre><code>#' Make a standard league-play tibble
-#'
-#' Given a league-play data frame from {engsoccer}, returns a tibble with
-#' standardised colomn-names and types, e.g. `date` is a `Date`.
-#'
-#' @param data_engsoc `data.frame` obtained from {engsoccerdata}. One of:
-#'   engsoccerdata::england, engsoccerdata::germany, engsoccerdata::holland,
-#'   engsoccerdata::italy, engsoccerdata::spain
-#'
-#' @param country `character` scalar, specifies the league.
-#'
-#' @return a tibble with columns `country`, `date`, `season`, `tier`, `home`,
-#'   `visitor`, `goals_home`, `goals_visitor`.</code></pre>
-</section>
-<section id="take-a-look-at-your-documentation" class="slide level2">
-<h2>Take a look at your documentation</h2>
-<p>🎬 Save <code>uss_make_matches.R</code> and run <code>devtools::document()</code></p>
-<div class="fragment">
-<pre><code>Warning message:
-[uss_make_matches.R:17] @examples requires a value</code></pre>
-<p>We will that fix later!</p>
-</div>
-<div class="fragment">
-<p>🎬 Load the package : <code>devtools::load_all()</code></p>
-<p>🎬 Preview the documentation with <code>?uss_make_matches</code></p>
 </div>
 </section>
-<section id="add-examples" class="slide level2">
-<h2>Add examples</h2>
-<p>🎬 Under <code>@examples</code>, add one example for using your function</p>
-<div class="fragment">
-<pre><code>#' @examples
-#' uss_make_matches(engsoccerdata::italy, "Italy")
-#' uss_make_matches(engsoccerdata::spain, "Spain")
-#' </code></pre>
-</div>
-</section>
-<section id="take-a-look-at-your-documentation-1" class="slide level2">
-<h2>Take a look at your documentation</h2>
-<p>🎬 Save <code>uss_make_matches.R</code>, run <code>devtools::document()</code> followed by <code>devtools::load_all()</code></p>
-<div class="fragment">
-<p>🎬 Preview the documentation with <code>?uss_make_matches</code> and edit your documentation if anything needs to be changed</p>
-</div>
-</section>
-<section id="check" class="slide level2">
-<h2><code>check()</code></h2>
-</section>
-<section id="add-another-function" class="slide level2">
-<h2>add another function?</h2>
-</section>
-<section id="document-it" class="slide level2">
-<h2>document it?</h2>
-</section>
-<section id="check-1" class="slide level2">
-<h2>check</h2>
-</section></section>
-<section>
-<section id="package-dependecies" class="title-slide slide level1 center">
-<h1>Package dependecies</h1>
-
-</section>
-<section id="remember-this" class="slide level2">
-<h2>Remember this?</h2>
-<pre><code>&gt; checking dependencies in R code ... WARNING
-  '::' or ':::' imports not declared from:
-    'dplyr' 'tibble'
-
-&gt; checking for unstated dependencies in examples ... WARNING
-  '::' or ':::' import not declared from: 'engsoccerdata''</code></pre>
-<div class="fragment">
-<p>We have used packages that we have not declared officially.</p>
-</div>
-</section>
-<section id="package-dependencies" class="slide level2">
-<h2>Package dependencies</h2>
+<section id="naming-functions" class="slide level2">
+<h2>Naming functions</h2>
+<p>If writing a smaller package, consider prefixing your functions:</p>
 <ul>
-<li><p><strong>Imports:</strong> must be installed for your package to work. If they’re not, they will get installed.</p></li>
-<li><p><strong>Suggests:</strong> used by your package, but not required. Might provide data for examples, to run tests, build vignettes.</p></li>
-<li><p><strong>Depends:</strong> Avoid where possible. When your package requires a specific version of R, e.g.&nbsp;<code>Depends: R (&gt;= 3.4.0)</code>. Think critically: downstream effects on packages that depend on your package.</p></li>
+<li><p>{ussie}: <code>uss_make_matches()</code></p></li>
+<li><p>{btt22}: <code>btt_get()</code></p></li>
+</ul>
+<div class="fragment">
+<p>Use a <em>verb</em> next:</p>
+<ul>
+<li><code>dplyr::mutate()</code>, <code>stringr::str_split()</code></li>
+</ul>
+</div>
+<div class="fragment">
+<p>Use a <em>noun</em> if building up a specific type of object:</p>
+<ul>
+<li><code>ggplot2::ggplot()</code>, <code>ggplot2::geom_point()</code></li>
+</ul>
+</div>
+</section>
+<section id="casing" class="slide level2">
+<h2>Casing</h2>
+<ul>
+<li><p>Tidyverse uses <code>snake_case</code></p></li>
+<li><p>Python prefers <code>snake_case</code></p></li>
+<li><p>JavaScript prefers:</p>
+<ul>
+<li><code>camelCase</code> for functions</li>
+<li><code>PascalCase</code> for classes, interfaces</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<p>Pick a convention according to your domain, follow it.</p>
+</div>
+</section>
+<section id="arguments" class="slide level2">
+<h2>Arguments</h2>
+<p>Here, <code>mtcars</code> is an <em>argument</em>:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<p>Here, <code>data</code> is a <em>formal argument</em>:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>head <span class="ot">&lt;-</span> <span class="cf">function</span>(data){</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<p>In R, we sometimes use these terms interchangeably; we sometimes use the term <em>formals</em>.</p>
+</div>
+<div class="fragment">
+<p><code>¯\_(ツ)_/¯</code></p>
+</div>
+</section>
+<section id="naming-arguments" class="slide level2">
+<h2>Naming arguments</h2>
+<p>Like naming functions, strive to be:</p>
+<ul>
+<li>consistent</li>
+<li>evocative</li>
+<li>concise</li>
+</ul>
+<div class="fragment">
+<blockquote>
+<p>There are only two hard things in Computer Science: cache invalidation and naming things.</p>
+<p>– Phil Karlton</p>
+</blockquote>
+</div>
+<div class="fragment">
+<blockquote>
+<p>And off-by-one errors – <a href="https://twitter.com/secretGeek/status/7269997868">Leon Bambrick</a></p>
+</blockquote>
+</div>
+</section>
+<section id="ordering-arguments" class="slide level2">
+<h2>Ordering arguments</h2>
+<ul>
+<li><strong>data</strong>: first argument, “the thing”</li>
+<li><strong>descriptors</strong>: values the user should specify</li>
+<li><strong>dots</strong> (<code>...</code>): stuff that gets passed to other functions</li>
+<li><strong>details</strong>: values with defaults</li>
+</ul>
+<div class="fragment">
+<p>I have seen the order of <strong>dots</strong> and <strong>details</strong> reversed.</p>
+<p>However, <strong>data</strong> and <strong>descriptors</strong> almost always come first.</p>
+</div>
+</section>
+<section id="discuss-with-neighbour" class="slide level2">
+<h2>Discuss with neighbour</h2>
+<p>Which are: data, descriptors, details?</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># there are acutally more args...</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>pivot_longer <span class="ot">&lt;-</span> <span class="cf">function</span>(</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  data,                </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  cols,                </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">names_to =</span> <span class="st">"name"</span>,   </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">names_prefix =</span> <span class="cn">NULL</span>  </span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>) {</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="discuss-with-neighbor-answer" class="slide level2">
+<h2>Discuss with neighbor (answer)</h2>
+<p>Which are: data, descriptors, details?</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># there are acutally more args...</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>pivot_longer <span class="ot">&lt;-</span> <span class="cf">function</span>(</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  data,                <span class="co"># data</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  cols,                <span class="co"># descriptor</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">names_to =</span> <span class="st">"name"</span>,   <span class="co"># details</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">names_prefix =</span> <span class="cn">NULL</span>  <span class="co">#</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>) {</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="return-value-type-stability" class="slide level2">
+<h2>Return value: type stability</h2>
+<p>This is a key to tidyverse.</p>
+<div class="fragment">
+<h3 id="in-theory">In theory</h3>
+<p>Type of return-value depends only on the <strong>types</strong> of the inputs.</p>
+<ul>
+<li>no <code>return_tibble = TRUE</code> arguments.</li>
+</ul>
+<h3 id="in-practice">In practice</h3>
+<ul>
+<li><p>return same type as data (first) argument</p></li>
+<li><p>return constant type, e.g.&nbsp;<code>double</code></p></li>
+</ul>
+</div>
+</section>
+<section id="putting-it-all-together" class="slide level2">
+<h2>Putting it all together</h2>
+<p>When I think of tidyverse functions, I can remember type for:</p>
+<ul>
+<li><p>data (first) argument</p></li>
+<li><p>return value</p></li>
+</ul>
+<div class="fragment">
+<p>For example:</p>
+<ul>
+<li><p><code>dplyr::mutate()</code>: tibble -&gt; tibble</p></li>
+<li><p><code>tidyr::pivot_longer()</code>: tibble -&gt; tibble</p></li>
+</ul>
+</div>
+<div class="fragment">
+<p>tibble -&gt; tibble pattern makes it easy to work with the pipe: <code>|&gt;</code></p>
+</div>
+</section>
+<section id="our-turn-2.1.2" class="slide level2">
+<h2>Our turn <code>"2.1.2"</code></h2>
+<p>Implement a function, <code>uss_get_matches()</code>:</p>
+<ul>
+<li>given a <code>country</code></li>
+<li>return a <em>matches</em> tibble</li>
+</ul>
+<div class="fragment">
+<hr>
+<strong>Only</strong> <em>if needed</em>, <code>btt22::btt_reset_hard("2.1.2")</code>
+<hr>
+</div>
+<div class="fragment">
+<p>Get new files, <code>btt22::btt_get("2.1.2")</code>:</p>
+<ul>
+<li><code>columns.R</code></li>
+<li><code>get-matches.R</code></li>
+<li><code>test-get-matches.R</code></li>
+</ul>
+</div>
+</section>
+<section id="columns.r" class="slide level2">
+<h2><code>columns.R</code></h2>
+<p>In {ussie} we (<em>will</em>) have all sorts of tibbles:</p>
+<ul>
+<li>engsoc</li>
+<li>matches</li>
+<li><em>teams_matches</em></li>
+<li><em>seasons</em></li>
+</ul>
+<div class="fragment">
+<p>and groupings:</p>
+<ul>
+<li><em>seasons_grouping</em></li>
+<li><em>accumulate</em></li>
+</ul>
+</div>
+</section>
+<section id="build-time-vs.-run-time" class="slide level2">
+<h2>Build-time vs.&nbsp;run-time</h2>
+<ul>
+<li>Put this code, temporarily, into <code>columns.R</code>:</li>
+</ul>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>build_time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>run_time <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Sys.time</span>()</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<ul>
+<li><code>devtools::load_all()</code></li>
+<li>try <code>build_time</code>, <code>run_time()</code></li>
+</ul>
+</div>
+<div class="fragment">
+<p>If you need to delay evaluation, try a function.</p>
+</div>
+</section>
+<section id="get_soccer_data" class="slide level2">
+<h2><code>get_soccer_data()</code></h2>
+<p>Given name of dataset in {engsoccerdata}, return dataset:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>get_soccer_data <span class="ot">&lt;-</span> <span class="cf">function</span>(data_name) {</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># create isolated environment</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  e <span class="ot">&lt;-</span> <span class="fu">new.env</span>()</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># put the data into environment</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  name <span class="ot">&lt;-</span> utils<span class="sc">::</span><span class="fu">data</span>(</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">list =</span> data_name, </span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">package =</span> <span class="st">"engsoccerdata"</span>, </span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">envir =</span> e</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  )[<span class="dv">1</span>]</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># return data from environment</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  e[[name]]</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="uss_countries" class="slide level2">
+<h2><code>uss_countries()</code></h2>
+<p>Return set of valid values for <code>country</code>:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>uss_countries <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"england"</span>, <span class="st">"germany"</span>, <span class="st">"holland"</span>, <span class="st">"italy"</span>, <span class="st">"spain"</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<h3 id="run-time-vs.-build-time">Run-time vs.&nbsp;build-time</h3>
+<p>Safer habit: delay evaluation by wrapping code in a function</p>
+</div>
+</section>
+<section id="best_wins_leeds" class="slide level2">
+<h2><code>best_wins_leeds()</code></h2>
+<ul>
+<li><code>usethis::use_package("engsoccerdata")</code></li>
+</ul>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>best_wins_leeds <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">n =</span> <span class="dv">10</span>) {</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  engsoccerdata<span class="sc">::</span><span class="fu">bestwins</span>(</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    engsoccerdata<span class="sc">::</span>england,</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">teamname =</span> <span class="st">"Leeds United"</span>,</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">N =</span> n</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<ul>
+<li><p><code>devtools::check()</code></p></li>
+<li><p>comment out body of <code>best_wins_leeds()</code></p></li>
+<li><p><code>devtools::check()</code> again, what changed?</p></li>
+<li><p>restore commented-out code</p></li>
+</ul>
+</div>
+</section>
+<section id="uss_get_matches" class="slide level2">
+<h2><code>uss_get_matches()</code></h2>
+<p>Given <code>country</code>, return <em>matches</em> data:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>uss_get_matches <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">country =</span> <span class="fu">uss_countries</span>()) {</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># validate country</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  country <span class="ot">&lt;-</span> <span class="fu">match.arg</span>(country)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># get data for country</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  data <span class="ot">&lt;-</span> <span class="fu">get_soccer_data</span>(country)</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># capitalize</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">substr</span>(country, <span class="dv">1</span>, <span class="dv">1</span>) <span class="ot">&lt;-</span> <span class="fu">toupper</span>(<span class="fu">substr</span>(country, <span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># make matches data, return</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">uss_make_matches</span>(data, country) </span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="document" class="slide level2">
+<h2>Document</h2>
+<p>Show an example (or two) of using <code>uss_get_matches()</code> in your package vignette.</p>
+</section>
+<section id="pure-functions-vs.-side-effects" class="slide level2">
+<h2>Pure functions vs.&nbsp;side effects</h2>
+<ul>
+<li>I (Ian) have been programming since 1982, in some form.</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>I studied mechanical engineering, not computer science; programming on the side.</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>When I learned about this in 2016, it <em>changed</em> my view of programming.</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Keeping this distinction in mind simplifies a <em>lot</em> of challenges.</li>
+</ul>
+</div>
+</section>
+<section id="pure-function" class="slide level2">
+<h2>Pure function</h2>
+<p>A function where:</p>
+<ul>
+<li><p>the return value depends <em>only</em> on argument values</p></li>
+<li><p>only change is the return value</p></li>
+</ul>
+<div class="fragment">
+<p>Examples:</p>
+</div>
+<div class="fragment">
+<div class="sourceCode" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="cf">function</span>(x, y) {</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">+</span> y</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<div class="sourceCode" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cos</span>(pi)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="side-effects" class="slide level2">
+<h2>Side effects</h2>
+<p>A function where:</p>
+<ul>
+<li><p>the return value can depend on “the outside universe”</p></li>
+<li><p>there is a change in the “the outside universe”</p></li>
+</ul>
+<div class="fragment">
+<p>Examples:</p>
+</div>
+<div class="fragment">
+<div class="sourceCode" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"myfile.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<div class="sourceCode" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">runif</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="why-is-this-important" class="slide level2">
+<h2>Why is this important?</h2>
+<div class="fragment">
+<ul>
+<li>Pure functions easier to test than functions with side effects.</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Side effects (interactions with universe) take time (Shiny).</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Functions with side effects should document the effects.</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Side effects are not inherently bad (we <em>do</em> need to write to the file system), but they need extra care.</li>
+</ul>
+</div>
+</section>
+<section id="discuss-with-your-neighbour" class="slide level2">
+<h2>Discuss with your neighbour</h2>
+<p>Are these {ussie} functions pure?</p>
+<ul>
+<li><p><code>uss_countries()</code></p></li>
+<li><p><code>uss_make_matches()</code></p></li>
+<li><p><code>get_soccer_data()</code></p></li>
+<li><p><code>uss_get_matches()</code></p></li>
 </ul>
 </section>
-<section id="package-dependencies-1" class="slide level2">
-<h2>Package dependencies</h2>
-<p><code>use_package(package, type = "Imports")</code></p>
+<section id="practical-advice" class="slide level2">
+<h2>Practical advice</h2>
+<p>Try to separate tasks into pure functions and side effects:</p>
 <ul>
-<li><p>Type – one of “Imports”, “Depends”, “Suggests”, “Enhances”, or “LinkingTo”</p></li>
-<li><p>The default is “Imports”</p></li>
+<li><p>easier to test the pure functions and side effects separately</p></li>
+<li><p>use <em>these</em> functions in higher-level functions</p></li>
 </ul>
-</section>
-<section id="usethisuse_package" class="slide level2">
-<h2><code>usethis::use_package()</code></h2>
-<p>🎬 Use <code>usethis::use_package()</code> to add the <strong><code>dplyr</code></strong> package to <code>Imports</code></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_package</span>(<span class="st">"dplyr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <div class="fragment">
-<pre><code>v Setting active project to 'C:/Users/er13/OneDrive - University of York/Desktop/Desktop/ussie'
-v Adding 'dplyr' to Imports field in DESCRIPTION
-* Refer to functions with `dplyr::fun()`</code></pre>
-<p>Look how your <code>DESCRIPTION</code> file changed!</p>
-</div>
-</section>
-<section id="usethisuse_package-1" class="slide level2">
-<h2><code>usethis::use_package()</code></h2>
-<p>Note: we get reminded to “Refer to functions with <code>dplyr::fun()</code>”</p>
-<p>That is, we do not use <code>library(dplyr)</code> to make functions available to our package.</p>
-<div class="fragment">
-<p>🎬 Repeat for <strong><code>tibble</code></strong></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_package</span>(<span class="st">"tibble"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</section>
-<section id="check-2" class="slide level2">
-<h2><code>check()</code></h2>
-<p>🎬 Run <code>check()</code> on your package again</p>
-</section>
-<section id="section" class="slide level2 smaller">
-<h2></h2>
-<pre><code>-- R CMD check results -------------------------------- ussiesun 0.0.0.9000 ----
-Duration: 53.5s
-
-&gt; checking for unstated dependencies in examples ... WARNING
-  '::' or ':::' import not declared from: 'engsoccerdata'
-
-&gt; checking R code for possible problems ... NOTE
-  uss_make_matches: no visible binding for global variable 'tier'
-  uss_make_matches: no visible binding for global variable 'Season'
-  uss_make_matches: no visible binding for global variable 'Date'
-  uss_make_matches: no visible binding for global variable 'home'
-  uss_make_matches: no visible binding for global variable 'visitor'
-  uss_make_matches: no visible binding for global variable 'hgoal'
-  uss_make_matches: no visible binding for global variable 'vgoal'
-  Undefined global functions or variables:
-    Date Season hgoal home tier vgoal visitor
-
-0 errors v | 1 warning x | 1 note x</code></pre>
-</section>
-<section id="suggests" class="slide level2">
-<h2>Suggests</h2>
+<p>For example:</p>
 <ul>
-<li><p>Are used by your package, but not required for it to work</p></li>
-<li><p>Might provide data for examples</p></li>
+<li><p><code>uss_make_matches()</code> is a pure function.</p></li>
+<li><p><code>get_soccer_data()</code> uses side effects.</p></li>
+<li><p><code>uss_get_matches()</code> calls each of these functions.</p></li>
 </ul>
-<p><code>uss_make_matches.R</code></p>
-<pre><code>#' @examples
-#' uss_make_matches(engsoccerdata::italy, "Italy")
-#' uss_make_matches(engsoccerdata::spain, "Spain")
-</code></pre>
-</section>
-<section id="suggests-1" class="slide level2">
-<h2>Suggests</h2>
-<p>🎬 Add <strong><code>engsoccerdata</code></strong></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_package</span>(<span class="st">"engsoccerdata"</span>, <span class="at">type =</span> <span class="st">"Suggests"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<pre><code>v Setting active project to 'C:/Users/er13/OneDrive - University of York/Desktop/Desktop/ussie'
-v Adding 'engsoccerdata' to Suggests field in DESCRIPTION
-* Use `requireNamespace("engsoccerdata", quietly = TRUE)` to test if package is installed
-* Then directly refer to functions with `engsoccerdata::fun()`
-</code></pre>
 </section>
-<section id="suggests-2" class="slide level2">
-<h2>Suggests</h2>
-<ul>
-<li><p>Packages listed in Suggests are not automatically installed along with your package.</p></li>
-<li><p>This means that you can’t assume the package is available</p></li>
-</ul>
-<pre><code>* Use `requireNamespace("engsoccerdata", quietly = TRUE)` to test if package is installed</code></pre>
-</section>
-<section id="citation.cff" class="slide level2">
-<h2>CITATION.cff</h2>
-<p>https://docs.ropensci.org/cffr/</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>cffr<span class="sc">::</span><span class="fu">cff_write</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="fragment">
-<pre><code>CITATION.cff generated
-Adding  CITATION.cff to .Rbuildignore
-
-cff_validate results-----
-Congratulations! This .cff file is valid</code></pre>
-</div>
-</section></section>
-<section>
-<section id="yee-haw-your-package-has-has-documentation" class="title-slide slide level1 center">
-<h1>🏷️Yee haw! 🏷️ <br> Your package has has documentation!</h1>
-
-</section>
-<section id="summary" class="slide level2 smaller">
+<section id="summary" class="slide level2">
 <h2>Summary</h2>
+<div class="fragment">
 <ul>
-<li>.
+<li><strong>Naming</strong>: be consistent, concise, yet evocative.</li>
+</ul>
+</div>
+<div class="fragment">
 <ul>
-<li>.</li>
-<li>.</li>
-</ul></li>
-<li>.
+<li><strong>Argument order</strong>: data, descriptors, dots, details.</li>
+</ul>
+</div>
+<div class="fragment">
 <ul>
-<li>.</li>
+<li><strong>Return value type</strong>: be consistent, predictable.</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Easy to remember data (first) argument and return value:
+<ul>
+<li>easy to use pipe, <code>|&gt;</code>.</li>
 </ul></li>
 </ul>
-</section>
-<section id="summary-continued" class="slide level2 smaller">
-<h2>Summary continued</h2>
+</div>
+<div class="fragment">
 <ul>
-<li></li>
-<li>We add documentation using <strong><code>roxygen2</code></strong> and <code>devtools::document()</code></li>
+<li>Be mindful of side effects.</li>
 </ul>
+</div>
 </section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
@@ -877,11 +1028,11 @@ Congratulations! This .cff file is valid</code></pre>
 <p><a href="https://bit.ly/.." class="uri">https://bit.ly/..</a></p>
 </div>
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-palmerpenguins" class="csl-entry" role="doc-biblioentry">
-Horst, Allison Marie, Alison Presmanes Hill, and Kristen B Gorman. 2020. <span>“Palmerpenguins: Palmer Archipelago (Antarctica) Penguin Data.”</span> <a href="https://allisonhorst.github.io/palmerpenguins/">https://allisonhorst.github.io/palmerpenguins/</a>.
+<div id="ref-wickham2021a" class="csl-entry" role="doc-biblioentry">
+Wickham, Charlotte, and Hadley Wickham. 2021. <em>Building Tidy Tools</em>. rstudio::conf 2020. <a href="https://github.com/rstudio-conf-2020/build-tidy-tools">https://github.com/rstudio-conf-2020/build-tidy-tools</a>.
 </div>
-<div id="ref-ggplot2" class="csl-entry" role="doc-biblioentry">
-Wickham, Hadley. 2016. <span>“Ggplot2: Elegant Graphics for Data Analysis.”</span> <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
+<div id="ref-wickham2020" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, and Jenny Bryan. 2020. <em>R Packages</em>. The work-in-progress 2nd edition. Online. <a href="https://r-pkgs.org/index.html">https://r-pkgs.org/index.html</a>.
 </div>
 </div>
 </section></section>
