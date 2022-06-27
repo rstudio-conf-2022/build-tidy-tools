@@ -155,8 +155,7 @@ You may be familiar with `match.arg()`:
 
  - uses "magic" to compare value (if any) to default
  - argument default is vector of strings
-   - if value not among defaults, **error**
-   - if value among defaults, return it
+   - if value among defaults, return it - otherwise **error**
    - if no value, return *first* value in default
 
 . . .
@@ -185,9 +184,7 @@ We will go through, using examples.
 
 Implement validator-functions:
 
- - string among choices.
- - is *this* a data frame?
- - does this data frame have *these* columns?
+ - is the `country` valid?
  
 . . .
 
@@ -202,13 +199,18 @@ Get new files, `btt22::btt_get("2.2.1")`:
  - `validate.R`
  - `test-validate.R`
 
-## Use `rlang::arg_match()`
+## Use `rlang::arg_match()` {.smaller}
 
 👉 `devtools::load_all()`, then:
 
 - 👉 `uss_get_matches("italy")` 🎉
 - 👉 `uss_get_matches("tatooine")` 🎉 
 - 👉 `uss_get_matches("ita")` 🤔
+
+. . .
+
+<hr>
+
 
 `get-matches.R`: 
 
@@ -217,8 +219,8 @@ Get new files, `btt22::btt_get("2.2.1")`:
 `test-get-matches.R`: 
 
  - uncomment test for `2.2.1`, then repeat 👉
- 
-## Build error constructor
+
+## Build error constructor {.smaller}
 
 - `usethis::use_package("cli")`
 
@@ -361,7 +363,7 @@ With a couple of wrinkles:
 
 - change back to `$cols_req`
 
-## Your turn `"2.2.3"`
+## Your turn `"2.2.3"` {.smaller}
 
 Implement testing with side effects
 
@@ -396,8 +398,7 @@ The most-common side-effect is an error. Good design:
 
 - simple (as possible) predicate
 - clear mesage
-- add a `class` using naming convention
-- add additional information
+- add a `class` using naming convention, and additional information
 
 . . .
 
