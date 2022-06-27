@@ -179,7 +179,7 @@
     "href": "materials/day-2-session-1-design.html#our-turn-2.1.2",
     "title": "📦 Building tidy tools",
     "section": "Our turn \"2.1.2\"",
-    "text": "Our turn \"2.1.2\"\nImplement a function, uss_get_matches():\n\ngiven a country\nreturn a matches tibble\n\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.1.2\")\n\n\n\nGet new files, btt22::btt_get(\"2.1.2\"):\n\ncolumns.R\nget-matches.R\ntest-get-matches.R"
+    "text": "Our turn \"2.1.2\"\nImplement a function, uss_get_matches():\n\ngiven a country\nreturn a matches tibble\n\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.1.2\")\n\n\n\nGet new files, btt22::btt_get(\"2.1.2\"):\n\ncolumns.R, get-matches.R\ntest-get-matches.R"
   },
   {
     "objectID": "materials/day-2-session-1-design.html#columns.r",
@@ -214,7 +214,7 @@
     "href": "materials/day-2-session-1-design.html#best_wins_leeds",
     "title": "📦 Building tidy tools",
     "section": "best_wins_leeds()",
-    "text": "best_wins_leeds()\n\nusethis::use_package(\"engsoccerdata\")\n\nbest_wins_leeds <- function(n = 10) {\n  engsoccerdata::bestwins(\n    engsoccerdata::england,\n    teamname = \"Leeds United\",\n    N = n\n  )\n}\n\n\ndevtools::check()\ncomment out body of best_wins_leeds()\ndevtools::check() again, what changed?\nrestore commented-out code"
+    "text": "best_wins_leeds()\n\nusethis::use_package(\"engsoccerdata\")\nbest_wins_leeds <- function(n = 10) {\n  engsoccerdata::bestwins(\n    engsoccerdata::england,\n    teamname = \"Leeds United\",\n    N = n\n  )\n}\n\n\n\ndevtools::check(), comment best_wins_leeds()\ndevtools::check() 🤔\nrestore commented-out code"
   },
   {
     "objectID": "materials/day-2-session-1-design.html#uss_get_matches",
@@ -1068,7 +1068,7 @@
     "href": "materials/day-2-session-2-side-effects.html#validate-string-values",
     "title": "📦 Building tidy tools",
     "section": "Validate string-values",
-    "text": "Validate string-values\nYou may be familiar with match.arg():\n\nuses “magic” to compare value (if any) to default\nargument default is vector of strings\n\nif value not among defaults, error\nif value among defaults, return it\nif no value, return first value in default\n\n\n\nrlang::arg_match() does the same thing, but:\n\npartial match triggers error\nerror messages conform to tidyverse standards"
+    "text": "Validate string-values\nYou may be familiar with match.arg():\n\nuses “magic” to compare value (if any) to default\nargument default is vector of strings\n\nif value among defaults, return it - otherwise error\nif no value, return first value in default\n\n\n\nrlang::arg_match() does the same thing, but:\n\npartial match triggers error\nerror messages conform to tidyverse standards"
   },
   {
     "objectID": "materials/day-2-session-2-side-effects.html#snapshot-tests",
@@ -1082,14 +1082,14 @@
     "href": "materials/day-2-session-2-side-effects.html#your-turn-2.2.1",
     "title": "📦 Building tidy tools",
     "section": "Your turn \"2.2.1\"",
-    "text": "Your turn \"2.2.1\"\nImplement validator-functions:\n\nstring among choices.\nis this a data frame?\ndoes this data frame have these columns?\n\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.2.1\")\n\n\n\nGet new files, btt22::btt_get(\"2.2.1\"):\n\nvalidate.R\ntest-validate.R"
+    "text": "Your turn \"2.2.1\"\nImplement validator-functions:\n\nis the country valid?\n\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.2.1\")\n\n\n\nGet new files, btt22::btt_get(\"2.2.1\"):\n\nvalidate.R\ntest-validate.R"
   },
   {
     "objectID": "materials/day-2-session-2-side-effects.html#use-rlangarg_match",
     "href": "materials/day-2-session-2-side-effects.html#use-rlangarg_match",
     "title": "📦 Building tidy tools",
     "section": "Use rlang::arg_match()",
-    "text": "Use rlang::arg_match()\n👉 devtools::load_all(), then:\n\n👉 uss_get_matches(\"italy\") 🎉\n👉 uss_get_matches(\"tatooine\") 🎉\n👉 uss_get_matches(\"ita\") 🤔\n\nget-matches.R:\n\nreplace match.arg() with rlang::arg_match()\n\ntest-get-matches.R:\n\nuncomment test for 2.2.1, then repeat 👉"
+    "text": "Use rlang::arg_match()\n👉 devtools::load_all(), then:\n\n👉 uss_get_matches(\"italy\") 🎉\n👉 uss_get_matches(\"tatooine\") 🎉\n👉 uss_get_matches(\"ita\") 🤔\n\n\n\nget-matches.R:\n\nreplace match.arg() with rlang::arg_match()\n\ntest-get-matches.R:\n\nuncomment test for 2.2.1, then repeat 👉"
   },
   {
     "objectID": "materials/day-2-session-2-side-effects.html#build-error-constructor",
@@ -1159,7 +1159,7 @@
     "href": "materials/day-2-session-2-side-effects.html#summary",
     "title": "📦 Building tidy tools",
     "section": "Summary",
-    "text": "Summary\n\nThe most-common side-effect is an error. Good design:\n\n\n\nsimple (as possible) predicate\nclear mesage\nadd a class using naming convention\nadd additional information\n\n\n\nUse snapshot tests to capture side-effects.\n\nbe very careful when accepting changes to snapshots.\n\n\n\nUse withr::local_*() functions to “leave no footprints”."
+    "text": "Summary\n\nThe most-common side-effect is an error. Good design:\n\n\n\nsimple (as possible) predicate\nclear mesage\nadd a class using naming convention, and additional information\n\n\n\nUse snapshot tests to capture side-effects.\n\nbe very careful when accepting changes to snapshots.\n\n\n\nUse withr::local_*() functions to “leave no footprints”."
   },
   {
     "objectID": "materials/day-2-session-2-side-effects.html#references",

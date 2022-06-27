@@ -528,8 +528,7 @@
 <li>uses “magic” to compare value (if any) to default</li>
 <li>argument default is vector of strings
 <ul>
-<li>if value not among defaults, <strong>error</strong></li>
-<li>if value among defaults, return it</li>
+<li>if value among defaults, return it - otherwise <strong>error</strong></li>
 <li>if no value, return <em>first</em> value in default</li>
 </ul></li>
 </ul>
@@ -558,9 +557,7 @@
 <h2>Your turn <code>"2.2.1"</code></h2>
 <p>Implement validator-functions:</p>
 <ul>
-<li>string among choices.</li>
-<li>is <em>this</em> a data frame?</li>
-<li>does this data frame have <em>these</em> columns?</li>
+<li>is the <code>country</code> valid?</li>
 </ul>
 <div class="fragment">
 <hr>
@@ -575,7 +572,7 @@
 </ul>
 </div>
 </section>
-<section id="use-rlangarg_match" class="slide level2">
+<section id="use-rlangarg_match" class="slide level2 smaller">
 <h2>Use <code>rlang::arg_match()</code></h2>
 <p>👉 <code>devtools::load_all()</code>, then:</p>
 <ul>
@@ -583,6 +580,8 @@
 <li>👉 <code>uss_get_matches("tatooine")</code> 🎉</li>
 <li>👉 <code>uss_get_matches("ita")</code> 🤔</li>
 </ul>
+<div class="fragment">
+<hr>
 <p><code>get-matches.R</code>:</p>
 <ul>
 <li>replace <code>match.arg()</code> with <code>rlang::arg_match()</code></li>
@@ -591,8 +590,9 @@
 <ul>
 <li>uncomment test for <code>2.2.1</code>, then repeat 👉</li>
 </ul>
+</div>
 </section>
-<section id="build-error-constructor" class="slide level2">
+<section id="build-error-constructor" class="slide level2 smaller">
 <h2>Build error constructor</h2>
 <ul>
 <li><p><code>usethis::use_package("cli")</code></p></li>
@@ -724,7 +724,7 @@
 <li><p>change back to <code>$cols_req</code></p></li>
 </ul>
 </section>
-<section id="your-turn-2.2.3" class="slide level2">
+<section id="your-turn-2.2.3" class="slide level2 smaller">
 <h2>Your turn <code>"2.2.3"</code></h2>
 <p>Implement testing with side effects</p>
 <div class="fragment">
@@ -756,8 +756,7 @@
 <ul>
 <li>simple (as possible) predicate</li>
 <li>clear mesage</li>
-<li>add a <code>class</code> using naming convention</li>
-<li>add additional information</li>
+<li>add a <code>class</code> using naming convention, and additional information</li>
 </ul>
 </div>
 <div class="fragment">

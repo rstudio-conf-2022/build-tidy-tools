@@ -769,8 +769,7 @@
 <div class="fragment">
 <p>Get new files, <code>btt22::btt_get("2.1.2")</code>:</p>
 <ul>
-<li><code>columns.R</code></li>
-<li><code>get-matches.R</code></li>
+<li><code>columns.R</code>, <code>get-matches.R</code></li>
 <li><code>test-get-matches.R</code></li>
 </ul>
 </div>
@@ -844,20 +843,19 @@
 <section id="best_wins_leeds" class="slide level2">
 <h2><code>best_wins_leeds()</code></h2>
 <ul>
-<li><code>usethis::use_package("engsoccerdata")</code></li>
-</ul>
+<li><p><code>usethis::use_package("engsoccerdata")</code></p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>best_wins_leeds <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">n =</span> <span class="dv">10</span>) {</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  engsoccerdata<span class="sc">::</span><span class="fu">bestwins</span>(</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    engsoccerdata<span class="sc">::</span>england,</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">teamname =</span> <span class="st">"Leeds United"</span>,</span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">N =</span> n</span>
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul>
 <div class="fragment">
 <ul>
-<li><p><code>devtools::check()</code></p></li>
-<li><p>comment out body of <code>best_wins_leeds()</code></p></li>
-<li><p><code>devtools::check()</code> again, what changed?</p></li>
+<li><p><code>devtools::check()</code>, comment <code>best_wins_leeds()</code></p></li>
+<li><p><code>devtools::check()</code> 🤔</p></li>
 <li><p>restore commented-out code</p></li>
 </ul>
 </div>
