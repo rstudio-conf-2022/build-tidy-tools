@@ -1,0 +1,25 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Building tidy tools"
+  navbar:
+    background: primary
+    left:
+      - href: index.qmd
+        text: Home
+      - href: pre-reqs.qmd
+        text: Prerequisites
+      - href: schedule.qmd
+        text: Schedule
+
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+editor: visual
+

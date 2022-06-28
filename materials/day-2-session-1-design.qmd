@@ -18,3 +18,671 @@ execute:
   eval: false
 bibliography: references.bib
 ---
+<<<<<<< HEAD
+=======
+
+# 👋 Welcome Back
+
+## The Team
+
+::: columns
+::: {.column width="50%"}
+Emma Rand 🐦[er13_r](https://twitter.com/er13_r?lang=en)
+
+Elliot Murphy
+
+Beatriz Milz
+:::
+
+::: {.column width="50%"}
+Ian Lyttle 🐦[ijlyttle](https://twitter.com/ijlyttle?lang=en)
+
+Haley Jeppson
+
+Ted Laderas
+:::
+:::
+
+Standing on the shoulders of Building Tidy Tools, rstudio::conf(2020) [@wickham2021a], R Packages [@wickham2020]
+
+## Code of conduct
+
+## Housekeeping
+
+-   Toilets
+
+-   Fire exits and alarms
+
+-   anything else?
+
+## How we will work
+
+-   stickies
+
+-   no stupid questions
+
+## Schedule
+
+ - Function design
+ 
+ - Working with side effects
+ 
+ - Tidy Eval
+ 
+ - Miscellany
+
+## State of play
+
+We want to *concentrate on specific concepts*, rather than writing entire functions.
+
+We have created a set of checkpoints called **states**:
+
+```{r eval=TRUE}
+btt22::btt_state()
+```
+
+For example, `"2.1.1"` means day **2**, session **1**, task **1**.
+
+## Getting new files
+
+To get *new* files for a state:
+
+```r
+# "2.1.1": day 2, session 1, task 1
+btt_get("2.1.1")
+```
+
+. . . 
+
+- files to directories `R`, `tests/testthat`.
+- contains functions, tests that *you* will complete.
+
+## Staying on the "happy path"
+
+One example builds on another, so it's important to keep up.
+
+. . . 
+
+We will do our best to help; in case you need to reset:
+
+```r
+btt_reset_hard("2.1.1")
+```
+
+. . .
+
+Overwrites:
+
+- directories: `R`, `tests/testthat`
+- `Imports`, `Suggests` sections of `DESCRIPTION` 
+
+. . .
+
+## Learning objectives 
+
+At the end of this section you will be able to:
+ 
+ - order and name your function's arguments.
+ - recognize type-stable functions and their importance.
+ - distinguish a pure function from a function that has or uses side effects.
+
+But first...
+ 
+## Make R CMD CHECK happy {.smaller}
+
+When we finished yesterday:
+ 
+```default
+> checking R code for possible problems ... NOTE
+  uss_make_matches: no visible binding for global variable ‘tier’
+  uss_make_matches: no visible binding for global variable ‘Season’
+  uss_make_matches: no visible binding for global variable ‘Date’
+  uss_make_matches: no visible binding for global variable ‘home’
+  uss_make_matches: no visible binding for global variable ‘visitor’
+  uss_make_matches: no visible binding for global variable ‘hgoal’
+  uss_make_matches: no visible binding for global variable ‘vgoal’
+  Undefined global functions or variables:
+    Date Season hgoal home tier vgoal visitor
+
+0 errors ✓ | 0 warnings ✓ | 1 note x
+``` 
+
+. . .
+
+Where does `tier`, etc. come from?
+
+. . . 
+
+- We know it's a column in a data frame, but R doesn't know that.
+
+- How to specify "this comes from a data frame" ? 
+
+## Preview of tidy eval
+
+The {rlang} package provides pronouns.
+
+. . . 
+
+Interactively, we might write:
+
+```r
+mtcars |>
+  mutate(cons_lper100km = 235.215 / mpg)
+```
+
+. . .
+
+In a package function, we would write:
+
+```r
+mtcars |>
+  dplyr::mutate(cons_lper100km = 235.215 / .data$mpg)
+```
+
+## Your turn `"2.1.1"`
+
+1. Add the {rlang} package:
+
+```r
+usethis::use_package("rlang")
+```
+
+2. Import the `.data` pronoun:
+
+```r
+# adds to R/ussie-package.R
+usethis::use_import_from("rlang", ".data")
+```
+
+3. `R/matches.R`: use `.data` in `uss_make_matches()`.
+
+4. `devtools::check()`, should be happy now.
+
+## API design
+
+. . .
+
+A thing I like about tidyverse: 
+
+. . .
+
+ - *there should be a function to do* **this**; *it should look like* **this** 
+ 
+ . . .
+  
+ - there already is
+ 
+ . . . 
+ 
+ Because:
+ 
+  - functions and arguments follow naming conventions
+ 
+  - arguments are ordered according to purpose
+ 
+  - we know what to expect for return values
+
+## Evolving references
+
+The way we approach problems is always evolving; tidyverse is no exception:
+
+. . .
+
+- [Tidyverse Style Guide](https://style.tidyverse.org/){preview-link="true"}
+
+. . .
+
+- [Tidyverse Design Guide](https://design.tidyverse.org/){preview-link="true"}
+
+. . .
+
+- follow the GitHub repo of your favorite tidyverse/r-lib package (mine is {usethis}):
+  - issue discussions
+  - pull-request reviews
+
+## Naming functions
+
+If writing a smaller package, consider prefixing your functions:
+
+ - {ussie}: `uss_make_matches()`
+ 
+ - {btt22}: `btt_get()`
+
+. . .
+
+Use a *verb* next:
+
+ - `dplyr::mutate()`, `stringr::str_split()`
+
+. . . 
+
+Use a *noun* if building up a specific type of object:
+
+ - `ggplot2::ggplot()`, `ggplot2::geom_point()`
+
+## Casing
+
+- Tidyverse uses `snake_case`
+
+- Python prefers `snake_case`
+
+- JavaScript prefers:
+  - `camelCase` for functions 
+  - `PascalCase` for classes, interfaces
+
+. . . 
+
+Pick a convention according to your domain, follow it.
+
+## Arguments
+
+Here, `mtcars` is an *argument*:
+
+```r
+head(mtcars)
+```
+
+. . . 
+
+Here, `data` is a *formal argument*:
+
+```r
+head <- function(data){
+  ...
+}
+```
+
+. . .
+
+In R, we sometimes use these terms interchangeably; we sometimes use the term *formals*. 
+
+. . .
+
+`¯\_(ツ)_/¯`
+
+## Naming arguments
+
+Like naming functions, strive to be:
+
+- consistent
+- evocative
+- concise
+
+. . .
+
+> There are only two hard things in Computer Science: cache invalidation and naming things.
+>
+> -- Phil Karlton
+
+. . .
+
+> And off-by-one errors -- [Leon Bambrick](https://twitter.com/secretGeek/status/7269997868)
+
+## Ordering arguments
+
+- **data**: first argument, "the thing" 
+- **descriptors**: values the user should specify
+- **dots** (`...`): stuff that gets passed to other functions
+- **details**: values with defaults
+
+. . . 
+
+I have seen the order of **dots** and **details** reversed.
+
+However, **data** and **descriptors** almost always come first.
+
+## Discuss with neighbour
+
+Which are: data, descriptors, details?
+
+```r
+# there are acutally more args...
+pivot_longer <- function(
+  data,                
+  cols,                
+  names_to = "name",   
+  names_prefix = NULL  
+) {
+  ...
+}
+```
+
+## Discuss with neighbor (answer)
+
+Which are: data, descriptors, details?
+
+```r
+# there are acutally more args...
+pivot_longer <- function(
+  data,                # data
+  cols,                # descriptor
+  names_to = "name",   # details
+  names_prefix = NULL  #
+) {
+  ...
+}
+```
+
+## Return value: type stability
+
+This is a key to tidyverse.
+
+. . .
+
+### In theory
+
+Type of return-value depends only on the **types** of the inputs.
+
+- no `return_tibble = TRUE` arguments.
+
+. . .
+
+### In practice
+
+ - return same type as data (first) argument
+ 
+ - return constant type, e.g. `double`
+
+## Putting it all together
+
+When I think of tidyverse functions, I can remember type for:
+
+- data (first) argument
+
+- return value
+
+. . .
+
+For example:
+
+- `dplyr::mutate()`: tibble -> tibble
+
+- `tidyr::pivot_longer()`: tibble -> tibble
+
+. . .
+
+tibble -> tibble pattern makes it easy to work with the pipe: `|>`  
+
+## Our turn `"2.1.2"`
+
+Implement a function, `uss_get_matches()`:
+
+  - given a `country`
+  - return a *matches* tibble
+ 
+. . .
+
+<hr>
+**Only** *if needed*, `btt22::btt_reset_hard("2.1.2")`
+<hr>
+
+. . . 
+ 
+Get new files, `btt22::btt_get("2.1.2")`:
+
+ - `columns.R`, `get-matches.R`
+ - `test-get-matches.R`
+
+## `columns.R`
+
+In {ussie} we (*will*) have all sorts of tibbles:
+
+ - engsoc
+ - matches
+ - *teams_matches*
+ - *seasons*
+
+. . .  
+ 
+and groupings:
+
+ - *seasons_grouping*
+ - *accumulate*
+ 
+## Build-time vs. run-time
+
+ - Put this code, temporarily, into `columns.R`:
+
+```r
+build_time <- Sys.time()
+
+run_time <- function() {
+  Sys.time()
+}
+```
+
+. . .
+
+ - `devtools::load_all()` 
+ - try `build_time`, `run_time()`
+ 
+. . . 
+
+If you need to delay evaluation, try a function.
+
+## `get_soccer_data()`
+
+Given name of dataset in {engsoccerdata}, return dataset:
+
+```r
+get_soccer_data <- function(data_name) {
+  # create isolated environment
+  e <- new.env()
+  
+  # put the data into environment
+  name <- utils::data(
+    list = data_name, 
+    package = "engsoccerdata", 
+    envir = e
+  )[1]
+  
+  # return data from environment
+  e[[name]]
+}
+```
+
+## `uss_countries()`
+
+Return set of valid values for `country`:
+
+```r
+uss_countries <- function() {
+  c("england", "germany", "holland", "italy", "spain")
+}
+```
+
+. . . 
+
+### Run-time vs. build-time
+
+Safer habit: delay evaluation by wrapping code in a function 
+
+## `best_wins_leeds()`
+
+- `usethis::use_package("engsoccerdata")` 
+
+  ```r
+  best_wins_leeds <- function(n = 10) {
+    engsoccerdata::bestwins(
+      engsoccerdata::england,
+      teamname = "Leeds United",
+      N = n
+    )
+  }
+  ```
+
+. . . 
+
+- `devtools::check()`, comment `best_wins_leeds()`
+
+- `devtools::check()` 🤔
+
+- restore commented-out code
+
+## `uss_get_matches()`
+
+Given `country`, return *matches* data:
+
+```r
+uss_get_matches <- function(country = uss_countries()) {
+  
+  # validate country
+  country <- match.arg(country)
+  
+  # get data for country
+  data <- get_soccer_data(country)
+  
+  # capitalize
+  substr(country, 1, 1) <- toupper(substr(country, 1, 1))
+  
+  # make matches data, return
+  uss_make_matches(data, country) 
+}
+```
+
+## Document
+
+Show an example (or two) of using `uss_get_matches()` in your package vignette.
+
+## Pure functions vs. side effects
+
+ - I (Ian) have been programming since 1982, in some form.
+ 
+. . .  
+ 
+ - I studied mechanical engineering, not computer science; programming on the side.
+ 
+. . . 
+
+ - When I learned about this in 2016, it *changed* my view of programming.
+ 
+. . . 
+
+ - Keeping this distinction in mind simplifies a *lot* of challenges.
+
+## Pure function
+
+A function where:
+
+ - the return value depends *only* on argument values
+
+ - only change is the return value
+
+. . .
+
+Examples:
+
+. . .
+ 
+```r
+function(x, y) {
+  x + y
+}
+```
+
+. . .
+ 
+```r
+cos(pi)
+```
+
+## Side effects
+
+A function where:
+
+ - the return value can depend on "the outside universe"
+
+ - there is a change in the "the outside universe"
+ 
+. . .
+
+Examples:
+
+. . .
+
+```r
+readr::read_csv("myfile.csv")
+```
+
+. . .
+
+```r
+runif(1)
+```
+
+## Why is this important?
+
+. . . 
+
+- Pure functions easier to test than functions with side effects.
+
+. . . 
+
+- Side effects (interactions with universe) take time (Shiny).
+
+. . . 
+
+- Functions with side effects should document the effects.
+
+. . . 
+
+- Side effects are not inherently bad (we *do* need to write to the file system),
+  but they need extra care.
+  
+## Discuss with your neighbour
+
+Are these {ussie} functions pure?
+
+- `uss_countries()`
+
+- `uss_make_matches()`
+
+- `get_soccer_data()`
+
+- `uss_get_matches()`
+
+## Practical advice
+
+Try to separate tasks into pure functions and side effects:
+
+- easier to test the pure functions and side effects separately
+
+- use *these* functions in higher-level functions
+
+. . .
+
+For example:
+
+- `uss_make_matches()` is a pure function.
+
+- `get_soccer_data()` uses side effects.
+
+- `uss_get_matches()` calls each of these functions.
+
+## Summary
+
+. . .
+
+- **Naming**: be consistent, concise, yet evocative.
+
+. . .
+
+- **Argument order**: data, descriptors, dots, details.
+  
+. . .
+
+- **Return value type**: be consistent, predictable.
+
+. . .
+
+- Easy to remember data (first) argument and return value:
+  - easy to use pipe, `|>`.
+
+. . .
+
+- Be mindful of side effects.
+
+
+## References {.smaller}
+
+>>>>>>> df489bac4b895fa9f6100b94d21149ddf19dfc38
