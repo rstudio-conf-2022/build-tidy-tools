@@ -1,6 +1,6 @@
 ---
 title: "📦 <br>Building tidy tools"
-subtitle: "Day 1 Session 2: ....."
+subtitle: "Day 1 Session 3: Unit tests"
 author: "Emma Rand and Ian Lyttle"
 date: "<br>🔗 [bit.ly/...](https://bit.ly/..)"
 format:
@@ -19,17 +19,314 @@ execute:
 bibliography: references.bib
 ---
 
-# 👋 .
-
-## ...
-
-## 
+# ☑️ Unit Testing
 
 ## Learning Objectives {.smaller}
 
 At the end of this section you will be able to:
 
-# 📦 Woo hoo📦 <BR> You .....
+-   lo
+-   lo
+-   lo
+-   lo
+-   
+
+# Why test?
+
+## Why test?
+
+We already did informal testing:
+
+-   wrote `uss_make_matches()`
+-   loaded package with `devtools::load_all()`
+-   ran `uss_make_matches()` interactively
+-   edited `uss_make_matches()`
+-   loaded package with `devtools::load_all()`
+-   ran `uss_make_matches()` interactively
+
+## Informal test workflow
+
+```{mermaid}
+%%| evaluate:: true
+%%| fig-width: 10
+%%| fig-height: 5
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#f3f3f3',  'lineColor':'#EE9AD9'}}}%%
+
+  flowchart LR
+      id1("Reload code: \n load_all()") --> 
+      id2("Explore in \n console") --> 
+      id3("Modify \n code")
+      id3 --> id1
+      style id1 id2 id3 stroke:#3F3F3F,stroke-width:2px
+
+```
+
+## Why automate testing?
+
+Problem: you forget all the interactive testing you've done
+
+. . .
+
+Solution: have a system to store and re-run the tests!
+
+## Why automate testing?
+
+1.  Fewer bugs: you are explicit about behaviour of functions.
+
+2.  Encourages good code design. If it is hard to write unit tests your function may need refactoring
+
+3.  Opportunity for test-drive development
+
+4.  Robustness
+
+
+
+## Automated test workflow
+
+```{mermaid}
+%%| evaluate:: true
+%%| fig-width: 10
+%%| fig-height: 5
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#f3f3f3',  'lineColor':'#EE9AD9'}}}%%
+
+  flowchart LR
+      id1("Reload code: \n load_all()") --> 
+      id2("Run automated tests: \n test() or test_file()") --> 
+      id3("Modify \n code")
+      id3 --> id1
+      style id1 id2 id3 stroke:#3F3F3F,stroke-width:2px
+
+```
+
+
+# Infrastructure and organisation 
+
+## Organisation: files {.smaller}
+
+::: columns
+::: {.column width="65%"} 
+
+
+``` default
+.
+├── CITATION.cff
+├── DESCRIPTION
+├── LICENSE
+├── LICENSE.md
+├── man
+│   └── matches.Rd
+├── NAMESPACE
+├── R
+│   └── matches.R
+├── README.md
+├── tests
+│   ├── testthat
+│   │   └── test-matches.R
+│   └── testthat.R
+└── ussie.Rproj
+```
+
+:::
+
+::: {.column width="35%"}
+
+-  `tests/testthat/`: All test files must be in here
+-  `tests/testthat/test-matches.R`: test files must be `test-xxxxx.R`
+-  `tests/testthat.R`: runs the tests when `devtools::check()` is called
+
+:::
+:::
+
+## Organisation within files
+
+- any test file `test-xxxxx.R` contains several tests. Might be:
+  -  all the tests for a simple function
+  -  all the tests for one part of a complex function
+  -  all the tests for the same functionality in multiple functions
+  
+. . . 
+
+- a test groups several 'expectations'. An expectation:
+  -  has the form: `expect_xxxxxxx(actual_result, expectation)`
+  -  if `actual_result` = `expectation` no error
+  -  if `actual_result` != `expectation` Error
+
+
+
+# Workflow
+
+## Workflow
+
+1.  Set up your package to use {testthat} - Once
+
+2.  Make a test
+
+3.  Run the test
+
+# Set up
+
+## Set up
+
+To set up your package to use testthat: `usethis::use_testthat(3)` which:
+
+-   makes `tests/testthat/`: this is where the test files live
+
+-   edits DESCRIPTION: Adds `Suggests:   testthat (>= 3.0.0)` and `Config/testthat/edition: 3`
+
+-   makes `tests/testthat.R`: this runs the test when you do `devtools:check()` DO NOT EDIT
+
+## Set up
+
+🎬 Set up your package to use {`testthat`}:
+
+```{r}
+usethis::use_testthat(3)
+```
+
+. . .
+
+3 means {`testthat`} edition 3 or {`testthat 3e`}
+
+As well as installing that version of the package, you have to explicitly opt in the edition behaviours.
+
+
+# Expectations
+
+## Expectations
+
+Before we try to make a test, let's look at some of the `expect_xxxx()` functions we have available to us.
+
+
+Their form is  `expect_xxxx(actual_result, expectation)`
+
+-  the `expectation` is what you expect
+-  the `actual_result` is what you are comparing to the expectation
+-  some `expect_xxxx()` have additional arguments
+
+
+## For example
+
+```{r}
+#| eval: true
+# when the actual result is 42
+result <- 42
+
+# and we expect the result to be 42: no error
+expect_identical(result, 42)
+```
+
+```{r}
+#| eval: true
+# when the actual result is "a"
+result <- "a"
+
+# and we expect the result to be "a": no error
+expect_identical(result, "a")
+```
+
+## For example
+
+```{r}
+#| eval: true
+# when the actual result is 45
+result <- 45
+
+# and we expect the result to be 42: Error
+expect_identical(result, 42)
+```
+
+```{r}
+#| eval: true
+# when the actual result is "bob"
+result <- "bob"
+
+# and we expect the result to be "a": Error
+expect_identical(result, "A")
+```
+
+
+## Some common expectations
+
+-  Testing for equality with with wiggle room
+-  Testing matches in strings
+-  Testing something is TRUE
+-  Testing whether objects have names
+-  Testing errors
+
+
+
+## Testing for equality with with wiggle room
+
+```{r}
+#| eval: true
+# when the actual result is 42
+result <- 42
+
+# and we expect the result to be 42: no error
+expect_equal(result, 42)
+```
+
+```{r}
+#| eval: true
+# but when the actual result is 42.0000001
+result <- 42.0000001
+
+# and we expect the result to be 42: no error
+expect_equal(result, 42)
+```
+
+```{r}
+#| eval: true
+# but when the actual result is 42.0000001
+result <- 42.1
+
+# and we expect the result to be 42: no error
+expect_equal(result, 42, tolerance = 0.1)
+```
+
+## Testing matches in strings
+
+## Testing something is TRUE
+
+## Testing whether objects have names
+
+## Testing errors
+
+
+# Making a test
+
+## Make a test
+
+# Running a test
+
+## Running a test
+
+
+# Other types of testing
+
+## Snapshot tests
+
+tomorrow!
+
+## 
+
+## 
+
+## 
+
+# 
+
+## 
+
+## 
+
+## 
+
+## 
+
+# 
+
+# ☑️ Woo hoo ☑️<BR> You .....
 
 ## Summary {.smaller}
 
