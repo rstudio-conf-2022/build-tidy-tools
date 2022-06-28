@@ -284,7 +284,7 @@
     "href": "materials/day-2-session-1-design.html#references",
     "title": "📦 Building tidy tools",
     "section": "References",
-    "text": "References\n\n\nhttps://bit.ly/..\n\n\n\nWickham, Charlotte, and Hadley Wickham. 2021. Building Tidy Tools. rstudio::conf 2020. https://github.com/rstudio-conf-2020/build-tidy-tools.\n\n\nWickham, Hadley, and Jenny Bryan. 2020. R Packages. The work-in-progress 2nd edition. Online. https://r-pkgs.org/index.html."
+    "text": "References\n\n\n\n\n\n\n\ndf489bac4b895fa9f6100b94d21149ddf19dfc38\n\n\n\n\n\n\n\n\n\nhttps://bit.ly/..\n\n\n\nWickham, Charlotte, and Hadley Wickham. 2021. Building Tidy Tools. rstudio::conf 2020. https://github.com/rstudio-conf-2020/build-tidy-tools.\n\n\nWickham, Hadley, and Jenny Bryan. 2020. R Packages. The work-in-progress 2nd edition. Online. https://r-pkgs.org/index.html."
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#introductions",
@@ -970,7 +970,7 @@
     "href": "materials/day-1-session-2-doc-minimal.html#suggests-2",
     "title": "📦 Building tidy tools",
     "section": "Suggests",
-    "text": "Suggests\n\nPackages listed in Suggests are not automatically installed along with your package.\nThis means that you can’t assume the package is available\n\n* Use `requireNamespace(\"engsoccerdata\", quietly = TRUE)` to test if package is installed"
+    "text": "Suggests\n\nPackages listed in Suggests are not automatically installed along with your package.\nThis means that you can’t assume the package is available\n\n\n* Use `requireNamespace(\"engsoccerdata\", quietly = TRUE)` to test if package is installed"
   },
   {
     "objectID": "materials/day-1-session-2-doc-minimal.html#citation.cff",
@@ -1166,21 +1166,168 @@
     "href": "materials/day-2-session-2-side-effects.html#references",
     "title": "📦 Building tidy tools",
     "section": "References",
-    "text": "References\n\n\nhttps://bit.ly/.."
-  },
-  {
-    "objectID": "materials/day-1-session-3-testing.html#section-1",
-    "href": "materials/day-1-session-3-testing.html#section-1",
-    "title": "📦 Building tidy tools",
-    "section": "…",
-    "text": "…"
+    "text": "References\n\n\n\n\n\n\n\ndf489bac4b895fa9f6100b94d21149ddf19dfc38\n\n\n\n\n\n\n\n\n\nhttps://bit.ly/.."
   },
   {
     "objectID": "materials/day-1-session-3-testing.html#learning-objectives",
     "href": "materials/day-1-session-3-testing.html#learning-objectives",
     "title": "📦 Building tidy tools",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\nAt the end of this section you will be able to:"
+    "text": "Learning Objectives\nAt the end of this section you will be able to:\n\nlo\nlo\nlo\nlo"
+  },
+  {
+    "objectID": "materials/day-1-session-3-testing.html#why-test-1",
+    "href": "materials/day-1-session-3-testing.html#why-test-1",
+    "title": "📦 Building tidy tools",
+    "section": "Why test?",
+    "text": "Why test?\nWe already did informal testing:\n\nwrote uss_make_matches()\nloaded package with devtools::load_all()\nran uss_make_matches() interactively\nedited uss_make_matches()\nloaded package with devtools::load_all()\nran uss_make_matches() interactively"
+  },
+  {
+    "objectID": "materials/day-1-session-3-testing.html#informal-test-workflow",
+    "href": "materials/day-1-session-3-testing.html#informal-test-workflow",
+    "title": "📦 Building tidy tools",
+    "section": "Informal test workflow",
+    "text": "Informal test workflow\n\n\n\n\n%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#f3f3f3',  'lineColor':'#EE9AD9'}}}%%\n\n  flowchart LR\n      id1(\"Reload code: \\n load_all()\") --> \n      id2(\"Explore in \\n console\") --> \n      id3(\"Modify \\n code\")\n      id3 --> id1\n      style id1 id2 id3 stroke:#3F3F3F,stroke-width:2px"
+  },
+  {
+    "objectID": "materials/day-1-session-3-testing.html#why-automate-testing",
+    "href": "materials/day-1-session-3-testing.html#why-automate-testing",
+    "title": "📦 Building tidy tools",
+    "section": "Why automate testing?",
+    "text": "Why automate testing?\nProblem: you forget all the interactive testing you’ve done\n\nSolution: have a system to store and re-run the tests!"
+  },
+  {
+    "objectID": "materials/day-1-session-3-testing.html#why-automate-testing-1",
+    "href": "materials/day-1-session-3-testing.html#why-automate-testing-1",
+    "title": "📦 Building tidy tools",
+    "section": "Why automate testing?",
+    "text": "Why automate testing?\n\nFewer bugs: you are explicit about behaviour of functions.\nEncourages good code design. If it is hard to write unit tests your function may need refactoring\nOpportunity for test-drive development\nRobustness"
+  },
+  {
+    "objectID": "materials/day-1-session-3-testing.html#automated-test-workflow",
+    "href": "materials/day-1-session-3-testing.html#automated-test-workflow",
+    "title": "📦 Building tidy tools",
+    "section": "Automated test workflow",
+    "text": "Automated test workflow\n\n\n\n\n%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#f3f3f3',  'lineColor':'#EE9AD9'}}}%%\n\n  flowchart LR\n      id1(\"Reload code: \\n load_all()\") --> \n      id2(\"Run automated tests: \\n test() or test_file()\") --> \n      id3(\"Modify \\n code\")\n      id3 --> id1\n      style id1 id2 id3 stroke:#3F3F3F,stroke-width:2px"
+  },
+  {
+    "objectID": "materials/day-1-session-3-testing.html#organisation-files",
+    "href": "materials/day-1-session-3-testing.html#organisation-files",
+    "title": "📦 Building tidy tools",
+    "section": "Organisation: files",
+    "text": "Organisation: files\n\n\n.\n├── CITATION.cff\n├── DESCRIPTION\n├── LICENSE\n├── LICENSE.md\n├── man\n│   └── matches.Rd\n├── NAMESPACE\n├── R\n│   └── matches.R\n├── README.md\n├── tests\n│   ├── testthat\n│   │   └── test-matches.R\n│   └── testthat.R\n└── ussie.Rproj\n\n\ntests/testthat/: All test files must be in here\ntests/testthat/test-matches.R: test files must be test-xxxxx.R\ntests/testthat.R: runs the tests when devtools::check() is called"
+  },
+  {
+    "objectID": "materials/day-1-session-3-testing.html#organisation-within-files",
+    "href": "materials/day-1-session-3-testing.html#organisation-within-files",
+    "title": "📦 Building tidy tools",
+    "section": "Organisation within files",
+    "text": "Organisation within files\n\nany test file test-xxxxx.R contains several tests. Might be:\n\nall the tests for a simple function\nall the tests for one part of a complex function\nall the tests for the same functionality in multiple functions\n\n\n\n\na test groups several ‘expectations’. An expectation:\n\nhas the form: expect_xxxxxxx(actual_result, expectation)\nif actual_result = expectation no error\nif actual_result != expectation Error"
+  },
+  {
+    "objectID": "materials/day-1-session-3-testing.html#workflow-1",
+    "href": "materials/day-1-session-3-testing.html#workflow-1",
+    "title": "📦 Building tidy tools",
+    "section": "Workflow",
+    "text": "Workflow\n\nSet up your package to use {testthat} - Once\nMake a test\nRun the test"
+  },
+  {
+    "objectID": "materials/day-1-session-3-testing.html#set-up-1",
+    "href": "materials/day-1-session-3-testing.html#set-up-1",
+    "title": "📦 Building tidy tools",
+    "section": "Set up",
+    "text": "Set up\nTo set up your package to use testthat: usethis::use_testthat(3) which:\n\nmakes tests/testthat/: this is where the test files live\nedits DESCRIPTION: Adds Suggests:   testthat (>= 3.0.0) and Config/testthat/edition: 3\nmakes tests/testthat.R: this runs the test when you do devtools:check() DO NOT EDIT"
+  },
+  {
+    "objectID": "materials/day-1-session-3-testing.html#set-up-2",
+    "href": "materials/day-1-session-3-testing.html#set-up-2",
+    "title": "📦 Building tidy tools",
+    "section": "Set up",
+    "text": "Set up\n🎬 Set up your package to use {testthat}:\n\nusethis::use_testthat(3)\n\n\n3 means {testthat} edition 3 or {testthat 3e}\nAs well as installing that version of the package, you have to explicitly opt in the edition behaviours."
+  },
+  {
+    "objectID": "materials/day-1-session-3-testing.html#expectations-1",
+    "href": "materials/day-1-session-3-testing.html#expectations-1",
+    "title": "📦 Building tidy tools",
+    "section": "Expectations",
+    "text": "Expectations\nBefore we try to make a test, let’s look at some of the expect_xxxx() functions we have available to us.\nTheir form is expect_xxxx(actual_result, expectation)\n\nthe expectation is what you expect\nthe actual_result is what you are comparing to the expectation\nsome expect_xxxx() have additional arguments"
+  },
+  {
+    "objectID": "materials/day-1-session-3-testing.html#for-example",
+    "href": "materials/day-1-session-3-testing.html#for-example",
+    "title": "📦 Building tidy tools",
+    "section": "For example",
+    "text": "For example\n\nlibrary(testthat)\n# when the actual result is 42\nresult <- 42\n\n# and we expect the result to be 42: no error\nexpect_identical(result, 42)\n\n\n# when the actual result is \"a\"\nresult <- \"a\"\n\n# and we expect the result to be \"a\": no error\nexpect_identical(result, \"a\")"
+  },
+  {
+    "objectID": "materials/day-1-session-3-testing.html#for-example-1",
+    "href": "materials/day-1-session-3-testing.html#for-example-1",
+    "title": "📦 Building tidy tools",
+    "section": "For example",
+    "text": "For example\n\n# when the actual result is 45\nresult <- 45\n\n# and we expect the result to be 42: Error\nexpect_identical(result, 42)\n\nError: `result` not identical to 42.\n1/1 mismatches\n[1] 45 - 42 == 3\n\n\n\n# when the actual result is \"bob\"\nresult <- \"bob\"\n\n# and we expect the result to be \"a\": Error\nexpect_identical(result, \"A\")\n\nError: `result` not identical to \"A\".\n1/1 mismatches\nx[1]: \"bob\"\ny[1]: \"A\""
+  },
+  {
+    "objectID": "materials/day-1-session-3-testing.html#some-common-expectations",
+    "href": "materials/day-1-session-3-testing.html#some-common-expectations",
+    "title": "📦 Building tidy tools",
+    "section": "Some common expectations",
+    "text": "Some common expectations\n\nTesting for equality with with wiggle room\nTesting matches in strings\nTesting something is TRUE\nTesting whether objects have names\nTesting errors"
+  },
+  {
+    "objectID": "materials/day-1-session-3-testing.html#testing-for-equality-with-wiggle-room",
+    "href": "materials/day-1-session-3-testing.html#testing-for-equality-with-wiggle-room",
+    "title": "📦 Building tidy tools",
+    "section": "Testing for equality with wiggle room",
+    "text": "Testing for equality with wiggle room\n\n# when the actual result is 42\nresult <- 42\n\n# and we expect the result to be 42: no error\nexpect_equal(result, 42)\n\n\n# but when the actual result is 42.0000001\nresult <- 42.0000001\n\n# and we expect the result to be 42: no error\nexpect_equal(result, 42)\n\n\n# but when the actual result is 42.0000001\nresult <- 42.1\n\n# and we expect the result to be 42: no error\nexpect_equal(result, 42, tolerance = 0.1)"
+  },
+  {
+    "objectID": "materials/day-1-session-3-testing.html#testing-matches-in-strings",
+    "href": "materials/day-1-session-3-testing.html#testing-matches-in-strings",
+    "title": "📦 Building tidy tools",
+    "section": "Testing matches in strings",
+    "text": "Testing matches in strings"
+  },
+  {
+    "objectID": "materials/day-1-session-3-testing.html#testing-something-is-true",
+    "href": "materials/day-1-session-3-testing.html#testing-something-is-true",
+    "title": "📦 Building tidy tools",
+    "section": "Testing something is TRUE",
+    "text": "Testing something is TRUE"
+  },
+  {
+    "objectID": "materials/day-1-session-3-testing.html#testing-whether-objects-have-names",
+    "href": "materials/day-1-session-3-testing.html#testing-whether-objects-have-names",
+    "title": "📦 Building tidy tools",
+    "section": "Testing whether objects have names",
+    "text": "Testing whether objects have names"
+  },
+  {
+    "objectID": "materials/day-1-session-3-testing.html#testing-errors",
+    "href": "materials/day-1-session-3-testing.html#testing-errors",
+    "title": "📦 Building tidy tools",
+    "section": "Testing errors",
+    "text": "Testing errors"
+  },
+  {
+    "objectID": "materials/day-1-session-3-testing.html#make-a-test",
+    "href": "materials/day-1-session-3-testing.html#make-a-test",
+    "title": "📦 Building tidy tools",
+    "section": "Make a test",
+    "text": "Make a test"
+  },
+  {
+    "objectID": "materials/day-1-session-3-testing.html#running-a-test-1",
+    "href": "materials/day-1-session-3-testing.html#running-a-test-1",
+    "title": "📦 Building tidy tools",
+    "section": "Running a test",
+    "text": "Running a test"
+  },
+  {
+    "objectID": "materials/day-1-session-3-testing.html#snapshot-tests",
+    "href": "materials/day-1-session-3-testing.html#snapshot-tests",
+    "title": "📦 Building tidy tools",
+    "section": "Snapshot tests",
+    "text": "Snapshot tests\ntomorrow!"
   },
   {
     "objectID": "materials/day-1-session-3-testing.html#summary",

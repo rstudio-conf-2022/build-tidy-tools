@@ -7,7 +7,7 @@
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-0.9.624">
+  <meta name="generator" content="quarto-0.9.629">
 
   <meta name="author" content="Emma Rand and Ian Lyttle">
   <title>Building tidy tools - 📦 Building tidy tools</title>
@@ -23,6 +23,70 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #f8f8f2;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #f8f8f2; } /* Normal */
+    code span.al { color: #f07178; background-color: #2a0f15; font-weight: bold; } /* Alert */
+    code span.an { color: #d4d0ab; } /* Annotation */
+    code span.at { color: #00e0e0; } /* Attribute */
+    code span.bn { color: #d4d0ab; } /* BaseN */
+    code span.bu { color: #abe338; } /* BuiltIn */
+    code span.cf { color: #ffa07a; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #abe338; } /* Char */
+    code span.cn { color: #ffd700; } /* Constant */
+    code span.co { color: #f8f8f2; font-style: italic; } /* Comment */
+    code span.cv { color: #ffd700; } /* CommentVar */
+    code span.do { color: #f8f8f2; } /* Documentation */
+    code span.dt { color: #ffa07a; } /* DataType */
+    code span.dv { color: #d4d0ab; } /* DecVal */
+    code span.er { color: #f07178; text-decoration: underline; } /* Error */
+    code span.ex { color: #00e0e0; font-weight: bold; } /* Extension */
+    code span.fl { color: #d4d0ab; } /* Float */
+    code span.fu { color: #ffa07a; } /* Function */
+    code span.im { color: #abe338; } /* Import */
+    code span.in { color: #d4d0ab; } /* Information */
+    code span.kw { color: #ffa07a; font-weight: bold; } /* Keyword */
+    code span.op { color: #ffa07a; } /* Operator */
+    code span.ot { color: #00e0e0; } /* Other */
+    code span.pp { color: #dcc6e0; } /* Preprocessor */
+    code span.re { color: #00e0e0; background-color: #f8f8f2; } /* RegionMarker */
+    code span.sc { color: #abe338; } /* SpecialChar */
+    code span.ss { color: #abe338; } /* SpecialString */
+    code span.st { color: #abe338; } /* String */
+    code span.va { color: #00e0e0; } /* Variable */
+    code span.vs { color: #abe338; } /* VerbatimString */
+    code span.wa { color: #dcc6e0; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css" id="theme">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -315,6 +379,9 @@
       margin-right: 0; 
     }
   </style>
+  <script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 </head>
 <body>
   <div class="reveal">
@@ -322,29 +389,367 @@
 
 <section id="title-slide" class="center">
   <h1 class="title">📦 <br>Building tidy tools</h1>
-  <p class="subtitle">Day 1 Session 2: …..</p>
+  <p class="subtitle">Day 1 Session 3: Unit tests</p>
   <p class="author">Emma Rand and Ian Lyttle</p>
   <p class="date"><br>🔗 <a href="https://bit.ly/..">bit.ly/…</a></p>
 </section>
 
 <section>
-<section id="section" class="title-slide slide level1 center">
-<h1>👋 .</h1>
+<section id="unit-testing" class="title-slide slide level1 center">
+<h1>☑️ Unit Testing</h1>
 
-</section>
-<section id="section-1" class="slide level2">
-<h2>…</h2>
-</section>
-<section id="section-2" class="slide level2">
-<h2></h2>
 </section>
 <section id="learning-objectives" class="slide level2 smaller">
 <h2>Learning Objectives</h2>
 <p>At the end of this section you will be able to:</p>
+<ul>
+<li>lo</li>
+<li>lo</li>
+<li>lo</li>
+<li>lo</li>
+<li></li>
+</ul>
 </section></section>
 <section>
+<section id="why-test" class="title-slide slide level1 center">
+<h1>Why test?</h1>
+
+</section>
+<section id="why-test-1" class="slide level2">
+<h2>Why test?</h2>
+<p>We already did informal testing:</p>
+<ul>
+<li>wrote <code>uss_make_matches()</code></li>
+<li>loaded package with <code>devtools::load_all()</code></li>
+<li>ran <code>uss_make_matches()</code> interactively</li>
+<li>edited <code>uss_make_matches()</code></li>
+<li>loaded package with <code>devtools::load_all()</code></li>
+<li>ran <code>uss_make_matches()</code> interactively</li>
+</ul>
+</section>
+<section id="informal-test-workflow" class="slide level2">
+<h2>Informal test workflow</h2>
+<div class="cell" data-reveal="true" evaluate:="true" data-fig-width="10" data-fig-height="5">
+<div class="cell-output-display">
+<div>
+<p>
+</p><pre class="mermaid" data-tooltip-selector="#mermaid-tooltip-1">%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#f3f3f3',  'lineColor':'#EE9AD9'}}}%%
+
+  flowchart LR
+      id1("Reload code: \n load_all()") --&gt; 
+      id2("Explore in \n console") --&gt; 
+      id3("Modify \n code")
+      id3 --&gt; id1
+      style id1 id2 id3 stroke:#3F3F3F,stroke-width:2px
+
+</pre>
+<div id="mermaid-tooltip-1" class="mermaidTooltip">
+
+</div>
+<p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="why-automate-testing" class="slide level2">
+<h2>Why automate testing?</h2>
+<p>Problem: you forget all the interactive testing you’ve done</p>
+<div class="fragment">
+<p>Solution: have a system to store and re-run the tests!</p>
+</div>
+</section>
+<section id="why-automate-testing-1" class="slide level2">
+<h2>Why automate testing?</h2>
+<ol type="1">
+<li><p>Fewer bugs: you are explicit about behaviour of functions.</p></li>
+<li><p>Encourages good code design. If it is hard to write unit tests your function may need refactoring</p></li>
+<li><p>Opportunity for test-drive development</p></li>
+<li><p>Robustness</p></li>
+</ol>
+</section>
+<section id="automated-test-workflow" class="slide level2">
+<h2>Automated test workflow</h2>
+<div class="cell" data-reveal="true" evaluate:="true" data-fig-width="10" data-fig-height="5">
+<div class="cell-output-display">
+<div>
+<p>
+</p><pre class="mermaid" data-tooltip-selector="#mermaid-tooltip-2">%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#f3f3f3',  'lineColor':'#EE9AD9'}}}%%
+
+  flowchart LR
+      id1("Reload code: \n load_all()") --&gt; 
+      id2("Run automated tests: \n test() or test_file()") --&gt; 
+      id3("Modify \n code")
+      id3 --&gt; id1
+      style id1 id2 id3 stroke:#3F3F3F,stroke-width:2px
+
+</pre>
+<div id="mermaid-tooltip-2" class="mermaidTooltip">
+
+</div>
+<p></p>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="infrastructure-and-organisation" class="title-slide slide level1 center">
+<h1>Infrastructure and organisation</h1>
+
+</section>
+<section id="organisation-files" class="slide level2 smaller">
+<h2>Organisation: files</h2>
+<div class="columns">
+<div class="column" style="width:65%;">
+<div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>.</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>├── CITATION.cff</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>├── DESCRIPTION</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>├── LICENSE</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>├── LICENSE.md</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>├── man</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>│   └── matches.Rd</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>├── NAMESPACE</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>├── R</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>│   └── matches.R</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>├── README.md</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>├── tests</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>│   ├── testthat</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>│   │   └── test-matches.R</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>│   └── testthat.R</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>└── ussie.Rproj</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:35%;">
+<ul>
+<li><code>tests/testthat/</code>: All test files must be in here</li>
+<li><code>tests/testthat/test-matches.R</code>: test files must be <code>test-xxxxx.R</code></li>
+<li><code>tests/testthat.R</code>: runs the tests when <code>devtools::check()</code> is called</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="organisation-within-files" class="slide level2">
+<h2>Organisation within files</h2>
+<ul>
+<li>any test file <code>test-xxxxx.R</code> contains several tests. Might be:
+<ul>
+<li>all the tests for a simple function</li>
+<li>all the tests for one part of a complex function</li>
+<li>all the tests for the same functionality in multiple functions</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>a test groups several ‘expectations’. An expectation:
+<ul>
+<li>has the form: <code>expect_xxxxxxx(actual_result, expectation)</code></li>
+<li>if <code>actual_result</code> = <code>expectation</code> no error</li>
+<li>if <code>actual_result</code> != <code>expectation</code> Error</li>
+</ul></li>
+</ul>
+</div>
+</section></section>
+<section>
+<section id="workflow" class="title-slide slide level1 center">
+<h1>Workflow</h1>
+
+</section>
+<section id="workflow-1" class="slide level2">
+<h2>Workflow</h2>
+<ol type="1">
+<li><p>Set up your package to use {testthat} - Once</p></li>
+<li><p>Make a test</p></li>
+<li><p>Run the test</p></li>
+</ol>
+</section></section>
+<section>
+<section id="set-up" class="title-slide slide level1 center">
+<h1>Set up</h1>
+
+</section>
+<section id="set-up-1" class="slide level2">
+<h2>Set up</h2>
+<p>To set up your package to use testthat: <code>usethis::use_testthat(3)</code> which:</p>
+<ul>
+<li><p>makes <code>tests/testthat/</code>: this is where the test files live</p></li>
+<li><p>edits DESCRIPTION: Adds <code>Suggests:   testthat (&gt;= 3.0.0)</code> and <code>Config/testthat/edition: 3</code></p></li>
+<li><p>makes <code>tests/testthat.R</code>: this runs the test when you do <code>devtools:check()</code> DO NOT EDIT</p></li>
+</ul>
+</section>
+<section id="set-up-2" class="slide level2">
+<h2>Set up</h2>
+<p>🎬 Set up your package to use {<code>testthat</code>}:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_testthat</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<p>3 means {<code>testthat</code>} edition 3 or {<code>testthat 3e</code>}</p>
+<p>As well as installing that version of the package, you have to explicitly opt in the edition behaviours.</p>
+</div>
+</section></section>
+<section>
+<section id="expectations" class="title-slide slide level1 center">
+<h1>Expectations</h1>
+
+</section>
+<section id="expectations-1" class="slide level2">
+<h2>Expectations</h2>
+<p>Before we try to make a test, let’s look at some of the <code>expect_xxxx()</code> functions we have available to us.</p>
+<p>Their form is <code>expect_xxxx(actual_result, expectation)</code></p>
+<ul>
+<li>the <code>expectation</code> is what you expect</li>
+<li>the <code>actual_result</code> is what you are comparing to the expectation</li>
+<li>some <code>expect_xxxx()</code> have additional arguments</li>
+</ul>
+</section>
+<section id="for-example" class="slide level2">
+<h2>For example</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(testthat)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># when the actual result is 42</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="dv">42</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># and we expect the result to be 42: no error</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">expect_identical</span>(result, <span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># when the actual result is "a"</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="st">"a"</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># and we expect the result to be "a": no error</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">expect_identical</span>(result, <span class="st">"a"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="for-example-1" class="slide level2">
+<h2>For example</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># when the actual result is 45</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="dv">45</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># and we expect the result to be 42: Error</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">expect_identical</span>(result, <span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error: `result` not identical to 42.
+1/1 mismatches
+[1] 45 - 42 == 3</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># when the actual result is "bob"</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="st">"bob"</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># and we expect the result to be "a": Error</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">expect_identical</span>(result, <span class="st">"A"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error: `result` not identical to "A".
+1/1 mismatches
+x[1]: "bob"
+y[1]: "A"</code></pre>
+</div>
+</div>
+</section>
+<section id="some-common-expectations" class="slide level2">
+<h2>Some common expectations</h2>
+<ul>
+<li>Testing for equality with with wiggle room</li>
+<li>Testing matches in strings</li>
+<li>Testing something is TRUE</li>
+<li>Testing whether objects have names</li>
+<li>Testing errors</li>
+</ul>
+</section>
+<section id="testing-for-equality-with-wiggle-room" class="slide level2">
+<h2>Testing for equality with wiggle room</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># when the actual result is 42</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="dv">42</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># and we expect the result to be 42: no error</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">expect_equal</span>(result, <span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># but when the actual result is 42.0000001</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fl">42.0000001</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># and we expect the result to be 42: no error</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">expect_equal</span>(result, <span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># but when the actual result is 42.0000001</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fl">42.1</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># and we expect the result to be 42: no error</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">expect_equal</span>(result, <span class="dv">42</span>, <span class="at">tolerance =</span> <span class="fl">0.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="testing-matches-in-strings" class="slide level2">
+<h2>Testing matches in strings</h2>
+</section>
+<section id="testing-something-is-true" class="slide level2">
+<h2>Testing something is TRUE</h2>
+</section>
+<section id="testing-whether-objects-have-names" class="slide level2">
+<h2>Testing whether objects have names</h2>
+</section>
+<section id="testing-errors" class="slide level2">
+<h2>Testing errors</h2>
+</section></section>
+<section>
+<section id="making-a-test" class="title-slide slide level1 center">
+<h1>Making a test</h1>
+
+</section>
+<section id="make-a-test" class="slide level2">
+<h2>Make a test</h2>
+</section></section>
+<section>
+<section id="running-a-test" class="title-slide slide level1 center">
+<h1>Running a test</h1>
+
+</section>
+<section id="running-a-test-1" class="slide level2">
+<h2>Running a test</h2>
+</section></section>
+<section>
+<section id="other-types-of-testing" class="title-slide slide level1 center">
+<h1>Other types of testing</h1>
+
+</section>
+<section id="snapshot-tests" class="slide level2">
+<h2>Snapshot tests</h2>
+<p>tomorrow!</p>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+</section>
+<section id="section-2" class="slide level2">
+<h2></h2>
+</section></section>
+<section>
+<section id="section-3" class="title-slide slide level1 center">
+<h1></h1>
+
+</section>
+<section id="section-4" class="slide level2">
+<h2></h2>
+</section>
+<section id="section-5" class="slide level2">
+<h2></h2>
+</section>
+<section id="section-6" class="slide level2">
+<h2></h2>
+</section>
+<section id="section-7" class="slide level2">
+<h2></h2>
+</section></section>
+<section id="section-8" class="title-slide slide level1 center">
+<h1></h1>
+
+</section>
+
+<section>
 <section id="woo-hoo-you-.." class="title-slide slide level1 center">
-<h1>📦 Woo hoo📦 <br> You …..</h1>
+<h1>☑️ Woo hoo ☑️<br> You …..</h1>
 
 </section>
 <section id="summary" class="slide level2 smaller">
@@ -590,6 +995,48 @@
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          // dispatch for htmlwidgets
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for reveal
+        if (window.Reveal) {
+          window.Reveal.addEventListener("slidechanged", function(event) {
+            fireSlideChanged(event.previousSlide, event.currentSlide);
+          });
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
