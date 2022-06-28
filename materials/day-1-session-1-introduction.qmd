@@ -107,19 +107,17 @@ At the end of this section you will be able to:
 
 \
 
-
 🔲 Restore .RData into workspace at startup: **unchecked**
 
 Save workspace to .RData on exit: **Never**
 
 . . .
 
-
 🎬 Tools \| Global Options \| Code \| Display
 
 ☑️ Show margin: **checked**
 
-   Margin column 80
+Margin column 80
 
 ## 🔥 Set up your `.Rprofile`
 
@@ -165,7 +163,6 @@ if (interactive()) {
 }
 
 ```
-
 
 Restart R.
 
@@ -467,19 +464,17 @@ BUT the format of the data is **not** the same for all countries!!
 #| eval: true
 dplyr::glimpse(engsoccerdata::england)
 ```
-\
 
+\
 
 ```{r}
 #| eval: true
 dplyr::glimpse(engsoccerdata::spain)
 ```
+
 \
 
-
-
-
-## First function 
+## First function
 
 So the first function in our **`ussie`** package will turn these in to standard formats:
 
@@ -495,7 +490,6 @@ Do not nest inside another RStudio project, R package or git repo.
 
 \
 
-
 🎬 Create a package:
 
 ```{r}
@@ -508,30 +502,28 @@ You may want a different path
 
 ##  {.smaller}
 
-```
-√ Creating 'C:/Users/er13/Desktop/ussie/'
-√ Setting active project to 'C:/Users/er13/Desktop/ussie'
-√ Creating 'R/'
-√ Writing 'DESCRIPTION'
-Package: ussie
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
-Authors\@R (parsed):
-   * First Last \<first.last\@example.com\> \[aut, cre\] (YOUR-ORCID-ID)
-Description: What the package does (one paragraph).
-License: \`use_mit_license()\`, \`use_gpl3_license()\` or friends to
-    pick a license
-Encoding: UTF-8
-LazyData: true
-Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
-√ Writing 'NAMESPACE'
-√ Writing 'ussie.Rproj'
-√ Adding '.Rproj.user' to '.gitignore'
-√ Adding '\^ussie\\\\.Rproj\$', '\^\\\\.Rproj\\\\.user\$' to '.Rbuildignore'
-√ Opening 'C:/Users/er13/Desktop/ussie/' in new RStudio session
-√ Setting active project to '\<no active project\>'
-```
+    √ Creating 'C:/Users/er13/Desktop/ussie/'
+    √ Setting active project to 'C:/Users/er13/Desktop/ussie'
+    √ Creating 'R/'
+    √ Writing 'DESCRIPTION'
+    Package: ussie
+    Title: What the Package Does (One Line, Title Case)
+    Version: 0.0.0.9000
+    Authors\@R (parsed):
+       * First Last \<first.last\@example.com\> \[aut, cre\] (YOUR-ORCID-ID)
+    Description: What the package does (one paragraph).
+    License: \`use_mit_license()\`, \`use_gpl3_license()\` or friends to
+        pick a license
+    Encoding: UTF-8
+    LazyData: true
+    Roxygen: list(markdown = TRUE)
+    RoxygenNote: 7.1.1
+    √ Writing 'NAMESPACE'
+    √ Writing 'ussie.Rproj'
+    √ Adding '.Rproj.user' to '.gitignore'
+    √ Adding '\^ussie\\\\.Rproj\$', '\^\\\\.Rproj\\\\.user\$' to '.Rbuildignore'
+    √ Opening 'C:/Users/er13/Desktop/ussie/' in new RStudio session
+    √ Setting active project to '\<no active project\>'
 
 ## `create_package()`
 
@@ -583,37 +575,34 @@ usethis::use_git()
 
 ## 
 
-```
-v Initialising Git repo
-v Adding '.Rhistory', '.Rdata', '.httr-oauth', '.DS_Store' to '.gitignore'
-There are 5 uncommitted files:
-* '.gitignore'
-* '.Rbuildignore'
-* 'DESCRIPTION'
-* 'NAMESPACE'
-* 'ussieprac.Rproj'
-Is it ok to commit them?
+    v Initialising Git repo
+    v Adding '.Rhistory', '.Rdata', '.httr-oauth', '.DS_Store' to '.gitignore'
+    There are 5 uncommitted files:
+    * '.gitignore'
+    * '.Rbuildignore'
+    * 'DESCRIPTION'
+    * 'NAMESPACE'
+    * 'ussieprac.Rproj'
+    Is it ok to commit them?
 
-1: Nope
-2: Absolutely not
-3: I agree
-```
+    1: Nope
+    2: Absolutely not
+    3: I agree
+
 \
 
 🎬 Choose the option that means yes!
 
 ## 
 
-```
-v Adding files
-v Making a commit with message 'Initial commit'
-* A restart of RStudio is required to activate the Git pane
-Restart now?
+    v Adding files
+    v Making a commit with message 'Initial commit'
+    * A restart of RStudio is required to activate the Git pane
+    Restart now?
 
-1: Negative
-2: No way
-3: Yeah
-```
+    1: Negative
+    2: No way
+    3: Yeah
 
 \
 
@@ -633,21 +622,19 @@ usethis::use_github()
 
 ##  {.smaller}
 
-```
-i Defaulting to 'https' Git protocol
-v Setting active project to 'C:/Users/er13/OneDrive - University of York/Desktop/Desktop/ussieprac'
-v Creating GitHub repository '3mmaRand/ussieprac'
-v Setting remote 'origin' to 'https://github.com/3mmaRand/ussieprac.git'
-v Setting URL field in DESCRIPTION to 'https://github.com/3mmaRand/ussieprac'
-v Setting BugReports field in DESCRIPTION to 'https://github.com/3mmaRand/ussieprac/issues'
-There is 1 uncommitted file:
-* 'DESCRIPTION'
-Is it ok to commit it?
+    i Defaulting to 'https' Git protocol
+    v Setting active project to 'C:/Users/er13/OneDrive - University of York/Desktop/Desktop/ussieprac'
+    v Creating GitHub repository '3mmaRand/ussieprac'
+    v Setting remote 'origin' to 'https://github.com/3mmaRand/ussieprac.git'
+    v Setting URL field in DESCRIPTION to 'https://github.com/3mmaRand/ussieprac'
+    v Setting BugReports field in DESCRIPTION to 'https://github.com/3mmaRand/ussieprac/issues'
+    There is 1 uncommitted file:
+    * 'DESCRIPTION'
+    Is it ok to commit it?
 
-1: Negative
-2: Yup
-3: Not now
-```
+    1: Negative
+    2: Yup
+    3: Not now
 
 \
 
@@ -655,12 +642,10 @@ Is it ok to commit it?
 
 ## 
 
-```
-v Adding files
-v Making a commit with message 'Add GitHub links to DESCRIPTION'
-v Pushing 'main' branch to GitHub and setting 'origin/main' as upstream branch
-v Opening URL 'https://github.com/3mmaRand/ussieprac'
-```
+    v Adding files
+    v Making a commit with message 'Add GitHub links to DESCRIPTION'
+    v Pushing 'main' branch to GitHub and setting 'origin/main' as upstream branch
+    v Opening URL 'https://github.com/3mmaRand/ussieprac'
 
 \
 
@@ -706,11 +691,9 @@ usethis::use_r("file_name")
 usethis::use_r("uss_make_matches")
 ```
 
-```
-√ Setting active project to 'C:/Users/er13/Desktop/ussie'
-• Modify 'R/uss_make_matches.R'
-• Call \`use_test()\` to create a matching test file
-```
+    √ Setting active project to 'C:/Users/er13/Desktop/ussie'
+    • Modify 'R/uss_make_matches.R'
+    • Call \`use_test()\` to create a matching test file
 
 \
 
@@ -786,45 +769,38 @@ uss_make_matches(engsoccerdata::italy)
 
 \
 
-```
-# A tibble: 25,404 x 7
-    tier season date       home      visitor goals_home goals_visitor
-   <int>  <int> <date>     <chr>     <chr>        <int>         <int>
- 1     1   1934 1934-09-30 Lazio Ro~ US Liv~          6             1
- 2     1   1934 1934-09-30 Torino FC Unione~          3             1
- 3     1   1934 1934-09-30 Sampierd~ Bologn~          2             1
- 4     1   1934 1934-09-30 SSC Napo~ US Ale~          0             1
- 5     1   1934 1934-09-30 ACF Fior~ AS Roma          4             1
- 6     1   1934 1934-09-30 Brescia ~ Juvent~          0             2
- 7     1   1934 1934-09-30 Inter     US Pal~          3             0
- 8     1   1934 1934-09-30 Pro Verc~ AC Mil~          1             2
- 9     1   1934 1934-10-07 AC Milan  ACF Fi~          1             1
-10     1   1934 1934-10-07 US Livor~ Inter            1             1
-# ... with 25,394 more rows
-```
+    # A tibble: 25,404 x 7
+        tier season date       home      visitor goals_home goals_visitor
+       <int>  <int> <date>     <chr>     <chr>        <int>         <int>
+     1     1   1934 1934-09-30 Lazio Ro~ US Liv~          6             1
+     2     1   1934 1934-09-30 Torino FC Unione~          3             1
+     3     1   1934 1934-09-30 Sampierd~ Bologn~          2             1
+     4     1   1934 1934-09-30 SSC Napo~ US Ale~          0             1
+     5     1   1934 1934-09-30 ACF Fior~ AS Roma          4             1
+     6     1   1934 1934-09-30 Brescia ~ Juvent~          0             2
+     7     1   1934 1934-09-30 Inter     US Pal~          3             0
+     8     1   1934 1934-09-30 Pro Verc~ AC Mil~          1             2
+     9     1   1934 1934-10-07 AC Milan  ACF Fi~          1             1
+    10     1   1934 1934-10-07 US Livor~ Inter            1             1
+    # ... with 25,394 more rows
 
-\ 
+ 
 
 🤔 There's no column for the country - that could be confusing
-
 
 ## Update the function
 
 🎬 Change the function so it takes an additional argument which is the name of the country. The country name should be in column called "country". The aim is to use the function like this:
 
-
 ```{r}
 uss_make_matches(engsoccerdata::spain, "Spain")
 ```
-
 
 \
 
 . . .
 
 🎬 Load with `devtools::load_all()` and test the updated function.
-
-
 
 ## An answer
 
@@ -849,7 +825,6 @@ uss_make_matches <- function(data_engsoc, country) {
 
 ```
 
-
 # Check your package
 
 ## Check your package
@@ -872,49 +847,43 @@ However, `devtools` has the `check()` function to allow you to run this without 
 devtools::check()
 ```
 
-## {.smaller}
+##  {.smaller}
 
+    -- R CMD check results -------------------------- ussie 0.0.0.9000 ----
+    Duration: 37.6s
 
-```
--- R CMD check results -------------------------- ussie 0.0.0.9000 ----
-Duration: 37.6s
+    > checking DESCRIPTION meta-information ... WARNING
+      Non-standard license specification:
+        \`use_mit_license()\`, \`use_gpl3_license()\` or friends to pick a
+        license
+      Standardizable: FALSE
 
-> checking DESCRIPTION meta-information ... WARNING
-  Non-standard license specification:
-    \`use_mit_license()\`, \`use_gpl3_license()\` or friends to pick a
-    license
-  Standardizable: FALSE
+    > checking dependencies in R code ... WARNING
+      '::' or ':::' imports not declared from:
+        'dplyr' 'tibble'
 
-> checking dependencies in R code ... WARNING
-  '::' or ':::' imports not declared from:
-    'dplyr' 'tibble'
+    > checking for unstated dependencies in examples ... WARNING
+      '::' or ':::' import not declared from: 'engsoccerdata'
 
-> checking for unstated dependencies in examples ... WARNING
-  '::' or ':::' import not declared from: 'engsoccerdata'
+    > checking R code for possible problems ... NOTE
+      uss_make_matches: no visible binding for global variable 'tier'
+      uss_make_matches: no visible binding for global variable 'Season'
+      uss_make_matches: no visible binding for global variable 'Date'
+      uss_make_matches: no visible binding for global variable 'home'
+      uss_make_matches: no visible binding for global variable 'visitor'
+      uss_make_matches: no visible binding for global variable 'hgoal'
+      uss_make_matches: no visible binding for global variable 'vgoal'
+      Undefined global functions or variables:
+        Date Season hgoal home tier vgoal visitor
 
-> checking R code for possible problems ... NOTE
-  uss_make_matches: no visible binding for global variable 'tier'
-  uss_make_matches: no visible binding for global variable 'Season'
-  uss_make_matches: no visible binding for global variable 'Date'
-  uss_make_matches: no visible binding for global variable 'home'
-  uss_make_matches: no visible binding for global variable 'visitor'
-  uss_make_matches: no visible binding for global variable 'hgoal'
-  uss_make_matches: no visible binding for global variable 'vgoal'
-  Undefined global functions or variables:
-    Date Season hgoal home tier vgoal visitor
-
-0 errors v | 3 warnings x | 1 note x
-```
-
+    0 errors v | 3 warnings x | 1 note x
 
 ## Aside: in case of error
 
 On running `devtools::check()` you may get an error if you are using a networked drive.
 
-```
-Updating ussie documentation  
-Error: The specified file is not readable: path-to\ussie\NAMESPACE
-```
+    Updating ussie documentation  
+    Error: The specified file is not readable: path-to\ussie\NAMESPACE
 
 \
 
@@ -934,71 +903,58 @@ Run the whole file
 
 You should now find that `check()` proceeds normally
 
+##  {.smaller}
 
+    -- R CMD check results -------------------------- ussie 0.0.0.9000 ----
+    Duration: 37.6s
 
-## {.smaller}
+    > checking DESCRIPTION meta-information ... WARNING
+      Non-standard license specification:
+        \`use_mit_license()\`, \`use_gpl3_license()\` or friends to pick a
+        license
+      Standardizable: FALSE
 
+    > checking dependencies in R code ... WARNING
+      '::' or ':::' imports not declared from:
+        'dplyr' 'tibble'
 
-```
--- R CMD check results -------------------------- ussie 0.0.0.9000 ----
-Duration: 37.6s
+    > checking for unstated dependencies in examples ... WARNING
+      '::' or ':::' import not declared from: 'engsoccerdata'
 
-> checking DESCRIPTION meta-information ... WARNING
-  Non-standard license specification:
-    \`use_mit_license()\`, \`use_gpl3_license()\` or friends to pick a
-    license
-  Standardizable: FALSE
+    > checking R code for possible problems ... NOTE
+      uss_make_matches: no visible binding for global variable 'tier'
+      uss_make_matches: no visible binding for global variable 'Season'
+      uss_make_matches: no visible binding for global variable 'Date'
+      uss_make_matches: no visible binding for global variable 'home'
+      uss_make_matches: no visible binding for global variable 'visitor'
+      uss_make_matches: no visible binding for global variable 'hgoal'
+      uss_make_matches: no visible binding for global variable 'vgoal'
+      Undefined global functions or variables:
+        Date Season hgoal home tier vgoal visitor
 
-> checking dependencies in R code ... WARNING
-  '::' or ':::' imports not declared from:
-    'dplyr' 'tibble'
+    0 errors v | 3 warnings x | 1 note x
 
-> checking for unstated dependencies in examples ... WARNING
-  '::' or ':::' import not declared from: 'engsoccerdata'
+## 0 errors v \| 3 warnings x \| 1 note x
 
-> checking R code for possible problems ... NOTE
-  uss_make_matches: no visible binding for global variable 'tier'
-  uss_make_matches: no visible binding for global variable 'Season'
-  uss_make_matches: no visible binding for global variable 'Date'
-  uss_make_matches: no visible binding for global variable 'home'
-  uss_make_matches: no visible binding for global variable 'visitor'
-  uss_make_matches: no visible binding for global variable 'hgoal'
-  uss_make_matches: no visible binding for global variable 'vgoal'
-  Undefined global functions or variables:
-    Date Season hgoal home tier vgoal visitor
-
-0 errors v | 3 warnings x | 1 note x
-```
-
-
-
-
-## 0 errors v | 3 warnings x | 1 note x
-
-
--   checking DESCRIPTION meta-information ... WARNING \
-    Non-standard license specification \
+-   checking DESCRIPTION meta-information ... WARNING\
+    Non-standard license specification\
     ✅ Next!
 
--   checking dependencies in R code ... WARNING \
-    '::' or ':::' imports not declared \
+-   checking dependencies in R code ... WARNING\
+    '::' or ':::' imports not declared\
     ✅ Next!
 
--   checking for unstated dependencies in examples ... WARNING \
-    '::' or ':::' import not declared from: 'engsoccerdata'
-    ✅ Next!
-    
--   no visible binding for global variables \
+-   checking for unstated dependencies in examples ... WARNING\
+    '::' or ':::' import not declared from: 'engsoccerdata' ✅ Next!
+
+-   no visible binding for global variables\
     ✅ Tomorrow!
-
-
-
 
 # License
 
 ## Add a license
 
-`usethis` helps out again! 
+`usethis` helps out again!
 
 \
 
@@ -1014,9 +970,7 @@ Duration: 37.6s
 usethis::use_mit_license("Emma Rand") 
 ```
 
-
 ## `use_mit_license()`
-
 
 🎬 What files have appeared?
 
@@ -1027,11 +981,6 @@ usethis::use_mit_license("Emma Rand")
 \
 
 🎬 Run `devtools::check()` again. Has one of the warnings disappeared?
-
-
-
-
-
 
 # 📦 Woo hoo📦 <BR> You made a package!
 
@@ -1057,6 +1006,5 @@ usethis::use_mit_license("Emma Rand")
 -   We use the package interactively with `devtools::load_all()`
 -   We use `devtools::check()` to execute `R CMD` check
 -   We add a license with `usethis::use_mit_license()`
-
 
 ## References {.smaller}

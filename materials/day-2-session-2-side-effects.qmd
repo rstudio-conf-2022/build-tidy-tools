@@ -18,6 +18,8 @@ execute:
   eval: false
 bibliography: references.bib
 ---
+<<<<<<< HEAD
+=======
 
 ## Learning objectives 
 
@@ -414,3 +416,4 @@ Use `withr::local_*()` functions to "leave no footprints".
 
 
  
+>>>>>>> df489bac4b895fa9f6100b94d21149ddf19dfc38
