@@ -195,6 +195,7 @@ Their form is `expect_xxxx(actual_result, expectation)`
 
 ```{r}
 #| eval: true
+#| error: true
 
 library(testthat)
 # when the actual result is 42
@@ -206,6 +207,7 @@ expect_identical(result, 42)
 
 ```{r}
 #| eval: true
+#| error: true
 # when the actual result is "a"
 result <- "a"
 
@@ -217,6 +219,7 @@ expect_identical(result, "a")
 
 ```{r}
 #| eval: true
+#| error: true
 # when the actual result is 45
 result <- 45
 
@@ -226,6 +229,7 @@ expect_identical(result, 42)
 
 ```{r}
 #| eval: true
+#| error: true
 # when the actual result is "bob"
 result <- "bob"
 
@@ -241,10 +245,11 @@ expect_identical(result, "A")
 -   Testing whether objects have names
 -   Testing errors
 
-## Testing for equality with with wiggle room
+## Testing for equality with wiggle room
 
 ```{r}
 #| eval: true
+#| error: true
 # when the actual result is 42
 result <- 42
 
@@ -254,6 +259,7 @@ expect_equal(result, 42)
 
 ```{r}
 #| eval: true
+#| error: true
 # but when the actual result is 42.0000001
 result <- 42.0000001
 
@@ -263,6 +269,7 @@ expect_equal(result, 42)
 
 ```{r}
 #| eval: true
+#| error: true
 # but when the actual result is 42.0000001
 result <- 42.1
 
