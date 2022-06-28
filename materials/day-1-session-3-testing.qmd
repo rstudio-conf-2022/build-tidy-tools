@@ -79,8 +79,6 @@ Solution: have a system to store and re-run the tests!
 
 4.  Robustness
 
-
-
 ## Automated test workflow
 
 ```{mermaid}
@@ -98,15 +96,12 @@ Solution: have a system to store and re-run the tests!
 
 ```
 
-
-# Infrastructure and organisation 
+# Infrastructure and organisation
 
 ## Organisation: files {.smaller}
 
 ::: columns
-::: {.column width="65%"} 
-
-
+::: {.column width="65%"}
 ``` default
 .
 ├── CITATION.cff
@@ -125,33 +120,28 @@ Solution: have a system to store and re-run the tests!
 │   └── testthat.R
 └── ussie.Rproj
 ```
-
 :::
 
 ::: {.column width="35%"}
-
--  `tests/testthat/`: All test files must be in here
--  `tests/testthat/test-matches.R`: test files must be `test-xxxxx.R`
--  `tests/testthat.R`: runs the tests when `devtools::check()` is called
-
+-   `tests/testthat/`: All test files must be in here
+-   `tests/testthat/test-matches.R`: test files must be `test-xxxxx.R`
+-   `tests/testthat.R`: runs the tests when `devtools::check()` is called
 :::
 :::
 
 ## Organisation within files
 
-- any test file `test-xxxxx.R` contains several tests. Might be:
-  -  all the tests for a simple function
-  -  all the tests for one part of a complex function
-  -  all the tests for the same functionality in multiple functions
-  
-. . . 
+-   any test file `test-xxxxx.R` contains several tests. Might be:
+    -   all the tests for a simple function
+    -   all the tests for one part of a complex function
+    -   all the tests for the same functionality in multiple functions
 
-- a test groups several 'expectations'. An expectation:
-  -  has the form: `expect_xxxxxxx(actual_result, expectation)`
-  -  if `actual_result` = `expectation` no error
-  -  if `actual_result` != `expectation` Error
+. . .
 
-
+-   a test groups several 'expectations'. An expectation:
+    -   has the form: `expect_xxxxxxx(actual_result, expectation)`
+    -   if `actual_result` = `expectation` no error
+    -   if `actual_result` != `expectation` Error
 
 # Workflow
 
@@ -189,25 +179,24 @@ usethis::use_testthat(3)
 
 As well as installing that version of the package, you have to explicitly opt in the edition behaviours.
 
-
 # Expectations
 
 ## Expectations
 
 Before we try to make a test, let's look at some of the `expect_xxxx()` functions we have available to us.
 
+Their form is `expect_xxxx(actual_result, expectation)`
 
-Their form is  `expect_xxxx(actual_result, expectation)`
-
--  the `expectation` is what you expect
--  the `actual_result` is what you are comparing to the expectation
--  some `expect_xxxx()` have additional arguments
-
+-   the `expectation` is what you expect
+-   the `actual_result` is what you are comparing to the expectation
+-   some `expect_xxxx()` have additional arguments
 
 ## For example
 
 ```{r}
 #| eval: true
+
+library(testthat)
 # when the actual result is 42
 result <- 42
 
@@ -244,16 +233,13 @@ result <- "bob"
 expect_identical(result, "A")
 ```
 
-
 ## Some common expectations
 
--  Testing for equality with with wiggle room
--  Testing matches in strings
--  Testing something is TRUE
--  Testing whether objects have names
--  Testing errors
-
-
+-   Testing for equality with with wiggle room
+-   Testing matches in strings
+-   Testing something is TRUE
+-   Testing whether objects have names
+-   Testing errors
 
 ## Testing for equality with with wiggle room
 
@@ -292,7 +278,6 @@ expect_equal(result, 42, tolerance = 0.1)
 
 ## Testing errors
 
-
 # Making a test
 
 ## Make a test
@@ -300,7 +285,6 @@ expect_equal(result, 42, tolerance = 0.1)
 # Running a test
 
 ## Running a test
-
 
 # Other types of testing
 
