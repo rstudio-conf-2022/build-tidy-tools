@@ -298,7 +298,7 @@
     "href": "materials/day-1-session-1-introduction.html#the-team",
     "title": "📦 Building tidy tools",
     "section": "The team",
-    "text": "The team\n\n\nEmma Rand 🐦er13_r\nElliot Murphy\nBeatriz Milz\n\nIan Lyttle\nHaley Jeppson\nTed Laderas\n\n\nStanding on the shoulders of Building Tidy Tools, rstudio::conf(2020) (C. Wickham and Wickham 2021), R Packages (H. Wickham and Bryan 2020)"
+    "text": "The team\n\n\nEmma Rand 🐦@er13_r\nElliot Murphy\nBeatriz Milz 🐦@BeaMilz\n\nIan Lyttle 🐦@ijlyttle\nHaley Jeppson\nTed Laderas 🐦@tladeras\n\n\nStanding on the shoulders of Building Tidy Tools, rstudio::conf(2020) (C. Wickham and Wickham 2021), R Packages (H. Wickham and Bryan 2020)"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#housekeeping",
@@ -312,56 +312,63 @@
     "href": "materials/day-1-session-1-introduction.html#prerequisites",
     "title": "📦 Building tidy tools",
     "section": "Prerequisites",
-    "text": "Prerequisites\nTo get the most out of this workshop you will need a laptop with the following installed:\n\nR and RStudio\nR package development toolchain: Rtools(windows) or XCode (mac) or r-base-dev\nThe following packages: devtools and TO ADD WHEN FINALISED\nGit\nGitHub account\nGitHub to be linked to RStudio\n\nDetailed instructions for installing these are covered in Prerequisites"
+    "text": "Prerequisites\nYou need a laptop with the following installed:\n\nR and RStudio\nR package development toolchain: Rtools(windows) or XCode (mac) or r-base-dev\nThe following packages: devtools and btt22\nGit\nGitHub account linked to RStudio\n\nDetailed instructions for installing these are covered in Prerequisites"
   },
   {
-    "objectID": "materials/day-1-session-1-introduction.html#schedule",
-    "href": "materials/day-1-session-1-introduction.html#schedule",
+    "objectID": "materials/day-1-session-1-introduction.html#day-1",
+    "href": "materials/day-1-session-1-introduction.html#day-1",
     "title": "📦 Building tidy tools",
-    "section": "Schedule",
-    "text": "Schedule\nto add from readme when complete"
+    "section": "Day 1",
+    "text": "Day 1\n\n\n\nTime\nActivity\n\n\n\n\n09:00 - 10:30\nSession 1: Introduction and the whole game\n\n\n10:30 - 11:00\n☕ Coffee break\n\n\n11:00 - 12:30\nSession 2: Documentation - Minimal\n\n\n12:30 - 13:30\n🍱 Lunch break\n\n\n13:30 - 15:00\nSession 3: Unit testing\n\n\n15:00 - 15:30\n☕ Coffee break\n\n\n15:30 - 17:00\nSession 4: Documentation - Sharing"
+  },
+  {
+    "objectID": "materials/day-1-session-1-introduction.html#day-2",
+    "href": "materials/day-1-session-1-introduction.html#day-2",
+    "title": "📦 Building tidy tools",
+    "section": "Day 2",
+    "text": "Day 2\n\n\n\nTime\nActivity\n\n\n\n\n09:00 - 10:30\nSession 1: Function design\n\n\n10:30 - 11:00\n☕ Coffee break\n\n\n11:00 - 12:30\nSession 2: Side effects\n\n\n12:30 - 13:30\n🍱 Lunch break\n\n\n13:30 - 15:00\nSession 3: Tidy eval\n\n\n15:00 - 15:30\n☕ Coffee break\n\n\n15:30 - 17:00\nSession 4: Miscellany"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#code-of-conduct",
     "href": "materials/day-1-session-1-introduction.html#code-of-conduct",
     "title": "📦 Building tidy tools",
     "section": "Code of Conduct",
-    "text": "Code of Conduct"
+    "text": "Code of Conduct\nCode of Conduct & COVID\n\n😷 Please wear a mask\nEveryone should feel welcome\nNo harassing, intimidating or discriminatory verbal, physical or visual conduct in any form\n\nReporting:\n\n🗣️ any rstudio::conf staff member\n📧 conf@rstudio.com\n☎️ 844-448-1212"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#how-we-will-work",
     "href": "materials/day-1-session-1-introduction.html#how-we-will-work",
     "title": "📦 Building tidy tools",
     "section": "How we will work",
-    "text": "How we will work\n\nstickies\nno stupid questions"
+    "text": "How we will work\n\nstickies 🟨 🟩\nno stupid questions"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#learning-objectives",
     "href": "materials/day-1-session-1-introduction.html#learning-objectives",
     "title": "📦 Building tidy tools",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\nAt the end of this section you will be able to:\n\nexplain the rationale for writing packages\nfind and explore their own package library/libraries\ndescribe the key components of a minimal package\ndescribe the different states a package can be in\noutline the development of a package using devtools\ncreate a simple version controlled package with a remote repo on GitHub\nuse the package interactively with devtools::load_all()\ncheck package validity with devtools::check()"
+    "text": "Learning Objectives\n\nAt the end of this section you will be able to:\n\nexplain the rationale for writing packages\nfind and explore their own package library/libraries\ndescribe the key components of a minimal package\ndescribe the different states a package can be in\noutline the development of a package using devtools\ncreate a simple version controlled package with a remote repo on GitHub\nuse the package interactively with devtools::load_all()\ncheck package validity with devtools::check()"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#global-options",
     "href": "materials/day-1-session-1-introduction.html#global-options",
     "title": "📦 Building tidy tools",
     "section": "🔥 Global Options",
-    "text": "🔥 Global Options\n🎬 Tools | Global Options | General\n\n\n🔲 Restore .RData into workspace at startup: unchecked\nSave workspace to .RData on exit: Never\n\n🎬 Tools | Global Options | Code | Display\n☑️ Show margin: checked\nMargin column 80"
+    "text": "🔥 Global Options\n🎬 Tools | Global Options | General\n\n🔲 Restore .RData into workspace at startup: unchecked\nSave workspace to .RData on exit: Never\n\n\n🎬 Tools | Global Options | Code | Display\n\n☑️ Show margin: checked\nMargin column 80"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#set-up-your-.rprofile",
     "href": "materials/day-1-session-1-introduction.html#set-up-your-.rprofile",
     "title": "📦 Building tidy tools",
     "section": "🔥 Set up your .Rprofile",
-    "text": "🔥 Set up your .Rprofile\nAdd default information about you for that will be used in package development.\n\n\nYou can edit your .Rprofile with usethis::edit_r_profile:\n\n\nusethis::edit_r_profile()\n\n\n\nto set the following options…."
+    "text": "🔥 Set up your .Rprofile\nAdd default information about you that will be used in package development.\n\n\nYou can edit your .Rprofile with usethis::edit_r_profile:\n\n\nusethis::edit_r_profile()\n\n\n\nto set the following options…."
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#set-up-your-.rprofile-1",
     "href": "materials/day-1-session-1-introduction.html#set-up-your-.rprofile-1",
     "title": "📦 Building tidy tools",
     "section": "🔥 Set up your .Rprofile",
-    "text": "🔥 Set up your .Rprofile\n\noptions(\n  usethis.full_name = \"Emma Rand\",\n  usethis.description = list(\n    `Authors@R` = 'person(\"Emma\", \"Rand\",\n    email = \"emma.rand@york.ac.uk\",\n    role = c(\"aut\", \"cre\"),\n    comment = c(ORCID = \"0000-0001-6452-2420\"))',\n  )\n)"
+    "text": "🔥 Set up your .Rprofile\n\n\noptions(\n  usethis.full_name = \"Emma Rand\",\n  usethis.description = list(\n    `Authors@R` = 'person(\"Emma\", \"Rand\",\n    email = \"emma.rand@york.ac.uk\",\n    role = c(\"aut\", \"cre\"),\n    comment = c(ORCID = \"0000-0001-6452-2420\"))',\n  )\n)"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#set-up-your-.rprofile-2",
@@ -438,7 +445,14 @@
     "href": "materials/day-1-session-1-introduction.html#the-ussie-package",
     "title": "📦 Building tidy tools",
     "section": "The ussie package",
-    "text": "The ussie package\nWhere we are going. discuss some of the files"
+    "text": "The ussie package\n\nWe will create a version controlled package called ussie with a remote repo on GitHub.\n\n\n\n\nussie will allow you to work with European football league data supplied by the engsoccerdata package (Curley 2016)"
+  },
+  {
+    "objectID": "materials/day-1-session-1-introduction.html#explore-ussie",
+    "href": "materials/day-1-session-1-introduction.html#explore-ussie",
+    "title": "📦 Building tidy tools",
+    "section": "Explore ussie",
+    "text": "Explore ussie\n\nGitHub\nWebsite\n\n\n\nGitHub is the package in “Source” form\n\nmain code in R/\ndocumentation files in man/ and vignettes/\nDESCRIPTION"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#package-states-1",
@@ -494,14 +508,14 @@
     "href": "materials/day-1-session-1-introduction.html#create-a-package-1",
     "title": "📦 Building tidy tools",
     "section": "Create a package",
-    "text": "Create a package\nWe will create a version controlled package called ussie with a remote repo on GitHub.\n\n\n\nussie will allow you to work with European football league data supplied by the engsoccerdata package Curley (2016)\n\n\n\n\nThe CRAN version of engsoccerdata has data from the start of the league until 2016 for england, germany, holland, italy and spain\n\n\n\n\nBUT the format of the data is not the same for all countries!!"
+    "text": "Create a package\nThe CRAN version of engsoccerdata has data from the start of the league until 2016 for england, germany, holland, italy and spain\n\n\n\nBUT the format of the data is not the same for all countries!!"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#about-engsoccerdata",
     "href": "materials/day-1-session-1-introduction.html#about-engsoccerdata",
     "title": "📦 Building tidy tools",
     "section": "About engsoccerdata",
-    "text": "About engsoccerdata\n\ndplyr::glimpse(engsoccerdata::england)\n\nRows: 192,004\nColumns: 12\n$ Date     <fct> 1888-12-15, 1889-01-19, 1889-03-23, 1888-12-01, 1888-10-13, 1…\n$ Season   <dbl> 1888, 1888, 1888, 1888, 1888, 1888, 1888, 1888, 1888, 1888, 1…\n$ home     <fct> Accrington F.C., Accrington F.C., Accrington F.C., Accrington…\n$ visitor  <fct> Aston Villa, Blackburn Rovers, Bolton Wanderers, Burnley, Der…\n$ FT       <fct> 1-1, 0-2, 2-3, 5-1, 6-2, 3-1, 1-2, 0-0, 2-0, 2-1, 4-4, 4-3, 6…\n$ hgoal    <dbl> 1, 0, 2, 5, 6, 3, 1, 0, 2, 2, 4, 4, 6, 6, 4, 4, 2, 9, 0, 5, 2…\n$ vgoal    <dbl> 1, 2, 3, 1, 2, 1, 2, 0, 0, 1, 4, 3, 1, 2, 2, 2, 1, 1, 2, 1, 0…\n$ division <fct> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…\n$ tier     <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…\n$ totgoal  <dbl> 2, 2, 5, 6, 8, 4, 3, 0, 2, 3, 8, 7, 7, 8, 6, 6, 3, 10, 2, 6, …\n$ goaldif  <dbl> 0, -2, -1, 4, 4, 2, -1, 0, 2, 1, 0, 1, 5, 4, 2, 2, 1, 8, -2, …\n$ result   <fct> D, A, A, H, H, H, A, D, H, H, D, H, H, H, H, H, H, H, A, H, H…\n\n\n\n\n\ndplyr::glimpse(engsoccerdata::spain)\n\nRows: 23,915\nColumns: 12\n$ Date    <chr> \"1929-02-10\", \"1929-02-10\", \"1929-02-10\", \"1929-02-10\", \"1929-…\n$ Season  <dbl> 1928, 1928, 1928, 1928, 1928, 1928, 1928, 1928, 1928, 1928, 19…\n$ home    <chr> \"Arenas de Getxo\", \"Espanyol Barcelona\", \"Real Madrid\", \"Real …\n$ visitor <chr> \"Atletico Madrid\", \"Real Union\", \"CE Europa\", \"Athletic Bilbao…\n$ HT      <chr> \"0-2\", \"1-0\", \"0-0\", \"1-1\", \"0-0\", \"0-1\", \"3-0\", \"0-3\", \"0-1\",…\n$ FT      <chr> \"2-3\", \"3-2\", \"5-0\", \"1-1\", \"0-2\", \"1-2\", \"9-0\", \"0-3\", \"3-1\",…\n$ hgoal   <dbl> 2, 3, 5, 1, 0, 1, 9, 0, 3, 5, 3, 3, 1, 0, 2, 1, 2, 3, 2, 2, 3,…\n$ vgoal   <dbl> 3, 2, 0, 1, 2, 2, 0, 3, 1, 2, 0, 1, 1, 4, 1, 2, 1, 0, 2, 0, 3,…\n$ tier    <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…\n$ round   <chr> \"league\", \"league\", \"league\", \"league\", \"league\", \"league\", \"l…\n$ group   <chr> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…\n$ notes   <chr> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…"
+    "text": "About engsoccerdata\n\n\ndplyr::glimpse(engsoccerdata::england)\n\nRows: 192,004\nColumns: 12\n$ Date     <fct> 1888-12-15, 1889-01-19, 1889-03-23, 1888-12-01, 1888-10-13, 1…\n$ Season   <dbl> 1888, 1888, 1888, 1888, 1888, 1888, 1888, 1888, 1888, 1888, 1…\n$ home     <fct> Accrington F.C., Accrington F.C., Accrington F.C., Accrington…\n$ visitor  <fct> Aston Villa, Blackburn Rovers, Bolton Wanderers, Burnley, Der…\n$ FT       <fct> 1-1, 0-2, 2-3, 5-1, 6-2, 3-1, 1-2, 0-0, 2-0, 2-1, 4-4, 4-3, 6…\n$ hgoal    <dbl> 1, 0, 2, 5, 6, 3, 1, 0, 2, 2, 4, 4, 6, 6, 4, 4, 2, 9, 0, 5, 2…\n$ vgoal    <dbl> 1, 2, 3, 1, 2, 1, 2, 0, 0, 1, 4, 3, 1, 2, 2, 2, 1, 1, 2, 1, 0…\n$ division <fct> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…\n$ tier     <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…\n$ totgoal  <dbl> 2, 2, 5, 6, 8, 4, 3, 0, 2, 3, 8, 7, 7, 8, 6, 6, 3, 10, 2, 6, …\n$ goaldif  <dbl> 0, -2, -1, 4, 4, 2, -1, 0, 2, 1, 0, 1, 5, 4, 2, 2, 1, 8, -2, …\n$ result   <fct> D, A, A, H, H, H, A, D, H, H, D, H, H, H, H, H, H, H, A, H, H…\n\n\n\ndplyr::glimpse(engsoccerdata::spain)\n\nRows: 23,915\nColumns: 12\n$ Date    <chr> \"1929-02-10\", \"1929-02-10\", \"1929-02-10\", \"1929-02-10\", \"1929-…\n$ Season  <dbl> 1928, 1928, 1928, 1928, 1928, 1928, 1928, 1928, 1928, 1928, 19…\n$ home    <chr> \"Arenas de Getxo\", \"Espanyol Barcelona\", \"Real Madrid\", \"Real …\n$ visitor <chr> \"Atletico Madrid\", \"Real Union\", \"CE Europa\", \"Athletic Bilbao…\n$ HT      <chr> \"0-2\", \"1-0\", \"0-0\", \"1-1\", \"0-0\", \"0-1\", \"3-0\", \"0-3\", \"0-1\",…\n$ FT      <chr> \"2-3\", \"3-2\", \"5-0\", \"1-1\", \"0-2\", \"1-2\", \"9-0\", \"0-3\", \"3-1\",…\n$ hgoal   <dbl> 2, 3, 5, 1, 0, 1, 9, 0, 3, 5, 3, 3, 1, 0, 2, 1, 2, 3, 2, 2, 3,…\n$ vgoal   <dbl> 3, 2, 0, 1, 2, 2, 0, 3, 1, 2, 0, 1, 1, 4, 1, 2, 1, 0, 2, 0, 3,…\n$ tier    <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…\n$ round   <chr> \"league\", \"league\", \"league\", \"league\", \"league\", \"league\", \"l…\n$ group   <chr> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…\n$ notes   <chr> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#first-function",
@@ -522,7 +536,7 @@
     "href": "materials/day-1-session-1-introduction.html#section",
     "title": "📦 Building tidy tools",
     "section": "",
-    "text": "√ Creating 'C:/Users/er13/Desktop/ussie/'\n√ Setting active project to 'C:/Users/er13/Desktop/ussie'\n√ Creating 'R/'\n√ Writing 'DESCRIPTION'\nPackage: ussie\nTitle: What the Package Does (One Line, Title Case)\nVersion: 0.0.0.9000\nAuthors\\@R (parsed):\n   * First Last \\<first.last\\@example.com\\> \\[aut, cre\\] (YOUR-ORCID-ID)\nDescription: What the package does (one paragraph).\nLicense: \\`use_mit_license()\\`, \\`use_gpl3_license()\\` or friends to\n    pick a license\nEncoding: UTF-8\nLazyData: true\nRoxygen: list(markdown = TRUE)\nRoxygenNote: 7.1.1\n√ Writing 'NAMESPACE'\n√ Writing 'ussie.Rproj'\n√ Adding '.Rproj.user' to '.gitignore'\n√ Adding '\\^ussie\\\\\\\\.Rproj\\$', '\\^\\\\\\\\.Rproj\\\\\\\\.user\\$' to '.Rbuildignore'\n√ Opening 'C:/Users/er13/Desktop/ussie/' in new RStudio session\n√ Setting active project to '\\<no active project\\>'"
+    "text": "✔ Creating 'ussie/'\n✔ Setting active project to 'C:/Users/er13/OneDrive - University of York/Desktop/Desktop/rstudio-conf-2022/ussie'\n✔ Creating 'R/'\n✔ Writing 'DESCRIPTION'\nPackage: ussie\nTitle: What the Package Does (One Line, Title Case)\nVersion: 0.0.0.9000\nAuthors@R (parsed):\n    * Emma Rand <emma.rand@york.ac.uk> [aut, cre] (<https://orcid.org/0000-0002-1358-8275>)\nDescription: What the package does (one paragraph).\nLicense: `use_mit_license()`, `use_gpl3_license()` or friends to\n    pick a license\nEncoding: UTF-8\nRoxygen: list(markdown = TRUE)\nRoxygenNote: 7.2.0\n✔ Writing 'NAMESPACE'\n✔ Writing 'ussie.Rproj'\n✔ Adding '^ussie\\\\.Rproj$' to '.Rbuildignore'\n✔ Adding '.Rproj.user' to '.gitignore'\n✔ Adding '^\\\\.Rproj\\\\.user$' to '.Rbuildignore'\n✔ Opening 'C:/Users/er13/OneDrive - University of York/Desktop/Desktop/rstudio-conf-2022/ussie/' in new RStudio session\n✔ Setting active project to '<no active project>'"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#create_package",
@@ -557,14 +571,14 @@
     "href": "materials/day-1-session-1-introduction.html#section-1",
     "title": "📦 Building tidy tools",
     "section": "",
-    "text": "v Initialising Git repo\nv Adding '.Rhistory', '.Rdata', '.httr-oauth', '.DS_Store' to '.gitignore'\nThere are 5 uncommitted files:\n* '.gitignore'\n* '.Rbuildignore'\n* 'DESCRIPTION'\n* 'NAMESPACE'\n* 'ussieprac.Rproj'\nIs it ok to commit them?\n\n1: Nope\n2: Absolutely not\n3: I agree\n\n\n🎬 Choose the option that means yes!"
+    "text": "✔ Setting active project to 'C:/Users/er13/OneDrive - University of York/Desktop/Desktop/rstudio-conf-2022/ussie'\n✔ Initialising Git repo\n✔ Adding '.Rhistory', '.Rdata', '.httr-oauth', '.DS_Store' to '.gitignore'\nThere are 5 uncommitted files:\n* '.gitignore'\n* '.Rbuildignore'\n* 'DESCRIPTION'\n* 'NAMESPACE'\n* 'ussie.Rproj'\nIs it ok to commit them?\n\n1: No way\n2: Negative\n3: I agree\n\n\n\n\n🎬 Choose the option that means yes!"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#section-2",
     "href": "materials/day-1-session-1-introduction.html#section-2",
     "title": "📦 Building tidy tools",
     "section": "",
-    "text": "v Adding files\nv Making a commit with message 'Initial commit'\n* A restart of RStudio is required to activate the Git pane\nRestart now?\n\n1: Negative\n2: No way\n3: Yeah\n\n\n🎬 Choose the option that means yes!\n\n\nYour session will restart."
+    "text": "✔ Adding files\n✔ Making a commit with message 'Initial commit'\n• A restart of RStudio is required to activate the Git pane\nRestart now?\n\n1: Yup\n2: Not now\n3: Absolutely not\n\n\n\n🎬 Choose the option that means yes!\n\n\nYour session will restart."
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#put-a-remote-copy-on-github",
@@ -578,14 +592,14 @@
     "href": "materials/day-1-session-1-introduction.html#section-3",
     "title": "📦 Building tidy tools",
     "section": "",
-    "text": "i Defaulting to 'https' Git protocol\nv Setting active project to 'C:/Users/er13/OneDrive - University of York/Desktop/Desktop/ussieprac'\nv Creating GitHub repository '3mmaRand/ussieprac'\nv Setting remote 'origin' to 'https://github.com/3mmaRand/ussieprac.git'\nv Setting URL field in DESCRIPTION to 'https://github.com/3mmaRand/ussieprac'\nv Setting BugReports field in DESCRIPTION to 'https://github.com/3mmaRand/ussieprac/issues'\nThere is 1 uncommitted file:\n* 'DESCRIPTION'\nIs it ok to commit it?\n\n1: Negative\n2: Yup\n3: Not now\n\n\n🎬 Choose the option that means yes!"
+    "text": "ℹ Defaulting to 'https' Git protocol\n✔ Setting active project to 'C:/Users/er13/OneDrive - University of York/Desktop/Desktop/rstudio-conf-2022/ussie'\n✔ Creating GitHub repository '3mmaRand/ussie'\n✔ Setting remote 'origin' to 'https://github.com/3mmaRand/ussie.git'\n✔ Pushing 'main' branch to GitHub and setting 'origin/main' as upstream branch\n✔ Opening URL 'https://github.com/3mmaRand/ussie'"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#section-4",
     "href": "materials/day-1-session-1-introduction.html#section-4",
     "title": "📦 Building tidy tools",
     "section": "",
-    "text": "v Adding files\nv Making a commit with message 'Add GitHub links to DESCRIPTION'\nv Pushing 'main' branch to GitHub and setting 'origin/main' as upstream branch\nv Opening URL 'https://github.com/3mmaRand/ussieprac'\n\n\n🎬 Quick check with:\n\nusethis::git_sitrep()"
+    "text": "🎬 Quick check with:\n\nusethis::git_sitrep()"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#add-the-first-function",
@@ -599,56 +613,63 @@
     "href": "materials/day-1-session-1-introduction.html#usethisuse_r",
     "title": "📦 Building tidy tools",
     "section": "usethis::use_r()",
-    "text": "usethis::use_r()\n🎬 Create a new R file in your package called uss_make_matches.R\n\n\n\n\nusethis::use_r(\"uss_make_matches\")\n\n√ Setting active project to 'C:/Users/er13/Desktop/ussie'\n• Modify 'R/uss_make_matches.R'\n• Call \\`use_test()\\` to create a matching test file\n\n\n\n\nWe want to be able to use the function like this: uss_make_matches(engsoccerdata::italy)"
+    "text": "usethis::use_r()\n🎬 Create a new R file in your package called matches.R\n\n\n\n\nusethis::use_r(\"matches\")\n\n• Modify 'R/matches.R'\n• Call `use_test()` to create a matching test file\n\n\n\nWe will come back to that test files this afternoon"
+  },
+  {
+    "objectID": "materials/day-1-session-1-introduction.html#the-function",
+    "href": "materials/day-1-session-1-introduction.html#the-function",
+    "title": "📦 Building tidy tools",
+    "section": "The function?",
+    "text": "The function?\nWe want to be able to use the function like this: uss_make_matches(engsoccerdata::italy)"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#add-the-function",
     "href": "materials/day-1-session-1-introduction.html#add-the-function",
     "title": "📦 Building tidy tools",
     "section": "Add the function",
-    "text": "Add the function\n🎬 Put the following code into your script:\n\nuss_make_matches <- function(data_engsoc) {\n  result <-\n    data_engsoc |>\n    tibble::as_tibble() |>\n    dplyr::transmute(\n      tier = as.integer(tier),\n      season = as.integer(Season),\n      date = as.Date(Date),\n      home = as.character(home),\n      visitor = as.character(visitor),\n      goals_home = as.integer(hgoal),\n      goals_visitor = as.integer(vgoal)\n    )\n  result\n}"
+    "text": "Add the function\n🎬 Put the following code into matches:\n\n\nuss_make_matches <- function(data_engsoc) {\n  result <-\n    data_engsoc |>\n    tibble::as_tibble() |>\n    dplyr::transmute(\n      tier = as.integer(tier),\n      season = as.integer(Season),\n      date = as.Date(Date),\n      home = as.character(home),\n      visitor = as.character(visitor),\n      goals_home = as.integer(hgoal),\n      goals_visitor = as.integer(vgoal)\n    )\n  result\n}"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#development-workflow",
     "href": "materials/day-1-session-1-introduction.html#development-workflow",
     "title": "📦 Building tidy tools",
     "section": "Development workflow",
-    "text": "Development workflow\nIn a normal script you might use:\n\nsource(\"R/uss_make_matches.R\")\n\n\n\n\nbut when building packages we use a devtools approach"
+    "text": "Development workflow\nIn a normal script you might use:\n\nsource(\"R/matches.R\")\n\n\n\n\nbut when building packages we use a devtools approach"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#development-workflow-1",
     "href": "materials/day-1-session-1-introduction.html#development-workflow-1",
     "title": "📦 Building tidy tools",
     "section": "Development workflow",
-    "text": "Development workflow\n\nDevelopment workflow"
+    "text": "Development workflow\n\n\n\n\n%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#f3f3f3',  'lineColor':'#EE9AD9'}}}%%\n\n  flowchart LR\n      id1(\"Load code: \\n load_all()\") --> \n      id2(\"Explore in \\n console\") --> \n      id3(\"Modify \\n code\")\n      id3 --> id1\n      style id1 id2 id3 stroke:#3F3F3F,stroke-width:2px"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#devtoolsload_all",
     "href": "materials/day-1-session-1-introduction.html#devtoolsload_all",
     "title": "📦 Building tidy tools",
     "section": "devtools::load_all()",
-    "text": "devtools::load_all()\n🎬 Load package with devtools::load_all().\n\ndevtools::load_all()\n\n\n# Loading ussie"
+    "text": "devtools::load_all()\n🎬 Load package with devtools::load_all().\n\ndevtools::load_all()\n\nℹ Loading ussie"
   },
   {
-    "objectID": "materials/day-1-session-1-introduction.html#test",
-    "href": "materials/day-1-session-1-introduction.html#test",
+    "objectID": "materials/day-1-session-1-introduction.html#experiment",
+    "href": "materials/day-1-session-1-introduction.html#experiment",
     "title": "📦 Building tidy tools",
-    "section": "Test",
-    "text": "Test\nTest the uss_make_matches() function in the console.\n\nuss_make_matches(engsoccerdata::italy)\n\n\n\n# A tibble: 25,404 x 7\n    tier season date       home      visitor goals_home goals_visitor\n   <int>  <int> <date>     <chr>     <chr>        <int>         <int>\n 1     1   1934 1934-09-30 Lazio Ro~ US Liv~          6             1\n 2     1   1934 1934-09-30 Torino FC Unione~          3             1\n 3     1   1934 1934-09-30 Sampierd~ Bologn~          2             1\n 4     1   1934 1934-09-30 SSC Napo~ US Ale~          0             1\n 5     1   1934 1934-09-30 ACF Fior~ AS Roma          4             1\n 6     1   1934 1934-09-30 Brescia ~ Juvent~          0             2\n 7     1   1934 1934-09-30 Inter     US Pal~          3             0\n 8     1   1934 1934-09-30 Pro Verc~ AC Mil~          1             2\n 9     1   1934 1934-10-07 AC Milan  ACF Fi~          1             1\n10     1   1934 1934-10-07 US Livor~ Inter            1             1\n# ... with 25,394 more rows\n \n🤔 There’s no column for the country - that could be confusing"
+    "section": "Experiment",
+    "text": "Experiment\nTry out the uss_make_matches() function in the console.\n\nuss_make_matches(engsoccerdata::italy)\n\n\n# A tibble: 25,404 × 7\n    tier season date       home   visitor goals_home goals_visitor\n   <int>  <int> <date>     <chr>  <chr>        <int>         <int>\n 1     1   1934 1934-09-30 Lazio… US Liv…          6             1\n 2     1   1934 1934-09-30 Torin… Unione…          3             1\n 3     1   1934 1934-09-30 Sampi… Bologn…          2             1\n 4     1   1934 1934-09-30 SSC N… US Ale…          0             1\n 5     1   1934 1934-09-30 ACF F… AS Roma          4             1\n 6     1   1934 1934-09-30 Bresc… Juvent…          0             2\n 7     1   1934 1934-09-30 Inter  US Pal…          3             0\n 8     1   1934 1934-09-30 Pro V… AC Mil…          1             2\n 9     1   1934 1934-10-07 AC Mi… ACF Fi…          1             1\n10     1   1934 1934-10-07 US Li… Inter            1             1\n# … with 25,394 more rows\n\n🤔 There’s no column for the country - that could be confusing"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#update-the-function",
     "href": "materials/day-1-session-1-introduction.html#update-the-function",
     "title": "📦 Building tidy tools",
     "section": "Update the function",
-    "text": "Update the function\n🎬 Change the function so it takes an additional argument which is the name of the country. The country name should be in column called “country”. The aim is to use the function like this:\n\nuss_make_matches(engsoccerdata::spain, \"Spain\")\n\n\n\n\n🎬 Load with devtools::load_all() and test the updated function."
+    "text": "Update the function\n🎬 Change the function so it takes an additional argument which is the name of the country. The country name should be in column called “country”. The aim is to use the function like this:\n\nuss_make_matches(engsoccerdata::spain, \"Spain\")\n\n\n\n\n🎬 Load with devtools::load_all() and try out the updated function."
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#an-answer",
     "href": "materials/day-1-session-1-introduction.html#an-answer",
     "title": "📦 Building tidy tools",
     "section": "An answer",
-    "text": "An answer\n\nuss_make_matches <- function(data_engsoc, country) {\n  result <-\n    data_engsoc |>\n    tibble::as_tibble() |>\n    dplyr::transmute(\n      country = as.character(country),\n      tier = as.integer(tier),\n      season = as.integer(Season),\n      date = as.Date(Date),\n      home = as.character(home),\n      visitor = as.character(visitor),\n      goals_home = as.integer(hgoal),\n      goals_visitor = as.integer(vgoal)\n    )\n  result\n}"
+    "text": "An answer\n\n\nuss_make_matches <- function(data_engsoc, country) {\n  result <-\n    data_engsoc |>\n    tibble::as_tibble() |>\n    dplyr::transmute(\n      country = as.character(country),\n      tier = as.integer(tier),\n      season = as.integer(Season),\n      date = as.Date(Date),\n      home = as.character(home),\n      visitor = as.character(visitor),\n      goals_home = as.integer(hgoal),\n      goals_visitor = as.integer(vgoal)\n    )\n  result\n}"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#check-your-package-1",
@@ -669,7 +690,7 @@
     "href": "materials/day-1-session-1-introduction.html#section-5",
     "title": "📦 Building tidy tools",
     "section": "",
-    "text": "-- R CMD check results -------------------------- ussie 0.0.0.9000 ----\nDuration: 37.6s\n\n> checking DESCRIPTION meta-information ... WARNING\n  Non-standard license specification:\n    \\`use_mit_license()\\`, \\`use_gpl3_license()\\` or friends to pick a\n    license\n  Standardizable: FALSE\n\n> checking dependencies in R code ... WARNING\n  '::' or ':::' imports not declared from:\n    'dplyr' 'tibble'\n\n> checking for unstated dependencies in examples ... WARNING\n  '::' or ':::' import not declared from: 'engsoccerdata'\n\n> checking R code for possible problems ... NOTE\n  uss_make_matches: no visible binding for global variable 'tier'\n  uss_make_matches: no visible binding for global variable 'Season'\n  uss_make_matches: no visible binding for global variable 'Date'\n  uss_make_matches: no visible binding for global variable 'home'\n  uss_make_matches: no visible binding for global variable 'visitor'\n  uss_make_matches: no visible binding for global variable 'hgoal'\n  uss_make_matches: no visible binding for global variable 'vgoal'\n  Undefined global functions or variables:\n    Date Season hgoal home tier vgoal visitor\n\n0 errors v | 3 warnings x | 1 note x"
+    "text": "── R CMD check results ───────────────────────────────────── ussie 0.0.0.9000 ────\nDuration: 25.1s\n\n❯ checking DESCRIPTION meta-information ... WARNING\n  Non-standard license specification:\n    `use_mit_license()`, `use_gpl3_license()` or friends to pick a\n    license\n  Standardizable: FALSE\n\n❯ checking dependencies in R code ... WARNING\n  '::' or ':::' imports not declared from:\n    'dplyr' 'tibble'\n\n❯ checking R code for possible problems ... NOTE\n  uss_make_matches: no visible binding for global variable 'tier'\n  uss_make_matches: no visible binding for global variable 'Season'\n  uss_make_matches: no visible binding for global variable 'Date'\n  uss_make_matches: no visible binding for global variable 'home'\n  uss_make_matches: no visible binding for global variable 'visitor'\n  uss_make_matches: no visible binding for global variable 'hgoal'\n  uss_make_matches: no visible binding for global variable 'vgoal'\n  Undefined global functions or variables:\n    Date Season hgoal home tier vgoal visitor\n\n0 errors ✔ | 2 warnings ✖ | 1 note ✖"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#aside-in-case-of-error",
@@ -690,14 +711,14 @@
     "href": "materials/day-1-session-1-introduction.html#section-6",
     "title": "📦 Building tidy tools",
     "section": "",
-    "text": "-- R CMD check results -------------------------- ussie 0.0.0.9000 ----\nDuration: 37.6s\n\n> checking DESCRIPTION meta-information ... WARNING\n  Non-standard license specification:\n    \\`use_mit_license()\\`, \\`use_gpl3_license()\\` or friends to pick a\n    license\n  Standardizable: FALSE\n\n> checking dependencies in R code ... WARNING\n  '::' or ':::' imports not declared from:\n    'dplyr' 'tibble'\n\n> checking for unstated dependencies in examples ... WARNING\n  '::' or ':::' import not declared from: 'engsoccerdata'\n\n> checking R code for possible problems ... NOTE\n  uss_make_matches: no visible binding for global variable 'tier'\n  uss_make_matches: no visible binding for global variable 'Season'\n  uss_make_matches: no visible binding for global variable 'Date'\n  uss_make_matches: no visible binding for global variable 'home'\n  uss_make_matches: no visible binding for global variable 'visitor'\n  uss_make_matches: no visible binding for global variable 'hgoal'\n  uss_make_matches: no visible binding for global variable 'vgoal'\n  Undefined global functions or variables:\n    Date Season hgoal home tier vgoal visitor\n\n0 errors v | 3 warnings x | 1 note x"
+    "text": "── R CMD check results ───────────────────────────────────── ussie 0.0.0.9000 ────\nDuration: 25.1s\n\n❯ checking DESCRIPTION meta-information ... WARNING\n  Non-standard license specification:\n    `use_mit_license()`, `use_gpl3_license()` or friends to pick a\n    license\n  Standardizable: FALSE\n\n❯ checking dependencies in R code ... WARNING\n  '::' or ':::' imports not declared from:\n    'dplyr' 'tibble'\n\n❯ checking R code for possible problems ... NOTE\n  uss_make_matches: no visible binding for global variable 'tier'\n  uss_make_matches: no visible binding for global variable 'Season'\n  uss_make_matches: no visible binding for global variable 'Date'\n  uss_make_matches: no visible binding for global variable 'home'\n  uss_make_matches: no visible binding for global variable 'visitor'\n  uss_make_matches: no visible binding for global variable 'hgoal'\n  uss_make_matches: no visible binding for global variable 'vgoal'\n  Undefined global functions or variables:\n    Date Season hgoal home tier vgoal visitor\n\n0 errors ✔ | 2 warnings ✖ | 1 note ✖"
   },
   {
-    "objectID": "materials/day-1-session-1-introduction.html#errors-v-3-warnings-x-1-note-x",
-    "href": "materials/day-1-session-1-introduction.html#errors-v-3-warnings-x-1-note-x",
+    "objectID": "materials/day-1-session-1-introduction.html#errors-v-2-warnings-x-1-note-x",
+    "href": "materials/day-1-session-1-introduction.html#errors-v-2-warnings-x-1-note-x",
     "title": "📦 Building tidy tools",
-    "section": "0 errors v | 3 warnings x | 1 note x",
-    "text": "0 errors v | 3 warnings x | 1 note x\n\nchecking DESCRIPTION meta-information … WARNING\nNon-standard license specification\n✅ Next!\nchecking dependencies in R code … WARNING\n‘::’ or ‘:::’ imports not declared\n✅ Next!\nchecking for unstated dependencies in examples … WARNING\n‘::’ or ‘:::’ import not declared from: ‘engsoccerdata’ ✅ Next!\nno visible binding for global variables\n✅ Tomorrow!"
+    "section": "0 errors v | 2 warnings x | 1 note x",
+    "text": "0 errors v | 2 warnings x | 1 note x\n\nchecking DESCRIPTION meta-information … WARNING\nNon-standard license specification\n✅ Next!\nchecking dependencies in R code … WARNING\n‘::’ or ‘:::’ imports not declared\n✅ Next!\nno visible binding for global variables\n✅ Tomorrow!"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#add-a-license",
@@ -718,14 +739,14 @@
     "href": "materials/day-1-session-1-introduction.html#summary",
     "title": "📦 Building tidy tools",
     "section": "Summary",
-    "text": "Summary\n\nIt is useful to make a package\n\nit is fairly easy with devtools\nit will help you work more reproducibly\n\nPackages can be in one of 5 states:\n\nsource - what you write\nbundled - source compressed to single file, submitted to CRAN\nbinary - distribution for users w/o devtools\ninstalled - a binary that’s been decompressed\nin-memory - installed package that has been loaded"
+    "text": "Summary\n\n\nIt is useful to make a package\n\nit is fairly easy with devtools\nit will help you work more reproducibly\n\nPackages can be in one of 5 states:\n\nsource - what you write\nbundled - source compressed to single file, submitted to CRAN\nbinary - distribution for users w/o devtools\ninstalled - a binary that’s been decompressed\nin-memory - installed package that has been loaded"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#summary-continued",
     "href": "materials/day-1-session-1-introduction.html#summary-continued",
     "title": "📦 Building tidy tools",
     "section": "Summary continued",
-    "text": "Summary continued\n\nA minimal package comprises\n\na folder which is a package and a RProj\nDESCRIPTION, NAMESPACE, .Rbuildignore .gitignore\nR/ directory for functions\n\nWe add functions with usethis:use_r()\nWe use the package interactively with devtools::load_all()\nWe use devtools::check() to execute R CMD check\nWe add a license with usethis::use_mit_license()"
+    "text": "Summary continued\n\n\nA minimal package comprises\n\na folder which is a package and a RProj\nDESCRIPTION, NAMESPACE, .Rbuildignore .gitignore\nR/ directory for functions\n\nWe add functions with usethis:use_r()\nWe use the package interactively with devtools::load_all()\nWe use devtools::check() to execute R CMD check\nWe add a license with usethis::use_mit_license()"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#references",

@@ -398,6 +398,9 @@
       margin-right: 0; 
     }
   </style>
+  <script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 </head>
 <body>
   <div class="reveal">
@@ -428,13 +431,13 @@
 <h2>The team</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p>Emma Rand 🐦<a href="https://twitter.com/er13_r?lang=en">er13_r</a></p>
+<p>Emma Rand 🐦<a href="https://twitter.com/er13_r">@er13_r</a></p>
 <p>Elliot Murphy</p>
-<p>Beatriz Milz</p>
+<p>Beatriz Milz 🐦<a href="https://twitter.com/BeaMilz">@BeaMilz</a></p>
 </div><div class="column" style="width:50%;">
-<p>Ian Lyttle</p>
+<p>Ian Lyttle 🐦<a href="https://twitter.com/ijlyttle">@ijlyttle</a></p>
 <p>Haley Jeppson</p>
-<p>Ted Laderas</p>
+<p>Ted Laderas 🐦<a href="https://twitter.com/tladeras">@tladeras</a></p>
 </div>
 </div>
 <p>Standing on the shoulders of Building Tidy Tools, rstudio::conf(2020) <span class="citation" data-cites="wickham2021a">(<a href="#/ref-wickham2021a" role="doc-biblioref" onclick="return false;">C. Wickham and Wickham 2021</a>)</span>, R Packages <span class="citation" data-cites="wickham2020">(<a href="#/ref-wickham2020" role="doc-biblioref" onclick="return false;">H. Wickham and Bryan 2020</a>)</span></p>
@@ -449,34 +452,124 @@
 </section>
 <section id="prerequisites" class="slide level2">
 <h2>Prerequisites</h2>
-<p>To get the most out of this workshop you will need a laptop with the following installed:</p>
+<p>You need a laptop with the following installed:</p>
 <ul>
 <li>R and RStudio</li>
 <li>R package development toolchain: Rtools(windows) or XCode (mac) or r-base-dev</li>
-<li>The following packages: <code>devtools</code> and TO ADD WHEN FINALISED</li>
+<li>The following packages: <strong><code>devtools</code></strong> and <strong><code>btt22</code></strong></li>
 <li>Git</li>
-<li>GitHub account</li>
-<li>GitHub to be linked to RStudio</li>
+<li>GitHub account linked to RStudio</li>
 </ul>
-<p>Detailed instructions for installing these are covered in <a href="https://rstudio-conf-2022.github.io/build-tidy-tools/materials/pre-reqs.html">Prerequisites</a></p>
+<p>Detailed instructions for installing these are covered in <a href="pre-reqs.qmd">Prerequisites</a></p>
 </section>
-<section id="schedule" class="slide level2">
-<h2>Schedule</h2>
-<p>to add from readme when complete</p>
+<section id="day-1" class="slide level2">
+<h2>Day 1</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Time</th>
+<th style="text-align: left;">Activity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">09:00 - 10:30</td>
+<td style="text-align: left;"><a href="materials/day-1-session-1-introduction.qmd">Session 1: Introduction and the whole game</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10:30 - 11:00</td>
+<td style="text-align: left;">☕ <em>Coffee break</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">11:00 - 12:30</td>
+<td style="text-align: left;"><a href="materials/day-1-session-2-doc-minimal.qmd">Session 2: Documentation - Minimal</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12:30 - 13:30</td>
+<td style="text-align: left;">🍱 <em>Lunch break</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">13:30 - 15:00</td>
+<td style="text-align: left;"><a href="materials/day-1-session-3-testing.qmd">Session 3: Unit testing</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">15:00 - 15:30</td>
+<td style="text-align: left;">☕ <em>Coffee break</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">15:30 - 17:00</td>
+<td style="text-align: left;"><a href="materials/day-1-session-4-doc-sharing.qmd">Session 4: Documentation - Sharing</a></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="day-2" class="slide level2">
+<h2>Day 2</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Time</th>
+<th style="text-align: left;">Activity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">09:00 - 10:30</td>
+<td style="text-align: left;"><a href="materials/day-2-session-1-design.qmd">Session 1: Function design</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10:30 - 11:00</td>
+<td style="text-align: left;">☕ <em>Coffee break</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">11:00 - 12:30</td>
+<td style="text-align: left;"><a href="materials/day-2-session-2-side-effects.qmd">Session 2: Side effects</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12:30 - 13:30</td>
+<td style="text-align: left;">🍱 <em>Lunch break</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">13:30 - 15:00</td>
+<td style="text-align: left;"><a href="materials/day-2-session-3-tidy-eval.qmd">Session 3: Tidy eval</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">15:00 - 15:30</td>
+<td style="text-align: left;">☕ <em>Coffee break</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">15:30 - 17:00</td>
+<td style="text-align: left;"><a href="materials/day-2-session-4-miscellany.qmd">Session 4: Miscellany</a></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="code-of-conduct" class="slide level2">
 <h2>Code of Conduct</h2>
+<p><a href="https://www.rstudio.com/conference/2022/2022-conf-code-of-conduct/">Code of Conduct &amp; COVID</a></p>
+<ul>
+<li>😷 Please wear a mask</li>
+<li>Everyone should feel welcome</li>
+<li>No harassing, intimidating or discriminatory verbal, physical or visual conduct in any form</li>
+</ul>
+<p>Reporting:</p>
+<ul>
+<li>🗣️ any rstudio::conf staff member</li>
+<li>📧 conf@rstudio.com</li>
+<li>☎️ 844-448-1212</li>
+</ul>
 </section>
 <section id="how-we-will-work" class="slide level2">
 <h2>How we will work</h2>
 <ul>
-<li><p>stickies</p></li>
+<li><p>stickies 🟨 🟩</p></li>
 <li><p>no stupid questions</p></li>
 <li></li>
 </ul>
 </section>
-<section id="learning-objectives" class="slide level2 smaller">
+<section id="learning-objectives" class="slide level2">
 <h2>Learning Objectives</h2>
+<div class="small">
 <p>At the end of this section you will be able to:</p>
 <ul>
 <li>explain the rationale for writing packages</li>
@@ -488,6 +581,7 @@
 <li>use the package interactively with <code>devtools::load_all()</code></li>
 <li>check package validity with <code>devtools::check()</code></li>
 </ul>
+</div>
 </section></section>
 <section>
 <section id="set-up-tips" class="title-slide slide level1 center">
@@ -497,19 +591,21 @@
 <section id="global-options" class="slide level2">
 <h2>🔥 Global Options</h2>
 <p>🎬 Tools | Global Options | General</p>
-<p><br>
-</p>
+<div style="background-color: #707070">
 <p>🔲 Restore .RData into workspace at startup: <strong>unchecked</strong></p>
 <p>Save workspace to .RData on exit: <strong>Never</strong></p>
+</div>
 <div class="fragment">
 <p>🎬 Tools | Global Options | Code | Display</p>
+<div style="background-color: #707070">
 <p>☑️ Show margin: <strong>checked</strong></p>
 <p>Margin column 80</p>
+</div>
 </div>
 </section>
 <section id="set-up-your-.rprofile" class="slide level2">
 <h2>🔥 Set up your <code>.Rprofile</code></h2>
-<p>Add default information about you for that will be used in package development.</p>
+<p>Add default information about you that will be used in package development.</p>
 <p><br>
 </p>
 <p>You can edit your <code>.Rprofile</code> with <code>usethis::edit_r_profile</code>:<br>
@@ -521,8 +617,9 @@
 </p>
 <p>to set the following options….</p>
 </section>
-<section id="set-up-your-.rprofile-1" class="slide level2 smaller">
+<section id="set-up-your-.rprofile-1" class="slide level2">
 <h2>🔥 Set up your <code>.Rprofile</code></h2>
+<div class="small">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">usethis.full_name =</span> <span class="st">"Emma Rand"</span>,</span>
@@ -533,6 +630,7 @@
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="st">    comment = c(ORCID = "0000-0001-6452-2420"))'</span>,</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 </section>
 <section id="set-up-your-.rprofile-2" class="slide level2">
@@ -663,8 +761,30 @@
 
 </section>
 <section id="the-ussie-package" class="slide level2">
-<h2>The ussie package</h2>
-<p>Where we are going. discuss some of the files</p>
+<h2>The <strong><code>ussie</code></strong> package</h2>
+<ul>
+<li>We will create a version controlled package called <strong><code>ussie</code></strong> with a remote repo on GitHub.</li>
+</ul>
+<p><br>
+</p>
+<div class="fragment">
+<p><strong><code>ussie</code></strong> will allow you to work with European football league data supplied by the <strong><code>engsoccerdata</code></strong> package <span class="citation" data-cites="engsoccerdata">(<a href="#/ref-engsoccerdata" role="doc-biblioref" onclick="return false;">Curley 2016</a>)</span></p>
+</div>
+</section>
+<section id="explore-ussie" class="slide level2">
+<h2>Explore <strong><code>ussie</code></strong></h2>
+<ul>
+<li><a href="https://github.com/rstudio-conf-2022/ussie">GitHub</a></li>
+<li><a href="https://rstudio-conf-2022.github.io/ussie/">Website</a></li>
+</ul>
+<p><br>
+</p>
+<p><a href="https://github.com/rstudio-conf-2022/ussie">GitHub</a> is the package in “Source” form</p>
+<ul>
+<li>main code in <code>R/</code></li>
+<li>documentation files in <code>man/</code> and <code>vignettes/</code></li>
+<li>DESCRIPTION</li>
+</ul>
 </section></section>
 <section>
 <section id="package-states" class="title-slide slide level1 center">
@@ -806,25 +926,16 @@
 </section>
 <section id="create-a-package-1" class="slide level2">
 <h2>Create a package</h2>
-<p>We will create a version controlled package called <strong><code>ussie</code></strong> with a remote repo on GitHub.</p>
-<p><br>
-</p>
-<div class="fragment">
-<p><strong><code>ussie</code></strong> will allow you to work with European football league data supplied by the <strong><code>engsoccerdata</code></strong> package <span class="citation" data-cites="engsoccerdata">Curley (<a href="#/ref-engsoccerdata" role="doc-biblioref" onclick="return false;">2016</a>)</span></p>
-<p><br>
-</p>
-</div>
-<div class="fragment">
 <p>The CRAN version of <strong><code>engsoccerdata</code></strong> has data from the start of the league until 2016 for <code>england</code>, <code>germany</code>, <code>holland</code>, <code>italy</code> and <code>spain</code></p>
 <p><br>
 </p>
-</div>
 <div class="fragment">
 <p>BUT the format of the data is <strong>not</strong> the same for all countries!!</p>
 </div>
 </section>
-<section id="about-engsoccerdata" class="slide level2 smaller">
+<section id="about-engsoccerdata" class="slide level2">
 <h2>About <strong><code>engsoccerdata</code></strong></h2>
+<div class="extrasmall">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">glimpse</span>(engsoccerdata<span class="sc">::</span>england)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -844,8 +955,6 @@ $ goaldif  &lt;dbl&gt; 0, -2, -1, 4, 4, 2, -1, 0, 2, 1, 0, 1, 5, 4, 2, 2, 1, 8, 
 $ result   &lt;fct&gt; D, A, A, H, H, H, A, D, H, H, D, H, H, H, H, H, H, H, A, H, H…</code></pre>
 </div>
 </div>
-<p><br>
-</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">glimpse</span>(engsoccerdata<span class="sc">::</span>spain)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -865,8 +974,7 @@ $ group   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
 $ notes   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</code></pre>
 </div>
 </div>
-<p><br>
-</p>
+</div>
 </section>
 <section id="first-function" class="slide level2">
 <h2>First function</h2>
@@ -890,30 +998,30 @@ $ notes   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
 <aside><div>
 <p>You may want a different path</p>
 </div></aside></section>
-<section id="section" class="slide level2 smaller">
+<section id="section" class="slide level2 extrasmall">
 <h2></h2>
-<pre><code>√ Creating 'C:/Users/er13/Desktop/ussie/'
-√ Setting active project to 'C:/Users/er13/Desktop/ussie'
-√ Creating 'R/'
-√ Writing 'DESCRIPTION'
-Package: ussie
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
-Authors\@R (parsed):
-   * First Last \&lt;first.last\@example.com\&gt; \[aut, cre\] (YOUR-ORCID-ID)
-Description: What the package does (one paragraph).
-License: \`use_mit_license()\`, \`use_gpl3_license()\` or friends to
-    pick a license
-Encoding: UTF-8
-LazyData: true
-Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
-√ Writing 'NAMESPACE'
-√ Writing 'ussie.Rproj'
-√ Adding '.Rproj.user' to '.gitignore'
-√ Adding '\^ussie\\\\.Rproj\$', '\^\\\\.Rproj\\\\.user\$' to '.Rbuildignore'
-√ Opening 'C:/Users/er13/Desktop/ussie/' in new RStudio session
-√ Setting active project to '\&lt;no active project\&gt;'</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>✔ Creating 'ussie/'</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>✔ Setting active project to 'C:/Users/er13/OneDrive - University of York/Desktop/Desktop/rstudio-conf-2022/ussie'</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>✔ Creating 'R/'</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>✔ Writing 'DESCRIPTION'</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>Package: ussie</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>Title: What the Package Does (One Line, Title Case)</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>Version: 0.0.0.9000</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>Authors@R (parsed):</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>    * Emma Rand &lt;emma.rand@york.ac.uk&gt; [aut, cre] (&lt;https://orcid.org/0000-0002-1358-8275&gt;)</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>Description: What the package does (one paragraph).</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>License: `use_mit_license()`, `use_gpl3_license()` or friends to</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>    pick a license</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>Encoding: UTF-8</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>Roxygen: list(markdown = TRUE)</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>RoxygenNote: 7.2.0</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>✔ Writing 'NAMESPACE'</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>✔ Writing 'ussie.Rproj'</span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>✔ Adding '^ussie\\.Rproj$' to '.Rbuildignore'</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>✔ Adding '.Rproj.user' to '.gitignore'</span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>✔ Adding '^\\.Rproj\\.user$' to '.Rbuildignore'</span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>✔ Opening 'C:/Users/er13/OneDrive - University of York/Desktop/Desktop/rstudio-conf-2022/ussie/' in new RStudio session</span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>✔ Setting active project to '&lt;no active project&gt;'</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="create_package" class="slide level2">
 <h2><code>create_package()</code></h2>
@@ -958,33 +1066,39 @@ RoxygenNote: 7.1.1
 </section>
 <section id="section-1" class="slide level2">
 <h2></h2>
-<pre><code>v Initialising Git repo
-v Adding '.Rhistory', '.Rdata', '.httr-oauth', '.DS_Store' to '.gitignore'
-There are 5 uncommitted files:
-* '.gitignore'
-* '.Rbuildignore'
-* 'DESCRIPTION'
-* 'NAMESPACE'
-* 'ussieprac.Rproj'
-Is it ok to commit them?
-
-1: Nope
-2: Absolutely not
-3: I agree</code></pre>
+<div class="small">
+<div class="sourceCode" id="cb22"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>✔ Setting active project to 'C:/Users/er13/OneDrive - University of York/Desktop/Desktop/rstudio-conf-2022/ussie'</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>✔ Initialising Git repo</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>✔ Adding '.Rhistory', '.Rdata', '.httr-oauth', '.DS_Store' to '.gitignore'</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>There are 5 uncommitted files:</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>* '.gitignore'</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>* '.Rbuildignore'</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>* 'DESCRIPTION'</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>* 'NAMESPACE'</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>* 'ussie.Rproj'</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>Is it ok to commit them?</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>1: No way</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>2: Negative</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>3: I agree</span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p><br>
 </p>
 <p>🎬 Choose the option that means yes!</p>
 </section>
 <section id="section-2" class="slide level2">
 <h2></h2>
-<pre><code>v Adding files
-v Making a commit with message 'Initial commit'
-* A restart of RStudio is required to activate the Git pane
-Restart now?
-
-1: Negative
-2: No way
-3: Yeah</code></pre>
+<div class="small">
+<div class="sourceCode" id="cb23"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>✔ Adding files</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>✔ Making a commit with message 'Initial commit'</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>• A restart of RStudio is required to activate the Git pane</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>Restart now?</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>1: Yup</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>2: Not now</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>3: Absolutely not</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p><br>
 </p>
 <p>🎬 Choose the option that means yes!</p>
@@ -999,36 +1113,22 @@ Restart now?
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_github</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="section-3" class="slide level2 smaller">
+<section id="section-3" class="slide level2">
 <h2></h2>
-<pre><code>i Defaulting to 'https' Git protocol
-v Setting active project to 'C:/Users/er13/OneDrive - University of York/Desktop/Desktop/ussieprac'
-v Creating GitHub repository '3mmaRand/ussieprac'
-v Setting remote 'origin' to 'https://github.com/3mmaRand/ussieprac.git'
-v Setting URL field in DESCRIPTION to 'https://github.com/3mmaRand/ussieprac'
-v Setting BugReports field in DESCRIPTION to 'https://github.com/3mmaRand/ussieprac/issues'
-There is 1 uncommitted file:
-* 'DESCRIPTION'
-Is it ok to commit it?
-
-1: Negative
-2: Yup
-3: Not now</code></pre>
-<p><br>
-</p>
-<p>🎬 Choose the option that means yes!</p>
+<div class="small">
+<div class="sourceCode" id="cb25"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>ℹ Defaulting to 'https' Git protocol</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>✔ Setting active project to 'C:/Users/er13/OneDrive - University of York/Desktop/Desktop/rstudio-conf-2022/ussie'</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>✔ Creating GitHub repository '3mmaRand/ussie'</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>✔ Setting remote 'origin' to 'https://github.com/3mmaRand/ussie.git'</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>✔ Pushing 'main' branch to GitHub and setting 'origin/main' as upstream branch</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>✔ Opening URL 'https://github.com/3mmaRand/ussie'</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="section-4" class="slide level2">
 <h2></h2>
-<pre><code>v Adding files
-v Making a commit with message 'Add GitHub links to DESCRIPTION'
-v Pushing 'main' branch to GitHub and setting 'origin/main' as upstream branch
-v Opening URL 'https://github.com/3mmaRand/ussieprac'</code></pre>
-<p><br>
-</p>
 <p>🎬 Quick check with:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">git_sitrep</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">git_sitrep</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="add-the-first-function" class="slide level2">
@@ -1044,7 +1144,7 @@ v Opening URL 'https://github.com/3mmaRand/ussieprac'</code></pre>
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_r</span>(<span class="st">"file_name"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_r</span>(<span class="st">"file_name"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br>
 </p>
@@ -1053,54 +1153,57 @@ v Opening URL 'https://github.com/3mmaRand/ussieprac'</code></pre>
 </section>
 <section id="usethisuse_r" class="slide level2">
 <h2><code>usethis::use_r()</code></h2>
-<p>🎬 Create a new R file in your package called <code>uss_make_matches.R</code></p>
+<p>🎬 Create a new R file in your package called <code>matches.R</code></p>
 <p><br>
 </p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_r</span>(<span class="st">"uss_make_matches"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_r</span>(<span class="st">"matches"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<pre><code>√ Setting active project to 'C:/Users/er13/Desktop/ussie'
-• Modify 'R/uss_make_matches.R'
-• Call \`use_test()\` to create a matching test file</code></pre>
-<p><br>
-</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>• Modify 'R/matches.R'</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>• Call `use_test()` to create a matching test file</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
 </div>
-<div class="fragment">
+<aside><div>
+<p>We will come back to that test files this afternoon</p>
+</div></aside></section>
+<section id="the-function" class="slide level2">
+<h2>The function?</h2>
 <p>We want to be able to use the function like this: <code>uss_make_matches(engsoccerdata::italy)</code></p>
-</div>
 </section>
 <section id="add-the-function" class="slide level2">
 <h2>Add the function</h2>
-<p>🎬 Put the following <a href="intermediate/uss_make_matches.R">code</a> into your script:</p>
+<p>🎬 Put the following code into <code>matches</code>:</p>
+<div class="small">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31" data-code-line-numbers="|1|3|4|5-12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>uss_make_matches <span class="ot">&lt;-</span> <span class="cf">function</span>(data_engsoc) {</span>
-<span id="cb31-2"><a href="#cb31-2"></a>  result <span class="ot">&lt;-</span></span>
-<span id="cb31-3"><a href="#cb31-3"></a>    data_engsoc <span class="sc">|&gt;</span></span>
-<span id="cb31-4"><a href="#cb31-4"></a>    tibble<span class="sc">::</span><span class="fu">as_tibble</span>() <span class="sc">|&gt;</span></span>
-<span id="cb31-5"><a href="#cb31-5"></a>    dplyr<span class="sc">::</span><span class="fu">transmute</span>(</span>
-<span id="cb31-6"><a href="#cb31-6"></a>      <span class="at">tier =</span> <span class="fu">as.integer</span>(tier),</span>
-<span id="cb31-7"><a href="#cb31-7"></a>      <span class="at">season =</span> <span class="fu">as.integer</span>(Season),</span>
-<span id="cb31-8"><a href="#cb31-8"></a>      <span class="at">date =</span> <span class="fu">as.Date</span>(Date),</span>
-<span id="cb31-9"><a href="#cb31-9"></a>      <span class="at">home =</span> <span class="fu">as.character</span>(home),</span>
-<span id="cb31-10"><a href="#cb31-10"></a>      <span class="at">visitor =</span> <span class="fu">as.character</span>(visitor),</span>
-<span id="cb31-11"><a href="#cb31-11"></a>      <span class="at">goals_home =</span> <span class="fu">as.integer</span>(hgoal),</span>
-<span id="cb31-12"><a href="#cb31-12"></a>      <span class="at">goals_visitor =</span> <span class="fu">as.integer</span>(vgoal)</span>
-<span id="cb31-13"><a href="#cb31-13"></a>    )</span>
-<span id="cb31-14"><a href="#cb31-14"></a>  result</span>
-<span id="cb31-15"><a href="#cb31-15"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30" data-code-line-numbers="|1|3|4|5-12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>uss_make_matches <span class="ot">&lt;-</span> <span class="cf">function</span>(data_engsoc) {</span>
+<span id="cb30-2"><a href="#cb30-2"></a>  result <span class="ot">&lt;-</span></span>
+<span id="cb30-3"><a href="#cb30-3"></a>    data_engsoc <span class="sc">|&gt;</span></span>
+<span id="cb30-4"><a href="#cb30-4"></a>    tibble<span class="sc">::</span><span class="fu">as_tibble</span>() <span class="sc">|&gt;</span></span>
+<span id="cb30-5"><a href="#cb30-5"></a>    dplyr<span class="sc">::</span><span class="fu">transmute</span>(</span>
+<span id="cb30-6"><a href="#cb30-6"></a>      <span class="at">tier =</span> <span class="fu">as.integer</span>(tier),</span>
+<span id="cb30-7"><a href="#cb30-7"></a>      <span class="at">season =</span> <span class="fu">as.integer</span>(Season),</span>
+<span id="cb30-8"><a href="#cb30-8"></a>      <span class="at">date =</span> <span class="fu">as.Date</span>(Date),</span>
+<span id="cb30-9"><a href="#cb30-9"></a>      <span class="at">home =</span> <span class="fu">as.character</span>(home),</span>
+<span id="cb30-10"><a href="#cb30-10"></a>      <span class="at">visitor =</span> <span class="fu">as.character</span>(visitor),</span>
+<span id="cb30-11"><a href="#cb30-11"></a>      <span class="at">goals_home =</span> <span class="fu">as.integer</span>(hgoal),</span>
+<span id="cb30-12"><a href="#cb30-12"></a>      <span class="at">goals_visitor =</span> <span class="fu">as.integer</span>(vgoal)</span>
+<span id="cb30-13"><a href="#cb30-13"></a>    )</span>
+<span id="cb30-14"><a href="#cb30-14"></a>  result</span>
+<span id="cb30-15"><a href="#cb30-15"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 </section></section>
 <section>
-<section id="test-your-function" class="title-slide slide level1 center">
-<h1>Test your function</h1>
+<section id="try-out-your-function" class="title-slide slide level1 center">
+<h1>Try out your function</h1>
 
 </section>
 <section id="development-workflow" class="slide level2">
 <h2>Development workflow</h2>
 <p>In a normal script you might use:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/uss_make_matches.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/matches.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br>
 </p>
@@ -1110,8 +1213,29 @@ v Opening URL 'https://github.com/3mmaRand/ussieprac'</code></pre>
 </section>
 <section id="development-workflow-1" class="slide level2">
 <h2>Development workflow</h2>
+<div class="cell" data-reveal="true" evaluate:="true" data-fig-width="8">
+<div class="cell-output-display">
+<div>
+<p>
+</p><pre class="mermaid" data-tooltip-selector="#mermaid-tooltip-1">%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#f3f3f3',  'lineColor':'#EE9AD9'}}}%%
 
-<img data-src="images/dev_cycle_before_testing.png" alt="there are three boxes with arrow joining them clockwise. The boxes are (clockwise from 3' oclock) 'devtools::load_all() Cmd/Ctrl + Shift +L', 'Explore in console' and 'Modify code'" width="1200" class="r-stretch quarto-figure-center"><p class="caption">Development workflow</p></section></section>
+  flowchart LR
+      id1("Load code: \n load_all()") --&gt; 
+      id2("Explore in \n console") --&gt; 
+      id3("Modify \n code")
+      id3 --&gt; id1
+      style id1 id2 id3 stroke:#3F3F3F,stroke-width:2px
+
+</pre>
+<div id="mermaid-tooltip-1" class="mermaidTooltip">
+
+</div>
+<p></p>
+</div>
+</div>
+</div>
+<!-- fig-alt="there are three boxes with arrow joining them clockwise. The boxes are (clockwise from 3' oclock) 'devtools::load_all() Cmd/Ctrl + Shift +L', 'Explore in console' and 'Modify code'" -->
+</section></section>
 <section>
 <section id="load-your-package" class="title-slide slide level1 center">
 <h1>Load your package</h1>
@@ -1121,68 +1245,67 @@ v Opening URL 'https://github.com/3mmaRand/ussieprac'</code></pre>
 <h2><code>devtools::load_all()</code></h2>
 <p>🎬 Load package with <code>devtools::load_all()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">load_all</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">load_all</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Loading ussie</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>ℹ Loading ussie</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="test" class="slide level2">
-<h2>Test</h2>
-<p>Test the <code>uss_make_matches()</code> function in the console.</p>
+<section id="experiment" class="slide level2">
+<h2>Experiment</h2>
+<p>Try out the <code>uss_make_matches()</code> function in the console.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">uss_make_matches</span>(engsoccerdata<span class="sc">::</span>italy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">uss_make_matches</span>(engsoccerdata<span class="sc">::</span>italy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><br>
-</p>
-<pre><code># A tibble: 25,404 x 7
-    tier season date       home      visitor goals_home goals_visitor
-   &lt;int&gt;  &lt;int&gt; &lt;date&gt;     &lt;chr&gt;     &lt;chr&gt;        &lt;int&gt;         &lt;int&gt;
- 1     1   1934 1934-09-30 Lazio Ro~ US Liv~          6             1
- 2     1   1934 1934-09-30 Torino FC Unione~          3             1
- 3     1   1934 1934-09-30 Sampierd~ Bologn~          2             1
- 4     1   1934 1934-09-30 SSC Napo~ US Ale~          0             1
- 5     1   1934 1934-09-30 ACF Fior~ AS Roma          4             1
- 6     1   1934 1934-09-30 Brescia ~ Juvent~          0             2
- 7     1   1934 1934-09-30 Inter     US Pal~          3             0
- 8     1   1934 1934-09-30 Pro Verc~ AC Mil~          1             2
- 9     1   1934 1934-10-07 AC Milan  ACF Fi~          1             1
-10     1   1934 1934-10-07 US Livor~ Inter            1             1
-# ... with 25,394 more rows</code></pre>
-<p>&nbsp;</p>
+<div class="small">
+<div class="sourceCode" id="cb35"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a># A tibble: 25,404 × 7</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>    tier season date       home   visitor goals_home goals_visitor</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>   &lt;int&gt;  &lt;int&gt; &lt;date&gt;     &lt;chr&gt;  &lt;chr&gt;        &lt;int&gt;         &lt;int&gt;</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a> 1     1   1934 1934-09-30 Lazio… US Liv…          6             1</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a> 2     1   1934 1934-09-30 Torin… Unione…          3             1</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a> 3     1   1934 1934-09-30 Sampi… Bologn…          2             1</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a> 4     1   1934 1934-09-30 SSC N… US Ale…          0             1</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a> 5     1   1934 1934-09-30 ACF F… AS Roma          4             1</span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a> 6     1   1934 1934-09-30 Bresc… Juvent…          0             2</span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a> 7     1   1934 1934-09-30 Inter  US Pal…          3             0</span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a> 8     1   1934 1934-09-30 Pro V… AC Mil…          1             2</span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a> 9     1   1934 1934-10-07 AC Mi… ACF Fi…          1             1</span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>10     1   1934 1934-10-07 US Li… Inter            1             1</span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a># … with 25,394 more rows</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>🤔 There’s no column for the country - that could be confusing</p>
 </section>
 <section id="update-the-function" class="slide level2">
 <h2>Update the function</h2>
 <p>🎬 Change the function so it takes an additional argument which is the name of the country. The country name should be in column called “country”. The aim is to use the function like this:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">uss_make_matches</span>(engsoccerdata<span class="sc">::</span>spain, <span class="st">"Spain"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">uss_make_matches</span>(engsoccerdata<span class="sc">::</span>spain, <span class="st">"Spain"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br>
 </p>
 <div class="fragment">
-<p>🎬 Load with <code>devtools::load_all()</code> and test the updated function.</p>
+<p>🎬 Load with <code>devtools::load_all()</code> and try out the updated function.</p>
 </div>
 </section>
 <section id="an-answer" class="slide level2">
 <h2>An answer</h2>
+<div class="small">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38" data-code-line-numbers="|1,6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a>uss_make_matches <span class="ot">&lt;-</span> <span class="cf">function</span>(data_engsoc, country) {</span>
-<span id="cb38-2"><a href="#cb38-2"></a>  result <span class="ot">&lt;-</span></span>
-<span id="cb38-3"><a href="#cb38-3"></a>    data_engsoc <span class="sc">|&gt;</span></span>
-<span id="cb38-4"><a href="#cb38-4"></a>    tibble<span class="sc">::</span><span class="fu">as_tibble</span>() <span class="sc">|&gt;</span></span>
-<span id="cb38-5"><a href="#cb38-5"></a>    dplyr<span class="sc">::</span><span class="fu">transmute</span>(</span>
-<span id="cb38-6"><a href="#cb38-6"></a>      <span class="at">country =</span> <span class="fu">as.character</span>(country),</span>
-<span id="cb38-7"><a href="#cb38-7"></a>      <span class="at">tier =</span> <span class="fu">as.integer</span>(tier),</span>
-<span id="cb38-8"><a href="#cb38-8"></a>      <span class="at">season =</span> <span class="fu">as.integer</span>(Season),</span>
-<span id="cb38-9"><a href="#cb38-9"></a>      <span class="at">date =</span> <span class="fu">as.Date</span>(Date),</span>
-<span id="cb38-10"><a href="#cb38-10"></a>      <span class="at">home =</span> <span class="fu">as.character</span>(home),</span>
-<span id="cb38-11"><a href="#cb38-11"></a>      <span class="at">visitor =</span> <span class="fu">as.character</span>(visitor),</span>
-<span id="cb38-12"><a href="#cb38-12"></a>      <span class="at">goals_home =</span> <span class="fu">as.integer</span>(hgoal),</span>
-<span id="cb38-13"><a href="#cb38-13"></a>      <span class="at">goals_visitor =</span> <span class="fu">as.integer</span>(vgoal)</span>
-<span id="cb38-14"><a href="#cb38-14"></a>    )</span>
-<span id="cb38-15"><a href="#cb38-15"></a>  result</span>
-<span id="cb38-16"><a href="#cb38-16"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37" data-code-line-numbers="|1,6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>uss_make_matches <span class="ot">&lt;-</span> <span class="cf">function</span>(data_engsoc, country) {</span>
+<span id="cb37-2"><a href="#cb37-2"></a>  result <span class="ot">&lt;-</span></span>
+<span id="cb37-3"><a href="#cb37-3"></a>    data_engsoc <span class="sc">|&gt;</span></span>
+<span id="cb37-4"><a href="#cb37-4"></a>    tibble<span class="sc">::</span><span class="fu">as_tibble</span>() <span class="sc">|&gt;</span></span>
+<span id="cb37-5"><a href="#cb37-5"></a>    dplyr<span class="sc">::</span><span class="fu">transmute</span>(</span>
+<span id="cb37-6"><a href="#cb37-6"></a>      <span class="at">country =</span> <span class="fu">as.character</span>(country),</span>
+<span id="cb37-7"><a href="#cb37-7"></a>      <span class="at">tier =</span> <span class="fu">as.integer</span>(tier),</span>
+<span id="cb37-8"><a href="#cb37-8"></a>      <span class="at">season =</span> <span class="fu">as.integer</span>(Season),</span>
+<span id="cb37-9"><a href="#cb37-9"></a>      <span class="at">date =</span> <span class="fu">as.Date</span>(Date),</span>
+<span id="cb37-10"><a href="#cb37-10"></a>      <span class="at">home =</span> <span class="fu">as.character</span>(home),</span>
+<span id="cb37-11"><a href="#cb37-11"></a>      <span class="at">visitor =</span> <span class="fu">as.character</span>(visitor),</span>
+<span id="cb37-12"><a href="#cb37-12"></a>      <span class="at">goals_home =</span> <span class="fu">as.integer</span>(hgoal),</span>
+<span id="cb37-13"><a href="#cb37-13"></a>      <span class="at">goals_visitor =</span> <span class="fu">as.integer</span>(vgoal)</span>
+<span id="cb37-14"><a href="#cb37-14"></a>    )</span>
+<span id="cb37-15"><a href="#cb37-15"></a>  result</span>
+<span id="cb37-16"><a href="#cb37-16"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 </section></section>
 <section>
@@ -1204,39 +1327,39 @@ v Opening URL 'https://github.com/3mmaRand/ussieprac'</code></pre>
 <h2><code>devtools::check()</code></h2>
 <p>🎬 Check your package:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">check</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">check</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="section-5" class="slide level2 smaller">
+<section id="section-5" class="slide level2">
 <h2></h2>
-<pre><code>-- R CMD check results -------------------------- ussie 0.0.0.9000 ----
-Duration: 37.6s
-
-&gt; checking DESCRIPTION meta-information ... WARNING
-  Non-standard license specification:
-    \`use_mit_license()\`, \`use_gpl3_license()\` or friends to pick a
-    license
-  Standardizable: FALSE
-
-&gt; checking dependencies in R code ... WARNING
-  '::' or ':::' imports not declared from:
-    'dplyr' 'tibble'
-
-&gt; checking for unstated dependencies in examples ... WARNING
-  '::' or ':::' import not declared from: 'engsoccerdata'
-
-&gt; checking R code for possible problems ... NOTE
-  uss_make_matches: no visible binding for global variable 'tier'
-  uss_make_matches: no visible binding for global variable 'Season'
-  uss_make_matches: no visible binding for global variable 'Date'
-  uss_make_matches: no visible binding for global variable 'home'
-  uss_make_matches: no visible binding for global variable 'visitor'
-  uss_make_matches: no visible binding for global variable 'hgoal'
-  uss_make_matches: no visible binding for global variable 'vgoal'
-  Undefined global functions or variables:
-    Date Season hgoal home tier vgoal visitor
-
-0 errors v | 3 warnings x | 1 note x</code></pre>
+<div class="extrasmall">
+<div class="sourceCode" id="cb39"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>── R CMD check results ───────────────────────────────────── ussie 0.0.0.9000 ────</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>Duration: 25.1s</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>❯ checking DESCRIPTION meta-information ... WARNING</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  Non-standard license specification:</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>    `use_mit_license()`, `use_gpl3_license()` or friends to pick a</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>    license</span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>  Standardizable: FALSE</span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>❯ checking dependencies in R code ... WARNING</span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>  '::' or ':::' imports not declared from:</span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>    'dplyr' 'tibble'</span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a>❯ checking R code for possible problems ... NOTE</span>
+<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable 'tier'</span>
+<span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable 'Season'</span>
+<span id="cb39-17"><a href="#cb39-17" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable 'Date'</span>
+<span id="cb39-18"><a href="#cb39-18" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable 'home'</span>
+<span id="cb39-19"><a href="#cb39-19" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable 'visitor'</span>
+<span id="cb39-20"><a href="#cb39-20" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable 'hgoal'</span>
+<span id="cb39-21"><a href="#cb39-21" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable 'vgoal'</span>
+<span id="cb39-22"><a href="#cb39-22" aria-hidden="true" tabindex="-1"></a>  Undefined global functions or variables:</span>
+<span id="cb39-23"><a href="#cb39-23" aria-hidden="true" tabindex="-1"></a>    Date Season hgoal home tier vgoal visitor</span>
+<span id="cb39-24"><a href="#cb39-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-25"><a href="#cb39-25" aria-hidden="true" tabindex="-1"></a>0 errors ✔ | 2 warnings ✖ | 1 note ✖</span>
+<span id="cb39-26"><a href="#cb39-26" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="aside-in-case-of-error" class="slide level2">
 <h2>Aside: in case of error</h2>
@@ -1256,39 +1379,39 @@ Error: The specified file is not readable: path-to\ussie\NAMESPACE</code></pre>
 <p>Run the whole file</p>
 <p>You should now find that <code>check()</code> proceeds normally</p>
 </section>
-<section id="section-6" class="slide level2 smaller">
+<section id="section-6" class="slide level2">
 <h2></h2>
-<pre><code>-- R CMD check results -------------------------- ussie 0.0.0.9000 ----
-Duration: 37.6s
-
-&gt; checking DESCRIPTION meta-information ... WARNING
-  Non-standard license specification:
-    \`use_mit_license()\`, \`use_gpl3_license()\` or friends to pick a
-    license
-  Standardizable: FALSE
-
-&gt; checking dependencies in R code ... WARNING
-  '::' or ':::' imports not declared from:
-    'dplyr' 'tibble'
-
-&gt; checking for unstated dependencies in examples ... WARNING
-  '::' or ':::' import not declared from: 'engsoccerdata'
-
-&gt; checking R code for possible problems ... NOTE
-  uss_make_matches: no visible binding for global variable 'tier'
-  uss_make_matches: no visible binding for global variable 'Season'
-  uss_make_matches: no visible binding for global variable 'Date'
-  uss_make_matches: no visible binding for global variable 'home'
-  uss_make_matches: no visible binding for global variable 'visitor'
-  uss_make_matches: no visible binding for global variable 'hgoal'
-  uss_make_matches: no visible binding for global variable 'vgoal'
-  Undefined global functions or variables:
-    Date Season hgoal home tier vgoal visitor
-
-0 errors v | 3 warnings x | 1 note x</code></pre>
+<div class="extrasmall">
+<div class="sourceCode" id="cb41"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>── R CMD check results ───────────────────────────────────── ussie 0.0.0.9000 ────</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>Duration: 25.1s</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>❯ checking DESCRIPTION meta-information ... WARNING</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>  Non-standard license specification:</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>    `use_mit_license()`, `use_gpl3_license()` or friends to pick a</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>    license</span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>  Standardizable: FALSE</span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>❯ checking dependencies in R code ... WARNING</span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>  '::' or ':::' imports not declared from:</span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>    'dplyr' 'tibble'</span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>❯ checking R code for possible problems ... NOTE</span>
+<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable 'tier'</span>
+<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable 'Season'</span>
+<span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable 'Date'</span>
+<span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable 'home'</span>
+<span id="cb41-19"><a href="#cb41-19" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable 'visitor'</span>
+<span id="cb41-20"><a href="#cb41-20" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable 'hgoal'</span>
+<span id="cb41-21"><a href="#cb41-21" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable 'vgoal'</span>
+<span id="cb41-22"><a href="#cb41-22" aria-hidden="true" tabindex="-1"></a>  Undefined global functions or variables:</span>
+<span id="cb41-23"><a href="#cb41-23" aria-hidden="true" tabindex="-1"></a>    Date Season hgoal home tier vgoal visitor</span>
+<span id="cb41-24"><a href="#cb41-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-25"><a href="#cb41-25" aria-hidden="true" tabindex="-1"></a>0 errors ✔ | 2 warnings ✖ | 1 note ✖</span>
+<span id="cb41-26"><a href="#cb41-26" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="errors-v-3-warnings-x-1-note-x" class="slide level2">
-<h2>0 errors v | 3 warnings x | 1 note x</h2>
+<section id="errors-v-2-warnings-x-1-note-x" class="slide level2">
+<h2>0 errors v | 2 warnings x | 1 note x</h2>
 <ul>
 <li><p>checking DESCRIPTION meta-information … WARNING<br>
 Non-standard license specification<br>
@@ -1296,8 +1419,6 @@ Non-standard license specification<br>
 <li><p>checking dependencies in R code … WARNING<br>
 ‘::’ or ‘:::’ imports not declared<br>
 ✅ Next!</p></li>
-<li><p>checking for unstated dependencies in examples … WARNING<br>
-‘::’ or ‘:::’ import not declared from: ‘engsoccerdata’ ✅ Next!</p></li>
 <li><p>no visible binding for global variables<br>
 ✅ Tomorrow!</p></li>
 </ul>
@@ -1317,7 +1438,7 @@ Non-standard license specification<br>
 </p>
 <p>🎬 Add a MIT license<sup>1</sup> - use your own name!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_mit_license</span>(<span class="st">"Emma Rand"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_mit_license</span>(<span class="st">"Emma Rand"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <aside><ol class="aside-footnotes"><li id="fn1" role="doc-endnote"><p>MIT: Simple and permissive license that lets people use and freely distribute your code</p></li></ol></aside></section>
 <section id="use_mit_license" class="slide level2">
@@ -1335,8 +1456,9 @@ Non-standard license specification<br>
 <h1>📦 Woo hoo📦 <br> You made a package!</h1>
 
 </section>
-<section id="summary" class="slide level2 smaller">
+<section id="summary" class="slide level2">
 <h2>Summary</h2>
+<div class="small">
 <ul>
 <li>It is useful to make a package
 <ul>
@@ -1352,9 +1474,11 @@ Non-standard license specification<br>
 <li>in-memory - installed package that has been loaded</li>
 </ul></li>
 </ul>
+</div>
 </section>
-<section id="summary-continued" class="slide level2 smaller">
+<section id="summary-continued" class="slide level2">
 <h2>Summary continued</h2>
+<div class="small">
 <ul>
 <li>A minimal package comprises
 <ul>
@@ -1367,8 +1491,9 @@ Non-standard license specification<br>
 <li>We use <code>devtools::check()</code> to execute <code>R CMD</code> check</li>
 <li>We add a license with <code>usethis::use_mit_license()</code></li>
 </ul>
+</div>
 </section>
-<section id="references" class="slide level2 smaller scrollable">
+<section id="references" class="slide level2 extrasmall smaller scrollable">
 <h2>References</h2>
 
 <div class="footer footer-default">
