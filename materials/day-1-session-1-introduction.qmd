@@ -33,19 +33,19 @@ This is a two-day, hands-on workshop for those who have embraced the tidyverse a
 
 ::: columns
 ::: {.column width="50%"}
-Emma Rand 🐦[er13_r](https://twitter.com/er13_r?lang=en)
+Emma Rand 🐦[\@er13_r](https://twitter.com/er13_r)
 
 Elliot Murphy
 
-Beatriz Milz
+Beatriz Milz 🐦[\@BeaMilz](https://twitter.com/BeaMilz)
 :::
 
 ::: {.column width="50%"}
-Ian Lyttle
+Ian Lyttle 🐦[\@ijlyttle](https://twitter.com/ijlyttle)
 
 Haley Jeppson
 
-Ted Laderas
+Ted Laderas 🐦[\@tladeras](https://twitter.com/tladeras)
 :::
 :::
 
@@ -61,32 +61,65 @@ Standing on the shoulders of Building Tidy Tools, rstudio::conf(2020) [@wickham2
 
 ## Prerequisites
 
-To get the most out of this workshop you will need a laptop with the following installed:
+You need a laptop with the following installed:
 
 -   R and RStudio
 -   R package development toolchain: Rtools(windows) or XCode (mac) or r-base-dev
--   The following packages: `devtools` and TO ADD WHEN FINALISED
+-   The following packages: **`devtools`** and **`btt22`**
 -   Git
--   GitHub account
--   GitHub to be linked to RStudio
+-   GitHub account linked to RStudio
 
-Detailed instructions for installing these are covered in [Prerequisites](https://rstudio-conf-2022.github.io/build-tidy-tools/materials/pre-reqs.html)
+Detailed instructions for installing these are covered in [Prerequisites](pre-reqs.qmd)
 
-## Schedule
+## Day 1
 
-to add from readme when complete
+| Time          | Activity                                                                                 |
+|:----------------------------------|:------------------------------------|
+| 09:00 - 10:30 | [Session 1: Introduction and the whole game](materials/day-1-session-1-introduction.qmd) |
+| 10:30 - 11:00 | ☕ *Coffee break*                                                                        |
+| 11:00 - 12:30 | [Session 2: Documentation - Minimal](materials/day-1-session-2-doc-minimal.qmd)          |
+| 12:30 - 13:30 | 🍱 *Lunch break*                                                                         |
+| 13:30 - 15:00 | [Session 3: Unit testing](materials/day-1-session-3-testing.qmd)                         |
+| 15:00 - 15:30 | ☕ *Coffee break*                                                                        |
+| 15:30 - 17:00 | [Session 4: Documentation - Sharing](materials/day-1-session-4-doc-sharing.qmd)          |
+
+## Day 2
+
+| Time          | Activity                                                              |
+|:----------------------------------|:------------------------------------|
+| 09:00 - 10:30 | [Session 1: Function design](materials/day-2-session-1-design.qmd)    |
+| 10:30 - 11:00 | ☕ *Coffee break*                                                     |
+| 11:00 - 12:30 | [Session 2: Side effects](materials/day-2-session-2-side-effects.qmd) |
+| 12:30 - 13:30 | 🍱 *Lunch break*                                                      |
+| 13:30 - 15:00 | [Session 3: Tidy eval](materials/day-2-session-3-tidy-eval.qmd)       |
+| 15:00 - 15:30 | ☕ *Coffee break*                                                     |
+| 15:30 - 17:00 | [Session 4: Miscellany](materials/day-2-session-4-miscellany.qmd)     |
 
 ## Code of Conduct
 
+[Code of Conduct & COVID](https://www.rstudio.com/conference/2022/2022-conf-code-of-conduct/)
+
+-   😷 Please wear a mask
+-   Everyone should feel welcome
+-   No harassing, intimidating or discriminatory verbal, physical or visual conduct in any form
+
+Reporting:
+
+-   🗣️ any rstudio::conf staff member
+-   📧 conf\@rstudio.com
+-   ☎️ 844-448-1212
+
 ## How we will work
 
--   stickies
+-   stickies 🟨 🟩
 
 -   no stupid questions
 
 -   
 
-## Learning Objectives {.smaller}
+## Learning Objectives 
+
+::: {.small}
 
 At the end of this section you will be able to:
 
@@ -99,29 +132,38 @@ At the end of this section you will be able to:
 -   use the package interactively with `devtools::load_all()`
 -   check package validity with `devtools::check()`
 
+:::
+
 # 🔥 Set up tips
 
 ## 🔥 Global Options
 
 🎬 Tools \| Global Options \| General
 
-\
+::: {style="background-color: #707070"}
 
 🔲 Restore .RData into workspace at startup: **unchecked**
 
 Save workspace to .RData on exit: **Never**
 
+::: 
+
 . . .
 
 🎬 Tools \| Global Options \| Code \| Display
+
+::: {style="background-color: #707070"}
 
 ☑️ Show margin: **checked**
 
 Margin column 80
 
+::: 
+
+
 ## 🔥 Set up your `.Rprofile`
 
-Add default information about you for that will be used in package development.
+Add default information about you that will be used in package development.
 
 \
 
@@ -135,7 +177,9 @@ usethis::edit_r_profile()
 
 to set the following options....
 
-## 🔥 Set up your `.Rprofile` {.smaller}
+## 🔥 Set up your `.Rprofile` 
+
+::: {.small}
 
 ```{r}
 options(
@@ -149,6 +193,9 @@ options(
 )
 
 ```
+
+:::
+
 
 ## 🔥 Set up your `.Rprofile`
 
@@ -268,9 +315,30 @@ dir(.Library)
 
 # Explore a package
 
-## The ussie package
+## The **`ussie`** package
 
-Where we are going. discuss some of the files
+-  We will create a version controlled package called **`ussie`** with a remote repo on GitHub. 
+
+\
+
+. . .
+
+**`ussie`** will allow you to work with European football league data supplied by the **`engsoccerdata`** package [@engsoccerdata]
+
+
+## Explore **`ussie`** 
+
+-  [GitHub](https://github.com/rstudio-conf-2022/ussie)
+-  [Website](https://rstudio-conf-2022.github.io/ussie/)
+
+\
+
+
+[GitHub](https://github.com/rstudio-conf-2022/ussie) is the package in "Source" form 
+
+-  main code in `R/`
+-  documentation files in `man/` and `vignettes/`
+-  DESCRIPTION
 
 # Package states
 
@@ -438,17 +506,7 @@ We do not use `library()` for packages we are working on
 
 ## Create a package
 
-We will create a version controlled package called **`ussie`** with a remote repo on GitHub.
 
-\
-
-. . .
-
-**`ussie`** will allow you to work with European football league data supplied by the **`engsoccerdata`** package @engsoccerdata
-
-\
-
-. . .
 
 The CRAN version of **`engsoccerdata`** has data from the start of the league until 2016 for `england`, `germany`, `holland`, `italy` and `spain`
 
@@ -458,21 +516,24 @@ The CRAN version of **`engsoccerdata`** has data from the start of the league un
 
 BUT the format of the data is **not** the same for all countries!!
 
-## About **`engsoccerdata`** {.smaller}
+## About **`engsoccerdata`** 
+
+::: {.extrasmall}
+
 
 ```{r}
 #| eval: true
 dplyr::glimpse(engsoccerdata::england)
 ```
 
-\
 
 ```{r}
 #| eval: true
 dplyr::glimpse(engsoccerdata::spain)
 ```
 
-\
+
+:::
 
 ## First function
 
@@ -500,30 +561,32 @@ usethis::create_package("~/Desktop/ussie")
 You may want a different path
 :::
 
-##  {.smaller}
+##  {.extrasmall}
 
-    √ Creating 'C:/Users/er13/Desktop/ussie/'
-    √ Setting active project to 'C:/Users/er13/Desktop/ussie'
-    √ Creating 'R/'
-    √ Writing 'DESCRIPTION'
-    Package: ussie
-    Title: What the Package Does (One Line, Title Case)
-    Version: 0.0.0.9000
-    Authors\@R (parsed):
-       * First Last \<first.last\@example.com\> \[aut, cre\] (YOUR-ORCID-ID)
-    Description: What the package does (one paragraph).
-    License: \`use_mit_license()\`, \`use_gpl3_license()\` or friends to
-        pick a license
-    Encoding: UTF-8
-    LazyData: true
-    Roxygen: list(markdown = TRUE)
-    RoxygenNote: 7.1.1
-    √ Writing 'NAMESPACE'
-    √ Writing 'ussie.Rproj'
-    √ Adding '.Rproj.user' to '.gitignore'
-    √ Adding '\^ussie\\\\.Rproj\$', '\^\\\\.Rproj\\\\.user\$' to '.Rbuildignore'
-    √ Opening 'C:/Users/er13/Desktop/ussie/' in new RStudio session
-    √ Setting active project to '\<no active project\>'
+```default
+✔ Creating 'ussie/'
+✔ Setting active project to 'C:/Users/er13/OneDrive - University of York/Desktop/Desktop/rstudio-conf-2022/ussie'
+✔ Creating 'R/'
+✔ Writing 'DESCRIPTION'
+Package: ussie
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.9000
+Authors@R (parsed):
+    * Emma Rand <emma.rand@york.ac.uk> [aut, cre] (<https://orcid.org/0000-0002-1358-8275>)
+Description: What the package does (one paragraph).
+License: `use_mit_license()`, `use_gpl3_license()` or friends to
+    pick a license
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.0
+✔ Writing 'NAMESPACE'
+✔ Writing 'ussie.Rproj'
+✔ Adding '^ussie\\.Rproj$' to '.Rbuildignore'
+✔ Adding '.Rproj.user' to '.gitignore'
+✔ Adding '^\\.Rproj\\.user$' to '.Rbuildignore'
+✔ Opening 'C:/Users/er13/OneDrive - University of York/Desktop/Desktop/rstudio-conf-2022/ussie/' in new RStudio session
+✔ Setting active project to '<no active project>'
+```
 
 ## `create_package()`
 
@@ -575,19 +638,28 @@ usethis::use_git()
 
 ## 
 
-    v Initialising Git repo
-    v Adding '.Rhistory', '.Rdata', '.httr-oauth', '.DS_Store' to '.gitignore'
-    There are 5 uncommitted files:
-    * '.gitignore'
-    * '.Rbuildignore'
-    * 'DESCRIPTION'
-    * 'NAMESPACE'
-    * 'ussieprac.Rproj'
-    Is it ok to commit them?
+::: {.small}
 
-    1: Nope
-    2: Absolutely not
-    3: I agree
+```default
+✔ Setting active project to 'C:/Users/er13/OneDrive - University of York/Desktop/Desktop/rstudio-conf-2022/ussie'
+✔ Initialising Git repo
+✔ Adding '.Rhistory', '.Rdata', '.httr-oauth', '.DS_Store' to '.gitignore'
+There are 5 uncommitted files:
+* '.gitignore'
+* '.Rbuildignore'
+* 'DESCRIPTION'
+* 'NAMESPACE'
+* 'ussie.Rproj'
+Is it ok to commit them?
+
+1: No way
+2: Negative
+3: I agree
+
+
+```
+
+:::
 
 \
 
@@ -595,14 +667,18 @@ usethis::use_git()
 
 ## 
 
-    v Adding files
-    v Making a commit with message 'Initial commit'
-    * A restart of RStudio is required to activate the Git pane
-    Restart now?
+::: {.small}
+```default
+✔ Adding files
+✔ Making a commit with message 'Initial commit'
+• A restart of RStudio is required to activate the Git pane
+Restart now?
 
-    1: Negative
-    2: No way
-    3: Yeah
+1: Yup
+2: Not now
+3: Absolutely not
+```
+::: 
 
 \
 
@@ -620,34 +696,21 @@ Your session will restart.
 usethis::use_github()
 ```
 
-##  {.smaller}
+##  
 
-    i Defaulting to 'https' Git protocol
-    v Setting active project to 'C:/Users/er13/OneDrive - University of York/Desktop/Desktop/ussieprac'
-    v Creating GitHub repository '3mmaRand/ussieprac'
-    v Setting remote 'origin' to 'https://github.com/3mmaRand/ussieprac.git'
-    v Setting URL field in DESCRIPTION to 'https://github.com/3mmaRand/ussieprac'
-    v Setting BugReports field in DESCRIPTION to 'https://github.com/3mmaRand/ussieprac/issues'
-    There is 1 uncommitted file:
-    * 'DESCRIPTION'
-    Is it ok to commit it?
+::: {.small}
 
-    1: Negative
-    2: Yup
-    3: Not now
+```default
+ℹ Defaulting to 'https' Git protocol
+✔ Setting active project to 'C:/Users/er13/OneDrive - University of York/Desktop/Desktop/rstudio-conf-2022/ussie'
+✔ Creating GitHub repository '3mmaRand/ussie'
+✔ Setting remote 'origin' to 'https://github.com/3mmaRand/ussie.git'
+✔ Pushing 'main' branch to GitHub and setting 'origin/main' as upstream branch
+✔ Opening URL 'https://github.com/3mmaRand/ussie'
+```
+:::
 
-\
-
-🎬 Choose the option that means yes!
-
-## 
-
-    v Adding files
-    v Making a commit with message 'Add GitHub links to DESCRIPTION'
-    v Pushing 'main' branch to GitHub and setting 'origin/main' as upstream branch
-    v Opening URL 'https://github.com/3mmaRand/ussieprac'
-
-\
+##
 
 🎬 Quick check with:
 
@@ -681,29 +744,35 @@ usethis::use_r("file_name")
 
 ## `usethis::use_r()`
 
-🎬 Create a new R file in your package called `uss_make_matches.R`
+🎬 Create a new R file in your package called `matches.R`
 
 \
 
 . . .
 
 ```{r}
-usethis::use_r("uss_make_matches")
+usethis::use_r("matches")
 ```
 
-    √ Setting active project to 'C:/Users/er13/Desktop/ussie'
-    • Modify 'R/uss_make_matches.R'
-    • Call \`use_test()\` to create a matching test file
+```default
+• Modify 'R/matches.R'
+• Call `use_test()` to create a matching test file
+```
 
-\
+::: aside
+We will come back to that test files this afternoon
+:::
 
-. . .
+
+## The function?
 
 We want to be able to use the function like this: `uss_make_matches(engsoccerdata::italy)`
 
 ## Add the function
 
-🎬 Put the following [code](intermediate/uss_make_matches.R) into your script:
+🎬 Put the following code into `matches`:
+
+::: {.small}
 
 ```{r}
 #| code-line-numbers: "|1|3|4|5-12"
@@ -725,14 +794,17 @@ uss_make_matches <- function(data_engsoc) {
 
 ```
 
-# Test your function
+::: 
+
+
+# Try out your function
 
 ## Development workflow
 
 In a normal script you might use:
 
 ```{r}
-source("R/uss_make_matches.R")
+source("R/matches.R")
 ```
 
 \
@@ -743,7 +815,23 @@ but when building packages we use a `devtools` approach
 
 ## Development workflow
 
-![Development workflow](images/dev_cycle_before_testing.png){fig-alt="there are three boxes with arrow joining them clockwise. The boxes are (clockwise from 3' oclock) 'devtools::load_all() Cmd/Ctrl + Shift +L', 'Explore in console' and 'Modify code'" width="1200"}
+
+```{mermaid}
+%%| evaluate:: true
+%%| fig-width: 8
+
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#f3f3f3',  'lineColor':'#EE9AD9'}}}%%
+
+  flowchart LR
+      id1("Load code: \n load_all()") --> 
+      id2("Explore in \n console") --> 
+      id3("Modify \n code")
+      id3 --> id1
+      style id1 id2 id3 stroke:#3F3F3F,stroke-width:2px
+
+```
+
+<!-- fig-alt="there are three boxes with arrow joining them clockwise. The boxes are (clockwise from 3' oclock) 'devtools::load_all() Cmd/Ctrl + Shift +L', 'Explore in console' and 'Modify code'" -->
 
 # Load your package
 
@@ -755,36 +843,38 @@ but when building packages we use a `devtools` approach
 devtools::load_all()
 ```
 
-```{r}
-# Loading ussie
+```default
+ℹ Loading ussie
 ```
 
-## Test
+## Experiment
 
-Test the `uss_make_matches()` function in the console.
+Try out the `uss_make_matches()` function in the console.
+
+
 
 ```{r}
 uss_make_matches(engsoccerdata::italy)
 ```
 
-\
-
-    # A tibble: 25,404 x 7
-        tier season date       home      visitor goals_home goals_visitor
-       <int>  <int> <date>     <chr>     <chr>        <int>         <int>
-     1     1   1934 1934-09-30 Lazio Ro~ US Liv~          6             1
-     2     1   1934 1934-09-30 Torino FC Unione~          3             1
-     3     1   1934 1934-09-30 Sampierd~ Bologn~          2             1
-     4     1   1934 1934-09-30 SSC Napo~ US Ale~          0             1
-     5     1   1934 1934-09-30 ACF Fior~ AS Roma          4             1
-     6     1   1934 1934-09-30 Brescia ~ Juvent~          0             2
-     7     1   1934 1934-09-30 Inter     US Pal~          3             0
-     8     1   1934 1934-09-30 Pro Verc~ AC Mil~          1             2
-     9     1   1934 1934-10-07 AC Milan  ACF Fi~          1             1
-    10     1   1934 1934-10-07 US Livor~ Inter            1             1
-    # ... with 25,394 more rows
-
- 
+::: {.small}
+```default
+# A tibble: 25,404 × 7
+    tier season date       home   visitor goals_home goals_visitor
+   <int>  <int> <date>     <chr>  <chr>        <int>         <int>
+ 1     1   1934 1934-09-30 Lazio… US Liv…          6             1
+ 2     1   1934 1934-09-30 Torin… Unione…          3             1
+ 3     1   1934 1934-09-30 Sampi… Bologn…          2             1
+ 4     1   1934 1934-09-30 SSC N… US Ale…          0             1
+ 5     1   1934 1934-09-30 ACF F… AS Roma          4             1
+ 6     1   1934 1934-09-30 Bresc… Juvent…          0             2
+ 7     1   1934 1934-09-30 Inter  US Pal…          3             0
+ 8     1   1934 1934-09-30 Pro V… AC Mil…          1             2
+ 9     1   1934 1934-10-07 AC Mi… ACF Fi…          1             1
+10     1   1934 1934-10-07 US Li… Inter            1             1
+# … with 25,394 more rows
+```
+:::
 
 🤔 There's no column for the country - that could be confusing
 
@@ -800,10 +890,11 @@ uss_make_matches(engsoccerdata::spain, "Spain")
 
 . . .
 
-🎬 Load with `devtools::load_all()` and test the updated function.
+🎬 Load with `devtools::load_all()` and try out the updated function.
 
 ## An answer
 
+::: {.small}
 ```{r}
 #| code-line-numbers: "|1,6"
 uss_make_matches <- function(data_engsoc, country) {
@@ -824,6 +915,8 @@ uss_make_matches <- function(data_engsoc, country) {
 }
 
 ```
+
+:::
 
 # Check your package
 
@@ -847,36 +940,40 @@ However, `devtools` has the `check()` function to allow you to run this without 
 devtools::check()
 ```
 
-##  {.smaller}
+## 
 
-    -- R CMD check results -------------------------- ussie 0.0.0.9000 ----
-    Duration: 37.6s
+::: {.extrasmall}
 
-    > checking DESCRIPTION meta-information ... WARNING
-      Non-standard license specification:
-        \`use_mit_license()\`, \`use_gpl3_license()\` or friends to pick a
-        license
-      Standardizable: FALSE
+```default
+── R CMD check results ───────────────────────────────────── ussie 0.0.0.9000 ────
+Duration: 25.1s
 
-    > checking dependencies in R code ... WARNING
-      '::' or ':::' imports not declared from:
-        'dplyr' 'tibble'
+❯ checking DESCRIPTION meta-information ... WARNING
+  Non-standard license specification:
+    `use_mit_license()`, `use_gpl3_license()` or friends to pick a
+    license
+  Standardizable: FALSE
 
-    > checking for unstated dependencies in examples ... WARNING
-      '::' or ':::' import not declared from: 'engsoccerdata'
+❯ checking dependencies in R code ... WARNING
+  '::' or ':::' imports not declared from:
+    'dplyr' 'tibble'
 
-    > checking R code for possible problems ... NOTE
-      uss_make_matches: no visible binding for global variable 'tier'
-      uss_make_matches: no visible binding for global variable 'Season'
-      uss_make_matches: no visible binding for global variable 'Date'
-      uss_make_matches: no visible binding for global variable 'home'
-      uss_make_matches: no visible binding for global variable 'visitor'
-      uss_make_matches: no visible binding for global variable 'hgoal'
-      uss_make_matches: no visible binding for global variable 'vgoal'
-      Undefined global functions or variables:
-        Date Season hgoal home tier vgoal visitor
+❯ checking R code for possible problems ... NOTE
+  uss_make_matches: no visible binding for global variable 'tier'
+  uss_make_matches: no visible binding for global variable 'Season'
+  uss_make_matches: no visible binding for global variable 'Date'
+  uss_make_matches: no visible binding for global variable 'home'
+  uss_make_matches: no visible binding for global variable 'visitor'
+  uss_make_matches: no visible binding for global variable 'hgoal'
+  uss_make_matches: no visible binding for global variable 'vgoal'
+  Undefined global functions or variables:
+    Date Season hgoal home tier vgoal visitor
 
-    0 errors v | 3 warnings x | 1 note x
+0 errors ✔ | 2 warnings ✖ | 1 note ✖
+
+
+```
+:::
 
 ## Aside: in case of error
 
@@ -903,38 +1000,43 @@ Run the whole file
 
 You should now find that `check()` proceeds normally
 
-##  {.smaller}
+## 
 
-    -- R CMD check results -------------------------- ussie 0.0.0.9000 ----
-    Duration: 37.6s
+::: {.extrasmall}
 
-    > checking DESCRIPTION meta-information ... WARNING
-      Non-standard license specification:
-        \`use_mit_license()\`, \`use_gpl3_license()\` or friends to pick a
-        license
-      Standardizable: FALSE
+```default
+── R CMD check results ───────────────────────────────────── ussie 0.0.0.9000 ────
+Duration: 25.1s
 
-    > checking dependencies in R code ... WARNING
-      '::' or ':::' imports not declared from:
-        'dplyr' 'tibble'
+❯ checking DESCRIPTION meta-information ... WARNING
+  Non-standard license specification:
+    `use_mit_license()`, `use_gpl3_license()` or friends to pick a
+    license
+  Standardizable: FALSE
 
-    > checking for unstated dependencies in examples ... WARNING
-      '::' or ':::' import not declared from: 'engsoccerdata'
+❯ checking dependencies in R code ... WARNING
+  '::' or ':::' imports not declared from:
+    'dplyr' 'tibble'
 
-    > checking R code for possible problems ... NOTE
-      uss_make_matches: no visible binding for global variable 'tier'
-      uss_make_matches: no visible binding for global variable 'Season'
-      uss_make_matches: no visible binding for global variable 'Date'
-      uss_make_matches: no visible binding for global variable 'home'
-      uss_make_matches: no visible binding for global variable 'visitor'
-      uss_make_matches: no visible binding for global variable 'hgoal'
-      uss_make_matches: no visible binding for global variable 'vgoal'
-      Undefined global functions or variables:
-        Date Season hgoal home tier vgoal visitor
+❯ checking R code for possible problems ... NOTE
+  uss_make_matches: no visible binding for global variable 'tier'
+  uss_make_matches: no visible binding for global variable 'Season'
+  uss_make_matches: no visible binding for global variable 'Date'
+  uss_make_matches: no visible binding for global variable 'home'
+  uss_make_matches: no visible binding for global variable 'visitor'
+  uss_make_matches: no visible binding for global variable 'hgoal'
+  uss_make_matches: no visible binding for global variable 'vgoal'
+  Undefined global functions or variables:
+    Date Season hgoal home tier vgoal visitor
 
-    0 errors v | 3 warnings x | 1 note x
+0 errors ✔ | 2 warnings ✖ | 1 note ✖
 
-## 0 errors v \| 3 warnings x \| 1 note x
+
+```
+
+:::
+
+## 0 errors v \| 2 warnings x \| 1 note x
 
 -   checking DESCRIPTION meta-information ... WARNING\
     Non-standard license specification\
@@ -943,9 +1045,6 @@ You should now find that `check()` proceeds normally
 -   checking dependencies in R code ... WARNING\
     '::' or ':::' imports not declared\
     ✅ Next!
-
--   checking for unstated dependencies in examples ... WARNING\
-    '::' or ':::' import not declared from: 'engsoccerdata' ✅ Next!
 
 -   no visible binding for global variables\
     ✅ Tomorrow!
@@ -984,7 +1083,9 @@ usethis::use_mit_license("Emma Rand")
 
 # 📦 Woo hoo📦 <BR> You made a package!
 
-## Summary {.smaller}
+## Summary 
+
+::: {.small}
 
 -   It is useful to make a package
     -   it is fairly easy with `devtools`
@@ -996,7 +1097,11 @@ usethis::use_mit_license("Emma Rand")
     -   installed - a binary that's been decompressed
     -   in-memory - installed package that has been loaded
 
-## Summary continued {.smaller}
+:::
+
+## Summary continued 
+
+::: {.small}
 
 -   A minimal package comprises
     -   a folder which is a package and a RProj
@@ -1006,5 +1111,6 @@ usethis::use_mit_license("Emma Rand")
 -   We use the package interactively with `devtools::load_all()`
 -   We use `devtools::check()` to execute `R CMD` check
 -   We add a license with `usethis::use_mit_license()`
+:::
 
-## References {.smaller}
+## References {.extrasmall}
