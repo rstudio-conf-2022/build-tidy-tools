@@ -18,3 +18,84 @@ execute:
   eval: false
 bibliography: references.bib
 ---
+
+## Learning objectives 
+
+At the end of this section you will be able to:
+
+- build functions that call tidyverse functions, using *bare-name* arguments:
+  - designed for interactive use, i.e. like `dplyr::filter()` 
+- understand terms: data masking, tidy select, dynamic dots
+- recognize other ways to use tidy eval:
+  - functions that call tidyverse functions using *string-based* arguments, i.e. for use with Shiny.
+  - correspondence with techniques used for *bare-name* arguments.
+
+## Motivation for tidy eval
+
+Tidy eval (and non-standard evaluation generally in R) exists so that we can refer to data columns using bare names.
+
+```r
+dplyr::filter(mtcars, cyl == 3)
+```
+
+. . .
+
+```python
+# python, using pandas
+mtcars.query('cyl == 3')
+```
+
+. . . 
+
+ - It makes things easier if you are working interactively.
+ - It makes things more interesting if you are writing functions. 
+
+. . . 
+ 
+Welcome to *more interesting*.
+
+## Families of tidy-eval arguments
+
+There are two families of tidy-eval arguments:
+
+. . .
+
+ - **data-masking**: evaluate variables in context of data frame
+ 
+    ```r
+    mtcars |>
+      dplyr::mutate(wt_kg = wt * 1000 / 2.2)
+    ```
+    
+. . . 
+
+ - **tidy-select**: specify columns within a data frame
+ 
+   ```r
+   mtcars |>
+     dplyr:select(starts_with("w"))
+   ```
+   
+## Ways to express tidy-eval 
+
+. . .
+
+ - using bare names, what we do in interactive programming:
+ 
+    ```r
+    mtcars |>
+      dplyr::mutate(wt_kg = wt * 1000 / 2.2)
+    ```
+
+. . .
+
+  - using strings, useful for Shiny :
+  
+    ```r
+    mtcars |>
+      dplyr::mutate("wt_kg" := .data[["wt"]] * 1000 / 2.2)
+    ```
+
+. . .
+
+Here, we focus mostly on interactive programming.
