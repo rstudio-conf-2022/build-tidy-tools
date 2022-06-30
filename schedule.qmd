@@ -8,6 +8,7 @@ title: schedule
 ✍️ [rstd.io/conf](http://rstd.io/conf)
 
 ------------------------------------------------------------------------
+
 # Day 1
 
 | Time          | Activity                                                                                 |
@@ -22,14 +23,12 @@ title: schedule
 
 # Day 2
 
-| Time          | Activity       |
-|:--------------|:---------------|
-| 09:00 - 10:30 | [Session 1: Function design](materials/day-2-session-1-design.qmd)         |
-| 10:30 - 11:00 | *Coffee break*                                            |
-| 11:00 - 12:30 | [Session 2: Side effects](materials/day-2-session-2-side-effects.qmd)   |
-| 12:30 - 13:30 | *Lunch break*                                             |
-| 13:30 - 15:00 | [Session 3: Tidy eval](materials/day-2-session-3-tidy-eval.qmd)      |
-| 15:00 - 15:30 | *Coffee break*                                            |
+| Time          | Activity                                                              |
+|:----------------------------------|:------------------------------------|
+| 09:00 - 10:30 | [Session 1: Function design](materials/day-2-session-1-design.qmd)    |
+| 10:30 - 11:00 | *Coffee break*                                                        |
+| 11:00 - 12:30 | [Session 2: Side effects](materials/day-2-session-2-side-effects.qmd) |
+| 12:30 - 13:30 | *Lunch break*                                                         |
+| 13:30 - 15:00 | [Session 3: Tidy eval](materials/day-2-session-3-tidy-eval.qmd)       |
+| 15:00 - 15:30 | *Coffee break*                                                        |
 | 15:30 - 17:00 | [Session 4: Miscellany](materials/day-2-session-4-miscellany.qmd)     |
-
-
