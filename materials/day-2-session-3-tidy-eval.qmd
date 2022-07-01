@@ -35,14 +35,14 @@ At the end of this section you will be able to:
 Tidy eval (and non-standard evaluation generally in R) exists so that we can refer to data columns using bare names.
 
 ```r
-dplyr::filter(mtcars, cyl == 3)
+dplyr::filter(mtcars, cyl == 4)
 ```
 
 . . .
 
 ```python
 # python, using pandas
-mtcars.query('cyl == 3')
+mtcars.query('cyl == 4')
 ```
 
 . . . 
@@ -99,3 +99,184 @@ There are two families of tidy-eval arguments:
 . . .
 
 Here, we focus mostly on interactive programming.
+
+## Goal
+
+Write functions that:
+
+ - call tidyverse functions, e.g. `dplyr::filter()`
+ - "look and feel" like tidyverse functions:
+   - your users can call using bare names
+
+. . . 
+
+Out of scope:
+
+ - underlying theory of quasiquotation, i.e. `rlang::quo()`, `rlang::enquo()`, `rlang::eval_tidy()` 
+
+## Pass the dots
+
+This is the simplest possible solution. 
+
+. . .
+
+ - If the tidyverse function you're using takes `...` as an argument,
+
+. . .
+
+ - and that's what you want to pass along, 
+
+. . . 
+ 
+then you can **pass the dots**.
+
+```r
+my_select <- function(.data, ...) {
+  dplyr::select(.data, ...)
+}
+```
+
+## Your turn `"2.3.1"`
+
+
+
+. . .
+
+<hr>
+**Only** *if needed*, `btt22::btt_reset_hard("2.3.1")`
+<hr>
+
+. . . 
+
+*No* new files.
+
+. . .
+
+## Pass the dots to `filter()` results
+
+In `uss_get_matches()`:
+
+- Add `...` to the formal arguments.
+
+- Pass the dots to `dplyr::filter()`.
+
+- Document: 
+
+  - use `#' @inheritParams dplyr::filter` 
+  - add example
+  - add to package vignette
+
+- Add test (`usethis::use_test()`)
+
+- `devtools::check()`
+
+## Pronouns: `.data`, `.env`
+
+```r
+dplyr::filter(mtcars, cyl == 4) |> nrow()
+```
+. . .
+
+```
+[1] 11
+```
+
+<hr>
+
+. . .
+
+```r
+cyl <- 4
+dplyr::filter(mtcars, cyl == cyl) |> nrow()
+```
+. . .
+
+```
+[1] 32
+```
+
+<hr>
+
+. . .
+
+```r
+library("rlang")
+cyl <- 4
+dplyr::filter(mtcars, .data$cyl == .env$cyl) |> nrow()
+```
+
+. . .
+
+```
+[1] 11
+```
+
+## Pronouns
+
+The `.data` and `.env` pronouns are provided by {rlang}.
+
+. . . 
+
+For *data-masking* functions, make explicit how to evaluate variables.
+
+. . .
+
+To use them in your package:
+
+```r
+# we have .data already
+usethis::use_import_from("rlang", c(".data", ".env"))
+```
+
+## Your turn `"2.3.2"`
+
+. . .
+
+<hr>
+**Only** *if needed*, `btt22::btt_reset_hard("2.3.2")`
+<hr>
+
+. . . 
+ 
+Get new files, `btt22::btt_get("2.3.2")`:
+
+ - `teams-matches.R`
+ - `test-teams-matches.R`
+
+. . .
+
+If you have not already:
+
+`usethis::use_import_from("rlang", ".env")`
+
+## Use `.env` pronoun
+
+```r
+at_home <- FALSE
+
+teams_matches_visitor <-
+  data_matches |>
+  dplyr::rename(
+    team = "visitor",
+    opponent = "home",
+    goals_against = "goals_home",
+    goals_for = "goals_visitor"
+  ) |>
+  dplyr::mutate(at_home = FALSE)
+```
+
+- instead of `FALSE`, use `.env$at_home`.
+
+- `devtools::check()`.
+
+## Splicing: `!!!`
+
+## New columns
+
+## `across()`
+
+## Curly-curly: `{{}}`
+
+## Summary
+
+## References
