@@ -309,7 +309,7 @@ Remember:`!!!` reflects `...`
 . . .
 
 <hr>
-**Only** *if needed*, `btt22::btt_reset_hard("2.3.1")`
+**Only** *if needed*, `btt22::btt_reset_hard("2.3.3")`
 <hr>
 
 . . . 
@@ -337,6 +337,64 @@ teams_matches_home <-
 - `devtools::check()`.
 
 ## New columns
+
+With [*dynamic dots*](https://rlang.r-lib.org/reference/dyn-dots.html) you can name new columns using variables.
+
+. . .
+
+```r
+prefix <- "new"
+
+mtcars |>
+  dplyr::rename("{prefix}_mpg" := .data$mpg)
+```
+
+. . .
+
+Two things to keep in mind:
+
+- left side of expression is a {glue}-enabled string.
+- operator is `:=`, not `=`. 
+
+. . . 
+
+To use in your package:
+
+```r
+usethis::use_import_from("rlang", ":=")
+```
+
+## Your turn `"2.3.4"`
+
+. . .
+
+<hr>
+**Only** *if needed*, `btt22::btt_reset_hard("2.3.4")`
+<hr>
+
+. . . 
+
+*No* new files.
+
+## Naming columns
+
+```r
+name_of_at_home <- "at_home"
+
+teams_matches_visitor <-
+  data_matches |>
+  dplyr::rename(!!!rename_visitor()) |>
+  dplyr::mutate(at_home = FALSE)
+```
+
+- use `name_of_at_home` to name column in `mutate()`
+
+- `devtools::check()`
+
+Remember:
+
+- left side of expression is a {glue}-enabled string
+- operator is `:=`, not `=`
 
 ## `across()`
 
