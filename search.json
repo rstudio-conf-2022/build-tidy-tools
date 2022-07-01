@@ -1019,7 +1019,7 @@
     "href": "materials/day-1-session-2-doc-minimal.html#summary",
     "title": "📦 Building tidy tools",
     "section": "Summary",
-    "text": "Summary\n\n\nA package has metadata and object documentation (essential), vignettes and pkgdown sites (optional)\nMetadata is in the DESCRIPTION\n\nsome fields need manual editing\nsome fields are appropriately edited by devtools workflow functions\n\nObjects like functions and data are documented with roxygen comments then turned into documentation with devtools::document()\n\nroxygen comments are indicated with #'\nroxygen tags start with @\n\nPackage dependencies need to be documented\n\npackage dependencies are added with use_package()\nfunctions from dependencies are called with pkg::function()\nwe don’t use library()\n\ncffr::cff_write() will write a citation file from the description file."
+    "text": "Summary\n\n\nA package has metadata and object documentation (essential), vignettes and pkgdown sites (optional)\nMetadata is in the DESCRIPTION\n\nsome fields need manual editing\nsome fields are appropriately edited by devtools workflow functions\n\nObjects like functions and data are documented with roxygen comments then turned into documentation with devtools::document()\n\nroxygen comments are indicated with #'\nroxygen tags start with @"
   },
   {
     "objectID": "materials/day-1-session-2-doc-minimal.html#summary-continued",
