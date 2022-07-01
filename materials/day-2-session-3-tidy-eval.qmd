@@ -243,6 +243,8 @@ Get new files, `btt22::btt_get("2.3.2")`:
  - `teams-matches.R`
  - `test-teams-matches.R`
 
+Go through what code does.
+
 . . .
 
 If you have not already:
@@ -270,6 +272,69 @@ teams_matches_visitor <-
 - `devtools::check()`.
 
 ## Splicing: `!!!`
+
+Used to splice a list or vector into a `...` argument.
+
+. . .
+
+If you know JavaScript, it's like the destructuring operator.
+
+. . .
+
+It works only with [*dynamic dots*](https://rlang.r-lib.org/reference/dyn-dots.html) (a tidyverse construct).
+
+. . . 
+
+```r
+mtcars |>
+  dplyr::rename(mpg = "new_mpg", cyl = "new_cyl")
+```
+
+. . .
+
+```r
+new_names <- c(mpg = "new_mpg", cyl = "new_cyl")
+
+mtcars |>
+  dplyr::rename(!!!new_names)
+```
+
+. . .
+
+Remember:`!!!` reflects `...`
+
+
+## Your turn `"2.3.3"`
+
+. . .
+
+<hr>
+**Only** *if needed*, `btt22::btt_reset_hard("2.3.1")`
+<hr>
+
+. . . 
+
+*No* new files.
+
+## Splice renaming
+
+```r
+teams_matches_home <-
+  data_matches |>
+  dplyr::rename(
+    team = "home",
+    opponent = "visitor",
+    goals_for = "goals_home",
+    goals_against = "goals_visitor"
+  ) |>
+  dplyr::mutate(at_home = TRUE)
+```
+
+- look at `rename_home()` and `rename_visitor()`.
+
+- Use `!!!` with `teams_matches_home()`, `_visitor()`.
+
+- `devtools::check()`.
 
 ## New columns
 
