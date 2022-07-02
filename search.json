@@ -1386,6 +1386,230 @@
     "text": "References\n\n\nhttps://bit.ly/.."
   },
   {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#learning-objectives",
+    "href": "materials/day-2-session-3-tidy-eval.html#learning-objectives",
+    "title": "📦 Building tidy tools",
+    "section": "Learning objectives",
+    "text": "Learning objectives\nAt the end of this section you will be able to:\n\nbuild functions that call tidyverse functions, using bare-name arguments:\n\ndesigned for interactive use, i.e. like dplyr::filter()\n\nunderstand terms: data masking, tidy select, dynamic dots\nrecognize other ways to use tidy eval:\n\nfunctions that call tidyverse functions using string-based arguments, i.e. for use with Shiny.\ncorrespondence with techniques used for bare-name arguments."
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#motivation-for-tidy-eval",
+    "href": "materials/day-2-session-3-tidy-eval.html#motivation-for-tidy-eval",
+    "title": "📦 Building tidy tools",
+    "section": "Motivation for tidy eval",
+    "text": "Motivation for tidy eval\nTidy eval (and non-standard evaluation generally in R) exists so that we can refer to data columns using bare names.\ndplyr::filter(mtcars, cyl == 4)\n\n# python, using pandas\nmtcars.query('cyl == 4')\n\n\n\nIt makes things easier if you are working interactively.\nIt makes things more interesting if you are writing functions.\n\n\n\nWelcome to more interesting."
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#families-of-tidy-eval-arguments",
+    "href": "materials/day-2-session-3-tidy-eval.html#families-of-tidy-eval-arguments",
+    "title": "📦 Building tidy tools",
+    "section": "Families of tidy-eval arguments",
+    "text": "Families of tidy-eval arguments\nThere are two families of tidy-eval arguments:\n\n\ndata-masking: evaluate variables in context of data frame\nmtcars |>\n  dplyr::mutate(wt_kg = wt * 1000 / 2.2)\n\n\n\n\ntidy-select: specify columns within a data frame\nmtcars |>\n  dplyr:select(starts_with(\"w\"))"
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#ways-to-express-tidy-eval",
+    "href": "materials/day-2-session-3-tidy-eval.html#ways-to-express-tidy-eval",
+    "title": "📦 Building tidy tools",
+    "section": "Ways to express tidy-eval",
+    "text": "Ways to express tidy-eval\n\n\nusing bare names, what we do in interactive programming:\nmtcars |>\n  dplyr::mutate(wt_kg = wt * 1000 / 2.2)\n\n\n\n\nusing strings, useful for Shiny :\nmtcars |>\n  dplyr::mutate(\"wt_kg\" := .data[[\"wt\"]] * 1000 / 2.2)\n\n\n\nHere, we focus mostly on interactive programming."
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#goal",
+    "href": "materials/day-2-session-3-tidy-eval.html#goal",
+    "title": "📦 Building tidy tools",
+    "section": "Goal",
+    "text": "Goal\nWrite functions that:\n\ncall tidyverse functions, e.g. dplyr::filter()\n“look and feel” like tidyverse functions:\n\nyour users can call using bare names\n\n\n\nOut of scope:\n\nunderlying theory of quasiquotation, i.e. rlang::quo(), rlang::enquo(), rlang::eval_tidy()"
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#pass-the-dots",
+    "href": "materials/day-2-session-3-tidy-eval.html#pass-the-dots",
+    "title": "📦 Building tidy tools",
+    "section": "Pass the dots",
+    "text": "Pass the dots\nThis is the simplest possible solution.\n\n\nIf the tidyverse function you’re using takes ... as an argument,\n\n\n\n\nand that’s what you want to pass along,\n\n\n\nthen you can pass the dots.\nmy_select <- function(.data, ...) {\n  dplyr::select(.data, ...)\n}"
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#your-turn-2.3.1",
+    "href": "materials/day-2-session-3-tidy-eval.html#your-turn-2.3.1",
+    "title": "📦 Building tidy tools",
+    "section": "Your turn \"2.3.1\"",
+    "text": "Your turn \"2.3.1\"\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.3.1\")\n\n\n\nNo new files."
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#pass-the-dots-to-filter-results",
+    "href": "materials/day-2-session-3-tidy-eval.html#pass-the-dots-to-filter-results",
+    "title": "📦 Building tidy tools",
+    "section": "Pass the dots to filter() results",
+    "text": "Pass the dots to filter() results\nIn uss_get_matches():\n\nAdd ... to the formal arguments.\nPass the dots to dplyr::filter().\nDocument:\n\nuse #' @inheritParams dplyr::filter\nadd example\nadd to package vignette\n\nAdd test (usethis::use_test())\ndevtools::check()"
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#pronouns-.data-.env",
+    "href": "materials/day-2-session-3-tidy-eval.html#pronouns-.data-.env",
+    "title": "📦 Building tidy tools",
+    "section": "Pronouns: .data, .env",
+    "text": "Pronouns: .data, .env\ndplyr::filter(mtcars, cyl == 4) |> nrow()\n\n[1] 11\n\n\n\ncyl <- 4\ndplyr::filter(mtcars, cyl == cyl) |> nrow()\n\n\n[1] 32\n\n\n\nlibrary(\"rlang\")\ncyl <- 4\ndplyr::filter(mtcars, .data$cyl == .env$cyl) |> nrow()\n\n\n[1] 11"
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#pronouns",
+    "href": "materials/day-2-session-3-tidy-eval.html#pronouns",
+    "title": "📦 Building tidy tools",
+    "section": "Pronouns",
+    "text": "Pronouns\nThe .data and .env pronouns are provided by {rlang}.\n\nFor data-masking functions, make explicit how to evaluate variables.\n\n\nTo use them in your package:\n# we have .data already\nusethis::use_import_from(\"rlang\", c(\".data\", \".env\"))"
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#your-turn-2.3.2",
+    "href": "materials/day-2-session-3-tidy-eval.html#your-turn-2.3.2",
+    "title": "📦 Building tidy tools",
+    "section": "Your turn \"2.3.2\"",
+    "text": "Your turn \"2.3.2\"\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.3.2\")\n\n\n\nGet new files, btt22::btt_get(\"2.3.2\"):\n\nteams-matches.R\ntest-teams-matches.R\n\nGo through what code does.\n\n\nIf you have not already:\nusethis::use_import_from(\"rlang\", \".env\")"
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#use-.env-pronoun",
+    "href": "materials/day-2-session-3-tidy-eval.html#use-.env-pronoun",
+    "title": "📦 Building tidy tools",
+    "section": "Use .env pronoun",
+    "text": "Use .env pronoun\nat_home <- FALSE\n\nteams_matches_visitor <-\n  data_matches |>\n  dplyr::rename(\n    team = \"visitor\",\n    opponent = \"home\",\n    goals_against = \"goals_home\",\n    goals_for = \"goals_visitor\"\n  ) |>\n  dplyr::mutate(at_home = FALSE)\n\ninstead of FALSE, use .env$at_home.\ndevtools::check()."
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#splicing",
+    "href": "materials/day-2-session-3-tidy-eval.html#splicing",
+    "title": "📦 Building tidy tools",
+    "section": "Splicing: !!!",
+    "text": "Splicing: !!!\nUsed to splice a list or vector into a ... argument.\n\nIf you know JavaScript, it’s like the destructuring operator.\n\n\nIt works only with dynamic dots (a tidyverse construct).\n\n\nmtcars |>\n  dplyr::rename(mpg = \"new_mpg\", cyl = \"new_cyl\")\n\n\nnew_names <- c(mpg = \"new_mpg\", cyl = \"new_cyl\")\n\nmtcars |>\n  dplyr::rename(!!!new_names)\n\n\nRemember:!!! reflects ..."
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#your-turn-2.3.3",
+    "href": "materials/day-2-session-3-tidy-eval.html#your-turn-2.3.3",
+    "title": "📦 Building tidy tools",
+    "section": "Your turn \"2.3.3\"",
+    "text": "Your turn \"2.3.3\"\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.3.3\")\n\n\n\nNo new files."
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#splice-renaming",
+    "href": "materials/day-2-session-3-tidy-eval.html#splice-renaming",
+    "title": "📦 Building tidy tools",
+    "section": "Splice renaming",
+    "text": "Splice renaming\nteams_matches_home <-\n  data_matches |>\n  dplyr::rename(\n    team = \"home\",\n    opponent = \"visitor\",\n    goals_for = \"goals_home\",\n    goals_against = \"goals_visitor\"\n  ) |>\n  dplyr::mutate(at_home = TRUE)\n\nlook at rename_home() and rename_visitor().\nUse !!! with teams_matches_home(), _visitor().\ndevtools::check()."
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#new-columns",
+    "href": "materials/day-2-session-3-tidy-eval.html#new-columns",
+    "title": "📦 Building tidy tools",
+    "section": "New columns",
+    "text": "New columns\nWith dynamic dots you can name new columns using variables.\n\nprefix <- \"new\"\n\nmtcars |>\n  dplyr::rename(\"{prefix}_mpg\" := .data$mpg)\n\n\nTwo things to keep in mind:\n\nleft side of expression is a {glue}-enabled string.\noperator is :=, not =.\n\n\n\nTo use in your package:\nusethis::use_import_from(\"rlang\", \":=\")"
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#your-turn-2.3.4",
+    "href": "materials/day-2-session-3-tidy-eval.html#your-turn-2.3.4",
+    "title": "📦 Building tidy tools",
+    "section": "Your turn \"2.3.4\"",
+    "text": "Your turn \"2.3.4\"\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.3.4\")\n\n\n\nNo new files."
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#naming-columns",
+    "href": "materials/day-2-session-3-tidy-eval.html#naming-columns",
+    "title": "📦 Building tidy tools",
+    "section": "Naming columns",
+    "text": "Naming columns\nname_of_at_home <- \"at_home\"\n\nteams_matches_visitor <-\n  data_matches |>\n  dplyr::rename(!!!rename_visitor()) |>\n  dplyr::mutate(at_home = FALSE)\n\nuse name_of_at_home to name column in mutate()\ndevtools::check()\n\nRemember:\n\nleft side of expression is a {glue}-enabled string\noperator is :=, not ="
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#dplyracross-super-useful",
+    "href": "materials/day-2-session-3-tidy-eval.html#dplyracross-super-useful",
+    "title": "📦 Building tidy tools",
+    "section": "dplyr::across(): super useful",
+    "text": "dplyr::across(): super useful\n\nused inside data-masking verbs, e.g. summarise()\nspecify:\n\nwhich columns to consider, using tidy-select\nwhat function(s), if any, to apply\n\n\n\nmtcars |>\n  dplyr::group_by(dplyr::across(\"cyl\")) |>\n  dplyr::summarise(\n    dplyr::across(c(\"mpg\", \"disp\"), mean)\n  )"
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#our-turn-2.3.5",
+    "href": "materials/day-2-session-3-tidy-eval.html#our-turn-2.3.5",
+    "title": "📦 Building tidy tools",
+    "section": "Our turn \"2.3.5\"",
+    "text": "Our turn \"2.3.5\"\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.3.5\")\n\n\n\nNo new files."
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#uss_make_teams_matches",
+    "href": "materials/day-2-session-3-tidy-eval.html#uss_make_teams_matches",
+    "title": "📦 Building tidy tools",
+    "section": "uss_make_teams_matches()",
+    "text": "uss_make_teams_matches()\nLet’s add some code near the end to arrange the rows:\nresult <-\n  teams_matches_home |>\n  dplyr::bind_rows(teams_matches_visitor) |>\n  dplyr::select(dplyr::all_of(cols_teams_matches())) |>\n  dplyr::arrange(\n    dplyr::across(\n      dplyr::all_of(\n        c(\"country\", \"tier\", \"season\", \"team\", \"date\")\n      )\n    )\n  )"
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#accepting-new-snapshot",
+    "href": "materials/day-2-session-3-tidy-eval.html#accepting-new-snapshot",
+    "title": "📦 Building tidy tools",
+    "section": "Accepting new snapshot",
+    "text": "Accepting new snapshot\n\ndevtools::test() changes the snapshot test\n\n\n\nsnapshot_review('teams-matches')\n\n\n\n\n\n\n\n\n\n\naccept the change\ndevtools::check()"
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#your-turn-2.3.6",
+    "href": "materials/day-2-session-3-tidy-eval.html#your-turn-2.3.6",
+    "title": "📦 Building tidy tools",
+    "section": "Your turn \"2.3.6\"",
+    "text": "Your turn \"2.3.6\"\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.3.6\")\n\n\n\nGet new files, btt22::btt_get(\"2.3.6\"):\n\npoints.R\nseasons.R\ntest-points.R\ntest-seasons.R\n\nGo through what code does."
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#uss_make_seasons_final",
+    "href": "materials/day-2-session-3-tidy-eval.html#uss_make_seasons_final",
+    "title": "📦 Building tidy tools",
+    "section": "uss_make_seasons_final()",
+    "text": "uss_make_seasons_final()\n\nsame args as uss_make_seasons_cumulative()\n#' @rdname uss_make_seasons_cumulative\n#' @export\nsame validation, test by uncommenting\nuse dplyr::summarise(), vs. dplyr::mutate()\nsum quantities, rather than cumsum\nsummarise() the date differently\nadd example, add to vignette\ndevtools::check()"
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#curly-curly",
+    "href": "materials/day-2-session-3-tidy-eval.html#curly-curly",
+    "title": "📦 Building tidy tools",
+    "section": "Curly-curly: {{}}",
+    "text": "Curly-curly: {{}}\nglue lets you interpolate strings:\ngreet <- function(name) {\n  glue::glue(\"Hello {name}\")\n}\ngreet(\"there\")\n\nTidy eval lets you interpolate arguments:\nmutate_greet <- function(.data, greeting) {\n  .data |>\n    dplyr::mutate(greeting = {{ greeting }})\n}"
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#try-out-greeting-functions",
+    "href": "materials/day-2-session-3-tidy-eval.html#try-out-greeting-functions",
+    "title": "📦 Building tidy tools",
+    "section": "Try out greeting functions",
+    "text": "Try out greeting functions\nlibrary(\"palmerpenguins\")\nmutate_greet(penguins, species)\n\nmutate_greet(penguins, paste(species, island))\n\n\nmutate_greet(\n  penguins, \n  paste(species, island) |> greet()\n)"
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#curly-curly-revisited",
+    "href": "materials/day-2-session-3-tidy-eval.html#curly-curly-revisited",
+    "title": "📦 Building tidy tools",
+    "section": "Curly-curly, revisited",
+    "text": "Curly-curly, revisited\nmutate_greet <- function(.data, greeting) {\n  .data |>\n    dplyr::mutate(greeting = {{ greeting }})\n}\n{{}}:\n\nfreezes the expression, capturing context\ndelays evaluation\nfunction you call must be capable\ntidyverse data-masking functions are capable"
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#your-turn-2.3.7",
+    "href": "materials/day-2-session-3-tidy-eval.html#your-turn-2.3.7",
+    "title": "📦 Building tidy tools",
+    "section": "Your turn \"2.3.7\"",
+    "text": "Your turn \"2.3.7\"\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.3.7\")\n\n\n\nGet new files, btt22::btt_get(\"2.3.7\"):\n\npoints.R\nseasons.R\ntest-points.R\ntest-seasons.R\n\nusethis::use_package(\"ggplot2\")\nGo through what code does, esp. snapshot function."
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#uss_plot_seasons_tiers",
+    "href": "materials/day-2-session-3-tidy-eval.html#uss_plot_seasons_tiers",
+    "title": "📦 Building tidy tools",
+    "section": "uss_plot_seasons_tiers()",
+    "text": "uss_plot_seasons_tiers()\nAdd argument aes_y to function:\n\nmake default value .data$wins\ndocument: #' @param aes_y\nin function, modify aes(y = .data$wins) using {{}}\nuncomment test, devtools::test()\nadd to package vignette\ndevtools::check()"
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#our-turn",
+    "href": "materials/day-2-session-3-tidy-eval.html#our-turn",
+    "title": "📦 Building tidy tools",
+    "section": "Our turn",
+    "text": "Our turn\nIn uss_plot_seasons_tiers():\nggplot2::geom_point(\n  ggplot2::aes(\n    x = .data$season,\n    y = {{ aes_y }},\n  ),\n  color = \"#333333\" # use something like #111111\n) +\n\n\ndevtools::test()\ntestthat::snapshot_review('plot/')\naccept changes (or not), change back (or not)"
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#summary",
+    "href": "materials/day-2-session-3-tidy-eval.html#summary",
+    "title": "📦 Building tidy tools",
+    "section": "Summary",
+    "text": "Summary\nThere are a lot of tidy-eval tools:\n\nknow if you are using a data-masking or tidy-select function.\n\n\n\nto splice a list (or vector) into dynamic-dots, use !!!\n\n\n\n\nFor data-masking functions:\n\nbe specific, use .data, .env pronouns.\nto use tidy-select syntax, use dplyr::across().\nto move a bunch of arguments, pass the dots, ...\nto interpolate a single argument, use {{}}."
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#references",
+    "href": "materials/day-2-session-3-tidy-eval.html#references",
+    "title": "📦 Building tidy tools",
+    "section": "References",
+    "text": "References\n\n\nhttps://bit.ly/.."
+  },
+  {
     "objectID": "pre-reqs.html",
     "href": "pre-reqs.html",
     "title": "Prerequisites",
