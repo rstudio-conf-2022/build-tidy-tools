@@ -467,6 +467,37 @@ result <-
 
 ## Your turn `"2.3.6"`
 
+. . .
+
+<hr>
+**Only** *if needed*, `btt22::btt_reset_hard("2.3.6")`
+<hr>
+
+. . . 
+ 
+Get new files, `btt22::btt_get("2.3.6")`:
+
+- `points.R`
+- `seasons.R`
+- `test-points.R`
+- `test-seasons.R`
+
+Go through what code does.
+
+## `uss_make_seasons_final()`
+
+- same args as `uss_make_seasons_cumulative()`
+  ```r
+  #' @rdname uss_make_seasons_cumulative
+  #' @export
+  ```
+- same validation, test by uncommenting
+- use `dplyr::summarise()`, vs. `dplyr::mutate()`
+- `sum` quantities, rather than `cumsum`
+- `summarise()` the `date` differently 
+- add example, add to vignette
+- `devtools::check()`
+
 ## Curly-curly: `{{}}`
 
 ## Summary
