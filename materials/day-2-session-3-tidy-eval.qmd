@@ -500,6 +500,142 @@ Go through what code does.
 
 ## Curly-curly: `{{}}`
 
+glue lets you interpolate strings:
+
+```r
+greet <- function(name) {
+  glue::glue("Hello {name}")
+}
+```
+
+```r
+greet("there")
+```
+ 
+. . .
+
+Tidy eval lets you interpolate arguments:
+
+```r
+mutate_greet <- function(.data, greeting) {
+  .data |>
+    dplyr::mutate(greeting = {{ greeting }})
+}
+```
+
+## Try out greeting functions
+
+```r
+library("palmerpenguins")
+mutate_greet(penguins, species)
+```
+
+. . .
+
+```r
+mutate_greet(penguins, paste(species, island))
+```
+
+. . .
+
+
+```r
+mutate_greet(
+  penguins, 
+  paste(species, island) |> greet()
+)
+```
+
+## Curly-curly, revisited
+
+```r
+mutate_greet <- function(.data, greeting) {
+  .data |>
+    dplyr::mutate(greeting = {{ greeting }})
+}
+```
+
+`{{}}`: 
+
+- freezes the expression, capturing context
+- delays evaluation
+- function you call must be capable
+- tidyverse *data-masking* functions are capable
+
+## Your turn `"2.3.7"`
+
+. . .
+
+<hr>
+**Only** *if needed*, `btt22::btt_reset_hard("2.3.7")`
+<hr>
+
+. . . 
+ 
+Get new files, `btt22::btt_get("2.3.7")`:
+
+- `points.R`
+- `seasons.R`
+- `test-points.R`
+- `test-seasons.R`
+
+`usethis::use_package("ggplot2")`
+
+Go through what code does, esp. snapshot function.
+
+## `uss_plot_seasons_tiers()` 
+
+Add argument `aes_y` to function:
+
+  - make default value `.data$wins`
+  - document: `#' @param aes_y`
+  - in function, modify `aes(y = .data$wins)` using `{{}}`
+  - uncomment test, `devtools::test()`
+  - add to package vignette
+  - `devtools::check()`
+
+## Our turn
+
+In `uss_plot_seasons_tiers()`:
+
+```r
+ggplot2::geom_point(
+  ggplot2::aes(
+    x = .data$season,
+    y = {{ aes_y }},
+  ),
+  color = "#333333" # use something like #111111
+) +
+```
+
+. . . 
+
+- `devtools::test()`
+
+- `testthat::snapshot_review('plot/')`
+
+- accept changes (or not), change back (or not)
+
 ## Summary
+
+There are a lot of tidy-eval tools:
+
+- know if you are using a *data-masking* or *tidy-select* function.
+
+. . .
+
+- to splice a list (or vector) into *dynamic-dots*, use `!!!`
+
+. . .
+
+- For *data-masking* functions:
+
+  - be specific, use `.data`, `.env` pronouns.
+  
+  - to use *tidy-select* syntax, use `dplyr::across()`.
+  
+  - to move a bunch of arguments, pass the dots, `...`
+  
+  - to interpolate a single argument, use `{{}}`.
 
 ## References
