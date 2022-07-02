@@ -406,6 +406,8 @@ Remember:
   
   - what function(s), if any, to apply
 
+. . .
+
 ```r
 mtcars |>
   dplyr::group_by(dplyr::across("cyl")) |>
@@ -415,6 +417,53 @@ mtcars |>
 ```
 
 ## Our turn `"2.3.5"`
+
+. . .
+
+<hr>
+**Only** *if needed*, `btt22::btt_reset_hard("2.3.5")`
+<hr>
+
+. . . 
+
+*No* new files.
+
+
+## `uss_make_teams_matches()`
+
+Let's add some code near the end to arrange the rows:
+
+```r
+result <-
+  teams_matches_home |>
+  dplyr::bind_rows(teams_matches_visitor) |>
+  dplyr::select(dplyr::all_of(cols_teams_matches())) |>
+  dplyr::arrange(
+    dplyr::across(
+      dplyr::all_of(
+        c("country", "tier", "season", "team", "date")
+      )
+    )
+  )
+```
+
+## Accepting new snapshot
+
+- `devtools::test()` changes the snapshot test
+
+. . .
+
+- `snapshot_review('teams-matches')`
+
+. . .
+
+::: {layout="[[1,1]]"}
+![](images/snapshot-matches.png){fig-alt="Accepting change to snapshot test"}
+
+- accept the change
+
+- `devtools::check()`
+:::
 
 ## Your turn `"2.3.6"`
 
