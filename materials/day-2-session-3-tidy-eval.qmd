@@ -396,7 +396,27 @@ Remember:
 - left side of expression is a {glue}-enabled string
 - operator is `:=`, not `=`
 
-## `across()`
+## `dplyr::across()`: super useful 
+
+- used inside *data-masking* verbs, e.g. `summarise()`
+
+- specify:
+
+  - which columns to consider, using *tidy-select*
+  
+  - what function(s), if any, to apply
+
+```r
+mtcars |>
+  dplyr::group_by(dplyr::across("cyl")) |>
+  dplyr::summarise(
+    dplyr::across(c("mpg", "disp"), mean)
+  )
+```
+
+## Our turn `"2.3.5"`
+
+## Your turn `"2.3.6"`
 
 ## Curly-curly: `{{}}`
 
