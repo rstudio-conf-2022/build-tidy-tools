@@ -18,3 +18,144 @@ execute:
   eval: false
 bibliography: references.bib
 ---
+
+## Learning objectives 
+
+At the end of this section you will be able to:
+
+- accept a function an argument to a function using a formula (purrr-style)
+- create an S3 class using {vctrs}
+  - recognize that implementing a `format()` method gets you a long way 
+- appreciate selections from the [Tidyverse Design Guide](https://design.tidyverse.org/):
+  - this will be "elastic" time should any of the previous material run long
+  
+## Functions as arguments
+
+Using functions as arguments is a foundation of functional programming.
+
+```r
+library("purrr")
+
+ten <- seq(1, 10)
+square <- function(x) {
+  x^2
+}
+
+map_dbl(ten, square)
+```
+
+## Anonymous (lambda) functions
+
+Sometimes you want to provide an "on-the-spot" function:
+
+- write it out the long way:
+
+  ```r
+  map_dbl(ten, function(x) x^2)
+  ```
+
+. . .
+
+- {purrr} interprets one-sided formula using  `.x`:
+ 
+  ```r
+  map_dbl(ten, ~.x^2)
+  ```
+
+. . .
+
+- R (> 4.1) provides shorthand:
+
+  ```r
+  map_dbl(ten, \(x) x^2)
+  ```
+
+## Make {purrr} formula into function
+
+```r
+my_function <- function(data, f) {
+  f <- rlang::as_function(f)
+  
+  ...
+}
+```
+
+**Note**:  we cannot *pass the dots* here.
+
+. . .
+
+These are equivalent:
+
+```r
+my_function(ten, function(x) x + 1)
+```
+
+```r
+my_function(ten, \(x) x + 1)
+```
+
+```r
+my_function(ten, ~.x + 1)
+```
+
+## Our turn `"2.4.1"`
+
+. . .
+
+<hr>
+**Only** *if needed*, `btt22::btt_reset_hard("2.4.1")`
+<hr>
+
+. . . 
+
+*No* new files.
+
+## `uss_make_seasons_final()` 
+
+```r
+italy_teams_matches <- 
+  uss_get_matches("italy") |> 
+  uss_make_teams_matches()
+```
+
+What would a season look like if wins were **five** points?
+
+```r
+italy_five <-
+  italy_teams_matches |>
+  uss_make_seasons_final(fn_points_per_win = \(...) 5)
+```
+
+## `seasons.R`
+
+ - in `seasons_intermediate()`:
+
+  ```r
+  # accept purrr-style anonymous functions
+  fn_points_per_win <- 
+    rlang::as_function(fn_points_per_win)
+  ```
+
+. . .
+
+- `devtools::load()`
+
+  ```r
+  italy_five_purrr <-
+    italy_teams_matches |>
+    uss_make_seasons_final(fn_points_per_win = ~5)
+  ```
+  
+  ```r
+  identical(italy_five, italy_five_purrr)
+  ```
+
+. . .
+
+- document, `devtools::check()`
+
+## S3 class system
+
+## Summary
+
+## References
