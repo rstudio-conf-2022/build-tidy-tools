@@ -20,14 +20,15 @@ bibliography: references.bib
 ---
 
 ## Learning objectives 
+### Time permitting
 
 At the end of this section you will be able to:
 
 - accept a function an argument to a function using a formula (purrr-style)
 - create an S3 class using {vctrs}
   - recognize that implementing a `format()` method gets you a long way 
-- appreciate selections from the [Tidyverse Design Guide](https://design.tidyverse.org/):
-  - this will be "elastic" time should any of the previous material run long
+  
+We will also recap all of today's material and discuss.  
   
 ## Functions as arguments
 
@@ -315,9 +316,109 @@ vec_ptype_full.ussie_result <-
   function(x, ...) "result"
 ```
 
+## Recap: Design
 
-## Tidyverse design nuggets
+- **Naming**: be consistent, concise, yet evocative.
 
-## Summary
+- **Argument order**: data, descriptors, dots, details.
 
+
+- **Return value type**: be consistent, predictable.
+
+
+- Easy to remember data (first) argument and return value:
+  - easy to use pipe, `|>`.
+
+- Be mindful of side effects.
+
+## Recap: Side-effects
+
+The most-common side-effect is an error. Good design:
+
+- simple (as possible) predicate
+- clear mesage
+- add a `class` using naming convention, and additional information
+
+
+Use snapshot tests to capture side-effects.
+
+- be very careful when accepting changes to snapshots.
+
+Use `withr::local_*()` functions to "leave no footprints".
+
+## Recap: Tidy eval
+
+There are a lot of tidy-eval tools:
+
+- know if you are using a *data-masking* or *tidy-select* function.
+
+. . .
+
+- to splice a list (or vector) into *dynamic-dots*, use `!!!`
+
+. . .
+
+- For *data-masking* functions:
+
+  - be specific, use `.data`, `.env` pronouns.
+  
+  - to use *tidy-select* syntax, use `dplyr::across()`.
+  
+  - to move a bunch of arguments, pass the dots, `...`
+  
+  - to interpolate a single argument, use `{{}}`.
+  
+## Recap: Misc.
+
+Anonymous (use-once) functions can be handy:
+
+  - use `rlang::as_function()` to accept purrr-style formula-functions, e.g. `~.x + 1` 
+
+Use {vctrs} package to help build and manage S3 classes.
+
+## Recap
+
+In Ian's opinion, the tidyverse succeeds because it helps *you* build a mental model for composing functions to solve *your* problem. It does this by providing:
+
+- consistent naming of functions, arguments
+- focus on first argument, return value: supports `|>`
+- consistent implementation of non-standard evaluation
+- more-and-more informative error-messages
+
+## Un-recap
+
+We did not cover how to manage change.
+
+Change is a necessary (and frustrating) part of success:
+
+- {plyr} -> {dplyr}
+- {reshape} -> {reshape2} -> {tidyr}
+
+. . .
+
+Different levels of change:
+
+- deprecating functions, arguments
+- breaking changes
+- used to be: *add-a-2*, becoming: *editions*
+
+## If you remember one thing...
+
+Distinguish *pure functions* from functions that use *side effects*.
+
+Pure functions:
+
+ - use only the values of the arguments
+ - change only the return value
+ 
+   ```r
+   add <- function(x, y) {
+     x + y
+   }
+   ```
+
+Side effects use or change something else in the universe:
+
+ - e.g.: read a file, print to screen
+ 
 ## References
