@@ -273,10 +273,10 @@ format.ussie_result <- function(x, ...) {
   goals_for <- field(x, "goals_for")
   goals_against <- field(x, "goals_against")
   
-  result <- dplyr::case_when(...)
+  outcome <- dplyr::case_when(...)
   
   # compose output
-  out <- glue::glue("{result} {goals_for}-{goals_against}")
+  out <- glue::glue("{outcome} {goals_for}-{goals_against}")
   as.character(out)
 }
 ```
