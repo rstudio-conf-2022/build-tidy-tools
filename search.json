@@ -1208,14 +1208,35 @@
     "href": "materials/day-1-session-3-testing.html#learning-objectives",
     "title": "📦 Building tidy tools",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\nAt the end of this section you will be able to:\n\nlo\nlo\nlo\nlo"
+    "text": "Learning Objectives\nAt the end of this section you will be able to:\n\n\nunderstand the rationale for automating tests\ndescribe the organisation of the testing infrastructure and file contents for the testthat (Wickham 2011) workflow\nset up a package to use testthat\ncreate a test and use some common ‘expectations’\nrun all the tests in a file and in a package"
   },
   {
     "objectID": "materials/day-1-session-3-testing.html#why-test-1",
     "href": "materials/day-1-session-3-testing.html#why-test-1",
     "title": "📦 Building tidy tools",
     "section": "Why test?",
-    "text": "Why test?\nWe already did informal testing:\n\nwrote uss_make_matches()\nloaded package with devtools::load_all()\nran uss_make_matches() interactively\nedited uss_make_matches()\nloaded package with devtools::load_all()\nran uss_make_matches() interactively"
+    "text": "Why test?\n\nTo make sure our code works\nTo make sure our code keeps working after we add features"
+  },
+  {
+    "objectID": "materials/day-1-session-3-testing.html#for-example",
+    "href": "materials/day-1-session-3-testing.html#for-example",
+    "title": "📦 Building tidy tools",
+    "section": "For example",
+    "text": "For example\nWhen we run:\n\nitaly <- uss_make_matches(engsoccerdata::italy, \"Italy\")\nspain <- uss_make_matches(engsoccerdata::italy, \"Spain\")\n\nThe objects italy and spain should be tibbles with the same columns: “country”, “tier”, “season”, “date”, “home”, “visitor”, “goals_home” and “goals_visitor”\n\n\nSo we might…"
+  },
+  {
+    "objectID": "materials/day-1-session-3-testing.html#check-interactively",
+    "href": "materials/day-1-session-3-testing.html#check-interactively",
+    "title": "📦 Building tidy tools",
+    "section": "Check interactively",
+    "text": "Check interactively\nTry these:\n\n\n\n\nclass(italy)\n\n\"tbl_df\"     \"tbl\"        \"data.frame\"\n\nclass(spain)\n\n\"tbl_df\"     \"tbl\"        \"data.frame\" \n\nnames(italy)\n\ncountry\"       \"tier\"          \"season\"        \"date\"         \n\"home\"          \"visitor\"       \"goals_home\"    \"goals_visitor\" \n\nnames(italy)\n\ncountry\"       \"tier\"          \"season\"        \"date\"         \n\"home\"          \"visitor\"       \"goals_home\"    \"goals_visitor\"\n\n\n🎉\n\n\n🥳\n\n\n🎈\n\n\n🎇"
+  },
+  {
+    "objectID": "materials/day-1-session-3-testing.html#interactive-testing",
+    "href": "materials/day-1-session-3-testing.html#interactive-testing",
+    "title": "📦 Building tidy tools",
+    "section": "Interactive testing …",
+    "text": "Interactive testing …\n…is informal testing:\n\nwrote uss_make_matches()\nloaded package with devtools::load_all()\nran uss_make_matches() interactively\nedited uss_make_matches() if needed\nloaded package with devtools::load_all()\nran uss_make_matches() interactively"
   },
   {
     "objectID": "materials/day-1-session-3-testing.html#informal-test-workflow",
@@ -1225,18 +1246,18 @@
     "text": "Informal test workflow\n\n\n\n\n%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#f3f3f3',  'lineColor':'#EE9AD9'}}}%%\n\n  flowchart LR\n      id1(\"Reload code: \\n load_all()\") --> \n      id2(\"Explore in \\n console\") --> \n      id3(\"Modify \\n code\")\n      id3 --> id1\n      style id1 id2 id3 stroke:#3F3F3F,stroke-width:2px"
   },
   {
-    "objectID": "materials/day-1-session-3-testing.html#why-automate-testing",
-    "href": "materials/day-1-session-3-testing.html#why-automate-testing",
+    "objectID": "materials/day-1-session-3-testing.html#why-automate-testing-1",
+    "href": "materials/day-1-session-3-testing.html#why-automate-testing-1",
     "title": "📦 Building tidy tools",
     "section": "Why automate testing?",
     "text": "Why automate testing?\nProblem: you forget all the interactive testing you’ve done\n\nSolution: have a system to store and re-run the tests!"
   },
   {
-    "objectID": "materials/day-1-session-3-testing.html#why-automate-testing-1",
-    "href": "materials/day-1-session-3-testing.html#why-automate-testing-1",
+    "objectID": "materials/day-1-session-3-testing.html#why-automate-testing-2",
+    "href": "materials/day-1-session-3-testing.html#why-automate-testing-2",
     "title": "📦 Building tidy tools",
     "section": "Why automate testing?",
-    "text": "Why automate testing?\n\nFewer bugs: you are explicit about behaviour of functions.\nEncourages good code design. If it is hard to write unit tests your function may need refactoring\nOpportunity for test-drive development\nRobustness"
+    "text": "Why automate testing?\n\nFewer bugs: you are explicit about behaviour of functions.\nEncourages good code design. If it is hard to write unit tests your function may need refactoring\nOpportunity for test-drive development\nRobustness\n\n\nRead more about testing in the recently updated chapter in R Packages (Wickham and Bryan 2020)"
   },
   {
     "objectID": "materials/day-1-session-3-testing.html#automated-test-workflow",
@@ -1250,21 +1271,28 @@
     "href": "materials/day-1-session-3-testing.html#organisation-files",
     "title": "📦 Building tidy tools",
     "section": "Organisation: files",
-    "text": "Organisation: files\n\n\n.\n├── CITATION.cff\n├── DESCRIPTION\n├── LICENSE\n├── LICENSE.md\n├── man\n│   └── matches.Rd\n├── NAMESPACE\n├── R\n│   └── matches.R\n├── README.md\n├── tests\n│   ├── testthat\n│   │   └── test-matches.R\n│   └── testthat.R\n└── ussie.Rproj\n\n\ntests/testthat/: All test files must be in here\ntests/testthat/test-matches.R: test files must be test-xxxxx.R\ntests/testthat.R: runs the tests when devtools::check() is called"
+    "text": "Organisation: files\n\n\n\n.\n├── CITATION.cff\n├── DESCRIPTION\n├── LICENSE\n├── LICENSE.md\n├── man\n│   └── matches.Rd\n├── NAMESPACE\n├── R\n│   └── matches.R\n├── README.md\n├── tests\n│   ├── testthat\n│   │   └── test-matches.R\n│   └── testthat.R\n└── ussie.Rproj\n\n\n\ntests files are in: tests/testthat/\ntest files are named test-xxxx.R\ntests/testthat.R: runs the tests when devtools::check() is called"
   },
   {
     "objectID": "materials/day-1-session-3-testing.html#organisation-within-files",
     "href": "materials/day-1-session-3-testing.html#organisation-within-files",
     "title": "📦 Building tidy tools",
     "section": "Organisation within files",
-    "text": "Organisation within files\n\nany test file test-xxxxx.R contains several tests. Might be:\n\nall the tests for a simple function\nall the tests for one part of a complex function\nall the tests for the same functionality in multiple functions\n\n\n\n\na test groups several ‘expectations’. An expectation:\n\nhas the form: expect_xxxxxxx(actual_result, expectation)\nif actual_result = expectation no error\nif actual_result != expectation Error"
+    "text": "Organisation within files\n\nany test file test-xxxx.R contains several tests. Might be:\n\nall the tests for a simple function\nall the tests for one part of a complex function\nall the tests for the same functionality in multiple functions"
+  },
+  {
+    "objectID": "materials/day-1-session-3-testing.html#organisation-within-files-1",
+    "href": "materials/day-1-session-3-testing.html#organisation-within-files-1",
+    "title": "📦 Building tidy tools",
+    "section": "Organisation within files",
+    "text": "Organisation within files\n\na test groups several ‘expectations’. An expectation:\n\nhas the form: expect_zzzz(actual_result, expectation)\nif actual_result = expectation no error\nif actual_result != expectation Error"
   },
   {
     "objectID": "materials/day-1-session-3-testing.html#workflow-1",
     "href": "materials/day-1-session-3-testing.html#workflow-1",
     "title": "📦 Building tidy tools",
     "section": "Workflow",
-    "text": "Workflow\n\nSet up your package to use {testthat} - Once\nMake a test\nRun the test"
+    "text": "Workflow\n\nSet up your package to use testthat: usethis::use_testthat(3) ONCE\n\n\n\nMake a test: usethis::use_test()\n\n\n\n\nRun a set of tests: testthat::test_file()\n\n\n\n\nRun the entire testing suite: devtools::test() and devtools::check()"
   },
   {
     "objectID": "materials/day-1-session-3-testing.html#set-up-1",
@@ -1278,112 +1306,210 @@
     "href": "materials/day-1-session-3-testing.html#set-up-2",
     "title": "📦 Building tidy tools",
     "section": "Set up",
-    "text": "Set up\n🎬 Set up your package to use {testthat}:\n\nusethis::use_testthat(3)\n\n\n3 means {testthat} edition 3 or {testthat 3e}\nAs well as installing that version of the package, you have to explicitly opt in the edition behaviours."
+    "text": "Set up\n🎬 Set up your package to use testthat:\n\nusethis::use_testthat(3)\n\n\n\n\n3 means testthat edition 3 (testthat 3e)\nAs well as installing that version of the package, you have to explicitly opt in the edition behaviours."
+  },
+  {
+    "objectID": "materials/day-1-session-3-testing.html#section",
+    "href": "materials/day-1-session-3-testing.html#section",
+    "title": "📦 Building tidy tools",
+    "section": "",
+    "text": "✔ Adding 'testthat' to Suggests field in DESCRIPTION\n✔ Setting Config/testthat/edition field in DESCRIPTION to '3'\n✔ Creating 'tests/testthat/'\n✔ Writing 'tests/testthat.R'\n• Call `use_test()` to initialize a basic test file and open it for editing."
   },
   {
     "objectID": "materials/day-1-session-3-testing.html#expectations-1",
     "href": "materials/day-1-session-3-testing.html#expectations-1",
     "title": "📦 Building tidy tools",
     "section": "Expectations",
-    "text": "Expectations\nBefore we try to make a test, let’s look at some of the expect_xxxx() functions we have available to us.\nTheir form is expect_xxxx(actual_result, expectation)\n\nthe expectation is what you expect\nthe actual_result is what you are comparing to the expectation\nsome expect_xxxx() have additional arguments"
-  },
-  {
-    "objectID": "materials/day-1-session-3-testing.html#for-example",
-    "href": "materials/day-1-session-3-testing.html#for-example",
-    "title": "📦 Building tidy tools",
-    "section": "For example",
-    "text": "For example\n\nlibrary(testthat)\n# when the actual result is 42\nresult <- 42\n\n# and we expect the result to be 42: no error\nexpect_identical(result, 42)\n\n\n# when the actual result is \"a\"\nresult <- \"a\"\n\n# and we expect the result to be \"a\": no error\nexpect_identical(result, \"a\")"
+    "text": "Expectations\nBefore we try to make a test, let’s look at some of the expect_zzzz() functions we have available to us.\n\nForm: expect_zzzz(actual_result, expectation)\n\n\n\nthe expectation is what you expect\nthe actual_result is what you are comparing to the expectation\nsome expect_zzzz() have additional arguments"
   },
   {
     "objectID": "materials/day-1-session-3-testing.html#for-example-1",
     "href": "materials/day-1-session-3-testing.html#for-example-1",
     "title": "📦 Building tidy tools",
     "section": "For example",
-    "text": "For example\n\n# when the actual result is 45\nresult <- 45\n\n# and we expect the result to be 42: Error\nexpect_identical(result, 42)\n\nError: `result` not identical to 42.\n1/1 mismatches\n[1] 45 - 42 == 3\n\n\n\n# when the actual result is \"bob\"\nresult <- \"bob\"\n\n# and we expect the result to be \"a\": Error\nexpect_identical(result, \"A\")\n\nError: `result` not identical to \"A\".\n1/1 mismatches\nx[1]: \"bob\"\ny[1]: \"A\""
+    "text": "For example\n\n# to try out testhtat interactively we load \n# and request edition 3\n# but, you do *not* do that in a package.\nlibrary(testthat)\nlocal_edition(3)\n\n# when the actual result is 42\nresult <- 42\n\n# and we expect the result to be 42: no error\nexpect_identical(result, 42)"
+  },
+  {
+    "objectID": "materials/day-1-session-3-testing.html#and",
+    "href": "materials/day-1-session-3-testing.html#and",
+    "title": "📦 Building tidy tools",
+    "section": "and",
+    "text": "and\n\n# when the actual result is \"a\"\nresult <- \"a\"\n\n# and we expect the result to be \"a\": no error\nexpect_identical(result, \"a\")"
+  },
+  {
+    "objectID": "materials/day-1-session-3-testing.html#but",
+    "href": "materials/day-1-session-3-testing.html#but",
+    "title": "📦 Building tidy tools",
+    "section": "But",
+    "text": "But\n\n# when the actual result is 45\nresult <- 45\n\n# and we expect the result to be 42: Error\nexpect_identical(result, 42)\n\nError: `result` (`actual`) not identical to 42 (`expected`).\n\n  `actual`: 45\n`expected`: 42"
+  },
+  {
+    "objectID": "materials/day-1-session-3-testing.html#and-1",
+    "href": "materials/day-1-session-3-testing.html#and-1",
+    "title": "📦 Building tidy tools",
+    "section": "and",
+    "text": "and\n\n# when the actual result is \"bob\"\nresult <- \"bob\"\n\n# and we expect the result to be \"a\": Error\nexpect_identical(result, \"A\")\n\nError: `result` (`actual`) not identical to \"A\" (`expected`).\n\n`actual`:   \"bob\"\n`expected`: \"A\""
   },
   {
     "objectID": "materials/day-1-session-3-testing.html#some-common-expectations",
     "href": "materials/day-1-session-3-testing.html#some-common-expectations",
     "title": "📦 Building tidy tools",
     "section": "Some common expectations",
-    "text": "Some common expectations\n\nTesting for equality with with wiggle room\nTesting matches in strings\nTesting something is TRUE\nTesting whether objects have names\nTesting errors"
+    "text": "Some common expectations\nSome types of expect_zzzz()\n\nTesting for identity: expect_identical()\nTesting for equality with wiggle room: expect_equal()\nTesting something is TRUE: expect_true()\nTesting whether objects have names: expect_named()\nTesting errors: expect_error()\n\n\n\nAll expectations are in testthat documentation"
   },
   {
-    "objectID": "materials/day-1-session-3-testing.html#testing-for-equality-with-wiggle-room",
-    "href": "materials/day-1-session-3-testing.html#testing-for-equality-with-wiggle-room",
+    "objectID": "materials/day-1-session-3-testing.html#equality-with-wiggle-room",
+    "href": "materials/day-1-session-3-testing.html#equality-with-wiggle-room",
     "title": "📦 Building tidy tools",
-    "section": "Testing for equality with wiggle room",
-    "text": "Testing for equality with wiggle room\n\n# when the actual result is 42\nresult <- 42\n\n# and we expect the result to be 42: no error\nexpect_equal(result, 42)\n\n\n# but when the actual result is 42.0000001\nresult <- 42.0000001\n\n# and we expect the result to be 42: no error\nexpect_equal(result, 42)\n\n\n# but when the actual result is 42.0000001\nresult <- 42.1\n\n# and we expect the result to be 42: no error\nexpect_equal(result, 42, tolerance = 0.1)"
+    "section": "Equality with wiggle room",
+    "text": "Equality with wiggle room\n\n# when the actual result is 42\nresult <- 42\n\n# and we expect the result to be 42: no error\nexpect_equal(result, 42)\n\n\n# and when the actual result is 42.0000001\nresult <- 42.0000001\n\n# and we expect the result to be 42: we still do \n# not have an error because expect_equal() \n# has some tolerance\nexpect_equal(result, 42)"
   },
   {
-    "objectID": "materials/day-1-session-3-testing.html#testing-matches-in-strings",
-    "href": "materials/day-1-session-3-testing.html#testing-matches-in-strings",
+    "objectID": "materials/day-1-session-3-testing.html#equality-with-wiggle-room-1",
+    "href": "materials/day-1-session-3-testing.html#equality-with-wiggle-room-1",
     "title": "📦 Building tidy tools",
-    "section": "Testing matches in strings",
-    "text": "Testing matches in strings"
+    "section": "Equality with wiggle room",
+    "text": "Equality with wiggle room\n\n# but when the actual result is 42.1\nresult <- 42.1\n\n# and we expect the result to be 42: error because\n# 0.1 is bigger than the default tolerance\nexpect_equal(result, 42)\n\nError: `result` (`actual`) not equal to 42 (`expected`).\n\n  `actual`: 42.1\n`expected`: 42.0\n\n\n\n\nDefault tolerance is relative to the values calculated by waldo::compare() using the algorithm in all.equal()"
+  },
+  {
+    "objectID": "materials/day-1-session-3-testing.html#equality-with-wiggle-room-2",
+    "href": "materials/day-1-session-3-testing.html#equality-with-wiggle-room-2",
+    "title": "📦 Building tidy tools",
+    "section": "Equality with wiggle room",
+    "text": "Equality with wiggle room\nWe can set the wiggle room:\n\n# but when the actual result is 42.1\nresult <- 42.1\n\n# and we expect the result to be 42: no error if we\n# provide a tolerance\nexpect_equal(result, 42, tolerance = 0.1)"
   },
   {
     "objectID": "materials/day-1-session-3-testing.html#testing-something-is-true",
     "href": "materials/day-1-session-3-testing.html#testing-something-is-true",
     "title": "📦 Building tidy tools",
     "section": "Testing something is TRUE",
-    "text": "Testing something is TRUE"
+    "text": "Testing something is TRUE\n\nexpect_true(\"a\" == \"a\")"
   },
   {
     "objectID": "materials/day-1-session-3-testing.html#testing-whether-objects-have-names",
     "href": "materials/day-1-session-3-testing.html#testing-whether-objects-have-names",
     "title": "📦 Building tidy tools",
     "section": "Testing whether objects have names",
-    "text": "Testing whether objects have names"
+    "text": "Testing whether objects have names\n\n# vector of named values\nx <- c(a = 1, b = 2, c = 3)\n\n# test whether x has names: no error\nexpect_named(x)\n# test if the names are \"a\", \"b\", \"c\": no error\nexpect_named(x, c(\"a\", \"b\", \"c\"))"
   },
   {
     "objectID": "materials/day-1-session-3-testing.html#testing-errors",
     "href": "materials/day-1-session-3-testing.html#testing-errors",
     "title": "📦 Building tidy tools",
     "section": "Testing errors",
-    "text": "Testing errors"
+    "text": "Testing errors\n……….."
   },
   {
     "objectID": "materials/day-1-session-3-testing.html#make-a-test",
     "href": "materials/day-1-session-3-testing.html#make-a-test",
     "title": "📦 Building tidy tools",
     "section": "Make a test",
-    "text": "Make a test"
+    "text": "Make a test\nYou can create and open (or just open) a test file for blah.R with use_test(\"blah\").\n🎬 Create a test file for matches.R . . .\n\nusethis::use_test(\"matches\")\n\n✔ Writing 'tests/testthat/test-matches.R'\n• Modify 'tests/testthat/test-matches.R'\n\n\nIf matches.R is active in the editor, then usethis::use_test() is enough"
+  },
+  {
+    "objectID": "materials/day-1-session-3-testing.html#test-file-structure",
+    "href": "materials/day-1-session-3-testing.html#test-file-structure",
+    "title": "📦 Building tidy tools",
+    "section": "Test file structure",
+    "text": "Test file structure\ntest_that(\"multiplication works\", {\n  expect_equal(2 * 2, 4)\n})\n\n\ntest_that(\"some thing in the function works\", {\n  expect_zzzz()\n  expect_zzzz()\n  ...\n})"
+  },
+  {
+    "objectID": "materials/day-1-session-3-testing.html#make-a-test-1",
+    "href": "materials/day-1-session-3-testing.html#make-a-test-1",
+    "title": "📦 Building tidy tools",
+    "section": "Make a test",
+    "text": "Make a test\nWe will add three expectations:\n\ntest that the output of uss_make_matches() is a tibble with expect_true()\ntest that the output of uss_make_matches() has columns with the right names with expect_named()\ntest that the country column of the uss_make_matches() output is correct with expect_identical()\n\n\nWe will do them one at a time so you can practice the workflow."
+  },
+  {
+    "objectID": "materials/day-1-session-3-testing.html#edit-test-matches.r",
+    "href": "materials/day-1-session-3-testing.html#edit-test-matches.r",
+    "title": "📦 Building tidy tools",
+    "section": "Edit test-matches.R",
+    "text": "Edit test-matches.R\n🎬 Add a test to check the output of uss_make_matches() is a tibble with expect_true():\n\n\n\ntest_that(\"uss_make_matches works\", {\n\n  # use the function\n  italy <- uss_make_matches(engsoccerdata::italy, \"Italy\")\n\n  expect_true(tibble::is_tibble(italy))\n})\n\n\n\n\nWe use uss_make_matches() and examine the output with an expectation."
   },
   {
     "objectID": "materials/day-1-session-3-testing.html#running-a-test-1",
     "href": "materials/day-1-session-3-testing.html#running-a-test-1",
     "title": "📦 Building tidy tools",
     "section": "Running a test",
-    "text": "Running a test"
+    "text": "Running a test\n🎬 Run the test with testthat::test_file()\n\ntestthat::test_file(\"tests/testthat/test-matches.R\")\n\nYou can also use the “Runs Tests” button\n\n══ Testing test-matches.R ══════════════════════\n[ FAIL 0 | WARN 0 | SKIP 0 | PASS 1 ] Done!\n🥳"
   },
   {
-    "objectID": "materials/day-1-session-3-testing.html#snapshot-tests",
-    "href": "materials/day-1-session-3-testing.html#snapshot-tests",
+    "objectID": "materials/day-1-session-3-testing.html#devtoolstest",
+    "href": "materials/day-1-session-3-testing.html#devtoolstest",
     "title": "📦 Building tidy tools",
-    "section": "Snapshot tests",
-    "text": "Snapshot tests\ntomorrow!"
+    "section": "devtools::test()",
+    "text": "devtools::test()\n🎬 Run all the tests with devtools::test()\n\ndevtools::test()\n\n\n\nℹ Loading ussie\nℹ Testing ussie\n✔ | F W S  OK | Context\n✔ |         1 | matches [0.4s]                                   \n\n══ Results ══════════════════════════════════════════════════════\nDuration: 0.5 s\n\n[ FAIL 0 | WARN 0 | SKIP 0 | PASS 1 ]\n\n🐝 Your tests are the bee's knees 🐝"
+  },
+  {
+    "objectID": "materials/day-1-session-3-testing.html#add-an-expectation",
+    "href": "materials/day-1-session-3-testing.html#add-an-expectation",
+    "title": "📦 Building tidy tools",
+    "section": "Add an expectation",
+    "text": "Add an expectation\nNow you will test the output of uss_make_matches() to make sure it has columns with the right names expect_named()\n\nwe expect the names to be:\n\n“country”, “tier”, “season”, “date”, “home”, “visitor”, “goals_home”, “goals_visitor”\n\n\n\n🎬 Use expect_named() in test-matches.R to check the column names of italy"
+  },
+  {
+    "objectID": "materials/day-1-session-3-testing.html#answer",
+    "href": "materials/day-1-session-3-testing.html#answer",
+    "title": "📦 Building tidy tools",
+    "section": "Answer",
+    "text": "Answer\n\n\ntest_that(\"uss_make_matches works\", {\n\n  # use the function\n  italy <- uss_make_matches(engsoccerdata::italy, \"Italy\")\n\n  expect_true(tibble::is_tibble(italy))\n  expect_named(\n    italy,\n    c(\"country\", \"tier\", \"season\", \"date\", \"home\", \"visitor\",\n      \"goals_home\", \"goals_visitor\")\n  )\n})"
+  },
+  {
+    "objectID": "materials/day-1-session-3-testing.html#run-the-edited-test",
+    "href": "materials/day-1-session-3-testing.html#run-the-edited-test",
+    "title": "📦 Building tidy tools",
+    "section": "Run the edited test",
+    "text": "Run the edited test\n🎬 Run the edited test file\n\n\ntestthat::test_file(\"tests/testthat/test-matches.R\")\n\nOr the “Runs Tests” button\n══ Testing test-matches.R ═════════════════════════════════════════════════════\n[ FAIL 0 | WARN 0 | SKIP 0 | PASS 2 ] Done!"
+  },
+  {
+    "objectID": "materials/day-1-session-3-testing.html#section-1",
+    "href": "materials/day-1-session-3-testing.html#section-1",
+    "title": "📦 Building tidy tools",
+    "section": "",
+    "text": "devtools::test()\n\n\nℹ Loading ussie\nℹ Testing ussie\n✔ | F W S  OK | Context\n✔ |         2 | matches [0.2s]                                                 \n\n══ Results ════════════════════════════════════════════════════════════════════\nDuration: 0.2 s\n\n[ FAIL 0 | WARN 0 | SKIP 0 | PASS 2 ]   \n\n🥳"
+  },
+  {
+    "objectID": "materials/day-1-session-3-testing.html#add-the-last-expectation",
+    "href": "materials/day-1-session-3-testing.html#add-the-last-expectation",
+    "title": "📦 Building tidy tools",
+    "section": "Add the last expectation",
+    "text": "Add the last expectation\nNow check that the country column of the uss_make_matches() output is correct with expect_identical()\n\n🎬 Use expect_identical() in test-matches.R to compare the values in italy$country to “italy”\n\n\n🎬 Run the tests."
+  },
+  {
+    "objectID": "materials/day-1-session-3-testing.html#my-answer",
+    "href": "materials/day-1-session-3-testing.html#my-answer",
+    "title": "📦 Building tidy tools",
+    "section": "My answer",
+    "text": "My answer\n\n\ntest_that(\"uss_make_matches works\", {\n\n  # use the function\n  italy <- uss_make_matches(engsoccerdata::italy, \"Italy\")\n\n  expect_true(tibble::is_tibble(italy))\n  expect_named(\n    italy,\n    c(\"country\", \"tier\", \"season\", \"date\", \"home\", \"visitor\",\n      \"goals_home\", \"goals_visitor\")\n  )\n  expect_identical(unique(italy$country), \"Italy\")\n})"
+  },
+  {
+    "objectID": "materials/day-1-session-3-testing.html#test-coverage",
+    "href": "materials/day-1-session-3-testing.html#test-coverage",
+    "title": "📦 Building tidy tools",
+    "section": "Test coverage",
+    "text": "Test coverage\n…"
   },
   {
     "objectID": "materials/day-1-session-3-testing.html#summary",
     "href": "materials/day-1-session-3-testing.html#summary",
     "title": "📦 Building tidy tools",
     "section": "Summary",
-    "text": "Summary\n\n….\n\n….\n\n.\n\n…ed"
+    "text": "Summary\n\n\nAutomated testing means you can systematically check your code still works when adding features\ntestthat “tries to make testing as fun as possible”\nOrganisation: test files\n\nlive in: tests/testthat/\nare named: test-xxxx.R\ncontain: test_that(\"something works\", { *expectations* })\ntests/testthat.R: runs the tests and should not (normally) be edited"
   },
   {
-    "objectID": "materials/day-1-session-3-testing.html#summary-continued",
-    "href": "materials/day-1-session-3-testing.html#summary-continued",
+    "objectID": "materials/day-1-session-3-testing.html#summary-1",
+    "href": "materials/day-1-session-3-testing.html#summary-1",
     "title": "📦 Building tidy tools",
-    "section": "Summary continued",
-    "text": "Summary continued\n\n…\n\n."
+    "section": "Summary",
+    "text": "Summary\n\n\nExpectations have the form expect_zzzz(actual_result, expectation)\nWorkflow\n\nusethis::use_testthat(3) sets up your package to use testthat\nusethis::use_test(xxxx) creates test-xxxx.R\ntestthat::test_file() runs the tests in a test file\ndevtools::test() runs the tests in all the test files"
   },
   {
     "objectID": "materials/day-1-session-3-testing.html#references",
     "href": "materials/day-1-session-3-testing.html#references",
     "title": "📦 Building tidy tools",
     "section": "References",
-    "text": "References\n\n\nhttps://bit.ly/.."
+    "text": "References\n\n\nhttps://bit.ly/..\n\n\n\nWickham, Hadley. 2011. “Testthat: Get Started with Testing” 3. https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf.\n\n\nWickham, Hadley, and Jenny Bryan. 2020. R Packages. The work-in-progress 2nd edition. Online. https://r-pkgs.org/index.html."
   },
   {
     "objectID": "materials/day-2-session-3-tidy-eval.html#learning-objectives",
