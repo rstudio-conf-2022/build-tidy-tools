@@ -572,7 +572,6 @@ Congratulations! This .cff file is valid
 ## Summary
 
 ::: small
-
 -   A package has metadata and object documentation (essential), vignettes and **`pkgdown`** sites (optional)
 -   Metadata is in the `DESCRIPTION`
     -   some fields need manual editing
@@ -582,11 +581,9 @@ Congratulations! This .cff file is valid
     -   roxygen tags start with `@`
 :::
 
-
 ## Summary continued
 
 ::: small
-
 -   Package dependencies need to be documented
     -   package dependencies are added with `use_package()`
     -   functions from dependencies are called with `pkg::function()`
