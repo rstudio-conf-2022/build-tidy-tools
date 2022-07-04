@@ -1607,7 +1607,7 @@
     "href": "materials/day-2-session-4-miscellany.html#formatter",
     "title": "📦 Building tidy tools",
     "section": "Formatter",
-    "text": "Formatter\n#' @export\nformat.ussie_result <- function(x, ...) {\n  \n  # field() is a vcrts function to extract a field from a rcrd\n  goals_for <- field(x, \"goals_for\")\n  goals_against <- field(x, \"goals_against\")\n  \n  result <- dplyr::case_when(...)\n  \n  # compose output\n  out <- glue::glue(\"{result} {goals_for}-{goals_against}\")\n  as.character(out)\n}"
+    "text": "Formatter\n#' @export\nformat.ussie_result <- function(x, ...) {\n  \n  # field() is a vcrts function to extract a field from a rcrd\n  goals_for <- field(x, \"goals_for\")\n  goals_against <- field(x, \"goals_against\")\n  \n  outcome <- dplyr::case_when(...)\n  \n  # compose output\n  out <- glue::glue(\"{outcome} {goals_for}-{goals_against}\")\n  as.character(out)\n}"
   },
   {
     "objectID": "materials/day-2-session-4-miscellany.html#lets-see-this-in-action",
