@@ -21,26 +21,109 @@ bibliography: references.bib
 
 # ☑️ Unit Testing
 
-## Learning Objectives {.smaller}
+## Learning Objectives
 
 At the end of this section you will be able to:
 
--   lo
--   lo
--   lo
--   lo
--   
+::: small
+-   understand the rationale for automating tests
+-   describe the organisation of the testing infrastructure and file contents for the **`testthat`** [@testthat] workflow
+-   set up a package to use **`testthat`**
+-   create a test and use some common 'expectations'
+-   run all the tests in a file and in a package
+:::
 
 # Why test?
 
 ## Why test?
 
-We already did informal testing:
+-   To make sure our code works
+
+-   To make sure our code keeps working after we add features
+
+## For example
+
+When we run:
+
+```{r}
+italy <- uss_make_matches(engsoccerdata::italy, "Italy")
+spain <- uss_make_matches(engsoccerdata::italy, "Spain")
+```
+
+The objects `italy` and `spain` should be tibbles with the same columns: "country", "tier", "season", "date", "home", "visitor", "goals_home" and "goals_visitor"
+
+\
+
+So we might...
+
+## Check interactively
+
+Try these:
+
+::: columns
+::: {.column width="80%"}
+::: extrasmall
+```{r}
+class(italy)
+```
+
+``` default
+"tbl_df"     "tbl"        "data.frame"
+```
+
+```{r}
+class(spain)
+```
+
+``` default
+"tbl_df"     "tbl"        "data.frame" 
+```
+
+```{r}
+names(italy)
+```
+
+``` default
+country"       "tier"          "season"        "date"         
+"home"          "visitor"       "goals_home"    "goals_visitor" 
+```
+
+```{r}
+names(italy)
+```
+
+``` default
+country"       "tier"          "season"        "date"         
+"home"          "visitor"       "goals_home"    "goals_visitor"
+```
+:::
+:::
+
+::: {.column width="20%"}
+🎉
+
+\
+
+🥳
+
+\
+
+🎈
+
+\
+
+🎇
+:::
+:::
+
+## Interactive testing ...
+
+...is informal testing:
 
 -   wrote `uss_make_matches()`
 -   loaded package with `devtools::load_all()`
 -   ran `uss_make_matches()` interactively
--   edited `uss_make_matches()`
+-   edited `uss_make_matches()` if needed
 -   loaded package with `devtools::load_all()`
 -   ran `uss_make_matches()` interactively
 
@@ -61,6 +144,8 @@ We already did informal testing:
 
 ```
 
+# Why automate testing?
+
 ## Why automate testing?
 
 Problem: you forget all the interactive testing you've done
@@ -78,6 +163,10 @@ Solution: have a system to store and re-run the tests!
 3.  Opportunity for test-drive development
 
 4.  Robustness
+
+. . .
+
+Read more about testing in the recently updated chapter in R Packages [@wickham2020a]
 
 ## Automated test workflow
 
@@ -98,10 +187,11 @@ Solution: have a system to store and re-run the tests!
 
 # Infrastructure and organisation
 
-## Organisation: files {.smaller}
+## Organisation: files
 
 ::: columns
-::: {.column width="65%"}
+::: {.column width="40%"}
+::: small
 ``` default
 .
 ├── CITATION.cff
@@ -121,25 +211,26 @@ Solution: have a system to store and re-run the tests!
 └── ussie.Rproj
 ```
 :::
+:::
 
-::: {.column width="35%"}
--   `tests/testthat/`: All test files must be in here
--   `tests/testthat/test-matches.R`: test files must be `test-xxxxx.R`
+::: {.column width="60%"}
+-   tests files are in: `tests/testthat/`
+-   test files are named `test-xxxx.R`
 -   `tests/testthat.R`: runs the tests when `devtools::check()` is called
 :::
 :::
 
 ## Organisation within files
 
--   any test file `test-xxxxx.R` contains several tests. Might be:
+-   any test file `test-xxxx.R` contains several tests. Might be:
     -   all the tests for a simple function
     -   all the tests for one part of a complex function
     -   all the tests for the same functionality in multiple functions
 
-. . .
+## Organisation within files
 
 -   a test groups several 'expectations'. An expectation:
-    -   has the form: `expect_xxxxxxx(actual_result, expectation)`
+    -   has the form: `expect_zzzz(actual_result, expectation)`
     -   if `actual_result` = `expectation` no error
     -   if `actual_result` != `expectation` Error
 
@@ -147,17 +238,25 @@ Solution: have a system to store and re-run the tests!
 
 ## Workflow
 
-1.  Set up your package to use {testthat} - Once
+1.  Set up your package to use **`testthat`**: `usethis::use_testthat(3)` ONCE
 
-2.  Make a test
+. . .
 
-3.  Run the test
+2.  Make a test: `usethis::use_test()`
+
+. . .
+
+3.  Run a set of tests: `testthat::test_file()`
+
+. . .
+
+4.  Run the entire testing suite: `devtools::test()` and `devtools::check()`
 
 # Set up
 
 ## Set up
 
-To set up your package to use testthat: `usethis::use_testthat(3)` which:
+To set up your package to use **`testthat`**: `usethis::use_testthat(3)` which:
 
 -   makes `tests/testthat/`: this is where the test files live
 
@@ -167,43 +266,67 @@ To set up your package to use testthat: `usethis::use_testthat(3)` which:
 
 ## Set up
 
-🎬 Set up your package to use {`testthat`}:
+🎬 Set up your package to use **`testthat`**:
 
 ```{r}
 usethis::use_testthat(3)
 ```
 
+\
+
 . . .
 
-3 means {`testthat`} edition 3 or {`testthat 3e`}
+3 means **`testthat`** edition 3 (**`testthat 3e`**)
 
 As well as installing that version of the package, you have to explicitly opt in the edition behaviours.
+
+## 
+
+::: small
+``` default
+✔ Adding 'testthat' to Suggests field in DESCRIPTION
+✔ Setting Config/testthat/edition field in DESCRIPTION to '3'
+✔ Creating 'tests/testthat/'
+✔ Writing 'tests/testthat.R'
+• Call `use_test()` to initialize a basic test file and open it for editing.
+```
+:::
 
 # Expectations
 
 ## Expectations
 
-Before we try to make a test, let's look at some of the `expect_xxxx()` functions we have available to us.
+Before we try to make a test, let's look at some of the `expect_zzzz()` functions we have available to us.
 
-Their form is `expect_xxxx(actual_result, expectation)`
+. . .
+
+Form: `expect_zzzz(actual_result, expectation)`
+
+. . .
 
 -   the `expectation` is what you expect
 -   the `actual_result` is what you are comparing to the expectation
--   some `expect_xxxx()` have additional arguments
+-   some `expect_zzzz()` have additional arguments
 
 ## For example
 
 ```{r}
 #| eval: true
 #| error: true
-
+# to try out testhtat interactively we load 
+# and request edition 3
+# but, you do *not* do that in a package.
 library(testthat)
+local_edition(3)
+
 # when the actual result is 42
 result <- 42
 
 # and we expect the result to be 42: no error
 expect_identical(result, 42)
 ```
+
+## and
 
 ```{r}
 #| eval: true
@@ -215,7 +338,7 @@ result <- "a"
 expect_identical(result, "a")
 ```
 
-## For example
+## But
 
 ```{r}
 #| eval: true
@@ -226,6 +349,8 @@ result <- 45
 # and we expect the result to be 42: Error
 expect_identical(result, 42)
 ```
+
+## and
 
 ```{r}
 #| eval: true
@@ -239,13 +364,19 @@ expect_identical(result, "A")
 
 ## Some common expectations
 
--   Testing for equality with with wiggle room
--   Testing matches in strings
--   Testing something is TRUE
--   Testing whether objects have names
--   Testing errors
+Some types of `expect_zzzz()`
 
-## Testing for equality with wiggle room
+-   Testing for identity: `expect_identical()`
+-   Testing for equality with wiggle room: `expect_equal()`
+-   Testing something is TRUE: `expect_true()`
+-   Testing whether objects have names: `expect_named()`
+-   Testing errors: `expect_error()`
+
+::: aside
+All expectations are in **`testthat`** [documentation](https://testthat.r-lib.org/reference/index.html)
+:::
+
+## Equality with wiggle room
 
 ```{r}
 #| eval: true
@@ -260,76 +391,332 @@ expect_equal(result, 42)
 ```{r}
 #| eval: true
 #| error: true
-# but when the actual result is 42.0000001
+# and when the actual result is 42.0000001
 result <- 42.0000001
 
-# and we expect the result to be 42: no error
+# and we expect the result to be 42: we still do 
+# not have an error because expect_equal() 
+# has some tolerance
 expect_equal(result, 42)
 ```
+
+## Equality with wiggle room
 
 ```{r}
 #| eval: true
 #| error: true
-# but when the actual result is 42.0000001
+# but when the actual result is 42.1
 result <- 42.1
 
-# and we expect the result to be 42: no error
+# and we expect the result to be 42: error because
+# 0.1 is bigger than the default tolerance
+expect_equal(result, 42)
+```
+
+::: aside
+Default tolerance is relative to the values calculated by `waldo::compare()` using the algorithm in `all.equal()`
+:::
+
+## Equality with wiggle room
+
+We can set the wiggle room:
+
+```{r}
+#| eval: true
+#| error: true
+# but when the actual result is 42.1
+result <- 42.1
+
+# and we expect the result to be 42: no error if we
+# provide a tolerance
 expect_equal(result, 42, tolerance = 0.1)
 ```
 
-## Testing matches in strings
-
 ## Testing something is TRUE
+
+```{r}
+#| eval: true
+#| error: true
+
+expect_true("a" == "a")
+```
 
 ## Testing whether objects have names
 
+```{r}
+#| eval: true
+#| error: true
+# vector of named values
+x <- c(a = 1, b = 2, c = 3)
+
+# test whether x has names: no error
+expect_named(x)
+# test if the names are "a", "b", "c": no error
+expect_named(x, c("a", "b", "c"))
+```
+
 ## Testing errors
+
+...........
 
 # Making a test
 
 ## Make a test
 
+You can create and open (or just open) a test file for `blah.R` with `use_test("blah")`.
+
+🎬 Create a test file for `matches.R` . . .
+
+```{r}
+usethis::use_test("matches")
+```
+
+``` default
+✔ Writing 'tests/testthat/test-matches.R'
+• Modify 'tests/testthat/test-matches.R'
+```
+
+::: aside
+If matches.R is active in the editor, then `usethis::use_test()` is enough
+:::
+
+## Test file structure
+
+``` default
+test_that("multiplication works", {
+  expect_equal(2 * 2, 4)
+})
+```
+
+\
+
+``` default
+test_that("some thing in the function works", {
+  expect_zzzz()
+  expect_zzzz()
+  ...
+})
+```
+
+## Make a test
+
+We will add three expectations:
+
+-   test that the output of `uss_make_matches()` is a tibble with `expect_true()`
+
+-   test that the output of `uss_make_matches()` has columns with the right names with `expect_named()`
+
+-   test that the country column of the `uss_make_matches()` output is correct with `expect_identical()`
+
+. . .
+
+We will do them one at a time so you can practice the workflow.
+
+## Edit `test-matches.R`
+
+🎬 Add a test to check the output of `uss_make_matches()` is a tibble with `expect_true()`:
+
+. . .
+
+::: small
+```{r}
+test_that("uss_make_matches works", {
+
+  # use the function
+  italy <- uss_make_matches(engsoccerdata::italy, "Italy")
+
+  expect_true(tibble::is_tibble(italy))
+})
+
+```
+:::
+
+. . .
+
+We use `uss_make_matches()` and examine the output with an expectation.
+
 # Running a test
 
 ## Running a test
 
-# Other types of testing
+🎬 Run the test with `testthat::test_file()`
 
-## Snapshot tests
+```{r}
+testthat::test_file("tests/testthat/test-matches.R")
+```
 
-tomorrow!
+You can also use the "Runs Tests" button
+
+. . .
+
+``` default
+══ Testing test-matches.R ══════════════════════
+[ FAIL 0 | WARN 0 | SKIP 0 | PASS 1 ] Done!
+```
+
+🥳
+
+## `devtools::test()`
+
+🎬 Run all the tests with `devtools::test()`
+
+```{r}
+devtools::test()
+```
+
+. . .
+
+::: small
+``` default
+ℹ Loading ussie
+ℹ Testing ussie
+✔ | F W S  OK | Context
+✔ |         1 | matches [0.4s]                                   
+
+══ Results ══════════════════════════════════════════════════════
+Duration: 0.5 s
+
+[ FAIL 0 | WARN 0 | SKIP 0 | PASS 1 ]
+
+🐝 Your tests are the bee's knees 🐝
+```
+:::
+
+## Add an expectation
+
+Now you will test the output of `uss_make_matches()` to make sure it has columns with the right names `expect_named()`
+
+. . .
+
+we expect the names to be:
+
+::: small
+"country", "tier", "season", "date", "home", "visitor", "goals_home", "goals_visitor"
+:::
+
+. . .
+
+🎬 Use `expect_named()` in `test-matches.R` to check the column names of `italy`
+
+## Answer
+
+::: small
+```{r}
+test_that("uss_make_matches works", {
+
+  # use the function
+  italy <- uss_make_matches(engsoccerdata::italy, "Italy")
+
+  expect_true(tibble::is_tibble(italy))
+  expect_named(
+    italy,
+    c("country", "tier", "season", "date", "home", "visitor",
+      "goals_home", "goals_visitor")
+  )
+})
+```
+:::
+
+## Run the edited test
+
+🎬 Run the edited test file
+
+. . .
+
+```{r}
+testthat::test_file("tests/testthat/test-matches.R")
+```
+
+Or the "Runs Tests" button
+
+``` default
+══ Testing test-matches.R ═════════════════════════════════════════════════════
+[ FAIL 0 | WARN 0 | SKIP 0 | PASS 2 ] Done!
+```
 
 ## 
 
-## 
+```{r}
+devtools::test()
+```
 
-## 
+::: small
+``` default
+ℹ Loading ussie
+ℹ Testing ussie
+✔ | F W S  OK | Context
+✔ |         2 | matches [0.2s]                                                 
 
-# 
+══ Results ════════════════════════════════════════════════════════════════════
+Duration: 0.2 s
 
-## 
+[ FAIL 0 | WARN 0 | SKIP 0 | PASS 2 ]   
+```
+:::
 
-## 
+🥳
 
-## 
+## Add the last expectation
 
-## 
+Now check that the country column of the `uss_make_matches()` output is correct with `expect_identical()`
 
-# 
+. . .
 
-# ☑️ Woo hoo ☑️<BR> You .....
+🎬 Use `expect_identical()` in `test-matches.R` to compare the values in `italy$country` to "italy"
 
-## Summary {.smaller}
+. . .
 
--   ....
-    -   ....
--   .
-    -   ...ed
+🎬 Run the tests.
 
-## Summary continued {.smaller}
+## My answer
 
--   ...
-    -   .
--   
+::: small
+```{r}
+test_that("uss_make_matches works", {
 
-## References {.smaller}
+  # use the function
+  italy <- uss_make_matches(engsoccerdata::italy, "Italy")
+
+  expect_true(tibble::is_tibble(italy))
+  expect_named(
+    italy,
+    c("country", "tier", "season", "date", "home", "visitor",
+      "goals_home", "goals_visitor")
+  )
+  expect_identical(unique(italy$country), "Italy")
+})
+```
+:::
+
+## Test coverage
+
+...
+
+# ☑️ Woo hoo ☑️<BR> You wrote a unit test!
+
+## Summary
+
+::: small
+-   Automated testing means you can systematically check your code still works when adding features
+-   **`testthat`** *"tries to make testing as fun as possible"*
+-   Organisation: test files
+    -   live in: `tests/testthat/`
+    -   are named: `test-xxxx.R`
+    -   contain: `test_that("something works", { *expectations* })`
+    -   `tests/testthat.R`: runs the tests and should not (normally) be edited
+:::
+
+## Summary
+
+::: small
+-   Expectations have the form `expect_zzzz(actual_result, expectation)`
+-   Workflow
+    -   `usethis::use_testthat(3)` sets up your package to use **`testthat`**
+    -   `usethis::use_test(xxxx)` creates `test-xxxx.R`
+    -   `testthat::test_file()` runs the tests in a test file
+    -   `devtools::test()` runs the tests in all the test files
+:::
+
+## References {.extrasmall}
+
+
