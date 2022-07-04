@@ -18,8 +18,6 @@ execute:
   eval: false
 bibliography: references.bib
 ---
-<<<<<<< HEAD
-=======
 
 ## Learning objectives 
 
@@ -413,7 +411,3 @@ Use snapshot tests to capture side-effects.
 Use `withr::local_*()` functions to "leave no footprints".
 
 ## References
-
-
- 
->>>>>>> df489bac4b895fa9f6100b94d21149ddf19dfc38
