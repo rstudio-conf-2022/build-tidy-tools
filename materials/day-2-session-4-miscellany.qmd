@@ -18,3 +18,407 @@ execute:
   eval: false
 bibliography: references.bib
 ---
+
+## Learning objectives 
+### Time permitting
+
+At the end of this section you will be able to:
+
+- accept a function an argument to a function using a formula (purrr-style)
+- create an S3 class using {vctrs}
+  - recognize that implementing a `format()` method gets you a long way 
+  
+We will also recap all of today's material and discuss.  
+  
+## Functions as arguments
+
+Using functions as arguments is a foundation of functional programming.
+
+```r
+library("purrr")
+
+ten <- seq(1, 10)
+square <- function(x) {
+  x^2
+}
+
+map_dbl(ten, square)
+```
+
+## Anonymous (lambda) functions
+
+Sometimes you want to provide an "on-the-spot" function:
+
+- write it out the long way:
+
+  ```r
+  map_dbl(ten, function(x) x^2)
+  ```
+
+. . .
+
+- {purrr} interprets one-sided formula using  `.x`:
+ 
+  ```r
+  map_dbl(ten, ~.x^2)
+  ```
+
+. . .
+
+- R (> 4.1) provides shorthand:
+
+  ```r
+  map_dbl(ten, \(x) x^2)
+  ```
+
+## Make {purrr} formula into function
+
+```r
+my_function <- function(data, f) {
+  f <- rlang::as_function(f)
+  
+  ...
+}
+```
+
+**Note**:  we cannot *pass the dots* here.
+
+. . .
+
+These are equivalent:
+
+```r
+my_function(ten, function(x) x + 1)
+```
+
+```r
+my_function(ten, \(x) x + 1)
+```
+
+```r
+my_function(ten, ~.x + 1)
+```
+
+## Our turn `"2.4.1"`
+
+. . .
+
+<hr>
+**Only** *if needed*, `btt22::btt_reset_hard("2.4.1")`
+<hr>
+
+. . . 
+
+*No* new files.
+
+## `uss_make_seasons_final()` 
+
+```r
+italy_teams_matches <- 
+  uss_get_matches("italy") |> 
+  uss_make_teams_matches()
+```
+
+What would a season look like if wins were **five** points?
+
+```r
+italy_five <-
+  italy_teams_matches |>
+  uss_make_seasons_final(fn_points_per_win = \(...) 5)
+```
+
+## `seasons.R`
+
+ - in `seasons_intermediate()`:
+
+  ```r
+  # accept purrr-style anonymous functions
+  fn_points_per_win <- 
+    rlang::as_function(fn_points_per_win)
+  ```
+
+. . .
+
+- `devtools::load()`
+
+  ```r
+  italy_five_purrr <-
+    italy_teams_matches |>
+    uss_make_seasons_final(fn_points_per_win = ~5)
+  ```
+  
+  ```r
+  identical(italy_five, italy_five_purrr)
+  ```
+
+. . .
+
+- document, `devtools::check()`
+
+## S3 class system
+
+There have been a lot of class systems implemented in R:
+
+- S3, S4, R6, ...
+
+. . . 
+ 
+- and now R7 (Hadley's talk Thursday afternoon)
+
+. . .
+
+For now, S3 remains the simplest thing that works:
+
+ - declare that an object has a class
+ - define methods for generic functions, specific to that class, e.g. `format()`
+ 
+## {vctrs} package
+
+- designed to help you construct S3 classes:
+
+  - especially in the context of a column of a data frame
+
+. . . 
+
+- `cli::cli_abort()` creates an S3 error condition:
+
+  - not quite the same thing
+ 
+  - but the same idea: let's make it a little easier to manage
+
+## Our turn `"2.4.2"`
+
+. . .
+
+<hr>
+**Only** *if needed*, `btt22::btt_reset_hard("2.4.2")`
+<hr>
+
+. . . 
+ 
+Get new files, `btt22::btt_get("2.4.2")`:
+
+- `result.R`
+- `test-result.R`
+
+. . . 
+
+- `usethis::use_package("glue")`
+
+- `usethis::use_package("vctrs")`
+
+- add `#' @import vctrs` to `ussie-package.R`.
+
+## What problem are we solving?
+
+A *result* displays two sets of information, according to team:
+
+  - goals-for, goals-against: essential information
+  - outcome (win, loss, draw): based on goals for, against
+  
+. . .
+
+Our *result* structure should:
+
+  - store essential information, e.g.:
+    - `goals_for = 3`
+    - `goals_against = 2`
+  - display outcome with goals, e.g.: `W 3-2`.
+
+
+## Low-level constructor
+
+```r
+new_result <- function(goals_for = integer(), goals_against = integer()) {
+
+  # validate
+  vec_assert(goals_for, integer())
+  vec_assert(goals_against, integer(), size = length(goals_for))
+  
+  # construct rcrd class, using vctrs::new_rcrd()
+  new_rcrd(
+    list(goals_for = goals_for, goals_against = goals_against),
+    class = "ussie_result"
+  )
+}
+```
+
+`rcrd` class is like a little data-frame.
+
+
+## High-level constructor
+
+```r
+#' @export
+uss_result <- function(goals_for = integer(), goals_against = integer()) {
+
+  # coerce to integer, lets us accept integer-ish arguments
+  goals_for <- vec_cast(goals_for, to = integer())
+  goals_against <- vec_cast(goals_against, to = integer())
+  
+  # call low-level constructor
+  new_result(goals_for, goals_against)
+}
+```
+
+This is what users "see" and use.
+
+## Formatter
+
+```r
+#' @export
+format.ussie_result <- function(x, ...) {
+  
+  # field() is a vcrts function to extract a field from a rcrd
+  goals_for <- field(x, "goals_for")
+  goals_against <- field(x, "goals_against")
+  
+  result <- dplyr::case_when(...)
+  
+  # compose output
+  out <- glue::glue("{result} {goals_for}-{goals_against}")
+  as.character(out)
+}
+```
+
+## Let's see this in action
+
+- `devtools::document()`
+- `devtools::load()`
+
+. . .
+
+```r
+uss_result(3, 2)
+```
+
+. . .
+
+```r
+uss_get_matches("italy") |>
+  uss_make_teams_matches() |>
+  dplyr::mutate(
+    result = uss_result(goals_for, goals_against)
+  )
+```
+
+## Abbreviators
+
+These control how the class name is displayed when printing:
+
+```r
+#' @export
+vec_ptype_abbr.ussie_result <- 
+  function(x, ...) "rslt" 
+
+#' @export
+vec_ptype_full.ussie_result <- 
+  function(x, ...) "result"
+```
+
+## Recap: Design
+
+- **Naming**: be consistent, concise, yet evocative.
+
+- **Argument order**: data, descriptors, dots, details.
+
+
+- **Return value type**: be consistent, predictable.
+
+
+- Easy to remember data (first) argument and return value:
+  - easy to use pipe, `|>`.
+
+- Be mindful of side effects.
+
+## Recap: Side-effects
+
+The most-common side-effect is an error. Good design:
+
+- simple (as possible) predicate
+- clear mesage
+- add a `class` using naming convention, and additional information
+
+
+Use snapshot tests to capture side-effects.
+
+- be very careful when accepting changes to snapshots.
+
+Use `withr::local_*()` functions to "leave no footprints".
+
+## Recap: Tidy eval
+
+There are a lot of tidy-eval tools:
+
+- know if you are using a *data-masking* or *tidy-select* function.
+
+. . .
+
+- to splice a list (or vector) into *dynamic-dots*, use `!!!`
+
+. . .
+
+- For *data-masking* functions:
+
+  - be specific, use `.data`, `.env` pronouns.
+  
+  - to use *tidy-select* syntax, use `dplyr::across()`.
+  
+  - to move a bunch of arguments, pass the dots, `...`
+  
+  - to interpolate a single argument, use `{{}}`.
+  
+## Recap: Misc.
+
+Anonymous (use-once) functions can be handy:
+
+  - use `rlang::as_function()` to accept purrr-style formula-functions, e.g. `~.x + 1` 
+
+Use {vctrs} package to help build and manage S3 classes.
+
+## Recap
+
+In Ian's opinion, the tidyverse succeeds because it helps *you* build a mental model for composing functions to solve *your* problem. It does this by providing:
+
+- consistent naming of functions, arguments
+- focus on first argument, return value: supports `|>`
+- consistent implementation of non-standard evaluation
+- more-and-more informative error-messages
+
+## Un-recap
+
+We did not cover how to manage change.
+
+Change is a necessary (and frustrating) part of success:
+
+- {plyr} -> {dplyr}
+- {reshape} -> {reshape2} -> {tidyr}
+
+. . .
+
+Different levels of change:
+
+- deprecating functions, arguments
+- breaking changes
+- used to be: *add-a-2*, becoming: *editions*
+
+## If you remember one thing...
+
+Distinguish *pure functions* from functions that use *side effects*.
+
+Pure functions:
+
+ - use only the values of the arguments
+ - change only the return value
+ 
+   ```r
+   add <- function(x, y) {
+     x + y
+   }
+   ```
+
+Side effects use or change something else in the universe:
+
+ - e.g.: read a file, print to screen
+ 
+## References
