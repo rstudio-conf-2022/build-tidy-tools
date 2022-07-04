@@ -284,7 +284,7 @@
     "href": "materials/day-2-session-1-design.html#references",
     "title": "📦 Building tidy tools",
     "section": "References",
-    "text": "References\n\n\n\n\n\n\n\ndf489bac4b895fa9f6100b94d21149ddf19dfc38\n\n\n\n\n\n\n\n\n\nhttps://bit.ly/..\n\n\n\nWickham, Charlotte, and Hadley Wickham. 2021. Building Tidy Tools. rstudio::conf 2020. https://github.com/rstudio-conf-2020/build-tidy-tools.\n\n\nWickham, Hadley, and Jenny Bryan. 2020. R Packages. The work-in-progress 2nd edition. Online. https://r-pkgs.org/index.html."
+    "text": "References\n\n\nhttps://bit.ly/..\n\n\n\nWickham, Charlotte, and Hadley Wickham. 2021. Building Tidy Tools. rstudio::conf 2020. https://github.com/rstudio-conf-2020/build-tidy-tools.\n\n\nWickham, Hadley, and Jenny Bryan. 2020. R Packages. The work-in-progress 2nd edition. Online. https://r-pkgs.org/index.html."
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#introductions",
@@ -1201,7 +1201,7 @@
     "href": "materials/day-2-session-2-side-effects.html#references",
     "title": "📦 Building tidy tools",
     "section": "References",
-    "text": "References\n\n\n\n\n\n\n\ndf489bac4b895fa9f6100b94d21149ddf19dfc38\n\n\n\n\n\n\n\n\n\nhttps://bit.ly/.."
+    "text": "References\n\n\nhttps://bit.ly/.."
   },
   {
     "objectID": "materials/day-1-session-3-testing.html#learning-objectives",
@@ -1510,6 +1510,174 @@
     "title": "📦 Building tidy tools",
     "section": "References",
     "text": "References\n\n\nhttps://bit.ly/..\n\n\n\nWickham, Hadley. 2011. “Testthat: Get Started with Testing” 3. https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf.\n\n\nWickham, Hadley, and Jenny Bryan. 2020. R Packages. The work-in-progress 2nd edition. Online. https://r-pkgs.org/index.html."
+  },
+  {
+    "objectID": "materials/day-2-session-4-miscellany.html#learning-objectives",
+    "href": "materials/day-2-session-4-miscellany.html#learning-objectives",
+    "title": "📦 Building tidy tools",
+    "section": "Learning objectives",
+    "text": "Learning objectives\nTime permitting\nAt the end of this section you will be able to:\n\naccept a function an argument to a function using a formula (purrr-style)\ncreate an S3 class using {vctrs}\n\nrecognize that implementing a format() method gets you a long way\n\n\nWe will also recap all of today’s material and discuss."
+  },
+  {
+    "objectID": "materials/day-2-session-4-miscellany.html#functions-as-arguments",
+    "href": "materials/day-2-session-4-miscellany.html#functions-as-arguments",
+    "title": "📦 Building tidy tools",
+    "section": "Functions as arguments",
+    "text": "Functions as arguments\nUsing functions as arguments is a foundation of functional programming.\nlibrary(\"purrr\")\n\nten <- seq(1, 10)\nsquare <- function(x) {\n  x^2\n}\n\nmap_dbl(ten, square)"
+  },
+  {
+    "objectID": "materials/day-2-session-4-miscellany.html#anonymous-lambda-functions",
+    "href": "materials/day-2-session-4-miscellany.html#anonymous-lambda-functions",
+    "title": "📦 Building tidy tools",
+    "section": "Anonymous (lambda) functions",
+    "text": "Anonymous (lambda) functions\nSometimes you want to provide an “on-the-spot” function:\n\nwrite it out the long way:\nmap_dbl(ten, function(x) x^2)\n\n\n\n{purrr} interprets one-sided formula using .x:\nmap_dbl(ten, ~.x^2)\n\n\n\n\nR (> 4.1) provides shorthand:\nmap_dbl(ten, \\(x) x^2)"
+  },
+  {
+    "objectID": "materials/day-2-session-4-miscellany.html#make-purrr-formula-into-function",
+    "href": "materials/day-2-session-4-miscellany.html#make-purrr-formula-into-function",
+    "title": "📦 Building tidy tools",
+    "section": "Make {purrr} formula into function",
+    "text": "Make {purrr} formula into function\nmy_function <- function(data, f) {\n  f <- rlang::as_function(f)\n  \n  ...\n}\nNote: we cannot pass the dots here.\n\nThese are equivalent:\nmy_function(ten, function(x) x + 1)\nmy_function(ten, \\(x) x + 1)\nmy_function(ten, ~.x + 1)"
+  },
+  {
+    "objectID": "materials/day-2-session-4-miscellany.html#our-turn-2.4.1",
+    "href": "materials/day-2-session-4-miscellany.html#our-turn-2.4.1",
+    "title": "📦 Building tidy tools",
+    "section": "Our turn \"2.4.1\"",
+    "text": "Our turn \"2.4.1\"\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.4.1\")\n\n\n\nNo new files."
+  },
+  {
+    "objectID": "materials/day-2-session-4-miscellany.html#uss_make_seasons_final",
+    "href": "materials/day-2-session-4-miscellany.html#uss_make_seasons_final",
+    "title": "📦 Building tidy tools",
+    "section": "uss_make_seasons_final()",
+    "text": "uss_make_seasons_final()\nitaly_teams_matches <- \n  uss_get_matches(\"italy\") |> \n  uss_make_teams_matches()\nWhat would a season look like if wins were five points?\nitaly_five <-\n  italy_teams_matches |>\n  uss_make_seasons_final(fn_points_per_win = \\(...) 5)"
+  },
+  {
+    "objectID": "materials/day-2-session-4-miscellany.html#seasons.r",
+    "href": "materials/day-2-session-4-miscellany.html#seasons.r",
+    "title": "📦 Building tidy tools",
+    "section": "seasons.R",
+    "text": "seasons.R\n\nin seasons_intermediate():\n\n# accept purrr-style anonymous functions\nfn_points_per_win <- \n  rlang::as_function(fn_points_per_win)\n\n\ndevtools::load()\nitaly_five_purrr <-\n  italy_teams_matches |>\n  uss_make_seasons_final(fn_points_per_win = ~5)\nidentical(italy_five, italy_five_purrr)\n\n\n\n\ndocument, devtools::check()"
+  },
+  {
+    "objectID": "materials/day-2-session-4-miscellany.html#s3-class-system",
+    "href": "materials/day-2-session-4-miscellany.html#s3-class-system",
+    "title": "📦 Building tidy tools",
+    "section": "S3 class system",
+    "text": "S3 class system\nThere have been a lot of class systems implemented in R:\n\nS3, S4, R6, …\n\n\n\nand now R7 (Hadley’s talk Thursday afternoon)\n\n\n\nFor now, S3 remains the simplest thing that works:\n\ndeclare that an object has a class\ndefine methods for generic functions, specific to that class, e.g. format()"
+  },
+  {
+    "objectID": "materials/day-2-session-4-miscellany.html#vctrs-package",
+    "href": "materials/day-2-session-4-miscellany.html#vctrs-package",
+    "title": "📦 Building tidy tools",
+    "section": "{vctrs} package",
+    "text": "{vctrs} package\n\ndesigned to help you construct S3 classes:\n\nespecially in the context of a column of a data frame\n\n\n\n\ncli::cli_abort() creates an S3 error condition:\n\nnot quite the same thing\nbut the same idea: let’s make it a little easier to manage"
+  },
+  {
+    "objectID": "materials/day-2-session-4-miscellany.html#our-turn-2.4.2",
+    "href": "materials/day-2-session-4-miscellany.html#our-turn-2.4.2",
+    "title": "📦 Building tidy tools",
+    "section": "Our turn \"2.4.2\"",
+    "text": "Our turn \"2.4.2\"\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.4.2\")\n\n\n\nGet new files, btt22::btt_get(\"2.4.2\"):\n\nresult.R\ntest-result.R\n\n\n\n\nusethis::use_package(\"glue\")\nusethis::use_package(\"vctrs\")\nadd #' @import vctrs to ussie-package.R."
+  },
+  {
+    "objectID": "materials/day-2-session-4-miscellany.html#what-problem-are-we-solving",
+    "href": "materials/day-2-session-4-miscellany.html#what-problem-are-we-solving",
+    "title": "📦 Building tidy tools",
+    "section": "What problem are we solving?",
+    "text": "What problem are we solving?\nA result displays two sets of information, according to team:\n\ngoals-for, goals-against: essential information\noutcome (win, loss, draw): based on goals for, against\n\n\nOur result structure should:\n\nstore essential information, e.g.:\n\ngoals_for = 3\ngoals_against = 2\n\ndisplay outcome with goals, e.g.: W 3-2."
+  },
+  {
+    "objectID": "materials/day-2-session-4-miscellany.html#low-level-constructor",
+    "href": "materials/day-2-session-4-miscellany.html#low-level-constructor",
+    "title": "📦 Building tidy tools",
+    "section": "Low-level constructor",
+    "text": "Low-level constructor\nnew_result <- function(goals_for = integer(), goals_against = integer()) {\n\n  # validate\n  vec_assert(goals_for, integer())\n  vec_assert(goals_against, integer(), size = length(goals_for))\n  \n  # construct rcrd class, using vctrs::new_rcrd()\n  new_rcrd(\n    list(goals_for = goals_for, goals_against = goals_against),\n    class = \"ussie_result\"\n  )\n}\nrcrd class is like a little data-frame."
+  },
+  {
+    "objectID": "materials/day-2-session-4-miscellany.html#high-level-constructor",
+    "href": "materials/day-2-session-4-miscellany.html#high-level-constructor",
+    "title": "📦 Building tidy tools",
+    "section": "High-level constructor",
+    "text": "High-level constructor\n#' @export\nuss_result <- function(goals_for = integer(), goals_against = integer()) {\n\n  # coerce to integer, lets us accept integer-ish arguments\n  goals_for <- vec_cast(goals_for, to = integer())\n  goals_against <- vec_cast(goals_against, to = integer())\n  \n  # call low-level constructor\n  new_result(goals_for, goals_against)\n}\nThis is what users “see” and use."
+  },
+  {
+    "objectID": "materials/day-2-session-4-miscellany.html#formatter",
+    "href": "materials/day-2-session-4-miscellany.html#formatter",
+    "title": "📦 Building tidy tools",
+    "section": "Formatter",
+    "text": "Formatter\n#' @export\nformat.ussie_result <- function(x, ...) {\n  \n  # field() is a vcrts function to extract a field from a rcrd\n  goals_for <- field(x, \"goals_for\")\n  goals_against <- field(x, \"goals_against\")\n  \n  result <- dplyr::case_when(...)\n  \n  # compose output\n  out <- glue::glue(\"{result} {goals_for}-{goals_against}\")\n  as.character(out)\n}"
+  },
+  {
+    "objectID": "materials/day-2-session-4-miscellany.html#lets-see-this-in-action",
+    "href": "materials/day-2-session-4-miscellany.html#lets-see-this-in-action",
+    "title": "📦 Building tidy tools",
+    "section": "Let’s see this in action",
+    "text": "Let’s see this in action\n\ndevtools::document()\ndevtools::load()\n\n\nuss_result(3, 2)\n\n\nuss_get_matches(\"italy\") |>\n  uss_make_teams_matches() |>\n  dplyr::mutate(\n    result = uss_result(goals_for, goals_against)\n  )"
+  },
+  {
+    "objectID": "materials/day-2-session-4-miscellany.html#abbreviators",
+    "href": "materials/day-2-session-4-miscellany.html#abbreviators",
+    "title": "📦 Building tidy tools",
+    "section": "Abbreviators",
+    "text": "Abbreviators\nThese control how the class name is displayed when printing:\n#' @export\nvec_ptype_abbr.ussie_result <- \n  function(x, ...) \"rslt\" \n\n#' @export\nvec_ptype_full.ussie_result <- \n  function(x, ...) \"result\""
+  },
+  {
+    "objectID": "materials/day-2-session-4-miscellany.html#recap-design",
+    "href": "materials/day-2-session-4-miscellany.html#recap-design",
+    "title": "📦 Building tidy tools",
+    "section": "Recap: Design",
+    "text": "Recap: Design\n\nNaming: be consistent, concise, yet evocative.\nArgument order: data, descriptors, dots, details.\nReturn value type: be consistent, predictable.\nEasy to remember data (first) argument and return value:\n\neasy to use pipe, |>.\n\nBe mindful of side effects."
+  },
+  {
+    "objectID": "materials/day-2-session-4-miscellany.html#recap-side-effects",
+    "href": "materials/day-2-session-4-miscellany.html#recap-side-effects",
+    "title": "📦 Building tidy tools",
+    "section": "Recap: Side-effects",
+    "text": "Recap: Side-effects\nThe most-common side-effect is an error. Good design:\n\nsimple (as possible) predicate\nclear mesage\nadd a class using naming convention, and additional information\n\nUse snapshot tests to capture side-effects.\n\nbe very careful when accepting changes to snapshots.\n\nUse withr::local_*() functions to “leave no footprints”."
+  },
+  {
+    "objectID": "materials/day-2-session-4-miscellany.html#recap-tidy-eval",
+    "href": "materials/day-2-session-4-miscellany.html#recap-tidy-eval",
+    "title": "📦 Building tidy tools",
+    "section": "Recap: Tidy eval",
+    "text": "Recap: Tidy eval\nThere are a lot of tidy-eval tools:\n\nknow if you are using a data-masking or tidy-select function.\n\n\n\nto splice a list (or vector) into dynamic-dots, use !!!\n\n\n\n\nFor data-masking functions:\n\nbe specific, use .data, .env pronouns.\nto use tidy-select syntax, use dplyr::across().\nto move a bunch of arguments, pass the dots, ...\nto interpolate a single argument, use {{}}."
+  },
+  {
+    "objectID": "materials/day-2-session-4-miscellany.html#recap-misc.",
+    "href": "materials/day-2-session-4-miscellany.html#recap-misc.",
+    "title": "📦 Building tidy tools",
+    "section": "Recap: Misc.",
+    "text": "Recap: Misc.\nAnonymous (use-once) functions can be handy:\n\nuse rlang::as_function() to accept purrr-style formula-functions, e.g. ~.x + 1\n\nUse {vctrs} package to help build and manage S3 classes."
+  },
+  {
+    "objectID": "materials/day-2-session-4-miscellany.html#recap",
+    "href": "materials/day-2-session-4-miscellany.html#recap",
+    "title": "📦 Building tidy tools",
+    "section": "Recap",
+    "text": "Recap\nIn Ian’s opinion, the tidyverse succeeds because it helps you build a mental model for composing functions to solve your problem. It does this by providing:\n\nconsistent naming of functions, arguments\nfocus on first argument, return value: supports |>\nconsistent implementation of non-standard evaluation\nmore-and-more informative error-messages"
+  },
+  {
+    "objectID": "materials/day-2-session-4-miscellany.html#un-recap",
+    "href": "materials/day-2-session-4-miscellany.html#un-recap",
+    "title": "📦 Building tidy tools",
+    "section": "Un-recap",
+    "text": "Un-recap\nWe did not cover how to manage change.\nChange is a necessary (and frustrating) part of success:\n\n{plyr} -> {dplyr}\n{reshape} -> {reshape2} -> {tidyr}\n\n\nDifferent levels of change:\n\ndeprecating functions, arguments\nbreaking changes\nused to be: add-a-2, becoming: editions"
+  },
+  {
+    "objectID": "materials/day-2-session-4-miscellany.html#if-you-remember-one-thing",
+    "href": "materials/day-2-session-4-miscellany.html#if-you-remember-one-thing",
+    "title": "📦 Building tidy tools",
+    "section": "If you remember one thing…",
+    "text": "If you remember one thing…\nDistinguish pure functions from functions that use side effects.\nPure functions:\n\nuse only the values of the arguments\nchange only the return value\nadd <- function(x, y) {\n  x + y\n}\n\nSide effects use or change something else in the universe:\n\ne.g.: read a file, print to screen"
+  },
+  {
+    "objectID": "materials/day-2-session-4-miscellany.html#references",
+    "href": "materials/day-2-session-4-miscellany.html#references",
+    "title": "📦 Building tidy tools",
+    "section": "References",
+    "text": "References\n\n\nhttps://bit.ly/.."
   },
   {
     "objectID": "materials/day-2-session-3-tidy-eval.html#learning-objectives",
