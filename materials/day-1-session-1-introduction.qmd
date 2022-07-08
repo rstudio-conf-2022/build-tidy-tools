@@ -49,6 +49,8 @@ Ted Laderas 🐦[\@tladeras](https://twitter.com/tladeras)
 :::
 :::
 
+ 
+
 Standing on the shoulders of Building Tidy Tools, rstudio::conf(2020) [@wickham2021a], R Packages [@wickham2020]
 
 ## Housekeeping
@@ -74,7 +76,7 @@ Detailed instructions for installing these are covered in [Prerequisites](pre-re
 ## Day 1
 
 | Time          | Activity                                                                                 |
-|:----------------------------------|:------------------------------------|
+|:-----------------|:-----------------------------------------------------|
 | 09:00 - 10:30 | [Session 1: Introduction and the whole game](materials/day-1-session-1-introduction.qmd) |
 | 10:30 - 11:00 | ☕ *Coffee break*                                                                        |
 | 11:00 - 12:30 | [Session 2: Documentation - Minimal](materials/day-1-session-2-doc-minimal.qmd)          |
@@ -86,7 +88,7 @@ Detailed instructions for installing these are covered in [Prerequisites](pre-re
 ## Day 2
 
 | Time          | Activity                                                              |
-|:----------------------------------|:------------------------------------|
+|:------------------|:----------------------------------------------------|
 | 09:00 - 10:30 | [Session 1: Function design](materials/day-2-session-1-design.qmd)    |
 | 10:30 - 11:00 | ☕ *Coffee break*                                                     |
 | 11:00 - 12:30 | [Session 2: Side effects](materials/day-2-session-2-side-effects.qmd) |
@@ -122,11 +124,12 @@ Reporting:
 ::: small
 At the end of this section you will be able to:
 
+-   Make changes to your `.Rprofile` and RStudio set to make ease the package writing process
 -   explain the rationale for writing packages
 -   find and explore their own package library/libraries
 -   describe the key components of a minimal package
 -   describe the different states a package can be in
--   outline the development of a package using `devtools`
+-   outline the development of a package using `devtools` [@devtools-2]
 -   create a simple version controlled package with a remote repo on GitHub
 -   use the package interactively with `devtools::load_all()`
 -   check package validity with `devtools::check()`
@@ -156,11 +159,11 @@ Margin column 80
 
 ## 🔥 Set up your `.Rprofile`
 
-Add default information about you that will be used in package development.
+The **`usethis`** [@usethis-2] package allows you to add default information about you that will be used in package development.
 
 \
 
-You can edit your `.Rprofile` with `usethis::edit_r_profile`:\
+🎬 Edit your `.Rprofile` with `usethis::edit_r_profile`:\
 
 ```{r}
 usethis::edit_r_profile()
@@ -189,7 +192,7 @@ options(
 
 ## 🔥 Set up your `.Rprofile`
 
-Load **`devtools`** on start up
+🎬 Load **`devtools`** and **`testthat`** [@testthat-2] on start up
 
 \
 
@@ -201,7 +204,7 @@ if (interactive()) {
 
 ```
 
-Restart R.
+🎬 Restart R for these to take an effect.
 
 # Why make a package?
 
@@ -313,7 +316,7 @@ dir(.Library)
 
 . . .
 
-**`ussie`** will allow you to work with European football league data supplied by the **`engsoccerdata`** package [@engsoccerdata]
+**`ussie`** will allow you to work with European football league data supplied by the **`engsoccerdata`** package [@engsoccerdata].
 
 ## Explore **`ussie`**
 
@@ -635,7 +638,6 @@ Is it ok to commit them?
 1: No way
 2: Negative
 3: I agree
-
 ```
 :::
 
@@ -682,10 +684,32 @@ usethis::use_github()
 ✔ Setting active project to 'C:/Users/er13/OneDrive - University of York/Desktop/Desktop/rstudio-conf-2022/ussie'
 ✔ Creating GitHub repository '3mmaRand/ussie'
 ✔ Setting remote 'origin' to 'https://github.com/3mmaRand/ussie.git'
+✔ Setting URL field in DESCRIPTION to 'https://github.com/3mmaRand/ussie'
+✔ Setting BugReports field in DESCRIPTION to 'https://github.com/3mmaRand/ussie/issues'
+There is 1 uncommitted file:
+* 'DESCRIPTION'
+Is it ok to commit it?
+
+1: Absolutely
+2: Nope
+3: No
+```
+:::
+
+🎬 Choose the option that means yes!
+
+##
+
+::: small
+``` default
+✔ Adding files
+✔ Making a commit with message 'Add GitHub links to DESCRIPTION'
 ✔ Pushing 'main' branch to GitHub and setting 'origin/main' as upstream branch
 ✔ Opening URL 'https://github.com/3mmaRand/ussie'
 ```
 :::
+
+
 
 ## 
 
@@ -694,6 +718,41 @@ usethis::use_github()
 ```{r}
 usethis::git_sitrep()
 ```
+
+::: extrasmall
+``` default
+Git config (global)
+• Name: 'Emma Rand'
+• Email: 'emma.rand@york.ac.uk'
+• Global (user-level) gitignore file: 'C:/Users/er13/.gitignore'
+• Vaccinated: TRUE
+• Default Git protocol: 'https'
+• Default initial branch name: 'master', 'main'
+GitHub
+• Default GitHub host: 'https://github.com'
+• Personal access token for 'https://github.com': '<discovered>'
+• GitHub user: '3mmaRand'
+• Token scopes: 'gist, repo, user, workflow'
+• Email(s): 'emma.rand@york.ac.uk (primary)', '7593411+3mmaRand@users.noreply.github.com'
+Git repo for current project
+• Active usethis project: 'C:/Users/er13/OneDrive - University of York/Desktop/Desktop/rstudio-conf-2022/ussie'
+• Default branch: 'main'
+• Current local branch -> remote tracking branch:
+  'main' -> 'origin/main'
+GitHub remote configuration
+• Type = 'ours'
+• Host = 'https://github.com'
+• Config supports a pull request = TRUE
+• origin = '3mmaRand/ussie' (can push)
+• upstream = <not configured>
+• Desc = 'origin' is both the source and primary repo.
+  
+  Read more about the GitHub remote configurations that usethis supports at:
+  'https://happygitwithr.com/common-remote-setups.html'
+```
+
+
+:::
 
 ## Add the first function
 
@@ -821,7 +880,7 @@ devtools::load_all()
 
 ## Experiment
 
-Try out the `uss_make_matches()` function in the console.
+🎬 Try out the `uss_make_matches()` function in the console.
 
 ```{r}
 uss_make_matches(engsoccerdata::italy)
@@ -938,17 +997,21 @@ Duration: 25.1s
     Date Season hgoal home tier vgoal visitor
 
 0 errors ✔ | 2 warnings ✖ | 1 note ✖
-
 ```
 :::
+
+\
+
+`man/` is created
 
 ## Aside: in case of error
 
 On running `devtools::check()` you may get an error if you are using a networked drive.
 
-    Updating ussie documentation  
-    Error: The specified file is not readable: path-to\ussie\NAMESPACE
-
+``` default
+Updating ussie documentation  
+Error: The specified file is not readable: path-to\ussie\NAMESPACE
+```
 \
 
 This is covered [here](https://stackoverflow.com/questions/40530968/overwriting-namespace-and-rd-with-roxygen2) and can be fixed.
@@ -996,7 +1059,6 @@ Duration: 25.1s
     Date Season hgoal home tier vgoal visitor
 
 0 errors ✔ | 2 warnings ✖ | 1 note ✖
-
 ```
 :::
 
@@ -1032,6 +1094,20 @@ Duration: 25.1s
 ```{r}
 usethis::use_mit_license("Emma Rand") 
 ```
+
+##
+
+::: small
+``` default
+✔ Setting License field in DESCRIPTION to 'MIT + file LICENSE'
+✔ Writing 'LICENSE'
+✔ Writing 'LICENSE.md'
+✔ Adding '^LICENSE\\.md$' to '.Rbuildignore'
+
+```
+:::
+
+
 
 ## `use_mit_license()`
 
