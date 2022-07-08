@@ -17,6 +17,7 @@ execute:
   echo: true
   eval: false
 bibliography: references.bib
+editor: source
 ---
 
 # 👋 Welcome Back
