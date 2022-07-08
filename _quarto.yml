@@ -19,7 +19,7 @@ website:
         - text: Packages
         - text: ---
         - text: "👋 & The Whole Game"
-          href: materials/day-2-session-1-design.html
+          href: materials/day-1-session-1-introduction.html
         - text: "Documentation: Minimal"
           href: materials/day-1-session-2-doc-minimal.html
         - text: Unit Tests
