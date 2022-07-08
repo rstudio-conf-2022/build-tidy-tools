@@ -231,7 +231,7 @@ Read more about testing in the recently updated chapter in R Packages [@wickham2
 
 -   a test groups several 'expectations'. An expectation:
     -   has the form: `expect_zzzz(actual_result, expectation)`
-    -   if `actual_result` = `expectation` no error
+    -   if `actual_result` == `expectation` no error
     -   if `actual_result` != `expectation` Error
 
 # Workflow
