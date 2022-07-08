@@ -31,7 +31,7 @@ website:
         - text: ---
         - text: Design
           href: materials/day-2-session-1-design.html
-        - text: Managing Side-Sffects
+        - text: Managing Side-Effects
           href: materials/day-2-session-2-side-effects.html
         - text: Tidy Eval
           href: materials/day-2-session-3-tidy-eval.html
