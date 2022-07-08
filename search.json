@@ -298,7 +298,7 @@
     "href": "materials/day-1-session-1-introduction.html#the-team",
     "title": "📦 Building tidy tools",
     "section": "The team",
-    "text": "The team\n\n\nEmma Rand 🐦@er13_r\nElliot Murphy\nBeatriz Milz 🐦@BeaMilz\n\nIan Lyttle 🐦@ijlyttle\nHaley Jeppson\nTed Laderas 🐦@tladeras\n\n\nStanding on the shoulders of Building Tidy Tools, rstudio::conf(2020) (C. Wickham and Wickham 2021), R Packages (H. Wickham and Bryan 2020)"
+    "text": "The team\n\n\nEmma Rand 🐦@er13_r\nElliot Murphy\nBeatriz Milz 🐦@BeaMilz\n\nIan Lyttle 🐦@ijlyttle\nHaley Jeppson\nTed Laderas 🐦@tladeras\n\n\n \nStanding on the shoulders of Building Tidy Tools, rstudio::conf(2020) (C. Wickham and Wickham 2021), R Packages (H. Wickham and Bryan 2020)"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#housekeeping",
@@ -347,7 +347,7 @@
     "href": "materials/day-1-session-1-introduction.html#learning-objectives",
     "title": "📦 Building tidy tools",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\n\nAt the end of this section you will be able to:\n\nexplain the rationale for writing packages\nfind and explore their own package library/libraries\ndescribe the key components of a minimal package\ndescribe the different states a package can be in\noutline the development of a package using devtools\ncreate a simple version controlled package with a remote repo on GitHub\nuse the package interactively with devtools::load_all()\ncheck package validity with devtools::check()"
+    "text": "Learning Objectives\n\nAt the end of this section you will be able to:\n\nMake changes to your .Rprofile and RStudio set to make ease the package writing process\nexplain the rationale for writing packages\nfind and explore their own package library/libraries\ndescribe the key components of a minimal package\ndescribe the different states a package can be in\noutline the development of a package using devtools (H. Wickham et al. 2021)\ncreate a simple version controlled package with a remote repo on GitHub\nuse the package interactively with devtools::load_all()\ncheck package validity with devtools::check()"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#global-options",
@@ -361,7 +361,7 @@
     "href": "materials/day-1-session-1-introduction.html#set-up-your-.rprofile",
     "title": "📦 Building tidy tools",
     "section": "🔥 Set up your .Rprofile",
-    "text": "🔥 Set up your .Rprofile\nAdd default information about you that will be used in package development.\n\n\nYou can edit your .Rprofile with usethis::edit_r_profile:\n\n\nusethis::edit_r_profile()\n\n\n\nto set the following options…."
+    "text": "🔥 Set up your .Rprofile\nThe usethis (H. Wickham, Bryan, and Barrett 2022) package allows you to add default information about you that will be used in package development.\n\n\n🎬 Edit your .Rprofile with usethis::edit_r_profile:\n\n\nusethis::edit_r_profile()\n\n\n\nto set the following options…."
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#set-up-your-.rprofile-1",
@@ -375,7 +375,7 @@
     "href": "materials/day-1-session-1-introduction.html#set-up-your-.rprofile-2",
     "title": "📦 Building tidy tools",
     "section": "🔥 Set up your .Rprofile",
-    "text": "🔥 Set up your .Rprofile\nLoad devtools on start up\n\n\n\nif (interactive()) {\n  suppressMessages(require(devtools))\n  suppressMessages(require(testthat))\n}\n\nRestart R."
+    "text": "🔥 Set up your .Rprofile\n🎬 Load devtools and testthat (H. Wickham 2011) on start up\n\n\n\nif (interactive()) {\n  suppressMessages(require(devtools))\n  suppressMessages(require(testthat))\n}\n\n🎬 Restart R for these to take an effect."
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#why-make-a-package-1",
@@ -445,7 +445,7 @@
     "href": "materials/day-1-session-1-introduction.html#the-ussie-package",
     "title": "📦 Building tidy tools",
     "section": "The ussie package",
-    "text": "The ussie package\n\nWe will create a version controlled package called ussie with a remote repo on GitHub.\n\n\n\n\nussie will allow you to work with European football league data supplied by the engsoccerdata package (Curley 2016)"
+    "text": "The ussie package\n\nWe will create a version controlled package called ussie with a remote repo on GitHub.\n\n\n\n\nussie will allow you to work with European football league data supplied by the engsoccerdata package (Curley 2016)."
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#explore-ussie",
@@ -592,14 +592,21 @@
     "href": "materials/day-1-session-1-introduction.html#section-3",
     "title": "📦 Building tidy tools",
     "section": "",
-    "text": "ℹ Defaulting to 'https' Git protocol\n✔ Setting active project to 'C:/Users/er13/OneDrive - University of York/Desktop/Desktop/rstudio-conf-2022/ussie'\n✔ Creating GitHub repository '3mmaRand/ussie'\n✔ Setting remote 'origin' to 'https://github.com/3mmaRand/ussie.git'\n✔ Pushing 'main' branch to GitHub and setting 'origin/main' as upstream branch\n✔ Opening URL 'https://github.com/3mmaRand/ussie'"
+    "text": "ℹ Defaulting to 'https' Git protocol\n✔ Setting active project to 'C:/Users/er13/OneDrive - University of York/Desktop/Desktop/rstudio-conf-2022/ussie'\n✔ Creating GitHub repository '3mmaRand/ussie'\n✔ Setting remote 'origin' to 'https://github.com/3mmaRand/ussie.git'\n✔ Setting URL field in DESCRIPTION to 'https://github.com/3mmaRand/ussie'\n✔ Setting BugReports field in DESCRIPTION to 'https://github.com/3mmaRand/ussie/issues'\nThere is 1 uncommitted file:\n* 'DESCRIPTION'\nIs it ok to commit it?\n\n1: Absolutely\n2: Nope\n3: No\n\n🎬 Choose the option that means yes!"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#section-4",
     "href": "materials/day-1-session-1-introduction.html#section-4",
     "title": "📦 Building tidy tools",
     "section": "",
-    "text": "🎬 Quick check with:\n\nusethis::git_sitrep()"
+    "text": "✔ Adding files\n✔ Making a commit with message 'Add GitHub links to DESCRIPTION'\n✔ Pushing 'main' branch to GitHub and setting 'origin/main' as upstream branch\n✔ Opening URL 'https://github.com/3mmaRand/ussie'"
+  },
+  {
+    "objectID": "materials/day-1-session-1-introduction.html#section-5",
+    "href": "materials/day-1-session-1-introduction.html#section-5",
+    "title": "📦 Building tidy tools",
+    "section": "",
+    "text": "🎬 Quick check with:\n\nusethis::git_sitrep()\n\n\nGit config (global)\n• Name: 'Emma Rand'\n• Email: 'emma.rand@york.ac.uk'\n• Global (user-level) gitignore file: 'C:/Users/er13/.gitignore'\n• Vaccinated: TRUE\n• Default Git protocol: 'https'\n• Default initial branch name: 'master', 'main'\nGitHub\n• Default GitHub host: 'https://github.com'\n• Personal access token for 'https://github.com': '<discovered>'\n• GitHub user: '3mmaRand'\n• Token scopes: 'gist, repo, user, workflow'\n• Email(s): 'emma.rand@york.ac.uk (primary)', '7593411+3mmaRand@users.noreply.github.com'\nGit repo for current project\n• Active usethis project: 'C:/Users/er13/OneDrive - University of York/Desktop/Desktop/rstudio-conf-2022/ussie'\n• Default branch: 'main'\n• Current local branch -> remote tracking branch:\n  'main' -> 'origin/main'\nGitHub remote configuration\n• Type = 'ours'\n• Host = 'https://github.com'\n• Config supports a pull request = TRUE\n• origin = '3mmaRand/ussie' (can push)\n• upstream = <not configured>\n• Desc = 'origin' is both the source and primary repo.\n  \n  Read more about the GitHub remote configurations that usethis supports at:\n  'https://happygitwithr.com/common-remote-setups.html'"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#add-the-first-function",
@@ -655,7 +662,7 @@
     "href": "materials/day-1-session-1-introduction.html#experiment",
     "title": "📦 Building tidy tools",
     "section": "Experiment",
-    "text": "Experiment\nTry out the uss_make_matches() function in the console.\n\nuss_make_matches(engsoccerdata::italy)\n\n\n# A tibble: 25,404 × 7\n    tier season date       home   visitor goals_home goals_visitor\n   <int>  <int> <date>     <chr>  <chr>        <int>         <int>\n 1     1   1934 1934-09-30 Lazio… US Liv…          6             1\n 2     1   1934 1934-09-30 Torin… Unione…          3             1\n 3     1   1934 1934-09-30 Sampi… Bologn…          2             1\n 4     1   1934 1934-09-30 SSC N… US Ale…          0             1\n 5     1   1934 1934-09-30 ACF F… AS Roma          4             1\n 6     1   1934 1934-09-30 Bresc… Juvent…          0             2\n 7     1   1934 1934-09-30 Inter  US Pal…          3             0\n 8     1   1934 1934-09-30 Pro V… AC Mil…          1             2\n 9     1   1934 1934-10-07 AC Mi… ACF Fi…          1             1\n10     1   1934 1934-10-07 US Li… Inter            1             1\n# … with 25,394 more rows\n\n🤔 There’s no column for the country - that could be confusing"
+    "text": "Experiment\n🎬 Try out the uss_make_matches() function in the console.\n\nuss_make_matches(engsoccerdata::italy)\n\n\n# A tibble: 25,404 × 7\n    tier season date       home   visitor goals_home goals_visitor\n   <int>  <int> <date>     <chr>  <chr>        <int>         <int>\n 1     1   1934 1934-09-30 Lazio… US Liv…          6             1\n 2     1   1934 1934-09-30 Torin… Unione…          3             1\n 3     1   1934 1934-09-30 Sampi… Bologn…          2             1\n 4     1   1934 1934-09-30 SSC N… US Ale…          0             1\n 5     1   1934 1934-09-30 ACF F… AS Roma          4             1\n 6     1   1934 1934-09-30 Bresc… Juvent…          0             2\n 7     1   1934 1934-09-30 Inter  US Pal…          3             0\n 8     1   1934 1934-09-30 Pro V… AC Mil…          1             2\n 9     1   1934 1934-10-07 AC Mi… ACF Fi…          1             1\n10     1   1934 1934-10-07 US Li… Inter            1             1\n# … with 25,394 more rows\n\n🤔 There’s no column for the country - that could be confusing"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#update-the-function",
@@ -686,11 +693,11 @@
     "text": "devtools::check()\n🎬 Check your package:\n\ndevtools::check()"
   },
   {
-    "objectID": "materials/day-1-session-1-introduction.html#section-5",
-    "href": "materials/day-1-session-1-introduction.html#section-5",
+    "objectID": "materials/day-1-session-1-introduction.html#section-6",
+    "href": "materials/day-1-session-1-introduction.html#section-6",
     "title": "📦 Building tidy tools",
     "section": "",
-    "text": "── R CMD check results ───────────────────────────────────── ussie 0.0.0.9000 ────\nDuration: 25.1s\n\n❯ checking DESCRIPTION meta-information ... WARNING\n  Non-standard license specification:\n    `use_mit_license()`, `use_gpl3_license()` or friends to pick a\n    license\n  Standardizable: FALSE\n\n❯ checking dependencies in R code ... WARNING\n  '::' or ':::' imports not declared from:\n    'dplyr' 'tibble'\n\n❯ checking R code for possible problems ... NOTE\n  uss_make_matches: no visible binding for global variable 'tier'\n  uss_make_matches: no visible binding for global variable 'Season'\n  uss_make_matches: no visible binding for global variable 'Date'\n  uss_make_matches: no visible binding for global variable 'home'\n  uss_make_matches: no visible binding for global variable 'visitor'\n  uss_make_matches: no visible binding for global variable 'hgoal'\n  uss_make_matches: no visible binding for global variable 'vgoal'\n  Undefined global functions or variables:\n    Date Season hgoal home tier vgoal visitor\n\n0 errors ✔ | 2 warnings ✖ | 1 note ✖"
+    "text": "── R CMD check results ───────────────────────────────────── ussie 0.0.0.9000 ────\nDuration: 25.1s\n\n❯ checking DESCRIPTION meta-information ... WARNING\n  Non-standard license specification:\n    `use_mit_license()`, `use_gpl3_license()` or friends to pick a\n    license\n  Standardizable: FALSE\n\n❯ checking dependencies in R code ... WARNING\n  '::' or ':::' imports not declared from:\n    'dplyr' 'tibble'\n\n❯ checking R code for possible problems ... NOTE\n  uss_make_matches: no visible binding for global variable 'tier'\n  uss_make_matches: no visible binding for global variable 'Season'\n  uss_make_matches: no visible binding for global variable 'Date'\n  uss_make_matches: no visible binding for global variable 'home'\n  uss_make_matches: no visible binding for global variable 'visitor'\n  uss_make_matches: no visible binding for global variable 'hgoal'\n  uss_make_matches: no visible binding for global variable 'vgoal'\n  Undefined global functions or variables:\n    Date Season hgoal home tier vgoal visitor\n\n0 errors ✔ | 2 warnings ✖ | 1 note ✖\n\n\n\nman/ is created"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#aside-in-case-of-error",
@@ -707,8 +714,8 @@
     "text": "Aside: in case of error\nSave a copy of this file:\nfix_for_networked_drives.R\nSave it somewhere other than the ussie directory\nOpen the file from the ussie project session\nRun the whole file\nYou should now find that check() proceeds normally"
   },
   {
-    "objectID": "materials/day-1-session-1-introduction.html#section-6",
-    "href": "materials/day-1-session-1-introduction.html#section-6",
+    "objectID": "materials/day-1-session-1-introduction.html#section-7",
+    "href": "materials/day-1-session-1-introduction.html#section-7",
     "title": "📦 Building tidy tools",
     "section": "",
     "text": "── R CMD check results ───────────────────────────────────── ussie 0.0.0.9000 ────\nDuration: 25.1s\n\n❯ checking DESCRIPTION meta-information ... WARNING\n  Non-standard license specification:\n    `use_mit_license()`, `use_gpl3_license()` or friends to pick a\n    license\n  Standardizable: FALSE\n\n❯ checking dependencies in R code ... WARNING\n  '::' or ':::' imports not declared from:\n    'dplyr' 'tibble'\n\n❯ checking R code for possible problems ... NOTE\n  uss_make_matches: no visible binding for global variable 'tier'\n  uss_make_matches: no visible binding for global variable 'Season'\n  uss_make_matches: no visible binding for global variable 'Date'\n  uss_make_matches: no visible binding for global variable 'home'\n  uss_make_matches: no visible binding for global variable 'visitor'\n  uss_make_matches: no visible binding for global variable 'hgoal'\n  uss_make_matches: no visible binding for global variable 'vgoal'\n  Undefined global functions or variables:\n    Date Season hgoal home tier vgoal visitor\n\n0 errors ✔ | 2 warnings ✖ | 1 note ✖"
@@ -726,6 +733,13 @@
     "title": "📦 Building tidy tools",
     "section": "Add a license",
     "text": "Add a license\nusethis helps out again!\n\n\nuse_mit_license(), use_agpl_license(), use_ccby_license() etc\n\n\n🎬 Add a MIT license1 - use your own name!\n\nusethis::use_mit_license(\"Emma Rand\") \n\nMIT: Simple and permissive license that lets people use and freely distribute your code"
+  },
+  {
+    "objectID": "materials/day-1-session-1-introduction.html#section-8",
+    "href": "materials/day-1-session-1-introduction.html#section-8",
+    "title": "📦 Building tidy tools",
+    "section": "",
+    "text": "✔ Setting License field in DESCRIPTION to 'MIT + file LICENSE'\n✔ Writing 'LICENSE'\n✔ Writing 'LICENSE.md'\n✔ Adding '^LICENSE\\\\.md$' to '.Rbuildignore'"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#use_mit_license",
@@ -753,7 +767,7 @@
     "href": "materials/day-1-session-1-introduction.html#references",
     "title": "📦 Building tidy tools",
     "section": "References",
-    "text": "References\n\n\nhttps://rstd.io/btt\n\n\n\nCurley, James. 2016. “Engsoccerdata: English and European Soccer Results 1871-2016.” https://CRAN.R-project.org/package=engsoccerdata.\n\n\nWickham, Charlotte, and Hadley Wickham. 2021. Building Tidy Tools. rstudio::conf 2020. https://github.com/rstudio-conf-2020/build-tidy-tools.\n\n\nWickham, Hadley, and Jenny Bryan. 2020. R Packages. The work-in-progress 2nd edition. Online. https://r-pkgs.org/index.html."
+    "text": "References\n\n\nhttps://rstd.io/btt\n\n\n\nCurley, James. 2016. “Engsoccerdata: English and European Soccer Results 1871-2016.” https://CRAN.R-project.org/package=engsoccerdata.\n\n\nWickham, Charlotte, and Hadley Wickham. 2021. Building Tidy Tools. rstudio::conf 2020. https://github.com/rstudio-conf-2020/build-tidy-tools.\n\n\nWickham, Hadley. 2011. “Testthat: Get Started with Testing” 3. https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf.\n\n\nWickham, Hadley, Jennifer Bryan, and Malcolm Barrett. 2022. “Usethis: Automate Package and Project Setup.” https://CRAN.R-project.org/package=usethis.\n\n\nWickham, Hadley, and Jenny Bryan. 2020. R Packages. The work-in-progress 2nd edition. Online. https://r-pkgs.org/index.html.\n\n\nWickham, Hadley, Jim Hester, Winston Chang, and Jennifer Bryan. 2021. “Devtools: Tools to Make Developing r Packages Easier.” https://CRAN.R-project.org/package=devtools."
   },
   {
     "objectID": "materials/day-1-session-2-doc-minimal.html#learning-objectives",
