@@ -284,7 +284,7 @@
     "href": "materials/day-2-session-1-design.html#references",
     "title": "📦 Building tidy tools",
     "section": "References",
-    "text": "References\n\n\nhttps://bit.ly/..\n\n\n\nWickham, Charlotte, and Hadley Wickham. 2021. Building Tidy Tools. rstudio::conf 2020. https://github.com/rstudio-conf-2020/build-tidy-tools.\n\n\nWickham, Hadley, and Jenny Bryan. 2020. R Packages. The work-in-progress 2nd edition. Online. https://r-pkgs.org/index.html."
+    "text": "References\n\n\nhttps://rstd.io/btt\n\n\n\nWickham, Charlotte, and Hadley Wickham. 2021. Building Tidy Tools. rstudio::conf 2020. https://github.com/rstudio-conf-2020/build-tidy-tools.\n\n\nWickham, Hadley, and Jenny Bryan. 2020. R Packages. The work-in-progress 2nd edition. Online. https://r-pkgs.org/index.html."
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#introductions",
@@ -753,7 +753,7 @@
     "href": "materials/day-1-session-1-introduction.html#references",
     "title": "📦 Building tidy tools",
     "section": "References",
-    "text": "References\n\n\nhttps://bit.ly/..\n\n\n\nCurley, James. 2016. “Engsoccerdata: English and European Soccer Results 1871-2016.” https://CRAN.R-project.org/package=engsoccerdata.\n\n\nWickham, Charlotte, and Hadley Wickham. 2021. Building Tidy Tools. rstudio::conf 2020. https://github.com/rstudio-conf-2020/build-tidy-tools.\n\n\nWickham, Hadley, and Jenny Bryan. 2020. R Packages. The work-in-progress 2nd edition. Online. https://r-pkgs.org/index.html."
+    "text": "References\n\n\nhttps://rstd.io/btt\n\n\n\nCurley, James. 2016. “Engsoccerdata: English and European Soccer Results 1871-2016.” https://CRAN.R-project.org/package=engsoccerdata.\n\n\nWickham, Charlotte, and Hadley Wickham. 2021. Building Tidy Tools. rstudio::conf 2020. https://github.com/rstudio-conf-2020/build-tidy-tools.\n\n\nWickham, Hadley, and Jenny Bryan. 2020. R Packages. The work-in-progress 2nd edition. Online. https://r-pkgs.org/index.html."
   },
   {
     "objectID": "materials/day-1-session-2-doc-minimal.html#learning-objectives",
@@ -1033,7 +1033,7 @@
     "href": "materials/day-1-session-2-doc-minimal.html#references",
     "title": "📦 Building tidy tools",
     "section": "References",
-    "text": "References\n\n\nhttps://bit.ly/..\n\n\n\nDruskat, Stephan, Jurriaan H. Spaaks, Neil Chue Hong, Robert Haines, James Baker, Spencer Bliven, Egon Willighagen, David Pérez-Suárez, and Alexander Konovalov. 2021. “Citation File Format,” August. https://doi.org/10.5281/zenodo.5171937.\n\n\nHernangómez, Diego. 2021. “Cffr: Generate Citation File Format Metadata for r Packages” 6: 3900. https://doi.org/10.21105/joss.03900.\n\n\nHorst, Allison Marie, Alison Presmanes Hill, and Kristen B Gorman. 2020. “Palmerpenguins: Palmer Archipelago (Antarctica) Penguin Data.” https://allisonhorst.github.io/palmerpenguins/.\n\n\nWickham, Hadley. 2016. “Ggplot2: Elegant Graphics for Data Analysis.” https://ggplot2.tidyverse.org.\n\n\nWickham, Hadley, Peter Danenberg, Gábor Csárdi, and Manuel Eugster. 2022. “Roxygen2: In-Line Documentation for r.” https://CRAN.R-project.org/package=roxygen2.\n\n\nWickham, Hadley, Jay Hesselberth, and Maëlle Salmon. 2022. “Pkgdown: Make Static HTML Documentation for a Package.” https://CRAN.R-project.org/package=pkgdown."
+    "text": "References\n\n\nhttps://rstd.io/btt\n\n\n\nDruskat, Stephan, Jurriaan H. Spaaks, Neil Chue Hong, Robert Haines, James Baker, Spencer Bliven, Egon Willighagen, David Pérez-Suárez, and Alexander Konovalov. 2021. “Citation File Format,” August. https://doi.org/10.5281/zenodo.5171937.\n\n\nHernangómez, Diego. 2021. “Cffr: Generate Citation File Format Metadata for r Packages” 6: 3900. https://doi.org/10.21105/joss.03900.\n\n\nHorst, Allison Marie, Alison Presmanes Hill, and Kristen B Gorman. 2020. “Palmerpenguins: Palmer Archipelago (Antarctica) Penguin Data.” https://allisonhorst.github.io/palmerpenguins/.\n\n\nWickham, Hadley. 2016. “Ggplot2: Elegant Graphics for Data Analysis.” https://ggplot2.tidyverse.org.\n\n\nWickham, Hadley, Peter Danenberg, Gábor Csárdi, and Manuel Eugster. 2022. “Roxygen2: In-Line Documentation for r.” https://CRAN.R-project.org/package=roxygen2.\n\n\nWickham, Hadley, Jay Hesselberth, and Maëlle Salmon. 2022. “Pkgdown: Make Static HTML Documentation for a Package.” https://CRAN.R-project.org/package=pkgdown."
   },
   {
     "objectID": "materials/day-2-session-2-side-effects.html#learning-objectives",
@@ -1201,7 +1201,7 @@
     "href": "materials/day-2-session-2-side-effects.html#references",
     "title": "📦 Building tidy tools",
     "section": "References",
-    "text": "References\n\n\nhttps://bit.ly/.."
+    "text": "References\n\n\nhttps://rstd.io/btt"
   },
   {
     "objectID": "materials/day-1-session-3-testing.html#learning-objectives",
@@ -1509,7 +1509,7 @@
     "href": "materials/day-1-session-3-testing.html#references",
     "title": "📦 Building tidy tools",
     "section": "References",
-    "text": "References\n\n\nhttps://bit.ly/..\n\n\n\nWickham, Hadley. 2011. “Testthat: Get Started with Testing” 3. https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf.\n\n\nWickham, Hadley, and Jenny Bryan. 2020. R Packages. The work-in-progress 2nd edition. Online. https://r-pkgs.org/index.html."
+    "text": "References\n\n\nhttps://rstd.io/btt\n\n\n\nWickham, Hadley. 2011. “Testthat: Get Started with Testing” 3. https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf.\n\n\nWickham, Hadley, and Jenny Bryan. 2020. R Packages. The work-in-progress 2nd edition. Online. https://r-pkgs.org/index.html."
   },
   {
     "objectID": "materials/day-2-session-4-miscellany.html#learning-objectives",
@@ -1677,7 +1677,7 @@
     "href": "materials/day-2-session-4-miscellany.html#references",
     "title": "📦 Building tidy tools",
     "section": "References",
-    "text": "References\n\n\nhttps://bit.ly/.."
+    "text": "References\n\n\nhttps://rstd.io/btt"
   },
   {
     "objectID": "materials/day-2-session-3-tidy-eval.html#learning-objectives",
@@ -1901,7 +1901,7 @@
     "href": "materials/day-2-session-3-tidy-eval.html#references",
     "title": "📦 Building tidy tools",
     "section": "References",
-    "text": "References\n\n\nhttps://bit.ly/.."
+    "text": "References\n\n\nhttps://rstd.io/btt"
   },
   {
     "objectID": "pre-reqs.html",
