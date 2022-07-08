@@ -30,6 +30,7 @@ At the end of this section you will be able to:
 -   Describe what is in the `DESCRIPTION` file and know what to edit manually and which parts **`devtools`** will edit automagically
 -   Document a function with Roxygen comments and use the **`devtools`** workflow to convert to "R documentation" format `.Rd`
 -   Use some of the most common Roxygen tags
+-   Add a package level help file
 -   Describe, and document your package with, the common types of package dependencies
 -   Add a citation file in Citation File Format (CFF)
 :::
@@ -41,6 +42,8 @@ At the end of this section you will be able to:
 -   Metadata: The `DESCRIPTION` file -- "what's in this package?"
 
 -   Object documentation: for functions and data
+
+-   Package-level documentation
 
 <!-- for each of the exported functions and datasets in the package, along with examples of usage -->
 
@@ -105,7 +108,7 @@ RoxygenNote: 7.2.0
 
 ## Metadata in `DESCRIPTION`
 
--   Description: One paragraph describing what the package does. Keep the width of the paragraph to 80 characters; indent subsequent lines with 4 spaces
+-   Description: One paragraph describing what the package does. Keep the width of the paragraph to 80 characters; indent subsequent lines with 4 spaces.
 
 -   License
 
@@ -123,7 +126,7 @@ RoxygenNote: 7.2.0
 ``` default
 Description: This is a demo package for the "Building Tidy Tools" workshop at 
     at rstudio::conf(2022L). It allows you to work with European football 
-    league data supplied by the engsoccerdata package (Curley 2016)
+    league data supplied by the engsoccerdata package (Curley 2016).
 ```
 :::
 
@@ -277,7 +280,7 @@ uss_make_matches <- function(data_engsoc, country) {
     -   `@examples`--- show how the function works
     -   `@seealso` --- point out related functions
     -   `@returns` --- describe the outputs
-    -   `@param arg` --- is this a user visible function
+    -   `@export` --- is this a user visible function
 
 ## Document your function
 
@@ -338,8 +341,7 @@ We will that fix later!
 ```
 
 -   `NAMESPACE` now lists the exported function
--   `man/` directory has appeared
--   `uss_make_matches.Rd` has been written
+-   `man/uss_make_matches.Rd` has been written
 
 ## Take a look 2
 
@@ -375,6 +377,60 @@ We need to add a usage example!
 
 🎬 Preview the documentation with `?uss_make_matches` and edit if needed
 
+## Package-level help page
+
+🎬 What happens if you do:
+```{r}
+?ussie
+```
+
+. . .
+
+``` default
+No documentation for 'ussie' in specified packages and libraries:
+you could try '??ussie'
+```
+
+## Package-level help page
+
+We can fix this with `use_package_doc()`
+
+🎬 Add a package-level help page:
+
+```{r}
+usethis::use_package_doc()
+```
+
+. . .
+
+``` default
+✔ Writing 'R/ussie-package.R'
+• Modify 'R/ussie-package.R'
+```
+
+. . .
+
+🎬 Run `devtools::document()` then `devtools::load_all()` followed by `?ussie`
+
+## 
+
+rationale needed....why imports from for tibble but not dplyr??
+
+🎬 fgdg
+
+```{r}
+usethis::use_import_from("tibble", "tibble")
+```
+
+. . .
+
+``` default
+✔ Adding 'tibble' to Imports field in DESCRIPTION
+✔ Adding '@importFrom tibble tibble' to 'R/ussie-package.R'
+✔ Writing 'NAMESPACE'
+✔ Loading ussie
+```
+
 ## `devtools::check()`
 
 This is a good time to run R CMD check using `devtools::check()` to ensure our package is in full working order.
@@ -385,12 +441,11 @@ This is a good time to run R CMD check using `devtools::check()` to ensure our p
 
 ::: extrasmall
 ``` default
-── R CMD check results ────────────────────────────────────────────── ussie 0.0.0.9000 ────
-Duration: 29.5s
+── R CMD check results ─────────────────────────────────── ussie 0.0.0.9000 ────
+Duration: 40.4s
 
 ❯ checking dependencies in R code ... WARNING
-  '::' or ':::' imports not declared from:
-    'dplyr' 'tibble'
+  '::' or ':::' import not declared from: 'dplyr'
 
 ❯ checking for unstated dependencies in examples ... WARNING
   '::' or ':::' import not declared from: 'engsoccerdata'
@@ -407,6 +462,7 @@ Duration: 29.5s
     Date Season hgoal home tier vgoal visitor
 
 0 errors ✔ | 2 warnings ✖ | 1 note ✖
+
 ```
 :::
 
@@ -435,8 +491,7 @@ We need to document our package dependencies
 ::: extrasmall
 ``` default
 ❯ checking dependencies in R code ... WARNING
-  '::' or ':::' imports not declared from:
-    'dplyr' 'tibble'
+  '::' or ':::' import not declared from: 'dplyr'
 
 ❯ checking for unstated dependencies in examples ... WARNING
   '::' or ':::' import not declared from: 'engsoccerdata'
@@ -474,13 +529,7 @@ Note: we get reminded to "Refer to functions with `dplyr::fun()`"
 
 That is, we do NOT use `library(dplyr)` to make functions available to our package.
 
-. . .
 
-🎬 Repeat for **`tibble`**
-
-```{r}
-usethis::use_package("tibble")
-```
 
 ## `devtools::check()`
 
