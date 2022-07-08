@@ -616,7 +616,7 @@ Congratulations! This .cff file is valid
 ```
 :::
 
-# 🏷️Yee haw! 🏷️ <BR> Your package has has documentation!
+# 🏷️Yee haw! 🏷️ <BR> Your package has documentation!
 
 ## Summary
 
