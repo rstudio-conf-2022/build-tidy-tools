@@ -13,6 +13,30 @@ website:
         text: Prerequisites
       - href: schedule.qmd
         text: Schedule
+      - text: Materials
+        menu:
+        - text: ---
+        - text: Packages
+        - text: ---
+        - text: "👋 & The Whole Game"
+          href: materials/day-2-session-1-design.html
+        - text: "Documentation: Minimal"
+          href: materials/day-1-session-2-doc-minimal.html
+        - text: Unit Tests
+          href: materials/day-1-session-3-testing.html
+        - text: "Documentation: Sharing"
+          href: "#"
+        - text: ---
+        - text: Functions
+        - text: ---
+        - text: Design
+          href: materials/day-2-session-1-design.html
+        - text: Managing Side-Effects
+          href: materials/day-2-session-2-side-effects.html
+        - text: Tidy Eval
+          href: materials/day-2-session-3-tidy-eval.html
+        - text: Miscellany
+          href: materials/day-2-session-4-miscellany.html
 
 
 format:

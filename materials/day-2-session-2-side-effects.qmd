@@ -1,6 +1,6 @@
 ---
 title: "📦 <br>Building tidy tools"
-subtitle: "Day 2 Session 2: Working with Side Effects"
+subtitle: "Day 2 Session 2: Managing Side Effects"
 author: "Emma Rand and Ian Lyttle"
 date: "<br>🔗 [rstd.io/btt](https://rstd.io/btt)"
 format:
