@@ -73,7 +73,7 @@ There are two families of tidy-eval arguments:
  
    ```r
    mtcars |>
-     dplyr:select(starts_with("w"))
+     dplyr::select(starts_with("w"))
    ```
    
 ## Ways to express tidy-eval 
@@ -380,7 +380,6 @@ usethis::use_import_from("rlang", ":=")
 
 ```r
 name_of_at_home <- "at_home"
-
 teams_matches_visitor <-
   data_matches |>
   dplyr::rename(!!!rename_visitor()) |>
@@ -503,7 +502,7 @@ result <-
 
 . . .
 
-No bare-names in `across()`; we don't need `all_of()`.
+Not using variable-names in *tidy-select* that could be confused for column-names; we don't need `all_of()`.
 
 ## Accepting new snapshot
 
@@ -632,10 +631,8 @@ mutate_greet <- function(.data, greeting) {
  
 Get new files, `btt22::btt_get("2.3.7")`:
 
-- `points.R`
-- `seasons.R`
-- `test-points.R`
-- `test-seasons.R`
+- `points.R`, `seasons.R`
+- `test-points.R`, `test-seasons.R`
 
 `usethis::use_package("ggplot2")`
 
