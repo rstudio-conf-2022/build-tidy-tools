@@ -74,7 +74,7 @@ There are two families of tidy-eval arguments:
  
    ```r
    mtcars |>
-     dplyr:select(starts_with("w"))
+     dplyr::select(starts_with("w"))
    ```
    
 ## Ways to express tidy-eval 
@@ -381,7 +381,6 @@ usethis::use_import_from("rlang", ":=")
 
 ```r
 name_of_at_home <- "at_home"
-
 teams_matches_visitor <-
   data_matches |>
   dplyr::rename(!!!rename_visitor()) |>
@@ -417,6 +416,62 @@ mtcars |>
   )
 ```
 
+## Tidy-select and ambiguity
+
+```r
+library("dplyr")
+
+mtcars |> select(cyl) |> glimpse()
+```
+
+. . .
+
+```r
+placeholder <- c("wt", "mpg")
+mtcars |> select(placeholder) |> glimpse()
+```
+
+. . . 
+
+```r
+cyl <- c("wt", "mpg")
+mtcars |> select(cyl) |> glimpse()
+```
+
+. . .
+
+```r
+mtcars |> select(all_of(cyl)) |> glimpse()
+```
+
+## `all_of()`, `any_of()`
+
+Exported by {dplyr}; part of {tidyselect}
+
+Used to disambiguate external- vector of column names:
+
+```r
+placeholder <- c("wt", "mpg", "not_in_mtcars")
+```
+
+. . .
+
+`all_of()` is strict:
+
+```r
+mtcars |> select(all_of(placeholder)) |> glimpse()
+```
+
+. . .
+
+
+`any_of()` is permissive:
+
+```r
+mtcars |> select(any_of(placeholder)) |> glimpse()
+```
+
+
 ## Our turn `"2.3.5"`
 
 . . .
@@ -438,15 +493,17 @@ Let's add some code near the end to arrange the rows:
 result <-
   teams_matches_home |>
   dplyr::bind_rows(teams_matches_visitor) |>
-  dplyr::select(dplyr::all_of(cols_teams_matches())) |>
+  dplyr::select(cols_teams_matches()) |>
   dplyr::arrange(
     dplyr::across(
-      dplyr::all_of(
-        c("country", "tier", "season", "team", "date")
-      )
+      c("country", "tier", "season", "team", "date")
     )
   )
 ```
+
+. . .
+
+Not using variable-names in *tidy-select* that could be confused for column-names; we don't need `all_of()`.
 
 ## Accepting new snapshot
 
@@ -561,7 +618,7 @@ mutate_greet <- function(.data, greeting) {
 - freezes the expression, capturing context
 - delays evaluation
 - function you call must be capable
-- tidyverse *data-masking* functions are capable
+- tidyverse *data-masking* and *tidy-select* functions are capable
 
 ## Your turn `"2.3.7"`
 
@@ -575,10 +632,8 @@ mutate_greet <- function(.data, greeting) {
  
 Get new files, `btt22::btt_get("2.3.7")`:
 
-- `points.R`
-- `seasons.R`
-- `test-points.R`
-- `test-seasons.R`
+- `points.R`, `seasons.R`
+- `test-points.R`, `test-seasons.R`
 
 `usethis::use_package("ggplot2")`
 
@@ -625,19 +680,40 @@ There are a lot of tidy-eval tools:
 
 . . .
 
-- to splice a list (or vector) into *dynamic-dots*, use `!!!`
+- *data-masking* function using *tidy-select* syntax: `across()` 
 
 . . .
 
-- For *data-masking* functions:
+- to move a bunch of arguments, pass the dots, `...`
 
-  - be specific, use `.data`, `.env` pronouns.
+. . .
+
+- to splice a list (or vector) into *dynamic-dots*, use `!!!`
+
+. . . 
   
-  - to use *tidy-select* syntax, use `dplyr::across()`.
+- to interpolate a single argument, use `{{}}`
+
+
+## Summary: disambiguation
+
+For *data-masking* functions, use `.data`, `.env` pronouns:
+
+```r
+library("dplyr")
+
+cyl <- 4
+mtcars |> filter(.data$cyl == .env$cyl) 
+```
   
-  - to move a bunch of arguments, pass the dots, `...`
-  
-  - to interpolate a single argument, use `{{}}`.
+. . .
+
+For *tidy-select* functions, use `all_of()`, `any_of()`:
+
+```r
+cyl <- c("mpg", "wt")
+mtcars |> select(all_of(cyl))
+```
 
 
 ## Additional material {.smaller}
