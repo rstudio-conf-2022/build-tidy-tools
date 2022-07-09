@@ -639,4 +639,39 @@ There are a lot of tidy-eval tools:
   
   - to interpolate a single argument, use `{{}}`.
 
+
+## Additional material {.smaller}
+
+```{r}
+#| eval: true
+#| echo: false
+vembedr::embed_youtube("2BXPLnLMTYo", height = 400) 
+```
+
+Jenny Bryan motivates tidy eval at rstudio::conf(2019):
+
+- `01:30` - scoped verbs, e.g. `mutate_at()`, now: `across()`
+- `16:18` - `enquo()` and `!!`, now: `{{}}`
+
+## Additional material
+
+```{r}
+#| eval: true
+#| echo: false
+vembedr::embed_youtube("SW_TUkPXSmA", height = 400) 
+```
+
+Lionel Henry talks about data-masking and tidy-select at rstudio::conf(2020).
+
+## Additional material
+
+```{r}
+#| eval: true
+#| echo: false
+vembedr::embed_youtube("nERXS3ssntw", height = 400) 
+```
+
+Hadley gives a five-minute tour of the next layer of the tidy-eval onion.
+
+
 ## References
