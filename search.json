@@ -1733,7 +1733,7 @@
     "href": "materials/day-2-session-3-tidy-eval.html#families-of-tidy-eval-arguments",
     "title": "📦 Building tidy tools",
     "section": "Families of tidy-eval arguments",
-    "text": "Families of tidy-eval arguments\nThere are two families of tidy-eval arguments:\n\n\ndata-masking: evaluate variables in context of data frame\nmtcars |>\n  dplyr::mutate(wt_kg = wt * 1000 / 2.2)\n\n\n\n\ntidy-select: specify columns within a data frame\nmtcars |>\n  dplyr:select(starts_with(\"w\"))"
+    "text": "Families of tidy-eval arguments\nThere are two families of tidy-eval arguments:\n\n\ndata-masking: evaluate variables in context of data frame\nmtcars |>\n  dplyr::mutate(wt_kg = wt * 1000 / 2.2)\n\n\n\n\ntidy-select: specify columns within a data frame\nmtcars |>\n  dplyr::select(starts_with(\"w\"))"
   },
   {
     "objectID": "materials/day-2-session-3-tidy-eval.html#ways-to-express-tidy-eval",
@@ -1838,7 +1838,7 @@
     "href": "materials/day-2-session-3-tidy-eval.html#naming-columns",
     "title": "📦 Building tidy tools",
     "section": "Naming columns",
-    "text": "Naming columns\nname_of_at_home <- \"at_home\"\n\nteams_matches_visitor <-\n  data_matches |>\n  dplyr::rename(!!!rename_visitor()) |>\n  dplyr::mutate(at_home = FALSE)\n\nuse name_of_at_home to name column in mutate()\ndevtools::check()\n\nRemember:\n\nleft side of expression is a {glue}-enabled string\noperator is :=, not ="
+    "text": "Naming columns\nname_of_at_home <- \"at_home\"\nteams_matches_visitor <-\n  data_matches |>\n  dplyr::rename(!!!rename_visitor()) |>\n  dplyr::mutate(at_home = FALSE)\n\nuse name_of_at_home to name column in mutate()\ndevtools::check()\n\nRemember:\n\nleft side of expression is a {glue}-enabled string\noperator is :=, not ="
   },
   {
     "objectID": "materials/day-2-session-3-tidy-eval.html#dplyracross-super-useful",
@@ -1846,6 +1846,20 @@
     "title": "📦 Building tidy tools",
     "section": "dplyr::across(): super useful",
     "text": "dplyr::across(): super useful\n\nused inside data-masking verbs, e.g. summarise()\nspecify:\n\nwhich columns to consider, using tidy-select\nwhat function(s), if any, to apply\n\n\n\nmtcars |>\n  dplyr::group_by(dplyr::across(\"cyl\")) |>\n  dplyr::summarise(\n    dplyr::across(c(\"mpg\", \"disp\"), mean)\n  )"
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#tidy-select-and-ambiguity",
+    "href": "materials/day-2-session-3-tidy-eval.html#tidy-select-and-ambiguity",
+    "title": "📦 Building tidy tools",
+    "section": "Tidy-select and ambiguity",
+    "text": "Tidy-select and ambiguity\nlibrary(\"dplyr\")\n\nmtcars |> select(cyl) |> glimpse()\n\nplaceholder <- c(\"wt\", \"mpg\")\nmtcars |> select(placeholder) |> glimpse()\n\n\ncyl <- c(\"wt\", \"mpg\")\nmtcars |> select(cyl) |> glimpse()\n\n\nmtcars |> select(all_of(cyl)) |> glimpse()"
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#all_of-any_of",
+    "href": "materials/day-2-session-3-tidy-eval.html#all_of-any_of",
+    "title": "📦 Building tidy tools",
+    "section": "all_of(), any_of()",
+    "text": "all_of(), any_of()\nExported by {dplyr}; part of {tidyselect}\nUsed to disambiguate external- vector of column names:\nplaceholder <- c(\"wt\", \"mpg\", \"not_in_mtcars\")\n\nall_of() is strict:\nmtcars |> select(all_of(placeholder)) |> glimpse()\n\n\nany_of() is permissive:\nmtcars |> select(any_of(placeholder)) |> glimpse()"
   },
   {
     "objectID": "materials/day-2-session-3-tidy-eval.html#our-turn-2.3.5",
@@ -1859,7 +1873,7 @@
     "href": "materials/day-2-session-3-tidy-eval.html#uss_make_teams_matches",
     "title": "📦 Building tidy tools",
     "section": "uss_make_teams_matches()",
-    "text": "uss_make_teams_matches()\nLet’s add some code near the end to arrange the rows:\nresult <-\n  teams_matches_home |>\n  dplyr::bind_rows(teams_matches_visitor) |>\n  dplyr::select(dplyr::all_of(cols_teams_matches())) |>\n  dplyr::arrange(\n    dplyr::across(\n      dplyr::all_of(\n        c(\"country\", \"tier\", \"season\", \"team\", \"date\")\n      )\n    )\n  )"
+    "text": "uss_make_teams_matches()\nLet’s add some code near the end to arrange the rows:\nresult <-\n  teams_matches_home |>\n  dplyr::bind_rows(teams_matches_visitor) |>\n  dplyr::select(cols_teams_matches()) |>\n  dplyr::arrange(\n    dplyr::across(\n      c(\"country\", \"tier\", \"season\", \"team\", \"date\")\n    )\n  )\n\nNot using variable-names in tidy-select that could be confused for column-names; we don’t need all_of()."
   },
   {
     "objectID": "materials/day-2-session-3-tidy-eval.html#accepting-new-snapshot",
@@ -1901,14 +1915,14 @@
     "href": "materials/day-2-session-3-tidy-eval.html#curly-curly-revisited",
     "title": "📦 Building tidy tools",
     "section": "Curly-curly, revisited",
-    "text": "Curly-curly, revisited\nmutate_greet <- function(.data, greeting) {\n  .data |>\n    dplyr::mutate(greeting = {{ greeting }})\n}\n{{}}:\n\nfreezes the expression, capturing context\ndelays evaluation\nfunction you call must be capable\ntidyverse data-masking functions are capable"
+    "text": "Curly-curly, revisited\nmutate_greet <- function(.data, greeting) {\n  .data |>\n    dplyr::mutate(greeting = {{ greeting }})\n}\n{{}}:\n\nfreezes the expression, capturing context\ndelays evaluation\nfunction you call must be capable\ntidyverse data-masking and tidy-select functions are capable"
   },
   {
     "objectID": "materials/day-2-session-3-tidy-eval.html#your-turn-2.3.7",
     "href": "materials/day-2-session-3-tidy-eval.html#your-turn-2.3.7",
     "title": "📦 Building tidy tools",
     "section": "Your turn \"2.3.7\"",
-    "text": "Your turn \"2.3.7\"\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.3.7\")\n\n\n\nGet new files, btt22::btt_get(\"2.3.7\"):\n\npoints.R\nseasons.R\ntest-points.R\ntest-seasons.R\n\nusethis::use_package(\"ggplot2\")\nGo through what code does, esp. snapshot function."
+    "text": "Your turn \"2.3.7\"\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.3.7\")\n\n\n\nGet new files, btt22::btt_get(\"2.3.7\"):\n\npoints.R, seasons.R\ntest-points.R, test-seasons.R\n\nusethis::use_package(\"ggplot2\")\nGo through what code does, esp. snapshot function."
   },
   {
     "objectID": "materials/day-2-session-3-tidy-eval.html#uss_plot_seasons_tiers",
@@ -1929,7 +1943,14 @@
     "href": "materials/day-2-session-3-tidy-eval.html#summary",
     "title": "📦 Building tidy tools",
     "section": "Summary",
-    "text": "Summary\nThere are a lot of tidy-eval tools:\n\nknow if you are using a data-masking or tidy-select function.\n\n\n\nto splice a list (or vector) into dynamic-dots, use !!!\n\n\n\n\nFor data-masking functions:\n\nbe specific, use .data, .env pronouns.\nto use tidy-select syntax, use dplyr::across().\nto move a bunch of arguments, pass the dots, ...\nto interpolate a single argument, use {{}}."
+    "text": "Summary\nThere are a lot of tidy-eval tools:\n\nknow if you are using a data-masking or tidy-select function.\n\n\n\ndata-masking function using tidy-select syntax: across()\n\n\n\n\nto move a bunch of arguments, pass the dots, ...\n\n\n\n\nto splice a list (or vector) into dynamic-dots, use !!!\n\n\n\n\nto interpolate a single argument, use {{}}"
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#summary-disambiguation",
+    "href": "materials/day-2-session-3-tidy-eval.html#summary-disambiguation",
+    "title": "📦 Building tidy tools",
+    "section": "Summary: disambiguation",
+    "text": "Summary: disambiguation\nFor data-masking functions, use .data, .env pronouns:\nlibrary(\"dplyr\")\n\ncyl <- 4\nmtcars |> filter(.data$cyl == .env$cyl) \n\nFor tidy-select functions, use all_of(), any_of():\ncyl <- c(\"mpg\", \"wt\")\nmtcars |> select(all_of(cyl))"
   },
   {
     "objectID": "materials/day-2-session-3-tidy-eval.html#references",
