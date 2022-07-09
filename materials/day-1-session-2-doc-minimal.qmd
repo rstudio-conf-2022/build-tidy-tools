@@ -279,7 +279,7 @@ uss_make_matches <- function(data_engsoc, country) {
     -   `@param arg` --- describe the inputs
     -   `@examples`--- show how the function works
     -   `@seealso` --- point out related functions
-    -   `@returns` --- describe the outputs
+    -   `@return` --- describe the outputs
     -   `@export` --- is this a user visible function
 
 ## Document your function
@@ -472,7 +472,7 @@ We've gained a warning!
 
 ## Package dependecies
 
-Our warnings are because e have used packages that we have not declared officially.
+Our warnings are because we have used packages that we have not declared officially.
 
 \
 
@@ -616,7 +616,7 @@ Congratulations! This .cff file is valid
 ```
 :::
 
-# 🏷️Yee haw! 🏷️ <BR> Your package has has documentation!
+# 🏷️Yee haw! 🏷️ <BR> Your package has documentation!
 
 ## Summary
 

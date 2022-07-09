@@ -175,20 +175,16 @@ to set the following options....
 
 ## 🔥 Set up your `.Rprofile`
 
-::: small
-```{r}
+```
 options(
   usethis.full_name = "Emma Rand",
   usethis.description = list(
-    `Authors@R` = 'person("Emma", "Rand",
-    email = "emma.rand@york.ac.uk",
-    role = c("aut", "cre"),
-    comment = c(ORCID = "0000-0001-6452-2420"))',
+    `Authors@R` = 'person("Emma", "Rand", 
+      email = "emma.rand@york.ac.uk",     
+      role = c("aut", "cre"))'           
   )
 )
-
 ```
-:::
 
 ## 🔥 Set up your `.Rprofile`
 
