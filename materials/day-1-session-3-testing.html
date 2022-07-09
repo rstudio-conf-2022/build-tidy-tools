@@ -7,7 +7,7 @@
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-0.9.655">
+  <meta name="generator" content="quarto-1.0.3">
 
   <meta name="author" content="Emma Rand and Ian Lyttle">
   <title>Building tidy tools - 📦 Building tidy tools</title>
@@ -448,7 +448,7 @@
 <p>When we run:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>italy <span class="ot">&lt;-</span> <span class="fu">uss_make_matches</span>(engsoccerdata<span class="sc">::</span>italy, <span class="st">"Italy"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>spain <span class="ot">&lt;-</span> <span class="fu">uss_make_matches</span>(engsoccerdata<span class="sc">::</span>italy, <span class="st">"Spain"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>spain <span class="ot">&lt;-</span> <span class="fu">uss_make_matches</span>(engsoccerdata<span class="sc">::</span>spain, <span class="st">"Spain"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The objects <code>italy</code> and <code>spain</code> should be tibbles with the same columns: “country”, “tier”, “season”, “date”, “home”, “visitor”, “goals_home” and “goals_visitor”</p>
 <p><br>
@@ -475,7 +475,7 @@
 <div class="sourceCode" id="cb7"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>country"       "tier"          "season"        "date"         </span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>"home"          "visitor"       "goals_home"    "goals_visitor" </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(italy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(spain)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="sourceCode" id="cb9"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>country"       "tier"          "season"        "date"         </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>"home"          "visitor"       "goals_home"    "goals_visitor"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -547,7 +547,7 @@
 <ol type="1">
 <li><p>Fewer bugs: you are explicit about behaviour of functions.</p></li>
 <li><p>Encourages good code design. If it is hard to write unit tests your function may need refactoring</p></li>
-<li><p>Opportunity for test-drive development</p></li>
+<li><p>Opportunity for test-driven development</p></li>
 <li><p>Robustness</p></li>
 </ol>
 <div class="fragment">
@@ -631,7 +631,7 @@
 <li>a test groups several ‘expectations’. An expectation:
 <ul>
 <li>has the form: <code>expect_zzzz(actual_result, expectation)</code></li>
-<li>if <code>actual_result</code> = <code>expectation</code> no error</li>
+<li>if <code>actual_result</code> == <code>expectation</code> no error</li>
 <li>if <code>actual_result</code> != <code>expectation</code> Error</li>
 </ul></li>
 </ul>

@@ -368,7 +368,7 @@
     "href": "materials/day-1-session-1-introduction.html#set-up-your-.rprofile-1",
     "title": "📦 Building tidy tools",
     "section": "🔥 Set up your .Rprofile",
-    "text": "🔥 Set up your .Rprofile\n\n\noptions(\n  usethis.full_name = \"Emma Rand\",\n  usethis.description = list(\n    `Authors@R` = 'person(\"Emma\", \"Rand\",\n    email = \"emma.rand@york.ac.uk\",\n    role = c(\"aut\", \"cre\"),\n    comment = c(ORCID = \"0000-0001-6452-2420\"))',\n  )\n)"
+    "text": "🔥 Set up your .Rprofile\noptions(\n  usethis.full_name = \"Emma Rand\",\n  usethis.description = list(\n    `Authors@R` = 'person(\"Emma\", \"Rand\", \n      email = \"emma.rand@york.ac.uk\",     \n      role = c(\"aut\", \"cre\"))'           \n  )\n)"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#set-up-your-.rprofile-2",
@@ -879,7 +879,7 @@
     "href": "materials/day-1-session-2-doc-minimal.html#roxygen-comments-and-tags",
     "title": "📦 Building tidy tools",
     "section": "Roxygen comments and tags",
-    "text": "Roxygen comments and tags\n\n#' indicates it is a roxygen comment\n@ indicates a roxygen tag\n\n@param arg — describe the inputs\n@examples— show how the function works\n@seealso — point out related functions\n@returns — describe the outputs\n@export — is this a user visible function"
+    "text": "Roxygen comments and tags\n\n#' indicates it is a roxygen comment\n@ indicates a roxygen tag\n\n@param arg — describe the inputs\n@examples— show how the function works\n@seealso — point out related functions\n@return — describe the outputs\n@export — is this a user visible function"
   },
   {
     "objectID": "materials/day-1-session-2-doc-minimal.html#document-your-function-1",
@@ -970,7 +970,7 @@
     "href": "materials/day-1-session-2-doc-minimal.html#package-dependecies-1",
     "title": "📦 Building tidy tools",
     "section": "Package dependecies",
-    "text": "Package dependecies\nOur warnings are because e have used packages that we have not declared officially.\n\n\nWe need to document our package dependencies"
+    "text": "Package dependecies\nOur warnings are because we have used packages that we have not declared officially.\n\n\nWe need to document our package dependencies"
   },
   {
     "objectID": "materials/day-1-session-2-doc-minimal.html#package-dependencies",
@@ -1257,14 +1257,14 @@
     "href": "materials/day-1-session-3-testing.html#for-example",
     "title": "📦 Building tidy tools",
     "section": "For example",
-    "text": "For example\nWhen we run:\n\nitaly <- uss_make_matches(engsoccerdata::italy, \"Italy\")\nspain <- uss_make_matches(engsoccerdata::italy, \"Spain\")\n\nThe objects italy and spain should be tibbles with the same columns: “country”, “tier”, “season”, “date”, “home”, “visitor”, “goals_home” and “goals_visitor”\n\n\nSo we might…"
+    "text": "For example\nWhen we run:\n\nitaly <- uss_make_matches(engsoccerdata::italy, \"Italy\")\nspain <- uss_make_matches(engsoccerdata::spain, \"Spain\")\n\nThe objects italy and spain should be tibbles with the same columns: “country”, “tier”, “season”, “date”, “home”, “visitor”, “goals_home” and “goals_visitor”\n\n\nSo we might…"
   },
   {
     "objectID": "materials/day-1-session-3-testing.html#check-interactively",
     "href": "materials/day-1-session-3-testing.html#check-interactively",
     "title": "📦 Building tidy tools",
     "section": "Check interactively",
-    "text": "Check interactively\nTry these:\n\n\n\n\nclass(italy)\n\n\"tbl_df\"     \"tbl\"        \"data.frame\"\n\nclass(spain)\n\n\"tbl_df\"     \"tbl\"        \"data.frame\" \n\nnames(italy)\n\ncountry\"       \"tier\"          \"season\"        \"date\"         \n\"home\"          \"visitor\"       \"goals_home\"    \"goals_visitor\" \n\nnames(italy)\n\ncountry\"       \"tier\"          \"season\"        \"date\"         \n\"home\"          \"visitor\"       \"goals_home\"    \"goals_visitor\"\n\n\n🎉\n\n\n🥳\n\n\n🎈\n\n\n🎇"
+    "text": "Check interactively\nTry these:\n\n\n\n\nclass(italy)\n\n\"tbl_df\"     \"tbl\"        \"data.frame\"\n\nclass(spain)\n\n\"tbl_df\"     \"tbl\"        \"data.frame\" \n\nnames(italy)\n\ncountry\"       \"tier\"          \"season\"        \"date\"         \n\"home\"          \"visitor\"       \"goals_home\"    \"goals_visitor\" \n\nnames(spain)\n\ncountry\"       \"tier\"          \"season\"        \"date\"         \n\"home\"          \"visitor\"       \"goals_home\"    \"goals_visitor\"\n\n\n🎉\n\n\n🥳\n\n\n🎈\n\n\n🎇"
   },
   {
     "objectID": "materials/day-1-session-3-testing.html#interactive-testing",
@@ -1292,7 +1292,7 @@
     "href": "materials/day-1-session-3-testing.html#why-automate-testing-2",
     "title": "📦 Building tidy tools",
     "section": "Why automate testing?",
-    "text": "Why automate testing?\n\nFewer bugs: you are explicit about behaviour of functions.\nEncourages good code design. If it is hard to write unit tests your function may need refactoring\nOpportunity for test-drive development\nRobustness\n\n\nRead more about testing in the recently updated chapter in R Packages (Wickham and Bryan 2020)"
+    "text": "Why automate testing?\n\nFewer bugs: you are explicit about behaviour of functions.\nEncourages good code design. If it is hard to write unit tests your function may need refactoring\nOpportunity for test-driven development\nRobustness\n\n\nRead more about testing in the recently updated chapter in R Packages (Wickham and Bryan 2020)"
   },
   {
     "objectID": "materials/day-1-session-3-testing.html#automated-test-workflow",
@@ -1320,7 +1320,7 @@
     "href": "materials/day-1-session-3-testing.html#organisation-within-files-1",
     "title": "📦 Building tidy tools",
     "section": "Organisation within files",
-    "text": "Organisation within files\n\na test groups several ‘expectations’. An expectation:\n\nhas the form: expect_zzzz(actual_result, expectation)\nif actual_result = expectation no error\nif actual_result != expectation Error"
+    "text": "Organisation within files\n\na test groups several ‘expectations’. An expectation:\n\nhas the form: expect_zzzz(actual_result, expectation)\nif actual_result == expectation no error\nif actual_result != expectation Error"
   },
   {
     "objectID": "materials/day-1-session-3-testing.html#workflow-1",
