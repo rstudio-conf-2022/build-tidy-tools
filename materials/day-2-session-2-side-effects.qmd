@@ -411,4 +411,18 @@ Use snapshot tests to capture side-effects.
 
 Use `withr::local_*()` functions to "leave no footprints".
 
+## Additional material {.smaller}
+
+```{r}
+#| eval: true
+#| echo: false
+vembedr::embed_youtube("ZhuHCtR3xq8", height = 400) 
+```
+
+Brian Beckman on monads (Ian watched at least ten times, learned something each time):
+
+- tidyverse is a monoidal system
+
+- maybe monads aren't the thing, but the functional-programming learned along the way
+
 ## References

@@ -681,6 +681,19 @@ For example:
 
 - Be mindful of side effects.
 
+## Additional material
+
+Hadley's [keynote](https://www.rstudio.com/resources/rstudioconf-2017/data-science-in-the-tidyverse-hadley-wickham/) at rstudio::conf(2017):
+
+ - not available on YouTube 😢
+ 
+ - talks about tidyverse design
+ 
+ Joe Cheng's talks ([Part 1](https://www.rstudio.com/resources/shiny-dev-con/reactivity-pt-1-joe-cheng/), [Part 2](https://www.rstudio.com/resources/shiny-dev-con/reactivity-pt-2)) on reactivity at Shiny Developers Conference (2016), precursor to rstudio::conf():
+ 
+ - these were the talks that changed my (Ian's) perspective on programming
+ 
+ - pure functions vs. side effects
 
 ## References {.smaller}
 

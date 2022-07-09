@@ -422,7 +422,21 @@ Side effects use or change something else in the universe:
 
  - e.g.: read a file, print to screen
 
-## Additional material
+## Additional material: FP {.smaller}
+
+
+```{r}
+#| eval: true
+#| echo: false
+vembedr::embed_youtube("e-5obm1G_FY", height = 400) 
+```
+
+Anjana Vakil, on functional programming in JavaScript:
+
+- (Ian: JavaScript is a great *next* language from R)
+- `filter()` in JavaScript works like `purrr::keep()`
+
+## Additional material: S3 tools
 
 ```{r}
 #| eval: true
@@ -432,7 +446,7 @@ vembedr::embed_youtube("8_QoT3ygdI4", height = 400)
 
 Hadley Wickham's introduction of {vctrs}, rstudio::conf(2019).
 
-## Additional material
+## Additional material: S3 usage
 
 ```{r}
 #| eval: true
