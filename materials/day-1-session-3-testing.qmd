@@ -47,7 +47,7 @@ When we run:
 
 ```{r}
 italy <- uss_make_matches(engsoccerdata::italy, "Italy")
-spain <- uss_make_matches(engsoccerdata::italy, "Spain")
+spain <- uss_make_matches(engsoccerdata::spain, "Spain")
 ```
 
 The objects `italy` and `spain` should be tibbles with the same columns: "country", "tier", "season", "date", "home", "visitor", "goals_home" and "goals_visitor"
@@ -89,7 +89,7 @@ country"       "tier"          "season"        "date"
 ```
 
 ```{r}
-names(italy)
+names(spain)
 ```
 
 ``` default
@@ -160,7 +160,7 @@ Solution: have a system to store and re-run the tests!
 
 2.  Encourages good code design. If it is hard to write unit tests your function may need refactoring
 
-3.  Opportunity for test-drive development
+3.  Opportunity for test-driven development
 
 4.  Robustness
 
@@ -231,7 +231,7 @@ Read more about testing in the recently updated chapter in R Packages [@wickham2
 
 -   a test groups several 'expectations'. An expectation:
     -   has the form: `expect_zzzz(actual_result, expectation)`
-    -   if `actual_result` = `expectation` no error
+    -   if `actual_result` == `expectation` no error
     -   if `actual_result` != `expectation` Error
 
 # Workflow
