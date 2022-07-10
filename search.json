@@ -770,6 +770,34 @@
     "text": "References\n\n\nhttps://rstd.io/btt\n\n\n\nCurley, James. 2016. “Engsoccerdata: English and European Soccer Results 1871-2016.” https://CRAN.R-project.org/package=engsoccerdata.\n\n\nWickham, Charlotte, and Hadley Wickham. 2021. Building Tidy Tools. rstudio::conf 2020. https://github.com/rstudio-conf-2020/build-tidy-tools.\n\n\nWickham, Hadley. 2011. “Testthat: Get Started with Testing” 3. https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf.\n\n\nWickham, Hadley, Jennifer Bryan, and Malcolm Barrett. 2022. “Usethis: Automate Package and Project Setup.” https://CRAN.R-project.org/package=usethis.\n\n\nWickham, Hadley, and Jenny Bryan. 2020. R Packages. The work-in-progress 2nd edition. Online. https://r-pkgs.org/index.html.\n\n\nWickham, Hadley, Jim Hester, Winston Chang, and Jennifer Bryan. 2021. “Devtools: Tools to Make Developing r Packages Easier.” https://CRAN.R-project.org/package=devtools."
   },
   {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#learning-objectives",
+    "href": "materials/day-1-session-4-doc-sharing.html#learning-objectives",
+    "title": "📦 Building tidy tools",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nAt the end of this section you will be able to:\n\n\n\n\n\n\n\n\n\n…"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#summary",
+    "href": "materials/day-1-session-4-doc-sharing.html#summary",
+    "title": "📦 Building tidy tools",
+    "section": "Summary",
+    "text": "Summary"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#summary-1",
+    "href": "materials/day-1-session-4-doc-sharing.html#summary-1",
+    "title": "📦 Building tidy tools",
+    "section": "Summary",
+    "text": "Summary"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#references",
+    "href": "materials/day-1-session-4-doc-sharing.html#references",
+    "title": "📦 Building tidy tools",
+    "section": "References",
+    "text": "References\n\n\nhttps://rstd.io/btt"
+  },
+  {
     "objectID": "materials/day-1-session-2-doc-minimal.html#learning-objectives",
     "href": "materials/day-1-session-2-doc-minimal.html#learning-objectives",
     "title": "📦 Building tidy tools",
