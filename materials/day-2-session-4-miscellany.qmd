@@ -25,8 +25,8 @@ editor: source
 
 At the end of this section you will be able to:
 
-- accept a function an argument to a function using a formula (purrr-style)
-- create an S3 class using {vctrs}
+- accept a function an argument to a function using a formula (purrr-style) [@purrr]
+- create an S3 class using {vctrs} [@vctrs]
   - recognize that implementing a `format()` method gets you a long way 
   
 We will also recap all of today's material and discuss.  
