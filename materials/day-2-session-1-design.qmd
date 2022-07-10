@@ -158,7 +158,7 @@ Where does `tier`, etc. come from?
 
 ## Preview of tidy eval
 
-The {rlang} package provides pronouns.
+The {rlang} package [@rlang] provides pronouns.
 
 . . . 
 
@@ -227,11 +227,11 @@ The way we approach problems is always evolving; tidyverse is no exception:
 
 . . .
 
-- [Tidyverse Style Guide](https://style.tidyverse.org/){preview-link="true"}
+- [Tidyverse Style Guide](https://style.tidyverse.org/){preview-link="true"} [@tidy-style]
 
 . . .
 
-- [Tidyverse Design Guide](https://design.tidyverse.org/){preview-link="true"}
+- [Tidyverse Design Guide](https://design.tidyverse.org/){preview-link="true"} [@tidy-design]
 
 . . .
 
