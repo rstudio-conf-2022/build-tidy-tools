@@ -1,0 +1,56 @@
+---
+title: "📦 <br>Building tidy tools"
+subtitle: "Day 1 Session 4: Documentation - Sharing"
+author: "Emma Rand and Ian Lyttle"
+date: "<br>🔗 [rstd.io/btt](https://rstd.io/btt)"
+format:
+  revealjs: 
+    theme: [simple, emma.scss]
+    slide-number: true
+    chalkboard: true
+    preview-links: auto
+    footer: <https://rstd.io/btt>
+    margin: 0.07
+    code-link: true
+    code-line-numbers: false
+execute:
+  echo: true
+  eval: false
+bibliography: references.bib
+---
+
+# 🌐 Documentation - Sharing
+
+## Learning Objectives
+
+At the end of this section you will be able to:
+
+::: small
+-   
+-    
+-   
+-   
+-   
+:::
+
+
+
+...
+
+# 🌐Woo hoo 🌐 <BR> You wrote a unit test!
+
+## Summary
+
+::: small
+-   
+-   
+:::
+
+## Summary
+
+::: small
+-   
+-   
+:::
+
+## References {.extrasmall}
