@@ -25,7 +25,7 @@ website:
         - text: Unit Tests
           href: materials/day-1-session-3-testing.html
         - text: "Documentation: Sharing"
-          href: "#"
+          href: materials/day-1-session-4-doc-sharing.html
         - text: ---
         - text: Functions
         - text: ---
