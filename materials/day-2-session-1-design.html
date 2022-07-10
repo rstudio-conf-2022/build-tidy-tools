@@ -7,7 +7,7 @@
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.0.5">
+  <meta name="generator" content="quarto-1.0.7">
 
   <meta name="author" content="Emma Rand and Ian Lyttle">
   <title>Building tidy tools - 📦 Building tidy tools</title>
@@ -534,7 +534,7 @@
 </section>
 <section id="preview-of-tidy-eval" class="slide level2">
 <h2>Preview of tidy eval</h2>
-<p>The {rlang} package provides pronouns.</p>
+<p>The {rlang} package <span class="citation" data-cites="rlang">(<a href="#/ref-rlang" role="doc-biblioref" onclick="return false;">Henry and Wickham 2022</a>)</span> provides pronouns.</p>
 <div class="fragment">
 <p>Interactively, we might write:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span></span>
@@ -591,12 +591,12 @@
 <p>The way we approach problems is always evolving; tidyverse is no exception:</p>
 <div class="fragment">
 <ul>
-<li><a href="https://style.tidyverse.org/" data-preview-link="true">Tidyverse Style Guide</a></li>
+<li><a href="https://style.tidyverse.org/" data-preview-link="true">Tidyverse Style Guide</a> <span class="citation" data-cites="tidy-style">(<a href="#/ref-tidy-style" role="doc-biblioref" onclick="return false;">H. Wickham 2022</a>)</span></li>
 </ul>
 </div>
 <div class="fragment">
 <ul>
-<li><a href="https://design.tidyverse.org/" data-preview-link="true">Tidyverse Design Guide</a></li>
+<li><a href="https://design.tidyverse.org/" data-preview-link="true">Tidyverse Design Guide</a> <span class="citation" data-cites="tidy-design">(<a href="#/ref-tidy-design" role="doc-biblioref" onclick="return false;">Team 2022</a>)</span></li>
 </ul>
 </div>
 <div class="fragment">
@@ -1019,6 +1019,19 @@
 </ul>
 </div>
 </section>
+<section id="additional-material" class="slide level2">
+<h2>Additional material</h2>
+<p>Hadley’s <a href="https://www.rstudio.com/resources/rstudioconf-2017/data-science-in-the-tidyverse-hadley-wickham/">keynote</a> at rstudio::conf(2017):</p>
+<ul>
+<li><p>not available on YouTube 😢</p></li>
+<li><p>talks about tidyverse design</p></li>
+</ul>
+<p>Joe Cheng’s talks (<a href="https://www.rstudio.com/resources/shiny-dev-con/reactivity-pt-1-joe-cheng/">Part 1</a>, <a href="https://www.rstudio.com/resources/shiny-dev-con/reactivity-pt-2">Part 2</a>) on reactivity at Shiny Developers Conference (2016), precursor to rstudio::conf():</p>
+<ul>
+<li><p>these were the talks that changed my (Ian’s) perspective on programming</p></li>
+<li><p>pure functions vs.&nbsp;side effects</p></li>
+</ul>
+</section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
 
@@ -1026,8 +1039,17 @@
 <p><a href="https://rstd.io/btt" class="uri">https://rstd.io/btt</a></p>
 </div>
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-rlang" class="csl-entry" role="doc-biblioentry">
+Henry, Lionel, and Hadley Wickham. 2022. <span>“Rlang: Functions for Base Types and Core r and ’Tidyverse’ Features.”</span> <a href="https://CRAN.R-project.org/package=rlang">https://CRAN.R-project.org/package=rlang</a>.
+</div>
+<div id="ref-tidy-design" class="csl-entry" role="doc-biblioentry">
+Team, Tidyverse. 2022. <span>“Tidyverse Design Guide.”</span> <a href="https://design.tidyverse.org/">https://design.tidyverse.org/</a>.
+</div>
 <div id="ref-wickham2021a" class="csl-entry" role="doc-biblioentry">
 Wickham, Charlotte, and Hadley Wickham. 2021. <em>Building Tidy Tools</em>. rstudio::conf 2020. <a href="https://github.com/rstudio-conf-2020/build-tidy-tools">https://github.com/rstudio-conf-2020/build-tidy-tools</a>.
+</div>
+<div id="ref-tidy-style" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley. 2022. <span>“The Tidyverse Style Guide.”</span> <a href="https://style.tidyverse.org/">https://style.tidyverse.org/</a>.
 </div>
 <div id="ref-wickham2020" class="csl-entry" role="doc-biblioentry">
 Wickham, Hadley, and Jenny Bryan. 2020. <em>R Packages</em>. The work-in-progress 2nd edition. Online. <a href="https://r-pkgs.org/index.html">https://r-pkgs.org/index.html</a>.

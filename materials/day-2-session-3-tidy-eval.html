@@ -7,7 +7,7 @@
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.0.5">
+  <meta name="generator" content="quarto-1.0.7">
 
   <meta name="author" content="Emma Rand and Ian Lyttle">
   <title>Building tidy tools - 📦 Building tidy tools</title>
@@ -87,6 +87,25 @@
     code span.va { color: #00e0e0; } /* Variable */
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #dcc6e0; } /* Warning */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css" id="theme">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -379,6 +398,7 @@
       margin-right: 0; 
     }
   </style>
+  <link href="../site_libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet">
 </head>
 <body>
   <div class="reveal">
@@ -405,6 +425,14 @@
 <li>functions that call tidyverse functions using <em>string-based</em> arguments, i.e.&nbsp;for use with Shiny.</li>
 <li>correspondence with techniques used for <em>bare-name</em> arguments.</li>
 </ul></li>
+</ul>
+</section>
+<section id="source-material" class="slide level2">
+<h2>Source material</h2>
+<p>Vignettes:</p>
+<ul>
+<li><p><a href="https://dplyr.tidyverse.org/articles/programming.html">Programming with dplyr</a> <span class="citation" data-cites="dplyr">(<a href="#/ref-dplyr" role="doc-biblioref" onclick="return false;">Wickham et al. 2022</a>)</span></p></li>
+<li><p><a href="https://ggplot2.tidyverse.org/articles/ggplot2-in-packages.html">Using ggplot2 in packages</a> <span class="citation" data-cites="ggplot2">(<a href="#/ref-ggplot2" role="doc-biblioref" onclick="return false;">Wickham 2016</a>)</span></p></li>
 </ul>
 </section>
 <section id="motivation-for-tidy-eval" class="slide level2">
@@ -553,7 +581,7 @@
 </section>
 <section id="pronouns" class="slide level2">
 <h2>Pronouns</h2>
-<p>The <code>.data</code> and <code>.env</code> pronouns are provided by {rlang}.</p>
+<p>The <code>.data</code> and <code>.env</code> pronouns are provided by {rlang} <span class="citation" data-cites="rlang">(<a href="#/ref-rlang" role="doc-biblioref" onclick="return false;">Henry and Wickham 2022a</a>)</span>.</p>
 <div class="fragment">
 <p>For <em>data-masking</em> functions, make explicit how to evaluate variables.</p>
 </div>
@@ -738,7 +766,7 @@
 </section>
 <section id="all_of-any_of" class="slide level2">
 <h2><code>all_of()</code>, <code>any_of()</code></h2>
-<p>Exported by {dplyr}; part of {tidyselect}</p>
+<p>Exported by {dplyr} <span class="citation" data-cites="dplyr">(<a href="#/ref-dplyr" role="doc-biblioref" onclick="return false;">Wickham et al. 2022</a>)</span>; part of {tidyselect} <span class="citation" data-cites="tidyselect">(<a href="#/ref-tidyselect" role="doc-biblioref" onclick="return false;">Henry and Wickham 2022b</a>)</span></p>
 <p>Used to disambiguate external- vector of column names:</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>placeholder <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"wt"</span>, <span class="st">"mpg"</span>, <span class="st">"not_in_mtcars"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="fragment">
@@ -965,11 +993,68 @@
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="fu">all_of</span>(cyl))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="references" class="slide level2">
+<section id="additional-material" class="slide level2 smaller">
+<h2>Additional material</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div class="vembedr">
+<div>
+<iframe src="https://www.youtube.com/embed/2BXPLnLMTYo" width="711" height="400" frameborder="0" allowfullscreen="" data-external="1"></iframe>
+</div>
+</div>
+</div>
+</div>
+<p>Jenny Bryan motivates tidy eval at rstudio::conf(2019):</p>
+<ul>
+<li><code>01:30</code> - scoped verbs, e.g.&nbsp;<code>mutate_at()</code>, now: <code>across()</code></li>
+<li><code>16:18</code> - <code>enquo()</code> and <code>!!</code>, now: <code>{{}}</code></li>
+</ul>
+</section>
+<section id="additional-material-1" class="slide level2">
+<h2>Additional material</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div class="vembedr">
+<div>
+<iframe src="https://www.youtube.com/embed/SW_TUkPXSmA" width="711" height="400" frameborder="0" allowfullscreen="" data-external="1"></iframe>
+</div>
+</div>
+</div>
+</div>
+<p>Lionel Henry talks about data-masking and tidy-select at rstudio::conf(2020).</p>
+</section>
+<section id="additional-material-2" class="slide level2">
+<h2>Additional material</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div class="vembedr">
+<div>
+<iframe src="https://www.youtube.com/embed/nERXS3ssntw" width="711" height="400" frameborder="0" allowfullscreen="" data-external="1"></iframe>
+</div>
+</div>
+</div>
+</div>
+<p>Hadley gives a five-minute tour of the next layer of the tidy-eval onion.</p>
+</section>
+<section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
 
 <div class="footer footer-default">
 <p><a href="https://rstd.io/btt" class="uri">https://rstd.io/btt</a></p>
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-rlang" class="csl-entry" role="doc-biblioentry">
+Henry, Lionel, and Hadley Wickham. 2022a. <span>“Rlang: Functions for Base Types and Core r and ’Tidyverse’ Features.”</span> <a href="https://CRAN.R-project.org/package=rlang">https://CRAN.R-project.org/package=rlang</a>.
+</div>
+<div id="ref-tidyselect" class="csl-entry" role="doc-biblioentry">
+———. 2022b. <span>“Tidyselect: Select from a Set of Strings.”</span> <a href="https://CRAN.R-project.org/package=tidyselect">https://CRAN.R-project.org/package=tidyselect</a>.
+</div>
+<div id="ref-ggplot2" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley. 2016. <span>“Ggplot2: Elegant Graphics for Data Analysis.”</span> <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
+</div>
+<div id="ref-dplyr" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, Romain François, Lionel Henry, and Kirill Müller. 2022. <span>“Dplyr: A Grammar of Data Manipulation.”</span> <a href="https://CRAN.R-project.org/package=dplyr">https://CRAN.R-project.org/package=dplyr</a>.
+</div>
 </div>
 </section>
     </div>
@@ -1185,6 +1270,48 @@
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          // dispatch for htmlwidgets
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for reveal
+        if (window.Reveal) {
+          window.Reveal.addEventListener("slidechanged", function(event) {
+            fireSlideChanged(event.previousSlide, event.currentSlide);
+          });
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")

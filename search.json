@@ -88,7 +88,7 @@
     "href": "materials/day-2-session-1-design.html#preview-of-tidy-eval",
     "title": "📦 Building tidy tools",
     "section": "Preview of tidy eval",
-    "text": "Preview of tidy eval\nThe {rlang} package provides pronouns.\n\nInteractively, we might write:\nmtcars |>\n  mutate(cons_lper100km = 235.215 / mpg)\n\n\nIn a package function, we would write:\nmtcars |>\n  dplyr::mutate(cons_lper100km = 235.215 / .data$mpg)"
+    "text": "Preview of tidy eval\nThe {rlang} package (Henry and Wickham 2022) provides pronouns.\n\nInteractively, we might write:\nmtcars |>\n  mutate(cons_lper100km = 235.215 / mpg)\n\n\nIn a package function, we would write:\nmtcars |>\n  dplyr::mutate(cons_lper100km = 235.215 / .data$mpg)"
   },
   {
     "objectID": "materials/day-2-session-1-design.html#your-turn-2.1.1",
@@ -109,7 +109,7 @@
     "href": "materials/day-2-session-1-design.html#evolving-references",
     "title": "📦 Building tidy tools",
     "section": "Evolving references",
-    "text": "Evolving references\nThe way we approach problems is always evolving; tidyverse is no exception:\n\n\nTidyverse Style Guide\n\n\n\n\nTidyverse Design Guide\n\n\n\n\nfollow the GitHub repo of your favorite tidyverse/r-lib package (mine is {usethis}):\n\nissue discussions\npull-request reviews"
+    "text": "Evolving references\nThe way we approach problems is always evolving; tidyverse is no exception:\n\n\nTidyverse Style Guide (H. Wickham 2022)\n\n\n\n\nTidyverse Design Guide (Team 2022)\n\n\n\n\nfollow the GitHub repo of your favorite tidyverse/r-lib package (mine is {usethis}):\n\nissue discussions\npull-request reviews"
   },
   {
     "objectID": "materials/day-2-session-1-design.html#naming-functions",
@@ -280,11 +280,18 @@
     "text": "Summary\n\n\nNaming: be consistent, concise, yet evocative.\n\n\n\n\nArgument order: data, descriptors, dots, details.\n\n\n\n\nReturn value type: be consistent, predictable.\n\n\n\n\nEasy to remember data (first) argument and return value:\n\neasy to use pipe, |>.\n\n\n\n\n\nBe mindful of side effects."
   },
   {
+    "objectID": "materials/day-2-session-1-design.html#additional-material",
+    "href": "materials/day-2-session-1-design.html#additional-material",
+    "title": "📦 Building tidy tools",
+    "section": "Additional material",
+    "text": "Additional material\nHadley’s keynote at rstudio::conf(2017):\n\nnot available on YouTube 😢\ntalks about tidyverse design\n\nJoe Cheng’s talks (Part 1, Part 2) on reactivity at Shiny Developers Conference (2016), precursor to rstudio::conf():\n\nthese were the talks that changed my (Ian’s) perspective on programming\npure functions vs. side effects"
+  },
+  {
     "objectID": "materials/day-2-session-1-design.html#references",
     "href": "materials/day-2-session-1-design.html#references",
     "title": "📦 Building tidy tools",
     "section": "References",
-    "text": "References\n\n\nhttps://rstd.io/btt\n\n\n\nWickham, Charlotte, and Hadley Wickham. 2021. Building Tidy Tools. rstudio::conf 2020. https://github.com/rstudio-conf-2020/build-tidy-tools.\n\n\nWickham, Hadley, and Jenny Bryan. 2020. R Packages. The work-in-progress 2nd edition. Online. https://r-pkgs.org/index.html."
+    "text": "References\n\n\nhttps://rstd.io/btt\n\n\n\nHenry, Lionel, and Hadley Wickham. 2022. “Rlang: Functions for Base Types and Core r and ’Tidyverse’ Features.” https://CRAN.R-project.org/package=rlang.\n\n\nTeam, Tidyverse. 2022. “Tidyverse Design Guide.” https://design.tidyverse.org/.\n\n\nWickham, Charlotte, and Hadley Wickham. 2021. Building Tidy Tools. rstudio::conf 2020. https://github.com/rstudio-conf-2020/build-tidy-tools.\n\n\nWickham, Hadley. 2022. “The Tidyverse Style Guide.” https://style.tidyverse.org/.\n\n\nWickham, Hadley, and Jenny Bryan. 2020. R Packages. The work-in-progress 2nd edition. Online. https://r-pkgs.org/index.html."
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#introductions",
@@ -1124,7 +1131,7 @@
     "href": "materials/day-2-session-2-side-effects.html#using-clicli_abort",
     "title": "📦 Building tidy tools",
     "section": "Using cli::cli_abort()",
-    "text": "Using cli::cli_abort()\n# predicate\nif (y > 3) {\n  cli::cli_abort(\n    # message for end user\n    c(\n      \"{.var y} cannot be greater than 3.\", \n      x = \"{.var y} is {.val {y}}.\"\n    )\n    # class name\n    class = \"ussie_error_threshold\",  \n    # more information\n    y = y     \n  )\n}"
+    "text": "Using cli::cli_abort()\n{cli} package (Csárdi 2022)\n# predicate\nif (y > 3) {\n  cli::cli_abort(\n    # message for end user\n    c(\n      \"{.var y} cannot be greater than 3.\", \n      x = \"{.var y} is {.val {y}}.\"\n    )\n    # class name\n    class = \"ussie_error_threshold\",  \n    # more information\n    y = y     \n  )\n}"
   },
   {
     "objectID": "materials/day-2-session-2-side-effects.html#predicate",
@@ -1208,7 +1215,7 @@
     "href": "materials/day-2-session-2-side-effects.html#using-self-removing-footprints",
     "title": "📦 Building tidy tools",
     "section": "Using “self-removing footprints”",
-    "text": "Using “self-removing footprints”\nThe {withr} package gives us tools to:\n\nmodify global state\nspecify when to reverse the modification\n\n\nUseful family of functions:\n\nwithr::local_*()\nchanges the state back when a scope is exited\nif called within a function, normally when the function exits"
+    "text": "Using “self-removing footprints”\nThe {withr} package (Hester et al. 2022) gives us tools to:\n\nmodify global state\nspecify when to reverse the modification\n\n\nUseful family of functions:\n\nwithr::local_*()\nchanges the state back when a scope is exited\nif called within a function, normally when the function exits"
   },
   {
     "objectID": "materials/day-2-session-2-side-effects.html#when-could-this-be-useful",
@@ -1260,11 +1267,18 @@
     "text": "Summary\n\nThe most-common side-effect is an error. Good design:\n\n\n\nsimple (as possible) predicate\nclear mesage\nadd a class using naming convention, and additional information\n\n\n\nUse snapshot tests to capture side-effects.\n\nbe very careful when accepting changes to snapshots.\n\n\n\nUse withr::local_*() functions to “leave no footprints”."
   },
   {
+    "objectID": "materials/day-2-session-2-side-effects.html#additional-material",
+    "href": "materials/day-2-session-2-side-effects.html#additional-material",
+    "title": "📦 Building tidy tools",
+    "section": "Additional material",
+    "text": "Additional material\n\n\n\n\n\n\n\n\n\nBrian Beckman on monads (Ian watched at least ten times, learned something each time):\n\ntidyverse is a monoidal system\nmaybe monads aren’t the thing, but the functional-programming learned along the way"
+  },
+  {
     "objectID": "materials/day-2-session-2-side-effects.html#references",
     "href": "materials/day-2-session-2-side-effects.html#references",
     "title": "📦 Building tidy tools",
     "section": "References",
-    "text": "References\n\n\nhttps://rstd.io/btt"
+    "text": "References\n\n\nhttps://rstd.io/btt\n\n\n\nCsárdi, Gábor. 2022. “Cli: Helpers for Developing Command Line Interfaces.” https://CRAN.R-project.org/package=cli.\n\n\nHester, Jim, Lionel Henry, Kirill Müller, Kevin Ushey, Hadley Wickham, and Winston Chang. 2022. “Withr: Run Code ’with’ Temporarily Modified Global State.” https://CRAN.R-project.org/package=withr."
   },
   {
     "objectID": "materials/day-1-session-3-testing.html#learning-objectives",
@@ -1579,7 +1593,7 @@
     "href": "materials/day-2-session-4-miscellany.html#learning-objectives",
     "title": "📦 Building tidy tools",
     "section": "Learning objectives",
-    "text": "Learning objectives\nTime permitting\nAt the end of this section you will be able to:\n\naccept a function an argument to a function using a formula (purrr-style)\ncreate an S3 class using {vctrs}\n\nrecognize that implementing a format() method gets you a long way\n\n\nWe will also recap all of today’s material and discuss."
+    "text": "Learning objectives\nTime permitting\nAt the end of this section you will be able to:\n\naccept a function an argument to a function using a formula (purrr-style) (Henry and Wickham 2020)\ncreate an S3 class using {vctrs} (Wickham, Henry, and Vaughan 2022)\n\nrecognize that implementing a format() method gets you a long way\n\n\nWe will also recap all of today’s material and discuss."
   },
   {
     "objectID": "materials/day-2-session-4-miscellany.html#functions-as-arguments",
@@ -1736,11 +1750,32 @@
     "text": "If you remember one thing…\nDistinguish pure functions from functions that use side effects.\nPure functions:\n\nuse only the values of the arguments\nchange only the return value\nadd <- function(x, y) {\n  x + y\n}\n\nSide effects use or change something else in the universe:\n\ne.g.: read a file, print to screen"
   },
   {
+    "objectID": "materials/day-2-session-4-miscellany.html#additional-material-fp",
+    "href": "materials/day-2-session-4-miscellany.html#additional-material-fp",
+    "title": "📦 Building tidy tools",
+    "section": "Additional material: FP",
+    "text": "Additional material: FP\n\n\n\n\n\n\n\n\n\nAnjana Vakil, on functional programming in JavaScript:\n\n(Ian: JavaScript is a great next language from R)\nfilter() in JavaScript works like purrr::keep()"
+  },
+  {
+    "objectID": "materials/day-2-session-4-miscellany.html#additional-material-s3-tools",
+    "href": "materials/day-2-session-4-miscellany.html#additional-material-s3-tools",
+    "title": "📦 Building tidy tools",
+    "section": "Additional material: S3 tools",
+    "text": "Additional material: S3 tools\n\n\n\n\n\n\n\n\n\nHadley Wickham’s introduction of {vctrs}, rstudio::conf(2019)."
+  },
+  {
+    "objectID": "materials/day-2-session-4-miscellany.html#additional-material-s3-usage",
+    "href": "materials/day-2-session-4-miscellany.html#additional-material-s3-usage",
+    "title": "📦 Building tidy tools",
+    "section": "Additional material: S3 usage",
+    "text": "Additional material: S3 usage\n\n\n\n\n\n\n\n\n\nAt rstudio::conf(2020), Jesse Sadler shows an implementation."
+  },
+  {
     "objectID": "materials/day-2-session-4-miscellany.html#references",
     "href": "materials/day-2-session-4-miscellany.html#references",
     "title": "📦 Building tidy tools",
     "section": "References",
-    "text": "References\n\n\nhttps://rstd.io/btt"
+    "text": "References\n\n\nhttps://rstd.io/btt\n\n\n\nHenry, Lionel, and Hadley Wickham. 2020. “Purrr: Functional Programming Tools.” https://CRAN.R-project.org/package=purrr.\n\n\nWickham, Hadley, Lionel Henry, and Davis Vaughan. 2022. “Vctrs: Vector Helpers.” https://CRAN.R-project.org/package=vctrs."
   },
   {
     "objectID": "materials/day-2-session-3-tidy-eval.html#learning-objectives",
@@ -1748,6 +1783,13 @@
     "title": "📦 Building tidy tools",
     "section": "Learning objectives",
     "text": "Learning objectives\nAt the end of this section you will be able to:\n\nbuild functions that call tidyverse functions, using bare-name arguments:\n\ndesigned for interactive use, i.e. like dplyr::filter()\n\nunderstand terms: data masking, tidy select, dynamic dots\nrecognize other ways to use tidy eval:\n\nfunctions that call tidyverse functions using string-based arguments, i.e. for use with Shiny.\ncorrespondence with techniques used for bare-name arguments."
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#source-material",
+    "href": "materials/day-2-session-3-tidy-eval.html#source-material",
+    "title": "📦 Building tidy tools",
+    "section": "Source material",
+    "text": "Source material\nVignettes:\n\nProgramming with dplyr (Wickham et al. 2022)\nUsing ggplot2 in packages (Wickham 2016)"
   },
   {
     "objectID": "materials/day-2-session-3-tidy-eval.html#motivation-for-tidy-eval",
@@ -1810,7 +1852,7 @@
     "href": "materials/day-2-session-3-tidy-eval.html#pronouns",
     "title": "📦 Building tidy tools",
     "section": "Pronouns",
-    "text": "Pronouns\nThe .data and .env pronouns are provided by {rlang}.\n\nFor data-masking functions, make explicit how to evaluate variables.\n\n\nTo use them in your package:\n# we have .data already\nusethis::use_import_from(\"rlang\", c(\".data\", \".env\"))"
+    "text": "Pronouns\nThe .data and .env pronouns are provided by {rlang} (Henry and Wickham 2022a).\n\nFor data-masking functions, make explicit how to evaluate variables.\n\n\nTo use them in your package:\n# we have .data already\nusethis::use_import_from(\"rlang\", c(\".data\", \".env\"))"
   },
   {
     "objectID": "materials/day-2-session-3-tidy-eval.html#your-turn-2.3.2",
@@ -1887,7 +1929,7 @@
     "href": "materials/day-2-session-3-tidy-eval.html#all_of-any_of",
     "title": "📦 Building tidy tools",
     "section": "all_of(), any_of()",
-    "text": "all_of(), any_of()\nExported by {dplyr}; part of {tidyselect}\nUsed to disambiguate external- vector of column names:\nplaceholder <- c(\"wt\", \"mpg\", \"not_in_mtcars\")\n\nall_of() is strict:\nmtcars |> select(all_of(placeholder)) |> glimpse()\n\n\nany_of() is permissive:\nmtcars |> select(any_of(placeholder)) |> glimpse()"
+    "text": "all_of(), any_of()\nExported by {dplyr} (Wickham et al. 2022); part of {tidyselect} (Henry and Wickham 2022b)\nUsed to disambiguate external- vector of column names:\nplaceholder <- c(\"wt\", \"mpg\", \"not_in_mtcars\")\n\nall_of() is strict:\nmtcars |> select(all_of(placeholder)) |> glimpse()\n\n\nany_of() is permissive:\nmtcars |> select(any_of(placeholder)) |> glimpse()"
   },
   {
     "objectID": "materials/day-2-session-3-tidy-eval.html#our-turn-2.3.5",
@@ -1981,11 +2023,32 @@
     "text": "Summary: disambiguation\nFor data-masking functions, use .data, .env pronouns:\nlibrary(\"dplyr\")\n\ncyl <- 4\nmtcars |> filter(.data$cyl == .env$cyl) \n\nFor tidy-select functions, use all_of(), any_of():\ncyl <- c(\"mpg\", \"wt\")\nmtcars |> select(all_of(cyl))"
   },
   {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#additional-material",
+    "href": "materials/day-2-session-3-tidy-eval.html#additional-material",
+    "title": "📦 Building tidy tools",
+    "section": "Additional material",
+    "text": "Additional material\n\n\n\n\n\n\n\n\n\nJenny Bryan motivates tidy eval at rstudio::conf(2019):\n\n01:30 - scoped verbs, e.g. mutate_at(), now: across()\n16:18 - enquo() and !!, now: {{}}"
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#additional-material-1",
+    "href": "materials/day-2-session-3-tidy-eval.html#additional-material-1",
+    "title": "📦 Building tidy tools",
+    "section": "Additional material",
+    "text": "Additional material\n\n\n\n\n\n\n\n\n\nLionel Henry talks about data-masking and tidy-select at rstudio::conf(2020)."
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#additional-material-2",
+    "href": "materials/day-2-session-3-tidy-eval.html#additional-material-2",
+    "title": "📦 Building tidy tools",
+    "section": "Additional material",
+    "text": "Additional material\n\n\n\n\n\n\n\n\n\nHadley gives a five-minute tour of the next layer of the tidy-eval onion."
+  },
+  {
     "objectID": "materials/day-2-session-3-tidy-eval.html#references",
     "href": "materials/day-2-session-3-tidy-eval.html#references",
     "title": "📦 Building tidy tools",
     "section": "References",
-    "text": "References\n\n\nhttps://rstd.io/btt"
+    "text": "References\n\n\nhttps://rstd.io/btt\n\n\n\nHenry, Lionel, and Hadley Wickham. 2022a. “Rlang: Functions for Base Types and Core r and ’Tidyverse’ Features.” https://CRAN.R-project.org/package=rlang.\n\n\n———. 2022b. “Tidyselect: Select from a Set of Strings.” https://CRAN.R-project.org/package=tidyselect.\n\n\nWickham, Hadley. 2016. “Ggplot2: Elegant Graphics for Data Analysis.” https://ggplot2.tidyverse.org.\n\n\nWickham, Hadley, Romain François, Lionel Henry, and Kirill Müller. 2022. “Dplyr: A Grammar of Data Manipulation.” https://CRAN.R-project.org/package=dplyr."
   },
   {
     "objectID": "pre-reqs.html",

@@ -7,7 +7,7 @@
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.0.5">
+  <meta name="generator" content="quarto-1.0.7">
 
   <meta name="author" content="Emma Rand and Ian Lyttle">
   <title>Building tidy tools - 📦 Building tidy tools</title>
@@ -87,6 +87,25 @@
     code span.va { color: #00e0e0; } /* Variable */
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #dcc6e0; } /* Warning */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css" id="theme">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -379,6 +398,7 @@
       margin-right: 0; 
     }
   </style>
+  <link href="../site_libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet">
 </head>
 <body>
   <div class="reveal">
@@ -436,6 +456,7 @@
 </section>
 <section id="using-clicli_abort" class="slide level2">
 <h2>Using <code>cli::cli_abort()</code></h2>
+<p>{cli} package <span class="citation" data-cites="cli">(<a href="#/ref-cli" role="doc-biblioref" onclick="return false;">Csárdi 2022</a>)</span></p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># predicate</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (y <span class="sc">&gt;</span> <span class="dv">3</span>) {</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  cli<span class="sc">::</span><span class="fu">cli_abort</span>(</span>
@@ -635,7 +656,7 @@
 </section>
 <section id="using-self-removing-footprints" class="slide level2">
 <h2>Using “self-removing footprints”</h2>
-<p>The {withr} package gives us tools to:</p>
+<p>The {withr} package <span class="citation" data-cites="withr">(<a href="#/ref-withr" role="doc-biblioref" onclick="return false;">Hester et al. 2022</a>)</span> gives us tools to:</p>
 <ul>
 <li>modify global state</li>
 <li>specify when to reverse the modification</li>
@@ -769,11 +790,36 @@
 <p>Use <code>withr::local_*()</code> functions to “leave no footprints”.</p>
 </div>
 </section>
-<section id="references" class="slide level2">
+<section id="additional-material" class="slide level2 smaller">
+<h2>Additional material</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div class="vembedr">
+<div>
+<iframe src="https://www.youtube.com/embed/ZhuHCtR3xq8" width="711" height="400" frameborder="0" allowfullscreen="" data-external="1"></iframe>
+</div>
+</div>
+</div>
+</div>
+<p>Brian Beckman on monads (Ian watched at least ten times, learned something each time):</p>
+<ul>
+<li><p>tidyverse is a monoidal system</p></li>
+<li><p>maybe monads aren’t the thing, but the functional-programming learned along the way</p></li>
+</ul>
+</section>
+<section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
 
 <div class="footer footer-default">
 <p><a href="https://rstd.io/btt" class="uri">https://rstd.io/btt</a></p>
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-cli" class="csl-entry" role="doc-biblioentry">
+Csárdi, Gábor. 2022. <span>“Cli: Helpers for Developing Command Line Interfaces.”</span> <a href="https://CRAN.R-project.org/package=cli">https://CRAN.R-project.org/package=cli</a>.
+</div>
+<div id="ref-withr" class="csl-entry" role="doc-biblioentry">
+Hester, Jim, Lionel Henry, Kirill Müller, Kevin Ushey, Hadley Wickham, and Winston Chang. 2022. <span>“Withr: Run Code ’with’ Temporarily Modified Global State.”</span> <a href="https://CRAN.R-project.org/package=withr">https://CRAN.R-project.org/package=withr</a>.
+</div>
 </div>
 </section>
     </div>
@@ -989,6 +1035,48 @@
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          // dispatch for htmlwidgets
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for reveal
+        if (window.Reveal) {
+          window.Reveal.addEventListener("slidechanged", function(event) {
+            fireSlideChanged(event.previousSlide, event.currentSlide);
+          });
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")

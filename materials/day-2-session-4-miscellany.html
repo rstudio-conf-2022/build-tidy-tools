@@ -7,7 +7,7 @@
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.0.5">
+  <meta name="generator" content="quarto-1.0.7">
 
   <meta name="author" content="Emma Rand and Ian Lyttle">
   <title>Building tidy tools - 📦 Building tidy tools</title>
@@ -87,6 +87,25 @@
     code span.va { color: #00e0e0; } /* Variable */
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #dcc6e0; } /* Warning */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css" id="theme">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -379,6 +398,7 @@
       margin-right: 0; 
     }
   </style>
+  <link href="../site_libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet">
 </head>
 <body>
   <div class="reveal">
@@ -396,8 +416,8 @@
 <h3 id="time-permitting">Time permitting</h3>
 <p>At the end of this section you will be able to:</p>
 <ul>
-<li>accept a function an argument to a function using a formula (purrr-style)</li>
-<li>create an S3 class using {vctrs}
+<li>accept a function an argument to a function using a formula (purrr-style) <span class="citation" data-cites="purrr">(<a href="#/ref-purrr" role="doc-biblioref" onclick="return false;">Henry and Wickham 2020</a>)</span></li>
+<li>create an S3 class using {vctrs} <span class="citation" data-cites="vctrs">(<a href="#/ref-vctrs" role="doc-biblioref" onclick="return false;">Wickham, Henry, and Vaughan 2022</a>)</span>
 <ul>
 <li>recognize that implementing a <code>format()</code> method gets you a long way</li>
 </ul></li>
@@ -748,11 +768,62 @@
 <li>e.g.: read a file, print to screen</li>
 </ul>
 </section>
-<section id="references" class="slide level2">
+<section id="additional-material-fp" class="slide level2 smaller">
+<h2>Additional material: FP</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div class="vembedr">
+<div>
+<iframe src="https://www.youtube.com/embed/e-5obm1G_FY" width="711" height="400" frameborder="0" allowfullscreen="" data-external="1"></iframe>
+</div>
+</div>
+</div>
+</div>
+<p>Anjana Vakil, on functional programming in JavaScript:</p>
+<ul>
+<li>(Ian: JavaScript is a great <em>next</em> language from R)</li>
+<li><code>filter()</code> in JavaScript works like <code>purrr::keep()</code></li>
+</ul>
+</section>
+<section id="additional-material-s3-tools" class="slide level2">
+<h2>Additional material: S3 tools</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div class="vembedr">
+<div>
+<iframe src="https://www.youtube.com/embed/8_QoT3ygdI4" width="711" height="400" frameborder="0" allowfullscreen="" data-external="1"></iframe>
+</div>
+</div>
+</div>
+</div>
+<p>Hadley Wickham’s introduction of {vctrs}, rstudio::conf(2019).</p>
+</section>
+<section id="additional-material-s3-usage" class="slide level2">
+<h2>Additional material: S3 usage</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div class="vembedr">
+<div>
+<iframe src="https://www.youtube.com/embed/UHwp8T_fmEI" width="711" height="400" frameborder="0" allowfullscreen="" data-external="1"></iframe>
+</div>
+</div>
+</div>
+</div>
+<p>At rstudio::conf(2020), Jesse Sadler shows an implementation.</p>
+</section>
+<section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
 
 <div class="footer footer-default">
 <p><a href="https://rstd.io/btt" class="uri">https://rstd.io/btt</a></p>
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-purrr" class="csl-entry" role="doc-biblioentry">
+Henry, Lionel, and Hadley Wickham. 2020. <span>“Purrr: Functional Programming Tools.”</span> <a href="https://CRAN.R-project.org/package=purrr">https://CRAN.R-project.org/package=purrr</a>.
+</div>
+<div id="ref-vctrs" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, Lionel Henry, and Davis Vaughan. 2022. <span>“Vctrs: Vector Helpers.”</span> <a href="https://CRAN.R-project.org/package=vctrs">https://CRAN.R-project.org/package=vctrs</a>.
+</div>
 </div>
 </section>
     </div>
@@ -968,6 +1039,48 @@
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          // dispatch for htmlwidgets
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for reveal
+        if (window.Reveal) {
+          window.Reveal.addEventListener("slidechanged", function(event) {
+            fireSlideChanged(event.previousSlide, event.currentSlide);
+          });
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
