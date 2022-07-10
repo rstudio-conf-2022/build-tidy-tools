@@ -30,6 +30,14 @@ At the end of this section you will be able to:
 - recognize other ways to use tidy eval:
   - functions that call tidyverse functions using *string-based* arguments, i.e. for use with Shiny.
   - correspondence with techniques used for *bare-name* arguments.
+  
+## Source material
+
+Vignettes:
+
+- [Programming with dplyr](https://dplyr.tidyverse.org/articles/programming.html) [@dplyr]
+
+- [Using ggplot2 in packages](https://ggplot2.tidyverse.org/articles/ggplot2-in-packages.html) [@ggplot2]
 
 ## Motivation for tidy eval
 
@@ -214,7 +222,7 @@ dplyr::filter(mtcars, .data$cyl == .env$cyl) |> nrow()
 
 ## Pronouns
 
-The `.data` and `.env` pronouns are provided by {rlang}.
+The `.data` and `.env` pronouns are provided by {rlang} [@rlang].
 
 . . . 
 
@@ -446,7 +454,7 @@ mtcars |> select(all_of(cyl)) |> glimpse()
 
 ## `all_of()`, `any_of()`
 
-Exported by {dplyr}; part of {tidyselect}
+Exported by {dplyr} [@dplyr]; part of {tidyselect} [@tidyselect]
 
 Used to disambiguate external- vector of column names:
 
