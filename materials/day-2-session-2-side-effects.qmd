@@ -64,6 +64,8 @@ An effective error condition has:
 
 ## Using `cli::cli_abort()`
 
+{cli} package [@cli]
+
 ```r
 # predicate
 if (y > 3) {
@@ -261,7 +263,7 @@ When we hit the "Knit" button, or the Quarto "Render" button:
   
 ## Using "self-removing footprints"
 
-The {withr} package gives us tools to:
+The {withr} package [@withr] gives us tools to:
 
  - modify global state
  - specify when to reverse the modification
