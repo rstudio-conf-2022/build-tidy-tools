@@ -74,7 +74,7 @@ if (y > 3) {
     c(
       "{.var y} cannot be greater than 3.", 
       x = "{.var y} is {.val {y}}."
-    )
+    ),
     # class name
     class = "ussie_error_threshold",  
     # more information
