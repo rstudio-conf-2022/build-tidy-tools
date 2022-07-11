@@ -33,9 +33,113 @@ At the end of this section you will be able to:
 -   
 :::
 
+# Overview
 
 
-...
+## Overview
+
+
+
+
+# README
+
+## `README.md`
+
+Big picture goes in the README: 
+
+-   High-level purpose of the package
+-   Simple example
+-   Installation instructions
+-   Description of main features with links to vignettes
+
+## `README.Rmd`
+
+You are likely to have code in the `README.md`
+
+. . . 
+
+Generating it with R Markdown is helpful
+
+
+## **`usethis`** helps out again!
+
+`usethis::use_readme_rmd()` will:
+
+-   generate a template `README.Rmd` which
+   -   outputs a GitHub markdown doc
+   -   contains reminders for the listed items along with tips.
+-   adds a "pre-commit" hook to ensure you knit to `md` before committing
+
+. . . 
+
+🎬 Add a `README.Rmd`
+
+```{r}
+usethis::use_readme_rmd()
+```
+
+. . .
+
+```default
+✔ Writing 'README.Rmd'
+✔ Adding '^README\\.Rmd$' to '.Rbuildignore'
+• Modify 'README.Rmd'
+✔ Writing '.git/hooks/pre-commit'
+
+```
+
+
+
+
+
+
+## Template
+
+-   GitHub markdown
+-   reminder to edit `README.Rmd` rather than `README.md`
+-   Sets up some recommended knitr options
+
+
+
+
+## Hit knit
+
+
+🎬 Hit knit
+
+
+
+## Edits
+
+add an example with uss_make_maches()
+remove none relevant sections
+add badges
+
+
+Changes to the API: usethis::use_news_md() see the tidyverse style guide
+
+# Vignettes
+
+##
+
+intro or specific use
+examples
+usethis::use_vignette("name of vignette")
+change to DESCRIPTION
+vignettes/ folder
+
+# pkgdown sites
+
+## 
+usethis::use_pkgdown()
+pkgdown::build_package()
+
+devtools::build_site()
+hosting
+GitHub
+let github build the page rather than building and hosting results. usethis::use_github_action("pkgdown")
+
+
 
 # 🌐Woo hoo 🌐 <BR> You wrote a unit test!
 
