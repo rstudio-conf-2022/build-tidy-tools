@@ -468,9 +468,9 @@ Duration: 40.4s
 
 We've gained a warning!
 
-# Package dependecies
+# Package dependencies
 
-## Package dependecies
+## Package dependencies
 
 Our warnings are because we have used packages that we have not declared officially.
 
