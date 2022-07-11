@@ -5,9 +5,9 @@
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.0.8">
+  <meta name="generator" content="quarto-1.0.12">
 
   <meta name="author" content="Emma Rand and Ian Lyttle">
   <title>Building tidy tools - 📦 Building tidy tools</title>
@@ -400,7 +400,7 @@
   </style>
   <link href="../site_libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet">
 </head>
-<body>
+<body class="quarto-dark">
   <div class="reveal">
     <div class="slides">
 
@@ -464,7 +464,7 @@
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(</span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>      <span class="st">"{.var y} cannot be greater than 3."</span>, </span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> <span class="st">"{.var y} is {.val {y}}."</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    ),</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># class name</span></span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">class =</span> <span class="st">"ussie_error_threshold"</span>,  </span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># more information</span></span>
@@ -591,6 +591,7 @@
 <li><code>validate.R</code></li>
 <li><code>test-validate.R</code></li>
 </ul>
+<p><code>usethis::use_package("cli")</code></p>
 </div>
 </section>
 <section id="use-rlangarg_match" class="slide level2 smaller">
@@ -683,14 +684,41 @@
 <p>Useful in <code>testthat</code> code and in <code>R</code> code.</p>
 </div>
 </section>
+<section id="interactive-example" class="slide level2">
+<h2>Interactive example</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>write_read_vanish <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  tempfile <span class="ot">&lt;-</span> withr<span class="sc">::</span><span class="fu">local_tempfile</span>(<span class="at">fileext =</span> <span class="st">".rds"</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">saveRDS</span>(x, <span class="at">file =</span> tempfile)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  xnew <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(tempfile)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    glue<span class="sc">::</span><span class="fu">glue</span>(<span class="st">"'{tempfile}' contained {xnew}."</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">invisible</span>(xnew)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="another-interactive-example" class="slide level2">
+<h2>Another interactive example</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>not_runif <span class="ot">&lt;-</span> <span class="cf">function</span>(n, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">1</span>) {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  withr<span class="sc">::</span><span class="fu">local_seed</span>(<span class="dv">314</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">runif</span>(n, <span class="at">min =</span> min, <span class="at">max =</span> max)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 <section id="example" class="slide level2">
 <h2>Example</h2>
 <ul>
 <li><p><code>usethis::use_test("validate")</code></p></li>
 <li><p>change:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">expect_identical</span>(error_condition<span class="sc">$</span>cols_req, <span class="st">"foo"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">expect_identical</span>(error_condition<span class="sc">$</span>cols_req, <span class="st">"foo"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p>to:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">expect_identical</span>(error_condition<span class="sc">$</span>cols_re, <span class="st">"foo"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">expect_identical</span>(error_condition<span class="sc">$</span>cols_re, <span class="st">"foo"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p>rerun tests 🤔</p></li>
 </ul>
 <div class="fragment">
@@ -739,7 +767,7 @@
 <li><p>add <code>local_warn_partial_match()</code> to top of blocks.</p></li>
 <li><p><code>getOption("warnPartialMatchDollar")</code></p></li>
 <li><p>change:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">expect_identical</span>(error_condition<span class="sc">$</span>cols_re, <span class="st">"foo"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">expect_identical</span>(error_condition<span class="sc">$</span>cols_re, <span class="st">"foo"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p><code>devtools::test()</code> 🎉</p></li>
 <li><p><code>getOption("warnPartialMatchDollar")</code></p></li>
 <li><p>change back to <code>$cols_req</code></p></li>
@@ -759,12 +787,12 @@
 <div class="fragment">
 <ul>
 <li><p>add <code>local_warn_partial_match()</code> to all test-blocks.</p></li>
-<li><p><code>test-marches.R</code>:</p>
+<li><p><code>test-matches.R</code>:</p>
 <ul>
 <li>add <code>expect_error()</code> calls for data-frame and columns (use <code>class</code> argument).</li>
 <li>at end, add:</li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">expect_snapshot</span>(dplyr<span class="sc">::</span><span class="fu">glimpse</span>(italy))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">expect_snapshot</span>(dplyr<span class="sc">::</span><span class="fu">glimpse</span>(italy))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ul>
 </div>
 </section>
@@ -1079,6 +1107,21 @@ Hester, Jim, Lionel Henry, Kirill Müller, Kevin Ushey, Hadley Wickham, and Wins
 
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        toggleBodyColorMode(window.document.querySelector("link#quarto-bootstrap"));
+      }
+      toggleBodyColorPrimary();  
       const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
       tabsets.forEach(function(tabset) {
         const tabby = new Tabby('#' + tabset.id);

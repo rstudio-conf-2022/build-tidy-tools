@@ -5,9 +5,9 @@
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.0.8">
+  <meta name="generator" content="quarto-1.0.12">
 
   <meta name="author" content="Emma Rand and Ian Lyttle">
   <title>Building tidy tools - 📦 Building tidy tools</title>
@@ -402,7 +402,7 @@
   <script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
   <link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 </head>
-<body>
+<body class="quarto-dark">
   <div class="reveal">
     <div class="slides">
 
@@ -1831,6 +1831,21 @@ Wickham, Hadley, Jim Hester, Winston Chang, and Jennifer Bryan. 2021. <span>“D
 
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        toggleBodyColorMode(window.document.querySelector("link#quarto-bootstrap"));
+      }
+      toggleBodyColorPrimary();  
       const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
       tabsets.forEach(function(tabset) {
         const tabby = new Tabby('#' + tabset.id);
