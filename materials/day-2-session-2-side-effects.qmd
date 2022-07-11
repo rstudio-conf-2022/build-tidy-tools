@@ -17,6 +17,7 @@ execute:
   echo: true
   eval: false
 bibliography: references.bib
+editor: source
 ---
 
 ## Learning objectives 
@@ -62,6 +63,8 @@ An effective error condition has:
 - **more information** for developer
 
 ## Using `cli::cli_abort()`
+
+{cli} package [@cli]
 
 ```r
 # predicate
@@ -260,7 +263,7 @@ When we hit the "Knit" button, or the Quarto "Render" button:
   
 ## Using "self-removing footprints"
 
-The {withr} package gives us tools to:
+The {withr} package [@withr] gives us tools to:
 
  - modify global state
  - specify when to reverse the modification
@@ -409,5 +412,19 @@ Use snapshot tests to capture side-effects.
 . . . 
 
 Use `withr::local_*()` functions to "leave no footprints".
+
+## Additional material {.smaller}
+
+```{r}
+#| eval: true
+#| echo: false
+vembedr::embed_youtube("ZhuHCtR3xq8", height = 400) 
+```
+
+Brian Beckman on monads (Ian watched at least ten times, learned something each time):
+
+- tidyverse is a monoidal system
+
+- maybe monads aren't the thing, but the functional-programming learned along the way
 
 ## References
