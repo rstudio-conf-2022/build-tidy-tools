@@ -1001,15 +1001,15 @@
     "text": "── R CMD check results ─────────────────────────────────── ussie 0.0.0.9000 ────\nDuration: 40.4s\n\n❯ checking dependencies in R code ... WARNING\n  '::' or ':::' import not declared from: 'dplyr'\n\n❯ checking for unstated dependencies in examples ... WARNING\n  '::' or ':::' import not declared from: 'engsoccerdata'\n\n❯ checking R code for possible problems ... NOTE\n  uss_make_matches: no visible binding for global variable 'tier'\n  uss_make_matches: no visible binding for global variable 'Season'\n  uss_make_matches: no visible binding for global variable 'Date'\n  uss_make_matches: no visible binding for global variable 'home'\n  uss_make_matches: no visible binding for global variable 'visitor'\n  uss_make_matches: no visible binding for global variable 'hgoal'\n  uss_make_matches: no visible binding for global variable 'vgoal'\n  Undefined global functions or variables:\n    Date Season hgoal home tier vgoal visitor\n\n0 errors ✔ | 2 warnings ✖ | 1 note ✖\n\nWe’ve gained a warning!"
   },
   {
-    "objectID": "materials/day-1-session-2-doc-minimal.html#package-dependecies-1",
-    "href": "materials/day-1-session-2-doc-minimal.html#package-dependecies-1",
+    "objectID": "materials/day-1-session-2-doc-minimal.html#package-dependencies-1",
+    "href": "materials/day-1-session-2-doc-minimal.html#package-dependencies-1",
     "title": "📦 Building tidy tools",
-    "section": "Package dependecies",
-    "text": "Package dependecies\nOur warnings are because we have used packages that we have not declared officially.\n\n\nWe need to document our package dependencies"
+    "section": "Package dependencies",
+    "text": "Package dependencies\nOur warnings are because we have used packages that we have not declared officially.\n\n\nWe need to document our package dependencies"
   },
   {
-    "objectID": "materials/day-1-session-2-doc-minimal.html#package-dependencies",
-    "href": "materials/day-1-session-2-doc-minimal.html#package-dependencies",
+    "objectID": "materials/day-1-session-2-doc-minimal.html#package-dependencies-2",
+    "href": "materials/day-1-session-2-doc-minimal.html#package-dependencies-2",
     "title": "📦 Building tidy tools",
     "section": "Package dependencies",
     "text": "Package dependencies\n\nImports: must be installed for your package to work. If they’re not, they will get installed.\nSuggests: used by your package, but not required. Might provide data for examples, to run tests, build vignettes.\nDepends: Avoid where possible. When your package requires a specific version of R, e.g. Depends: R (>= 3.4.0). Think critically: downstream effects on packages that depend on your package."
@@ -1022,8 +1022,8 @@
     "text": "❯ checking dependencies in R code ... WARNING\n  '::' or ':::' import not declared from: 'dplyr'\n\n❯ checking for unstated dependencies in examples ... WARNING\n  '::' or ':::' import not declared from: 'engsoccerdata'"
   },
   {
-    "objectID": "materials/day-1-session-2-doc-minimal.html#package-dependencies-1",
-    "href": "materials/day-1-session-2-doc-minimal.html#package-dependencies-1",
+    "objectID": "materials/day-1-session-2-doc-minimal.html#package-dependencies-3",
+    "href": "materials/day-1-session-2-doc-minimal.html#package-dependencies-3",
     "title": "📦 Building tidy tools",
     "section": "Package dependencies",
     "text": "Package dependencies\nuse_package(package, type = \"Imports\")\n\nType – one of “Imports”, “Depends”, “Suggests”, “Enhances”, or “LinkingTo”\nThe default is “Imports”"
