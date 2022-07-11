@@ -74,7 +74,7 @@ if (y > 3) {
     c(
       "{.var y} cannot be greater than 3.", 
       x = "{.var y} is {.val {y}}."
-    )
+    ),
     # class name
     class = "ussie_error_threshold",  
     # more information
@@ -202,6 +202,8 @@ Get new files, `btt22::btt_get("2.2.1")`:
  - `validate.R`
  - `test-validate.R`
 
+`usethis::use_package("cli")`
+
 ## Use `rlang::arg_match()` {.smaller}
 
 👉 `devtools::load_all()`, then:
@@ -289,6 +291,35 @@ You may need:
 . . . 
 
 Useful in `testthat` code and in `R` code.
+
+## Interactive example
+
+```{r}
+write_read_vanish <- function(x) {
+  
+  tempfile <- withr::local_tempfile(fileext = ".rds")
+  
+  saveRDS(x, file = tempfile)
+  xnew <- readRDS(tempfile)
+  
+  print(
+    glue::glue("'{tempfile}' contained {xnew}.")
+  )
+  
+  invisible(xnew)
+}
+```
+
+## Another interactive example
+
+```r
+not_runif <- function(n, min = 0, max = 1) {
+
+  withr::local_seed(314)
+  
+  runif(n, min = min, max = max)
+}
+```
 
 ## Example
 
@@ -384,7 +415,7 @@ Implement testing with side effects
 
 - add `local_warn_partial_match()` to all test-blocks.
 
-- `test-marches.R`:
+- `test-matches.R`:
   - add `expect_error()` calls for data-frame and columns (use `class` argument).
   - at end, add:
    ```r
