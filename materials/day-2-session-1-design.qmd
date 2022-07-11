@@ -64,11 +64,11 @@ Standing on the shoulders of Building Tidy Tools, rstudio::conf(2020) [@wickham2
 
  - Function design
  
- - Working with side effects
+ - Managing side effects
  
- - Tidy Eval
+ - Tidy eval
  
- - Miscellany
+ - Miscellany: functional & OO programming
 
 ## State of play
 
@@ -165,6 +165,8 @@ The {rlang} package [@rlang] provides pronouns.
 Interactively, we might write:
 
 ```r
+library("dplyr")
+
 mtcars |>
   mutate(cons_lper100km = 235.215 / mpg)
 ```
@@ -186,16 +188,16 @@ mtcars |>
 usethis::use_package("rlang")
 ```
 
-2. Import the `.data` pronoun:
+2. Import the `.data`, `.env` pronouns:
 
 ```r
 # adds to R/ussie-package.R
-usethis::use_import_from("rlang", ".data")
+usethis::use_import_from("rlang", c(".data", ".env"))
 ```
 
-3. `R/matches.R`: use `.data` in `uss_make_matches()`.
+3. `matches.R`: use `.data`, `.env` in `uss_make_matches()`.
 
-4. `devtools::check()`, should be happy now.
+4. `devtools::check()` should be happy now.
 
 ## API design
 
@@ -261,7 +263,7 @@ Use a *noun* if building up a specific type of object:
 
 ## Casing
 
-- Tidyverse uses `snake_case`
+- Tidyverse uses `snake_case`; Shiny prefers `camelCase`
 
 - Python prefers `snake_case`
 
@@ -406,8 +408,7 @@ tibble -> tibble pattern makes it easy to work with the pipe: `|>`
 
 Implement a function, `uss_get_matches()`:
 
-  - given a `country`
-  - return a *matches* tibble
+  - given a `country`, return a *matches* tibble
  
 . . .
 
@@ -421,6 +422,8 @@ Get new files, `btt22::btt_get("2.1.2")`:
 
  - `columns.R`, `get-matches.R`
  - `test-get-matches.R`
+
+`usethis::use_package("engsoccerdata")`
 
 ## `columns.R`
 
