@@ -76,7 +76,7 @@ Detailed instructions for installing these are covered in [Prerequisites](pre-re
 ## Day 1
 
 | Time          | Activity                                                                                 |
-|:-----------------|:-----------------------------------------------------|
+|:--------------|:-----------------------------------------------------------------------------------------|
 | 09:00 - 10:30 | [Session 1: Introduction and the whole game](materials/day-1-session-1-introduction.qmd) |
 | 10:30 - 11:00 | ☕ *Coffee break*                                                                        |
 | 11:00 - 12:30 | [Session 2: Documentation - Minimal](materials/day-1-session-2-doc-minimal.qmd)          |
@@ -88,7 +88,7 @@ Detailed instructions for installing these are covered in [Prerequisites](pre-re
 ## Day 2
 
 | Time          | Activity                                                              |
-|:------------------|:----------------------------------------------------|
+|:--------------|:----------------------------------------------------------------------|
 | 09:00 - 10:30 | [Session 1: Function design](materials/day-2-session-1-design.qmd)    |
 | 10:30 - 11:00 | ☕ *Coffee break*                                                     |
 | 11:00 - 12:30 | [Session 2: Side effects](materials/day-2-session-2-side-effects.qmd) |
@@ -175,16 +175,14 @@ to set the following options....
 
 ## 🔥 Set up your `.Rprofile`
 
-```
-options(
-  usethis.full_name = "Emma Rand",
-  usethis.description = list(
-    `Authors@R` = 'person("Emma", "Rand", 
-      email = "emma.rand@york.ac.uk",     
-      role = c("aut", "cre"))'           
-  )
-)
-```
+    options(
+      usethis.full_name = "Emma Rand",
+      usethis.description = list(
+        `Authors@R` = 'person("Emma", "Rand", 
+          email = "emma.rand@york.ac.uk",     
+          role = c("aut", "cre"))'           
+      )
+    )
 
 ## 🔥 Set up your `.Rprofile`
 
@@ -694,7 +692,7 @@ Is it ok to commit it?
 
 🎬 Choose the option that means yes!
 
-##
+## 
 
 ::: small
 ``` default
@@ -704,8 +702,6 @@ Is it ok to commit it?
 ✔ Opening URL 'https://github.com/3mmaRand/ussie'
 ```
 :::
-
-
 
 ## 
 
@@ -746,8 +742,6 @@ GitHub remote configuration
   Read more about the GitHub remote configurations that usethis supports at:
   'https://happygitwithr.com/common-remote-setups.html'
 ```
-
-
 :::
 
 ## Add the first function
@@ -1008,6 +1002,7 @@ On running `devtools::check()` you may get an error if you are using a networked
 Updating ussie documentation  
 Error: The specified file is not readable: path-to\ussie\NAMESPACE
 ```
+
 \
 
 This is covered [here](https://stackoverflow.com/questions/40530968/overwriting-namespace-and-rd-with-roxygen2) and can be fixed.
@@ -1091,7 +1086,7 @@ Duration: 25.1s
 usethis::use_mit_license("Emma Rand") 
 ```
 
-##
+## 
 
 ::: small
 ``` default
@@ -1099,11 +1094,8 @@ usethis::use_mit_license("Emma Rand")
 ✔ Writing 'LICENSE'
 ✔ Writing 'LICENSE.md'
 ✔ Adding '^LICENSE\\.md$' to '.Rbuildignore'
-
 ```
 :::
-
-
 
 ## `use_mit_license()`
 

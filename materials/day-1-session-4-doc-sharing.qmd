@@ -27,22 +27,434 @@ At the end of this section you will be able to:
 
 ::: small
 -   
--    
+
 -   
+
 -   
+
+-   
+
 -   
 :::
 
+# Overview
+
+## Overview
+
+-   `README.md`: Often the first file read by the user. Include one!
+
+. . .
+
+-   Vignette: A long-form guide to your package. Can describe the problem that your package is designed to solve, and then show the reader how to solve it.
+
+. . .
+
+-   Package website
+
+. . .
+
+🦸‍♀️ **`usethis`**
+
+# README
+
+## `README.md`
+
+Big picture goes in the README:
+
+-   High-level purpose of the package
+-   Simple example
+-   Installation instructions
+-   Description of main features with links to vignettes
+
+## `README.Rmd`
+
+You are likely to have code in the `README.md`
+
+. . .
+
+Generating it with R Markdown is helpful
+
+## **`usethis`** helps out again!
+
+`usethis::use_readme_rmd()` will:
+
+-   generate a template `README.Rmd` which
+-   outputs a GitHub markdown doc
+-   contains reminders of things to include
+-   has tips
+-   adds the `README.Rmd` to the `.Rbuildignore`
+-   adds a "pre-commit" hook to ensure you knit to `md` before committing
+
+## Add a `README.Rmd`
+
+🎬 Add a `README.Rmd` with:
+
+```{r}
+usethis::use_readme_rmd()
+```
+
+. . .
+
+``` default
+✔ Writing 'README.Rmd'
+✔ Adding '^README\\.Rmd$' to '.Rbuildignore'
+• Modify 'README.Rmd'
+✔ Writing '.git/hooks/pre-commit'
+```
+
+## Template
+
+🎬 Examine your `README.Rmd`
+
+. . .
+
+-   GitHub markdown
+-   reminder to edit `README.Rmd` rather than `README.md`
+-   Sets up some recommended knitr options
+
+## 
+
+```{r}
+#| echo: fenced
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+## Render
+
+You need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
+
+`devtools::build_readme()` is handy for this.
+
+. . .
+
+🎬 Render with `README.md`:
+
+```{r}
+devtools::build_readme()
+```
+
+. . .
+
+``` default
+ℹ Installing ussie in temporary library
+ℹ Building C:/Users/er13/OneDrive - University of York/Desktop/Desktop/rstudio-conf-2022/ussie'/README.Rmd
+```
+
+## `devtools::build_readme()`
+
+-   creates `README.md`
+-   creates `man/figures/README-pressure-1.png`
+
+## Edit `README.Rmd`
+
+🎬 Complete: "The goal of ussie is to ..."
+
+\
+
+🎬 Add: an example with `uss_make_maches()`
+
+ 
+
+🎬 Remove: non-relevant sections
+
+## An answer
+
+Complete: "The goal of ussie is to ..."
+
+``` default
+The goal of ussie is to help you to work with European football league data supplied by the **`engsoccerdata`** package (Curley 2016).
+```
+
+. . .
+
+Add: an example with `uss_make_maches()`
+
+```{r example}
+#| echo: fenced
+library(ussie)
+uss_make_matches(engsoccerdata::italy, "Italy")
+```
+
+. . .
+
+Remove: non-relevant sections
+
+Everything after "What is special about using......"
+
+## Add a badge to the `README.Rmd`?
+
+Badges give information to the user about the state of the package
+
+. . .
+
+For example: ![](https://github.com/3mmaRand/ussie/actions/workflows/R-CMD-check.yaml/badge.svg){width="300" height="39"}
+
+. . .
+
+To add this badge, we set up a "GitHub Action"
+
+. . .
+
+A GitHub Action is "continuous integration" which allows you to automate package building, testing and deployment on github
+
+. . .
+
+Actions we add are triggered when we push to GitHub.
+
+## Adding a `R CMD check` action
+
+Adding the `R CMD check` action along with an edit to the `README.Rmd` will:
+
+-   run `R CMD check` on multiple OS on GitHub and 
+
+-   add badge with the result to the `README.Rmd`
+
+. . .
+
+We can add with `usethis::use_github_action_check_standard()`
 
 
-...
+## Adding a `R CMD check` action
 
-# 🌐Woo hoo 🌐 <BR> You wrote a unit test!
+
+🎬 Add the `R CMD check` action:
+
+```{r}
+usethis::use_github_action_check_standard()
+```
+
+## 
+
+::: small
+
+``` default
+✔ Creating '.github/'
+✔ Adding '^\\.github$' to '.Rbuildignore'
+✔ Adding '*.html' to '.github/.gitignore'
+✔ Creating '.github/workflows/'
+✔ Saving 'r-lib/actions/examples/check-standard.yaml@v2' to '.github/workflows/R-CMD-check.yaml'
+• Learn more at <https://github.com/r-lib/actions/blob/v2/examples/README.md>.
+✔ Adding R-CMD-check badge to 'README.Rmd'
+• Re-knit 'README.Rmd' with `devtools::build_readme()`
+```
+:::
+
+## What's changed?
+
+🎬 Look at your `README.Rmd`
+
+::: small
+``` default
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/3mmaRand/ussie/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/3mmaRand/ussie/actions/workflows/R-CMD-check.yaml)
+
+<!-- badges: end -->
+```
+:::
+
+## Do as it said!
+
+::: small
+``` default
+.......
+• Re-knit 'README.Rmd' with `devtools::build_readme()`
+```
+
+::: 
+
+🎬 Re-knit `README.Rmd` with:
+
+```{r}
+devtools::build_readme()
+```
+
+## waht else has changed?
+
+`.github/workflows/R-CMD-check.yaml` is created
+
+\
+
+🎬 Look at `.github/workflows/R-CMD-check.yaml`
+
+## `R-CMD-check.yaml`
+
+::: extrasmall
+    # Workflow derived from https://github.com/r-lib/actions/tree/v2/examples
+    # Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
+    on:
+      push:
+        branches: [main, master]
+      pull_request:
+        branches: [main, master]
+
+    name: R-CMD-check
+
+    jobs:
+      R-CMD-check:
+        runs-on: ${{ matrix.config.os }}
+
+        name: ${{ matrix.config.os }} (${{ matrix.config.r }})
+
+        strategy:
+          fail-fast: false
+          matrix:
+            config:
+              - {os: macOS-latest,   r: 'release'}
+              - {os: windows-latest, r: 'release'}
+              - {os: ubuntu-latest,   r: 'devel', http-user-agent: 'release'}
+              - {os: ubuntu-latest,   r: 'release'}
+              - {os: ubuntu-latest,   r: 'oldrel-1'}
+
+        env:
+          GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+          R_KEEP_PKG_SOURCE: yes
+
+        steps:
+          - uses: actions/checkout@v2
+
+          - uses: r-lib/actions/setup-pandoc@v2
+
+          - uses: r-lib/actions/setup-r@v2
+            with:
+              r-version: ${{ matrix.config.r }}
+              http-user-agent: ${{ matrix.config.http-user-agent }}
+              use-public-rspm: true
+
+          - uses: r-lib/actions/setup-r-dependencies@v2
+            with:
+              extra-packages: any::rcmdcheck
+              needs: check
+
+          - uses: r-lib/actions/check-r-package@v2
+            with:
+              upload-snapshots: true
+:::
+
+## Commit and push
+
+🎬 Stage and commit
+
+
+\
+
+🎬 Push to GitHub
+
+## 
+
+![](images/badge-check-no-status.png)
+
+## 
+
+![](images/badge-check-progress.png)
+
+## 
+
+![](images/badge-check-passing-status-01.png)
+
+## Other GitHub Actions
+
+-   Build and deploy a pkgdown site
+
+-   Determine test coverage
+
+We will use usethis helpers for GitHub Actions again.
+
+# Vignettes
+
+## Vignettes
+
+-   A long-form guide to your package. 
+-   Function documentation is useful if you know the function name
+-   A vignette explains how to use your package
+-   Can describe the problem that your package is designed to solve, and then show the reader how to solve it.
+
+## Add a vignette
+
+
+🎬 Add a vignette called "ussie" with
+
+```{r}
+usethis::use_vignette("ussie")
+```
+
+
+## What's happened?
+
+::: small
+```default
+✔ Adding 'knitr' to Suggests field in DESCRIPTION
+✔ Setting VignetteBuilder field in DESCRIPTION to 'knitr'
+✔ Adding 'inst/doc' to '.gitignore'
+✔ Creating 'vignettes/'
+✔ Adding '*.html', '*.R' to 'vignettes/.gitignore'
+✔ Adding 'rmarkdown' to Suggests field in DESCRIPTION
+✔ Writing 'vignettes/ussie.Rmd'
+• Modify 'vignettes/ussie.Rmd'
+```
+:::
+
+
+## Edit `vignettes/ussie.Rmd`
+
+🎬 Add info to `vignettes/ussie.Rmd`
+
+
+## An answer
+
+::: small
+
+```{r setup}
+#| echo: fenced
+library(ussie)
+library(dplyr)
+```
+
+The goal of **ussie** is to help you work with European Football League data.
+It uses data from the **engsoccerdata** package.
+
+We can create a *matches* tibble using raw data from engsoccerdata:
+
+```{r matches_italy}
+#| echo: fenced
+matches_italy <- uss_make_matches(engsoccerdata::italy, "Italy")
+glimpse(matches_italy)
+```
+:::
+
+## Preview the Vignette
+
+🎬 hit knit
+
+🎬 
+
+```{r}
+devtools::build_rmd("vignettes/ussie.Rmd")
+```
+
+```default
+ℹ Installing ussie in temporary library
+ℹ Building C:/Users/er13/Desktop/ussie/vignettes/ussie.Rmd
+```
+# pkgdown sites
+
+## 
+
+usethis::use_pkgdown() pkgdown::build_package()
+
+devtools::build_site() hosting GitHub let github build the page rather than building and hosting results. usethis::use_github_action("pkgdown")
+
+# 🌐 Woo hoo 🌐 <BR> You wrote a unit test!
 
 ## Summary
 
 ::: small
 -   
+
 -   
 :::
 
@@ -50,6 +462,7 @@ At the end of this section you will be able to:
 
 ::: small
 -   
+
 -   
 :::
 
