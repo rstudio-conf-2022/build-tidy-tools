@@ -7,7 +7,7 @@
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.0.12">
+  <meta name="generator" content="quarto-1.0.14">
 
   <meta name="author" content="Emma Rand and Ian Lyttle">
   <title>Building tidy tools - 📦 Building tidy tools</title>
@@ -23,6 +23,70 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #f8f8f2;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #f8f8f2; } /* Normal */
+    code span.al { color: #f07178; background-color: #2a0f15; font-weight: bold; } /* Alert */
+    code span.an { color: #d4d0ab; } /* Annotation */
+    code span.at { color: #00e0e0; } /* Attribute */
+    code span.bn { color: #d4d0ab; } /* BaseN */
+    code span.bu { color: #abe338; } /* BuiltIn */
+    code span.cf { color: #ffa07a; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #abe338; } /* Char */
+    code span.cn { color: #ffd700; } /* Constant */
+    code span.co { color: #f8f8f2; font-style: italic; } /* Comment */
+    code span.cv { color: #ffd700; } /* CommentVar */
+    code span.do { color: #f8f8f2; } /* Documentation */
+    code span.dt { color: #ffa07a; } /* DataType */
+    code span.dv { color: #d4d0ab; } /* DecVal */
+    code span.er { color: #f07178; text-decoration: underline; } /* Error */
+    code span.ex { color: #00e0e0; font-weight: bold; } /* Extension */
+    code span.fl { color: #d4d0ab; } /* Float */
+    code span.fu { color: #ffa07a; } /* Function */
+    code span.im { color: #abe338; } /* Import */
+    code span.in { color: #d4d0ab; } /* Information */
+    code span.kw { color: #ffa07a; font-weight: bold; } /* Keyword */
+    code span.op { color: #ffa07a; } /* Operator */
+    code span.ot { color: #00e0e0; } /* Other */
+    code span.pp { color: #dcc6e0; } /* Preprocessor */
+    code span.re { color: #00e0e0; background-color: #f8f8f2; } /* RegionMarker */
+    code span.sc { color: #abe338; } /* SpecialChar */
+    code span.ss { color: #abe338; } /* SpecialString */
+    code span.st { color: #abe338; } /* String */
+    code span.va { color: #00e0e0; } /* Variable */
+    code span.vs { color: #abe338; } /* VerbatimString */
+    code span.wa { color: #dcc6e0; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css" id="theme">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -344,11 +408,387 @@
 <li></li>
 </ul>
 </div>
-<p>…</p>
+</section></section>
+<section>
+<section id="overview" class="title-slide slide level1 center">
+<h1>Overview</h1>
+
+</section>
+<section id="overview-1" class="slide level2">
+<h2>Overview</h2>
+<ul>
+<li><code>README.md</code>: Often the first file read by the user. Include one!</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Vignette: A long-form guide to your package. Can describe the problem that your package is designed to solve, and then show the reader how to solve it.</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Package website</li>
+</ul>
+</div>
+<div class="fragment">
+<p>🦸‍♀️ <strong><code>usethis</code></strong></p>
+</div>
+</section></section>
+<section>
+<section id="readme" class="title-slide slide level1 center">
+<h1>README</h1>
+
+</section>
+<section id="readme.md" class="slide level2">
+<h2><code>README.md</code></h2>
+<p>Big picture goes in the README:</p>
+<ul>
+<li>High-level purpose of the package</li>
+<li>Simple example</li>
+<li>Installation instructions</li>
+<li>Description of main features with links to vignettes</li>
+</ul>
+</section>
+<section id="readme.rmd" class="slide level2">
+<h2><code>README.Rmd</code></h2>
+<p>You are likely to have code in the <code>README.md</code></p>
+<div class="fragment">
+<p>Generating it with R Markdown is helpful</p>
+</div>
+</section>
+<section id="usethis-helps-out-again" class="slide level2">
+<h2><strong><code>usethis</code></strong> helps out again!</h2>
+<p><code>usethis::use_readme_rmd()</code> will:</p>
+<ul>
+<li>generate a template <code>README.Rmd</code> which</li>
+<li>outputs a GitHub markdown doc</li>
+<li>contains reminders of things to include</li>
+<li>has tips</li>
+<li>adds the <code>README.Rmd</code> to the <code>.Rbuildignore</code></li>
+<li>adds a “pre-commit” hook to ensure you knit to <code>md</code> before committing</li>
+</ul>
+</section>
+<section id="add-a-readme.rmd" class="slide level2">
+<h2>Add a <code>README.Rmd</code></h2>
+<p>🎬 Add a <code>README.Rmd</code> with:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_readme_rmd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>✔ Writing 'README.Rmd'</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>✔ Adding '^README\\.Rmd$' to '.Rbuildignore'</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>• Modify 'README.Rmd'</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>✔ Writing '.git/hooks/pre-commit'</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="template" class="slide level2">
+<h2>Template</h2>
+<p>🎬 Examine your <code>README.Rmd</code></p>
+<div class="fragment">
+<ul>
+<li>GitHub markdown</li>
+<li>reminder to edit <code>README.Rmd</code> rather than <code>README.md</code></li>
+<li>Sets up some recommended knitr options</li>
+</ul>
+</div>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">collapse =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">comment =</span> <span class="st">"#&gt;"</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">fig.path =</span> <span class="st">"man/figures/README-"</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">out.width =</span> <span class="st">"100%"</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="render" class="slide level2">
+<h2>Render</h2>
+<p>You need to render <code>README.Rmd</code> regularly, to keep <code>README.md</code> up-to-date.</p>
+<p><code>devtools::build_readme()</code> is handy for this.</p>
+<div class="fragment">
+<p>🎬 Render with <code>README.md</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">build_readme</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment">
+<div class="sourceCode" id="cb5"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ℹ Installing ussie in temporary library</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ℹ Building C:/Users/er13/OneDrive - University of York/Desktop/Desktop/rstudio-conf-2022/ussie'/README.Rmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="devtoolsbuild_readme" class="slide level2">
+<h2><code>devtools::build_readme()</code></h2>
+<ul>
+<li>creates <code>README.md</code></li>
+<li>creates <code>man/figures/README-pressure-1.png</code></li>
+</ul>
+</section>
+<section id="edit-readme.rmd" class="slide level2">
+<h2>Edit <code>README.Rmd</code></h2>
+<p>🎬 Complete: “The goal of ussie is to …”</p>
+<p><br>
+</p>
+<p>🎬 Add: an example with <code>uss_make_maches()</code></p>
+<p>&nbsp;</p>
+<p>🎬 Remove: non-relevant sections</p>
+</section>
+<section id="an-answer" class="slide level2">
+<h2>An answer</h2>
+<p>Complete: “The goal of ussie is to …”</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>The goal of ussie is to help you to work with European football league data supplied by the **`engsoccerdata`** package (Curley 2016).</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<p>Add: an example with <code>uss_make_maches()</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r example}</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ussie)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">uss_make_matches</span>(engsoccerdata<span class="sc">::</span>italy, <span class="st">"Italy"</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment">
+<p>Remove: non-relevant sections</p>
+<p>Everything after “What is special about using……”</p>
+</div>
+</section>
+<section id="add-a-badge-to-the-readme.rmd" class="slide level2">
+<h2>Add a badge to the <code>README.Rmd</code>?</h2>
+<p>Badges give information to the user about the state of the package</p>
+<div class="fragment">
+<p>For example: <img data-src="https://github.com/3mmaRand/ussie/actions/workflows/R-CMD-check.yaml/badge.svg" width="300" height="39"></p>
+</div>
+<div class="fragment">
+<p>To add this badge, we set up a “GitHub Action”</p>
+</div>
+<div class="fragment">
+<p>A GitHub Action is “continuous integration” which allows you to automate package building, testing and deployment on github</p>
+</div>
+<div class="fragment">
+<p>Actions we add are triggered when we push to GitHub.</p>
+</div>
+</section>
+<section id="adding-a-r-cmd-check-action" class="slide level2">
+<h2>Adding a <code>R CMD check</code> action</h2>
+<p>Adding the <code>R CMD check</code> action along with an edit to the <code>README.Rmd</code> will:</p>
+<ul>
+<li><p>run <code>R CMD check</code> on multiple OS on GitHub and</p></li>
+<li><p>add badge with the result to the <code>README.Rmd</code></p></li>
+</ul>
+<div class="fragment">
+<p>We can add with <code>usethis::use_github_action_check_standard()</code></p>
+</div>
+</section>
+<section id="adding-a-r-cmd-check-action-1" class="slide level2">
+<h2>Adding a <code>R CMD check</code> action</h2>
+<p>🎬 Add the <code>R CMD check</code> action:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_github_action_check_standard</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<div class="small">
+<div class="sourceCode" id="cb9"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>✔ Creating '.github/'</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>✔ Adding '^\\.github$' to '.Rbuildignore'</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>✔ Adding '*.html' to '.github/.gitignore'</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>✔ Creating '.github/workflows/'</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>✔ Saving 'r-lib/actions/examples/check-standard.yaml@v2' to '.github/workflows/R-CMD-check.yaml'</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>• Learn more at &lt;https://github.com/r-lib/actions/blob/v2/examples/README.md&gt;.</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>✔ Adding R-CMD-check badge to 'README.Rmd'</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>• Re-knit 'README.Rmd' with `devtools::build_readme()`</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="whats-changed" class="slide level2">
+<h2>What’s changed?</h2>
+<p>🎬 Look at your <code>README.Rmd</code></p>
+<div class="small">
+<div class="sourceCode" id="cb10"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>&lt;!-- badges: start --&gt;</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>[![R-CMD-check](https://github.com/3mmaRand/ussie/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/3mmaRand/ussie/actions/workflows/R-CMD-check.yaml)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>&lt;!-- badges: end --&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="do-as-it-said" class="slide level2">
+<h2>Do as it said!</h2>
+<div class="small">
+<div class="sourceCode" id="cb11"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>.......</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>• Re-knit 'README.Rmd' with `devtools::build_readme()`</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>🎬 Re-knit <code>README.Rmd</code> with:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">build_readme</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="waht-else-has-changed" class="slide level2">
+<h2>waht else has changed?</h2>
+<p><code>.github/workflows/R-CMD-check.yaml</code> is created</p>
+<p><br>
+</p>
+<p>🎬 Look at <code>.github/workflows/R-CMD-check.yaml</code></p>
+</section>
+<section id="r-cmd-check.yaml" class="slide level2">
+<h2><code>R-CMD-check.yaml</code></h2>
+<div class="extrasmall">
+<pre><code># Workflow derived from https://github.com/r-lib/actions/tree/v2/examples
+# Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+name: R-CMD-check
+
+jobs:
+  R-CMD-check:
+    runs-on: ${{ matrix.config.os }}
+
+    name: ${{ matrix.config.os }} (${{ matrix.config.r }})
+
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+          - {os: macOS-latest,   r: 'release'}
+          - {os: windows-latest, r: 'release'}
+          - {os: ubuntu-latest,   r: 'devel', http-user-agent: 'release'}
+          - {os: ubuntu-latest,   r: 'release'}
+          - {os: ubuntu-latest,   r: 'oldrel-1'}
+
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      R_KEEP_PKG_SOURCE: yes
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: r-lib/actions/setup-pandoc@v2
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: ${{ matrix.config.r }}
+          http-user-agent: ${{ matrix.config.http-user-agent }}
+          use-public-rspm: true
+
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: any::rcmdcheck
+          needs: check
+
+      - uses: r-lib/actions/check-r-package@v2
+        with:
+          upload-snapshots: true</code></pre>
+</div>
+</section>
+<section id="commit-and-push" class="slide level2">
+<h2>Commit and push</h2>
+<p>🎬 Stage and commit</p>
+<p><br>
+</p>
+<p>🎬 Push to GitHub</p>
+</section>
+<section id="section-2" class="slide level2">
+<h2></h2>
+
+<img data-src="images/badge-check-no-status.png" class="r-stretch"></section>
+<section id="section-3" class="slide level2">
+<h2></h2>
+
+<img data-src="images/badge-check-progress.png" class="r-stretch"></section>
+<section id="section-4" class="slide level2">
+<h2></h2>
+
+<img data-src="images/badge-check-passing-status-01.png" class="r-stretch"></section>
+<section id="other-github-actions" class="slide level2">
+<h2>Other GitHub Actions</h2>
+<ul>
+<li><p>Build and deploy a pkgdown site</p></li>
+<li><p>Determine test coverage</p></li>
+</ul>
+<p>We will use usethis helpers for GitHub Actions again.</p>
+</section></section>
+<section>
+<section id="vignettes" class="title-slide slide level1 center">
+<h1>Vignettes</h1>
+
+</section>
+<section id="vignettes-1" class="slide level2">
+<h2>Vignettes</h2>
+<ul>
+<li>A long-form guide to your package.</li>
+<li>Function documentation is useful if you know the function name</li>
+<li>A vignette explains how to use your package</li>
+<li>Can describe the problem that your package is designed to solve, and then show the reader how to solve it.</li>
+</ul>
+</section>
+<section id="add-a-vignette" class="slide level2">
+<h2>Add a vignette</h2>
+<p>🎬 Add a vignette called “ussie” with</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_vignette</span>(<span class="st">"ussie"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="whats-happened" class="slide level2">
+<h2>What’s happened?</h2>
+<div class="small">
+<div class="sourceCode" id="cb15"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>✔ Adding 'knitr' to Suggests field in DESCRIPTION</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>✔ Setting VignetteBuilder field in DESCRIPTION to 'knitr'</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>✔ Adding 'inst/doc' to '.gitignore'</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>✔ Creating 'vignettes/'</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>✔ Adding '*.html', '*.R' to 'vignettes/.gitignore'</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>✔ Adding 'rmarkdown' to Suggests field in DESCRIPTION</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>✔ Writing 'vignettes/ussie.Rmd'</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>• Modify 'vignettes/ussie.Rmd'</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="edit-vignettesussie.rmd" class="slide level2">
+<h2>Edit <code>vignettes/ussie.Rmd</code></h2>
+<p>🎬 Add info to <code>vignettes/ussie.Rmd</code></p>
+</section>
+<section id="an-answer-1" class="slide level2">
+<h2>An answer</h2>
+<div class="small">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup}</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ussie)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The goal of <strong>ussie</strong> is to help you work with European Football League data. It uses data from the <strong>engsoccerdata</strong> package.</p>
+<p>We can create a <em>matches</em> tibble using raw data from engsoccerdata:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r matches_italy}</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>matches_italy <span class="ot">&lt;-</span> <span class="fu">uss_make_matches</span>(engsoccerdata<span class="sc">::</span>italy, <span class="st">"Italy"</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(matches_italy)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="preview-the-vignette" class="slide level2">
+<h2>Preview the Vignette</h2>
+<p>🎬 hit knit</p>
+<p>🎬</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">build_rmd</span>(<span class="st">"vignettes/ussie.Rmd"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>ℹ Installing ussie in temporary library</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>ℹ Building C:/Users/er13/Desktop/ussie/vignettes/ussie.Rmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section></section>
+<section>
+<section id="pkgdown-sites" class="title-slide slide level1 center">
+<h1>pkgdown sites</h1>
+
+</section>
+<section id="section-5" class="slide level2">
+<h2></h2>
+<p>usethis::use_pkgdown() pkgdown::build_package()</p>
+<p>devtools::build_site() hosting GitHub let github build the page rather than building and hosting results. usethis::use_github_action(“pkgdown”)</p>
 </section></section>
 <section>
 <section id="woo-hoo-you-wrote-a-unit-test" class="title-slide slide level1 center">
-<h1>🌐Woo hoo 🌐 <br> You wrote a unit test!</h1>
+<h1>🌐 Woo hoo 🌐 <br> You wrote a unit test!</h1>
 
 </section>
 <section id="summary" class="slide level2">
@@ -589,6 +1029,48 @@
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          // dispatch for htmlwidgets
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for reveal
+        if (window.Reveal) {
+          window.Reveal.addEventListener("slidechanged", function(event) {
+            fireSlideChanged(event.previousSlide, event.currentSlide);
+          });
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

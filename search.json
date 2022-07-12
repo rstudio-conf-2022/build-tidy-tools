@@ -1628,7 +1628,203 @@
     "href": "materials/day-1-session-4-doc-sharing.html#learning-objectives",
     "title": "📦 Building tidy tools",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\nAt the end of this section you will be able to:\n\n\n\n\n\n\n\n\n\n…"
+    "text": "Learning Objectives\nAt the end of this section you will be able to:"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#overview-1",
+    "href": "materials/day-1-session-4-doc-sharing.html#overview-1",
+    "title": "📦 Building tidy tools",
+    "section": "Overview",
+    "text": "Overview\n\nREADME.md: Often the first file read by the user. Include one!\n\n\n\nVignette: A long-form guide to your package. Can describe the problem that your package is designed to solve, and then show the reader how to solve it.\n\n\n\n\nPackage website\n\n\n\n🦸‍♀️ usethis"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#readme.md",
+    "href": "materials/day-1-session-4-doc-sharing.html#readme.md",
+    "title": "📦 Building tidy tools",
+    "section": "README.md",
+    "text": "README.md\nBig picture goes in the README:\n\nHigh-level purpose of the package\nSimple example\nInstallation instructions\nDescription of main features with links to vignettes"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#readme.rmd",
+    "href": "materials/day-1-session-4-doc-sharing.html#readme.rmd",
+    "title": "📦 Building tidy tools",
+    "section": "README.Rmd",
+    "text": "README.Rmd\nYou are likely to have code in the README.md\n\nGenerating it with R Markdown is helpful"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#usethis-helps-out-again",
+    "href": "materials/day-1-session-4-doc-sharing.html#usethis-helps-out-again",
+    "title": "📦 Building tidy tools",
+    "section": "usethis helps out again!",
+    "text": "usethis helps out again!\nusethis::use_readme_rmd() will:\n\ngenerate a template README.Rmd which\noutputs a GitHub markdown doc\ncontains reminders of things to include\nhas tips\nadds the README.Rmd to the .Rbuildignore\nadds a “pre-commit” hook to ensure you knit to md before committing"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#add-a-readme.rmd",
+    "href": "materials/day-1-session-4-doc-sharing.html#add-a-readme.rmd",
+    "title": "📦 Building tidy tools",
+    "section": "Add a README.Rmd",
+    "text": "Add a README.Rmd\n🎬 Add a README.Rmd with:\n\nusethis::use_readme_rmd()\n\n\n✔ Writing 'README.Rmd'\n✔ Adding '^README\\\\.Rmd$' to '.Rbuildignore'\n• Modify 'README.Rmd'\n✔ Writing '.git/hooks/pre-commit'"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#template",
+    "href": "materials/day-1-session-4-doc-sharing.html#template",
+    "title": "📦 Building tidy tools",
+    "section": "Template",
+    "text": "Template\n🎬 Examine your README.Rmd\n\n\nGitHub markdown\nreminder to edit README.Rmd rather than README.md\nSets up some recommended knitr options"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#section",
+    "href": "materials/day-1-session-4-doc-sharing.html#section",
+    "title": "📦 Building tidy tools",
+    "section": "",
+    "text": "```{r}\nknitr::opts_chunk$set(\n  collapse = TRUE,\n  comment = \"#>\",\n  fig.path = \"man/figures/README-\",\n  out.width = \"100%\"\n)\n```"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#render",
+    "href": "materials/day-1-session-4-doc-sharing.html#render",
+    "title": "📦 Building tidy tools",
+    "section": "Render",
+    "text": "Render\nYou need to render README.Rmd regularly, to keep README.md up-to-date.\ndevtools::build_readme() is handy for this.\n\n🎬 Render with README.md:\n\ndevtools::build_readme()\n\n\n\nℹ Installing ussie in temporary library\nℹ Building C:/Users/er13/OneDrive - University of York/Desktop/Desktop/rstudio-conf-2022/ussie'/README.Rmd"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#devtoolsbuild_readme",
+    "href": "materials/day-1-session-4-doc-sharing.html#devtoolsbuild_readme",
+    "title": "📦 Building tidy tools",
+    "section": "devtools::build_readme()",
+    "text": "devtools::build_readme()\n\ncreates README.md\ncreates man/figures/README-pressure-1.png"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#edit-readme.rmd",
+    "href": "materials/day-1-session-4-doc-sharing.html#edit-readme.rmd",
+    "title": "📦 Building tidy tools",
+    "section": "Edit README.Rmd",
+    "text": "Edit README.Rmd\n🎬 Complete: “The goal of ussie is to …”\n\n\n🎬 Add: an example with uss_make_maches()\n \n🎬 Remove: non-relevant sections"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#an-answer",
+    "href": "materials/day-1-session-4-doc-sharing.html#an-answer",
+    "title": "📦 Building tidy tools",
+    "section": "An answer",
+    "text": "An answer\nComplete: “The goal of ussie is to …”\nThe goal of ussie is to help you to work with European football league data supplied by the **`engsoccerdata`** package (Curley 2016).\n\nAdd: an example with uss_make_maches()\n\n```{r example}\nlibrary(ussie)\nuss_make_matches(engsoccerdata::italy, \"Italy\")\n```\n\n\n\nRemove: non-relevant sections\nEverything after “What is special about using……”"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#add-a-badge-to-the-readme.rmd",
+    "href": "materials/day-1-session-4-doc-sharing.html#add-a-badge-to-the-readme.rmd",
+    "title": "📦 Building tidy tools",
+    "section": "Add a badge to the README.Rmd?",
+    "text": "Add a badge to the README.Rmd?\nBadges give information to the user about the state of the package\n\nFor example: \n\n\nTo add this badge, we set up a “GitHub Action”\n\n\nA GitHub Action is “continuous integration” which allows you to automate package building, testing and deployment on github\n\n\nActions we add are triggered when we push to GitHub."
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#adding-a-r-cmd-check-action",
+    "href": "materials/day-1-session-4-doc-sharing.html#adding-a-r-cmd-check-action",
+    "title": "📦 Building tidy tools",
+    "section": "Adding a R CMD check action",
+    "text": "Adding a R CMD check action\nAdding the R CMD check action along with an edit to the README.Rmd will:\n\nrun R CMD check on multiple OS on GitHub and\nadd badge with the result to the README.Rmd\n\n\nWe can add with usethis::use_github_action_check_standard()"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#adding-a-r-cmd-check-action-1",
+    "href": "materials/day-1-session-4-doc-sharing.html#adding-a-r-cmd-check-action-1",
+    "title": "📦 Building tidy tools",
+    "section": "Adding a R CMD check action",
+    "text": "Adding a R CMD check action\n🎬 Add the R CMD check action:\n\nusethis::use_github_action_check_standard()"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#section-1",
+    "href": "materials/day-1-session-4-doc-sharing.html#section-1",
+    "title": "📦 Building tidy tools",
+    "section": "",
+    "text": "✔ Creating '.github/'\n✔ Adding '^\\\\.github$' to '.Rbuildignore'\n✔ Adding '*.html' to '.github/.gitignore'\n✔ Creating '.github/workflows/'\n✔ Saving 'r-lib/actions/examples/check-standard.yaml@v2' to '.github/workflows/R-CMD-check.yaml'\n• Learn more at <https://github.com/r-lib/actions/blob/v2/examples/README.md>.\n✔ Adding R-CMD-check badge to 'README.Rmd'\n• Re-knit 'README.Rmd' with `devtools::build_readme()`"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#whats-changed",
+    "href": "materials/day-1-session-4-doc-sharing.html#whats-changed",
+    "title": "📦 Building tidy tools",
+    "section": "What’s changed?",
+    "text": "What’s changed?\n🎬 Look at your README.Rmd\n\n<!-- badges: start -->\n[![R-CMD-check](https://github.com/3mmaRand/ussie/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/3mmaRand/ussie/actions/workflows/R-CMD-check.yaml)\n\n<!-- badges: end -->"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#do-as-it-said",
+    "href": "materials/day-1-session-4-doc-sharing.html#do-as-it-said",
+    "title": "📦 Building tidy tools",
+    "section": "Do as it said!",
+    "text": "Do as it said!\n\n.......\n• Re-knit 'README.Rmd' with `devtools::build_readme()`\n\n🎬 Re-knit README.Rmd with:\n\ndevtools::build_readme()"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#waht-else-has-changed",
+    "href": "materials/day-1-session-4-doc-sharing.html#waht-else-has-changed",
+    "title": "📦 Building tidy tools",
+    "section": "waht else has changed?",
+    "text": "waht else has changed?\n.github/workflows/R-CMD-check.yaml is created\n\n\n🎬 Look at .github/workflows/R-CMD-check.yaml"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#r-cmd-check.yaml",
+    "href": "materials/day-1-session-4-doc-sharing.html#r-cmd-check.yaml",
+    "title": "📦 Building tidy tools",
+    "section": "R-CMD-check.yaml",
+    "text": "R-CMD-check.yaml\n\n# Workflow derived from https://github.com/r-lib/actions/tree/v2/examples\n# Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help\non:\n  push:\n    branches: [main, master]\n  pull_request:\n    branches: [main, master]\n\nname: R-CMD-check\n\njobs:\n  R-CMD-check:\n    runs-on: ${{ matrix.config.os }}\n\n    name: ${{ matrix.config.os }} (${{ matrix.config.r }})\n\n    strategy:\n      fail-fast: false\n      matrix:\n        config:\n          - {os: macOS-latest,   r: 'release'}\n          - {os: windows-latest, r: 'release'}\n          - {os: ubuntu-latest,   r: 'devel', http-user-agent: 'release'}\n          - {os: ubuntu-latest,   r: 'release'}\n          - {os: ubuntu-latest,   r: 'oldrel-1'}\n\n    env:\n      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}\n      R_KEEP_PKG_SOURCE: yes\n\n    steps:\n      - uses: actions/checkout@v2\n\n      - uses: r-lib/actions/setup-pandoc@v2\n\n      - uses: r-lib/actions/setup-r@v2\n        with:\n          r-version: ${{ matrix.config.r }}\n          http-user-agent: ${{ matrix.config.http-user-agent }}\n          use-public-rspm: true\n\n      - uses: r-lib/actions/setup-r-dependencies@v2\n        with:\n          extra-packages: any::rcmdcheck\n          needs: check\n\n      - uses: r-lib/actions/check-r-package@v2\n        with:\n          upload-snapshots: true"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#commit-and-push",
+    "href": "materials/day-1-session-4-doc-sharing.html#commit-and-push",
+    "title": "📦 Building tidy tools",
+    "section": "Commit and push",
+    "text": "Commit and push\n🎬 Stage and commit\n\n\n🎬 Push to GitHub"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#other-github-actions",
+    "href": "materials/day-1-session-4-doc-sharing.html#other-github-actions",
+    "title": "📦 Building tidy tools",
+    "section": "Other GitHub Actions",
+    "text": "Other GitHub Actions\n\nBuild and deploy a pkgdown site\nDetermine test coverage\n\nWe will use usethis helpers for GitHub Actions again."
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#vignettes-1",
+    "href": "materials/day-1-session-4-doc-sharing.html#vignettes-1",
+    "title": "📦 Building tidy tools",
+    "section": "Vignettes",
+    "text": "Vignettes\n\nA long-form guide to your package.\nFunction documentation is useful if you know the function name\nA vignette explains how to use your package\nCan describe the problem that your package is designed to solve, and then show the reader how to solve it."
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#add-a-vignette",
+    "href": "materials/day-1-session-4-doc-sharing.html#add-a-vignette",
+    "title": "📦 Building tidy tools",
+    "section": "Add a vignette",
+    "text": "Add a vignette\n🎬 Add a vignette called “ussie” with\n\nusethis::use_vignette(\"ussie\")"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#whats-happened",
+    "href": "materials/day-1-session-4-doc-sharing.html#whats-happened",
+    "title": "📦 Building tidy tools",
+    "section": "What’s happened?",
+    "text": "What’s happened?\n\n✔ Adding 'knitr' to Suggests field in DESCRIPTION\n✔ Setting VignetteBuilder field in DESCRIPTION to 'knitr'\n✔ Adding 'inst/doc' to '.gitignore'\n✔ Creating 'vignettes/'\n✔ Adding '*.html', '*.R' to 'vignettes/.gitignore'\n✔ Adding 'rmarkdown' to Suggests field in DESCRIPTION\n✔ Writing 'vignettes/ussie.Rmd'\n• Modify 'vignettes/ussie.Rmd'"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#edit-vignettesussie.rmd",
+    "href": "materials/day-1-session-4-doc-sharing.html#edit-vignettesussie.rmd",
+    "title": "📦 Building tidy tools",
+    "section": "Edit vignettes/ussie.Rmd",
+    "text": "Edit vignettes/ussie.Rmd\n🎬 Add info to vignettes/ussie.Rmd"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#an-answer-1",
+    "href": "materials/day-1-session-4-doc-sharing.html#an-answer-1",
+    "title": "📦 Building tidy tools",
+    "section": "An answer",
+    "text": "An answer\n\n\n```{r setup}\nlibrary(ussie)\nlibrary(dplyr)\n```\n\nThe goal of ussie is to help you work with European Football League data. It uses data from the engsoccerdata package.\nWe can create a matches tibble using raw data from engsoccerdata:\n\n```{r matches_italy}\nmatches_italy <- uss_make_matches(engsoccerdata::italy, \"Italy\")\nglimpse(matches_italy)\n```"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#preview-the-vignette",
+    "href": "materials/day-1-session-4-doc-sharing.html#preview-the-vignette",
+    "title": "📦 Building tidy tools",
+    "section": "Preview the Vignette",
+    "text": "Preview the Vignette\n🎬 hit knit\n🎬\n\ndevtools::build_rmd(\"vignettes/ussie.Rmd\")\n\nℹ Installing ussie in temporary library\nℹ Building C:/Users/er13/Desktop/ussie/vignettes/ussie.Rmd"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#section-5",
+    "href": "materials/day-1-session-4-doc-sharing.html#section-5",
+    "title": "📦 Building tidy tools",
+    "section": "",
+    "text": "usethis::use_pkgdown() pkgdown::build_package()\ndevtools::build_site() hosting GitHub let github build the page rather than building and hosting results. usethis::use_github_action(“pkgdown”)"
   },
   {
     "objectID": "materials/day-1-session-4-doc-sharing.html#summary",
