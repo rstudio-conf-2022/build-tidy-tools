@@ -878,6 +878,8 @@ Take a *seasons* (final) data frame for an English team:
 
 What happens over time as we get promoted and relegated?
 
+This sounds like a job for {ggplot2}!
+
 ## Try out new code {.smaller}
 
 - go through code, tests
