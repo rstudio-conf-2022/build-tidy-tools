@@ -19,22 +19,28 @@ execute:
 bibliography: references.bib
 ---
 
-# 🌐 Documentation - Sharing
+# 🌐 Share your package
 
 ## Learning Objectives
 
 At the end of this section you will be able to:
 
 ::: small
--   
 
--   
+-   Add a `README.md`by building and populating a `README.Rmd` 
 
--   
+-   Set up a GitHub action that will run 
+    -   run `R CMD check` on multiple OS on GitHub and
+    -   add badge with the result to the README
 
--   
+-   Describe the additions made when adding a GitHub action
 
--   
+-   Add a package vignette
+
+-   Use **`pkgdown`** [@pkgdown] to create a website for your package
+
+-   Describe additions made when making and hosting a **`pkgdown`** website
+
 :::
 
 # Overview
@@ -53,7 +59,7 @@ At the end of this section you will be able to:
 
 . . .
 
-🦸‍♀️ **`usethis`**
+🦸‍♀️ **`usethis`** [@usethis]
 
 # README
 
@@ -76,12 +82,17 @@ Generating it with R Markdown is helpful
 
 ## **`usethis`** helps out again!
 
+. . .
+
 `usethis::use_readme_rmd()` will:
 
 -   generate a template `README.Rmd` which
--   outputs a GitHub markdown doc
--   contains reminders of things to include
--   has tips
+    -   outputs a GitHub markdown doc
+    -   contains reminders of things to include
+    -   has tips
+
+. . .
+
 -   adds the `README.Rmd` to the `.Rbuildignore`
 -   adds a "pre-commit" hook to ensure you knit to `md` before committing
 
@@ -210,7 +221,7 @@ Actions we add are triggered when we push to GitHub.
 
 Adding the `R CMD check` action along with an edit to the `README.Rmd` will:
 
--   run `R CMD check` on multiple OS on GitHub and 
+-   run `R CMD check` on multiple OS on GitHub and
 
 -   add badge with the result to the `README.Rmd`
 
@@ -218,9 +229,7 @@ Adding the `R CMD check` action along with an edit to the `README.Rmd` will:
 
 We can add with `usethis::use_github_action_check_standard()`
 
-
 ## Adding a `R CMD check` action
-
 
 🎬 Add the `R CMD check` action:
 
@@ -231,7 +240,6 @@ usethis::use_github_action_check_standard()
 ## 
 
 ::: small
-
 ``` default
 ✔ Creating '.github/'
 ✔ Adding '^\\.github$' to '.Rbuildignore'
@@ -264,8 +272,7 @@ usethis::use_github_action_check_standard()
 .......
 • Re-knit 'README.Rmd' with `devtools::build_readme()`
 ```
-
-::: 
+:::
 
 🎬 Re-knit `README.Rmd` with:
 
@@ -273,7 +280,7 @@ usethis::use_github_action_check_standard()
 devtools::build_readme()
 ```
 
-## waht else has changed?
+## What else has changed?
 
 `.github/workflows/R-CMD-check.yaml` is created
 
@@ -339,7 +346,6 @@ devtools::build_readme()
 
 🎬 Stage and commit
 
-
 \
 
 🎬 Push to GitHub
@@ -368,13 +374,12 @@ We will use usethis helpers for GitHub Actions again.
 
 ## Vignettes
 
--   A long-form guide to your package. 
+-   A long-form guide to your package.
 -   Function documentation is useful if you know the function name
 -   A vignette explains how to use your package
 -   Can describe the problem that your package is designed to solve, and then show the reader how to solve it.
 
 ## Add a vignette
-
 
 🎬 Add a vignette called "ussie" with
 
@@ -382,11 +387,10 @@ We will use usethis helpers for GitHub Actions again.
 usethis::use_vignette("ussie")
 ```
 
-
 ## What's happened?
 
 ::: small
-```default
+``` default
 ✔ Adding 'knitr' to Suggests field in DESCRIPTION
 ✔ Setting VignetteBuilder field in DESCRIPTION to 'knitr'
 ✔ Adding 'inst/doc' to '.gitignore'
@@ -398,24 +402,20 @@ usethis::use_vignette("ussie")
 ```
 :::
 
-
 ## Edit `vignettes/ussie.Rmd`
 
 🎬 Add info to `vignettes/ussie.Rmd`
 
-
 ## An answer
 
 ::: small
-
 ```{r setup}
 #| echo: fenced
 library(ussie)
 library(dplyr)
 ```
 
-The goal of **ussie** is to help you work with European Football League data.
-It uses data from the **engsoccerdata** package.
+The goal of **ussie** is to help you work with European Football League data. It uses data from the **engsoccerdata** package.
 
 We can create a *matches* tibble using raw data from engsoccerdata:
 
@@ -430,40 +430,283 @@ glimpse(matches_italy)
 
 🎬 hit knit
 
-🎬 
+🎬
 
 ```{r}
 devtools::build_rmd("vignettes/ussie.Rmd")
 ```
 
-```default
+``` default
 ℹ Installing ussie in temporary library
 ℹ Building C:/Users/er13/Desktop/ussie/vignettes/ussie.Rmd
 ```
+
 # pkgdown sites
 
 ## 
 
-usethis::use_pkgdown() pkgdown::build_package()
+pkgdown is designed to make it quick and easy to build a website for your package
 
-devtools::build_site() hosting GitHub let github build the page rather than building and hosting results. usethis::use_github_action("pkgdown")
+-   [palmerpenguins](https://allisonhorst.github.io/palmerpenguins/)
 
-# 🌐 Woo hoo 🌐 <BR> You wrote a unit test!
+-   [ggplot2](https://ggplot2.tidyverse.org/)
+
+Very widely used
+
+## 
+
+Uses your existing documentation
+
+-   Home page - from `README.md`
+-   Get started - from overall pkg vignette
+-   Function Reference - from documentation in `man/`
+-   Articles - from other vignettes
+
+## Workflow
+
+-   Configure package to use pkgdown with `usethis::use_pkgdown()` ONCE
+
+-   build the website locally `pkgdown::build_site()`
+
+## 
+
+🎬 config
+
+```{r}
+usethis::use_pkgdown() 
+```
+
+``` default
+✔ Adding '^_pkgdown\\.yml$', '^docs$', '^pkgdown$' to '.Rbuildignore'
+✔ Adding 'docs' to '.gitignore'
+✔ Writing '_pkgdown.yml'
+• Modify '_pkgdown.yml'
+```
+
+## `_pkgdown.yml`
+
+Simple
+
+``` default
+url: ~
+template:
+  bootstrap: 5
+```
+
+Can be customised:
+
+-   [ggplot2 `_pkgdown.yml`](https://github.com/tidyverse/ggplot2/blob/main/_pkgdown.yml)
+-   [palmerpenguins `_pkgdown.yml`](https://github.com/allisonhorst/palmerpenguins/blob/master/_pkgdown.yml)
+
+## 
+
+🎬 build
+
+```{r}
+pkgdown::build_site()
+```
+
+. . .
+
+::: {.tenor-gif-embed data-postid="17163309" data-share-method="host" data-aspect-ratio="0.921875" data-width="50%"}
+<a href="https://tenor.com/view/charlie-brown-snoopy-christmas-dance-dancing-gif-17163309">Charlie Brown Snoopy GIF</a>from <a href="https://tenor.com/search/charlie+brown-gifs">Charlie Brown GIFs</a>
+:::
+
+```{=html}
+<script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+```
+## 
+
+::: extrasmall
+    -- Installing package into temporary library -----------
+    Warning: package ‘ussie’ is in use and will not be installed
+    == Building pkgdown site =======================================================
+    Reading from: 'C:/Users/er13/OneDrive - University of York/Desktop/Desktop/rstudio-conf-2022/ussie'
+    Writing to:   'C:/Users/er13/OneDrive - University of York/Desktop/Desktop/rstudio-conf-2022/ussie/docs'
+    -- Initialising site -----------------------------------------------------------
+    Copying '../../../../Program Files/R/R-4.2.0/library/pkgdown/BS5/assets/link.svg' to 'link.svg'
+    Copying '../../../../Program Files/R/R-4.2.0/library/pkgdown/BS5/assets/pkgdown.js' to 'pkgdown.js'
+    -- Building home ---------------------------------------------------------------
+    Writing 'authors.html'
+    Reading 'LICENSE.md'
+    Writing 'LICENSE.html'
+    Writing 'LICENSE-text.html'
+    Copying 'man/figures/README-pressure-1.png' to 'reference/figures/README-pressure-1.png'
+    Writing '404.html'
+    -- Building function reference -------------------------------------------------
+    Writing 'reference/index.html'
+    Reading 'man/ussie-package.Rd'
+    Writing 'reference/ussie-package.html'
+    Reading 'man/uss_make_matches.Rd'
+    Writing 'reference/uss_make_matches.html'
+    -- Building articles -----------------------------------------------------------
+    Writing 'articles/index.html'
+    Reading 'vignettes/ussie.Rmd'
+    Writing 'articles/ussie.html'
+    Writing 'sitemap.xml'
+    -- Building search index -------------------------------------------------------
+    == DONE ========================================================================
+    -- Previewing site -------------------------------------
+:::
+
+## 
+
+-   `docs/` is created
+-   
+-   
+
+## Hosting on Github
+
+Set up GitHub actions to automatically build and publish your site
+
+Let github build the page rather than building and hosting results `usethis::use_pkgdown_github_pages()`
+
+🎬 action
+
+```{r}
+usethis::use_pkgdown_github_pages()
+```
+
+## 
+
+``` default
+Overwrite pre-existing file '_pkgdown.yml'?
+
+1: Yup
+2: Nope
+3: Negative
+```
+
+🎬 Chose the option that means Yes
+
+## 
+
+::: small
+``` default
+✔ Writing '_pkgdown.yml'
+• Modify '_pkgdown.yml'
+✔ Initializing empty, orphan 'gh-pages' branch in GitHub repo '3mmaRand/ussie'
+✔ GitHub Pages is publishing from:
+• URL: 'https://3mmarand.github.io/ussie/'
+• Branch: 'gh-pages'
+• Path: '/'
+✔ Saving 'r-lib/actions/examples/pkgdown.yaml@v2' to '.github/workflows/pkgdown.yaml'
+• Learn more at <https://github.com/r-lib/actions/blob/v2/examples/README.md>.
+✔ Recording 'https://3mmarand.github.io/ussie/' as site's url in '_pkgdown.yml'
+✔ Adding 'https://3mmarand.github.io/ussie/' to URL field in DESCRIPTION
+• Run `devtools::document()` to update package-level documentation.
+✔ Setting 'https://3mmarand.github.io/ussie/' as homepage of GitHub repo '3mmaRand/ussie'
+```
+:::
+
+## 
+
+## `_pkgdown.yml`
+
+Simple
+
+``` default
+url: https://3mmarand.github.io/ussie/
+template:
+  bootstrap: 5
+```
+
+## What else has changed?
+
+`.github/workflows/pkgdown.yaml` is created
+
+\
+
+🎬 Look at `.github/workflows/pkgdown.yaml`
+
+## `pkgdown.yaml`
+
+::: extrasmall
+    # Workflow derived from https://github.com/r-lib/actions/tree/v2/examples
+    # Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
+    on:
+      push:
+        branches: [main, master]
+      pull_request:
+        branches: [main, master]
+      release:
+        types: [published]
+      workflow_dispatch:
+
+    name: pkgdown
+
+    jobs:
+      pkgdown:
+        runs-on: ubuntu-latest
+        # Only restrict concurrency for non-PR jobs
+        concurrency:
+          group: pkgdown-${{ github.event_name != 'pull_request' || github.run_id }}
+        env:
+          GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+        steps:
+          - uses: actions/checkout@v2
+
+          - uses: r-lib/actions/setup-pandoc@v2
+
+          - uses: r-lib/actions/setup-r@v2
+            with:
+              use-public-rspm: true
+
+          - uses: r-lib/actions/setup-r-dependencies@v2
+            with:
+              extra-packages: any::pkgdown, local::.
+              needs: website
+
+          - name: Build site
+            run: pkgdown::build_site_github_pages(new_process = FALSE, install = FALSE)
+            shell: Rscript {0}
+
+          - name: Deploy to GitHub pages 🚀
+            if: github.event_name != 'pull_request'
+            uses: JamesIves/github-pages-deploy-action@4.1.4
+            with:
+              clean: false
+              branch: gh-pages
+              folder: docs
+:::
+
+## Commit and push
+
+🎬 Stage and commit
+
+\
+
+🎬 Push to GitHub
+
+## 
+
+# 🌐 Woo hoo 🌐 <BR> You have shared your package!
 
 ## Summary
 
 ::: small
--   
+-   Always include a `README.md` with the purpose of the package, installation instructions and a simple example
+-   `usethis::use_readme_rmd()` will generate a template `README.Rmd` and do other useful things
+-   `devtools::build_readme()` will build `README.md` from `README.Rmd`
+-   A GitHub Action is “continuous integration” which allows you to automate package building, testing and deployment on github
+-  `usethis::use_github_action_check_standard()` will add the `R CMD check` action and a badge
 
--   
+
+
+
 :::
 
 ## Summary
 
 ::: small
--   
+-   A vignette gives a more detailed explanation of how your package can be used
+-   You can add a vignette with `usethis::use_vignette(name_of_vignette)`
+-   **`pkgdown`** makes it quick and easy to build a website for your package from the existing documentation
+-   `usethis::use_pkgdown()` configures your package to use a **`pkgdown`** website
+-   `pkgdown::build_site()` will build the wqebsite so you can examine it locally
+-   `usethis::use_pkgdown_github_pages()` sets up a GitHub action to automatically build and publish your site on pushing.
+-   **`usethis`** really rocks!
 
--   
 :::
 
 ## References {.extrasmall}
