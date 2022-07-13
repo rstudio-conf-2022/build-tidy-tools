@@ -236,8 +236,8 @@ if (interactive()) {
 ![Future self: CC-BY-NC, by Julen Colomb, derived from Randall Munroe cartoon](images/future_you.png){fig-alt="Person working at a computer with an offstage person asking \"How is the analysis going?\" The person at the computer replies \"Can't understand the data...and the data collector does not answer my emails or calls\" Person offstage: \"That's terrible! So cruel! Who did collect the data? I will sack them!\" Person at the computer: \"um...I did, 3 years ago\""}
 
 ## To avoid
-
-<iframe src="https://giphy.com/embed/M11UVCRrc0LUk" width="480" height="277" frameBorder="0" class="giphy-embed" allowFullScreen>
+<center>
+<iframe src="https://giphy.com/embed/M11UVCRrc0LUk" width="480" height="277" frameBorder="0" class="giphy-embed center" allowFullScreen>
 
 </iframe>
 
@@ -246,6 +246,7 @@ if (interactive()) {
 <a href="https://giphy.com/gifs/M11UVCRrc0LUk">via GIPHY</a>
 
 </p>
+</center>
 
 # Where packages come from and live?
 
