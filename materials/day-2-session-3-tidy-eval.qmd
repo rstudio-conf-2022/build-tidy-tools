@@ -63,9 +63,9 @@ mtcars.query('cyl == 4')
  
 Welcome to *more interesting*.
 
-## Families of tidy-eval arguments
+## Families of tidy-eval functions
 
-There are two families of tidy-eval arguments:
+There are two families of tidy-eval functions:
 
 . . .
 
@@ -105,10 +105,7 @@ There are two families of tidy-eval arguments:
       dplyr::mutate("wt_kg" := .data[["wt"]] * 1000 / 2.2)
     ```
 
-. . .
-
-Here, we focus mostly on interactive programming.
-
+  
 ## Goal
 
 Write functions that:
@@ -116,6 +113,7 @@ Write functions that:
  - call tidyverse functions, e.g. `dplyr::filter()`
  - "look and feel" like tidyverse functions:
    - your users can call using bare names
+- use string-techniques when we know the column names
 
 . . . 
 
@@ -145,9 +143,7 @@ my_select <- function(.data, ...) {
 }
 ```
 
-## Your turn `"2.3.1"`
-
-
+## Our turn `"2.3.1"`
 
 . . .
 
@@ -160,6 +156,21 @@ my_select <- function(.data, ...) {
 *No* new files.
 
 . . .
+
+### Goal
+
+`uss_get_matches()` to use `dplyr::filter()`:
+
+```r
+uss_get_matches("italy", season == 1929)
+```
+
+equivalent to: 
+
+```r
+uss_get_matches("italy") |> 
+  dplyr::filter(season == 1929)
+```
 
 ## Pass the dots to `filter()` results
 
@@ -182,7 +193,20 @@ In `uss_get_matches()`:
 ## Pronouns: `.data`, `.env`
 
 ```r
-dplyr::filter(mtcars, cyl == 4) |> nrow()
+library("dplyr")
+mtcars |> nrow()
+```
+
+```
+[1] 32
+```
+
+. . .
+
+<hr>
+
+```r
+mtcars |> filter(cyl == 4) |> nrow()
 ```
 . . .
 
@@ -190,28 +214,52 @@ dplyr::filter(mtcars, cyl == 4) |> nrow()
 [1] 11
 ```
 
+. . .
+
 <hr>
+
+```r
+n_cyl <- 4
+mtcars |> filter(cyl == n_cyl) |> nrow()
+```
+. . .
+
+```
+[1] 11
+```
+
+## Pronouns: `.data`, `.env` (cont.)
+
+```r
+n_cyl <- 4
+mtcars |> filter(cyl == n_cyl) |> nrow()
+```
+
+```
+[1] 11
+```
 
 . . .
 
+<hr>
+
 ```r
 cyl <- 4
-dplyr::filter(mtcars, cyl == cyl) |> nrow()
+filter(mtcars, cyl == cyl) |> nrow()
 ```
+
 . . .
 
 ```
 [1] 32
 ```
 
-<hr>
-
 . . .
 
+<hr>
+
 ```r
-library("rlang")
-cyl <- 4
-dplyr::filter(mtcars, .data$cyl == .env$cyl) |> nrow()
+mtcars |> filter(.data$cyl == .env$cyl) |> nrow()
 ```
 
 . . .
@@ -233,11 +281,10 @@ For *data-masking* functions, make explicit how to evaluate variables.
 To use them in your package:
 
 ```r
-# we have .data already
 usethis::use_import_from("rlang", c(".data", ".env"))
 ```
 
-## Your turn `"2.3.2"`
+## Our turn `"2.3.2"`
 
 . . .
 
@@ -252,13 +299,68 @@ Get new files, `btt22::btt_get("2.3.2")`:
  - `teams-matches.R`
  - `test-teams-matches.R`
 
-Go through what code does.
+## Teams-matches {.smaller}
+
+*matches*: one row per *match* played
+
+```{r}
+#| echo: false
+#| eval: false
+
+# This is used to generate the tibble-outputs, below.
+# I can't get the normal output not to wrap, so I'm doing this :(
+library("ussie")
+library("dplyr")
+
+uss_get_matches("italy") |> 
+  filter(date == min(date)) |>
+  head(1) |>
+  print() |>
+  uss_make_teams_matches() |>
+  print()
+```
+
+``` default
+# A tibble: 1 × 8
+  country tier  season date       home     visitor    goals_home goals_visitor
+  <chr>   <fct>  <int> <date>     <chr>    <chr>           <int>         <int>
+1 Italy   1       1929 1929-10-06 Juventus SSC Napoli          3             2
+```
 
 . . .
 
-If you have not already:
+*teams-matches*: one row per *team* playing a *match*
 
-`usethis::use_import_from("rlang", ".env")`
+``` default
+# A tibble: 2 × 9
+  country tier  season team       date       at_home opponent   goals_for goals_against
+  <chr>   <fct>  <int> <chr>      <date>     <lgl>   <chr>          <int>         <int>
+1 Italy   1       1929 Juventus   1929-10-06 TRUE    SSC Napoli         3             2
+2 Italy   1       1929 SSC Napoli 1929-10-06 FALSE   Juventus           2             3
+```
+
+. . .
+
+`uss_make_teams_matches()`:
+
+  - takes a *matches* data frame
+  - returns a *teams-matches* data frame
+
+## Try out new code
+
+- go through code, tests
+
+- `document()`, `test()`, `check()`, `install()`
+
+```r
+italy_teams_matches <- 
+  uss_get_matches("italy") |>
+  uss_make_teams_matches()
+```
+
+. . .
+
+- next few exercises, just modify code
 
 ## Use `.env` pronoun
 
@@ -295,25 +397,26 @@ It works only with [*dynamic dots*](https://rlang.r-lib.org/reference/dyn-dots.h
 . . . 
 
 ```r
-mtcars |>
-  dplyr::rename(mpg = "new_mpg", cyl = "new_cyl")
+library("dplyr")
+mtcars |> rename(new_mpg = "mpg", new_cyl = "cyl")
 ```
 
 . . .
 
 ```r
-new_names <- c(mpg = "new_mpg", cyl = "new_cyl")
+new_names <- c(new_mpg = "mpg", new_cyl = "cyl")
 
-mtcars |>
-  dplyr::rename(!!!new_names)
+mtcars |> rename(!!!new_names)
 ```
 
 . . .
 
-Remember:`!!!` reflects `...`
+`!!!` reflects `...`
+ 
+`!!!` evaluates the variable using the environment
 
 
-## Your turn `"2.3.3"`
+## Our turn `"2.3.3"`
 
 . . .
 
@@ -324,6 +427,12 @@ Remember:`!!!` reflects `...`
 . . . 
 
 *No* new files.
+
+. . .
+
+### Goal
+
+Use splice operator, `!!!`
 
 ## Splice renaming
 
@@ -355,7 +464,7 @@ With [*dynamic dots*](https://rlang.r-lib.org/reference/dyn-dots.html) you can n
 prefix <- "new"
 
 mtcars |>
-  dplyr::rename("{prefix}_mpg" := .data$mpg)
+  dplyr::rename("{prefix}_mpg" := "mpg")
 ```
 
 . . .
@@ -373,7 +482,7 @@ To use in your package:
 usethis::use_import_from("rlang", ":=")
 ```
 
-## Your turn `"2.3.4"`
+## Our turn `"2.3.4"`
 
 . . .
 
@@ -384,6 +493,14 @@ usethis::use_import_from("rlang", ":=")
 . . . 
 
 *No* new files.
+
+`usethis::use_import_from("rlang", ":=")`
+
+. . .
+
+### Goal
+
+Use naming operator, `:=`
 
 ## Naming columns
 
@@ -492,6 +609,18 @@ mtcars |> select(any_of(placeholder)) |> glimpse()
 
 *No* new files.
 
+. . .
+
+### Goal
+
+Arrange *teams-matches* by `country`, `tier`, `season`, `team`, `date`.
+
+`dplyr::arrange()` is a *data-masking* function.
+
+We want to supply the columns using *tidy-select*.
+
+Use `dplyr::across()`.
+
 
 ## `uss_make_teams_matches()`
 
@@ -531,7 +660,7 @@ Not using variable-names in *tidy-select* that could be confused for column-name
 - `devtools::check()`
 :::
 
-## Your turn `"2.3.6"`
+## Our turn `"2.3.6"`
 
 . . .
 
@@ -543,12 +672,100 @@ Not using variable-names in *tidy-select* that could be confused for column-name
  
 Get new files, `btt22::btt_get("2.3.6")`:
 
-- `points.R`
-- `seasons.R`
-- `test-points.R`
-- `test-seasons.R`
+- `points.R`, `seasons.R`
+- `test-points.R`, `test-seasons.R`
 
-Go through what code does.
+Used to aggregate performance over seasons.
+
+## Aggregating seasons {.smaller}
+
+```{r}
+#| echo: false
+#| eval: false
+
+# This is used to generate the tibble-outputs, below.
+# I can't get the normal output not to wrap, so I'm doing this :(
+library("ussie")
+library("dplyr")
+
+uss_get_matches("italy", season == 1929) |> 
+  uss_make_teams_matches() |>
+  print() |>
+  uss_make_seasons_cumulative() |>
+  print() |>
+  filter(matches == max(matches), .preserve = TRUE) |>
+  arrange(country, tier, season, desc(points), desc(goals_for - goals_against)) |>
+  print()
+```
+
+`uss_make_seasons_cumulative()` takes a *teams-matches* data frame:
+
+``` default
+# A tibble: 612 × 9
+   country tier  season team     date       at_home opponent       goals_for goals_against
+   <chr>   <fct>  <int> <chr>    <date>     <lgl>   <chr>              <int>         <int>
+ 1 Italy   1       1929 AC Milan 1929-10-06 TRUE    Brescia Calcio         4             1
+ 2 Italy   1       1929 AC Milan 1929-10-13 TRUE    Modena FC              1             0
+ 3 Italy   1       1929 AC Milan 1929-10-20 FALSE   SSC Napoli             1             2
+```
+
+. . .
+
+and returns a *seasons* data frame:
+
+``` default
+# A tibble: 612 × 12
+# Groups:   country, tier, season, team [18]
+   country tier  season team     date       matches  wins draws losses points goals_for goals_against
+   <chr>   <fct>  <int> <chr>    <date>       <int> <int> <int>  <int>  <int>     <int>         <int>
+ 1 Italy   1       1929 AC Milan 1929-10-06       1     1     0      0      2         4             1
+ 2 Italy   1       1929 AC Milan 1929-10-13       2     2     0      0      4         5             1
+ 3 Italy   1       1929 AC Milan 1929-10-20       3     2     0      1      4         6             3
+```
+
+This form is *cumulative*.
+
+## Season final results {.smaller}
+
+We need to build a function to take a *teams-matches* data frame:
+
+``` default
+# A tibble: 612 × 9
+   country tier  season team     date       at_home opponent       goals_for goals_against
+   <chr>   <fct>  <int> <chr>    <date>     <lgl>   <chr>              <int>         <int>
+ 1 Italy   1       1929 AC Milan 1929-10-06 TRUE    Brescia Calcio         4             1
+ 2 Italy   1       1929 AC Milan 1929-10-13 TRUE    Modena FC              1             0
+ 3 Italy   1       1929 AC Milan 1929-10-20 FALSE   SSC Napoli             1             2
+```
+
+. . .
+
+and return a *seasons* data frame:
+
+``` default
+# A tibble: 18 × 12
+# Groups:   country, tier, season, team [18]
+   country tier  season team        date       matches  wins draws losses points goals_for goals_against
+   <chr>   <fct>  <int> <chr>       <date>       <int> <int> <int>  <int>  <int>     <int>         <int>
+ 1 Italy   1       1929 Inter       1930-07-06      34    22     6      6     50        85            38
+ 2 Italy   1       1929 Genova 189… 1930-07-06      34    20     8      6     48        63            39
+ 3 Italy   1       1929 Juventus    1930-07-06      34    19     7      8     45        56            31
+```
+
+This form is *final*.
+
+## Try out new code
+
+- go through code, tests
+
+- `document()`, `test()`, `check()`, `install()`
+
+```r
+italy_1929 <-
+  uss_get_matches("italy", season == 1929) |> 
+  uss_make_teams_matches() |>
+  uss_make_seasons_cumulative()
+```
 
 ## `uss_make_seasons_final()`
 
@@ -628,7 +845,7 @@ mutate_greet <- function(.data, greeting) {
 - function you call must be capable
 - tidyverse *data-masking* and *tidy-select* functions are capable
 
-## Your turn `"2.3.7"`
+## Our turn `"2.3.7"`
 
 . . .
 
@@ -640,16 +857,79 @@ mutate_greet <- function(.data, greeting) {
  
 Get new files, `btt22::btt_get("2.3.7")`:
 
-- `points.R`, `seasons.R`
-- `test-points.R`, `test-seasons.R`
+- `plot.R`, `snapshot.R`
+- `test-plot.R`
 
 `usethis::use_package("ggplot2")`
 
-Go through what code does, esp. snapshot function.
+## Relegation & promotion {.smaller}
+
+Take a *seasons* (final) data frame for an English team:
+
+``` default
+# Groups:   country, tier, season [89]
+   country tier  season team        date       matches  wins draws losses points goals_for goals_against
+   <chr>   <fct>  <int> <chr>       <date>       <int> <int> <int>  <int>  <int>     <int>         <int>
+ 1 England 2       1920 Leeds Unit… 1921-05-07      42    14    10     18     38        40            45
+ 2 England 2       1921 Leeds Unit… 1922-05-06      42    16    13     13     45        48            38
+ 3 England 2       1922 Leeds Unit… 1923-05-05      42    18    11     13     47        43            36
+ 4 England 2       1923 Leeds Unit… 1924-05-03      42    21    12      9     54        61            35
+ 5 England 1       1924 Leeds Unit… 1925-05-02      42    11    12     19     34        46            59
+ 6 England 1       1925 Leeds Unit… 1926-05-01      42    14     8     20     36        64            76
+ 7 England 1       1926 Leeds Unit… 1927-05-07      42    11     8     23     30        69            88
+ 8 England 2       1927 Leeds Unit… 1928-05-05      42    25     7     10     57        98            49
+```
+
+What happens over time as we get promoted and relegated?
+
+This sounds like a job for {ggplot2}!
+
+## Try out new code {.smaller}
+
+- go through code, tests
+
+- `document()`, `test()`, `check()`, `install()`
+
+```{r}
+#| echo: false
+#| eval: true
+library("ussie")
+```
+
+```{r}
+#| echo: true
+#| eval: true
+leeds_united <-
+  uss_get_matches("england") |> 
+  uss_make_teams_matches() |>
+  dplyr::filter(team == "Leeds United") |>
+  uss_make_seasons_final() 
+```
+
+. . .
+
+``` default
+# A tibble: 89 × 12
+# Groups:   country, tier, season [89]
+   country tier  season team        date       matches  wins draws losses points goals_for goals_against
+   <chr>   <fct>  <int> <chr>       <date>       <int> <int> <int>  <int>  <int>     <int>         <int>
+ 1 England 1       1924 Leeds Unit… 1925-05-02      42    11    12     19     34        46            59
+ 2 England 1       1925 Leeds Unit… 1926-05-01      42    14     8     20     36        64            76
+ 3 England 1       1926 Leeds Unit… 1927-05-07      42    11     8     23     30        69            88
+```
+
+## Try out new code (cont.)
+
+```{r}
+#| echo: true
+#| eval: true
+uss_plot_seasons_tiers(leeds_united) 
+```
 
 ## `uss_plot_seasons_tiers()` 
 
-Add argument `aes_y` to function:
+We want to specify what to plot on the y-axis.
+So let's add an argument `aes_y` to the function:
 
   - make default value `.data$wins`
   - document: `#' @param aes_y`
@@ -669,7 +949,7 @@ ggplot2::geom_point(
     y = {{ aes_y }},
   ),
   color = "#333333" # use something like #111111
-) +
+) 
 ```
 
 . . . 
