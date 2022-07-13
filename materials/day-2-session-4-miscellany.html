@@ -6,17 +6,17 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.0.16">
-
-  <meta name="author" content="Emma Rand and Ian Lyttle">
-  <title>Building tidy tools - 📦 Building tidy tools</title>
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
-  <style>
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.18">
+<meta name="author" content="Emma Rand and Ian Lyttle">
+<title>Building tidy tools - 📦 Building tidy tools</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+<link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+<style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     span.underline{text-decoration: underline;}
@@ -107,14 +107,14 @@
       margin-left: 2em;
     }
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css" id="theme">
-  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
-  <style type="text/css">
+<link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css" id="theme">
+<link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+<link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+<link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+<link href="../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+<link href="../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+<link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+<style type="text/css">
 
   .callout {
     margin-top: 1em;
@@ -311,7 +311,7 @@
   }
 
   </style>
-  <style type="text/css">
+<style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
       overflow: auto;
@@ -398,81 +398,78 @@
       margin-right: 0; 
     }
   </style>
-  <link href="../site_libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet">
+<link href="../site_libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet">
 </head>
 <body class="quarto-dark">
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="center">
-  <h1 class="title">📦 <br>Building tidy tools</h1>
+<section id="title-slide" class="center"><h1 class="title">📦 <br>Building tidy tools</h1>
   <p class="subtitle">Day 2 Session 4: Miscellany</p>
   <p class="author">Emma Rand and Ian Lyttle</p>
   <p class="date"><br>🔗 <a href="https://rstd.io/btt">rstd.io/btt</a></p>
-</section>
-
-<section id="learning-objectives" class="slide level2">
-<h2>Learning objectives</h2>
+</section><section id="learning-objectives" class="slide level2"><h2>Learning objectives</h2>
 <h3 id="time-permitting">Time permitting</h3>
 <p>At the end of this section you will be able to:</p>
 <ul>
-<li>accept a function an argument to a function using a formula (purrr-style) <span class="citation" data-cites="purrr">(<a href="#/ref-purrr" role="doc-biblioref" onclick="return false;">Henry and Wickham 2020</a>)</span></li>
+<li>accept a function an argument to a function using a formula (purrr-style) <span class="citation" data-cites="purrr">(<a href="#/ref-purrr" role="doc-biblioref" onclick="return false;">Henry and Wickham 2020</a>)</span>
+</li>
 <li>create an S3 class using {vctrs} <span class="citation" data-cites="vctrs">(<a href="#/ref-vctrs" role="doc-biblioref" onclick="return false;">Wickham, Henry, and Vaughan 2022</a>)</span>
 <ul>
-<li>recognize that implementing a <code>format()</code> method gets you a long way</li>
-</ul></li>
+<li>recognize that implementing a <code><a href="https://rdrr.io/r/base/format.html">format()</a></code> method gets you a long way</li>
+</ul>
+</li>
 </ul>
 <p>We will also recap all of today’s material and discuss.</p>
-</section>
-<section id="functions-as-arguments" class="slide level2">
-<h2>Functions as arguments</h2>
+</section><section id="functions-as-arguments" class="slide level2"><h2>Functions as arguments</h2>
 <p>Using functions as arguments is a foundation of functional programming.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"purrr"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>ten <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">10</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>square <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  x<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">map_dbl</span>(ten, square)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="anonymous-lambda-functions" class="slide level2">
-<h2>Anonymous (lambda) functions</h2>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="http://purrr.tidyverse.org">"purrr"</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">ten</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">10</span><span class="op">)</span></span>
+<span><span class="va">square</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">x</span><span class="op">^</span><span class="fl">2</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map_dbl</a></span><span class="op">(</span><span class="va">ten</span>, <span class="va">square</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section><section id="anonymous-lambda-functions" class="slide level2"><h2>Anonymous (lambda) functions</h2>
 <p>Sometimes you want to provide an “on-the-spot” function:</p>
 <ul>
-<li><p>write it out the long way:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">map_dbl</span>(ten, <span class="cf">function</span>(x) x<span class="sc">^</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li>
+<p>write it out the long way:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map_dbl</a></span><span class="op">(</span><span class="va">ten</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</li>
 </ul>
 <div class="fragment">
 <ul>
-<li><p>{purrr} interprets one-sided formula using <code>.x</code>:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">map_dbl</span>(ten, <span class="sc">~</span>.x<span class="sc">^</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li>
+<p>{purrr} interprets one-sided formula using <code>.x</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map_dbl</a></span><span class="op">(</span><span class="va">ten</span>, <span class="op">~</span><span class="va">.x</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</li>
 </ul>
 </div>
 <div class="fragment">
 <ul>
-<li><p>R (&gt; 4.1) provides shorthand:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">map_dbl</span>(ten, \(x) x<span class="sc">^</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li>
+<p>R (&gt; 4.1) provides shorthand:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map_dbl</a></span><span class="op">(</span><span class="va">ten</span>, \<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</li>
 </ul>
 </div>
-</section>
-<section id="make-purrr-formula-into-function" class="slide level2">
-<h2>Make {purrr} formula into function</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>my_function <span class="ot">&lt;-</span> <span class="cf">function</span>(data, f) {</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  f <span class="ot">&lt;-</span> rlang<span class="sc">::</span><span class="fu">as_function</span>(f)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  ...</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section><section id="make-purrr-formula-into-function" class="slide level2"><h2>Make {purrr} formula into function</h2>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">my_function</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">data</span>, <span class="va">f</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">f</span> <span class="op">&lt;-</span> <span class="fu">rlang</span><span class="fu">::</span><span class="fu"><a href="https://rlang.r-lib.org/reference/as_function.html">as_function</a></span><span class="op">(</span><span class="va">f</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Note</strong>: we cannot <em>pass the dots</em> here.</p>
 <div class="fragment">
 <p>These are equivalent:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">my_function</span>(ten, <span class="cf">function</span>(x) x <span class="sc">+</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">my_function</span>(ten, \(x) x <span class="sc">+</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">my_function</span>(ten, <span class="sc">~</span>.x <span class="sc">+</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">my_function</span><span class="op">(</span><span class="va">ten</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">my_function</span><span class="op">(</span><span class="va">ten</span>, \<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">my_function</span><span class="op">(</span><span class="va">ten</span>, <span class="op">~</span><span class="va">.x</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="our-turn-2.4.1" class="slide level2">
-<h2>Our turn <code>"2.4.1"</code></h2>
+</section><section id="our-turn-2.4.1" class="slide level2"><h2>Our turn <code>"2.4.1"</code>
+</h2>
 <div class="fragment">
 <hr>
 <strong>Only</strong> <em>if needed</em>, <code>btt22::btt_reset_hard("2.4.1")</code>
@@ -481,42 +478,39 @@
 <div class="fragment">
 <p><em>No</em> new files.</p>
 </div>
-</section>
-<section id="uss_make_seasons_final" class="slide level2">
-<h2><code>uss_make_seasons_final()</code></h2>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>italy_teams_matches <span class="ot">&lt;-</span> </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">uss_get_matches</span>(<span class="st">"italy"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">uss_make_teams_matches</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section><section id="uss_make_seasons_final" class="slide level2"><h2><code>uss_make_seasons_final()</code></h2>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">italy_teams_matches</span> <span class="op">&lt;-</span> </span>
+<span>  <span class="fu">uss_get_matches</span><span class="op">(</span><span class="st">"italy"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu">uss_make_teams_matches</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>What would a season look like if wins were <strong>five</strong> points?</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>italy_five <span class="ot">&lt;-</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  italy_teams_matches <span class="sc">|&gt;</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">uss_make_seasons_final</span>(<span class="at">fn_points_per_win =</span> \(...) <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="seasons.r" class="slide level2">
-<h2><code>seasons.R</code></h2>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">italy_five</span> <span class="op">&lt;-</span></span>
+<span>  <span class="va">italy_teams_matches</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">uss_make_seasons_final</span><span class="op">(</span>fn_points_per_win <span class="op">=</span> \<span class="op">(</span><span class="va">...</span><span class="op">)</span> <span class="fl">5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section><section id="seasons.r" class="slide level2"><h2><code>seasons.R</code></h2>
 <ul>
 <li>in <code>seasons_intermediate()</code>:</li>
 </ul>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># accept purrr-style anonymous functions</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>fn_points_per_win <span class="ot">&lt;-</span> </span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  rlang<span class="sc">::</span><span class="fu">as_function</span>(fn_points_per_win)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># accept purrr-style anonymous functions</span></span>
+<span><span class="va">fn_points_per_win</span> <span class="op">&lt;-</span> </span>
+<span>  <span class="fu">rlang</span><span class="fu">::</span><span class="fu"><a href="https://rlang.r-lib.org/reference/as_function.html">as_function</a></span><span class="op">(</span><span class="va">fn_points_per_win</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="fragment">
 <ul>
-<li><p><code>devtools::load()</code></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>italy_five_purrr <span class="ot">&lt;-</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  italy_teams_matches <span class="sc">|&gt;</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">uss_make_seasons_final</span>(<span class="at">fn_points_per_win =</span> <span class="sc">~</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(italy_five, italy_five_purrr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li>
+<p><code>devtools::load()</code></p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">italy_five_purrr</span> <span class="op">&lt;-</span></span>
+<span>  <span class="va">italy_teams_matches</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">uss_make_seasons_final</span><span class="op">(</span>fn_points_per_win <span class="op">=</span> <span class="op">~</span><span class="fl">5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/identical.html">identical</a></span><span class="op">(</span><span class="va">italy_five</span>, <span class="va">italy_five_purrr</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</li>
 </ul>
 </div>
 <div class="fragment">
 <ul>
-<li>document, <code>devtools::check()</code></li>
+<li>document, <code><a href="https://devtools.r-lib.org/reference/check.html">devtools::check()</a></code>
+</li>
 </ul>
 </div>
-</section>
-<section id="s3-class-system" class="slide level2">
-<h2>S3 class system</h2>
+</section><section id="s3-class-system" class="slide level2"><h2>S3 class system</h2>
 <p>There have been a lot of class systems implemented in R:</p>
 <ul>
 <li>S3, S4, R6, …</li>
@@ -530,30 +524,32 @@
 <p>For now, S3 remains the simplest thing that works:</p>
 <ul>
 <li>declare that an object has a class</li>
-<li>define methods for generic functions, specific to that class, e.g.&nbsp;<code>format()</code></li>
+<li>define methods for generic functions, specific to that class, e.g.&nbsp;<code><a href="https://rdrr.io/r/base/format.html">format()</a></code>
+</li>
 </ul>
 </div>
-</section>
-<section id="vctrs-package" class="slide level2">
-<h2>{vctrs} package</h2>
+</section><section id="vctrs-package" class="slide level2"><h2>{vctrs} package</h2>
 <ul>
-<li><p>designed to help you construct S3 classes:</p>
+<li>
+<p>designed to help you construct S3 classes:</p>
 <ul>
 <li>especially in the context of a column of a data frame</li>
-</ul></li>
+</ul>
+</li>
 </ul>
 <div class="fragment">
 <ul>
-<li><p><code>cli::cli_abort()</code> creates an S3 error condition:</p>
+<li>
+<p><code><a href="https://cli.r-lib.org/reference/cli_abort.html">cli::cli_abort()</a></code> creates an S3 error condition:</p>
 <ul>
 <li><p>not quite the same thing</p></li>
 <li><p>but the same idea: let’s make it a little easier to manage</p></li>
-</ul></li>
+</ul>
+</li>
 </ul>
 </div>
-</section>
-<section id="our-turn-2.4.2" class="slide level2">
-<h2>Our turn <code>"2.4.2"</code></h2>
+</section><section id="our-turn-2.4.2" class="slide level2"><h2>Our turn <code>"2.4.2"</code>
+</h2>
 <div class="fragment">
 <hr>
 <strong>Only</strong> <em>if needed</em>, <code>btt22::btt_reset_hard("2.4.2")</code>
@@ -573,9 +569,7 @@
 <li><p>add <code>#' @import vctrs</code> to <code>ussie-package.R</code>.</p></li>
 </ul>
 </div>
-</section>
-<section id="what-problem-are-we-solving" class="slide level2">
-<h2>What problem are we solving?</h2>
+</section><section id="what-problem-are-we-solving" class="slide level2"><h2>What problem are we solving?</h2>
 <p>A <em>result</em> displays two sets of information, according to team:</p>
 <ul>
 <li>goals-for, goals-against: essential information</li>
@@ -588,100 +582,88 @@
 <ul>
 <li><code>goals_for = 3</code></li>
 <li><code>goals_against = 2</code></li>
-</ul></li>
+</ul>
+</li>
 <li>display outcome with goals, e.g.: <code>W 3-2</code>.</li>
 </ul>
 </div>
-</section>
-<section id="low-level-constructor" class="slide level2">
-<h2>Low-level constructor</h2>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>new_result <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">goals_for =</span> <span class="fu">integer</span>(), <span class="at">goals_against =</span> <span class="fu">integer</span>()) {</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># validate</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">vec_assert</span>(goals_for, <span class="fu">integer</span>())</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">vec_assert</span>(goals_against, <span class="fu">integer</span>(), <span class="at">size =</span> <span class="fu">length</span>(goals_for))</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># construct rcrd class, using vctrs::new_rcrd()</span></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">new_rcrd</span>(</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">list</span>(<span class="at">goals_for =</span> goals_for, <span class="at">goals_against =</span> goals_against),</span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">class =</span> <span class="st">"ussie_result"</span></span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section><section id="low-level-constructor" class="slide level2"><h2>Low-level constructor</h2>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">new_result</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">goals_for</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html">integer</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">goals_against</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html">integer</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span></span>
+<span>  <span class="co"># validate</span></span>
+<span>  <span class="fu">vec_assert</span><span class="op">(</span><span class="va">goals_for</span>, <span class="fu"><a href="https://rdrr.io/r/base/integer.html">integer</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="fu">vec_assert</span><span class="op">(</span><span class="va">goals_against</span>, <span class="fu"><a href="https://rdrr.io/r/base/integer.html">integer</a></span><span class="op">(</span><span class="op">)</span>, size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">goals_for</span><span class="op">)</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="co"># construct rcrd class, using vctrs::new_rcrd()</span></span>
+<span>  <span class="fu">new_rcrd</span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>goals_for <span class="op">=</span> <span class="va">goals_for</span>, goals_against <span class="op">=</span> <span class="va">goals_against</span><span class="op">)</span>,</span>
+<span>    class <span class="op">=</span> <span class="st">"ussie_result"</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><code>rcrd</code> class is like a little data-frame.</p>
-</section>
-<section id="high-level-constructor" class="slide level2">
-<h2>High-level constructor</h2>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#' @export</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>uss_result <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">goals_for =</span> <span class="fu">integer</span>(), <span class="at">goals_against =</span> <span class="fu">integer</span>()) {</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># coerce to integer, lets us accept integer-ish arguments</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  goals_for <span class="ot">&lt;-</span> <span class="fu">vec_cast</span>(goals_for, <span class="at">to =</span> <span class="fu">integer</span>())</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  goals_against <span class="ot">&lt;-</span> <span class="fu">vec_cast</span>(goals_against, <span class="at">to =</span> <span class="fu">integer</span>())</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># call low-level constructor</span></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">new_result</span>(goals_for, goals_against)</span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section><section id="high-level-constructor" class="slide level2"><h2>High-level constructor</h2>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#' @export</span></span>
+<span><span class="va">uss_result</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">goals_for</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html">integer</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">goals_against</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html">integer</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span></span>
+<span>  <span class="co"># coerce to integer, lets us accept integer-ish arguments</span></span>
+<span>  <span class="va">goals_for</span> <span class="op">&lt;-</span> <span class="fu">vec_cast</span><span class="op">(</span><span class="va">goals_for</span>, to <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html">integer</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="va">goals_against</span> <span class="op">&lt;-</span> <span class="fu">vec_cast</span><span class="op">(</span><span class="va">goals_against</span>, to <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html">integer</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="co"># call low-level constructor</span></span>
+<span>  <span class="fu">new_result</span><span class="op">(</span><span class="va">goals_for</span>, <span class="va">goals_against</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This is what users “see” and use.</p>
-</section>
-<section id="formatter" class="slide level2">
-<h2>Formatter</h2>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#' @export</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>format.ussie_result <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># field() is a vcrts function to extract a field from a rcrd</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  goals_for <span class="ot">&lt;-</span> <span class="fu">field</span>(x, <span class="st">"goals_for"</span>)</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  goals_against <span class="ot">&lt;-</span> <span class="fu">field</span>(x, <span class="st">"goals_against"</span>)</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  outcome <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">case_when</span>(...)</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># compose output</span></span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">&lt;-</span> glue<span class="sc">::</span><span class="fu">glue</span>(<span class="st">"{outcome} {goals_for}-{goals_against}"</span>)</span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.character</span>(out)</span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="lets-see-this-in-action" class="slide level2">
-<h2>Let’s see this in action</h2>
+</section><section id="formatter" class="slide level2"><h2>Formatter</h2>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#' @export</span></span>
+<span><span class="va">format.ussie_result</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  </span>
+<span>  <span class="co"># field() is a vcrts function to extract a field from a rcrd</span></span>
+<span>  <span class="va">goals_for</span> <span class="op">&lt;-</span> <span class="fu">field</span><span class="op">(</span><span class="va">x</span>, <span class="st">"goals_for"</span><span class="op">)</span></span>
+<span>  <span class="va">goals_against</span> <span class="op">&lt;-</span> <span class="fu">field</span><span class="op">(</span><span class="va">x</span>, <span class="st">"goals_against"</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="va">outcome</span> <span class="op">&lt;-</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="co"># compose output</span></span>
+<span>  <span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span><span class="st">"{outcome} {goals_for}-{goals_against}"</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section><section id="lets-see-this-in-action" class="slide level2"><h2>Let’s see this in action</h2>
 <ul>
-<li><code>devtools::document()</code></li>
+<li><code><a href="https://devtools.r-lib.org/reference/document.html">devtools::document()</a></code></li>
 <li><code>devtools::load()</code></li>
 </ul>
 <div class="fragment">
-<div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">uss_result</span>(<span class="dv">3</span>, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">uss_result</span><span class="op">(</span><span class="fl">3</span>, <span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
-<div class="sourceCode" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">uss_get_matches</span>(<span class="st">"italy"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">uss_make_teams_matches</span>() <span class="sc">|&gt;</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">result =</span> <span class="fu">uss_result</span>(goals_for, goals_against)</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">uss_get_matches</span><span class="op">(</span><span class="st">"italy"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">uss_make_teams_matches</span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>    result <span class="op">=</span> <span class="fu">uss_result</span><span class="op">(</span><span class="va">goals_for</span>, <span class="va">goals_against</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="abbreviators" class="slide level2">
-<h2>Abbreviators</h2>
+</section><section id="abbreviators" class="slide level2"><h2>Abbreviators</h2>
 <p>These control how the class name is displayed when printing:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#' @export</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>vec_ptype_abbr.ussie_result <span class="ot">&lt;-</span> </span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">function</span>(x, ...) <span class="st">"rslt"</span> </span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co">#' @export</span></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>vec_ptype_full.ussie_result <span class="ot">&lt;-</span> </span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">function</span>(x, ...) <span class="st">"result"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="recap-design" class="slide level2">
-<h2>Recap: Design</h2>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#' @export</span></span>
+<span><span class="va">vec_ptype_abbr.ussie_result</span> <span class="op">&lt;-</span> </span>
+<span>  <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span> <span class="st">"rslt"</span> </span>
+<span></span>
+<span><span class="co">#' @export</span></span>
+<span><span class="va">vec_ptype_full.ussie_result</span> <span class="op">&lt;-</span> </span>
+<span>  <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span> <span class="st">"result"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section><section id="recap-design" class="slide level2"><h2>Recap: Design</h2>
 <ul>
 <li><p><strong>Naming</strong>: be consistent, concise, yet evocative.</p></li>
 <li><p><strong>Argument order</strong>: data, descriptors, dots, details.</p></li>
 <li><p><strong>Return value type</strong>: be consistent, predictable.</p></li>
-<li><p>Easy to remember data (first) argument and return value:</p>
+<li>
+<p>Easy to remember data (first) argument and return value:</p>
 <ul>
 <li>easy to use pipe, <code>|&gt;</code>.</li>
-</ul></li>
-<li><p>Be mindful of side effects.</p></li>
 </ul>
-</section>
-<section id="recap-side-effects" class="slide level2">
-<h2>Recap: Side-effects</h2>
+</li>
+<li><p>Be mindful of side effects.</p></li>
+</ul></section><section id="recap-side-effects" class="slide level2"><h2>Recap: Side-effects</h2>
 <p>The most-common side-effect is an error. Good design:</p>
 <ul>
 <li>simple (as possible) predicate</li>
@@ -693,50 +675,46 @@
 <li>be very careful when accepting changes to snapshots.</li>
 </ul>
 <p>Use <code>withr::local_*()</code> functions to “leave no footprints”.</p>
-</section>
-<section id="recap-tidy-eval" class="slide level2">
-<h2>Recap: Tidy eval</h2>
+</section><section id="recap-tidy-eval" class="slide level2"><h2>Recap: Tidy eval</h2>
 <p>There are a lot of tidy-eval tools:</p>
 <ul>
 <li>know if you are using a <em>data-masking</em> or <em>tidy-select</em> function.</li>
 </ul>
 <div class="fragment">
 <ul>
-<li>to splice a list (or vector) into <em>dynamic-dots</em>, use <code>!!!</code></li>
+<li>to splice a list (or vector) into <em>dynamic-dots</em>, use <code>!!!</code>
+</li>
 </ul>
 </div>
 <div class="fragment">
 <ul>
-<li><p>For <em>data-masking</em> functions:</p>
+<li>
+<p>For <em>data-masking</em> functions:</p>
 <ul>
 <li><p>be specific, use <code>.data</code>, <code>.env</code> pronouns.</p></li>
-<li><p>to use <em>tidy-select</em> syntax, use <code>dplyr::across()</code>.</p></li>
+<li><p>to use <em>tidy-select</em> syntax, use <code><a href="https://dplyr.tidyverse.org/reference/across.html">dplyr::across()</a></code>.</p></li>
 <li><p>to move a bunch of arguments, pass the dots, <code>...</code></p></li>
 <li><p>to interpolate a single argument, use <code>{{}}</code>.</p></li>
-</ul></li>
+</ul>
+</li>
 </ul>
 </div>
-</section>
-<section id="recap-misc." class="slide level2">
-<h2>Recap: Misc.</h2>
+</section><section id="recap-misc." class="slide level2"><h2>Recap: Misc.</h2>
 <p>Anonymous (use-once) functions can be handy:</p>
 <ul>
-<li>use <code>rlang::as_function()</code> to accept purrr-style formula-functions, e.g.&nbsp;<code>~.x + 1</code></li>
+<li>use <code><a href="https://rlang.r-lib.org/reference/as_function.html">rlang::as_function()</a></code> to accept purrr-style formula-functions, e.g.&nbsp;<code>~.x + 1</code>
+</li>
 </ul>
 <p>Use {vctrs} package to help build and manage S3 classes.</p>
-</section>
-<section id="recap" class="slide level2">
-<h2>Recap</h2>
+</section><section id="recap" class="slide level2"><h2>Recap</h2>
 <p>In Ian’s opinion, the tidyverse succeeds because it helps <em>you</em> build a mental model for composing functions to solve <em>your</em> problem. It does this by providing:</p>
 <ul>
 <li>consistent naming of functions, arguments</li>
-<li>focus on first argument, return value: supports <code>|&gt;</code></li>
+<li>focus on first argument, return value: supports <code>|&gt;</code>
+</li>
 <li>consistent implementation of non-standard evaluation</li>
 <li>more-and-more informative error-messages</li>
-</ul>
-</section>
-<section id="un-recap" class="slide level2">
-<h2>Un-recap</h2>
+</ul></section><section id="un-recap" class="slide level2"><h2>Un-recap</h2>
 <p>We did not cover how to manage change.</p>
 <p>Change is a necessary (and frustrating) part of success:</p>
 <ul>
@@ -748,28 +726,26 @@
 <ul>
 <li>deprecating functions, arguments</li>
 <li>breaking changes</li>
-<li>used to be: <em>add-a-2</em>, becoming: <em>editions</em></li>
+<li>used to be: <em>add-a-2</em>, becoming: <em>editions</em>
+</li>
 </ul>
 </div>
-</section>
-<section id="if-you-remember-one-thing" class="slide level2">
-<h2>If you remember one thing…</h2>
+</section><section id="if-you-remember-one-thing" class="slide level2"><h2>If you remember one thing…</h2>
 <p>Distinguish <em>pure functions</em> from functions that use <em>side effects</em>.</p>
 <p>Pure functions:</p>
 <ul>
 <li><p>use only the values of the arguments</p></li>
-<li><p>change only the return value</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>add <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">+</span> y</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li>
+<p>change only the return value</p>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">add</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">x</span> <span class="op">+</span> <span class="va">y</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</li>
 </ul>
 <p>Side effects use or change something else in the universe:</p>
 <ul>
 <li>e.g.: read a file, print to screen</li>
-</ul>
-</section>
-<section id="additional-material-fp" class="slide level2 smaller">
-<h2>Additional material: FP</h2>
+</ul></section><section id="additional-material-fp" class="slide level2 smaller"><h2>Additional material: FP</h2>
 <div class="cell">
 <div class="cell-output-display">
 <div class="vembedr">
@@ -782,11 +758,10 @@
 <p>Anjana Vakil, on functional programming in JavaScript:</p>
 <ul>
 <li>(Ian: JavaScript is a great <em>next</em> language from R)</li>
-<li><code>filter()</code> in JavaScript works like <code>purrr::keep()</code></li>
-</ul>
-</section>
-<section id="additional-material-s3-tools" class="slide level2">
-<h2>Additional material: S3 tools</h2>
+<li>
+<code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code> in JavaScript works like <code><a href="https://purrr.tidyverse.org/reference/keep.html">purrr::keep()</a></code>
+</li>
+</ul></section><section id="additional-material-s3-tools" class="slide level2"><h2>Additional material: S3 tools</h2>
 <div class="cell">
 <div class="cell-output-display">
 <div class="vembedr">
@@ -797,9 +772,7 @@
 </div>
 </div>
 <p>Hadley Wickham’s introduction of {vctrs}, rstudio::conf(2019).</p>
-</section>
-<section id="additional-material-s3-usage" class="slide level2">
-<h2>Additional material: S3 usage</h2>
+</section><section id="additional-material-s3-usage" class="slide level2"><h2>Additional material: S3 usage</h2>
 <div class="cell">
 <div class="cell-output-display">
 <div class="vembedr">
@@ -810,9 +783,7 @@
 </div>
 </div>
 <p>At rstudio::conf(2020), Jesse Sadler shows an implementation.</p>
-</section>
-<section id="references" class="slide level2 smaller scrollable">
-<h2>References</h2>
+</section><section id="references" class="slide level2 smaller scrollable"><h2>References</h2>
 
 <div class="footer footer-default">
 <p><a href="https://rstd.io/btt" class="uri">https://rstd.io/btt</a></p>
@@ -826,27 +797,10 @@ Wickham, Hadley, Lionel Henry, and Davis Vaughan. 2022. <span>“Vctrs: Vector H
 </div>
 </div>
 </section>
-    </div>
+</div>
   </div>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="../site_libs/revealjs/dist/reveal.js"></script>
-  <!-- reveal.js plugins -->
-  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
-  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
-  
-
-  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
-  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
-
-  <script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="../site_libs/revealjs/dist/reveal.js"></script><!-- reveal.js plugins --><script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script><script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script><script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script><script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script><script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script><script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script><script src="../site_libs/revealjs/plugin/notes/notes.js"></script><script src="../site_libs/revealjs/plugin/search/search.js"></script><script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script><script src="../site_libs/revealjs/plugin/math/math.js"></script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><script>
 
       // Full list of configuration options available at:
       // https://revealjs.com/config/
@@ -1038,9 +992,7 @@ Wickham, Hadley, Lionel Henry, and Davis Vaughan. 2022. <span>“Vctrs: Vector H
           RevealZoom
         ]
       });
-    </script>
-    
-    <script>
+    </script><script>
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
       // slide changes (different for each slide format).
@@ -1079,9 +1031,7 @@ Wickham, Hadley, Lionel Henry, and Davis Vaughan. 2022. <span>“Vctrs: Vector H
         }
 
       })();
-    </script>
-
-    <script id="quarto-html-after-body" type="application/javascript">
+    </script><script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
         const mode = bsSheetEl.getAttribute("data-mode");
@@ -1174,6 +1124,6 @@ Wickham, Hadley, Lionel Henry, and Davis Vaughan. 2022. <span>“Vctrs: Vector H
       }
     });
     </script>
-    
+
 
 </body></html>

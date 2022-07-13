@@ -6,17 +6,17 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.0.16">
-
-  <meta name="author" content="Emma Rand and Ian Lyttle">
-  <title>Building tidy tools - 📦 Building tidy tools</title>
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
-  <style>
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.18">
+<meta name="author" content="Emma Rand and Ian Lyttle">
+<title>Building tidy tools - 📦 Building tidy tools</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+<link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+<style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     span.underline{text-decoration: underline;}
@@ -107,14 +107,14 @@
       margin-left: 2em;
     }
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css" id="theme">
-  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
-  <style type="text/css">
+<link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css" id="theme">
+<link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+<link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+<link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+<link href="../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+<link href="../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+<link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+<style type="text/css">
 
   .callout {
     margin-top: 1em;
@@ -311,7 +311,7 @@
   }
 
   </style>
-  <style type="text/css">
+<style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
       overflow: auto;
@@ -398,121 +398,98 @@
       margin-right: 0; 
     }
   </style>
-  <script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
-  <script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
-  <link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script><script src="../site_libs/quarto-diagram/mermaid-init.js"></script><link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 </head>
 <body class="quarto-dark">
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="center">
-  <h1 class="title">📦 <br>Building tidy tools</h1>
+<section id="title-slide" class="center"><h1 class="title">📦 <br>Building tidy tools</h1>
   <p class="subtitle">Day 1 Session 3: Unit tests</p>
   <p class="author">Emma Rand and Ian Lyttle</p>
   <p class="date"><br>🔗 <a href="https://rstd.io/btt">rstd.io/btt</a></p>
-</section>
+</section><section><section id="unit-testing" class="title-slide slide level1 center"><h1>☑️ Unit Testing</h1>
 
-<section>
-<section id="unit-testing" class="title-slide slide level1 center">
-<h1>☑️ Unit Testing</h1>
-
-</section>
-<section id="learning-objectives" class="slide level2">
-<h2>Learning Objectives</h2>
+</section><section id="learning-objectives" class="slide level2"><h2>Learning Objectives</h2>
 <p>At the end of this section you will be able to:</p>
 <div class="small">
 <ul>
 <li>understand the rationale for automating tests</li>
 <li>describe the organisation of the testing infrastructure and file contents for the <strong><code>testthat</code></strong> <span class="citation" data-cites="testthat">(<a href="#/ref-testthat" role="doc-biblioref" onclick="return false;">Wickham 2011</a>)</span> workflow</li>
-<li>set up a package to use <strong><code>testthat</code></strong></li>
+<li>set up a package to use <strong><code>testthat</code></strong>
+</li>
 <li>create a test and use some common ‘expectations’</li>
 <li>run all the tests in a file and in a package</li>
 </ul>
 </div>
-</section></section>
-<section>
-<section id="why-test" class="title-slide slide level1 center">
-<h1>Why test?</h1>
+</section></section><section><section id="why-test" class="title-slide slide level1 center"><h1>Why test?</h1>
 
-</section>
-<section id="why-test-1" class="slide level2">
-<h2>Why test?</h2>
+</section><section id="why-test-1" class="slide level2"><h2>Why test?</h2>
 <ul>
 <li><p>To make sure our code works</p></li>
 <li><p>To make sure our code keeps working after we add features</p></li>
-</ul>
-</section>
-<section id="for-example" class="slide level2">
-<h2>For example</h2>
+</ul></section><section id="for-example" class="slide level2"><h2>For example</h2>
 <p>When we run:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>italy <span class="ot">&lt;-</span> <span class="fu">uss_make_matches</span>(engsoccerdata<span class="sc">::</span>italy, <span class="st">"Italy"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>spain <span class="ot">&lt;-</span> <span class="fu">uss_make_matches</span>(engsoccerdata<span class="sc">::</span>spain, <span class="st">"Spain"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">italy</span> <span class="op">&lt;-</span> <span class="fu">uss_make_matches</span><span class="op">(</span><span class="fu">engsoccerdata</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/engsoccerdata/man/italy.html">italy</a></span>, <span class="st">"Italy"</span><span class="op">)</span></span>
+<span><span class="va">spain</span> <span class="op">&lt;-</span> <span class="fu">uss_make_matches</span><span class="op">(</span><span class="fu">engsoccerdata</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/engsoccerdata/man/spain.html">spain</a></span>, <span class="st">"Spain"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The objects <code>italy</code> and <code>spain</code> should be tibbles with the same columns: “country”, “tier”, “season”, “date”, “home”, “visitor”, “goals_home” and “goals_visitor”</p>
-<p><br>
-</p>
+<p><br></p>
 <p>So we might…</p>
-</section>
-<section id="check-interactively" class="slide level2">
-<h2>Check interactively</h2>
+</section><section id="check-interactively" class="slide level2"><h2>Check interactively</h2>
 <p>Try these:</p>
 <div class="columns">
 <div class="column" style="width:80%;">
 <div class="extrasmall">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(italy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">italy</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>"tbl_df"     "tbl"        "data.frame"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(spain)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">spain</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="sourceCode" id="cb5"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>"tbl_df"     "tbl"        "data.frame" </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(italy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">italy</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="sourceCode" id="cb7"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>country"       "tier"          "season"        "date"         </span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>"home"          "visitor"       "goals_home"    "goals_visitor" </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(spain)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">spain</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="sourceCode" id="cb9"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>country"       "tier"          "season"        "date"         </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>"home"          "visitor"       "goals_home"    "goals_visitor"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:20%;">
 <p>🎉</p>
-<p><br>
-</p>
+<p><br></p>
 <p>🥳</p>
-<p><br>
-</p>
+<p><br></p>
 <p>🎈</p>
-<p><br>
-</p>
+<p><br></p>
 <p>🎇</p>
 </div>
 </div>
-</section>
-<section id="interactive-testing" class="slide level2">
-<h2>Interactive testing …</h2>
+</section><section id="interactive-testing" class="slide level2"><h2>Interactive testing …</h2>
 <p>…is informal testing:</p>
 <ul>
-<li>wrote <code>uss_make_matches()</code></li>
-<li>loaded package with <code>devtools::load_all()</code></li>
+<li>wrote <code>uss_make_matches()</code>
+</li>
+<li>loaded package with <code><a href="https://devtools.r-lib.org/reference/load_all.html">devtools::load_all()</a></code>
+</li>
 <li>ran <code>uss_make_matches()</code> interactively</li>
 <li>edited <code>uss_make_matches()</code> if needed</li>
-<li>loaded package with <code>devtools::load_all()</code></li>
+<li>loaded package with <code><a href="https://devtools.r-lib.org/reference/load_all.html">devtools::load_all()</a></code>
+</li>
 <li>ran <code>uss_make_matches()</code> interactively</li>
-</ul>
-</section>
-<section id="informal-test-workflow" class="slide level2">
-<h2>Informal test workflow</h2>
+</ul></section><section id="informal-test-workflow" class="slide level2"><h2>Informal test workflow</h2>
 <div class="cell" data-reveal="true" evaluate:="true" data-fig-width="10" data-fig-height="5">
 <div class="cell-output-display">
 <div>
 <p>
-</p><pre class="mermaid" data-tooltip-selector="#mermaid-tooltip-1">%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#f3f3f3',  'lineColor':'#EE9AD9'}}}%%
+</p>
+<pre class="mermaid" data-tooltip-selector="#mermaid-tooltip-1">%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#f3f3f3',  'lineColor':'#EE9AD9'}}}%%
 
   flowchart LR
       id1("Reload code: \n load_all()") --&gt; 
@@ -525,25 +502,18 @@
 <div id="mermaid-tooltip-1" class="mermaidTooltip">
 
 </div>
-<p></p>
-</div>
-</div>
-</div>
-</section></section>
-<section>
-<section id="why-automate-testing" class="title-slide slide level1 center">
-<h1>Why automate testing?</h1>
 
-</section>
-<section id="why-automate-testing-1" class="slide level2">
-<h2>Why automate testing?</h2>
+</div>
+</div>
+</div>
+</section></section><section><section id="why-automate-testing" class="title-slide slide level1 center"><h1>Why automate testing?</h1>
+
+</section><section id="why-automate-testing-1" class="slide level2"><h2>Why automate testing?</h2>
 <p>Problem: you forget all the interactive testing you’ve done</p>
 <div class="fragment">
 <p>Solution: have a system to store and re-run the tests!</p>
 </div>
-</section>
-<section id="why-automate-testing-2" class="slide level2">
-<h2>Why automate testing?</h2>
+</section><section id="why-automate-testing-2" class="slide level2"><h2>Why automate testing?</h2>
 <ol type="1">
 <li><p>Fewer bugs: you are explicit about behaviour of functions.</p></li>
 <li><p>Encourages good code design. If it is hard to write unit tests your function may need refactoring</p></li>
@@ -553,14 +523,13 @@
 <div class="fragment">
 <p>Read more about testing in the recently updated chapter in R Packages <span class="citation" data-cites="wickham2020a">(<a href="#/ref-wickham2020a" role="doc-biblioref" onclick="return false;">Wickham and Bryan 2020</a>)</span></p>
 </div>
-</section>
-<section id="automated-test-workflow" class="slide level2">
-<h2>Automated test workflow</h2>
+</section><section id="automated-test-workflow" class="slide level2"><h2>Automated test workflow</h2>
 <div class="cell" data-reveal="true" evaluate:="true" data-fig-width="10" data-fig-height="5">
 <div class="cell-output-display">
 <div>
 <p>
-</p><pre class="mermaid" data-tooltip-selector="#mermaid-tooltip-2">%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#f3f3f3',  'lineColor':'#EE9AD9'}}}%%
+</p>
+<pre class="mermaid" data-tooltip-selector="#mermaid-tooltip-2">%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#f3f3f3',  'lineColor':'#EE9AD9'}}}%%
 
   flowchart LR
       id1("Reload code: \n load_all()") --&gt; 
@@ -573,18 +542,13 @@
 <div id="mermaid-tooltip-2" class="mermaidTooltip">
 
 </div>
-<p></p>
-</div>
-</div>
-</div>
-</section></section>
-<section>
-<section id="infrastructure-and-organisation" class="title-slide slide level1 center">
-<h1>Infrastructure and organisation</h1>
 
-</section>
-<section id="organisation-files" class="slide level2">
-<h2>Organisation: files</h2>
+</div>
+</div>
+</div>
+</section></section><section><section id="infrastructure-and-organisation" class="title-slide slide level1 center"><h1>Infrastructure and organisation</h1>
+
+</section><section id="organisation-files" class="slide level2"><h2>Organisation: files</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="small">
@@ -607,90 +571,77 @@
 </div>
 </div><div class="column" style="width:60%;">
 <ul>
-<li>tests files are in: <code>tests/testthat/</code></li>
-<li>test files are named <code>test-xxxx.R</code></li>
-<li><code>tests/testthat.R</code>: runs the tests when <code>devtools::check()</code> is called</li>
+<li>tests files are in: <code>tests/testthat/</code>
+</li>
+<li>test files are named <code>test-xxxx.R</code>
+</li>
+<li>
+<code>tests/testthat.R</code>: runs the tests when <code><a href="https://devtools.r-lib.org/reference/check.html">devtools::check()</a></code> is called</li>
 </ul>
 </div>
 </div>
-</section>
-<section id="organisation-within-files" class="slide level2">
-<h2>Organisation within files</h2>
+</section><section id="organisation-within-files" class="slide level2"><h2>Organisation within files</h2>
 <ul>
 <li>any test file <code>test-xxxx.R</code> contains several tests. Might be:
 <ul>
 <li>all the tests for a simple function</li>
 <li>all the tests for one part of a complex function</li>
 <li>all the tests for the same functionality in multiple functions</li>
-</ul></li>
 </ul>
-</section>
-<section id="organisation-within-files-1" class="slide level2">
-<h2>Organisation within files</h2>
+</li>
+</ul></section><section id="organisation-within-files-1" class="slide level2"><h2>Organisation within files</h2>
 <ul>
 <li>a test groups several ‘expectations’. An expectation:
 <ul>
-<li>has the form: <code>expect_zzzz(actual_result, expectation)</code></li>
+<li>has the form: <code>expect_zzzz(actual_result, expectation)</code>
+</li>
 <li>if <code>actual_result</code> == <code>expectation</code> no error</li>
 <li>if <code>actual_result</code> != <code>expectation</code> Error</li>
-</ul></li>
 </ul>
-</section></section>
-<section>
-<section id="workflow" class="title-slide slide level1 center">
-<h1>Workflow</h1>
+</li>
+</ul></section></section><section><section id="workflow" class="title-slide slide level1 center"><h1>Workflow</h1>
 
-</section>
-<section id="workflow-1" class="slide level2">
-<h2>Workflow</h2>
+</section><section id="workflow-1" class="slide level2"><h2>Workflow</h2>
 <ol type="1">
 <li>Set up your package to use <strong><code>testthat</code></strong>: <code>usethis::use_testthat(3)</code> ONCE</li>
 </ol>
 <div class="fragment">
 <ol start="2" type="1">
-<li>Make a test: <code>usethis::use_test()</code></li>
+<li>Make a test: <code><a href="https://usethis.r-lib.org/reference/use_r.html">usethis::use_test()</a></code>
+</li>
 </ol>
 </div>
 <div class="fragment">
 <ol start="3" type="1">
-<li>Run a set of tests: <code>testthat::test_file()</code></li>
+<li>Run a set of tests: <code><a href="https://testthat.r-lib.org/reference/test_file.html">testthat::test_file()</a></code>
+</li>
 </ol>
 </div>
 <div class="fragment">
 <ol start="4" type="1">
-<li>Run the entire testing suite: <code>devtools::test()</code> and <code>devtools::check()</code></li>
+<li>Run the entire testing suite: <code><a href="https://devtools.r-lib.org/reference/test.html">devtools::test()</a></code> and <code><a href="https://devtools.r-lib.org/reference/check.html">devtools::check()</a></code>
+</li>
 </ol>
 </div>
-</section></section>
-<section>
-<section id="set-up" class="title-slide slide level1 center">
-<h1>Set up</h1>
+</section></section><section><section id="set-up" class="title-slide slide level1 center"><h1>Set up</h1>
 
-</section>
-<section id="set-up-1" class="slide level2">
-<h2>Set up</h2>
+</section><section id="set-up-1" class="slide level2"><h2>Set up</h2>
 <p>To set up your package to use <strong><code>testthat</code></strong>: <code>usethis::use_testthat(3)</code> which:</p>
 <ul>
 <li><p>makes <code>tests/testthat/</code>: this is where the test files live</p></li>
 <li><p>edits DESCRIPTION: Adds <code>Suggests:   testthat (&gt;= 3.0.0)</code> and <code>Config/testthat/edition: 3</code></p></li>
 <li><p>makes <code>tests/testthat.R</code>: this runs the test when you do <code>devtools:check()</code> DO NOT EDIT</p></li>
-</ul>
-</section>
-<section id="set-up-2" class="slide level2">
-<h2>Set up</h2>
+</ul></section><section id="set-up-2" class="slide level2"><h2>Set up</h2>
 <p>🎬 Set up your package to use <strong><code>testthat</code></strong>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_testthat</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_testthat.html">use_testthat</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><br>
-</p>
+<p><br></p>
 <div class="fragment">
 <p>3 means <strong><code>testthat</code></strong> edition 3 (<strong><code>testthat 3e</code></strong>)</p>
 <p>As well as installing that version of the package, you have to explicitly opt in the edition behaviours.</p>
 </div>
-</section>
-<section id="section" class="slide level2">
-<h2></h2>
+</section><section id="section" class="slide level2"><h2></h2>
 <div class="small">
 <div class="sourceCode" id="cb12"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>✔ Adding 'testthat' to Suggests field in DESCRIPTION</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>✔ Setting Config/testthat/edition field in DESCRIPTION to '3'</span>
@@ -698,14 +649,9 @@
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>✔ Writing 'tests/testthat.R'</span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>• Call `use_test()` to initialize a basic test file and open it for editing.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section></section>
-<section>
-<section id="expectations" class="title-slide slide level1 center">
-<h1>Expectations</h1>
+</section></section><section><section id="expectations" class="title-slide slide level1 center"><h1>Expectations</h1>
 
-</section>
-<section id="expectations-1" class="slide level2">
-<h2>Expectations</h2>
+</section><section id="expectations-1" class="slide level2"><h2>Expectations</h2>
 <p>Before we try to make a test, let’s look at some of the <code>expect_zzzz()</code> functions we have available to us.</p>
 <div class="fragment">
 <p>Form: <code>expect_zzzz(actual_result, expectation)</code></p>
@@ -717,41 +663,35 @@
 <li>some <code>expect_zzzz()</code> have additional arguments</li>
 </ul>
 </div>
-</section>
-<section id="for-example-1" class="slide level2">
-<h2>For example</h2>
+</section><section id="for-example-1" class="slide level2"><h2>For example</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># to try out testhtat interactively we load </span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># and request edition 3</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># but, you do *not* do that in a package.</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(testthat)</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">local_edition</span>(<span class="dv">3</span>)</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># when the actual result is 42</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="dv">42</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co"># and we expect the result to be 42: no error</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="fu">expect_identical</span>(result, <span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># to try out testhtat interactively we load </span></span>
+<span><span class="co"># and request edition 3</span></span>
+<span><span class="co"># but, you do *not* do that in a package.</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://testthat.r-lib.org">testthat</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://testthat.r-lib.org/reference/local_edition.html">local_edition</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># when the actual result is 42</span></span>
+<span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fl">42</span></span>
+<span></span>
+<span><span class="co"># and we expect the result to be 42: no error</span></span>
+<span><span class="fu"><a href="https://testthat.r-lib.org/reference/equality-expectations.html">expect_identical</a></span><span class="op">(</span><span class="va">result</span>, <span class="fl">42</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="and" class="slide level2">
-<h2>and</h2>
+</section><section id="and" class="slide level2"><h2>and</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># when the actual result is "a"</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="st">"a"</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># and we expect the result to be "a": no error</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">expect_identical</span>(result, <span class="st">"a"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># when the actual result is "a"</span></span>
+<span><span class="va">result</span> <span class="op">&lt;-</span> <span class="st">"a"</span></span>
+<span></span>
+<span><span class="co"># and we expect the result to be "a": no error</span></span>
+<span><span class="fu"><a href="https://testthat.r-lib.org/reference/equality-expectations.html">expect_identical</a></span><span class="op">(</span><span class="va">result</span>, <span class="st">"a"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="but" class="slide level2">
-<h2>But</h2>
+</section><section id="but" class="slide level2"><h2>But</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># when the actual result is 45</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="dv">45</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># and we expect the result to be 42: Error</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="fu">expect_identical</span>(result, <span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># when the actual result is 45</span></span>
+<span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fl">45</span></span>
+<span></span>
+<span><span class="co"># and we expect the result to be 42: Error</span></span>
+<span><span class="fu"><a href="https://testthat.r-lib.org/reference/equality-expectations.html">expect_identical</a></span><span class="op">(</span><span class="va">result</span>, <span class="fl">42</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error: `result` (`actual`) not identical to 42 (`expected`).
 
@@ -759,15 +699,13 @@
 `expected`: 42</code></pre>
 </div>
 </div>
-</section>
-<section id="and-1" class="slide level2">
-<h2>and</h2>
+</section><section id="and-1" class="slide level2"><h2>and</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># when the actual result is "bob"</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="st">"bob"</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># and we expect the result to be "a": Error</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">expect_identical</span>(result, <span class="st">"A"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># when the actual result is "bob"</span></span>
+<span><span class="va">result</span> <span class="op">&lt;-</span> <span class="st">"bob"</span></span>
+<span></span>
+<span><span class="co"># and we expect the result to be "a": Error</span></span>
+<span><span class="fu"><a href="https://testthat.r-lib.org/reference/equality-expectations.html">expect_identical</a></span><span class="op">(</span><span class="va">result</span>, <span class="st">"A"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error: `result` (`actual`) not identical to "A" (`expected`).
 
@@ -775,49 +713,48 @@
 `expected`: "A"  </code></pre>
 </div>
 </div>
-</section>
-<section id="some-common-expectations" class="slide level2">
-<h2>Some common expectations</h2>
+</section><section id="some-common-expectations" class="slide level2"><h2>Some common expectations</h2>
 <p>Some types of <code>expect_zzzz()</code></p>
 <ul>
-<li>Testing for identity: <code>expect_identical()</code></li>
-<li>Testing for equality with wiggle room: <code>expect_equal()</code></li>
-<li>Testing something is TRUE: <code>expect_true()</code></li>
-<li>Testing whether objects have names: <code>expect_named()</code></li>
-<li>Testing errors: <code>expect_error()</code></li>
+<li>Testing for identity: <code><a href="https://testthat.r-lib.org/reference/equality-expectations.html">expect_identical()</a></code>
+</li>
+<li>Testing for equality with wiggle room: <code><a href="https://testthat.r-lib.org/reference/equality-expectations.html">expect_equal()</a></code>
+</li>
+<li>Testing something is TRUE: <code><a href="https://testthat.r-lib.org/reference/logical-expectations.html">expect_true()</a></code>
+</li>
+<li>Testing whether objects have names: <code><a href="https://testthat.r-lib.org/reference/expect_named.html">expect_named()</a></code>
+</li>
+<li>Testing errors: <code><a href="https://testthat.r-lib.org/reference/expect_error.html">expect_error()</a></code>
+</li>
 </ul>
 
 <aside><div>
 <p>All expectations are in <strong><code>testthat</code></strong> <a href="https://testthat.r-lib.org/reference/index.html">documentation</a></p>
-</div></aside></section>
-<section id="equality-with-wiggle-room" class="slide level2">
-<h2>Equality with wiggle room</h2>
+</div></aside></section><section id="equality-with-wiggle-room" class="slide level2"><h2>Equality with wiggle room</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># when the actual result is 42</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="dv">42</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># and we expect the result to be 42: no error</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="fu">expect_equal</span>(result, <span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># when the actual result is 42</span></span>
+<span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fl">42</span></span>
+<span></span>
+<span><span class="co"># and we expect the result to be 42: no error</span></span>
+<span><span class="fu"><a href="https://testthat.r-lib.org/reference/equality-expectations.html">expect_equal</a></span><span class="op">(</span><span class="va">result</span>, <span class="fl">42</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># and when the actual result is 42.0000001</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fl">42.0000001</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># and we expect the result to be 42: we still do </span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co"># not have an error because expect_equal() </span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co"># has some tolerance</span></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="fu">expect_equal</span>(result, <span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># and when the actual result is 42.0000001</span></span>
+<span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fl">42.0000001</span></span>
+<span></span>
+<span><span class="co"># and we expect the result to be 42: we still do </span></span>
+<span><span class="co"># not have an error because expect_equal() </span></span>
+<span><span class="co"># has some tolerance</span></span>
+<span><span class="fu"><a href="https://testthat.r-lib.org/reference/equality-expectations.html">expect_equal</a></span><span class="op">(</span><span class="va">result</span>, <span class="fl">42</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="equality-with-wiggle-room-1" class="slide level2">
-<h2>Equality with wiggle room</h2>
+</section><section id="equality-with-wiggle-room-1" class="slide level2"><h2>Equality with wiggle room</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># but when the actual result is 42.1</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fl">42.1</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># and we expect the result to be 42: error because</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 0.1 is bigger than the default tolerance</span></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="fu">expect_equal</span>(result, <span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># but when the actual result is 42.1</span></span>
+<span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fl">42.1</span></span>
+<span></span>
+<span><span class="co"># and we expect the result to be 42: error because</span></span>
+<span><span class="co"># 0.1 is bigger than the default tolerance</span></span>
+<span><span class="fu"><a href="https://testthat.r-lib.org/reference/equality-expectations.html">expect_equal</a></span><span class="op">(</span><span class="va">result</span>, <span class="fl">42</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error: `result` (`actual`) not equal to 42 (`expected`).
 
@@ -827,115 +764,91 @@
 </div>
 
 <aside><div>
-<p>Default tolerance is relative to the values calculated by <code>waldo::compare()</code> using the algorithm in <code>all.equal()</code></p>
-</div></aside></section>
-<section id="equality-with-wiggle-room-2" class="slide level2">
-<h2>Equality with wiggle room</h2>
+<p>Default tolerance is relative to the values calculated by <code><a href="https://waldo.r-lib.org/reference/compare.html">waldo::compare()</a></code> using the algorithm in <code><a href="https://rdrr.io/r/base/all.equal.html">all.equal()</a></code></p>
+</div></aside></section><section id="equality-with-wiggle-room-2" class="slide level2"><h2>Equality with wiggle room</h2>
 <p>We can set the wiggle room:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># but when the actual result is 42.1</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fl">42.1</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># and we expect the result to be 42: no error if we</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co"># provide a tolerance</span></span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="fu">expect_equal</span>(result, <span class="dv">42</span>, <span class="at">tolerance =</span> <span class="fl">0.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># but when the actual result is 42.1</span></span>
+<span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fl">42.1</span></span>
+<span></span>
+<span><span class="co"># and we expect the result to be 42: no error if we</span></span>
+<span><span class="co"># provide a tolerance</span></span>
+<span><span class="fu"><a href="https://testthat.r-lib.org/reference/equality-expectations.html">expect_equal</a></span><span class="op">(</span><span class="va">result</span>, <span class="fl">42</span>, tolerance <span class="op">=</span> <span class="fl">0.1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="testing-something-is-true" class="slide level2">
-<h2>Testing something is TRUE</h2>
+</section><section id="testing-something-is-true" class="slide level2"><h2>Testing something is TRUE</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">expect_true</span>(<span class="st">"a"</span> <span class="sc">==</span> <span class="st">"a"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://testthat.r-lib.org/reference/logical-expectations.html">expect_true</a></span><span class="op">(</span><span class="st">"a"</span> <span class="op">==</span> <span class="st">"a"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="testing-whether-objects-have-names" class="slide level2">
-<h2>Testing whether objects have names</h2>
+</section><section id="testing-whether-objects-have-names" class="slide level2"><h2>Testing whether objects have names</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vector of named values</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">a =</span> <span class="dv">1</span>, <span class="at">b =</span> <span class="dv">2</span>, <span class="at">c =</span> <span class="dv">3</span>)</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co"># test whether x has names: no error</span></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="fu">expect_named</span>(x)</span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="co"># test if the names are "a", "b", "c": no error</span></span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="fu">expect_named</span>(x, <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># vector of named values</span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">1</span>, b <span class="op">=</span> <span class="fl">2</span>, c <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># test whether x has names: no error</span></span>
+<span><span class="fu"><a href="https://testthat.r-lib.org/reference/expect_named.html">expect_named</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span><span class="co"># test if the names are "a", "b", "c": no error</span></span>
+<span><span class="fu"><a href="https://testthat.r-lib.org/reference/expect_named.html">expect_named</a></span><span class="op">(</span><span class="va">x</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="testing-errors" class="slide level2">
-<h2>Testing errors</h2>
+</section><section id="testing-errors" class="slide level2"><h2>Testing errors</h2>
 <p>………..</p>
-</section></section>
-<section>
-<section id="making-a-test" class="title-slide slide level1 center">
-<h1>Making a test</h1>
+</section></section><section><section id="making-a-test" class="title-slide slide level1 center"><h1>Making a test</h1>
 
-</section>
-<section id="make-a-test" class="slide level2">
-<h2>Make a test</h2>
+</section><section id="make-a-test" class="slide level2"><h2>Make a test</h2>
 <p>You can create and open (or just open) a test file for <code>blah.R</code> with <code>use_test("blah")</code>.</p>
 <p>🎬 Create a test file for <code>matches.R</code> . . .</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_test</span>(<span class="st">"matches"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_r.html">use_test</a></span><span class="op">(</span><span class="st">"matches"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="sourceCode" id="cb27"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>✔ Writing 'tests/testthat/test-matches.R'</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>• Modify 'tests/testthat/test-matches.R'</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 <aside><div>
-<p>If matches.R is active in the editor, then <code>usethis::use_test()</code> is enough</p>
-</div></aside></section>
-<section id="test-file-structure" class="slide level2">
-<h2>Test file structure</h2>
+<p>If matches.R is active in the editor, then <code><a href="https://usethis.r-lib.org/reference/use_r.html">usethis::use_test()</a></code> is enough</p>
+</div></aside></section><section id="test-file-structure" class="slide level2"><h2>Test file structure</h2>
 <div class="sourceCode" id="cb28"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>test_that("multiplication works", {</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  expect_equal(2 * 2, 4)</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><br>
-</p>
+<p><br></p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>test_that("some thing in the function works", {</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  expect_zzzz()</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  expect_zzzz()</span>
 <span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  ...</span>
 <span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="make-a-test-1" class="slide level2">
-<h2>Make a test</h2>
+</section><section id="make-a-test-1" class="slide level2"><h2>Make a test</h2>
 <p>We will add three expectations:</p>
 <ul>
-<li><p>test that the output of <code>uss_make_matches()</code> is a tibble with <code>expect_true()</code></p></li>
-<li><p>test that the output of <code>uss_make_matches()</code> has columns with the right names with <code>expect_named()</code></p></li>
-<li><p>test that the country column of the <code>uss_make_matches()</code> output is correct with <code>expect_identical()</code></p></li>
+<li><p>test that the output of <code>uss_make_matches()</code> is a tibble with <code><a href="https://testthat.r-lib.org/reference/logical-expectations.html">expect_true()</a></code></p></li>
+<li><p>test that the output of <code>uss_make_matches()</code> has columns with the right names with <code><a href="https://testthat.r-lib.org/reference/expect_named.html">expect_named()</a></code></p></li>
+<li><p>test that the country column of the <code>uss_make_matches()</code> output is correct with <code><a href="https://testthat.r-lib.org/reference/equality-expectations.html">expect_identical()</a></code></p></li>
 </ul>
 <div class="fragment">
 <p>We will do them one at a time so you can practice the workflow.</p>
 </div>
-</section>
-<section id="edit-test-matches.r" class="slide level2">
-<h2>Edit <code>test-matches.R</code></h2>
-<p>🎬 Add a test to check the output of <code>uss_make_matches()</code> is a tibble with <code>expect_true()</code>:</p>
+</section><section id="edit-test-matches.r" class="slide level2"><h2>Edit <code>test-matches.R</code>
+</h2>
+<p>🎬 Add a test to check the output of <code>uss_make_matches()</code> is a tibble with <code><a href="https://testthat.r-lib.org/reference/logical-expectations.html">expect_true()</a></code>:</p>
 <div class="fragment">
 <div class="small">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">test_that</span>(<span class="st">"uss_make_matches works"</span>, {</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># use the function</span></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  italy <span class="ot">&lt;-</span> <span class="fu">uss_make_matches</span>(engsoccerdata<span class="sc">::</span>italy, <span class="st">"Italy"</span>)</span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect_true</span>(tibble<span class="sc">::</span><span class="fu">is_tibble</span>(italy))</span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://testthat.r-lib.org/reference/test_that.html">test_that</a></span><span class="op">(</span><span class="st">"uss_make_matches works"</span>, <span class="op">{</span></span>
+<span></span>
+<span>  <span class="co"># use the function</span></span>
+<span>  <span class="va">italy</span> <span class="op">&lt;-</span> <span class="fu">uss_make_matches</span><span class="op">(</span><span class="fu">engsoccerdata</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/engsoccerdata/man/italy.html">italy</a></span>, <span class="st">"Italy"</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="fu"><a href="https://testthat.r-lib.org/reference/logical-expectations.html">expect_true</a></span><span class="op">(</span><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/is_tibble.html">is_tibble</a></span><span class="op">(</span><span class="va">italy</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">}</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 <div class="fragment">
 <p>We use <code>uss_make_matches()</code> and examine the output with an expectation.</p>
 </div>
-</section></section>
-<section>
-<section id="running-a-test" class="title-slide slide level1 center">
-<h1>Running a test</h1>
+</section></section><section><section id="running-a-test" class="title-slide slide level1 center"><h1>Running a test</h1>
 
-</section>
-<section id="running-a-test-1" class="slide level2">
-<h2>Running a test</h2>
-<p>🎬 Run the test with <code>testthat::test_file()</code></p>
+</section><section id="running-a-test-1" class="slide level2"><h2>Running a test</h2>
+<p>🎬 Run the test with <code><a href="https://testthat.r-lib.org/reference/test_file.html">testthat::test_file()</a></code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>testthat<span class="sc">::</span><span class="fu">test_file</span>(<span class="st">"tests/testthat/test-matches.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">testthat</span><span class="fu">::</span><span class="fu"><a href="https://testthat.r-lib.org/reference/test_file.html">test_file</a></span><span class="op">(</span><span class="st">"tests/testthat/test-matches.R"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can also use the “Runs Tests” button</p>
 <div class="fragment">
@@ -943,12 +856,10 @@
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>[ FAIL 0 | WARN 0 | SKIP 0 | PASS 1 ] Done!</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>🥳</p>
 </div>
-</section>
-<section id="devtoolstest" class="slide level2">
-<h2><code>devtools::test()</code></h2>
-<p>🎬 Run all the tests with <code>devtools::test()</code></p>
+</section><section id="devtoolstest" class="slide level2"><h2><code>devtools::test()</code></h2>
+<p>🎬 Run all the tests with <code><a href="https://devtools.r-lib.org/reference/test.html">devtools::test()</a></code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">test</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/test.html">test</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <div class="small">
@@ -965,10 +876,8 @@
 <span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>🐝 Your tests are the bee's knees 🐝</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-</section>
-<section id="add-an-expectation" class="slide level2">
-<h2>Add an expectation</h2>
-<p>Now you will test the output of <code>uss_make_matches()</code> to make sure it has columns with the right names <code>expect_named()</code></p>
+</section><section id="add-an-expectation" class="slide level2"><h2>Add an expectation</h2>
+<p>Now you will test the output of <code>uss_make_matches()</code> to make sure it has columns with the right names <code><a href="https://testthat.r-lib.org/reference/expect_named.html">expect_named()</a></code></p>
 <div class="fragment">
 <p>we expect the names to be:</p>
 <div class="small">
@@ -976,44 +885,38 @@
 </div>
 </div>
 <div class="fragment">
-<p>🎬 Use <code>expect_named()</code> in <code>test-matches.R</code> to check the column names of <code>italy</code></p>
+<p>🎬 Use <code><a href="https://testthat.r-lib.org/reference/expect_named.html">expect_named()</a></code> in <code>test-matches.R</code> to check the column names of <code>italy</code></p>
 </div>
-</section>
-<section id="answer" class="slide level2">
-<h2>Answer</h2>
+</section><section id="answer" class="slide level2"><h2>Answer</h2>
 <div class="small">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">test_that</span>(<span class="st">"uss_make_matches works"</span>, {</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># use the function</span></span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>  italy <span class="ot">&lt;-</span> <span class="fu">uss_make_matches</span>(engsoccerdata<span class="sc">::</span>italy, <span class="st">"Italy"</span>)</span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect_true</span>(tibble<span class="sc">::</span><span class="fu">is_tibble</span>(italy))</span>
-<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect_named</span>(</span>
-<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>    italy,</span>
-<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="st">"country"</span>, <span class="st">"tier"</span>, <span class="st">"season"</span>, <span class="st">"date"</span>, <span class="st">"home"</span>, <span class="st">"visitor"</span>,</span>
-<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>      <span class="st">"goals_home"</span>, <span class="st">"goals_visitor"</span>)</span>
-<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://testthat.r-lib.org/reference/test_that.html">test_that</a></span><span class="op">(</span><span class="st">"uss_make_matches works"</span>, <span class="op">{</span></span>
+<span></span>
+<span>  <span class="co"># use the function</span></span>
+<span>  <span class="va">italy</span> <span class="op">&lt;-</span> <span class="fu">uss_make_matches</span><span class="op">(</span><span class="fu">engsoccerdata</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/engsoccerdata/man/italy.html">italy</a></span>, <span class="st">"Italy"</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="fu"><a href="https://testthat.r-lib.org/reference/logical-expectations.html">expect_true</a></span><span class="op">(</span><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/is_tibble.html">is_tibble</a></span><span class="op">(</span><span class="va">italy</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://testthat.r-lib.org/reference/expect_named.html">expect_named</a></span><span class="op">(</span></span>
+<span>    <span class="va">italy</span>,</span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"country"</span>, <span class="st">"tier"</span>, <span class="st">"season"</span>, <span class="st">"date"</span>, <span class="st">"home"</span>, <span class="st">"visitor"</span>,</span>
+<span>      <span class="st">"goals_home"</span>, <span class="st">"goals_visitor"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">}</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-</section>
-<section id="run-the-edited-test" class="slide level2">
-<h2>Run the edited test</h2>
+</section><section id="run-the-edited-test" class="slide level2"><h2>Run the edited test</h2>
 <p>🎬 Run the edited test file</p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>testthat<span class="sc">::</span><span class="fu">test_file</span>(<span class="st">"tests/testthat/test-matches.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">testthat</span><span class="fu">::</span><span class="fu"><a href="https://testthat.r-lib.org/reference/test_file.html">test_file</a></span><span class="op">(</span><span class="st">"tests/testthat/test-matches.R"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Or the “Runs Tests” button</p>
 <div class="sourceCode" id="cb37"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>══ Testing test-matches.R ═════════════════════════════════════════════════════</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>[ FAIL 0 | WARN 0 | SKIP 0 | PASS 2 ] Done!</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="section-1" class="slide level2">
-<h2></h2>
+</section><section id="section-1" class="slide level2"><h2></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">test</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/test.html">test</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="small">
 <div class="sourceCode" id="cb39"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>ℹ Loading ussie</span>
@@ -1027,103 +930,101 @@
 <span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>[ FAIL 0 | WARN 0 | SKIP 0 | PASS 2 ]   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>🥳</p>
-</section>
-<section id="add-the-last-expectation" class="slide level2">
-<h2>Add the last expectation</h2>
-<p>Now check that the country column of the <code>uss_make_matches()</code> output is correct with <code>expect_identical()</code></p>
+</section><section id="add-the-last-expectation" class="slide level2"><h2>Add the last expectation</h2>
+<p>Now check that the country column of the <code>uss_make_matches()</code> output is correct with <code><a href="https://testthat.r-lib.org/reference/equality-expectations.html">expect_identical()</a></code></p>
 <div class="fragment">
-<p>🎬 Use <code>expect_identical()</code> in <code>test-matches.R</code> to compare the values in <code>italy$country</code> to “italy”</p>
+<p>🎬 Use <code><a href="https://testthat.r-lib.org/reference/equality-expectations.html">expect_identical()</a></code> in <code>test-matches.R</code> to compare the values in <code>italy$country</code> to “italy”</p>
 </div>
 <div class="fragment">
 <p>🎬 Run the tests.</p>
 </div>
-</section>
-<section id="my-answer" class="slide level2">
-<h2>My answer</h2>
+</section><section id="my-answer" class="slide level2"><h2>My answer</h2>
 <div class="small">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">test_that</span>(<span class="st">"uss_make_matches works"</span>, {</span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># use the function</span></span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  italy <span class="ot">&lt;-</span> <span class="fu">uss_make_matches</span>(engsoccerdata<span class="sc">::</span>italy, <span class="st">"Italy"</span>)</span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect_true</span>(tibble<span class="sc">::</span><span class="fu">is_tibble</span>(italy))</span>
-<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect_named</span>(</span>
-<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>    italy,</span>
-<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="st">"country"</span>, <span class="st">"tier"</span>, <span class="st">"season"</span>, <span class="st">"date"</span>, <span class="st">"home"</span>, <span class="st">"visitor"</span>,</span>
-<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>      <span class="st">"goals_home"</span>, <span class="st">"goals_visitor"</span>)</span>
-<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect_identical</span>(<span class="fu">unique</span>(italy<span class="sc">$</span>country), <span class="st">"Italy"</span>)</span>
-<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://testthat.r-lib.org/reference/test_that.html">test_that</a></span><span class="op">(</span><span class="st">"uss_make_matches works"</span>, <span class="op">{</span></span>
+<span></span>
+<span>  <span class="co"># use the function</span></span>
+<span>  <span class="va">italy</span> <span class="op">&lt;-</span> <span class="fu">uss_make_matches</span><span class="op">(</span><span class="fu">engsoccerdata</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/engsoccerdata/man/italy.html">italy</a></span>, <span class="st">"Italy"</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="fu"><a href="https://testthat.r-lib.org/reference/logical-expectations.html">expect_true</a></span><span class="op">(</span><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/is_tibble.html">is_tibble</a></span><span class="op">(</span><span class="va">italy</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://testthat.r-lib.org/reference/expect_named.html">expect_named</a></span><span class="op">(</span></span>
+<span>    <span class="va">italy</span>,</span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"country"</span>, <span class="st">"tier"</span>, <span class="st">"season"</span>, <span class="st">"date"</span>, <span class="st">"home"</span>, <span class="st">"visitor"</span>,</span>
+<span>      <span class="st">"goals_home"</span>, <span class="st">"goals_visitor"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://testthat.r-lib.org/reference/equality-expectations.html">expect_identical</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">italy</span><span class="op">$</span><span class="va">country</span><span class="op">)</span>, <span class="st">"Italy"</span><span class="op">)</span></span>
+<span><span class="op">}</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-</section>
-<section id="extra-find-a-bug-add-a-test" class="slide level2">
-<h2>Extra: find a bug, add a test</h2>
+</section><section id="extra-find-a-bug-add-a-test" class="slide level2"><h2>Extra: find a bug, add a test</h2>
 <p>Running a practice session for this course, we found a bug:</p>
 <div class="small">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">test_that</span>(<span class="st">"uss_make_matches works"</span>, {</span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># use the function</span></span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>  italy <span class="ot">&lt;-</span> <span class="fu">uss_make_matches</span>(engsoccerdata<span class="sc">::</span>italy, <span class="st">"Italy"</span>)</span>
-<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect_true</span>(tibble<span class="sc">::</span><span class="fu">is_tibble</span>(italy))</span>
-<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect_named</span>(</span>
-<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>    italy,</span>
-<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="st">"country"</span>, <span class="st">"tier"</span>, <span class="st">"season"</span>, <span class="st">"date"</span>, <span class="st">"home"</span>, <span class="st">"visitor"</span>,</span>
-<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>      <span class="st">"goals_home"</span>, <span class="st">"goals_visitor"</span>)</span>
-<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect_identical</span>(<span class="fu">unique</span>(italy<span class="sc">$</span>country), <span class="st">"Italy"</span>)</span>
-<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># when you find a bug, add a test: 👋 from Ian</span></span>
-<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect_s3_class</span>(italy<span class="sc">$</span>tier, <span class="st">"factor"</span>)</span>
-<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://testthat.r-lib.org/reference/test_that.html">test_that</a></span><span class="op">(</span><span class="st">"uss_make_matches works"</span>, <span class="op">{</span></span>
+<span></span>
+<span>  <span class="co"># use the function</span></span>
+<span>  <span class="va">italy</span> <span class="op">&lt;-</span> <span class="fu">uss_make_matches</span><span class="op">(</span><span class="fu">engsoccerdata</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/engsoccerdata/man/italy.html">italy</a></span>, <span class="st">"Italy"</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="fu"><a href="https://testthat.r-lib.org/reference/logical-expectations.html">expect_true</a></span><span class="op">(</span><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/is_tibble.html">is_tibble</a></span><span class="op">(</span><span class="va">italy</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://testthat.r-lib.org/reference/expect_named.html">expect_named</a></span><span class="op">(</span></span>
+<span>    <span class="va">italy</span>,</span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"country"</span>, <span class="st">"tier"</span>, <span class="st">"season"</span>, <span class="st">"date"</span>, <span class="st">"home"</span>, <span class="st">"visitor"</span>,</span>
+<span>      <span class="st">"goals_home"</span>, <span class="st">"goals_visitor"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://testthat.r-lib.org/reference/equality-expectations.html">expect_identical</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">italy</span><span class="op">$</span><span class="va">country</span><span class="op">)</span>, <span class="st">"Italy"</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="co"># when you find a bug, add a test: 👋 from Ian</span></span>
+<span>  <span class="fu"><a href="https://testthat.r-lib.org/reference/inheritance-expectations.html">expect_s3_class</a></span><span class="op">(</span><span class="va">italy</span><span class="op">$</span><span class="va">tier</span>, <span class="st">"factor"</span><span class="op">)</span></span>
+<span><span class="op">}</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-</section>
-<section id="test-coverage" class="slide level2">
-<h2>Test coverage</h2>
+</section><section id="test-coverage" class="slide level2"><h2>Test coverage</h2>
 <p>…</p>
-</section></section>
-<section>
-<section id="woo-hoo-you-wrote-a-unit-test" class="title-slide slide level1 center">
-<h1>☑️ Woo hoo ☑️<br> You wrote a unit test!</h1>
+</section></section><section><section id="woo-hoo-you-wrote-a-unit-test" class="title-slide slide level1 center"><h1>☑️ Woo hoo ☑️<br> You wrote a unit test!</h1>
 
-</section>
-<section id="summary" class="slide level2">
-<h2>Summary</h2>
+</section><section id="summary" class="slide level2"><h2>Summary</h2>
 <div class="small">
 <ul>
 <li>Automated testing means you can systematically check your code still works when adding features</li>
-<li><strong><code>testthat</code></strong> <em>“tries to make testing as fun as possible”</em></li>
+<li>
+<strong><code>testthat</code></strong> <em>“tries to make testing as fun as possible”</em>
+</li>
 <li>Organisation: test files
 <ul>
-<li>live in: <code>tests/testthat/</code></li>
-<li>are named: <code>test-xxxx.R</code></li>
-<li>contain: <code>test_that("something works", { *expectations* })</code></li>
-<li><code>tests/testthat.R</code>: runs the tests and should not (normally) be edited</li>
-</ul></li>
+<li>live in: <code>tests/testthat/</code>
+</li>
+<li>are named: <code>test-xxxx.R</code>
+</li>
+<li>contain: <code>test_that("something works", { *expectations* })</code>
+</li>
+<li>
+<code>tests/testthat.R</code>: runs the tests and should not (normally) be edited</li>
+</ul>
+</li>
 </ul>
 </div>
-</section>
-<section id="summary-1" class="slide level2">
-<h2>Summary</h2>
+</section><section id="summary-1" class="slide level2"><h2>Summary</h2>
 <div class="small">
 <ul>
-<li>Expectations have the form <code>expect_zzzz(actual_result, expectation)</code></li>
+<li>Expectations have the form <code>expect_zzzz(actual_result, expectation)</code>
+</li>
 <li>Workflow
 <ul>
-<li><code>usethis::use_testthat(3)</code> sets up your package to use <strong><code>testthat</code></strong></li>
-<li><code>usethis::use_test(xxxx)</code> creates <code>test-xxxx.R</code></li>
-<li><code>testthat::test_file()</code> runs the tests in a test file</li>
-<li><code>devtools::test()</code> runs the tests in all the test files</li>
-</ul></li>
+<li>
+<code>usethis::use_testthat(3)</code> sets up your package to use <strong><code>testthat</code></strong>
+</li>
+<li>
+<code>usethis::use_test(xxxx)</code> creates <code>test-xxxx.R</code>
+</li>
+<li>
+<code><a href="https://testthat.r-lib.org/reference/test_file.html">testthat::test_file()</a></code> runs the tests in a test file</li>
+<li>
+<code><a href="https://devtools.r-lib.org/reference/test.html">devtools::test()</a></code> runs the tests in all the test files</li>
+</ul>
+</li>
 </ul>
 </div>
-</section>
-<section id="references" class="slide level2 extrasmall smaller scrollable">
-<h2>References</h2>
+</section><section id="references" class="slide level2 extrasmall smaller scrollable"><h2>References</h2>
 
 <div class="footer footer-default">
 <p><a href="https://rstd.io/btt" class="uri">https://rstd.io/btt</a></p>
@@ -1137,27 +1038,10 @@ Wickham, Hadley, and Jenny Bryan. 2020. <em>R Packages</em>. The work-in-progres
 </div>
 </div>
 </section></section>
-    </div>
+</div>
   </div>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="../site_libs/revealjs/dist/reveal.js"></script>
-  <!-- reveal.js plugins -->
-  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
-  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
-  
-
-  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
-  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
-
-  <script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="../site_libs/revealjs/dist/reveal.js"></script><!-- reveal.js plugins --><script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script><script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script><script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script><script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script><script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script><script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script><script src="../site_libs/revealjs/plugin/notes/notes.js"></script><script src="../site_libs/revealjs/plugin/search/search.js"></script><script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script><script src="../site_libs/revealjs/plugin/math/math.js"></script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><script>
 
       // Full list of configuration options available at:
       // https://revealjs.com/config/
@@ -1349,9 +1233,7 @@ Wickham, Hadley, and Jenny Bryan. 2020. <em>R Packages</em>. The work-in-progres
           RevealZoom
         ]
       });
-    </script>
-    
-    <script>
+    </script><script>
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
       // slide changes (different for each slide format).
@@ -1390,9 +1272,7 @@ Wickham, Hadley, and Jenny Bryan. 2020. <em>R Packages</em>. The work-in-progres
         }
 
       })();
-    </script>
-
-    <script id="quarto-html-after-body" type="application/javascript">
+    </script><script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
         const mode = bsSheetEl.getAttribute("data-mode");
@@ -1485,6 +1365,6 @@ Wickham, Hadley, and Jenny Bryan. 2020. <em>R Packages</em>. The work-in-progres
       }
     });
     </script>
-    
+
 
 </body></html>

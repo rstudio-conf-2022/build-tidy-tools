@@ -6,17 +6,17 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.0.16">
-
-  <meta name="author" content="Emma Rand and Ian Lyttle">
-  <title>Building tidy tools - 📦 Building tidy tools</title>
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
-  <style>
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.18">
+<meta name="author" content="Emma Rand and Ian Lyttle">
+<title>Building tidy tools - 📦 Building tidy tools</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+<link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+<style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     span.underline{text-decoration: underline;}
@@ -107,14 +107,14 @@
       margin-left: 2em;
     }
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css" id="theme">
-  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
-  <style type="text/css">
+<link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css" id="theme">
+<link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+<link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+<link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+<link href="../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+<link href="../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+<link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+<style type="text/css">
 
   .callout {
     margin-top: 1em;
@@ -311,7 +311,7 @@
   }
 
   </style>
-  <style type="text/css">
+<style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
       overflow: auto;
@@ -403,45 +403,36 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="center">
-  <h1 class="title">📦 <br>Building tidy tools</h1>
+<section id="title-slide" class="center"><h1 class="title">📦 <br>Building tidy tools</h1>
   <p class="subtitle">Day 1 Session 4: Documentation - Sharing</p>
   <p class="author">Emma Rand and Ian Lyttle</p>
   <p class="date"><br>🔗 <a href="https://rstd.io/btt">rstd.io/btt</a></p>
-</section>
+</section><section><section id="share-your-package" class="title-slide slide level1 center"><h1>🌐 Share your package</h1>
 
-<section>
-<section id="share-your-package" class="title-slide slide level1 center">
-<h1>🌐 Share your package</h1>
-
-</section>
-<section id="learning-objectives" class="slide level2">
-<h2>Learning Objectives</h2>
+</section><section id="learning-objectives" class="slide level2"><h2>Learning Objectives</h2>
 <p>At the end of this section you will be able to:</p>
 <div class="small">
 <ul>
 <li><p>Add a <code>README.md</code>by building and populating a <code>README.Rmd</code></p></li>
-<li><p>Set up a GitHub action that will run</p>
+<li>
+<p>Set up a GitHub action that will run</p>
 <ul>
 <li>run <code>R CMD check</code> on multiple OS on GitHub and</li>
 <li>add badge with the result to the README</li>
-</ul></li>
+</ul>
+</li>
 <li><p>Describe the additions made when adding a GitHub action</p></li>
 <li><p>Add a package vignette</p></li>
 <li><p>Use <strong><code>pkgdown</code></strong> <span class="citation" data-cites="pkgdown">(<a href="#/ref-pkgdown" role="doc-biblioref" onclick="return false;">Wickham, Hesselberth, and Salmon 2022</a>)</span> to create a website for your package</p></li>
 <li><p>Describe additions made when making and hosting a <strong><code>pkgdown</code></strong> website</p></li>
 </ul>
 </div>
-</section></section>
-<section>
-<section id="overview" class="title-slide slide level1 center">
-<h1>Overview</h1>
+</section></section><section><section id="overview" class="title-slide slide level1 center"><h1>Overview</h1>
 
-</section>
-<section id="overview-1" class="slide level2">
-<h2>Overview</h2>
+</section><section id="overview-1" class="slide level2"><h2>Overview</h2>
 <ul>
-<li><code>README.md</code>: Often the first file read by the user. Include one!</li>
+<li>
+<code>README.md</code>: Often the first file read by the user. Include one!</li>
 </ul>
 <div class="fragment">
 <ul>
@@ -456,54 +447,46 @@
 <div class="fragment">
 <p>🦸‍♀️ <strong><code>usethis</code></strong> <span class="citation" data-cites="usethis">(<a href="#/ref-usethis" role="doc-biblioref" onclick="return false;">Wickham, Bryan, and Barrett 2022</a>)</span></p>
 </div>
-</section></section>
-<section>
-<section id="readme" class="title-slide slide level1 center">
-<h1>README</h1>
+</section></section><section><section id="readme" class="title-slide slide level1 center"><h1>README</h1>
 
-</section>
-<section id="readme.md" class="slide level2">
-<h2><code>README.md</code></h2>
+</section><section id="readme.md" class="slide level2"><h2><code>README.md</code></h2>
 <p>Big picture goes in the README:</p>
 <ul>
 <li>High-level purpose of the package</li>
 <li>Simple example</li>
 <li>Installation instructions</li>
 <li>Description of main features with links to vignettes</li>
-</ul>
-</section>
-<section id="readme.rmd" class="slide level2">
-<h2><code>README.Rmd</code></h2>
+</ul></section><section id="readme.rmd" class="slide level2"><h2><code>README.Rmd</code></h2>
 <p>You are likely to have code in the <code>README.md</code></p>
 <div class="fragment">
 <p>Generating it with R Markdown is helpful</p>
 </div>
-</section>
-<section id="usethis-helps-out-again" class="slide level2">
-<h2><strong><code>usethis</code></strong> helps out again!</h2>
+</section><section id="usethis-helps-out-again" class="slide level2"><h2>
+<strong><code>usethis</code></strong> helps out again!</h2>
 <div class="fragment">
-<p><code>usethis::use_readme_rmd()</code> will:</p>
+<p><code><a href="https://usethis.r-lib.org/reference/use_readme_rmd.html">usethis::use_readme_rmd()</a></code> will:</p>
 <ul>
 <li>generate a template <code>README.Rmd</code> which
 <ul>
 <li>outputs a GitHub markdown doc</li>
 <li>contains reminders of things to include</li>
 <li>has tips</li>
-</ul></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="fragment">
 <ul>
-<li>adds the <code>README.Rmd</code> to the <code>.Rbuildignore</code></li>
+<li>adds the <code>README.Rmd</code> to the <code>.Rbuildignore</code>
+</li>
 <li>adds a “pre-commit” hook to ensure you knit to <code>md</code> before committing</li>
 </ul>
 </div>
-</section>
-<section id="add-a-readme.rmd" class="slide level2">
-<h2>Add a <code>README.Rmd</code></h2>
+</section><section id="add-a-readme.rmd" class="slide level2"><h2>Add a <code>README.Rmd</code>
+</h2>
 <p>🎬 Add a <code>README.Rmd</code> with:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_readme_rmd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_readme_rmd.html">use_readme_rmd</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>✔ Writing 'README.Rmd'</span>
@@ -511,20 +494,17 @@
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>• Modify 'README.Rmd'</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>✔ Writing '.git/hooks/pre-commit'</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="template" class="slide level2">
-<h2>Template</h2>
+</section><section id="template" class="slide level2"><h2>Template</h2>
 <p>🎬 Examine your <code>README.Rmd</code></p>
 <div class="fragment">
 <ul>
 <li>GitHub markdown</li>
-<li>reminder to edit <code>README.Rmd</code> rather than <code>README.md</code></li>
+<li>reminder to edit <code>README.Rmd</code> rather than <code>README.md</code>
+</li>
 <li>Sets up some recommended knitr options</li>
 </ul>
 </div>
-</section>
-<section id="section" class="slide level2">
-<h2></h2>
+</section><section id="section" class="slide level2"><h2></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(</span>
@@ -535,40 +515,33 @@
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="render" class="slide level2">
-<h2>Render</h2>
+</section><section id="render" class="slide level2"><h2>Render</h2>
 <p>You need to render <code>README.Rmd</code> regularly, to keep <code>README.md</code> up-to-date.</p>
-<p><code>devtools::build_readme()</code> is handy for this.</p>
+<p><code><a href="https://devtools.r-lib.org/reference/build_rmd.html">devtools::build_readme()</a></code> is handy for this.</p>
 <div class="fragment">
 <p>🎬 Render with <code>README.md</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">build_readme</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/build_rmd.html">build_readme</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="fragment">
 <div class="sourceCode" id="cb5"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ℹ Installing ussie in temporary library</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ℹ Building C:/Users/er13/OneDrive - University of York/Desktop/Desktop/rstudio-conf-2022/ussie'/README.Rmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="devtoolsbuild_readme" class="slide level2">
-<h2><code>devtools::build_readme()</code></h2>
+</section><section id="devtoolsbuild_readme" class="slide level2"><h2><code>devtools::build_readme()</code></h2>
 <ul>
-<li>creates <code>README.md</code></li>
-<li>creates <code>man/figures/README-pressure-1.png</code></li>
-</ul>
-</section>
-<section id="edit-readme.rmd" class="slide level2">
-<h2>Edit <code>README.Rmd</code></h2>
+<li>creates <code>README.md</code>
+</li>
+<li>creates <code>man/figures/README-pressure-1.png</code>
+</li>
+</ul></section><section id="edit-readme.rmd" class="slide level2"><h2>Edit <code>README.Rmd</code>
+</h2>
 <p>🎬 Complete: “The goal of ussie is to …”</p>
-<p><br>
-</p>
+<p><br></p>
 <p>🎬 Add: an example with <code>uss_make_maches()</code></p>
 <p>&nbsp;</p>
 <p>🎬 Remove: non-relevant sections</p>
-</section>
-<section id="an-answer" class="slide level2">
-<h2>An answer</h2>
+</section><section id="an-answer" class="slide level2"><h2>An answer</h2>
 <p>Complete: “The goal of ussie is to …”</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>The goal of ussie is to help you to work with European football league data supplied by the **`engsoccerdata`** package (Curley 2016).</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="fragment">
@@ -584,9 +557,7 @@
 <p>Remove: non-relevant sections</p>
 <p>Everything after “What is special about using……”</p>
 </div>
-</section>
-<section id="add-a-badge-to-the-readme.rmd" class="slide level2">
-<h2>Add a badge to the <code>README.Rmd</code>?</h2>
+</section><section id="add-a-badge-to-the-readme.rmd" class="slide level2"><h2>Add a badge to the <code>README.Rmd</code>?</h2>
 <p>Badges give information to the user about the state of the package</p>
 <div class="fragment">
 <p>For example: <img data-src="https://github.com/3mmaRand/ussie/actions/workflows/R-CMD-check.yaml/badge.svg" width="300" height="39"></p>
@@ -600,27 +571,21 @@
 <div class="fragment">
 <p>Actions we add are triggered when we push to GitHub.</p>
 </div>
-</section>
-<section id="adding-a-r-cmd-check-action" class="slide level2">
-<h2>Adding a <code>R CMD check</code> action</h2>
+</section><section id="adding-a-r-cmd-check-action" class="slide level2"><h2>Adding a <code>R CMD check</code> action</h2>
 <p>Adding the <code>R CMD check</code> action along with an edit to the <code>README.Rmd</code> will:</p>
 <ul>
 <li><p>run <code>R CMD check</code> on multiple OS on GitHub and</p></li>
 <li><p>add badge with the result to the <code>README.Rmd</code></p></li>
 </ul>
 <div class="fragment">
-<p>We can add with <code>usethis::use_github_action_check_standard()</code></p>
+<p>We can add with <code><a href="https://usethis.r-lib.org/reference/github_actions.html">usethis::use_github_action_check_standard()</a></code></p>
 </div>
-</section>
-<section id="adding-a-r-cmd-check-action-1" class="slide level2">
-<h2>Adding a <code>R CMD check</code> action</h2>
+</section><section id="adding-a-r-cmd-check-action-1" class="slide level2"><h2>Adding a <code>R CMD check</code> action</h2>
 <p>🎬 Add the <code>R CMD check</code> action:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_github_action_check_standard</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/github_actions.html">use_github_action_check_standard</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="section-1" class="slide level2">
-<h2></h2>
+</section><section id="section-1" class="slide level2"><h2></h2>
 <div class="small">
 <div class="sourceCode" id="cb9"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>✔ Creating '.github/'</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>✔ Adding '^\\.github$' to '.Rbuildignore'</span>
@@ -631,9 +596,7 @@
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>✔ Adding R-CMD-check badge to 'README.Rmd'</span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>• Re-knit 'README.Rmd' with `devtools::build_readme()`</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="whats-changed" class="slide level2">
-<h2>What’s changed?</h2>
+</section><section id="whats-changed" class="slide level2"><h2>What’s changed?</h2>
 <p>🎬 Look at your <code>README.Rmd</code></p>
 <div class="small">
 <div class="sourceCode" id="cb10"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>&lt;!-- badges: start --&gt;</span>
@@ -641,27 +604,20 @@
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>&lt;!-- badges: end --&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="do-as-it-said" class="slide level2">
-<h2>Do as it said!</h2>
+</section><section id="do-as-it-said" class="slide level2"><h2>Do as it said!</h2>
 <div class="small">
 <div class="sourceCode" id="cb11"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>.......</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>• Re-knit 'README.Rmd' with `devtools::build_readme()`</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>🎬 Re-knit <code>README.Rmd</code> with:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">build_readme</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/build_rmd.html">build_readme</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="what-else-has-changed" class="slide level2">
-<h2>What else has changed?</h2>
+</section><section id="what-else-has-changed" class="slide level2"><h2>What else has changed?</h2>
 <p><code>.github/workflows/R-CMD-check.yaml</code> is created</p>
-<p><br>
-</p>
+<p><br></p>
 <p>🎬 Look at <code>.github/workflows/R-CMD-check.yaml</code></p>
-</section>
-<section id="r-cmd-check.yaml" class="slide level2">
-<h2><code>R-CMD-check.yaml</code></h2>
+</section><section id="r-cmd-check.yaml" class="slide level2"><h2><code>R-CMD-check.yaml</code></h2>
 <div class="extrasmall">
 <pre><code># Workflow derived from https://github.com/r-lib/actions/tree/v2/examples
 # Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
@@ -713,57 +669,36 @@ jobs:
         with:
           upload-snapshots: true</code></pre>
 </div>
-</section>
-<section id="commit-and-push" class="slide level2">
-<h2>Commit and push</h2>
+</section><section id="commit-and-push" class="slide level2"><h2>Commit and push</h2>
 <p>🎬 Stage and commit</p>
-<p><br>
-</p>
+<p><br></p>
 <p>🎬 Push to GitHub</p>
-</section>
-<section id="section-2" class="slide level2">
-<h2></h2>
+</section><section id="section-2" class="slide level2"><h2></h2>
 
-<img data-src="images/badge-check-no-status.png" class="r-stretch"></section>
-<section id="section-3" class="slide level2">
-<h2></h2>
+<img data-src="images/badge-check-no-status.png" class="r-stretch"></section><section id="section-3" class="slide level2"><h2></h2>
 
-<img data-src="images/badge-check-progress.png" class="r-stretch"></section>
-<section id="section-4" class="slide level2">
-<h2></h2>
+<img data-src="images/badge-check-progress.png" class="r-stretch"></section><section id="section-4" class="slide level2"><h2></h2>
 
-<img data-src="images/badge-check-passing-status-01.png" class="r-stretch"></section>
-<section id="other-github-actions" class="slide level2">
-<h2>Other GitHub Actions</h2>
+<img data-src="images/badge-check-passing-status-01.png" class="r-stretch"></section><section id="other-github-actions" class="slide level2"><h2>Other GitHub Actions</h2>
 <ul>
 <li><p>Build and deploy a pkgdown site</p></li>
 <li><p>Determine test coverage</p></li>
 </ul>
 <p>We will use usethis helpers for GitHub Actions again.</p>
-</section></section>
-<section>
-<section id="vignettes" class="title-slide slide level1 center">
-<h1>Vignettes</h1>
+</section></section><section><section id="vignettes" class="title-slide slide level1 center"><h1>Vignettes</h1>
 
-</section>
-<section id="vignettes-1" class="slide level2">
-<h2>Vignettes</h2>
+</section><section id="vignettes-1" class="slide level2"><h2>Vignettes</h2>
 <ul>
 <li>A long-form guide to your package.</li>
 <li>Function documentation is useful if you know the function name</li>
 <li>A vignette explains how to use your package</li>
 <li>Can describe the problem that your package is designed to solve, and then show the reader how to solve it.</li>
-</ul>
-</section>
-<section id="add-a-vignette" class="slide level2">
-<h2>Add a vignette</h2>
+</ul></section><section id="add-a-vignette" class="slide level2"><h2>Add a vignette</h2>
 <p>🎬 Add a vignette called “ussie” with</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_vignette</span>(<span class="st">"ussie"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_vignette.html">use_vignette</a></span><span class="op">(</span><span class="st">"ussie"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="whats-happened" class="slide level2">
-<h2>What’s happened?</h2>
+</section><section id="whats-happened" class="slide level2"><h2>What’s happened?</h2>
 <div class="small">
 <div class="sourceCode" id="cb15"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>✔ Adding 'knitr' to Suggests field in DESCRIPTION</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>✔ Setting VignetteBuilder field in DESCRIPTION to 'knitr'</span>
@@ -774,13 +709,10 @@ jobs:
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>✔ Writing 'vignettes/ussie.Rmd'</span>
 <span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>• Modify 'vignettes/ussie.Rmd'</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="edit-vignettesussie.rmd" class="slide level2">
-<h2>Edit <code>vignettes/ussie.Rmd</code></h2>
+</section><section id="edit-vignettesussie.rmd" class="slide level2"><h2>Edit <code>vignettes/ussie.Rmd</code>
+</h2>
 <p>🎬 Add info to <code>vignettes/ussie.Rmd</code></p>
-</section>
-<section id="an-answer-1" class="slide level2">
-<h2>An answer</h2>
+</section><section id="an-answer-1" class="slide level2"><h2>An answer</h2>
 <div class="small">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup}</span></span>
@@ -797,61 +729,46 @@ jobs:
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-</section>
-<section id="preview-the-vignette" class="slide level2">
-<h2>Preview the Vignette</h2>
+</section><section id="preview-the-vignette" class="slide level2"><h2>Preview the Vignette</h2>
 <p>🎬 hit knit</p>
 <p>🎬</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">build_rmd</span>(<span class="st">"vignettes/ussie.Rmd"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/build_rmd.html">build_rmd</a></span><span class="op">(</span><span class="st">"vignettes/ussie.Rmd"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="sourceCode" id="cb19"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>ℹ Installing ussie in temporary library</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>ℹ Building C:/Users/er13/Desktop/ussie/vignettes/ussie.Rmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section></section>
-<section>
-<section id="pkgdown-sites" class="title-slide slide level1 center">
-<h1>pkgdown sites</h1>
+</section></section><section><section id="pkgdown-sites" class="title-slide slide level1 center"><h1>pkgdown sites</h1>
 
-</section>
-<section id="section-5" class="slide level2">
-<h2></h2>
+</section><section id="section-5" class="slide level2"><h2></h2>
 <p>pkgdown is designed to make it quick and easy to build a website for your package</p>
 <ul>
 <li><p><a href="https://allisonhorst.github.io/palmerpenguins/">palmerpenguins</a></p></li>
 <li><p><a href="https://ggplot2.tidyverse.org/">ggplot2</a></p></li>
 </ul>
 <p>Very widely used</p>
-</section>
-<section id="section-6" class="slide level2">
-<h2></h2>
+</section><section id="section-6" class="slide level2"><h2></h2>
 <p>Uses your existing documentation</p>
 <ul>
-<li>Home page - from <code>README.md</code></li>
+<li>Home page - from <code>README.md</code>
+</li>
 <li>Get started - from overall pkg vignette</li>
-<li>Function Reference - from documentation in <code>man/</code></li>
+<li>Function Reference - from documentation in <code>man/</code>
+</li>
 <li>Articles - from other vignettes</li>
-</ul>
-</section>
-<section id="workflow" class="slide level2">
-<h2>Workflow</h2>
+</ul></section><section id="workflow" class="slide level2"><h2>Workflow</h2>
 <ul>
-<li><p>Configure package to use pkgdown with <code>usethis::use_pkgdown()</code> ONCE</p></li>
-<li><p>build the website locally <code>pkgdown::build_site()</code></p></li>
-</ul>
-</section>
-<section id="section-7" class="slide level2">
-<h2></h2>
+<li><p>Configure package to use pkgdown with <code><a href="https://usethis.r-lib.org/reference/use_pkgdown.html">usethis::use_pkgdown()</a></code> ONCE</p></li>
+<li><p>build the website locally <code><a href="https://pkgdown.r-lib.org/reference/build_site.html">pkgdown::build_site()</a></code></p></li>
+</ul></section><section id="section-7" class="slide level2"><h2></h2>
 <p>🎬 config</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_pkgdown</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_pkgdown.html">use_pkgdown</a></span><span class="op">(</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="sourceCode" id="cb21"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>✔ Adding '^_pkgdown\\.yml$', '^docs$', '^pkgdown$' to '.Rbuildignore'</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>✔ Adding 'docs' to '.gitignore'</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>✔ Writing '_pkgdown.yml'</span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>• Modify '_pkgdown.yml'</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="pkgdown.yml" class="slide level2">
-<h2><code>_pkgdown.yml</code></h2>
+</section><section id="pkgdown.yml" class="slide level2"><h2><code>_pkgdown.yml</code></h2>
 <p>Simple</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>url: ~</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>template:</span>
@@ -860,13 +777,10 @@ jobs:
 <ul>
 <li><a href="https://github.com/tidyverse/ggplot2/blob/main/_pkgdown.yml">ggplot2 <code>_pkgdown.yml</code></a></li>
 <li><a href="https://github.com/allisonhorst/palmerpenguins/blob/master/_pkgdown.yml">palmerpenguins <code>_pkgdown.yml</code></a></li>
-</ul>
-</section>
-<section id="section-8" class="slide level2">
-<h2></h2>
+</ul></section><section id="section-8" class="slide level2"><h2></h2>
 <p>🎬 build</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>pkgdown<span class="sc">::</span><span class="fu">build_site</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">pkgdown</span><span class="fu">::</span><span class="fu"><a href="https://pkgdown.r-lib.org/reference/build_site.html">build_site</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <div class="tenor-gif-embed" data-postid="17163309" data-share-method="host" data-aspect-ratio="0.921875" data-width="50%">
@@ -874,9 +788,7 @@ jobs:
 </div>
 <script type="text/javascript" async="" src="https://tenor.com/embed.js"></script>
 </div>
-</section>
-<section id="section-9" class="slide level2">
-<h2></h2>
+</section><section id="section-9" class="slide level2"><h2></h2>
 <div class="extrasmall">
 <pre><code>-- Installing package into temporary library -----------
 Warning: package ‘ussie’ is in use and will not be installed
@@ -908,35 +820,27 @@ Writing 'sitemap.xml'
 == DONE ========================================================================
 -- Previewing site -------------------------------------</code></pre>
 </div>
-</section>
-<section id="section-10" class="slide level2">
-<h2></h2>
+</section><section id="section-10" class="slide level2"><h2></h2>
 <ul>
-<li><code>docs/</code> is created</li>
-<li></li>
-<li></li>
-</ul>
-</section>
-<section id="hosting-on-github" class="slide level2">
-<h2>Hosting on Github</h2>
+<li>
+<code>docs/</code> is created</li>
+<li>
+</li><li>
+</li></ul></section><section id="hosting-on-github" class="slide level2"><h2>Hosting on Github</h2>
 <p>Set up GitHub actions to automatically build and publish your site</p>
-<p>Let github build the page rather than building and hosting results <code>usethis::use_pkgdown_github_pages()</code></p>
+<p>Let github build the page rather than building and hosting results <code><a href="https://usethis.r-lib.org/reference/use_pkgdown.html">usethis::use_pkgdown_github_pages()</a></code></p>
 <p>🎬 action</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_pkgdown_github_pages</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_pkgdown.html">use_pkgdown_github_pages</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="section-11" class="slide level2">
-<h2></h2>
+</section><section id="section-11" class="slide level2"><h2></h2>
 <div class="sourceCode" id="cb26"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>Overwrite pre-existing file '_pkgdown.yml'?</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>1: Yup</span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>2: Nope</span>
 <span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>3: Negative</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>🎬 Chose the option that means Yes</p>
-</section>
-<section id="section-12" class="slide level2">
-<h2></h2>
+</section><section id="section-12" class="slide level2"><h2></h2>
 <div class="small">
 <div class="sourceCode" id="cb27"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>✔ Writing '_pkgdown.yml'</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>• Modify '_pkgdown.yml'</span>
@@ -952,26 +856,17 @@ Writing 'sitemap.xml'
 <span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>• Run `devtools::document()` to update package-level documentation.</span>
 <span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>✔ Setting 'https://3mmarand.github.io/ussie/' as homepage of GitHub repo '3mmaRand/ussie'</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="section-13" class="slide level2">
-<h2></h2>
-</section>
-<section id="pkgdown.yml-1" class="slide level2">
-<h2><code>_pkgdown.yml</code></h2>
+</section><section id="section-13" class="slide level2"><h2></h2>
+</section><section id="pkgdown.yml-1" class="slide level2"><h2><code>_pkgdown.yml</code></h2>
 <p>Simple</p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>url: https://3mmarand.github.io/ussie/</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>template:</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  bootstrap: 5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="what-else-has-changed-1" class="slide level2">
-<h2>What else has changed?</h2>
+</section><section id="what-else-has-changed-1" class="slide level2"><h2>What else has changed?</h2>
 <p><code>.github/workflows/pkgdown.yaml</code> is created</p>
-<p><br>
-</p>
+<p><br></p>
 <p>🎬 Look at <code>.github/workflows/pkgdown.yaml</code></p>
-</section>
-<section id="pkgdown.yaml" class="slide level2">
-<h2><code>pkgdown.yaml</code></h2>
+</section><section id="pkgdown.yaml" class="slide level2"><h2><code>pkgdown.yaml</code></h2>
 <div class="extrasmall">
 <pre><code># Workflow derived from https://github.com/r-lib/actions/tree/v2/examples
 # Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
@@ -1020,50 +915,46 @@ jobs:
           branch: gh-pages
           folder: docs</code></pre>
 </div>
-</section>
-<section id="commit-and-push-1" class="slide level2">
-<h2>Commit and push</h2>
+</section><section id="commit-and-push-1" class="slide level2"><h2>Commit and push</h2>
 <p>🎬 Stage and commit</p>
-<p><br>
-</p>
+<p><br></p>
 <p>🎬 Push to GitHub</p>
-</section>
-<section id="section-14" class="slide level2">
-<h2></h2>
-</section></section>
-<section>
-<section id="woo-hoo-you-have-shared-your-package" class="title-slide slide level1 center">
-<h1>🌐 Woo hoo 🌐 <br> You have shared your package!</h1>
+</section><section id="section-14" class="slide level2"><h2></h2>
+</section></section><section><section id="woo-hoo-you-have-shared-your-package" class="title-slide slide level1 center"><h1>🌐 Woo hoo 🌐 <br> You have shared your package!</h1>
 
-</section>
-<section id="summary" class="slide level2">
-<h2>Summary</h2>
+</section><section id="summary" class="slide level2"><h2>Summary</h2>
 <div class="small">
 <ul>
 <li>Always include a <code>README.md</code> with the purpose of the package, installation instructions and a simple example</li>
-<li><code>usethis::use_readme_rmd()</code> will generate a template <code>README.Rmd</code> and do other useful things</li>
-<li><code>devtools::build_readme()</code> will build <code>README.md</code> from <code>README.Rmd</code></li>
+<li>
+<code><a href="https://usethis.r-lib.org/reference/use_readme_rmd.html">usethis::use_readme_rmd()</a></code> will generate a template <code>README.Rmd</code> and do other useful things</li>
+<li>
+<code><a href="https://devtools.r-lib.org/reference/build_rmd.html">devtools::build_readme()</a></code> will build <code>README.md</code> from <code>README.Rmd</code>
+</li>
 <li>A GitHub Action is “continuous integration” which allows you to automate package building, testing and deployment on github</li>
-<li><code>usethis::use_github_action_check_standard()</code> will add the <code>R CMD check</code> action and a badge</li>
+<li>
+<code><a href="https://usethis.r-lib.org/reference/github_actions.html">usethis::use_github_action_check_standard()</a></code> will add the <code>R CMD check</code> action and a badge</li>
 </ul>
 </div>
-</section>
-<section id="summary-1" class="slide level2">
-<h2>Summary</h2>
+</section><section id="summary-1" class="slide level2"><h2>Summary</h2>
 <div class="small">
 <ul>
 <li>A vignette gives a more detailed explanation of how your package can be used</li>
-<li>You can add a vignette with <code>usethis::use_vignette(name_of_vignette)</code></li>
-<li><strong><code>pkgdown</code></strong> makes it quick and easy to build a website for your package from the existing documentation</li>
-<li><code>usethis::use_pkgdown()</code> configures your package to use a <strong><code>pkgdown</code></strong> website</li>
-<li><code>pkgdown::build_site()</code> will build the wqebsite so you can examine it locally</li>
-<li><code>usethis::use_pkgdown_github_pages()</code> sets up a GitHub action to automatically build and publish your site on pushing.</li>
-<li><strong><code>usethis</code></strong> really rocks!</li>
+<li>You can add a vignette with <code>usethis::use_vignette(name_of_vignette)</code>
+</li>
+<li>
+<strong><code>pkgdown</code></strong> makes it quick and easy to build a website for your package from the existing documentation</li>
+<li>
+<code><a href="https://usethis.r-lib.org/reference/use_pkgdown.html">usethis::use_pkgdown()</a></code> configures your package to use a <strong><code>pkgdown</code></strong> website</li>
+<li>
+<code><a href="https://pkgdown.r-lib.org/reference/build_site.html">pkgdown::build_site()</a></code> will build the wqebsite so you can examine it locally</li>
+<li>
+<code><a href="https://usethis.r-lib.org/reference/use_pkgdown.html">usethis::use_pkgdown_github_pages()</a></code> sets up a GitHub action to automatically build and publish your site on pushing.</li>
+<li>
+<strong><code>usethis</code></strong> really rocks!</li>
 </ul>
 </div>
-</section>
-<section id="references" class="slide level2 extrasmall smaller scrollable">
-<h2>References</h2>
+</section><section id="references" class="slide level2 extrasmall smaller scrollable"><h2>References</h2>
 
 <div class="footer footer-default">
 <p><a href="https://rstd.io/btt" class="uri">https://rstd.io/btt</a></p>
@@ -1077,27 +968,10 @@ Wickham, Hadley, Jay Hesselberth, and Maëlle Salmon. 2022. <span>“Pkgdown: Ma
 </div>
 </div>
 </section></section>
-    </div>
+</div>
   </div>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="../site_libs/revealjs/dist/reveal.js"></script>
-  <!-- reveal.js plugins -->
-  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
-  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
-  
-
-  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
-  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
-
-  <script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="../site_libs/revealjs/dist/reveal.js"></script><!-- reveal.js plugins --><script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script><script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script><script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script><script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script><script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script><script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script><script src="../site_libs/revealjs/plugin/notes/notes.js"></script><script src="../site_libs/revealjs/plugin/search/search.js"></script><script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script><script src="../site_libs/revealjs/plugin/math/math.js"></script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><script>
 
       // Full list of configuration options available at:
       // https://revealjs.com/config/
@@ -1289,9 +1163,7 @@ Wickham, Hadley, Jay Hesselberth, and Maëlle Salmon. 2022. <span>“Pkgdown: Ma
           RevealZoom
         ]
       });
-    </script>
-    
-    <script>
+    </script><script>
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
       // slide changes (different for each slide format).
@@ -1330,9 +1202,7 @@ Wickham, Hadley, Jay Hesselberth, and Maëlle Salmon. 2022. <span>“Pkgdown: Ma
         }
 
       })();
-    </script>
-
-    <script id="quarto-html-after-body" type="application/javascript">
+    </script><script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
         const mode = bsSheetEl.getAttribute("data-mode");
@@ -1425,6 +1295,6 @@ Wickham, Hadley, Jay Hesselberth, and Maëlle Salmon. 2022. <span>“Pkgdown: Ma
       }
     });
     </script>
-    
+
 
 </body></html>

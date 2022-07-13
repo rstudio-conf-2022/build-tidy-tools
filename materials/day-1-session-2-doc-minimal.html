@@ -6,17 +6,17 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.0.16">
-
-  <meta name="author" content="Emma Rand and Ian Lyttle">
-  <title>Building tidy tools - 📦 Building tidy tools</title>
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
-  <style>
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.18">
+<meta name="author" content="Emma Rand and Ian Lyttle">
+<title>Building tidy tools - 📦 Building tidy tools</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+<link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+<style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     span.underline{text-decoration: underline;}
@@ -107,14 +107,14 @@
       margin-left: 2em;
     }
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css" id="theme">
-  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
-  <style type="text/css">
+<link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css" id="theme">
+<link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+<link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+<link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+<link href="../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+<link href="../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+<link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+<style type="text/css">
 
   .callout {
     margin-top: 1em;
@@ -311,7 +311,7 @@
   }
 
   </style>
-  <style type="text/css">
+<style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
       overflow: auto;
@@ -403,77 +403,62 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="center">
-  <h1 class="title">📦 <br>Building tidy tools</h1>
+<section id="title-slide" class="center"><h1 class="title">📦 <br>Building tidy tools</h1>
   <p class="subtitle">Day 1 Session 2: 🏷️Documentation - Minimal</p>
   <p class="author">Emma Rand and Ian Lyttle</p>
   <p class="date"><br>🔗 <a href="https://rstd.io/btt">rstd.io/btt</a></p>
-</section>
+</section><section><section id="document-your-package" class="title-slide slide level1 center"><h1>🏷️ Document your package</h1>
 
-<section>
-<section id="document-your-package" class="title-slide slide level1 center">
-<h1>🏷️ Document your package</h1>
-
-</section>
-<section id="learning-objectives" class="slide level2">
-<h2>Learning Objectives</h2>
+</section><section id="learning-objectives" class="slide level2"><h2>Learning Objectives</h2>
 <p>At the end of this section you will be able to:</p>
 <div class="small">
 <ul>
 <li>Describe the different levels of package documentation</li>
 <li>Describe what is in the <code>DESCRIPTION</code> file and know what to edit manually and which parts <strong><code>devtools</code></strong> will edit automagically</li>
-<li>Document a function with Roxygen comments and use the <strong><code>devtools</code></strong> workflow to convert to “R documentation” format <code>.Rd</code></li>
+<li>Document a function with Roxygen comments and use the <strong><code>devtools</code></strong> workflow to convert to “R documentation” format <code>.Rd</code>
+</li>
 <li>Use some of the most common Roxygen tags</li>
 <li>Add a package level help file</li>
 <li>Describe, and document your package with, the common types of package dependencies</li>
 <li>Add a citation file in Citation File Format (CFF)</li>
 </ul>
 </div>
-</section></section>
-<section>
-<section id="overview" class="title-slide slide level1 center">
-<h1>Overview</h1>
+</section></section><section><section id="overview" class="title-slide slide level1 center"><h1>Overview</h1>
 
-</section>
-<section id="levels-of-package-documentation" class="slide level2">
-<h2>Levels of package documentation</h2>
+</section><section id="levels-of-package-documentation" class="slide level2"><h2>Levels of package documentation</h2>
 <ul>
 <li><p>Metadata: The <code>DESCRIPTION</code> file – “what’s in this package?”</p></li>
 <li><p>Object documentation: for functions and data</p></li>
 <li><p>Package-level documentation</p></li>
 </ul>
-<!-- for each of the exported functions and datasets in the package, along with examples of usage -->
-<ul>
+<!-- for each of the exported functions and datasets in the package, along with examples of usage --><ul>
 <li>Vignettes: Long form documentation</li>
 </ul>
-<!-- generally discussing how to use a number of functions from the - package together and/or how a package fits into a larger ecosystem of packages -->
-<ul>
-<li><strong><code>pkgdown</code></strong> <span class="citation" data-cites="pkgdown">(<a href="#/ref-pkgdown" role="doc-biblioref" onclick="return false;">Wickham, Hesselberth, and Salmon 2022</a>)</span> sites: Websites for your package!</li>
-</ul>
-</section></section>
-<section>
-<section id="description" class="title-slide slide level1 center">
-<h1><code>DESCRIPTION</code></h1>
+<!-- generally discussing how to use a number of functions from the - package together and/or how a package fits into a larger ecosystem of packages --><ul>
+<li>
+<strong><code>pkgdown</code></strong> <span class="citation" data-cites="pkgdown">(<a href="#/ref-pkgdown" role="doc-biblioref" onclick="return false;">Wickham, Hesselberth, and Salmon 2022</a>)</span> sites: Websites for your package!</li>
+</ul></section></section><section><section id="description" class="title-slide slide level1 center"><h1><code>DESCRIPTION</code></h1>
 
-</section>
-<section id="sample-description" class="slide level2">
-<h2>Sample <code>DESCRIPTION</code></h2>
+</section><section id="sample-description" class="slide level2"><h2>Sample <code>DESCRIPTION</code>
+</h2>
 <p>🎬 Take a look at the <code>DESCRIPTION</code> for the following packages. What’s common? What’s different?</p>
 <ul>
-<li><strong><code>ggplot2</code></strong> <span class="citation" data-cites="ggplot2">(<a href="#/ref-ggplot2" role="doc-biblioref" onclick="return false;">Wickham 2016</a>)</span>
+<li>
+<strong><code>ggplot2</code></strong> <span class="citation" data-cites="ggplot2">(<a href="#/ref-ggplot2" role="doc-biblioref" onclick="return false;">Wickham 2016</a>)</span>
 <ul>
 <li><a href="https://cran.r-project.org/web/packages/ggplot2/index.html">CRAN Package page</a></li>
 <li><a href="https://github.com/tidyverse/ggplot2/blob/main/DESCRIPTION">DESCRIPTION on GitHub</a></li>
-</ul></li>
-<li><strong><code>palmerpenguins</code></strong> <span class="citation" data-cites="palmerpenguins">(<a href="#/ref-palmerpenguins" role="doc-biblioref" onclick="return false;">Horst, Hill, and Gorman 2020</a>)</span>
+</ul>
+</li>
+<li>
+<strong><code>palmerpenguins</code></strong> <span class="citation" data-cites="palmerpenguins">(<a href="#/ref-palmerpenguins" role="doc-biblioref" onclick="return false;">Horst, Hill, and Gorman 2020</a>)</span>
 <ul>
 <li><a href="https://cran.r-project.org/web/packages/palmerpenguins/index.html">CRAN Package page</a></li>
 <li><a href="https://github.com/allisonhorst/palmerpenguins/blob/master/DESCRIPTION">DESCRIPTION on GitHub</a></li>
-</ul></li>
 </ul>
-</section>
-<section id="metadata-in-description" class="slide level2">
-<h2>Metadata in <code>DESCRIPTION</code></h2>
+</li>
+</ul></section><section id="metadata-in-description" class="slide level2"><h2>Metadata in <code>DESCRIPTION</code>
+</h2>
 <ul>
 <li><p>Title: One line, title case, with no period. Fewer than 65 characters.</p></li>
 <li><p>Version</p></li>
@@ -481,17 +466,13 @@
 <li><p>for development version: MAJOR.MINOR.PATCH.9000</p></li>
 <li><p>Authors@R:</p></li>
 <li><p>“aut” means author, “cre” means creator, “ctb” means contributor.</p></li>
-</ul>
-</section>
-<section id="update-description" class="slide level2">
-<h2>Update <code>DESCRIPTION</code></h2>
+</ul></section><section id="update-description" class="slide level2"><h2>Update <code>DESCRIPTION</code>
+</h2>
 <p>🎬 Edit the title</p>
-<p><br>
-</p>
+<p><br></p>
 <p>🎬 You should find that your information as an author is already included because you edited your <code>.RProfile</code> at the start of the session</p>
-</section>
-<section id="update-description-1" class="slide level2">
-<h2>Update <code>DESCRIPTION</code></h2>
+</section><section id="update-description-1" class="slide level2"><h2>Update <code>DESCRIPTION</code>
+</h2>
 <div class="small">
 <div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Package: ussie</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>Title: Work with European Football League Data</span>
@@ -505,18 +486,15 @@
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>Roxygen: list(markdown = TRUE)</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>RoxygenNote: 7.2.0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="metadata-in-description-1" class="slide level2">
-<h2>Metadata in <code>DESCRIPTION</code></h2>
+</section><section id="metadata-in-description-1" class="slide level2"><h2>Metadata in <code>DESCRIPTION</code>
+</h2>
 <ul>
 <li><p>Description: One paragraph describing what the package does. Keep the width of the paragraph to 80 characters; indent subsequent lines with 4 spaces.</p></li>
 <li><p>License</p></li>
 <li><p>Encoding: How to encode text, use UTF-8 encoding.</p></li>
 <li><p>LazyData: Use true to lazy-load data sets in the package.</p></li>
-</ul>
-</section>
-<section id="update-description-2" class="slide level2">
-<h2>Update <code>DESCRIPTION</code></h2>
+</ul></section><section id="update-description-2" class="slide level2"><h2>Update <code>DESCRIPTION</code>
+</h2>
 <p>🎬 Edit the description</p>
 <div class="fragment">
 <div class="small">
@@ -525,22 +503,14 @@
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    league data supplied by the engsoccerdata package (Curley 2016).</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-</section></section>
-<section>
-<section id="object-documentation" class="title-slide slide level1 center">
-<h1>Object documentation</h1>
+</section></section><section><section id="object-documentation" class="title-slide slide level1 center"><h1>Object documentation</h1>
 
-</section>
-<section id="object-documentation-1" class="slide level2">
-<h2>Object documentation</h2>
+</section><section id="object-documentation-1" class="slide level2"><h2>Object documentation</h2>
 <ul>
-<li><p>Object documentation is what you see when you use <code>?</code> or <code>help()</code></p></li>
+<li><p>Object documentation is what you see when you use <code>?</code> or <code><a href="https://rdrr.io/r/utils/help.html">help()</a></code></p></li>
 <li><p>Files are written in a special “R documentation” format: <code>.Rd</code></p></li>
 <li><p><code>.Rd</code> resembles LaTeX,</p></li>
-</ul>
-</section>
-<section id="manuss_make_matches.rd" class="slide level2">
-<h2><code>man/uss_make_matches.Rd</code></h2>
+</ul></section><section id="manuss_make_matches.rd" class="slide level2"><h2><code>man/uss_make_matches.Rd</code></h2>
 <div class="extrasmall">
 <div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>% Generated by roxygen2: do not edit by hand</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>% Please edit documentation in R/matches.R</span>
@@ -567,9 +537,7 @@
 <span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>uss_make_matches(engsoccerdata::spain, "Spain")</span>
 <span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="object-documentation-2" class="slide level2">
-<h2>Object documentation</h2>
+</section><section id="object-documentation-2" class="slide level2"><h2>Object documentation</h2>
 <p>🥳 We don’t have to write it!!</p>
 <div class="fragment">
 <ul>
@@ -577,9 +545,7 @@
 <li><p>Functions from <strong><code>roxygen2</code></strong> <span class="citation" data-cites="roxygen2">(<a href="#/ref-roxygen2" role="doc-biblioref" onclick="return false;">Wickham et al. 2022</a>)</span> do the work but we can use <strong><code>devtools</code></strong> functions to call them</p></li>
 </ul>
 </div>
-</section>
-<section id="roxygen-comments" class="slide level2">
-<h2>Roxygen comments</h2>
+</section><section id="roxygen-comments" class="slide level2"><h2>Roxygen comments</h2>
 <div class="extrasmall">
 <div class="sourceCode" id="cb4"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>#' Make a standard league-play tibble</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>#'</span>
@@ -614,25 +580,17 @@
 </div>
 <ul>
 <li>the <code>#'</code> indicates it is a roxygen comment</li>
-</ul>
-</section>
-<section id="object-documentation-workflow" class="slide level2">
-<h2>Object documentation workflow</h2>
+</ul></section><section id="object-documentation-workflow" class="slide level2"><h2>Object documentation workflow</h2>
 <ul>
 <li><p>Add roxygen comments to your <code>.R</code> files.</p></li>
-<li><p>Run <code>devtools::document()</code> to convert roxygen comments to <code>.Rd</code> files.</p></li>
-<li><p>Load the package with <code>devtools::load_all()</code></p></li>
+<li><p>Run <code><a href="https://devtools.r-lib.org/reference/document.html">devtools::document()</a></code> to convert roxygen comments to <code>.Rd</code> files.</p></li>
+<li><p>Load the package with <code><a href="https://devtools.r-lib.org/reference/load_all.html">devtools::load_all()</a></code></p></li>
 <li><p>Preview documentation with <code>?</code></p></li>
 <li><p>Repeat until the documentation looks the way you want.</p></li>
-</ul>
-</section>
-<section id="document-your-function" class="slide level2">
-<h2>Document your function</h2>
+</ul></section><section id="document-your-function" class="slide level2"><h2>Document your function</h2>
 <p>🎬 Open <code>matches.R</code></p>
 <p>🎬 Put your cursor anywhere in the function and do Code | Insert Roxygen Documentation (Ctrl-Alt-Shift-R)</p>
-</section>
-<section id="section" class="slide level2">
-<h2></h2>
+</section><section id="section" class="slide level2"><h2></h2>
 <div class="small">
 <div class="sourceCode" id="cb5"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>#' Title</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>#'</span>
@@ -660,29 +618,29 @@
 <span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>  result</span>
 <span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="roxygen-comments-and-tags" class="slide level2">
-<h2>Roxygen comments and tags</h2>
+</section><section id="roxygen-comments-and-tags" class="slide level2"><h2>Roxygen comments and tags</h2>
 <ul>
 <li><p><code>#'</code> indicates it is a roxygen comment</p></li>
-<li><p><code>@</code> indicates a roxygen tag</p>
+<li>
+<p><code>@</code> indicates a roxygen tag</p>
 <ul>
-<li><code>@param arg</code> — describe the inputs</li>
-<li><code>@examples</code>— show how the function works</li>
-<li><code>@seealso</code> — point out related functions</li>
-<li><code>@return</code> — describe the outputs</li>
-<li><code>@export</code> — is this a user visible function</li>
-</ul></li>
+<li>
+<code>@param arg</code> — describe the inputs</li>
+<li>
+<code>@examples</code>— show how the function works</li>
+<li>
+<code>@seealso</code> — point out related functions</li>
+<li>
+<code>@return</code> — describe the outputs</li>
+<li>
+<code>@export</code> — is this a user visible function</li>
 </ul>
-</section>
-<section id="document-your-function-1" class="slide level2">
-<h2>Document your function</h2>
+</li>
+</ul></section><section id="document-your-function-1" class="slide level2"><h2>Document your function</h2>
 <p>🎬 Give your function a title and a brief description</p>
 <p>🎬 Define the two parameters</p>
 <p>🎬 Describe what the function returns</p>
-</section>
-<section id="our-answer" class="slide level2">
-<h2>Our answer</h2>
+</section><section id="our-answer" class="slide level2"><h2>Our answer</h2>
 <div class="small">
 <div class="sourceCode" id="cb6"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>#' Make a standard league-play tibble</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>#'</span>
@@ -696,10 +654,8 @@
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>#'    `visitor`, `goals_home`, `goals_visitor`.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>🎬 Save <code>matches.R</code></p>
-</section>
-<section id="build-documentation" class="slide level2">
-<h2>Build documentation</h2>
-<p>🎬 Run <code>devtools::document()</code></p>
+</section><section id="build-documentation" class="slide level2"><h2>Build documentation</h2>
+<p>🎬 Run <code><a href="https://devtools.r-lib.org/reference/document.html">devtools::document()</a></code></p>
 <div class="fragment">
 <div class="sourceCode" id="cb7"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ℹ Updating ussie documentation</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>ℹ Loading ussie</span>
@@ -709,9 +665,7 @@
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>[matches.R:13] @examples requires a value </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>We will that fix later!</p>
 </div>
-</section>
-<section id="take-a-look-1" class="slide level2">
-<h2>Take a look 1</h2>
+</section><section id="take-a-look-1" class="slide level2"><h2>Take a look 1</h2>
 <div class="sourceCode" id="cb8"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>├── DESCRIPTION</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>├── LICENSE</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>├── LICENSE.md</span>
@@ -722,17 +676,14 @@
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>│   └── matches.R</span>
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>└── ussie.Rproj</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li><code>NAMESPACE</code> now lists the exported function</li>
-<li><code>man/uss_make_matches.Rd</code> has been written</li>
-</ul>
-</section>
-<section id="take-a-look-2" class="slide level2">
-<h2>Take a look 2</h2>
-<p>🎬 Load the package : <code>devtools::load_all()</code></p>
+<li>
+<code>NAMESPACE</code> now lists the exported function</li>
+<li>
+<code>man/uss_make_matches.Rd</code> has been written</li>
+</ul></section><section id="take-a-look-2" class="slide level2"><h2>Take a look 2</h2>
+<p>🎬 Load the package : <code><a href="https://devtools.r-lib.org/reference/load_all.html">devtools::load_all()</a></code></p>
 <p>🎬 Preview the documentation with <code>?uss_make_matches</code></p>
-</section>
-<section id="fix-warning" class="slide level2">
-<h2>Fix warning</h2>
+</section><section id="fix-warning" class="slide level2"><h2>Fix warning</h2>
 <div class="sourceCode" id="cb9"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Warning message:</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>[matches.R:13] @examples requires a value </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="fragment">
@@ -743,46 +694,38 @@
 <div class="sourceCode" id="cb10"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>#' @examples</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>#' uss_make_matches(engsoccerdata::spain, "Spain")</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="look-again" class="slide level2">
-<h2>Look again</h2>
-<p>🎬 Save <code>matches.R</code>, run <code>devtools::document()</code> followed by <code>devtools::load_all()</code></p>
+</section><section id="look-again" class="slide level2"><h2>Look again</h2>
+<p>🎬 Save <code>matches.R</code>, run <code><a href="https://devtools.r-lib.org/reference/document.html">devtools::document()</a></code> followed by <code><a href="https://devtools.r-lib.org/reference/load_all.html">devtools::load_all()</a></code></p>
 <div class="fragment">
 <p>🎬 Preview the documentation with <code>?uss_make_matches</code> and edit if needed</p>
 </div>
-</section>
-<section id="package-level-help-page" class="slide level2">
-<h2>Package-level help page</h2>
+</section><section id="package-level-help-page" class="slide level2"><h2>Package-level help page</h2>
 <p>🎬 What happens if you do:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>?ussie</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">?</span><span class="va">ussie</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <div class="sourceCode" id="cb12"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>No documentation for 'ussie' in specified packages and libraries:</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>you could try '??ussie'</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="package-level-help-page-1" class="slide level2">
-<h2>Package-level help page</h2>
+</section><section id="package-level-help-page-1" class="slide level2"><h2>Package-level help page</h2>
 <p>We can fix this with <code>use_package_doc()</code></p>
 <p>🎬 Add a package-level help page:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_package_doc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_package_doc.html">use_package_doc</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <div class="sourceCode" id="cb14"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>✔ Writing 'R/ussie-package.R'</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>• Modify 'R/ussie-package.R'</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
-<p>🎬 Run <code>devtools::document()</code> then <code>devtools::load_all()</code> followed by <code>?ussie</code></p>
+<p>🎬 Run <code><a href="https://devtools.r-lib.org/reference/document.html">devtools::document()</a></code> then <code><a href="https://devtools.r-lib.org/reference/load_all.html">devtools::load_all()</a></code> followed by <code>?ussie</code></p>
 </div>
-</section>
-<section id="section-1" class="slide level2">
-<h2></h2>
+</section><section id="section-1" class="slide level2"><h2></h2>
 <p>rationale needed….why imports from for tibble but not dplyr??</p>
 <p>🎬 fgdg</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_import_from</span>(<span class="st">"tibble"</span>, <span class="st">"tibble"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_import_from.html">use_import_from</a></span><span class="op">(</span><span class="st">"tibble"</span>, <span class="st">"tibble"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <div class="sourceCode" id="cb16"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>✔ Adding 'tibble' to Imports field in DESCRIPTION</span>
@@ -790,14 +733,10 @@
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>✔ Writing 'NAMESPACE'</span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>✔ Loading ussie</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="devtoolscheck" class="slide level2">
-<h2><code>devtools::check()</code></h2>
-<p>This is a good time to run R CMD check using <code>devtools::check()</code> to ensure our package is in full working order.</p>
-<p>🎬 <code>devtools::check()</code></p>
-</section>
-<section id="section-2" class="slide level2">
-<h2></h2>
+</section><section id="devtoolscheck" class="slide level2"><h2><code>devtools::check()</code></h2>
+<p>This is a good time to run R CMD check using <code><a href="https://devtools.r-lib.org/reference/check.html">devtools::check()</a></code> to ensure our package is in full working order.</p>
+<p>🎬 <code><a href="https://devtools.r-lib.org/reference/check.html">devtools::check()</a></code></p>
+</section><section id="section-2" class="slide level2"><h2></h2>
 <div class="extrasmall">
 <div class="sourceCode" id="cb17"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>── R CMD check results ─────────────────────────────────── ussie 0.0.0.9000 ────</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>Duration: 40.4s</span>
@@ -822,29 +761,18 @@
 <span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>0 errors ✔ | 2 warnings ✖ | 1 note ✖</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We’ve gained a warning!</p>
-</section></section>
-<section>
-<section id="package-dependencies" class="title-slide slide level1 center">
-<h1>Package dependencies</h1>
+</section></section><section><section id="package-dependencies" class="title-slide slide level1 center"><h1>Package dependencies</h1>
 
-</section>
-<section id="package-dependencies-1" class="slide level2">
-<h2>Package dependencies</h2>
+</section><section id="package-dependencies-1" class="slide level2"><h2>Package dependencies</h2>
 <p>Our warnings are because we have used packages that we have not declared officially.</p>
-<p><br>
-</p>
+<p><br></p>
 <p>We need to document our package dependencies</p>
-</section>
-<section id="package-dependencies-2" class="slide level2">
-<h2>Package dependencies</h2>
+</section><section id="package-dependencies-2" class="slide level2"><h2>Package dependencies</h2>
 <ul>
 <li><p><strong>Imports:</strong> must be installed for your package to work. If they’re not, they will get installed.</p></li>
 <li><p><strong>Suggests:</strong> used by your package, but not required. Might provide data for examples, to run tests, build vignettes.</p></li>
 <li><p><strong>Depends:</strong> Avoid where possible. When your package requires a specific version of R, e.g.&nbsp;<code>Depends: R (&gt;= 3.4.0)</code>. Think critically: downstream effects on packages that depend on your package.</p></li>
-</ul>
-</section>
-<section id="section-3" class="slide level2">
-<h2></h2>
+</ul></section><section id="section-3" class="slide level2"><h2></h2>
 <div class="extrasmall">
 <div class="sourceCode" id="cb18"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>❯ checking dependencies in R code ... WARNING</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  '::' or ':::' import not declared from: 'dplyr'</span>
@@ -852,38 +780,27 @@
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>❯ checking for unstated dependencies in examples ... WARNING</span>
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  '::' or ':::' import not declared from: 'engsoccerdata'</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="package-dependencies-3" class="slide level2">
-<h2>Package dependencies</h2>
+</section><section id="package-dependencies-3" class="slide level2"><h2>Package dependencies</h2>
 <p><code>use_package(package, type = "Imports")</code></p>
 <ul>
 <li><p>Type – one of “Imports”, “Depends”, “Suggests”, “Enhances”, or “LinkingTo”</p></li>
 <li><p>The default is “Imports”</p></li>
-</ul>
-</section>
-<section id="usethisuse_package" class="slide level2">
-<h2><code>usethis::use_package()</code></h2>
-<p>🎬 Use <code>usethis::use_package()</code> to add the <strong><code>dplyr</code></strong> package to <code>Imports</code></p>
+</ul></section><section id="usethisuse_package" class="slide level2"><h2><code>usethis::use_package()</code></h2>
+<p>🎬 Use <code><a href="https://usethis.r-lib.org/reference/use_package.html">usethis::use_package()</a></code> to add the <strong><code>dplyr</code></strong> package to <code>Imports</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_package</span>(<span class="st">"dplyr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_package.html">use_package</a></span><span class="op">(</span><span class="st">"dplyr"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <div class="sourceCode" id="cb20"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>✔ Adding 'dplyr' to Imports field in DESCRIPTION</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>• Refer to functions with `dplyr::fun()`</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Look how your <code>DESCRIPTION</code> file changed!</p>
 </div>
-</section>
-<section id="usethisuse_package-1" class="slide level2">
-<h2><code>usethis::use_package()</code></h2>
+</section><section id="usethisuse_package-1" class="slide level2"><h2><code>usethis::use_package()</code></h2>
 <p>Note: we get reminded to “Refer to functions with <code>dplyr::fun()</code>”</p>
-<p>That is, we do NOT use <code>library(dplyr)</code> to make functions available to our package.</p>
-</section>
-<section id="devtoolscheck-1" class="slide level2">
-<h2><code>devtools::check()</code></h2>
-<p>🎬 Run <code>devtools::check()</code> on your package again</p>
-</section>
-<section id="section-4" class="slide level2">
-<h2></h2>
+<p>That is, we do NOT use <code><a href="https://dplyr.tidyverse.org">library(dplyr)</a></code> to make functions available to our package.</p>
+</section><section id="devtoolscheck-1" class="slide level2"><h2><code>devtools::check()</code></h2>
+<p>🎬 Run <code><a href="https://devtools.r-lib.org/reference/check.html">devtools::check()</a></code> on your package again</p>
+</section><section id="section-4" class="slide level2"><h2></h2>
 <div class="extrasmall">
 <div class="sourceCode" id="cb21"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>── R CMD check results ────────────────────────── ussie 0.0.0.9000 ────</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>Duration: 48.2s</span>
@@ -904,9 +821,7 @@
 <span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>0 errors ✔ | 1 warning ✖ | 1 note ✖</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="suggests" class="slide level2">
-<h2>Suggests</h2>
+</section><section id="suggests" class="slide level2"><h2>Suggests</h2>
 <ul>
 <li><p>Are used by your package, but not required for it to work</p></li>
 <li><p>Might provide data for examples</p></li>
@@ -914,12 +829,10 @@
 <p><code>matches.R</code></p>
 <pre><code>#' @examples
 #' uss_make_matches(engsoccerdata::spain, "Spain")</code></pre>
-</section>
-<section id="suggests-1" class="slide level2">
-<h2>Suggests</h2>
+</section><section id="suggests-1" class="slide level2"><h2>Suggests</h2>
 <p>🎬 Add <strong><code>engsoccerdata</code></strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_package</span>(<span class="st">"engsoccerdata"</span>, <span class="at">type =</span> <span class="st">"Suggests"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_package.html">use_package</a></span><span class="op">(</span><span class="st">"engsoccerdata"</span>, type <span class="op">=</span> <span class="st">"Suggests"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>&nbsp;</p>
 <div class="extrasmall">
@@ -927,19 +840,14 @@
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>• Use `requireNamespace("engsoccerdata", quietly = TRUE)` to test if package is installed</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>• Then directly refer to functions with `engsoccerdata::fun()`</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="suggests-2" class="slide level2">
-<h2>Suggests</h2>
+</section><section id="suggests-2" class="slide level2"><h2>Suggests</h2>
 <ul>
 <li><p>Packages listed in Suggests are not automatically installed along with your package.</p></li>
 <li><p>This means that you can’t assume the package is available</p></li>
-</ul>
-</section>
-<section id="citation.cff" class="slide level2">
-<h2>CITATION.cff</h2>
+</ul></section><section id="citation.cff" class="slide level2"><h2>CITATION.cff</h2>
 <p>The <strong><code>cffr</code></strong> <span class="citation" data-cites="cffr">(<a href="#/ref-cffr" role="doc-biblioref" onclick="return false;">Hernangómez 2021</a>)</span> package will write a citation file in Citation File Format (CFF) <span class="citation" data-cites="druskat2021">(<a href="#/ref-druskat2021" role="doc-biblioref" onclick="return false;">Druskat et al. 2021</a>)</span> from the description file.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>cffr<span class="sc">::</span><span class="fu">cff_write</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">cffr</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/cffr/reference/cff_write.html">cff_write</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <div class="small">
@@ -950,14 +858,9 @@
 <span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>Congratulations! This .cff file is valid</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-</section></section>
-<section>
-<section id="yee-haw-your-package-has-documentation" class="title-slide slide level1 center">
-<h1>🏷️Yee haw! 🏷️ <br> Your package has documentation!</h1>
+</section></section><section><section id="yee-haw-your-package-has-documentation" class="title-slide slide level1 center"><h1>🏷️Yee haw! 🏷️ <br> Your package has documentation!</h1>
 
-</section>
-<section id="summary" class="slide level2">
-<h2>Summary</h2>
+</section><section id="summary" class="slide level2"><h2>Summary</h2>
 <div class="small">
 <ul>
 <li>A package has metadata and object documentation (essential), vignettes and <strong><code>pkgdown</code></strong> sites (optional)</li>
@@ -965,31 +868,36 @@
 <ul>
 <li>some fields need manual editing</li>
 <li>some fields are appropriately edited by <strong><code>devtools</code></strong> workflow functions</li>
-</ul></li>
-<li>Objects like functions and data are documented with roxygen comments then turned into documentation with <code>devtools::document()</code>
+</ul>
+</li>
+<li>Objects like functions and data are documented with roxygen comments then turned into documentation with <code><a href="https://devtools.r-lib.org/reference/document.html">devtools::document()</a></code>
 <ul>
-<li>roxygen comments are indicated with <code>#'</code></li>
-<li>roxygen tags start with <code>@</code></li>
-</ul></li>
+<li>roxygen comments are indicated with <code>#'</code>
+</li>
+<li>roxygen tags start with <code>@</code>
+</li>
+</ul>
+</li>
 </ul>
 </div>
-</section>
-<section id="summary-continued" class="slide level2">
-<h2>Summary continued</h2>
+</section><section id="summary-continued" class="slide level2"><h2>Summary continued</h2>
 <div class="small">
 <ul>
 <li>Package dependencies need to be documented
 <ul>
-<li>package dependencies are added with <code>use_package()</code></li>
-<li>functions from dependencies are called with <code>pkg::function()</code></li>
-<li>we don’t use <code>library()</code></li>
-</ul></li>
-<li><code>cffr::cff_write()</code> will write a citation file from the description file.</li>
+<li>package dependencies are added with <code>use_package()</code>
+</li>
+<li>functions from dependencies are called with <code>pkg::function()</code>
+</li>
+<li>we don’t use <code><a href="https://rdrr.io/r/base/library.html">library()</a></code>
+</li>
+</ul>
+</li>
+<li>
+<code><a href="https://docs.ropensci.org/cffr/reference/cff_write.html">cffr::cff_write()</a></code> will write a citation file from the description file.</li>
 </ul>
 </div>
-</section>
-<section id="references" class="slide level2 extrasmall smaller scrollable">
-<h2>References</h2>
+</section><section id="references" class="slide level2 extrasmall smaller scrollable"><h2>References</h2>
 
 <div class="footer footer-default">
 <p><a href="https://rstd.io/btt" class="uri">https://rstd.io/btt</a></p>
@@ -1015,27 +923,10 @@ Wickham, Hadley, Jay Hesselberth, and Maëlle Salmon. 2022. <span>“Pkgdown: Ma
 </div>
 </div>
 </section></section>
-    </div>
+</div>
   </div>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="../site_libs/revealjs/dist/reveal.js"></script>
-  <!-- reveal.js plugins -->
-  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
-  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
-  
-
-  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
-  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
-
-  <script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="../site_libs/revealjs/dist/reveal.js"></script><!-- reveal.js plugins --><script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script><script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script><script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script><script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script><script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script><script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script><script src="../site_libs/revealjs/plugin/notes/notes.js"></script><script src="../site_libs/revealjs/plugin/search/search.js"></script><script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script><script src="../site_libs/revealjs/plugin/math/math.js"></script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><script>
 
       // Full list of configuration options available at:
       // https://revealjs.com/config/
@@ -1227,9 +1118,7 @@ Wickham, Hadley, Jay Hesselberth, and Maëlle Salmon. 2022. <span>“Pkgdown: Ma
           RevealZoom
         ]
       });
-    </script>
-    
-    <script>
+    </script><script>
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
       // slide changes (different for each slide format).
@@ -1268,9 +1157,7 @@ Wickham, Hadley, Jay Hesselberth, and Maëlle Salmon. 2022. <span>“Pkgdown: Ma
         }
 
       })();
-    </script>
-
-    <script id="quarto-html-after-body" type="application/javascript">
+    </script><script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
         const mode = bsSheetEl.getAttribute("data-mode");
@@ -1363,6 +1250,6 @@ Wickham, Hadley, Jay Hesselberth, and Maëlle Salmon. 2022. <span>“Pkgdown: Ma
       }
     });
     </script>
-    
+
 
 </body></html>

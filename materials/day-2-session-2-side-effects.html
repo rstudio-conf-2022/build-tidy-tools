@@ -6,17 +6,17 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.0.16">
-
-  <meta name="author" content="Emma Rand and Ian Lyttle">
-  <title>Building tidy tools - 📦 Building tidy tools</title>
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
-  <style>
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.18">
+<meta name="author" content="Emma Rand and Ian Lyttle">
+<title>Building tidy tools - 📦 Building tidy tools</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+<link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+<style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     span.underline{text-decoration: underline;}
@@ -107,14 +107,14 @@
       margin-left: 2em;
     }
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css" id="theme">
-  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
-  <style type="text/css">
+<link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css" id="theme">
+<link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+<link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+<link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+<link href="../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+<link href="../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+<link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+<style type="text/css">
 
   .callout {
     margin-top: 1em;
@@ -311,7 +311,7 @@
   }
 
   </style>
-  <style type="text/css">
+<style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
       overflow: auto;
@@ -398,21 +398,17 @@
       margin-right: 0; 
     }
   </style>
-  <link href="../site_libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet">
+<link href="../site_libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet">
 </head>
 <body class="quarto-dark">
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="center">
-  <h1 class="title">📦 <br>Building tidy tools</h1>
+<section id="title-slide" class="center"><h1 class="title">📦 <br>Building tidy tools</h1>
   <p class="subtitle">Day 2 Session 2: Managing Side Effects</p>
   <p class="author">Emma Rand and Ian Lyttle</p>
   <p class="date"><br>🔗 <a href="https://rstd.io/btt">rstd.io/btt</a></p>
-</section>
-
-<section id="learning-objectives" class="slide level2">
-<h2>Learning objectives</h2>
+</section><section id="learning-objectives" class="slide level2"><h2>Learning objectives</h2>
 <p>At the end of this section you will be able to:</p>
 <ul>
 <li>write effective error messages</li>
@@ -420,18 +416,17 @@
 <li>manage the global state (leave no footprints) using {withr}</li>
 <li>test functions that use or cause side-effects</li>
 <li>use snapshot testing</li>
-</ul>
-</section>
-<section id="errors" class="slide level2">
-<h2>Errors</h2>
+</ul></section><section id="errors" class="slide level2"><h2>Errors</h2>
 <ul>
 <li>The most common type of side-effect is the <strong>error condition</strong>.</li>
 </ul>
 <div class="fragment">
 <ul>
-<li><p>Sometimes, error messages can be cryptic:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>seq[<span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre><code>Error in seq[10] : object of type 'closure' is not subsettable</code></pre></li>
+<li>
+<p>Sometimes, error messages can be cryptic:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">seq</span><span class="op">[</span><span class="fl">10</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>Error in seq[10] : object of type 'closure' is not subsettable</code></pre>
+</li>
 </ul>
 </div>
 <div class="fragment">
@@ -440,40 +435,38 @@
 <ul>
 <li>developers who call your functions</li>
 <li>end users</li>
-</ul></li>
+</ul>
+</li>
 </ul>
 </div>
-</section>
-<section id="creating-an-error-condition" class="slide level2">
-<h2>Creating an error condition</h2>
+</section><section id="creating-an-error-condition" class="slide level2"><h2>Creating an error condition</h2>
 <p>An effective error condition has:</p>
 <ul>
-<li><strong>predicate</strong> (logical expression used to identify condition)</li>
+<li>
+<strong>predicate</strong> (logical expression used to identify condition)</li>
 <li>clear <strong>message</strong> for end user</li>
-<li><strong>class name</strong> for developer</li>
-<li><strong>more information</strong> for developer</li>
-</ul>
-</section>
-<section id="using-clicli_abort" class="slide level2">
-<h2>Using <code>cli::cli_abort()</code></h2>
+<li>
+<strong>class name</strong> for developer</li>
+<li>
+<strong>more information</strong> for developer</li>
+</ul></section><section id="using-clicli_abort" class="slide level2"><h2>Using <code>cli::cli_abort()</code>
+</h2>
 <p>{cli} package <span class="citation" data-cites="cli">(<a href="#/ref-cli" role="doc-biblioref" onclick="return false;">Csárdi 2022</a>)</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># predicate</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (y <span class="sc">&gt;</span> <span class="dv">3</span>) {</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  cli<span class="sc">::</span><span class="fu">cli_abort</span>(</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># message for end user</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>      <span class="st">"{.var y} cannot be greater than 3."</span>, </span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> <span class="st">"{.var y} is {.val {y}}."</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># class name</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">class =</span> <span class="st">"ussie_error_threshold"</span>,  </span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># more information</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> y     </span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="predicate" class="slide level2">
-<h2>Predicate</h2>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># predicate</span></span>
+<span><span class="kw">if</span> <span class="op">(</span><span class="va">y</span> <span class="op">&gt;</span> <span class="fl">3</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu">cli</span><span class="fu">::</span><span class="fu"><a href="https://cli.r-lib.org/reference/cli_abort.html">cli_abort</a></span><span class="op">(</span></span>
+<span>    <span class="co"># message for end user</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
+<span>      <span class="st">"{.var y} cannot be greater than 3."</span>, </span>
+<span>      x <span class="op">=</span> <span class="st">"{.var y} is {.val {y}}."</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    <span class="co"># class name</span></span>
+<span>    class <span class="op">=</span> <span class="st">"ussie_error_threshold"</span>,  </span>
+<span>    <span class="co"># more information</span></span>
+<span>    y <span class="op">=</span> <span class="va">y</span>     </span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section><section id="predicate" class="slide level2"><h2>Predicate</h2>
 <p>Prefer:</p>
 <ul>
 <li>simpler predicates and more error-conditions</li>
@@ -485,9 +478,7 @@
 <div class="fragment">
 <p>Finding simplest set of predicates is just as challenging as finding the “right” names for functions and arguments.</p>
 </div>
-</section>
-<section id="message" class="slide level2">
-<h2>Message</h2>
+</section><section id="message" class="slide level2"><h2>Message</h2>
 <p>Content:</p>
 <ul>
 <li>how did we violate the predicate?</li>
@@ -495,36 +486,34 @@
 <div class="fragment">
 <p>Formatting:</p>
 <ul>
-<li><p>{cli} provides powerful formatting tools:</p>
+<li>
+<p>{cli} provides powerful formatting tools:</p>
 <ul>
-<li>use curly-braces and a tag, e.g.&nbsp;<code>{.var y}</code></li>
-<li>use more curly-braces to interpolate, e.g.&nbsp;<code>{.val {y}}</code></li>
-</ul></li>
+<li>use curly-braces and a tag, e.g.&nbsp;<code>{.var y}</code>
+</li>
+<li>use more curly-braces to interpolate, e.g.&nbsp;<code>{.val {y}}</code>
+</li>
+</ul>
+</li>
 <li><p>see <a href="https://cli.r-lib.org/reference/inline-markup.html">cli inline-markup</a> for more details.</p></li>
 </ul>
 </div>
-</section>
-<section id="class-name" class="slide level2">
-<h2>Class name</h2>
+</section><section id="class-name" class="slide level2"><h2>Class name</h2>
 <ul>
 <li><p>A developer, calling your function, can use the <code>class</code> name to handle the error, if they want.</p></li>
-<li><p>Convention:</p>
+<li>
+<p>Convention:</p>
 <ul>
 <li><code>"{package}_error_{description}"</code></li>
-</ul></li>
 </ul>
-</section>
-<section id="additional-information" class="slide level2">
-<h2>Additional information</h2>
+</li>
+</ul></section><section id="additional-information" class="slide level2"><h2>Additional information</h2>
 <p>This “stuff” is also available to an error handler.</p>
 <ul>
 <li><p>Provide the data that went into the predicate.</p></li>
 <li><p>Provide name of variable, e.g.&nbsp;<code>y = y</code>.</p></li>
 <li><p>Avoid reserved names: <code>message</code>, <code>class</code>, <code>call</code>, <code>body</code>, <code>footer</code>, <code>trace</code>, <code>parent</code>, <code>use_cli_format</code>.</p></li>
-</ul>
-</section>
-<section id="validation" class="slide level2">
-<h2>Validation</h2>
+</ul></section><section id="validation" class="slide level2"><h2>Validation</h2>
 <p>If there will be an error, surface it quickly.</p>
 <p>Validating the arguments to a function is one way to do this.</p>
 <div class="fragment">
@@ -541,41 +530,39 @@
 <li>otherwise, return <strong>data</strong> argument invisibly.</li>
 </ul>
 </div>
-</section>
-<section id="validate-string-values" class="slide level2">
-<h2>Validate string-values</h2>
-<p>You may be familiar with <code>match.arg()</code>:</p>
+</section><section id="validate-string-values" class="slide level2"><h2>Validate string-values</h2>
+<p>You may be familiar with <code><a href="https://rdrr.io/r/base/match.arg.html">match.arg()</a></code>:</p>
 <ul>
 <li>uses “magic” to compare value (if any) to default</li>
 <li>argument default is vector of strings
 <ul>
-<li>if value among defaults, return it - otherwise <strong>error</strong></li>
+<li>if value among defaults, return it - otherwise <strong>error</strong>
+</li>
 <li>if no value, return <em>first</em> value in default</li>
-</ul></li>
+</ul>
+</li>
 </ul>
 <div class="fragment">
-<p><code>rlang::arg_match()</code> does the same thing, but:</p>
+<p><code><a href="https://rlang.r-lib.org/reference/arg_match.html">rlang::arg_match()</a></code> does the same thing, but:</p>
 <ul>
 <li>partial match triggers error</li>
 <li>error messages conform to tidyverse standards</li>
 </ul>
 </div>
-</section>
-<section id="snapshot-tests" class="slide level2">
-<h2>Snapshot tests</h2>
+</section><section id="snapshot-tests" class="slide level2"><h2>Snapshot tests</h2>
 <p>Designed for capturing side-effects:</p>
 <ul>
 <li>error messages</li>
-<li><code>dplyr::glimpse()</code> is a useful shortcut</li>
+<li>
+<code><a href="https://pillar.r-lib.org/reference/glimpse.html">dplyr::glimpse()</a></code> is a useful shortcut</li>
 </ul>
 <div class="fragment">
 <p>Be careful about accepting changes (don’t just accept).</p>
 <p>Can be temperamental - not run on CRAN.</p>
 <p>We will go through, using examples.</p>
 </div>
-</section>
-<section id="your-turn-2.2.1" class="slide level2">
-<h2>Your turn <code>"2.2.1"</code></h2>
+</section><section id="your-turn-2.2.1" class="slide level2"><h2>Your turn <code>"2.2.1"</code>
+</h2>
 <p>Implement validator-functions:</p>
 <ul>
 <li>is the <code>country</code> valid?</li>
@@ -593,10 +580,9 @@
 </ul>
 <p><code>usethis::use_package("cli")</code></p>
 </div>
-</section>
-<section id="use-rlangarg_match" class="slide level2 smaller">
-<h2>Use <code>rlang::arg_match()</code></h2>
-<p>👉 <code>devtools::load_all()</code>, then:</p>
+</section><section id="use-rlangarg_match" class="slide level2 smaller"><h2>Use <code>rlang::arg_match()</code>
+</h2>
+<p>👉 <code><a href="https://devtools.r-lib.org/reference/load_all.html">devtools::load_all()</a></code>, then:</p>
 <ul>
 <li>👉 <code>uss_get_matches("italy")</code> 🎉</li>
 <li>👉 <code>uss_get_matches("tatooine")</code> 🎉</li>
@@ -606,24 +592,25 @@
 <hr>
 <p><code>get-matches.R</code>:</p>
 <ul>
-<li>replace <code>match.arg()</code> with <code>rlang::arg_match()</code></li>
+<li>replace <code><a href="https://rdrr.io/r/base/match.arg.html">match.arg()</a></code> with <code><a href="https://rlang.r-lib.org/reference/arg_match.html">rlang::arg_match()</a></code>
+</li>
 </ul>
 <p><code>test-get-matches.R</code>:</p>
 <ul>
 <li>uncomment test for <code>2.2.1</code>, then repeat 👉</li>
 </ul>
 </div>
-</section>
-<section id="build-error-constructor" class="slide level2 smaller">
-<h2>Build error constructor</h2>
+</section><section id="build-error-constructor" class="slide level2 smaller"><h2>Build error constructor</h2>
 <ul>
 <li><p><code>usethis::use_package("cli")</code></p></li>
 <li><p>review <code>validate_data_frame()</code> (<code>call</code> argument)</p></li>
-<li><p>build constructor for <code>validate_cols()</code>:</p>
+<li>
+<p>build constructor for <code>validate_cols()</code>:</p>
 <ul>
 <li>something like <code>{.field {cols}}</code> may be useful</li>
 <li>activate <code>2.2.1</code> tests in <code>test-validate.R</code>, as you go</li>
-</ul></li>
+</ul>
+</li>
 <li><p>hold off on snapshot test (we’ll do together)</p></li>
 </ul>
 <div class="fragment">
@@ -631,13 +618,13 @@
 <li>add validator-functions to <code>uss_make_matches()</code>:
 <ul>
 <li><code>matches.R</code></li>
-<li><code>cols_engsoc()</code> may be useful</li>
-</ul></li>
+<li>
+<code>cols_engsoc()</code> may be useful</li>
+</ul>
+</li>
 </ul>
 </div>
-</section>
-<section id="managing-global-state" class="slide level2">
-<h2>Managing global state</h2>
+</section><section id="managing-global-state" class="slide level2"><h2>Managing global state</h2>
 <p>Leave no footprints.</p>
 <p>Leave the global state how you found it, avoid surprises later:</p>
 <ul>
@@ -651,12 +638,11 @@
 <p>When we hit the “Knit” button, or the Quarto “Render” button:</p>
 <ul>
 <li>it runs in a <em>new</em> R session</li>
-<li>does not execute user’s <code>.Rprofile</code></li>
+<li>does not execute user’s <code>.Rprofile</code>
+</li>
 </ul>
 </div>
-</section>
-<section id="using-self-removing-footprints" class="slide level2">
-<h2>Using “self-removing footprints”</h2>
+</section><section id="using-self-removing-footprints" class="slide level2"><h2>Using “self-removing footprints”</h2>
 <p>The {withr} package <span class="citation" data-cites="withr">(<a href="#/ref-withr" role="doc-biblioref" onclick="return false;">Hester et al. 2022</a>)</span> gives us tools to:</p>
 <ul>
 <li>modify global state</li>
@@ -670,55 +656,54 @@
 <li>if called within a function, <em>normally</em> when the function exits</li>
 </ul>
 </div>
-</section>
-<section id="when-could-this-be-useful" class="slide level2">
-<h2>When could this be useful?</h2>
+</section><section id="when-could-this-be-useful" class="slide level2"><h2>When could this be useful?</h2>
 <p>CRAN is (rightly) particular about “leave no footprints”.</p>
 <p>You may need:</p>
 <ul>
-<li><code>withr::local_options()</code>: change an option</li>
-<li><code>withr::local_dir()</code>: change the working directory</li>
-<li><code>withr::local_tempfile()</code>: path to a temporary file</li>
+<li>
+<code><a href="https://withr.r-lib.org/reference/with_options.html">withr::local_options()</a></code>: change an option</li>
+<li>
+<code><a href="https://withr.r-lib.org/reference/with_dir.html">withr::local_dir()</a></code>: change the working directory</li>
+<li>
+<code><a href="https://withr.r-lib.org/reference/with_tempfile.html">withr::local_tempfile()</a></code>: path to a temporary file</li>
 </ul>
 <div class="fragment">
 <p>Useful in <code>testthat</code> code and in <code>R</code> code.</p>
 </div>
-</section>
-<section id="interactive-example" class="slide level2">
-<h2>Interactive example</h2>
+</section><section id="interactive-example" class="slide level2"><h2>Interactive example</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>write_read_vanish <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  tempfile <span class="ot">&lt;-</span> withr<span class="sc">::</span><span class="fu">local_tempfile</span>(<span class="at">fileext =</span> <span class="st">".rds"</span>)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">saveRDS</span>(x, <span class="at">file =</span> tempfile)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  xnew <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(tempfile)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    glue<span class="sc">::</span><span class="fu">glue</span>(<span class="st">"'{tempfile}' contained {xnew}."</span>)</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">invisible</span>(xnew)</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">write_read_vanish</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  </span>
+<span>  <span class="va">tempfile</span> <span class="op">&lt;-</span> <span class="fu">withr</span><span class="fu">::</span><span class="fu"><a href="https://withr.r-lib.org/reference/with_tempfile.html">local_tempfile</a></span><span class="op">(</span>fileext <span class="op">=</span> <span class="st">".rds"</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">x</span>, file <span class="op">=</span> <span class="va">tempfile</span><span class="op">)</span></span>
+<span>  <span class="va">xnew</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="va">tempfile</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span></span>
+<span>    <span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span><span class="st">"'{tempfile}' contained {xnew}."</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/invisible.html">invisible</a></span><span class="op">(</span><span class="va">xnew</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="another-interactive-example" class="slide level2">
-<h2>Another interactive example</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>not_runif <span class="ot">&lt;-</span> <span class="cf">function</span>(n, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">1</span>) {</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  withr<span class="sc">::</span><span class="fu">local_seed</span>(<span class="dv">314</span>)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">runif</span>(n, <span class="at">min =</span> min, <span class="at">max =</span> max)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="example" class="slide level2">
-<h2>Example</h2>
+</section><section id="another-interactive-example" class="slide level2"><h2>Another interactive example</h2>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">not_runif</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">n</span>, <span class="va">min</span> <span class="op">=</span> <span class="fl">0</span>, <span class="va">max</span> <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">{</span></span>
+<span></span>
+<span>  <span class="fu">withr</span><span class="fu">::</span><span class="fu"><a href="https://withr.r-lib.org/reference/with_seed.html">local_seed</a></span><span class="op">(</span><span class="fl">314</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span><span class="op">(</span><span class="va">n</span>, min <span class="op">=</span> <span class="va">min</span>, max <span class="op">=</span> <span class="va">max</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section><section id="example" class="slide level2"><h2>Example</h2>
 <ul>
 <li><p><code>usethis::use_test("validate")</code></p></li>
-<li><p>change:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">expect_identical</span>(error_condition<span class="sc">$</span>cols_req, <span class="st">"foo"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>to:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">expect_identical</span>(error_condition<span class="sc">$</span>cols_re, <span class="st">"foo"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li>
+<p>change:</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">expect_identical</span><span class="op">(</span><span class="va">error_condition</span><span class="op">$</span><span class="va">cols_req</span>, <span class="st">"foo"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</li>
+<li>
+<p>to:</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">expect_identical</span><span class="op">(</span><span class="va">error_condition</span><span class="op">$</span><span class="va">cols_re</span>, <span class="st">"foo"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</li>
 <li><p>rerun tests 🤔</p></li>
 </ul>
 <div class="fragment">
@@ -727,9 +712,8 @@
 <li><p>We want stricter testing, so we need to set some options.</p></li>
 </ul>
 </div>
-</section>
-<section id="our-turn-2.2.2" class="slide level2">
-<h2>Our turn <code>"2.2.2"</code></h2>
+</section><section id="our-turn-2.2.2" class="slide level2"><h2>Our turn <code>"2.2.2"</code>
+</h2>
 <p>Turn off <code>$</code> partial matching when testing.</p>
 <div class="fragment">
 <hr>
@@ -743,9 +727,7 @@
 </ul>
 <p><code>usethis::use_package("withr")</code></p>
 </div>
-</section>
-<section id="local_warn_partial_match" class="slide level2">
-<h2><code>local_warn_partial_match()</code></h2>
+</section><section id="local_warn_partial_match" class="slide level2"><h2><code>local_warn_partial_match()</code></h2>
 <p>In essence, this sets (temporarily) <code>TRUE</code>:</p>
 <ul>
 <li><code>options("warnPartialMatchDollar")</code></li>
@@ -759,22 +741,20 @@
 <li>we set things back when the <em>calling</em> scope exits.</li>
 </ul>
 </div>
-</section>
-<section id="our-turn-2.2.2-continued" class="slide level2">
-<h2>Our turn <code>"2.2.2"</code>, continued</h2>
+</section><section id="our-turn-2.2.2-continued" class="slide level2"><h2>Our turn <code>"2.2.2"</code>, continued</h2>
 <ul>
 <li><p><code>usethis::use_test("validate")</code></p></li>
 <li><p>add <code>local_warn_partial_match()</code> to top of blocks.</p></li>
 <li><p><code>getOption("warnPartialMatchDollar")</code></p></li>
-<li><p>change:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">expect_identical</span>(error_condition<span class="sc">$</span>cols_re, <span class="st">"foo"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p><code>devtools::test()</code> 🎉</p></li>
+<li>
+<p>change:</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">expect_identical</span><span class="op">(</span><span class="va">error_condition</span><span class="op">$</span><span class="va">cols_re</span>, <span class="st">"foo"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</li>
+<li><p><code><a href="https://devtools.r-lib.org/reference/test.html">devtools::test()</a></code> 🎉</p></li>
 <li><p><code>getOption("warnPartialMatchDollar")</code></p></li>
 <li><p>change back to <code>$cols_req</code></p></li>
-</ul>
-</section>
-<section id="your-turn-2.2.3" class="slide level2 smaller">
-<h2>Your turn <code>"2.2.3"</code></h2>
+</ul></section><section id="your-turn-2.2.3" class="slide level2 smaller"><h2>Your turn <code>"2.2.3"</code>
+</h2>
 <p>Implement testing with side effects</p>
 <div class="fragment">
 <hr>
@@ -787,17 +767,17 @@
 <div class="fragment">
 <ul>
 <li><p>add <code>local_warn_partial_match()</code> to all test-blocks.</p></li>
-<li><p><code>test-matches.R</code>:</p>
+<li>
+<p><code>test-matches.R</code>:</p>
 <ul>
 <li>add <code>expect_error()</code> calls for data-frame and columns (use <code>class</code> argument).</li>
 <li>at end, add:</li>
 </ul>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">expect_snapshot</span>(dplyr<span class="sc">::</span><span class="fu">glimpse</span>(italy))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">expect_snapshot</span><span class="op">(</span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">italy</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</li>
 </ul>
 </div>
-</section>
-<section id="summary" class="slide level2">
-<h2>Summary</h2>
+</section><section id="summary" class="slide level2"><h2>Summary</h2>
 <div class="fragment">
 <p>The most-common side-effect is an error. Good design:</p>
 </div>
@@ -817,9 +797,7 @@
 <div class="fragment">
 <p>Use <code>withr::local_*()</code> functions to “leave no footprints”.</p>
 </div>
-</section>
-<section id="additional-material" class="slide level2 smaller">
-<h2>Additional material</h2>
+</section><section id="additional-material" class="slide level2 smaller"><h2>Additional material</h2>
 <div class="cell">
 <div class="cell-output-display">
 <div class="vembedr">
@@ -833,10 +811,7 @@
 <ul>
 <li><p>tidyverse is a monoidal system</p></li>
 <li><p>maybe monads aren’t the thing, but the functional-programming learned along the way</p></li>
-</ul>
-</section>
-<section id="references" class="slide level2 smaller scrollable">
-<h2>References</h2>
+</ul></section><section id="references" class="slide level2 smaller scrollable"><h2>References</h2>
 
 <div class="footer footer-default">
 <p><a href="https://rstd.io/btt" class="uri">https://rstd.io/btt</a></p>
@@ -850,27 +825,10 @@ Hester, Jim, Lionel Henry, Kirill Müller, Kevin Ushey, Hadley Wickham, and Wins
 </div>
 </div>
 </section>
-    </div>
+</div>
   </div>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="../site_libs/revealjs/dist/reveal.js"></script>
-  <!-- reveal.js plugins -->
-  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
-  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
-  
-
-  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
-  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
-
-  <script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="../site_libs/revealjs/dist/reveal.js"></script><!-- reveal.js plugins --><script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script><script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script><script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script><script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script><script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script><script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script><script src="../site_libs/revealjs/plugin/notes/notes.js"></script><script src="../site_libs/revealjs/plugin/search/search.js"></script><script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script><script src="../site_libs/revealjs/plugin/math/math.js"></script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><script>
 
       // Full list of configuration options available at:
       // https://revealjs.com/config/
@@ -1062,9 +1020,7 @@ Hester, Jim, Lionel Henry, Kirill Müller, Kevin Ushey, Hadley Wickham, and Wins
           RevealZoom
         ]
       });
-    </script>
-    
-    <script>
+    </script><script>
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
       // slide changes (different for each slide format).
@@ -1103,9 +1059,7 @@ Hester, Jim, Lionel Henry, Kirill Müller, Kevin Ushey, Hadley Wickham, and Wins
         }
 
       })();
-    </script>
-
-    <script id="quarto-html-after-body" type="application/javascript">
+    </script><script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
         const mode = bsSheetEl.getAttribute("data-mode");
@@ -1198,6 +1152,6 @@ Hester, Jim, Lionel Henry, Kirill Müller, Kevin Ushey, Hadley Wickham, and Wins
       }
     });
     </script>
-    
+
 
 </body></html>

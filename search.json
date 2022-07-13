@@ -67,7 +67,7 @@
     "href": "materials/day-2-session-4-miscellany.html#learning-objectives",
     "title": "📦 Building tidy tools",
     "section": "Learning objectives",
-    "text": "Learning objectives\nTime permitting\nAt the end of this section you will be able to:\n\naccept a function an argument to a function using a formula (purrr-style) (Henry and Wickham 2020)\ncreate an S3 class using {vctrs} (Wickham, Henry, and Vaughan 2022)\n\nrecognize that implementing a format() method gets you a long way\n\n\nWe will also recap all of today’s material and discuss."
+    "text": "Learning objectives\nTime permitting\nAt the end of this section you will be able to:\n\naccept a function an argument to a function using a formula (purrr-style) (Henry and Wickham 2020)\n\ncreate an S3 class using {vctrs} (Wickham, Henry, and Vaughan 2022)\n\nrecognize that implementing a format() method gets you a long way\n\n\n\nWe will also recap all of today’s material and discuss."
   },
   {
     "objectID": "materials/day-2-session-4-miscellany.html#functions-as-arguments",
@@ -81,7 +81,7 @@
     "href": "materials/day-2-session-4-miscellany.html#anonymous-lambda-functions",
     "title": "📦 Building tidy tools",
     "section": "Anonymous (lambda) functions",
-    "text": "Anonymous (lambda) functions\nSometimes you want to provide an “on-the-spot” function:\n\nwrite it out the long way:\nmap_dbl(ten, function(x) x^2)\n\n\n\n{purrr} interprets one-sided formula using .x:\nmap_dbl(ten, ~.x^2)\n\n\n\n\nR (> 4.1) provides shorthand:\nmap_dbl(ten, \\(x) x^2)"
+    "text": "Anonymous (lambda) functions\nSometimes you want to provide an “on-the-spot” function:\n\n\nwrite it out the long way:\nmap_dbl(ten, function(x) x^2)\n\n\n\n\n\n{purrr} interprets one-sided formula using .x:\nmap_dbl(ten, ~.x^2)\n\n\n\n\n\n\nR (> 4.1) provides shorthand:\nmap_dbl(ten, \\(x) x^2)"
   },
   {
     "objectID": "materials/day-2-session-4-miscellany.html#make-purrr-formula-into-function",
@@ -94,8 +94,8 @@
     "objectID": "materials/day-2-session-4-miscellany.html#our-turn-2.4.1",
     "href": "materials/day-2-session-4-miscellany.html#our-turn-2.4.1",
     "title": "📦 Building tidy tools",
-    "section": "Our turn \"2.4.1\"",
-    "text": "Our turn \"2.4.1\"\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.4.1\")\n\n\n\nNo new files."
+    "section": "Our turn \"2.4.1\"\n",
+    "text": "Our turn \"2.4.1\"\n\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.4.1\")\n\n\n\nNo new files."
   },
   {
     "objectID": "materials/day-2-session-4-miscellany.html#uss_make_seasons_final",
@@ -109,7 +109,7 @@
     "href": "materials/day-2-session-4-miscellany.html#seasons.r",
     "title": "📦 Building tidy tools",
     "section": "seasons.R",
-    "text": "seasons.R\n\nin seasons_intermediate():\n\n# accept purrr-style anonymous functions\nfn_points_per_win <- \n  rlang::as_function(fn_points_per_win)\n\n\ndevtools::load()\nitaly_five_purrr <-\n  italy_teams_matches |>\n  uss_make_seasons_final(fn_points_per_win = ~5)\nidentical(italy_five, italy_five_purrr)\n\n\n\n\ndocument, devtools::check()"
+    "text": "seasons.R\n\nin seasons_intermediate():\n\n# accept purrr-style anonymous functions\nfn_points_per_win <- \n  rlang::as_function(fn_points_per_win)\n\n\n\ndevtools::load()\nitaly_five_purrr <-\n  italy_teams_matches |>\n  uss_make_seasons_final(fn_points_per_win = ~5)\nidentical(italy_five, italy_five_purrr)\n\n\n\n\n\ndocument, devtools::check()"
   },
   {
     "objectID": "materials/day-2-session-4-miscellany.html#s3-class-system",
@@ -123,21 +123,21 @@
     "href": "materials/day-2-session-4-miscellany.html#vctrs-package",
     "title": "📦 Building tidy tools",
     "section": "{vctrs} package",
-    "text": "{vctrs} package\n\ndesigned to help you construct S3 classes:\n\nespecially in the context of a column of a data frame\n\n\n\n\ncli::cli_abort() creates an S3 error condition:\n\nnot quite the same thing\nbut the same idea: let’s make it a little easier to manage"
+    "text": "{vctrs} package\n\n\ndesigned to help you construct S3 classes:\n\nespecially in the context of a column of a data frame\n\n\n\n\n\n\ncli::cli_abort() creates an S3 error condition:\n\nnot quite the same thing\nbut the same idea: let’s make it a little easier to manage"
   },
   {
     "objectID": "materials/day-2-session-4-miscellany.html#our-turn-2.4.2",
     "href": "materials/day-2-session-4-miscellany.html#our-turn-2.4.2",
     "title": "📦 Building tidy tools",
-    "section": "Our turn \"2.4.2\"",
-    "text": "Our turn \"2.4.2\"\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.4.2\")\n\n\n\nGet new files, btt22::btt_get(\"2.4.2\"):\n\nresult.R\ntest-result.R\n\n\n\n\nusethis::use_package(\"glue\")\nusethis::use_package(\"vctrs\")\nadd #' @import vctrs to ussie-package.R."
+    "section": "Our turn \"2.4.2\"\n",
+    "text": "Our turn \"2.4.2\"\n\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.4.2\")\n\n\n\nGet new files, btt22::btt_get(\"2.4.2\"):\n\nresult.R\ntest-result.R\n\n\n\n\nusethis::use_package(\"glue\")\nusethis::use_package(\"vctrs\")\nadd #' @import vctrs to ussie-package.R."
   },
   {
     "objectID": "materials/day-2-session-4-miscellany.html#what-problem-are-we-solving",
     "href": "materials/day-2-session-4-miscellany.html#what-problem-are-we-solving",
     "title": "📦 Building tidy tools",
     "section": "What problem are we solving?",
-    "text": "What problem are we solving?\nA result displays two sets of information, according to team:\n\ngoals-for, goals-against: essential information\noutcome (win, loss, draw): based on goals for, against\n\n\nOur result structure should:\n\nstore essential information, e.g.:\n\ngoals_for = 3\ngoals_against = 2\n\ndisplay outcome with goals, e.g.: W 3-2."
+    "text": "What problem are we solving?\nA result displays two sets of information, according to team:\n\ngoals-for, goals-against: essential information\noutcome (win, loss, draw): based on goals for, against\n\n\nOur result structure should:\n\nstore essential information, e.g.:\n\ngoals_for = 3\ngoals_against = 2\n\n\ndisplay outcome with goals, e.g.: W 3-2."
   },
   {
     "objectID": "materials/day-2-session-4-miscellany.html#low-level-constructor",
@@ -179,7 +179,7 @@
     "href": "materials/day-2-session-4-miscellany.html#recap-design",
     "title": "📦 Building tidy tools",
     "section": "Recap: Design",
-    "text": "Recap: Design\n\nNaming: be consistent, concise, yet evocative.\nArgument order: data, descriptors, dots, details.\nReturn value type: be consistent, predictable.\nEasy to remember data (first) argument and return value:\n\neasy to use pipe, |>.\n\nBe mindful of side effects."
+    "text": "Recap: Design\n\nNaming: be consistent, concise, yet evocative.\nArgument order: data, descriptors, dots, details.\nReturn value type: be consistent, predictable.\n\nEasy to remember data (first) argument and return value:\n\neasy to use pipe, |>.\n\n\nBe mindful of side effects."
   },
   {
     "objectID": "materials/day-2-session-4-miscellany.html#recap-side-effects",
@@ -193,21 +193,21 @@
     "href": "materials/day-2-session-4-miscellany.html#recap-tidy-eval",
     "title": "📦 Building tidy tools",
     "section": "Recap: Tidy eval",
-    "text": "Recap: Tidy eval\nThere are a lot of tidy-eval tools:\n\nknow if you are using a data-masking or tidy-select function.\n\n\n\nto splice a list (or vector) into dynamic-dots, use !!!\n\n\n\n\nFor data-masking functions:\n\nbe specific, use .data, .env pronouns.\nto use tidy-select syntax, use dplyr::across().\nto move a bunch of arguments, pass the dots, ...\nto interpolate a single argument, use {{}}."
+    "text": "Recap: Tidy eval\nThere are a lot of tidy-eval tools:\n\nknow if you are using a data-masking or tidy-select function.\n\n\n\nto splice a list (or vector) into dynamic-dots, use !!!\n\n\n\n\n\n\nFor data-masking functions:\n\nbe specific, use .data, .env pronouns.\nto use tidy-select syntax, use dplyr::across().\nto move a bunch of arguments, pass the dots, ...\nto interpolate a single argument, use {{}}."
   },
   {
     "objectID": "materials/day-2-session-4-miscellany.html#recap-misc.",
     "href": "materials/day-2-session-4-miscellany.html#recap-misc.",
     "title": "📦 Building tidy tools",
     "section": "Recap: Misc.",
-    "text": "Recap: Misc.\nAnonymous (use-once) functions can be handy:\n\nuse rlang::as_function() to accept purrr-style formula-functions, e.g. ~.x + 1\n\nUse {vctrs} package to help build and manage S3 classes."
+    "text": "Recap: Misc.\nAnonymous (use-once) functions can be handy:\n\nuse rlang::as_function() to accept purrr-style formula-functions, e.g. ~.x + 1\n\n\nUse {vctrs} package to help build and manage S3 classes."
   },
   {
     "objectID": "materials/day-2-session-4-miscellany.html#recap",
     "href": "materials/day-2-session-4-miscellany.html#recap",
     "title": "📦 Building tidy tools",
     "section": "Recap",
-    "text": "Recap\nIn Ian’s opinion, the tidyverse succeeds because it helps you build a mental model for composing functions to solve your problem. It does this by providing:\n\nconsistent naming of functions, arguments\nfocus on first argument, return value: supports |>\nconsistent implementation of non-standard evaluation\nmore-and-more informative error-messages"
+    "text": "Recap\nIn Ian’s opinion, the tidyverse succeeds because it helps you build a mental model for composing functions to solve your problem. It does this by providing:\n\nconsistent naming of functions, arguments\nfocus on first argument, return value: supports |>\n\nconsistent implementation of non-standard evaluation\nmore-and-more informative error-messages"
   },
   {
     "objectID": "materials/day-2-session-4-miscellany.html#un-recap",
@@ -221,14 +221,14 @@
     "href": "materials/day-2-session-4-miscellany.html#if-you-remember-one-thing",
     "title": "📦 Building tidy tools",
     "section": "If you remember one thing…",
-    "text": "If you remember one thing…\nDistinguish pure functions from functions that use side effects.\nPure functions:\n\nuse only the values of the arguments\nchange only the return value\nadd <- function(x, y) {\n  x + y\n}\n\nSide effects use or change something else in the universe:\n\ne.g.: read a file, print to screen"
+    "text": "If you remember one thing…\nDistinguish pure functions from functions that use side effects.\nPure functions:\n\nuse only the values of the arguments\n\nchange only the return value\nadd <- function(x, y) {\n  x + y\n}\n\n\nSide effects use or change something else in the universe:\n\ne.g.: read a file, print to screen"
   },
   {
     "objectID": "materials/day-2-session-4-miscellany.html#additional-material-fp",
     "href": "materials/day-2-session-4-miscellany.html#additional-material-fp",
     "title": "📦 Building tidy tools",
     "section": "Additional material: FP",
-    "text": "Additional material: FP\n\n\n\n\n\n\n\n\n\nAnjana Vakil, on functional programming in JavaScript:\n\n(Ian: JavaScript is a great next language from R)\nfilter() in JavaScript works like purrr::keep()"
+    "text": "Additional material: FP\n\n\n\n\n\n\n\n\n\nAnjana Vakil, on functional programming in JavaScript:\n\n(Ian: JavaScript is a great next language from R)\n\nfilter() in JavaScript works like purrr::keep()"
   },
   {
     "objectID": "materials/day-2-session-4-miscellany.html#additional-material-s3-tools",
@@ -277,21 +277,21 @@
     "href": "materials/day-1-session-1-introduction.html#prerequisites",
     "title": "📦 Building tidy tools",
     "section": "Prerequisites",
-    "text": "Prerequisites\nYou need a laptop with the following installed:\n\nR and RStudio\nR package development toolchain: Rtools(windows) or XCode (mac) or r-base-dev\nThe following packages: devtools and btt22\nGit\nGitHub account linked to RStudio\n\nDetailed instructions for installing these are covered in Prerequisites"
+    "text": "Prerequisites\nYou need a laptop with the following installed:\n\nR and RStudio\nR package development toolchain: Rtools(windows) or XCode (mac) or r-base-dev\nThe following packages: devtools and btt22\n\nGit\nGitHub account linked to RStudio\n\nDetailed instructions for installing these are covered in Prerequisites"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#day-1",
     "href": "materials/day-1-session-1-introduction.html#day-1",
     "title": "📦 Building tidy tools",
     "section": "Day 1",
-    "text": "Day 1\n\n\n\nTime\nActivity\n\n\n\n\n09:00 - 10:30\nSession 1: Introduction and the whole game\n\n\n10:30 - 11:00\n☕ Coffee break\n\n\n11:00 - 12:30\nSession 2: Documentation - Minimal\n\n\n12:30 - 13:30\n🍱 Lunch break\n\n\n13:30 - 15:00\nSession 3: Unit testing\n\n\n15:00 - 15:30\n☕ Coffee break\n\n\n15:30 - 17:00\nSession 4: Documentation - Sharing"
+    "text": "Day 1\n\n\nTime\nActivity\n\n\n\n09:00 - 10:30\nSession 1: Introduction and the whole game\n\n\n10:30 - 11:00\n☕ Coffee break\n\n\n\n11:00 - 12:30\nSession 2: Documentation - Minimal\n\n\n12:30 - 13:30\n🍱 Lunch break\n\n\n\n13:30 - 15:00\nSession 3: Unit testing\n\n\n15:00 - 15:30\n☕ Coffee break\n\n\n\n15:30 - 17:00\nSession 4: Documentation - Sharing"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#day-2",
     "href": "materials/day-1-session-1-introduction.html#day-2",
     "title": "📦 Building tidy tools",
     "section": "Day 2",
-    "text": "Day 2\n\n\n\nTime\nActivity\n\n\n\n\n09:00 - 10:30\nSession 1: Function design\n\n\n10:30 - 11:00\n☕ Coffee break\n\n\n11:00 - 12:30\nSession 2: Side effects\n\n\n12:30 - 13:30\n🍱 Lunch break\n\n\n13:30 - 15:00\nSession 3: Tidy eval\n\n\n15:00 - 15:30\n☕ Coffee break\n\n\n15:30 - 17:00\nSession 4: Miscellany"
+    "text": "Day 2\n\n\nTime\nActivity\n\n\n\n09:00 - 10:30\nSession 1: Function design\n\n\n10:30 - 11:00\n☕ Coffee break\n\n\n\n11:00 - 12:30\nSession 2: Side effects\n\n\n12:30 - 13:30\n🍱 Lunch break\n\n\n\n13:30 - 15:00\nSession 3: Tidy eval\n\n\n15:00 - 15:30\n☕ Coffee break\n\n\n\n15:30 - 17:00\nSession 4: Miscellany"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#code-of-conduct",
@@ -312,7 +312,7 @@
     "href": "materials/day-1-session-1-introduction.html#learning-objectives",
     "title": "📦 Building tidy tools",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\n\nAt the end of this section you will be able to:\n\nMake changes to your .Rprofile and RStudio set to make ease the package writing process\nexplain the rationale for writing packages\nfind and explore their own package library/libraries\ndescribe the key components of a minimal package\ndescribe the different states a package can be in\noutline the development of a package using devtools (H. Wickham et al. 2021)\ncreate a simple version controlled package with a remote repo on GitHub\nuse the package interactively with devtools::load_all()\ncheck package validity with devtools::check()"
+    "text": "Learning Objectives\n\nAt the end of this section you will be able to:\n\nMake changes to your .Rprofile and RStudio set to make ease the package writing process\nexplain the rationale for writing packages\nfind and explore their own package library/libraries\ndescribe the key components of a minimal package\ndescribe the different states a package can be in\noutline the development of a package using devtools (H. Wickham et al. 2021)\n\ncreate a simple version controlled package with a remote repo on GitHub\nuse the package interactively with devtools::load_all()\n\ncheck package validity with devtools::check()"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#global-options",
@@ -325,22 +325,22 @@
     "objectID": "materials/day-1-session-1-introduction.html#set-up-your-.rprofile",
     "href": "materials/day-1-session-1-introduction.html#set-up-your-.rprofile",
     "title": "📦 Building tidy tools",
-    "section": "🔥 Set up your .Rprofile",
-    "text": "🔥 Set up your .Rprofile\nThe usethis (H. Wickham, Bryan, and Barrett 2022) package allows you to add default information about you that will be used in package development.\n\n\n🎬 Edit your .Rprofile with usethis::edit_r_profile:\n\n\nusethis::edit_r_profile()\n\n\n\nto set the following options…."
+    "section": "🔥 Set up your .Rprofile\n",
+    "text": "🔥 Set up your .Rprofile\n\nThe usethis (H. Wickham, Bryan, and Barrett 2022) package allows you to add default information about you that will be used in package development.\n\n🎬 Edit your .Rprofile with usethis::edit_r_profile:\n\nusethis::edit_r_profile()\n\n\nto set the following options…."
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#set-up-your-.rprofile-1",
     "href": "materials/day-1-session-1-introduction.html#set-up-your-.rprofile-1",
     "title": "📦 Building tidy tools",
-    "section": "🔥 Set up your .Rprofile",
-    "text": "🔥 Set up your .Rprofile\noptions(\n  usethis.full_name = \"Emma Rand\",\n  usethis.description = list(\n    `Authors@R` = 'person(\"Emma\", \"Rand\", \n      email = \"emma.rand@york.ac.uk\",     \n      role = c(\"aut\", \"cre\"))'           \n  )\n)"
+    "section": "🔥 Set up your .Rprofile\n",
+    "text": "🔥 Set up your .Rprofile\n\noptions(\n  usethis.full_name = \"Emma Rand\",\n  usethis.description = list(\n    `Authors@R` = 'person(\"Emma\", \"Rand\", \n      email = \"emma.rand@york.ac.uk\",     \n      role = c(\"aut\", \"cre\"))'           \n  )\n)"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#set-up-your-.rprofile-2",
     "href": "materials/day-1-session-1-introduction.html#set-up-your-.rprofile-2",
     "title": "📦 Building tidy tools",
-    "section": "🔥 Set up your .Rprofile",
-    "text": "🔥 Set up your .Rprofile\n🎬 Load devtools and testthat (H. Wickham 2011) on start up\n\n\n\nif (interactive()) {\n  suppressMessages(require(devtools))\n  suppressMessages(require(testthat))\n}\n\n🎬 Restart R for these to take an effect."
+    "section": "🔥 Set up your .Rprofile\n",
+    "text": "🔥 Set up your .Rprofile\n\n🎬 Load devtools and testthat (H. Wickham 2011) on start up\n\n\nif (interactive()) {\n  suppressMessages(require(devtools))\n  suppressMessages(require(testthat))\n}\n\n🎬 Restart R for these to take an effect."
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#why-make-a-package-1",
@@ -354,7 +354,7 @@
     "href": "materials/day-1-session-1-introduction.html#script-vs-package",
     "title": "📦 Building tidy tools",
     "section": "Script vs package",
-    "text": "Script vs package\n\n\nScript\n\none-off data analysis\ndefined by .R extension\nlibrary() calls\ndocumentation in # comments\nsource()\n\n\nPackage\n\ndefines reusable components\ndefined by presence of DESCRIPTION file\nRequired packages specified in DESCRIPTION, made available in NAMESPACE file\ndocumentation in files and Roxygen comments\nInstall and restart"
+    "text": "Script vs package\n\n\nScript\n\none-off data analysis\ndefined by .R extension\n\nlibrary() calls\ndocumentation in # comments\nsource()\n\n\nPackage\n\ndefines reusable components\ndefined by presence of DESCRIPTION file\nRequired packages specified in DESCRIPTION, made available in NAMESPACE file\ndocumentation in files and Roxygen comments\nInstall and restart"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#be-nice-to-future-you",
@@ -368,7 +368,7 @@
     "href": "materials/day-1-session-1-introduction.html#to-avoid",
     "title": "📦 Building tidy tools",
     "section": "To avoid",
-    "text": "To avoid\n\n\n\nvia GIPHY"
+    "text": "To avoid\n\n\n\n\nvia GIPHY"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#where-do-r-packages-come-from",
@@ -410,14 +410,14 @@
     "href": "materials/day-1-session-1-introduction.html#the-ussie-package",
     "title": "📦 Building tidy tools",
     "section": "The ussie package",
-    "text": "The ussie package\n\nWe will create a version controlled package called ussie with a remote repo on GitHub.\n\n\n\n\nussie will allow you to work with European football league data supplied by the engsoccerdata package (Curley 2016)."
+    "text": "The ussie package\n\nWe will create a version controlled package called ussie with a remote repo on GitHub.\n\n\n\nussie will allow you to work with European football league data supplied by the engsoccerdata package (Curley 2016)."
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#explore-ussie",
     "href": "materials/day-1-session-1-introduction.html#explore-ussie",
     "title": "📦 Building tidy tools",
-    "section": "Explore ussie",
-    "text": "Explore ussie\n\nGitHub\nWebsite\n\n\n\nGitHub is the package in “Source” form\n\nmain code in R/\ndocumentation files in man/ and vignettes/\nDESCRIPTION"
+    "section": "Explore ussie\n",
+    "text": "Explore ussie\n\n\nGitHub\nWebsite\n\n\nGitHub is the package in “Source” form\n\nmain code in R/\n\ndocumentation files in man/ and vignettes/\n\nDESCRIPTION"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#package-states-1",
@@ -431,7 +431,7 @@
     "href": "materials/day-1-session-1-introduction.html#package-states-2",
     "title": "📦 Building tidy tools",
     "section": "Package states",
-    "text": "Package states\n\n\n\nSchematic of methods for moving between package states\n\n\n\n\nFigure from R Packages (H. Wickham and Bryan 2020)"
+    "text": "Package states\n\n\nSchematic of methods for moving between package states\n\n\n\n\nFigure from R Packages (H. Wickham and Bryan 2020)"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#package-states-3",
@@ -473,14 +473,14 @@
     "href": "materials/day-1-session-1-introduction.html#create-a-package-1",
     "title": "📦 Building tidy tools",
     "section": "Create a package",
-    "text": "Create a package\nThe CRAN version of engsoccerdata has data from the start of the league until 2016 for england, germany, holland, italy and spain\n\n\n\nBUT the format of the data is not the same for all countries!!"
+    "text": "Create a package\nThe CRAN version of engsoccerdata has data from the start of the league until 2016 for england, germany, holland, italy and spain\n\n\nBUT the format of the data is not the same for all countries!!"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#about-engsoccerdata",
     "href": "materials/day-1-session-1-introduction.html#about-engsoccerdata",
     "title": "📦 Building tidy tools",
-    "section": "About engsoccerdata",
-    "text": "About engsoccerdata\n\n\ndplyr::glimpse(engsoccerdata::england)\n\nRows: 192,004\nColumns: 12\n$ Date     <fct> 1888-12-15, 1889-01-19, 1889-03-23, 1888-12-01, 1888-10-13, 1…\n$ Season   <dbl> 1888, 1888, 1888, 1888, 1888, 1888, 1888, 1888, 1888, 1888, 1…\n$ home     <fct> Accrington F.C., Accrington F.C., Accrington F.C., Accrington…\n$ visitor  <fct> Aston Villa, Blackburn Rovers, Bolton Wanderers, Burnley, Der…\n$ FT       <fct> 1-1, 0-2, 2-3, 5-1, 6-2, 3-1, 1-2, 0-0, 2-0, 2-1, 4-4, 4-3, 6…\n$ hgoal    <dbl> 1, 0, 2, 5, 6, 3, 1, 0, 2, 2, 4, 4, 6, 6, 4, 4, 2, 9, 0, 5, 2…\n$ vgoal    <dbl> 1, 2, 3, 1, 2, 1, 2, 0, 0, 1, 4, 3, 1, 2, 2, 2, 1, 1, 2, 1, 0…\n$ division <fct> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…\n$ tier     <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…\n$ totgoal  <dbl> 2, 2, 5, 6, 8, 4, 3, 0, 2, 3, 8, 7, 7, 8, 6, 6, 3, 10, 2, 6, …\n$ goaldif  <dbl> 0, -2, -1, 4, 4, 2, -1, 0, 2, 1, 0, 1, 5, 4, 2, 2, 1, 8, -2, …\n$ result   <fct> D, A, A, H, H, H, A, D, H, H, D, H, H, H, H, H, H, H, A, H, H…\n\n\n\ndplyr::glimpse(engsoccerdata::spain)\n\nRows: 23,915\nColumns: 12\n$ Date    <chr> \"1929-02-10\", \"1929-02-10\", \"1929-02-10\", \"1929-02-10\", \"1929-…\n$ Season  <dbl> 1928, 1928, 1928, 1928, 1928, 1928, 1928, 1928, 1928, 1928, 19…\n$ home    <chr> \"Arenas de Getxo\", \"Espanyol Barcelona\", \"Real Madrid\", \"Real …\n$ visitor <chr> \"Atletico Madrid\", \"Real Union\", \"CE Europa\", \"Athletic Bilbao…\n$ HT      <chr> \"0-2\", \"1-0\", \"0-0\", \"1-1\", \"0-0\", \"0-1\", \"3-0\", \"0-3\", \"0-1\",…\n$ FT      <chr> \"2-3\", \"3-2\", \"5-0\", \"1-1\", \"0-2\", \"1-2\", \"9-0\", \"0-3\", \"3-1\",…\n$ hgoal   <dbl> 2, 3, 5, 1, 0, 1, 9, 0, 3, 5, 3, 3, 1, 0, 2, 1, 2, 3, 2, 2, 3,…\n$ vgoal   <dbl> 3, 2, 0, 1, 2, 2, 0, 3, 1, 2, 0, 1, 1, 4, 1, 2, 1, 0, 2, 0, 3,…\n$ tier    <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…\n$ round   <chr> \"league\", \"league\", \"league\", \"league\", \"league\", \"league\", \"l…\n$ group   <chr> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…\n$ notes   <chr> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…"
+    "section": "About engsoccerdata\n",
+    "text": "About engsoccerdata\n\n\n\ndplyr::glimpse(engsoccerdata::england)\n\nRows: 192,004\nColumns: 12\n$ Date     <fct> 1888-12-15, 1889-01-19, 1889-03-23, 1888-12-01, 1888-10-13, 1…\n$ Season   <dbl> 1888, 1888, 1888, 1888, 1888, 1888, 1888, 1888, 1888, 1888, 1…\n$ home     <fct> Accrington F.C., Accrington F.C., Accrington F.C., Accrington…\n$ visitor  <fct> Aston Villa, Blackburn Rovers, Bolton Wanderers, Burnley, Der…\n$ FT       <fct> 1-1, 0-2, 2-3, 5-1, 6-2, 3-1, 1-2, 0-0, 2-0, 2-1, 4-4, 4-3, 6…\n$ hgoal    <dbl> 1, 0, 2, 5, 6, 3, 1, 0, 2, 2, 4, 4, 6, 6, 4, 4, 2, 9, 0, 5, 2…\n$ vgoal    <dbl> 1, 2, 3, 1, 2, 1, 2, 0, 0, 1, 4, 3, 1, 2, 2, 2, 1, 1, 2, 1, 0…\n$ division <fct> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…\n$ tier     <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…\n$ totgoal  <dbl> 2, 2, 5, 6, 8, 4, 3, 0, 2, 3, 8, 7, 7, 8, 6, 6, 3, 10, 2, 6, …\n$ goaldif  <dbl> 0, -2, -1, 4, 4, 2, -1, 0, 2, 1, 0, 1, 5, 4, 2, 2, 1, 8, -2, …\n$ result   <fct> D, A, A, H, H, H, A, D, H, H, D, H, H, H, H, H, H, H, A, H, H…\n\n\n\ndplyr::glimpse(engsoccerdata::spain)\n\nRows: 23,915\nColumns: 12\n$ Date    <chr> \"1929-02-10\", \"1929-02-10\", \"1929-02-10\", \"1929-02-10\", \"1929-…\n$ Season  <dbl> 1928, 1928, 1928, 1928, 1928, 1928, 1928, 1928, 1928, 1928, 19…\n$ home    <chr> \"Arenas de Getxo\", \"Espanyol Barcelona\", \"Real Madrid\", \"Real …\n$ visitor <chr> \"Atletico Madrid\", \"Real Union\", \"CE Europa\", \"Athletic Bilbao…\n$ HT      <chr> \"0-2\", \"1-0\", \"0-0\", \"1-1\", \"0-0\", \"0-1\", \"3-0\", \"0-3\", \"0-1\",…\n$ FT      <chr> \"2-3\", \"3-2\", \"5-0\", \"1-1\", \"0-2\", \"1-2\", \"9-0\", \"0-3\", \"3-1\",…\n$ hgoal   <dbl> 2, 3, 5, 1, 0, 1, 9, 0, 3, 5, 3, 3, 1, 0, 2, 1, 2, 3, 2, 2, 3,…\n$ vgoal   <dbl> 3, 2, 0, 1, 2, 2, 0, 3, 1, 2, 0, 1, 1, 4, 1, 2, 1, 0, 2, 0, 3,…\n$ tier    <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…\n$ round   <chr> \"league\", \"league\", \"league\", \"league\", \"league\", \"league\", \"l…\n$ group   <chr> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…\n$ notes   <chr> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#first-function",
@@ -494,7 +494,7 @@
     "href": "materials/day-1-session-1-introduction.html#create-a-package-2",
     "title": "📦 Building tidy tools",
     "section": "Create a package",
-    "text": "Create a package\nBe deliberate about where you create your package\nDo not nest inside another RStudio project, R package or git repo.\n\n\n🎬 Create a package:\n\nusethis::create_package(\"~/Desktop/ussie\")\n\n\n\nYou may want a different path"
+    "text": "Create a package\nBe deliberate about where you create your package\nDo not nest inside another RStudio project, R package or git repo.\n\n🎬 Create a package:\n\nusethis::create_package(\"~/Desktop/ussie\")\n\n\n\nYou may want a different path"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#section",
@@ -536,14 +536,14 @@
     "href": "materials/day-1-session-1-introduction.html#section-1",
     "title": "📦 Building tidy tools",
     "section": "",
-    "text": "✔ Setting active project to 'C:/Users/er13/OneDrive - University of York/Desktop/Desktop/rstudio-conf-2022/ussie'\n✔ Initialising Git repo\n✔ Adding '.Rhistory', '.Rdata', '.httr-oauth', '.DS_Store' to '.gitignore'\nThere are 5 uncommitted files:\n* '.gitignore'\n* '.Rbuildignore'\n* 'DESCRIPTION'\n* 'NAMESPACE'\n* 'ussie.Rproj'\nIs it ok to commit them?\n\n1: No way\n2: Negative\n3: I agree\n\n\n\n🎬 Choose the option that means yes!"
+    "text": "✔ Setting active project to 'C:/Users/er13/OneDrive - University of York/Desktop/Desktop/rstudio-conf-2022/ussie'\n✔ Initialising Git repo\n✔ Adding '.Rhistory', '.Rdata', '.httr-oauth', '.DS_Store' to '.gitignore'\nThere are 5 uncommitted files:\n* '.gitignore'\n* '.Rbuildignore'\n* 'DESCRIPTION'\n* 'NAMESPACE'\n* 'ussie.Rproj'\nIs it ok to commit them?\n\n1: No way\n2: Negative\n3: I agree\n\n\n🎬 Choose the option that means yes!"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#section-2",
     "href": "materials/day-1-session-1-introduction.html#section-2",
     "title": "📦 Building tidy tools",
     "section": "",
-    "text": "✔ Adding files\n✔ Making a commit with message 'Initial commit'\n• A restart of RStudio is required to activate the Git pane\nRestart now?\n\n1: Yup\n2: Not now\n3: Absolutely not\n\n\n\n🎬 Choose the option that means yes!\n\n\nYour session will restart."
+    "text": "✔ Adding files\n✔ Making a commit with message 'Initial commit'\n• A restart of RStudio is required to activate the Git pane\nRestart now?\n\n1: Yup\n2: Not now\n3: Absolutely not\n\n\n🎬 Choose the option that means yes!\n\nYour session will restart."
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#put-a-remote-copy-on-github",
@@ -578,14 +578,14 @@
     "href": "materials/day-1-session-1-introduction.html#add-the-first-function",
     "title": "📦 Building tidy tools",
     "section": "Add the first function",
-    "text": "Add the first function\nWe will add uss_make_matches()\nFunctions will go in an .R file.\n\n\n\nThere’s a usethis helper for adding .R files!\n\n\n\n\n\nusethis::use_r(\"file_name\")\n\n\n\nusethis::use_r() adds the file extension and saves in R/ folder"
+    "text": "Add the first function\nWe will add uss_make_matches()\nFunctions will go in an .R file.\n\n\nThere’s a usethis helper for adding .R files!\n\n\n\n\nusethis::use_r(\"file_name\")\n\n\nusethis::use_r() adds the file extension and saves in R/ folder"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#usethisuse_r",
     "href": "materials/day-1-session-1-introduction.html#usethisuse_r",
     "title": "📦 Building tidy tools",
     "section": "usethis::use_r()",
-    "text": "usethis::use_r()\n🎬 Create a new R file in your package called matches.R\n\n\n\n\nusethis::use_r(\"matches\")\n\n• Modify 'R/matches.R'\n• Call `use_test()` to create a matching test file\n\n\n\nWe will come back to that test files this afternoon"
+    "text": "usethis::use_r()\n🎬 Create a new R file in your package called matches.R\n\n\n\nusethis::use_r(\"matches\")\n\n• Modify 'R/matches.R'\n• Call `use_test()` to create a matching test file\n\n\n\nWe will come back to that test files this afternoon"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#the-function",
@@ -606,14 +606,14 @@
     "href": "materials/day-1-session-1-introduction.html#development-workflow",
     "title": "📦 Building tidy tools",
     "section": "Development workflow",
-    "text": "Development workflow\nIn a normal script you might use:\n\nsource(\"R/matches.R\")\n\n\n\n\nbut when building packages we use a devtools approach"
+    "text": "Development workflow\nIn a normal script you might use:\n\nsource(\"R/matches.R\")\n\n\n\nbut when building packages we use a devtools approach"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#development-workflow-1",
     "href": "materials/day-1-session-1-introduction.html#development-workflow-1",
     "title": "📦 Building tidy tools",
     "section": "Development workflow",
-    "text": "Development workflow\n\n\n\n\n%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#f3f3f3',  'lineColor':'#EE9AD9'}}}%%\n\n  flowchart LR\n      id1(\"Load code: \\n load_all()\") --> \n      id2(\"Explore in \\n console\") --> \n      id3(\"Modify \\n code\")\n      id3 --> id1\n      style id1 id2 id3 stroke:#3F3F3F,stroke-width:2px"
+    "text": "Development workflow\n\n\n\n\n\n%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#f3f3f3',  'lineColor':'#EE9AD9'}}}%%\n\n  flowchart LR\n      id1(\"Load code: \\n load_all()\") --> \n      id2(\"Explore in \\n console\") --> \n      id3(\"Modify \\n code\")\n      id3 --> id1\n      style id1 id2 id3 stroke:#3F3F3F,stroke-width:2px"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#devtoolsload_all",
@@ -634,7 +634,7 @@
     "href": "materials/day-1-session-1-introduction.html#update-the-function",
     "title": "📦 Building tidy tools",
     "section": "Update the function",
-    "text": "Update the function\n🎬 Change the function so it takes an additional argument which is the name of the country. The country name should be in column called “country”. The aim is to use the function like this:\n\nuss_make_matches(engsoccerdata::spain, \"Spain\")\n\n\n\n\n🎬 Load with devtools::load_all() and try out the updated function."
+    "text": "Update the function\n🎬 Change the function so it takes an additional argument which is the name of the country. The country name should be in column called “country”. The aim is to use the function like this:\n\nuss_make_matches(engsoccerdata::spain, \"Spain\")\n\n\n\n🎬 Load with devtools::load_all() and try out the updated function."
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#an-answer",
@@ -648,7 +648,7 @@
     "href": "materials/day-1-session-1-introduction.html#check-your-package-1",
     "title": "📦 Building tidy tools",
     "section": "Check your package",
-    "text": "Check your package\nR CMD check is the gold standard for checking that an R package is in full working order.\n\n\nIt is a programme that is executed in the shell.\n\n\nHowever, devtools has the check() function to allow you to run this without leaving your R session."
+    "text": "Check your package\nR CMD check is the gold standard for checking that an R package is in full working order.\n\nIt is a programme that is executed in the shell.\n\nHowever, devtools has the check() function to allow you to run this without leaving your R session."
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#devtoolscheck",
@@ -662,14 +662,14 @@
     "href": "materials/day-1-session-1-introduction.html#section-6",
     "title": "📦 Building tidy tools",
     "section": "",
-    "text": "── R CMD check results ───────────────────────────────────── ussie 0.0.0.9000 ────\nDuration: 25.1s\n\n❯ checking DESCRIPTION meta-information ... WARNING\n  Non-standard license specification:\n    `use_mit_license()`, `use_gpl3_license()` or friends to pick a\n    license\n  Standardizable: FALSE\n\n❯ checking dependencies in R code ... WARNING\n  '::' or ':::' imports not declared from:\n    'dplyr' 'tibble'\n\n❯ checking R code for possible problems ... NOTE\n  uss_make_matches: no visible binding for global variable 'tier'\n  uss_make_matches: no visible binding for global variable 'Season'\n  uss_make_matches: no visible binding for global variable 'Date'\n  uss_make_matches: no visible binding for global variable 'home'\n  uss_make_matches: no visible binding for global variable 'visitor'\n  uss_make_matches: no visible binding for global variable 'hgoal'\n  uss_make_matches: no visible binding for global variable 'vgoal'\n  Undefined global functions or variables:\n    Date Season hgoal home tier vgoal visitor\n\n0 errors ✔ | 2 warnings ✖ | 1 note ✖\n\n\n\nman/ is created"
+    "text": "── R CMD check results ───────────────────────────────────── ussie 0.0.0.9000 ────\nDuration: 25.1s\n\n❯ checking DESCRIPTION meta-information ... WARNING\n  Non-standard license specification:\n    `use_mit_license()`, `use_gpl3_license()` or friends to pick a\n    license\n  Standardizable: FALSE\n\n❯ checking dependencies in R code ... WARNING\n  '::' or ':::' imports not declared from:\n    'dplyr' 'tibble'\n\n❯ checking R code for possible problems ... NOTE\n  uss_make_matches: no visible binding for global variable 'tier'\n  uss_make_matches: no visible binding for global variable 'Season'\n  uss_make_matches: no visible binding for global variable 'Date'\n  uss_make_matches: no visible binding for global variable 'home'\n  uss_make_matches: no visible binding for global variable 'visitor'\n  uss_make_matches: no visible binding for global variable 'hgoal'\n  uss_make_matches: no visible binding for global variable 'vgoal'\n  Undefined global functions or variables:\n    Date Season hgoal home tier vgoal visitor\n\n0 errors ✔ | 2 warnings ✖ | 1 note ✖\n\n\nman/ is created"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#aside-in-case-of-error",
     "href": "materials/day-1-session-1-introduction.html#aside-in-case-of-error",
     "title": "📦 Building tidy tools",
     "section": "Aside: in case of error",
-    "text": "Aside: in case of error\nOn running devtools::check() you may get an error if you are using a networked drive.\nUpdating ussie documentation  \nError: The specified file is not readable: path-to\\ussie\\NAMESPACE\n\n\nThis is covered here and can be fixed."
+    "text": "Aside: in case of error\nOn running devtools::check() you may get an error if you are using a networked drive.\nUpdating ussie documentation  \nError: The specified file is not readable: path-to\\ussie\\NAMESPACE\n\nThis is covered here and can be fixed."
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#aside-in-case-of-error-1",
@@ -697,7 +697,7 @@
     "href": "materials/day-1-session-1-introduction.html#add-a-license",
     "title": "📦 Building tidy tools",
     "section": "Add a license",
-    "text": "Add a license\nusethis helps out again!\n\n\nuse_mit_license(), use_agpl_license(), use_ccby_license() etc\n\n\n🎬 Add a MIT license1 - use your own name!\n\nusethis::use_mit_license(\"Emma Rand\") \n\nMIT: Simple and permissive license that lets people use and freely distribute your code"
+    "text": "Add a license\nusethis helps out again!\n\nuse_mit_license(), use_agpl_license(), use_ccby_license() etc\n\n🎬 Add a MIT license1 - use your own name!\n\nusethis::use_mit_license(\"Emma Rand\") \n\nMIT: Simple and permissive license that lets people use and freely distribute your code"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#section-8",
@@ -711,21 +711,21 @@
     "href": "materials/day-1-session-1-introduction.html#use_mit_license",
     "title": "📦 Building tidy tools",
     "section": "use_mit_license()",
-    "text": "use_mit_license()\n🎬 What files have appeared?\n\n\n🎬 How has the DESCRIPTION file changed?\n\n\n🎬 Run devtools::check() again. Has one of the warnings disappeared?"
+    "text": "use_mit_license()\n🎬 What files have appeared?\n\n🎬 How has the DESCRIPTION file changed?\n\n🎬 Run devtools::check() again. Has one of the warnings disappeared?"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#summary",
     "href": "materials/day-1-session-1-introduction.html#summary",
     "title": "📦 Building tidy tools",
     "section": "Summary",
-    "text": "Summary\n\n\nIt is useful to make a package\n\nit is fairly easy with devtools\nit will help you work more reproducibly\n\nPackages can be in one of 5 states:\n\nsource - what you write\nbundled - source compressed to single file, submitted to CRAN\nbinary - distribution for users w/o devtools\ninstalled - a binary that’s been decompressed\nin-memory - installed package that has been loaded"
+    "text": "Summary\n\n\nIt is useful to make a package\n\nit is fairly easy with devtools\n\nit will help you work more reproducibly\n\n\nPackages can be in one of 5 states:\n\nsource - what you write\nbundled - source compressed to single file, submitted to CRAN\nbinary - distribution for users w/o devtools\n\ninstalled - a binary that’s been decompressed\nin-memory - installed package that has been loaded"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#summary-continued",
     "href": "materials/day-1-session-1-introduction.html#summary-continued",
     "title": "📦 Building tidy tools",
     "section": "Summary continued",
-    "text": "Summary continued\n\n\nA minimal package comprises\n\na folder which is a package and a RProj\nDESCRIPTION, NAMESPACE, .Rbuildignore .gitignore\nR/ directory for functions\n\nWe add functions with usethis:use_r()\nWe use the package interactively with devtools::load_all()\nWe use devtools::check() to execute R CMD check\nWe add a license with usethis::use_mit_license()"
+    "text": "Summary continued\n\n\nA minimal package comprises\n\na folder which is a package and a RProj\n\nDESCRIPTION, NAMESPACE, .Rbuildignore .gitignore\n\n\nR/ directory for functions\n\n\nWe add functions with usethis:use_r()\n\nWe use the package interactively with devtools::load_all()\n\nWe use devtools::check() to execute R CMD check\nWe add a license with usethis::use_mit_license()"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#references",
@@ -739,7 +739,7 @@
     "href": "materials/day-1-session-3-testing.html#learning-objectives",
     "title": "📦 Building tidy tools",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\nAt the end of this section you will be able to:\n\n\nunderstand the rationale for automating tests\ndescribe the organisation of the testing infrastructure and file contents for the testthat (Wickham 2011) workflow\nset up a package to use testthat\ncreate a test and use some common ‘expectations’\nrun all the tests in a file and in a package"
+    "text": "Learning Objectives\nAt the end of this section you will be able to:\n\n\nunderstand the rationale for automating tests\ndescribe the organisation of the testing infrastructure and file contents for the testthat (Wickham 2011) workflow\nset up a package to use testthat\n\ncreate a test and use some common ‘expectations’\nrun all the tests in a file and in a package"
   },
   {
     "objectID": "materials/day-1-session-3-testing.html#why-test-1",
@@ -753,28 +753,28 @@
     "href": "materials/day-1-session-3-testing.html#for-example",
     "title": "📦 Building tidy tools",
     "section": "For example",
-    "text": "For example\nWhen we run:\n\nitaly <- uss_make_matches(engsoccerdata::italy, \"Italy\")\nspain <- uss_make_matches(engsoccerdata::spain, \"Spain\")\n\nThe objects italy and spain should be tibbles with the same columns: “country”, “tier”, “season”, “date”, “home”, “visitor”, “goals_home” and “goals_visitor”\n\n\nSo we might…"
+    "text": "For example\nWhen we run:\n\nitaly <- uss_make_matches(engsoccerdata::italy, \"Italy\")\nspain <- uss_make_matches(engsoccerdata::spain, \"Spain\")\n\nThe objects italy and spain should be tibbles with the same columns: “country”, “tier”, “season”, “date”, “home”, “visitor”, “goals_home” and “goals_visitor”\n\nSo we might…"
   },
   {
     "objectID": "materials/day-1-session-3-testing.html#check-interactively",
     "href": "materials/day-1-session-3-testing.html#check-interactively",
     "title": "📦 Building tidy tools",
     "section": "Check interactively",
-    "text": "Check interactively\nTry these:\n\n\n\n\nclass(italy)\n\n\"tbl_df\"     \"tbl\"        \"data.frame\"\n\nclass(spain)\n\n\"tbl_df\"     \"tbl\"        \"data.frame\" \n\nnames(italy)\n\ncountry\"       \"tier\"          \"season\"        \"date\"         \n\"home\"          \"visitor\"       \"goals_home\"    \"goals_visitor\" \n\nnames(spain)\n\ncountry\"       \"tier\"          \"season\"        \"date\"         \n\"home\"          \"visitor\"       \"goals_home\"    \"goals_visitor\"\n\n\n🎉\n\n\n🥳\n\n\n🎈\n\n\n🎇"
+    "text": "Check interactively\nTry these:\n\n\n\n\nclass(italy)\n\n\"tbl_df\"     \"tbl\"        \"data.frame\"\n\nclass(spain)\n\n\"tbl_df\"     \"tbl\"        \"data.frame\" \n\nnames(italy)\n\ncountry\"       \"tier\"          \"season\"        \"date\"         \n\"home\"          \"visitor\"       \"goals_home\"    \"goals_visitor\" \n\nnames(spain)\n\ncountry\"       \"tier\"          \"season\"        \"date\"         \n\"home\"          \"visitor\"       \"goals_home\"    \"goals_visitor\"\n\n\n🎉\n\n🥳\n\n🎈\n\n🎇"
   },
   {
     "objectID": "materials/day-1-session-3-testing.html#interactive-testing",
     "href": "materials/day-1-session-3-testing.html#interactive-testing",
     "title": "📦 Building tidy tools",
     "section": "Interactive testing …",
-    "text": "Interactive testing …\n…is informal testing:\n\nwrote uss_make_matches()\nloaded package with devtools::load_all()\nran uss_make_matches() interactively\nedited uss_make_matches() if needed\nloaded package with devtools::load_all()\nran uss_make_matches() interactively"
+    "text": "Interactive testing …\n…is informal testing:\n\nwrote uss_make_matches()\n\nloaded package with devtools::load_all()\n\nran uss_make_matches() interactively\nedited uss_make_matches() if needed\nloaded package with devtools::load_all()\n\nran uss_make_matches() interactively"
   },
   {
     "objectID": "materials/day-1-session-3-testing.html#informal-test-workflow",
     "href": "materials/day-1-session-3-testing.html#informal-test-workflow",
     "title": "📦 Building tidy tools",
     "section": "Informal test workflow",
-    "text": "Informal test workflow\n\n\n\n\n%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#f3f3f3',  'lineColor':'#EE9AD9'}}}%%\n\n  flowchart LR\n      id1(\"Reload code: \\n load_all()\") --> \n      id2(\"Explore in \\n console\") --> \n      id3(\"Modify \\n code\")\n      id3 --> id1\n      style id1 id2 id3 stroke:#3F3F3F,stroke-width:2px"
+    "text": "Informal test workflow\n\n\n\n\n\n%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#f3f3f3',  'lineColor':'#EE9AD9'}}}%%\n\n  flowchart LR\n      id1(\"Reload code: \\n load_all()\") --> \n      id2(\"Explore in \\n console\") --> \n      id3(\"Modify \\n code\")\n      id3 --> id1\n      style id1 id2 id3 stroke:#3F3F3F,stroke-width:2px"
   },
   {
     "objectID": "materials/day-1-session-3-testing.html#why-automate-testing-1",
@@ -795,14 +795,14 @@
     "href": "materials/day-1-session-3-testing.html#automated-test-workflow",
     "title": "📦 Building tidy tools",
     "section": "Automated test workflow",
-    "text": "Automated test workflow\n\n\n\n\n%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#f3f3f3',  'lineColor':'#EE9AD9'}}}%%\n\n  flowchart LR\n      id1(\"Reload code: \\n load_all()\") --> \n      id2(\"Run automated tests: \\n test() or test_file()\") --> \n      id3(\"Modify \\n code\")\n      id3 --> id1\n      style id1 id2 id3 stroke:#3F3F3F,stroke-width:2px"
+    "text": "Automated test workflow\n\n\n\n\n\n%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#f3f3f3',  'lineColor':'#EE9AD9'}}}%%\n\n  flowchart LR\n      id1(\"Reload code: \\n load_all()\") --> \n      id2(\"Run automated tests: \\n test() or test_file()\") --> \n      id3(\"Modify \\n code\")\n      id3 --> id1\n      style id1 id2 id3 stroke:#3F3F3F,stroke-width:2px"
   },
   {
     "objectID": "materials/day-1-session-3-testing.html#organisation-files",
     "href": "materials/day-1-session-3-testing.html#organisation-files",
     "title": "📦 Building tidy tools",
     "section": "Organisation: files",
-    "text": "Organisation: files\n\n\n\n.\n├── CITATION.cff\n├── DESCRIPTION\n├── LICENSE\n├── LICENSE.md\n├── man\n│   └── matches.Rd\n├── NAMESPACE\n├── R\n│   └── matches.R\n├── README.md\n├── tests\n│   ├── testthat\n│   │   └── test-matches.R\n│   └── testthat.R\n└── ussie.Rproj\n\n\n\ntests files are in: tests/testthat/\ntest files are named test-xxxx.R\ntests/testthat.R: runs the tests when devtools::check() is called"
+    "text": "Organisation: files\n\n\n\n.\n├── CITATION.cff\n├── DESCRIPTION\n├── LICENSE\n├── LICENSE.md\n├── man\n│   └── matches.Rd\n├── NAMESPACE\n├── R\n│   └── matches.R\n├── README.md\n├── tests\n│   ├── testthat\n│   │   └── test-matches.R\n│   └── testthat.R\n└── ussie.Rproj\n\n\n\ntests files are in: tests/testthat/\n\ntest files are named test-xxxx.R\n\n\ntests/testthat.R: runs the tests when devtools::check() is called"
   },
   {
     "objectID": "materials/day-1-session-3-testing.html#organisation-within-files",
@@ -816,14 +816,14 @@
     "href": "materials/day-1-session-3-testing.html#organisation-within-files-1",
     "title": "📦 Building tidy tools",
     "section": "Organisation within files",
-    "text": "Organisation within files\n\na test groups several ‘expectations’. An expectation:\n\nhas the form: expect_zzzz(actual_result, expectation)\nif actual_result == expectation no error\nif actual_result != expectation Error"
+    "text": "Organisation within files\n\na test groups several ‘expectations’. An expectation:\n\nhas the form: expect_zzzz(actual_result, expectation)\n\nif actual_result == expectation no error\nif actual_result != expectation Error"
   },
   {
     "objectID": "materials/day-1-session-3-testing.html#workflow-1",
     "href": "materials/day-1-session-3-testing.html#workflow-1",
     "title": "📦 Building tidy tools",
     "section": "Workflow",
-    "text": "Workflow\n\nSet up your package to use testthat: usethis::use_testthat(3) ONCE\n\n\n\nMake a test: usethis::use_test()\n\n\n\n\nRun a set of tests: testthat::test_file()\n\n\n\n\nRun the entire testing suite: devtools::test() and devtools::check()"
+    "text": "Workflow\n\nSet up your package to use testthat: usethis::use_testthat(3) ONCE\n\n\n\nMake a test: usethis::use_test()\n\n\n\n\n\nRun a set of tests: testthat::test_file()\n\n\n\n\n\nRun the entire testing suite: devtools::test() and devtools::check()"
   },
   {
     "objectID": "materials/day-1-session-3-testing.html#set-up-1",
@@ -837,7 +837,7 @@
     "href": "materials/day-1-session-3-testing.html#set-up-2",
     "title": "📦 Building tidy tools",
     "section": "Set up",
-    "text": "Set up\n🎬 Set up your package to use testthat:\n\nusethis::use_testthat(3)\n\n\n\n\n3 means testthat edition 3 (testthat 3e)\nAs well as installing that version of the package, you have to explicitly opt in the edition behaviours."
+    "text": "Set up\n🎬 Set up your package to use testthat:\n\nusethis::use_testthat(3)\n\n\n\n3 means testthat edition 3 (testthat 3e)\nAs well as installing that version of the package, you have to explicitly opt in the edition behaviours."
   },
   {
     "objectID": "materials/day-1-session-3-testing.html#section",
@@ -886,7 +886,7 @@
     "href": "materials/day-1-session-3-testing.html#some-common-expectations",
     "title": "📦 Building tidy tools",
     "section": "Some common expectations",
-    "text": "Some common expectations\nSome types of expect_zzzz()\n\nTesting for identity: expect_identical()\nTesting for equality with wiggle room: expect_equal()\nTesting something is TRUE: expect_true()\nTesting whether objects have names: expect_named()\nTesting errors: expect_error()\n\n\n\nAll expectations are in testthat documentation"
+    "text": "Some common expectations\nSome types of expect_zzzz()\n\nTesting for identity: expect_identical()\n\nTesting for equality with wiggle room: expect_equal()\n\nTesting something is TRUE: expect_true()\n\nTesting whether objects have names: expect_named()\n\nTesting errors: expect_error()\n\n\n\n\nAll expectations are in testthat documentation"
   },
   {
     "objectID": "materials/day-1-session-3-testing.html#equality-with-wiggle-room",
@@ -942,7 +942,7 @@
     "href": "materials/day-1-session-3-testing.html#test-file-structure",
     "title": "📦 Building tidy tools",
     "section": "Test file structure",
-    "text": "Test file structure\ntest_that(\"multiplication works\", {\n  expect_equal(2 * 2, 4)\n})\n\n\ntest_that(\"some thing in the function works\", {\n  expect_zzzz()\n  expect_zzzz()\n  ...\n})"
+    "text": "Test file structure\ntest_that(\"multiplication works\", {\n  expect_equal(2 * 2, 4)\n})\n\ntest_that(\"some thing in the function works\", {\n  expect_zzzz()\n  expect_zzzz()\n  ...\n})"
   },
   {
     "objectID": "materials/day-1-session-3-testing.html#make-a-test-1",
@@ -955,8 +955,8 @@
     "objectID": "materials/day-1-session-3-testing.html#edit-test-matches.r",
     "href": "materials/day-1-session-3-testing.html#edit-test-matches.r",
     "title": "📦 Building tidy tools",
-    "section": "Edit test-matches.R",
-    "text": "Edit test-matches.R\n🎬 Add a test to check the output of uss_make_matches() is a tibble with expect_true():\n\n\n\ntest_that(\"uss_make_matches works\", {\n\n  # use the function\n  italy <- uss_make_matches(engsoccerdata::italy, \"Italy\")\n\n  expect_true(tibble::is_tibble(italy))\n})\n\n\n\n\nWe use uss_make_matches() and examine the output with an expectation."
+    "section": "Edit test-matches.R\n",
+    "text": "Edit test-matches.R\n\n🎬 Add a test to check the output of uss_make_matches() is a tibble with expect_true():\n\n\n\ntest_that(\"uss_make_matches works\", {\n\n  # use the function\n  italy <- uss_make_matches(engsoccerdata::italy, \"Italy\")\n\n  expect_true(tibble::is_tibble(italy))\n})\n\n\n\n\nWe use uss_make_matches() and examine the output with an expectation."
   },
   {
     "objectID": "materials/day-1-session-3-testing.html#running-a-test-1",
@@ -1033,14 +1033,14 @@
     "href": "materials/day-1-session-3-testing.html#summary",
     "title": "📦 Building tidy tools",
     "section": "Summary",
-    "text": "Summary\n\n\nAutomated testing means you can systematically check your code still works when adding features\ntestthat “tries to make testing as fun as possible”\nOrganisation: test files\n\nlive in: tests/testthat/\nare named: test-xxxx.R\ncontain: test_that(\"something works\", { *expectations* })\ntests/testthat.R: runs the tests and should not (normally) be edited"
+    "text": "Summary\n\n\nAutomated testing means you can systematically check your code still works when adding features\n\ntestthat “tries to make testing as fun as possible”\n\nOrganisation: test files\n\nlive in: tests/testthat/\n\nare named: test-xxxx.R\n\ncontain: test_that(\"something works\", { *expectations* })\n\n\ntests/testthat.R: runs the tests and should not (normally) be edited"
   },
   {
     "objectID": "materials/day-1-session-3-testing.html#summary-1",
     "href": "materials/day-1-session-3-testing.html#summary-1",
     "title": "📦 Building tidy tools",
     "section": "Summary",
-    "text": "Summary\n\n\nExpectations have the form expect_zzzz(actual_result, expectation)\nWorkflow\n\nusethis::use_testthat(3) sets up your package to use testthat\nusethis::use_test(xxxx) creates test-xxxx.R\ntestthat::test_file() runs the tests in a test file\ndevtools::test() runs the tests in all the test files"
+    "text": "Summary\n\n\nExpectations have the form expect_zzzz(actual_result, expectation)\n\nWorkflow\n\n\nusethis::use_testthat(3) sets up your package to use testthat\n\n\nusethis::use_test(xxxx) creates test-xxxx.R\n\n\ntestthat::test_file() runs the tests in a test file\n\ndevtools::test() runs the tests in all the test files"
   },
   {
     "objectID": "materials/day-1-session-3-testing.html#references",
@@ -1054,56 +1054,56 @@
     "href": "materials/day-1-session-2-doc-minimal.html#learning-objectives",
     "title": "📦 Building tidy tools",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\nAt the end of this section you will be able to:\n\n\nDescribe the different levels of package documentation\nDescribe what is in the DESCRIPTION file and know what to edit manually and which parts devtools will edit automagically\nDocument a function with Roxygen comments and use the devtools workflow to convert to “R documentation” format .Rd\nUse some of the most common Roxygen tags\nAdd a package level help file\nDescribe, and document your package with, the common types of package dependencies\nAdd a citation file in Citation File Format (CFF)"
+    "text": "Learning Objectives\nAt the end of this section you will be able to:\n\n\nDescribe the different levels of package documentation\nDescribe what is in the DESCRIPTION file and know what to edit manually and which parts devtools will edit automagically\nDocument a function with Roxygen comments and use the devtools workflow to convert to “R documentation” format .Rd\n\nUse some of the most common Roxygen tags\nAdd a package level help file\nDescribe, and document your package with, the common types of package dependencies\nAdd a citation file in Citation File Format (CFF)"
   },
   {
     "objectID": "materials/day-1-session-2-doc-minimal.html#levels-of-package-documentation",
     "href": "materials/day-1-session-2-doc-minimal.html#levels-of-package-documentation",
     "title": "📦 Building tidy tools",
     "section": "Levels of package documentation",
-    "text": "Levels of package documentation\n\nMetadata: The DESCRIPTION file – “what’s in this package?”\nObject documentation: for functions and data\nPackage-level documentation\n\n\n\nVignettes: Long form documentation\n\n\n\npkgdown (Wickham, Hesselberth, and Salmon 2022) sites: Websites for your package!"
+    "text": "Levels of package documentation\n\nMetadata: The DESCRIPTION file – “what’s in this package?”\nObject documentation: for functions and data\nPackage-level documentation\n\n\nVignettes: Long form documentation\n\n\n\npkgdown (Wickham, Hesselberth, and Salmon 2022) sites: Websites for your package!"
   },
   {
     "objectID": "materials/day-1-session-2-doc-minimal.html#sample-description",
     "href": "materials/day-1-session-2-doc-minimal.html#sample-description",
     "title": "📦 Building tidy tools",
-    "section": "Sample DESCRIPTION",
-    "text": "Sample DESCRIPTION\n🎬 Take a look at the DESCRIPTION for the following packages. What’s common? What’s different?\n\nggplot2 (Wickham 2016)\n\nCRAN Package page\nDESCRIPTION on GitHub\n\npalmerpenguins (Horst, Hill, and Gorman 2020)\n\nCRAN Package page\nDESCRIPTION on GitHub"
+    "section": "Sample DESCRIPTION\n",
+    "text": "Sample DESCRIPTION\n\n🎬 Take a look at the DESCRIPTION for the following packages. What’s common? What’s different?\n\n\nggplot2 (Wickham 2016)\n\nCRAN Package page\nDESCRIPTION on GitHub\n\n\n\npalmerpenguins (Horst, Hill, and Gorman 2020)\n\nCRAN Package page\nDESCRIPTION on GitHub"
   },
   {
     "objectID": "materials/day-1-session-2-doc-minimal.html#metadata-in-description",
     "href": "materials/day-1-session-2-doc-minimal.html#metadata-in-description",
     "title": "📦 Building tidy tools",
-    "section": "Metadata in DESCRIPTION",
-    "text": "Metadata in DESCRIPTION\n\nTitle: One line, title case, with no period. Fewer than 65 characters.\nVersion\nfor release: MAJOR.MINOR.PATCH version.\nfor development version: MAJOR.MINOR.PATCH.9000\nAuthors@R:\n“aut” means author, “cre” means creator, “ctb” means contributor."
+    "section": "Metadata in DESCRIPTION\n",
+    "text": "Metadata in DESCRIPTION\n\n\nTitle: One line, title case, with no period. Fewer than 65 characters.\nVersion\nfor release: MAJOR.MINOR.PATCH version.\nfor development version: MAJOR.MINOR.PATCH.9000\nAuthors@R:\n“aut” means author, “cre” means creator, “ctb” means contributor."
   },
   {
     "objectID": "materials/day-1-session-2-doc-minimal.html#update-description",
     "href": "materials/day-1-session-2-doc-minimal.html#update-description",
     "title": "📦 Building tidy tools",
-    "section": "Update DESCRIPTION",
-    "text": "Update DESCRIPTION\n🎬 Edit the title\n\n\n🎬 You should find that your information as an author is already included because you edited your .RProfile at the start of the session"
+    "section": "Update DESCRIPTION\n",
+    "text": "Update DESCRIPTION\n\n🎬 Edit the title\n\n🎬 You should find that your information as an author is already included because you edited your .RProfile at the start of the session"
   },
   {
     "objectID": "materials/day-1-session-2-doc-minimal.html#update-description-1",
     "href": "materials/day-1-session-2-doc-minimal.html#update-description-1",
     "title": "📦 Building tidy tools",
-    "section": "Update DESCRIPTION",
-    "text": "Update DESCRIPTION\n\nPackage: ussie\nTitle: Work with European Football League Data\nVersion: 0.0.0.9000\nAuthors@R: \n    person(\"Emma\", \"Rand\", , \"emma.rand@york.ac.uk\", role = c(\"aut\", \"cre\"),\n           comment = c(ORCID = \"0000-0002-1358-8275\"))\nDescription: What the package does (one paragraph).\nLicense: MIT + file LICENSE\nEncoding: UTF-8\nRoxygen: list(markdown = TRUE)\nRoxygenNote: 7.2.0"
+    "section": "Update DESCRIPTION\n",
+    "text": "Update DESCRIPTION\n\n\nPackage: ussie\nTitle: Work with European Football League Data\nVersion: 0.0.0.9000\nAuthors@R: \n    person(\"Emma\", \"Rand\", , \"emma.rand@york.ac.uk\", role = c(\"aut\", \"cre\"),\n           comment = c(ORCID = \"0000-0002-1358-8275\"))\nDescription: What the package does (one paragraph).\nLicense: MIT + file LICENSE\nEncoding: UTF-8\nRoxygen: list(markdown = TRUE)\nRoxygenNote: 7.2.0"
   },
   {
     "objectID": "materials/day-1-session-2-doc-minimal.html#metadata-in-description-1",
     "href": "materials/day-1-session-2-doc-minimal.html#metadata-in-description-1",
     "title": "📦 Building tidy tools",
-    "section": "Metadata in DESCRIPTION",
-    "text": "Metadata in DESCRIPTION\n\nDescription: One paragraph describing what the package does. Keep the width of the paragraph to 80 characters; indent subsequent lines with 4 spaces.\nLicense\nEncoding: How to encode text, use UTF-8 encoding.\nLazyData: Use true to lazy-load data sets in the package."
+    "section": "Metadata in DESCRIPTION\n",
+    "text": "Metadata in DESCRIPTION\n\n\nDescription: One paragraph describing what the package does. Keep the width of the paragraph to 80 characters; indent subsequent lines with 4 spaces.\nLicense\nEncoding: How to encode text, use UTF-8 encoding.\nLazyData: Use true to lazy-load data sets in the package."
   },
   {
     "objectID": "materials/day-1-session-2-doc-minimal.html#update-description-2",
     "href": "materials/day-1-session-2-doc-minimal.html#update-description-2",
     "title": "📦 Building tidy tools",
-    "section": "Update DESCRIPTION",
-    "text": "Update DESCRIPTION\n🎬 Edit the description\n\n\nDescription: This is a demo package for the \"Building Tidy Tools\" workshop at \n    at rstudio::conf(2022L). It allows you to work with European football \n    league data supplied by the engsoccerdata package (Curley 2016)."
+    "section": "Update DESCRIPTION\n",
+    "text": "Update DESCRIPTION\n\n🎬 Edit the description\n\n\nDescription: This is a demo package for the \"Building Tidy Tools\" workshop at \n    at rstudio::conf(2022L). It allows you to work with European football \n    league data supplied by the engsoccerdata package (Curley 2016)."
   },
   {
     "objectID": "materials/day-1-session-2-doc-minimal.html#object-documentation-1",
@@ -1159,7 +1159,7 @@
     "href": "materials/day-1-session-2-doc-minimal.html#roxygen-comments-and-tags",
     "title": "📦 Building tidy tools",
     "section": "Roxygen comments and tags",
-    "text": "Roxygen comments and tags\n\n#' indicates it is a roxygen comment\n@ indicates a roxygen tag\n\n@param arg — describe the inputs\n@examples— show how the function works\n@seealso — point out related functions\n@return — describe the outputs\n@export — is this a user visible function"
+    "text": "Roxygen comments and tags\n\n#' indicates it is a roxygen comment\n\n@ indicates a roxygen tag\n\n\n@param arg — describe the inputs\n\n@examples— show how the function works\n\n@seealso — point out related functions\n\n@return — describe the outputs\n\n@export — is this a user visible function"
   },
   {
     "objectID": "materials/day-1-session-2-doc-minimal.html#document-your-function-1",
@@ -1187,7 +1187,7 @@
     "href": "materials/day-1-session-2-doc-minimal.html#take-a-look-1",
     "title": "📦 Building tidy tools",
     "section": "Take a look 1",
-    "text": "Take a look 1\n├── DESCRIPTION\n├── LICENSE\n├── LICENSE.md\n├── man\n│   └── uss_make_matches.Rd \n├── NAMESPACE\n├── R\n│   └── matches.R\n└── ussie.Rproj\n\nNAMESPACE now lists the exported function\nman/uss_make_matches.Rd has been written"
+    "text": "Take a look 1\n├── DESCRIPTION\n├── LICENSE\n├── LICENSE.md\n├── man\n│   └── uss_make_matches.Rd \n├── NAMESPACE\n├── R\n│   └── matches.R\n└── ussie.Rproj\n\n\nNAMESPACE now lists the exported function\n\nman/uss_make_matches.Rd has been written"
   },
   {
     "objectID": "materials/day-1-session-2-doc-minimal.html#take-a-look-2",
@@ -1250,7 +1250,7 @@
     "href": "materials/day-1-session-2-doc-minimal.html#package-dependencies-1",
     "title": "📦 Building tidy tools",
     "section": "Package dependencies",
-    "text": "Package dependencies\nOur warnings are because we have used packages that we have not declared officially.\n\n\nWe need to document our package dependencies"
+    "text": "Package dependencies\nOur warnings are because we have used packages that we have not declared officially.\n\nWe need to document our package dependencies"
   },
   {
     "objectID": "materials/day-1-session-2-doc-minimal.html#package-dependencies-2",
@@ -1334,14 +1334,14 @@
     "href": "materials/day-1-session-2-doc-minimal.html#summary",
     "title": "📦 Building tidy tools",
     "section": "Summary",
-    "text": "Summary\n\n\nA package has metadata and object documentation (essential), vignettes and pkgdown sites (optional)\nMetadata is in the DESCRIPTION\n\nsome fields need manual editing\nsome fields are appropriately edited by devtools workflow functions\n\nObjects like functions and data are documented with roxygen comments then turned into documentation with devtools::document()\n\nroxygen comments are indicated with #'\nroxygen tags start with @"
+    "text": "Summary\n\n\nA package has metadata and object documentation (essential), vignettes and pkgdown sites (optional)\nMetadata is in the DESCRIPTION\n\nsome fields need manual editing\nsome fields are appropriately edited by devtools workflow functions\n\n\nObjects like functions and data are documented with roxygen comments then turned into documentation with devtools::document()\n\nroxygen comments are indicated with #'\n\nroxygen tags start with @"
   },
   {
     "objectID": "materials/day-1-session-2-doc-minimal.html#summary-continued",
     "href": "materials/day-1-session-2-doc-minimal.html#summary-continued",
     "title": "📦 Building tidy tools",
     "section": "Summary continued",
-    "text": "Summary continued\n\n\nPackage dependencies need to be documented\n\npackage dependencies are added with use_package()\nfunctions from dependencies are called with pkg::function()\nwe don’t use library()\n\ncffr::cff_write() will write a citation file from the description file."
+    "text": "Summary continued\n\n\nPackage dependencies need to be documented\n\npackage dependencies are added with use_package()\n\nfunctions from dependencies are called with pkg::function()\n\nwe don’t use library()\n\n\n\n\ncffr::cff_write() will write a citation file from the description file."
   },
   {
     "objectID": "materials/day-1-session-2-doc-minimal.html#references",
@@ -1404,7 +1404,7 @@
     "href": "materials/day-2-session-1-design.html#staying-on-the-happy-path",
     "title": "📦 Building tidy tools",
     "section": "Staying on the “happy path”",
-    "text": "Staying on the “happy path”\nOne example builds on another, so it’s important to keep up.\n\nWe will do our best to help; in case you need to reset:\nbtt_reset_hard(\"2.1.1\")\n\n\nOverwrites:\n\ndirectories: R, tests/testthat\nImports, Suggests sections of DESCRIPTION"
+    "text": "Staying on the “happy path”\nOne example builds on another, so it’s important to keep up.\n\nWe will do our best to help; in case you need to reset:\nbtt_reset_hard(\"2.1.1\")\n\n\nOverwrites:\n\ndirectories: R, tests/testthat\n\n\nImports, Suggests sections of DESCRIPTION"
   },
   {
     "objectID": "materials/day-2-session-1-design.html#learning-objectives",
@@ -1431,36 +1431,36 @@
     "objectID": "materials/day-2-session-1-design.html#your-turn-2.1.1",
     "href": "materials/day-2-session-1-design.html#your-turn-2.1.1",
     "title": "📦 Building tidy tools",
-    "section": "Your turn \"2.1.1\"",
-    "text": "Your turn \"2.1.1\"\n\nAdd the {rlang} package:\n\nusethis::use_package(\"rlang\")\n\nImport the .data, .env pronouns:\n\n# adds to R/ussie-package.R\nusethis::use_import_from(\"rlang\", c(\".data\", \".env\"))\n\nmatches.R: use .data, .env in uss_make_matches().\ndevtools::check() should be happy now."
+    "section": "Your turn \"2.1.1\"\n",
+    "text": "Your turn \"2.1.1\"\n\n\nAdd the {rlang} package:\n\nusethis::use_package(\"rlang\")\n\nImport the .data, .env pronouns:\n\n# adds to R/ussie-package.R\nusethis::use_import_from(\"rlang\", c(\".data\", \".env\"))\n\nmatches.R: use .data, .env in uss_make_matches().\ndevtools::check() should be happy now."
   },
   {
     "objectID": "materials/day-2-session-1-design.html#api-design",
     "href": "materials/day-2-session-1-design.html#api-design",
     "title": "📦 Building tidy tools",
     "section": "API design",
-    "text": "API design\n\nA thing I like about tidyverse:\n\n\n\nthere should be a function to do this; it should look like this\n\n\n\n\nthere already is\n\n\n\nBecause:\n\nfunctions and arguments follow naming conventions\narguments are ordered according to purpose\nwe know what to expect for return values"
+    "text": "API design\n\nA thing I like about tidyverse:\n\n\n\n\nthere should be a function to do this; it should look like this\n\n\n\n\n\nthere already is\n\n\n\nBecause:\n\nfunctions and arguments follow naming conventions\narguments are ordered according to purpose\nwe know what to expect for return values"
   },
   {
     "objectID": "materials/day-2-session-1-design.html#evolving-references",
     "href": "materials/day-2-session-1-design.html#evolving-references",
     "title": "📦 Building tidy tools",
     "section": "Evolving references",
-    "text": "Evolving references\nThe way we approach problems is always evolving; tidyverse is no exception:\n\n\nTidyverse Style Guide (H. Wickham 2022)\n\n\n\n\nTidyverse Design Guide (Team 2022)\n\n\n\n\nfollow the GitHub repo of your favorite tidyverse/r-lib package (mine is {usethis}):\n\nissue discussions\npull-request reviews"
+    "text": "Evolving references\nThe way we approach problems is always evolving; tidyverse is no exception:\n\n\n\nTidyverse Style Guide (H. Wickham 2022)\n\n\n\n\n\n\nTidyverse Design Guide (Team 2022)\n\n\n\n\n\nfollow the GitHub repo of your favorite tidyverse/r-lib package (mine is {usethis}):\n\nissue discussions\npull-request reviews"
   },
   {
     "objectID": "materials/day-2-session-1-design.html#naming-functions",
     "href": "materials/day-2-session-1-design.html#naming-functions",
     "title": "📦 Building tidy tools",
     "section": "Naming functions",
-    "text": "Naming functions\nIf writing a smaller package, consider prefixing your functions:\n\n{ussie}: uss_make_matches()\n{btt22}: btt_get()\n\n\nUse a verb next:\n\ndplyr::mutate(), stringr::str_split()\n\n\n\nUse a noun if building up a specific type of object:\n\nggplot2::ggplot(), ggplot2::geom_point()"
+    "text": "Naming functions\nIf writing a smaller package, consider prefixing your functions:\n\n{ussie}: uss_make_matches()\n{btt22}: btt_get()\n\n\nUse a verb next:\n\n\ndplyr::mutate(), stringr::str_split()\n\n\n\n\nUse a noun if building up a specific type of object:\n\n\nggplot2::ggplot(), ggplot2::geom_point()"
   },
   {
     "objectID": "materials/day-2-session-1-design.html#casing",
     "href": "materials/day-2-session-1-design.html#casing",
     "title": "📦 Building tidy tools",
     "section": "Casing",
-    "text": "Casing\n\nTidyverse uses snake_case; Shiny prefers camelCase\nPython prefers snake_case\nJavaScript prefers:\n\ncamelCase for functions\nPascalCase for classes, interfaces\n\n\n\nPick a convention according to your domain, follow it."
+    "text": "Casing\n\nTidyverse uses snake_case; Shiny prefers camelCase\nPython prefers snake_case\n\nJavaScript prefers:\n\n\ncamelCase for functions\n\nPascalCase for classes, interfaces\n\n\n\n\nPick a convention according to your domain, follow it."
   },
   {
     "objectID": "materials/day-2-session-1-design.html#arguments",
@@ -1481,7 +1481,7 @@
     "href": "materials/day-2-session-1-design.html#ordering-arguments",
     "title": "📦 Building tidy tools",
     "section": "Ordering arguments",
-    "text": "Ordering arguments\n\ndata: first argument, “the thing”\ndescriptors: values the user should specify\ndots (...): stuff that gets passed to other functions\ndetails: values with defaults\n\n\nI have seen the order of dots and details reversed.\nHowever, data and descriptors almost always come first."
+    "text": "Ordering arguments\n\n\ndata: first argument, “the thing”\n\ndescriptors: values the user should specify\n\ndots (...): stuff that gets passed to other functions\n\ndetails: values with defaults\n\n\nI have seen the order of dots and details reversed.\nHowever, data and descriptors almost always come first."
   },
   {
     "objectID": "materials/day-2-session-1-design.html#discuss-with-neighbour",
@@ -1515,8 +1515,8 @@
     "objectID": "materials/day-2-session-1-design.html#our-turn-2.1.2",
     "href": "materials/day-2-session-1-design.html#our-turn-2.1.2",
     "title": "📦 Building tidy tools",
-    "section": "Our turn \"2.1.2\"",
-    "text": "Our turn \"2.1.2\"\nImplement a function, uss_get_matches():\n\ngiven a country, return a matches tibble\n\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.1.2\")\n\n\n\nGet new files, btt22::btt_get(\"2.1.2\"):\n\ncolumns.R, get-matches.R\ntest-get-matches.R\n\nusethis::use_package(\"engsoccerdata\")"
+    "section": "Our turn \"2.1.2\"\n",
+    "text": "Our turn \"2.1.2\"\n\nImplement a function, uss_get_matches():\n\ngiven a country, return a matches tibble\n\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.1.2\")\n\n\n\nGet new files, btt22::btt_get(\"2.1.2\"):\n\n\ncolumns.R, get-matches.R\n\ntest-get-matches.R\n\nusethis::use_package(\"engsoccerdata\")"
   },
   {
     "objectID": "materials/day-2-session-1-design.html#columns.r",
@@ -1530,7 +1530,7 @@
     "href": "materials/day-2-session-1-design.html#build-time-vs.-run-time",
     "title": "📦 Building tidy tools",
     "section": "Build-time vs. run-time",
-    "text": "Build-time vs. run-time\n\nPut this code, temporarily, into columns.R:\n\nbuild_time <- Sys.time()\n\nrun_time <- function() {\n  Sys.time()\n}\n\n\ndevtools::load_all()\ntry build_time, run_time()\n\n\n\nIf you need to delay evaluation, try a function."
+    "text": "Build-time vs. run-time\n\nPut this code, temporarily, into columns.R:\n\nbuild_time <- Sys.time()\n\nrun_time <- function() {\n  Sys.time()\n}\n\n\ndevtools::load_all()\ntry build_time, run_time()\n\n\n\n\nIf you need to delay evaluation, try a function."
   },
   {
     "objectID": "materials/day-2-session-1-design.html#get_soccer_data",
@@ -1551,7 +1551,7 @@
     "href": "materials/day-2-session-1-design.html#best_wins_leeds",
     "title": "📦 Building tidy tools",
     "section": "best_wins_leeds()",
-    "text": "best_wins_leeds()\n\nusethis::use_package(\"engsoccerdata\")\nbest_wins_leeds <- function(n = 10) {\n  engsoccerdata::bestwins(\n    engsoccerdata::england,\n    teamname = \"Leeds United\",\n    N = n\n  )\n}\n\n\n\ndevtools::check(), comment best_wins_leeds()\ndevtools::check() 🤔\nrestore commented-out code"
+    "text": "best_wins_leeds()\n\n\nusethis::use_package(\"engsoccerdata\")\nbest_wins_leeds <- function(n = 10) {\n  engsoccerdata::bestwins(\n    engsoccerdata::england,\n    teamname = \"Leeds United\",\n    N = n\n  )\n}\n\n\n\n\ndevtools::check(), comment best_wins_leeds()\ndevtools::check() 🤔\nrestore commented-out code"
   },
   {
     "objectID": "materials/day-2-session-1-design.html#uss_get_matches",
@@ -1614,7 +1614,7 @@
     "href": "materials/day-2-session-1-design.html#summary",
     "title": "📦 Building tidy tools",
     "section": "Summary",
-    "text": "Summary\n\n\nNaming: be consistent, concise, yet evocative.\n\n\n\n\nArgument order: data, descriptors, dots, details.\n\n\n\n\nReturn value type: be consistent, predictable.\n\n\n\n\nEasy to remember data (first) argument and return value:\n\neasy to use pipe, |>.\n\n\n\n\n\nBe mindful of side effects."
+    "text": "Summary\n\n\n\nNaming: be consistent, concise, yet evocative.\n\n\n\n\n\nArgument order: data, descriptors, dots, details.\n\n\n\n\n\nReturn value type: be consistent, predictable.\n\n\n\n\nEasy to remember data (first) argument and return value:\n\neasy to use pipe, |>.\n\n\n\n\n\n\nBe mindful of side effects."
   },
   {
     "objectID": "materials/day-2-session-1-design.html#additional-material",
@@ -1635,14 +1635,14 @@
     "href": "materials/day-1-session-4-doc-sharing.html#learning-objectives",
     "title": "📦 Building tidy tools",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\nAt the end of this section you will be able to:\n\n\nAdd a README.mdby building and populating a README.Rmd\nSet up a GitHub action that will run\n\nrun R CMD check on multiple OS on GitHub and\nadd badge with the result to the README\n\nDescribe the additions made when adding a GitHub action\nAdd a package vignette\nUse pkgdown (Wickham, Hesselberth, and Salmon 2022) to create a website for your package\nDescribe additions made when making and hosting a pkgdown website"
+    "text": "Learning Objectives\nAt the end of this section you will be able to:\n\n\nAdd a README.mdby building and populating a README.Rmd\n\nSet up a GitHub action that will run\n\nrun R CMD check on multiple OS on GitHub and\nadd badge with the result to the README\n\n\nDescribe the additions made when adding a GitHub action\nAdd a package vignette\nUse pkgdown (Wickham, Hesselberth, and Salmon 2022) to create a website for your package\nDescribe additions made when making and hosting a pkgdown website"
   },
   {
     "objectID": "materials/day-1-session-4-doc-sharing.html#overview-1",
     "href": "materials/day-1-session-4-doc-sharing.html#overview-1",
     "title": "📦 Building tidy tools",
     "section": "Overview",
-    "text": "Overview\n\nREADME.md: Often the first file read by the user. Include one!\n\n\n\nVignette: A long-form guide to your package. Can describe the problem that your package is designed to solve, and then show the reader how to solve it.\n\n\n\n\nPackage website\n\n\n\n🦸‍♀️ usethis (Wickham, Bryan, and Barrett 2022)"
+    "text": "Overview\n\n\nREADME.md: Often the first file read by the user. Include one!\n\n\n\nVignette: A long-form guide to your package. Can describe the problem that your package is designed to solve, and then show the reader how to solve it.\n\n\n\n\nPackage website\n\n\n\n🦸‍♀️ usethis (Wickham, Bryan, and Barrett 2022)"
   },
   {
     "objectID": "materials/day-1-session-4-doc-sharing.html#readme.md",
@@ -1662,22 +1662,22 @@
     "objectID": "materials/day-1-session-4-doc-sharing.html#usethis-helps-out-again",
     "href": "materials/day-1-session-4-doc-sharing.html#usethis-helps-out-again",
     "title": "📦 Building tidy tools",
-    "section": "usethis helps out again!",
-    "text": "usethis helps out again!\n\nusethis::use_readme_rmd() will:\n\ngenerate a template README.Rmd which\n\noutputs a GitHub markdown doc\ncontains reminders of things to include\nhas tips\n\n\n\n\n\nadds the README.Rmd to the .Rbuildignore\nadds a “pre-commit” hook to ensure you knit to md before committing"
+    "section": "\nusethis helps out again!",
+    "text": "usethis helps out again!\n\nusethis::use_readme_rmd() will:\n\ngenerate a template README.Rmd which\n\noutputs a GitHub markdown doc\ncontains reminders of things to include\nhas tips\n\n\n\n\n\n\nadds the README.Rmd to the .Rbuildignore\n\nadds a “pre-commit” hook to ensure you knit to md before committing"
   },
   {
     "objectID": "materials/day-1-session-4-doc-sharing.html#add-a-readme.rmd",
     "href": "materials/day-1-session-4-doc-sharing.html#add-a-readme.rmd",
     "title": "📦 Building tidy tools",
-    "section": "Add a README.Rmd",
-    "text": "Add a README.Rmd\n🎬 Add a README.Rmd with:\n\nusethis::use_readme_rmd()\n\n\n✔ Writing 'README.Rmd'\n✔ Adding '^README\\\\.Rmd$' to '.Rbuildignore'\n• Modify 'README.Rmd'\n✔ Writing '.git/hooks/pre-commit'"
+    "section": "Add a README.Rmd\n",
+    "text": "Add a README.Rmd\n\n🎬 Add a README.Rmd with:\n\nusethis::use_readme_rmd()\n\n\n✔ Writing 'README.Rmd'\n✔ Adding '^README\\\\.Rmd$' to '.Rbuildignore'\n• Modify 'README.Rmd'\n✔ Writing '.git/hooks/pre-commit'"
   },
   {
     "objectID": "materials/day-1-session-4-doc-sharing.html#template",
     "href": "materials/day-1-session-4-doc-sharing.html#template",
     "title": "📦 Building tidy tools",
     "section": "Template",
-    "text": "Template\n🎬 Examine your README.Rmd\n\n\nGitHub markdown\nreminder to edit README.Rmd rather than README.md\nSets up some recommended knitr options"
+    "text": "Template\n🎬 Examine your README.Rmd\n\n\nGitHub markdown\nreminder to edit README.Rmd rather than README.md\n\nSets up some recommended knitr options"
   },
   {
     "objectID": "materials/day-1-session-4-doc-sharing.html#section",
@@ -1698,14 +1698,14 @@
     "href": "materials/day-1-session-4-doc-sharing.html#devtoolsbuild_readme",
     "title": "📦 Building tidy tools",
     "section": "devtools::build_readme()",
-    "text": "devtools::build_readme()\n\ncreates README.md\ncreates man/figures/README-pressure-1.png"
+    "text": "devtools::build_readme()\n\ncreates README.md\n\ncreates man/figures/README-pressure-1.png"
   },
   {
     "objectID": "materials/day-1-session-4-doc-sharing.html#edit-readme.rmd",
     "href": "materials/day-1-session-4-doc-sharing.html#edit-readme.rmd",
     "title": "📦 Building tidy tools",
-    "section": "Edit README.Rmd",
-    "text": "Edit README.Rmd\n🎬 Complete: “The goal of ussie is to …”\n\n\n🎬 Add: an example with uss_make_maches()\n \n🎬 Remove: non-relevant sections"
+    "section": "Edit README.Rmd\n",
+    "text": "Edit README.Rmd\n\n🎬 Complete: “The goal of ussie is to …”\n\n🎬 Add: an example with uss_make_maches()\n \n🎬 Remove: non-relevant sections"
   },
   {
     "objectID": "materials/day-1-session-4-doc-sharing.html#an-answer",
@@ -1761,7 +1761,7 @@
     "href": "materials/day-1-session-4-doc-sharing.html#what-else-has-changed",
     "title": "📦 Building tidy tools",
     "section": "What else has changed?",
-    "text": "What else has changed?\n.github/workflows/R-CMD-check.yaml is created\n\n\n🎬 Look at .github/workflows/R-CMD-check.yaml"
+    "text": "What else has changed?\n.github/workflows/R-CMD-check.yaml is created\n\n🎬 Look at .github/workflows/R-CMD-check.yaml"
   },
   {
     "objectID": "materials/day-1-session-4-doc-sharing.html#r-cmd-check.yaml",
@@ -1775,7 +1775,7 @@
     "href": "materials/day-1-session-4-doc-sharing.html#commit-and-push",
     "title": "📦 Building tidy tools",
     "section": "Commit and push",
-    "text": "Commit and push\n🎬 Stage and commit\n\n\n🎬 Push to GitHub"
+    "text": "Commit and push\n🎬 Stage and commit\n\n🎬 Push to GitHub"
   },
   {
     "objectID": "materials/day-1-session-4-doc-sharing.html#other-github-actions",
@@ -1809,8 +1809,8 @@
     "objectID": "materials/day-1-session-4-doc-sharing.html#edit-vignettesussie.rmd",
     "href": "materials/day-1-session-4-doc-sharing.html#edit-vignettesussie.rmd",
     "title": "📦 Building tidy tools",
-    "section": "Edit vignettes/ussie.Rmd",
-    "text": "Edit vignettes/ussie.Rmd\n🎬 Add info to vignettes/ussie.Rmd"
+    "section": "Edit vignettes/ussie.Rmd\n",
+    "text": "Edit vignettes/ussie.Rmd\n\n🎬 Add info to vignettes/ussie.Rmd"
   },
   {
     "objectID": "materials/day-1-session-4-doc-sharing.html#an-answer-1",
@@ -1838,7 +1838,7 @@
     "href": "materials/day-1-session-4-doc-sharing.html#section-6",
     "title": "📦 Building tidy tools",
     "section": "",
-    "text": "Uses your existing documentation\n\nHome page - from README.md\nGet started - from overall pkg vignette\nFunction Reference - from documentation in man/\nArticles - from other vignettes"
+    "text": "Uses your existing documentation\n\nHome page - from README.md\n\nGet started - from overall pkg vignette\nFunction Reference - from documentation in man/\n\nArticles - from other vignettes"
   },
   {
     "objectID": "materials/day-1-session-4-doc-sharing.html#workflow",
@@ -1915,7 +1915,7 @@
     "href": "materials/day-1-session-4-doc-sharing.html#what-else-has-changed-1",
     "title": "📦 Building tidy tools",
     "section": "What else has changed?",
-    "text": "What else has changed?\n.github/workflows/pkgdown.yaml is created\n\n\n🎬 Look at .github/workflows/pkgdown.yaml"
+    "text": "What else has changed?\n.github/workflows/pkgdown.yaml is created\n\n🎬 Look at .github/workflows/pkgdown.yaml"
   },
   {
     "objectID": "materials/day-1-session-4-doc-sharing.html#pkgdown.yaml",
@@ -1929,21 +1929,21 @@
     "href": "materials/day-1-session-4-doc-sharing.html#commit-and-push-1",
     "title": "📦 Building tidy tools",
     "section": "Commit and push",
-    "text": "Commit and push\n🎬 Stage and commit\n\n\n🎬 Push to GitHub"
+    "text": "Commit and push\n🎬 Stage and commit\n\n🎬 Push to GitHub"
   },
   {
     "objectID": "materials/day-1-session-4-doc-sharing.html#summary",
     "href": "materials/day-1-session-4-doc-sharing.html#summary",
     "title": "📦 Building tidy tools",
     "section": "Summary",
-    "text": "Summary\n\n\nAlways include a README.md with the purpose of the package, installation instructions and a simple example\nusethis::use_readme_rmd() will generate a template README.Rmd and do other useful things\ndevtools::build_readme() will build README.md from README.Rmd\nA GitHub Action is “continuous integration” which allows you to automate package building, testing and deployment on github\nusethis::use_github_action_check_standard() will add the R CMD check action and a badge"
+    "text": "Summary\n\n\nAlways include a README.md with the purpose of the package, installation instructions and a simple example\n\nusethis::use_readme_rmd() will generate a template README.Rmd and do other useful things\n\ndevtools::build_readme() will build README.md from README.Rmd\n\nA GitHub Action is “continuous integration” which allows you to automate package building, testing and deployment on github\n\nusethis::use_github_action_check_standard() will add the R CMD check action and a badge"
   },
   {
     "objectID": "materials/day-1-session-4-doc-sharing.html#summary-1",
     "href": "materials/day-1-session-4-doc-sharing.html#summary-1",
     "title": "📦 Building tidy tools",
     "section": "Summary",
-    "text": "Summary\n\n\nA vignette gives a more detailed explanation of how your package can be used\nYou can add a vignette with usethis::use_vignette(name_of_vignette)\npkgdown makes it quick and easy to build a website for your package from the existing documentation\nusethis::use_pkgdown() configures your package to use a pkgdown website\npkgdown::build_site() will build the wqebsite so you can examine it locally\nusethis::use_pkgdown_github_pages() sets up a GitHub action to automatically build and publish your site on pushing.\nusethis really rocks!"
+    "text": "Summary\n\n\nA vignette gives a more detailed explanation of how your package can be used\nYou can add a vignette with usethis::use_vignette(name_of_vignette)\n\n\npkgdown makes it quick and easy to build a website for your package from the existing documentation\n\nusethis::use_pkgdown() configures your package to use a pkgdown website\n\npkgdown::build_site() will build the wqebsite so you can examine it locally\n\nusethis::use_pkgdown_github_pages() sets up a GitHub action to automatically build and publish your site on pushing.\n\nusethis really rocks!"
   },
   {
     "objectID": "materials/day-1-session-4-doc-sharing.html#references",
@@ -1964,21 +1964,21 @@
     "href": "materials/day-2-session-2-side-effects.html#errors",
     "title": "📦 Building tidy tools",
     "section": "Errors",
-    "text": "Errors\n\nThe most common type of side-effect is the error condition.\n\n\n\nSometimes, error messages can be cryptic:\nseq[10]\nError in seq[10] : object of type 'closure' is not subsettable\n\n\n\n\nYou can write error messages that make things clearer for:\n\ndevelopers who call your functions\nend users"
+    "text": "Errors\n\nThe most common type of side-effect is the error condition.\n\n\n\n\nSometimes, error messages can be cryptic:\nseq[10]\nError in seq[10] : object of type 'closure' is not subsettable\n\n\n\n\n\nYou can write error messages that make things clearer for:\n\ndevelopers who call your functions\nend users"
   },
   {
     "objectID": "materials/day-2-session-2-side-effects.html#creating-an-error-condition",
     "href": "materials/day-2-session-2-side-effects.html#creating-an-error-condition",
     "title": "📦 Building tidy tools",
     "section": "Creating an error condition",
-    "text": "Creating an error condition\nAn effective error condition has:\n\npredicate (logical expression used to identify condition)\nclear message for end user\nclass name for developer\nmore information for developer"
+    "text": "Creating an error condition\nAn effective error condition has:\n\n\npredicate (logical expression used to identify condition)\nclear message for end user\n\nclass name for developer\n\nmore information for developer"
   },
   {
     "objectID": "materials/day-2-session-2-side-effects.html#using-clicli_abort",
     "href": "materials/day-2-session-2-side-effects.html#using-clicli_abort",
     "title": "📦 Building tidy tools",
-    "section": "Using cli::cli_abort()",
-    "text": "Using cli::cli_abort()\n{cli} package (Csárdi 2022)\n# predicate\nif (y > 3) {\n  cli::cli_abort(\n    # message for end user\n    c(\n      \"{.var y} cannot be greater than 3.\", \n      x = \"{.var y} is {.val {y}}.\"\n    ),\n    # class name\n    class = \"ussie_error_threshold\",  \n    # more information\n    y = y     \n  )\n}"
+    "section": "Using cli::cli_abort()\n",
+    "text": "Using cli::cli_abort()\n\n{cli} package (Csárdi 2022)\n# predicate\nif (y > 3) {\n  cli::cli_abort(\n    # message for end user\n    c(\n      \"{.var y} cannot be greater than 3.\", \n      x = \"{.var y} is {.val {y}}.\"\n    ),\n    # class name\n    class = \"ussie_error_threshold\",  \n    # more information\n    y = y     \n  )\n}"
   },
   {
     "objectID": "materials/day-2-session-2-side-effects.html#predicate",
@@ -1992,14 +1992,14 @@
     "href": "materials/day-2-session-2-side-effects.html#message",
     "title": "📦 Building tidy tools",
     "section": "Message",
-    "text": "Message\nContent:\n\nhow did we violate the predicate?\n\n\nFormatting:\n\n{cli} provides powerful formatting tools:\n\nuse curly-braces and a tag, e.g. {.var y}\nuse more curly-braces to interpolate, e.g. {.val {y}}\n\nsee cli inline-markup for more details."
+    "text": "Message\nContent:\n\nhow did we violate the predicate?\n\n\nFormatting:\n\n\n{cli} provides powerful formatting tools:\n\nuse curly-braces and a tag, e.g. {.var y}\n\nuse more curly-braces to interpolate, e.g. {.val {y}}\n\n\n\nsee cli inline-markup for more details."
   },
   {
     "objectID": "materials/day-2-session-2-side-effects.html#class-name",
     "href": "materials/day-2-session-2-side-effects.html#class-name",
     "title": "📦 Building tidy tools",
     "section": "Class name",
-    "text": "Class name\n\nA developer, calling your function, can use the class name to handle the error, if they want.\nConvention:\n\n\"{package}_error_{description}\""
+    "text": "Class name\n\nA developer, calling your function, can use the class name to handle the error, if they want.\n\nConvention:\n\n\"{package}_error_{description}\""
   },
   {
     "objectID": "materials/day-2-session-2-side-effects.html#additional-information",
@@ -2020,35 +2020,35 @@
     "href": "materials/day-2-session-2-side-effects.html#validate-string-values",
     "title": "📦 Building tidy tools",
     "section": "Validate string-values",
-    "text": "Validate string-values\nYou may be familiar with match.arg():\n\nuses “magic” to compare value (if any) to default\nargument default is vector of strings\n\nif value among defaults, return it - otherwise error\nif no value, return first value in default\n\n\n\nrlang::arg_match() does the same thing, but:\n\npartial match triggers error\nerror messages conform to tidyverse standards"
+    "text": "Validate string-values\nYou may be familiar with match.arg():\n\nuses “magic” to compare value (if any) to default\nargument default is vector of strings\n\nif value among defaults, return it - otherwise error\n\nif no value, return first value in default\n\n\n\n\nrlang::arg_match() does the same thing, but:\n\npartial match triggers error\nerror messages conform to tidyverse standards"
   },
   {
     "objectID": "materials/day-2-session-2-side-effects.html#snapshot-tests",
     "href": "materials/day-2-session-2-side-effects.html#snapshot-tests",
     "title": "📦 Building tidy tools",
     "section": "Snapshot tests",
-    "text": "Snapshot tests\nDesigned for capturing side-effects:\n\nerror messages\ndplyr::glimpse() is a useful shortcut\n\n\nBe careful about accepting changes (don’t just accept).\nCan be temperamental - not run on CRAN.\nWe will go through, using examples."
+    "text": "Snapshot tests\nDesigned for capturing side-effects:\n\nerror messages\n\ndplyr::glimpse() is a useful shortcut\n\n\nBe careful about accepting changes (don’t just accept).\nCan be temperamental - not run on CRAN.\nWe will go through, using examples."
   },
   {
     "objectID": "materials/day-2-session-2-side-effects.html#your-turn-2.2.1",
     "href": "materials/day-2-session-2-side-effects.html#your-turn-2.2.1",
     "title": "📦 Building tidy tools",
-    "section": "Your turn \"2.2.1\"",
-    "text": "Your turn \"2.2.1\"\nImplement validator-functions:\n\nis the country valid?\n\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.2.1\")\n\n\n\nGet new files, btt22::btt_get(\"2.2.1\"):\n\nvalidate.R\ntest-validate.R\n\nusethis::use_package(\"cli\")"
+    "section": "Your turn \"2.2.1\"\n",
+    "text": "Your turn \"2.2.1\"\n\nImplement validator-functions:\n\nis the country valid?\n\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.2.1\")\n\n\n\nGet new files, btt22::btt_get(\"2.2.1\"):\n\nvalidate.R\ntest-validate.R\n\nusethis::use_package(\"cli\")"
   },
   {
     "objectID": "materials/day-2-session-2-side-effects.html#use-rlangarg_match",
     "href": "materials/day-2-session-2-side-effects.html#use-rlangarg_match",
     "title": "📦 Building tidy tools",
-    "section": "Use rlang::arg_match()",
-    "text": "Use rlang::arg_match()\n👉 devtools::load_all(), then:\n\n👉 uss_get_matches(\"italy\") 🎉\n👉 uss_get_matches(\"tatooine\") 🎉\n👉 uss_get_matches(\"ita\") 🤔\n\n\n\nget-matches.R:\n\nreplace match.arg() with rlang::arg_match()\n\ntest-get-matches.R:\n\nuncomment test for 2.2.1, then repeat 👉"
+    "section": "Use rlang::arg_match()\n",
+    "text": "Use rlang::arg_match()\n\n👉 devtools::load_all(), then:\n\n👉 uss_get_matches(\"italy\") 🎉\n👉 uss_get_matches(\"tatooine\") 🎉\n👉 uss_get_matches(\"ita\") 🤔\n\n\n\nget-matches.R:\n\nreplace match.arg() with rlang::arg_match()\n\n\ntest-get-matches.R:\n\nuncomment test for 2.2.1, then repeat 👉"
   },
   {
     "objectID": "materials/day-2-session-2-side-effects.html#build-error-constructor",
     "href": "materials/day-2-session-2-side-effects.html#build-error-constructor",
     "title": "📦 Building tidy tools",
     "section": "Build error constructor",
-    "text": "Build error constructor\n\nusethis::use_package(\"cli\")\nreview validate_data_frame() (call argument)\nbuild constructor for validate_cols():\n\nsomething like {.field {cols}} may be useful\nactivate 2.2.1 tests in test-validate.R, as you go\n\nhold off on snapshot test (we’ll do together)\n\n\n\nadd validator-functions to uss_make_matches():\n\nmatches.R\ncols_engsoc() may be useful"
+    "text": "Build error constructor\n\nusethis::use_package(\"cli\")\nreview validate_data_frame() (call argument)\n\nbuild constructor for validate_cols():\n\nsomething like {.field {cols}} may be useful\nactivate 2.2.1 tests in test-validate.R, as you go\n\n\nhold off on snapshot test (we’ll do together)\n\n\n\nadd validator-functions to uss_make_matches():\n\nmatches.R\n\ncols_engsoc() may be useful"
   },
   {
     "objectID": "materials/day-2-session-2-side-effects.html#managing-global-state",
@@ -2069,7 +2069,7 @@
     "href": "materials/day-2-session-2-side-effects.html#when-could-this-be-useful",
     "title": "📦 Building tidy tools",
     "section": "When could this be useful?",
-    "text": "When could this be useful?\nCRAN is (rightly) particular about “leave no footprints”.\nYou may need:\n\nwithr::local_options(): change an option\nwithr::local_dir(): change the working directory\nwithr::local_tempfile(): path to a temporary file\n\n\nUseful in testthat code and in R code."
+    "text": "When could this be useful?\nCRAN is (rightly) particular about “leave no footprints”.\nYou may need:\n\n\nwithr::local_options(): change an option\n\nwithr::local_dir(): change the working directory\n\nwithr::local_tempfile(): path to a temporary file\n\n\nUseful in testthat code and in R code."
   },
   {
     "objectID": "materials/day-2-session-2-side-effects.html#interactive-example",
@@ -2090,14 +2090,14 @@
     "href": "materials/day-2-session-2-side-effects.html#example",
     "title": "📦 Building tidy tools",
     "section": "Example",
-    "text": "Example\n\nusethis::use_test(\"validate\")\nchange:\nexpect_identical(error_condition$cols_req, \"foo\")\nto:\nexpect_identical(error_condition$cols_re, \"foo\")\nrerun tests 🤔\n\n\n\nBy default, $ accepts partial matching.\nWe want stricter testing, so we need to set some options."
+    "text": "Example\n\nusethis::use_test(\"validate\")\n\nchange:\nexpect_identical(error_condition$cols_req, \"foo\")\n\n\nto:\nexpect_identical(error_condition$cols_re, \"foo\")\n\nrerun tests 🤔\n\n\n\nBy default, $ accepts partial matching.\nWe want stricter testing, so we need to set some options."
   },
   {
     "objectID": "materials/day-2-session-2-side-effects.html#our-turn-2.2.2",
     "href": "materials/day-2-session-2-side-effects.html#our-turn-2.2.2",
     "title": "📦 Building tidy tools",
-    "section": "Our turn \"2.2.2\"",
-    "text": "Our turn \"2.2.2\"\nTurn off $ partial matching when testing.\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.2.2\")\n\n\n\nGet new files, btt22::btt_get(\"2.2.2\"):\n\nutils-testing.R\n\nusethis::use_package(\"withr\")"
+    "section": "Our turn \"2.2.2\"\n",
+    "text": "Our turn \"2.2.2\"\n\nTurn off $ partial matching when testing.\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.2.2\")\n\n\n\nGet new files, btt22::btt_get(\"2.2.2\"):\n\nutils-testing.R\n\nusethis::use_package(\"withr\")"
   },
   {
     "objectID": "materials/day-2-session-2-side-effects.html#local_warn_partial_match",
@@ -2111,14 +2111,14 @@
     "href": "materials/day-2-session-2-side-effects.html#our-turn-2.2.2-continued",
     "title": "📦 Building tidy tools",
     "section": "Our turn \"2.2.2\", continued",
-    "text": "Our turn \"2.2.2\", continued\n\nusethis::use_test(\"validate\")\nadd local_warn_partial_match() to top of blocks.\ngetOption(\"warnPartialMatchDollar\")\nchange:\nexpect_identical(error_condition$cols_re, \"foo\")\ndevtools::test() 🎉\ngetOption(\"warnPartialMatchDollar\")\nchange back to $cols_req"
+    "text": "Our turn \"2.2.2\", continued\n\nusethis::use_test(\"validate\")\nadd local_warn_partial_match() to top of blocks.\ngetOption(\"warnPartialMatchDollar\")\n\nchange:\nexpect_identical(error_condition$cols_re, \"foo\")\n\ndevtools::test() 🎉\ngetOption(\"warnPartialMatchDollar\")\nchange back to $cols_req"
   },
   {
     "objectID": "materials/day-2-session-2-side-effects.html#your-turn-2.2.3",
     "href": "materials/day-2-session-2-side-effects.html#your-turn-2.2.3",
     "title": "📦 Building tidy tools",
-    "section": "Your turn \"2.2.3\"",
-    "text": "Your turn \"2.2.3\"\nImplement testing with side effects\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.2.3\")\n\n\n\nNo new files.\n\n\n\nadd local_warn_partial_match() to all test-blocks.\ntest-matches.R:\n\nadd expect_error() calls for data-frame and columns (use class argument).\nat end, add:\n\nexpect_snapshot(dplyr::glimpse(italy))"
+    "section": "Your turn \"2.2.3\"\n",
+    "text": "Your turn \"2.2.3\"\n\nImplement testing with side effects\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.2.3\")\n\n\n\nNo new files.\n\n\n\nadd local_warn_partial_match() to all test-blocks.\n\ntest-matches.R:\n\nadd expect_error() calls for data-frame and columns (use class argument).\nat end, add:\n\nexpect_snapshot(dplyr::glimpse(italy))"
   },
   {
     "objectID": "materials/day-2-session-2-side-effects.html#summary",
@@ -2146,7 +2146,7 @@
     "href": "materials/day-2-session-3-tidy-eval.html#learning-objectives",
     "title": "📦 Building tidy tools",
     "section": "Learning objectives",
-    "text": "Learning objectives\nAt the end of this section you will be able to:\n\nbuild functions that call tidyverse functions, using bare-name arguments:\n\ndesigned for interactive use, i.e. like dplyr::filter()\n\nunderstand terms: data masking, tidy select, dynamic dots\nrecognize other ways to use tidy eval:\n\nfunctions that call tidyverse functions using string-based arguments, i.e. for use with Shiny.\ncorrespondence with techniques used for bare-name arguments."
+    "text": "Learning objectives\nAt the end of this section you will be able to:\n\nbuild functions that call tidyverse functions, using bare-name arguments:\n\ndesigned for interactive use, i.e. like dplyr::filter()\n\n\n\nunderstand terms: data masking, tidy select, dynamic dots\nrecognize other ways to use tidy eval:\n\nfunctions that call tidyverse functions using string-based arguments, i.e. for use with Shiny.\ncorrespondence with techniques used for bare-name arguments."
   },
   {
     "objectID": "materials/day-2-session-3-tidy-eval.html#source-material",
@@ -2163,25 +2163,25 @@
     "text": "Motivation for tidy eval\nTidy eval (and non-standard evaluation generally in R) exists so that we can refer to data columns using bare names.\ndplyr::filter(mtcars, cyl == 4)\n\n# python, using pandas\nmtcars.query('cyl == 4')\n\n\n\nIt makes things easier if you are working interactively.\nIt makes things more interesting if you are writing functions.\n\n\n\nWelcome to more interesting."
   },
   {
-    "objectID": "materials/day-2-session-3-tidy-eval.html#families-of-tidy-eval-arguments",
-    "href": "materials/day-2-session-3-tidy-eval.html#families-of-tidy-eval-arguments",
+    "objectID": "materials/day-2-session-3-tidy-eval.html#families-of-tidy-eval-functions",
+    "href": "materials/day-2-session-3-tidy-eval.html#families-of-tidy-eval-functions",
     "title": "📦 Building tidy tools",
-    "section": "Families of tidy-eval arguments",
-    "text": "Families of tidy-eval arguments\nThere are two families of tidy-eval arguments:\n\n\ndata-masking: evaluate variables in context of data frame\nmtcars |>\n  dplyr::mutate(wt_kg = wt * 1000 / 2.2)\n\n\n\n\ntidy-select: specify columns within a data frame\nmtcars |>\n  dplyr::select(starts_with(\"w\"))"
+    "section": "Families of tidy-eval functions",
+    "text": "Families of tidy-eval functions\nThere are two families of tidy-eval functions:\n\n\n\ndata-masking: evaluate variables in context of data frame\nmtcars |>\n  dplyr::mutate(wt_kg = wt * 1000 / 2.2)\n\n\n\n\n\n\ntidy-select: specify columns within a data frame\nmtcars |>\n  dplyr::select(starts_with(\"w\"))"
   },
   {
     "objectID": "materials/day-2-session-3-tidy-eval.html#ways-to-express-tidy-eval",
     "href": "materials/day-2-session-3-tidy-eval.html#ways-to-express-tidy-eval",
     "title": "📦 Building tidy tools",
     "section": "Ways to express tidy-eval",
-    "text": "Ways to express tidy-eval\n\n\nusing bare names, what we do in interactive programming:\nmtcars |>\n  dplyr::mutate(wt_kg = wt * 1000 / 2.2)\n\n\n\n\nusing strings, useful for Shiny :\nmtcars |>\n  dplyr::mutate(\"wt_kg\" := .data[[\"wt\"]] * 1000 / 2.2)\n\n\n\nHere, we focus mostly on interactive programming."
+    "text": "Ways to express tidy-eval\n\n\n\nusing bare names, what we do in interactive programming:\nmtcars |>\n  dplyr::mutate(wt_kg = wt * 1000 / 2.2)\n\n\n\n\n\n\nusing strings, useful for Shiny :\nmtcars |>\n  dplyr::mutate(\"wt_kg\" := .data[[\"wt\"]] * 1000 / 2.2)"
   },
   {
     "objectID": "materials/day-2-session-3-tidy-eval.html#goal",
     "href": "materials/day-2-session-3-tidy-eval.html#goal",
     "title": "📦 Building tidy tools",
     "section": "Goal",
-    "text": "Goal\nWrite functions that:\n\ncall tidyverse functions, e.g. dplyr::filter()\n“look and feel” like tidyverse functions:\n\nyour users can call using bare names\n\n\n\nOut of scope:\n\nunderlying theory of quasiquotation, i.e. rlang::quo(), rlang::enquo(), rlang::eval_tidy()"
+    "text": "Goal\nWrite functions that:\n\ncall tidyverse functions, e.g. dplyr::filter()\n\n“look and feel” like tidyverse functions:\n\nyour users can call using bare names\n\n\nuse string-techniques when we know the column names\n\n\nOut of scope:\n\nunderlying theory of quasiquotation, i.e. rlang::quo(), rlang::enquo(), rlang::eval_tidy()"
   },
   {
     "objectID": "materials/day-2-session-3-tidy-eval.html#pass-the-dots",
@@ -2191,39 +2191,60 @@
     "text": "Pass the dots\nThis is the simplest possible solution.\n\n\nIf the tidyverse function you’re using takes ... as an argument,\n\n\n\n\nand that’s what you want to pass along,\n\n\n\nthen you can pass the dots.\nmy_select <- function(.data, ...) {\n  dplyr::select(.data, ...)\n}"
   },
   {
-    "objectID": "materials/day-2-session-3-tidy-eval.html#your-turn-2.3.1",
-    "href": "materials/day-2-session-3-tidy-eval.html#your-turn-2.3.1",
+    "objectID": "materials/day-2-session-3-tidy-eval.html#our-turn-2.3.1",
+    "href": "materials/day-2-session-3-tidy-eval.html#our-turn-2.3.1",
     "title": "📦 Building tidy tools",
-    "section": "Your turn \"2.3.1\"",
-    "text": "Your turn \"2.3.1\"\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.3.1\")\n\n\n\nNo new files."
+    "section": "Our turn \"2.3.1\"\n",
+    "text": "Our turn \"2.3.1\"\n\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.3.1\")\n\n\n\nNo new files.\n\n\nGoal\nuss_get_matches() to use dplyr::filter():\nuss_get_matches(\"italy\", season == 1929)\nequivalent to:\nuss_get_matches(\"italy\") |> \n  dplyr::filter(season == 1929)"
   },
   {
     "objectID": "materials/day-2-session-3-tidy-eval.html#pass-the-dots-to-filter-results",
     "href": "materials/day-2-session-3-tidy-eval.html#pass-the-dots-to-filter-results",
     "title": "📦 Building tidy tools",
     "section": "Pass the dots to filter() results",
-    "text": "Pass the dots to filter() results\nIn uss_get_matches():\n\nAdd ... to the formal arguments.\nPass the dots to dplyr::filter().\nDocument:\n\nuse #' @inheritParams dplyr::filter\nadd example\nadd to package vignette\n\nAdd test (usethis::use_test())\ndevtools::check()"
+    "text": "Pass the dots to filter() results\nIn uss_get_matches():\n\nAdd ... to the formal arguments.\nPass the dots to dplyr::filter().\n\nDocument:\n\nuse #' @inheritParams dplyr::filter\n\nadd example\nadd to package vignette\n\n\nAdd test (usethis::use_test())\ndevtools::check()"
   },
   {
     "objectID": "materials/day-2-session-3-tidy-eval.html#pronouns-.data-.env",
     "href": "materials/day-2-session-3-tidy-eval.html#pronouns-.data-.env",
     "title": "📦 Building tidy tools",
-    "section": "Pronouns: .data, .env",
-    "text": "Pronouns: .data, .env\ndplyr::filter(mtcars, cyl == 4) |> nrow()\n\n[1] 11\n\n\n\ncyl <- 4\ndplyr::filter(mtcars, cyl == cyl) |> nrow()\n\n\n[1] 32\n\n\n\nlibrary(\"rlang\")\ncyl <- 4\ndplyr::filter(mtcars, .data$cyl == .env$cyl) |> nrow()\n\n\n[1] 11"
+    "section": "Pronouns: .data, .env\n",
+    "text": "Pronouns: .data, .env\n\nlibrary(\"dplyr\")\nmtcars |> nrow()\n[1] 32\n\n\nmtcars |> filter(cyl == 4) |> nrow()\n\n\n[1] 11\n\n\n\nn_cyl <- 4\nmtcars |> filter(cyl == n_cyl) |> nrow()\n\n\n[1] 11"
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#pronouns-.data-.env-cont.",
+    "href": "materials/day-2-session-3-tidy-eval.html#pronouns-.data-.env-cont.",
+    "title": "📦 Building tidy tools",
+    "section": "Pronouns: .data, .env (cont.)",
+    "text": "Pronouns: .data, .env (cont.)\nn_cyl <- 4\nmtcars |> filter(cyl == n_cyl) |> nrow()\n[1] 11\n\n\ncyl <- 4\nfilter(mtcars, cyl == cyl) |> nrow()\n\n\n[1] 32\n\n\n\nmtcars |> filter(.data$cyl == .env$cyl) |> nrow()\n\n\n[1] 11"
   },
   {
     "objectID": "materials/day-2-session-3-tidy-eval.html#pronouns",
     "href": "materials/day-2-session-3-tidy-eval.html#pronouns",
     "title": "📦 Building tidy tools",
     "section": "Pronouns",
-    "text": "Pronouns\nThe .data and .env pronouns are provided by {rlang} (Henry and Wickham 2022a).\n\nFor data-masking functions, make explicit how to evaluate variables.\n\n\nTo use them in your package:\n# we have .data already\nusethis::use_import_from(\"rlang\", c(\".data\", \".env\"))"
+    "text": "Pronouns\nThe .data and .env pronouns are provided by {rlang} (Henry and Wickham 2022a).\n\nFor data-masking functions, make explicit how to evaluate variables.\n\n\nTo use them in your package:\nusethis::use_import_from(\"rlang\", c(\".data\", \".env\"))"
   },
   {
-    "objectID": "materials/day-2-session-3-tidy-eval.html#your-turn-2.3.2",
-    "href": "materials/day-2-session-3-tidy-eval.html#your-turn-2.3.2",
+    "objectID": "materials/day-2-session-3-tidy-eval.html#our-turn-2.3.2",
+    "href": "materials/day-2-session-3-tidy-eval.html#our-turn-2.3.2",
     "title": "📦 Building tidy tools",
-    "section": "Your turn \"2.3.2\"",
-    "text": "Your turn \"2.3.2\"\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.3.2\")\n\n\n\nGet new files, btt22::btt_get(\"2.3.2\"):\n\nteams-matches.R\ntest-teams-matches.R\n\nGo through what code does.\n\n\nIf you have not already:\nusethis::use_import_from(\"rlang\", \".env\")"
+    "section": "Our turn \"2.3.2\"\n",
+    "text": "Our turn \"2.3.2\"\n\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.3.2\")\n\n\n\nGet new files, btt22::btt_get(\"2.3.2\"):\n\nteams-matches.R\ntest-teams-matches.R"
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#teams-matches",
+    "href": "materials/day-2-session-3-tidy-eval.html#teams-matches",
+    "title": "📦 Building tidy tools",
+    "section": "Teams-matches",
+    "text": "Teams-matches\nmatches: one row per match played\n\n\n\n# A tibble: 1 × 8\n  country tier  season date       home     visitor    goals_home goals_visitor\n  <chr>   <fct>  <int> <date>     <chr>    <chr>           <int>         <int>\n1 Italy   1       1929 1929-10-06 Juventus SSC Napoli          3             2\n\nteams-matches: one row per team playing a match\n# A tibble: 2 × 9\n  country tier  season team       date       at_home opponent   goals_for goals_against\n  <chr>   <fct>  <int> <chr>      <date>     <lgl>   <chr>          <int>         <int>\n1 Italy   1       1929 Juventus   1929-10-06 TRUE    SSC Napoli         3             2\n2 Italy   1       1929 SSC Napoli 1929-10-06 FALSE   Juventus           2             3\n\n\nuss_make_teams_matches():\n\ntakes a matches data frame\nreturns a teams-matches data frame"
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#try-out-new-code",
+    "href": "materials/day-2-session-3-tidy-eval.html#try-out-new-code",
+    "title": "📦 Building tidy tools",
+    "section": "Try out new code",
+    "text": "Try out new code\n\ngo through code, tests\ndocument(), test(), check(), install()\n\nitaly_teams_matches <- \n  uss_get_matches(\"italy\") |>\n  uss_make_teams_matches()\n\n\nnext few exercises, just modify code"
   },
   {
     "objectID": "materials/day-2-session-3-tidy-eval.html#use-.env-pronoun",
@@ -2236,15 +2257,15 @@
     "objectID": "materials/day-2-session-3-tidy-eval.html#splicing",
     "href": "materials/day-2-session-3-tidy-eval.html#splicing",
     "title": "📦 Building tidy tools",
-    "section": "Splicing: !!!",
-    "text": "Splicing: !!!\nUsed to splice a list or vector into a ... argument.\n\nIf you know JavaScript, it’s like the destructuring operator.\n\n\nIt works only with dynamic dots (a tidyverse construct).\n\n\nmtcars |>\n  dplyr::rename(mpg = \"new_mpg\", cyl = \"new_cyl\")\n\n\nnew_names <- c(mpg = \"new_mpg\", cyl = \"new_cyl\")\n\nmtcars |>\n  dplyr::rename(!!!new_names)\n\n\nRemember:!!! reflects ..."
+    "section": "Splicing: !!!\n",
+    "text": "Splicing: !!!\n\nUsed to splice a list or vector into a ... argument.\n\nIf you know JavaScript, it’s like the destructuring operator.\n\n\nIt works only with dynamic dots (a tidyverse construct).\n\n\nlibrary(\"dplyr\")\nmtcars |> rename(new_mpg = \"mpg\", new_cyl = \"cyl\")\n\n\nnew_names <- c(new_mpg = \"mpg\", new_cyl = \"cyl\")\n\nmtcars |> rename(!!!new_names)\n\n\n!!! reflects ...\n!!! evaluates the variable using the environment"
   },
   {
-    "objectID": "materials/day-2-session-3-tidy-eval.html#your-turn-2.3.3",
-    "href": "materials/day-2-session-3-tidy-eval.html#your-turn-2.3.3",
+    "objectID": "materials/day-2-session-3-tidy-eval.html#our-turn-2.3.3",
+    "href": "materials/day-2-session-3-tidy-eval.html#our-turn-2.3.3",
     "title": "📦 Building tidy tools",
-    "section": "Your turn \"2.3.3\"",
-    "text": "Your turn \"2.3.3\"\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.3.3\")\n\n\n\nNo new files."
+    "section": "Our turn \"2.3.3\"\n",
+    "text": "Our turn \"2.3.3\"\n\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.3.3\")\n\n\n\nNo new files.\n\n\nGoal\nUse splice operator, !!!"
   },
   {
     "objectID": "materials/day-2-session-3-tidy-eval.html#splice-renaming",
@@ -2258,14 +2279,14 @@
     "href": "materials/day-2-session-3-tidy-eval.html#new-columns",
     "title": "📦 Building tidy tools",
     "section": "New columns",
-    "text": "New columns\nWith dynamic dots you can name new columns using variables.\n\nprefix <- \"new\"\n\nmtcars |>\n  dplyr::rename(\"{prefix}_mpg\" := .data$mpg)\n\n\nTwo things to keep in mind:\n\nleft side of expression is a {glue}-enabled string.\noperator is :=, not =.\n\n\n\nTo use in your package:\nusethis::use_import_from(\"rlang\", \":=\")"
+    "text": "New columns\nWith dynamic dots you can name new columns using variables.\n\nprefix <- \"new\"\n\nmtcars |>\n  dplyr::rename(\"{prefix}_mpg\" := \"mpg\")\n\n\nTwo things to keep in mind:\n\nleft side of expression is a {glue}-enabled string.\noperator is :=, not =.\n\n\n\nTo use in your package:\nusethis::use_import_from(\"rlang\", \":=\")"
   },
   {
-    "objectID": "materials/day-2-session-3-tidy-eval.html#your-turn-2.3.4",
-    "href": "materials/day-2-session-3-tidy-eval.html#your-turn-2.3.4",
+    "objectID": "materials/day-2-session-3-tidy-eval.html#our-turn-2.3.4",
+    "href": "materials/day-2-session-3-tidy-eval.html#our-turn-2.3.4",
     "title": "📦 Building tidy tools",
-    "section": "Your turn \"2.3.4\"",
-    "text": "Your turn \"2.3.4\"\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.3.4\")\n\n\n\nNo new files."
+    "section": "Our turn \"2.3.4\"\n",
+    "text": "Our turn \"2.3.4\"\n\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.3.4\")\n\n\n\nNo new files.\nusethis::use_import_from(\"rlang\", \":=\")\n\n\nGoal\nUse naming operator, :="
   },
   {
     "objectID": "materials/day-2-session-3-tidy-eval.html#naming-columns",
@@ -2278,8 +2299,8 @@
     "objectID": "materials/day-2-session-3-tidy-eval.html#dplyracross-super-useful",
     "href": "materials/day-2-session-3-tidy-eval.html#dplyracross-super-useful",
     "title": "📦 Building tidy tools",
-    "section": "dplyr::across(): super useful",
-    "text": "dplyr::across(): super useful\n\nused inside data-masking verbs, e.g. summarise()\nspecify:\n\nwhich columns to consider, using tidy-select\nwhat function(s), if any, to apply\n\n\n\nmtcars |>\n  dplyr::group_by(dplyr::across(\"cyl\")) |>\n  dplyr::summarise(\n    dplyr::across(c(\"mpg\", \"disp\"), mean)\n  )"
+    "section": "\ndplyr::across(): super useful",
+    "text": "dplyr::across(): super useful\n\nused inside data-masking verbs, e.g. summarise()\n\nspecify:\n\nwhich columns to consider, using tidy-select\nwhat function(s), if any, to apply\n\n\n\n\nmtcars |>\n  dplyr::group_by(dplyr::across(\"cyl\")) |>\n  dplyr::summarise(\n    dplyr::across(c(\"mpg\", \"disp\"), mean)\n  )"
   },
   {
     "objectID": "materials/day-2-session-3-tidy-eval.html#tidy-select-and-ambiguity",
@@ -2292,15 +2313,15 @@
     "objectID": "materials/day-2-session-3-tidy-eval.html#all_of-any_of",
     "href": "materials/day-2-session-3-tidy-eval.html#all_of-any_of",
     "title": "📦 Building tidy tools",
-    "section": "all_of(), any_of()",
-    "text": "all_of(), any_of()\nExported by {dplyr} (Wickham et al. 2022); part of {tidyselect} (Henry and Wickham 2022b)\nUsed to disambiguate external- vector of column names:\nplaceholder <- c(\"wt\", \"mpg\", \"not_in_mtcars\")\n\nall_of() is strict:\nmtcars |> select(all_of(placeholder)) |> glimpse()\n\n\nany_of() is permissive:\nmtcars |> select(any_of(placeholder)) |> glimpse()"
+    "section": "\nall_of(), any_of()\n",
+    "text": "all_of(), any_of()\n\nExported by {dplyr} (Wickham et al. 2022); part of {tidyselect} (Henry and Wickham 2022b)\nUsed to disambiguate external- vector of column names:\nplaceholder <- c(\"wt\", \"mpg\", \"not_in_mtcars\")\n\nall_of() is strict:\nmtcars |> select(all_of(placeholder)) |> glimpse()\n\n\nany_of() is permissive:\nmtcars |> select(any_of(placeholder)) |> glimpse()"
   },
   {
     "objectID": "materials/day-2-session-3-tidy-eval.html#our-turn-2.3.5",
     "href": "materials/day-2-session-3-tidy-eval.html#our-turn-2.3.5",
     "title": "📦 Building tidy tools",
-    "section": "Our turn \"2.3.5\"",
-    "text": "Our turn \"2.3.5\"\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.3.5\")\n\n\n\nNo new files."
+    "section": "Our turn \"2.3.5\"\n",
+    "text": "Our turn \"2.3.5\"\n\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.3.5\")\n\n\n\nNo new files.\n\n\nGoal\nArrange teams-matches by country, tier, season, team, date.\ndplyr::arrange() is a data-masking function.\nWe want to supply the columns using tidy-select.\nUse dplyr::across()."
   },
   {
     "objectID": "materials/day-2-session-3-tidy-eval.html#uss_make_teams_matches",
@@ -2314,28 +2335,49 @@
     "href": "materials/day-2-session-3-tidy-eval.html#accepting-new-snapshot",
     "title": "📦 Building tidy tools",
     "section": "Accepting new snapshot",
-    "text": "Accepting new snapshot\n\ndevtools::test() changes the snapshot test\n\n\n\nsnapshot_review('teams-matches')\n\n\n\n\n\n\n\n\n\n\naccept the change\ndevtools::check()"
+    "text": "Accepting new snapshot\n\n\ndevtools::test() changes the snapshot test\n\n\n\nsnapshot_review('teams-matches')\n\n\n\n\n\n\n\n\n\n\naccept the change\ndevtools::check()"
   },
   {
-    "objectID": "materials/day-2-session-3-tidy-eval.html#your-turn-2.3.6",
-    "href": "materials/day-2-session-3-tidy-eval.html#your-turn-2.3.6",
+    "objectID": "materials/day-2-session-3-tidy-eval.html#our-turn-2.3.6",
+    "href": "materials/day-2-session-3-tidy-eval.html#our-turn-2.3.6",
     "title": "📦 Building tidy tools",
-    "section": "Your turn \"2.3.6\"",
-    "text": "Your turn \"2.3.6\"\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.3.6\")\n\n\n\nGet new files, btt22::btt_get(\"2.3.6\"):\n\npoints.R\nseasons.R\ntest-points.R\ntest-seasons.R\n\nGo through what code does."
+    "section": "Our turn \"2.3.6\"\n",
+    "text": "Our turn \"2.3.6\"\n\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.3.6\")\n\n\n\nGet new files, btt22::btt_get(\"2.3.6\"):\n\n\npoints.R, seasons.R\n\n\ntest-points.R, test-seasons.R\n\n\nUsed to aggregate performance over seasons."
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#aggregating-seasons",
+    "href": "materials/day-2-session-3-tidy-eval.html#aggregating-seasons",
+    "title": "📦 Building tidy tools",
+    "section": "Aggregating seasons",
+    "text": "Aggregating seasons\n\n\n\nuss_make_seasons_cumulative() takes a teams-matches data frame:\n# A tibble: 612 × 9\n   country tier  season team     date       at_home opponent       goals_for goals_against\n   <chr>   <fct>  <int> <chr>    <date>     <lgl>   <chr>              <int>         <int>\n 1 Italy   1       1929 AC Milan 1929-10-06 TRUE    Brescia Calcio         4             1\n 2 Italy   1       1929 AC Milan 1929-10-13 TRUE    Modena FC              1             0\n 3 Italy   1       1929 AC Milan 1929-10-20 FALSE   SSC Napoli             1             2\n\nand returns a seasons data frame:\n# A tibble: 612 × 12\n# Groups:   country, tier, season, team [18]\n   country tier  season team     date       matches  wins draws losses points goals_for goals_against\n   <chr>   <fct>  <int> <chr>    <date>       <int> <int> <int>  <int>  <int>     <int>         <int>\n 1 Italy   1       1929 AC Milan 1929-10-06       1     1     0      0      2         4             1\n 2 Italy   1       1929 AC Milan 1929-10-13       2     2     0      0      4         5             1\n 3 Italy   1       1929 AC Milan 1929-10-20       3     2     0      1      4         6             3\nThis form is cumulative."
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#season-final-results",
+    "href": "materials/day-2-session-3-tidy-eval.html#season-final-results",
+    "title": "📦 Building tidy tools",
+    "section": "Season final results",
+    "text": "Season final results\nWe need to build a function to take a teams-matches data frame:\n# A tibble: 612 × 9\n   country tier  season team     date       at_home opponent       goals_for goals_against\n   <chr>   <fct>  <int> <chr>    <date>     <lgl>   <chr>              <int>         <int>\n 1 Italy   1       1929 AC Milan 1929-10-06 TRUE    Brescia Calcio         4             1\n 2 Italy   1       1929 AC Milan 1929-10-13 TRUE    Modena FC              1             0\n 3 Italy   1       1929 AC Milan 1929-10-20 FALSE   SSC Napoli             1             2\n\nand return a seasons data frame:\n# A tibble: 18 × 12\n# Groups:   country, tier, season, team [18]\n   country tier  season team        date       matches  wins draws losses points goals_for goals_against\n   <chr>   <fct>  <int> <chr>       <date>       <int> <int> <int>  <int>  <int>     <int>         <int>\n 1 Italy   1       1929 Inter       1930-07-06      34    22     6      6     50        85            38\n 2 Italy   1       1929 Genova 189… 1930-07-06      34    20     8      6     48        63            39\n 3 Italy   1       1929 Juventus    1930-07-06      34    19     7      8     45        56            31\nThis form is final."
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#try-out-new-code-1",
+    "href": "materials/day-2-session-3-tidy-eval.html#try-out-new-code-1",
+    "title": "📦 Building tidy tools",
+    "section": "Try out new code",
+    "text": "Try out new code\n\ngo through code, tests\ndocument(), test(), check(), install()\n\nitaly_1929 <-\n  uss_get_matches(\"italy\", season == 1929) |> \n  uss_make_teams_matches() |>\n  uss_make_seasons_cumulative()"
   },
   {
     "objectID": "materials/day-2-session-3-tidy-eval.html#uss_make_seasons_final",
     "href": "materials/day-2-session-3-tidy-eval.html#uss_make_seasons_final",
     "title": "📦 Building tidy tools",
     "section": "uss_make_seasons_final()",
-    "text": "uss_make_seasons_final()\n\nsame args as uss_make_seasons_cumulative()\n#' @rdname uss_make_seasons_cumulative\n#' @export\nsame validation, test by uncommenting\nuse dplyr::summarise(), vs. dplyr::mutate()\nsum quantities, rather than cumsum\nsummarise() the date differently\nadd example, add to vignette\ndevtools::check()"
+    "text": "uss_make_seasons_final()\n\n\nsame args as uss_make_seasons_cumulative()\n#' @rdname uss_make_seasons_cumulative\n#' @export\n\nsame validation, test by uncommenting\nuse dplyr::summarise(), vs. dplyr::mutate()\nsum quantities, rather than cumsum\nsummarise() the date differently\nadd example, add to vignette\ndevtools::check()"
   },
   {
     "objectID": "materials/day-2-session-3-tidy-eval.html#curly-curly",
     "href": "materials/day-2-session-3-tidy-eval.html#curly-curly",
     "title": "📦 Building tidy tools",
-    "section": "Curly-curly: {{}}",
-    "text": "Curly-curly: {{}}\nglue lets you interpolate strings:\ngreet <- function(name) {\n  glue::glue(\"Hello {name}\")\n}\ngreet(\"there\")\n\nTidy eval lets you interpolate arguments:\nmutate_greet <- function(.data, greeting) {\n  .data |>\n    dplyr::mutate(greeting = {{ greeting }})\n}"
+    "section": "Curly-curly: {{}}\n",
+    "text": "Curly-curly: {{}}\n\nglue lets you interpolate strings:\ngreet <- function(name) {\n  glue::glue(\"Hello {name}\")\n}\ngreet(\"there\")\n\nTidy eval lets you interpolate arguments:\nmutate_greet <- function(.data, greeting) {\n  .data |>\n    dplyr::mutate(greeting = {{ greeting }})\n}"
   },
   {
     "objectID": "materials/day-2-session-3-tidy-eval.html#try-out-greeting-functions",
@@ -2352,32 +2394,53 @@
     "text": "Curly-curly, revisited\nmutate_greet <- function(.data, greeting) {\n  .data |>\n    dplyr::mutate(greeting = {{ greeting }})\n}\n{{}}:\n\nfreezes the expression, capturing context\ndelays evaluation\nfunction you call must be capable\ntidyverse data-masking and tidy-select functions are capable"
   },
   {
-    "objectID": "materials/day-2-session-3-tidy-eval.html#your-turn-2.3.7",
-    "href": "materials/day-2-session-3-tidy-eval.html#your-turn-2.3.7",
+    "objectID": "materials/day-2-session-3-tidy-eval.html#our-turn-2.3.7",
+    "href": "materials/day-2-session-3-tidy-eval.html#our-turn-2.3.7",
     "title": "📦 Building tidy tools",
-    "section": "Your turn \"2.3.7\"",
-    "text": "Your turn \"2.3.7\"\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.3.7\")\n\n\n\nGet new files, btt22::btt_get(\"2.3.7\"):\n\npoints.R, seasons.R\ntest-points.R, test-seasons.R\n\nusethis::use_package(\"ggplot2\")\nGo through what code does, esp. snapshot function."
+    "section": "Our turn \"2.3.7\"\n",
+    "text": "Our turn \"2.3.7\"\n\n\n\nOnly if needed, btt22::btt_reset_hard(\"2.3.7\")\n\n\n\nGet new files, btt22::btt_get(\"2.3.7\"):\n\n\nplot.R, snapshot.R\n\ntest-plot.R\n\nusethis::use_package(\"ggplot2\")"
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#relegation-promotion",
+    "href": "materials/day-2-session-3-tidy-eval.html#relegation-promotion",
+    "title": "📦 Building tidy tools",
+    "section": "Relegation & promotion",
+    "text": "Relegation & promotion\nTake a seasons (final) data frame for an English team:\n# Groups:   country, tier, season [89]\n   country tier  season team        date       matches  wins draws losses points goals_for goals_against\n   <chr>   <fct>  <int> <chr>       <date>       <int> <int> <int>  <int>  <int>     <int>         <int>\n 1 England 2       1920 Leeds Unit… 1921-05-07      42    14    10     18     38        40            45\n 2 England 2       1921 Leeds Unit… 1922-05-06      42    16    13     13     45        48            38\n 3 England 2       1922 Leeds Unit… 1923-05-05      42    18    11     13     47        43            36\n 4 England 2       1923 Leeds Unit… 1924-05-03      42    21    12      9     54        61            35\n 5 England 1       1924 Leeds Unit… 1925-05-02      42    11    12     19     34        46            59\n 6 England 1       1925 Leeds Unit… 1926-05-01      42    14     8     20     36        64            76\n 7 England 1       1926 Leeds Unit… 1927-05-07      42    11     8     23     30        69            88\n 8 England 2       1927 Leeds Unit… 1928-05-05      42    25     7     10     57        98            49\nWhat happens over time as we get promoted and relegated?\nThis sounds like a job for {ggplot2}!"
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#try-out-new-code-2",
+    "href": "materials/day-2-session-3-tidy-eval.html#try-out-new-code-2",
+    "title": "📦 Building tidy tools",
+    "section": "Try out new code",
+    "text": "Try out new code\n\ngo through code, tests\ndocument(), test(), check(), install()\n\n\n\n\n\nleeds_united <-\n  uss_get_matches(\"england\") |> \n  uss_make_teams_matches() |>\n  dplyr::filter(team == \"Leeds United\") |>\n  uss_make_seasons_final() \n\n\n# A tibble: 89 × 12\n# Groups:   country, tier, season [89]\n   country tier  season team        date       matches  wins draws losses points goals_for goals_against\n   <chr>   <fct>  <int> <chr>       <date>       <int> <int> <int>  <int>  <int>     <int>         <int>\n 1 England 1       1924 Leeds Unit… 1925-05-02      42    11    12     19     34        46            59\n 2 England 1       1925 Leeds Unit… 1926-05-01      42    14     8     20     36        64            76\n 3 England 1       1926 Leeds Unit… 1927-05-07      42    11     8     23     30        69            88"
+  },
+  {
+    "objectID": "materials/day-2-session-3-tidy-eval.html#try-out-new-code-cont.",
+    "href": "materials/day-2-session-3-tidy-eval.html#try-out-new-code-cont.",
+    "title": "📦 Building tidy tools",
+    "section": "Try out new code (cont.)",
+    "text": "Try out new code (cont.)\n\nuss_plot_seasons_tiers(leeds_united)"
   },
   {
     "objectID": "materials/day-2-session-3-tidy-eval.html#uss_plot_seasons_tiers",
     "href": "materials/day-2-session-3-tidy-eval.html#uss_plot_seasons_tiers",
     "title": "📦 Building tidy tools",
     "section": "uss_plot_seasons_tiers()",
-    "text": "uss_plot_seasons_tiers()\nAdd argument aes_y to function:\n\nmake default value .data$wins\ndocument: #' @param aes_y\nin function, modify aes(y = .data$wins) using {{}}\nuncomment test, devtools::test()\nadd to package vignette\ndevtools::check()"
+    "text": "uss_plot_seasons_tiers()\nWe want to specify what to plot on the y-axis. So let’s add an argument aes_y to the function:\n\nmake default value .data$wins\n\ndocument: #' @param aes_y\n\nin function, modify aes(y = .data$wins) using {{}}\n\nuncomment test, devtools::test()\n\nadd to package vignette\ndevtools::check()"
   },
   {
     "objectID": "materials/day-2-session-3-tidy-eval.html#our-turn",
     "href": "materials/day-2-session-3-tidy-eval.html#our-turn",
     "title": "📦 Building tidy tools",
     "section": "Our turn",
-    "text": "Our turn\nIn uss_plot_seasons_tiers():\nggplot2::geom_point(\n  ggplot2::aes(\n    x = .data$season,\n    y = {{ aes_y }},\n  ),\n  color = \"#333333\" # use something like #111111\n) +\n\n\ndevtools::test()\ntestthat::snapshot_review('plot/')\naccept changes (or not), change back (or not)"
+    "text": "Our turn\nIn uss_plot_seasons_tiers():\nggplot2::geom_point(\n  ggplot2::aes(\n    x = .data$season,\n    y = {{ aes_y }},\n  ),\n  color = \"#333333\" # use something like #111111\n) \n\n\ndevtools::test()\ntestthat::snapshot_review('plot/')\naccept changes (or not), change back (or not)"
   },
   {
     "objectID": "materials/day-2-session-3-tidy-eval.html#summary",
     "href": "materials/day-2-session-3-tidy-eval.html#summary",
     "title": "📦 Building tidy tools",
     "section": "Summary",
-    "text": "Summary\nThere are a lot of tidy-eval tools:\n\nknow if you are using a data-masking or tidy-select function.\n\n\n\ndata-masking function using tidy-select syntax: across()\n\n\n\n\nto move a bunch of arguments, pass the dots, ...\n\n\n\n\nto splice a list (or vector) into dynamic-dots, use !!!\n\n\n\n\nto interpolate a single argument, use {{}}"
+    "text": "Summary\nThere are a lot of tidy-eval tools:\n\nknow if you are using a data-masking or tidy-select function.\n\n\n\n\ndata-masking function using tidy-select syntax: across()\n\n\n\n\n\nto move a bunch of arguments, pass the dots, ...\n\n\n\n\n\nto splice a list (or vector) into dynamic-dots, use !!!\n\n\n\n\n\nto interpolate a single argument, use {{}}"
   },
   {
     "objectID": "materials/day-2-session-3-tidy-eval.html#summary-disambiguation",
@@ -2391,7 +2454,7 @@
     "href": "materials/day-2-session-3-tidy-eval.html#additional-material",
     "title": "📦 Building tidy tools",
     "section": "Additional material",
-    "text": "Additional material\n\n\n\n\n\n\n\n\n\nJenny Bryan motivates tidy eval at rstudio::conf(2019):\n\n01:30 - scoped verbs, e.g. mutate_at(), now: across()\n16:18 - enquo() and !!, now: {{}}"
+    "text": "Additional material\n\n\n\n\n\n\n\n\n\nJenny Bryan motivates tidy eval at rstudio::conf(2019):\n\n\n01:30 - scoped verbs, e.g. mutate_at(), now: across()\n\n\n16:18 - enquo() and !!, now: {{}}"
   },
   {
     "objectID": "materials/day-2-session-3-tidy-eval.html#additional-material-1",
