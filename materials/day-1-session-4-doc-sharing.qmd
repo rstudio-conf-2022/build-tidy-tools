@@ -27,7 +27,7 @@ At the end of this section you will be able to:
 
 ::: small
 
--   Add a `README.md`by building and populating a `README.Rmd` 
+-   Add a `README.md` by building and populating a `README.Rmd` 
 
 -   Set up a GitHub action that will run 
     -   run `R CMD check` on multiple OS on GitHub and
@@ -557,7 +557,7 @@ pkgdown::build_site()
 
 ## Hosting on Github
 
-Set up GitHub actions to automatically build and publish your site
+Set up GitHub Actions to automatically build and publish your site
 
 Let github build the page rather than building and hosting results `usethis::use_pkgdown_github_pages()`
 
@@ -688,7 +688,7 @@ template:
 -   Always include a `README.md` with the purpose of the package, installation instructions and a simple example
 -   `usethis::use_readme_rmd()` will generate a template `README.Rmd` and do other useful things
 -   `devtools::build_readme()` will build `README.md` from `README.Rmd`
--   A GitHub Action is “continuous integration” which allows you to automate package building, testing and deployment on github
+-   A GitHub Actions is a “continuous integration” tool which allows you to automate package building, testing and deployment on GitHub
 -  `usethis::use_github_action_check_standard()` will add the `R CMD check` action and a badge
 
 
