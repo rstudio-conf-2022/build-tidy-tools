@@ -1090,6 +1090,8 @@ Duration: 25.1s
 usethis::use_mit_license("Emma Rand") 
 ```
 
+Read more in [Choose a Licence](https://choosealicense.com/licenses/).
+
 ## 
 
 ::: small
