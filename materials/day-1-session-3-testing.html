@@ -7,7 +7,7 @@
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.0.14">
+  <meta name="generator" content="quarto-1.0.16">
 
   <meta name="author" content="Emma Rand and Ian Lyttle">
   <title>Building tidy tools - 📦 Building tidy tools</title>
@@ -1055,6 +1055,30 @@
 <span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect_identical</span>(<span class="fu">unique</span>(italy<span class="sc">$</span>country), <span class="st">"Italy"</span>)</span>
 <span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="extra-find-a-bug-add-a-test" class="slide level2">
+<h2>Extra: find a bug, add a test</h2>
+<p>Running a practice session for this course, we found a bug:</p>
+<div class="small">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">test_that</span>(<span class="st">"uss_make_matches works"</span>, {</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># use the function</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>  italy <span class="ot">&lt;-</span> <span class="fu">uss_make_matches</span>(engsoccerdata<span class="sc">::</span>italy, <span class="st">"Italy"</span>)</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect_true</span>(tibble<span class="sc">::</span><span class="fu">is_tibble</span>(italy))</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect_named</span>(</span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>    italy,</span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="st">"country"</span>, <span class="st">"tier"</span>, <span class="st">"season"</span>, <span class="st">"date"</span>, <span class="st">"home"</span>, <span class="st">"visitor"</span>,</span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>      <span class="st">"goals_home"</span>, <span class="st">"goals_visitor"</span>)</span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect_identical</span>(<span class="fu">unique</span>(italy<span class="sc">$</span>country), <span class="st">"Italy"</span>)</span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># when you find a bug, add a test: 👋 from Ian</span></span>
+<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect_s3_class</span>(italy<span class="sc">$</span>tier, <span class="st">"factor"</span>)</span>
+<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>

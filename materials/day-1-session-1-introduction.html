@@ -7,7 +7,7 @@
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.0.14">
+  <meta name="generator" content="quarto-1.0.16">
 
   <meta name="author" content="Emma Rand and Ian Lyttle">
   <title>Building tidy tools - 📦 Building tidy tools</title>
@@ -807,7 +807,7 @@
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="images/installation.png" alt="schematic of package states and the functions that move them between states. One the horizontal axis: source, bundle, binary, installed, in memory. One the vertical axis the functions install.packages, R CMD install, install, build, install_github"></p>
-<p></p><figcaption aria-hidden="true">Schematic of methods for moving between package states</figcaption><p></p>
+<p></p><figcaption>Schematic of methods for moving between package states</figcaption><p></p>
 </figure>
 </div>
 
@@ -1224,7 +1224,7 @@ $ notes   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
 <span id="cb32-3"><a href="#cb32-3"></a>    data_engsoc <span class="sc">|&gt;</span></span>
 <span id="cb32-4"><a href="#cb32-4"></a>    tibble<span class="sc">::</span><span class="fu">as_tibble</span>() <span class="sc">|&gt;</span></span>
 <span id="cb32-5"><a href="#cb32-5"></a>    dplyr<span class="sc">::</span><span class="fu">transmute</span>(</span>
-<span id="cb32-6"><a href="#cb32-6"></a>      <span class="at">tier =</span> <span class="fu">as.integer</span>(tier),</span>
+<span id="cb32-6"><a href="#cb32-6"></a>      <span class="at">tier =</span> <span class="fu">factor</span>(tier, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"1"</span>, <span class="st">"2"</span>, <span class="st">"3"</span>, <span class="st">"4"</span>)),</span>
 <span id="cb32-7"><a href="#cb32-7"></a>      <span class="at">season =</span> <span class="fu">as.integer</span>(Season),</span>
 <span id="cb32-8"><a href="#cb32-8"></a>      <span class="at">date =</span> <span class="fu">as.Date</span>(Date),</span>
 <span id="cb32-9"><a href="#cb32-9"></a>      <span class="at">home =</span> <span class="fu">as.character</span>(home),</span>

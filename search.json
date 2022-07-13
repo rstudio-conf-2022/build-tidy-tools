@@ -599,7 +599,7 @@
     "href": "materials/day-1-session-1-introduction.html#add-the-function",
     "title": "📦 Building tidy tools",
     "section": "Add the function",
-    "text": "Add the function\n🎬 Put the following code into matches:\n\n\nuss_make_matches <- function(data_engsoc) {\n  result <-\n    data_engsoc |>\n    tibble::as_tibble() |>\n    dplyr::transmute(\n      tier = as.integer(tier),\n      season = as.integer(Season),\n      date = as.Date(Date),\n      home = as.character(home),\n      visitor = as.character(visitor),\n      goals_home = as.integer(hgoal),\n      goals_visitor = as.integer(vgoal)\n    )\n  result\n}"
+    "text": "Add the function\n🎬 Put the following code into matches:\n\n\nuss_make_matches <- function(data_engsoc) {\n  result <-\n    data_engsoc |>\n    tibble::as_tibble() |>\n    dplyr::transmute(\n      tier = factor(tier, levels = c(\"1\", \"2\", \"3\", \"4\")),\n      season = as.integer(Season),\n      date = as.Date(Date),\n      home = as.character(home),\n      visitor = as.character(visitor),\n      goals_home = as.integer(hgoal),\n      goals_visitor = as.integer(vgoal)\n    )\n  result\n}"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#development-workflow",
@@ -1013,6 +1013,13 @@
     "title": "📦 Building tidy tools",
     "section": "My answer",
     "text": "My answer\n\n\ntest_that(\"uss_make_matches works\", {\n\n  # use the function\n  italy <- uss_make_matches(engsoccerdata::italy, \"Italy\")\n\n  expect_true(tibble::is_tibble(italy))\n  expect_named(\n    italy,\n    c(\"country\", \"tier\", \"season\", \"date\", \"home\", \"visitor\",\n      \"goals_home\", \"goals_visitor\")\n  )\n  expect_identical(unique(italy$country), \"Italy\")\n})"
+  },
+  {
+    "objectID": "materials/day-1-session-3-testing.html#extra-find-a-bug-add-a-test",
+    "href": "materials/day-1-session-3-testing.html#extra-find-a-bug-add-a-test",
+    "title": "📦 Building tidy tools",
+    "section": "Extra: find a bug, add a test",
+    "text": "Extra: find a bug, add a test\nRunning a practice session for this course, we found a bug:\n\n\ntest_that(\"uss_make_matches works\", {\n\n  # use the function\n  italy <- uss_make_matches(engsoccerdata::italy, \"Italy\")\n\n  expect_true(tibble::is_tibble(italy))\n  expect_named(\n    italy,\n    c(\"country\", \"tier\", \"season\", \"date\", \"home\", \"visitor\",\n      \"goals_home\", \"goals_visitor\")\n  )\n  expect_identical(unique(italy$country), \"Italy\")\n  \n  # when you find a bug, add a test: 👋 from Ian\n  expect_s3_class(italy$tier, \"factor\")\n})"
   },
   {
     "objectID": "materials/day-1-session-3-testing.html#test-coverage",
