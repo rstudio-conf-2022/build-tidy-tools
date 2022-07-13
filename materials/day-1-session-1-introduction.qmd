@@ -468,7 +468,7 @@ Command line tool `R CMD INSTALL` powers all package installation
 ## Package states
 
 ::: columns
-::: {.column width="40%"}
+::: {.column width="30%"}
 -   source
 
 -   bundled
@@ -482,7 +482,7 @@ Command line tool `R CMD INSTALL` powers all package installation
     :::
 :::
 
-::: {.column width="60%" style="background-color: #707070"}
+::: {.column style="width: 70%; background-color: #707070"}
 If a package is installed, `library()` makes its function available by loading the package into memory and attaching it to the search path.
 
 We do not use `library()` for packages we are working on
