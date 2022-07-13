@@ -20,10 +20,13 @@ jobs:
         with:
           use-public-rspm: true
 
-      - name: Install libcurl on Linux
+      - name: Install additional libraries on Linux
         if: runner.os == 'Linux'
-        run: sudo apt-get update -y && sudo apt-get install -y libcurl4-openssl-dev
-        
+        run: | 
+          sudo apt-get update -y && sudo apt-get install -y libcurl4-openssl-dev
+          sudo apt-get install -y libharfbuzz-dev 
+          sudo apt-get install -y libfribidi-dev
+          
       - uses: r-lib/actions/setup-renv@v2
 
       - name: Install Quarto
