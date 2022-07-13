@@ -63,9 +63,9 @@ mtcars.query('cyl == 4')
  
 Welcome to *more interesting*.
 
-## Families of tidy-eval arguments
+## Families of tidy-eval functions
 
-There are two families of tidy-eval arguments:
+There are two families of tidy-eval functions:
 
 . . .
 
@@ -105,10 +105,7 @@ There are two families of tidy-eval arguments:
       dplyr::mutate("wt_kg" := .data[["wt"]] * 1000 / 2.2)
     ```
 
-. . .
-
-Here, we focus mostly on interactive programming.
-
+  
 ## Goal
 
 Write functions that:
@@ -116,6 +113,7 @@ Write functions that:
  - call tidyverse functions, e.g. `dplyr::filter()`
  - "look and feel" like tidyverse functions:
    - your users can call using bare names
+- use string-techniques when we know the column names
 
 . . . 
 
@@ -145,9 +143,7 @@ my_select <- function(.data, ...) {
 }
 ```
 
-## Your turn `"2.3.1"`
-
-
+## Our turn `"2.3.1"`
 
 . . .
 
@@ -160,6 +156,21 @@ my_select <- function(.data, ...) {
 *No* new files.
 
 . . .
+
+### Goal
+
+`uss_get_matches()` to use `dplyr::filter()`:
+
+```r
+uss_get_matches("italy", season == 1929)
+```
+
+equivalent to: 
+
+```r
+uss_get_matches("italy") |> 
+  dplyr::filter(season == 1929)
+```
 
 ## Pass the dots to `filter()` results
 
@@ -182,7 +193,20 @@ In `uss_get_matches()`:
 ## Pronouns: `.data`, `.env`
 
 ```r
-dplyr::filter(mtcars, cyl == 4) |> nrow()
+library("dplyr")
+mtcars |> nrow()
+```
+
+```
+[1] 32
+```
+
+. . .
+
+<hr>
+
+```r
+mtcars |> filter(cyl == 4) |> nrow()
 ```
 . . .
 
@@ -195,9 +219,35 @@ dplyr::filter(mtcars, cyl == 4) |> nrow()
 . . .
 
 ```r
-cyl <- 4
-dplyr::filter(mtcars, cyl == cyl) |> nrow()
+n_cyl <- 4
+mtcars |> filter(cyl == n_cyl) |> nrow()
 ```
+. . .
+
+```
+[1] 11
+```
+
+## Pronouns: `.data`, `.env` (cont.)
+
+```r
+n_cyl <- 4
+mtcars |> filter(cyl == n_cyl) |> nrow()
+```
+
+```
+[1] 11
+```
+
+<hr>
+
+. . .
+
+```r
+cyl <- 4
+filter(mtcars, cyl == cyl) |> nrow()
+```
+
 . . .
 
 ```
@@ -209,9 +259,7 @@ dplyr::filter(mtcars, cyl == cyl) |> nrow()
 . . .
 
 ```r
-library("rlang")
-cyl <- 4
-dplyr::filter(mtcars, .data$cyl == .env$cyl) |> nrow()
+mtcars |> filter(.data$cyl == .env$cyl) |> nrow()
 ```
 
 . . .
@@ -233,11 +281,10 @@ For *data-masking* functions, make explicit how to evaluate variables.
 To use them in your package:
 
 ```r
-# we have .data already
 usethis::use_import_from("rlang", c(".data", ".env"))
 ```
 
-## Your turn `"2.3.2"`
+## Our turn `"2.3.2"`
 
 . . .
 
@@ -252,13 +299,47 @@ Get new files, `btt22::btt_get("2.3.2")`:
  - `teams-matches.R`
  - `test-teams-matches.R`
 
-Go through what code does.
+## Teams-matches {.smaller}
+
+*matches*: one row per *match* played
+
+```{r}
+#| echo: false
+#| eval: false
+library("ussie")
+library("dplyr")
+italy_1 <- 
+  uss_get_matches("italy") |> 
+  filter(date == min(date)) |>
+  head(1) |>
+  print()
+```
+
+``` default
+# A tibble: 1 × 8
+  country tier  season date       home     visitor    goals_home goals_visitor
+  <chr>   <fct>  <int> <date>     <chr>    <chr>           <int>         <int>
+1 Italy   1       1929 1929-10-06 Juventus SSC Napoli          3             2
+```
 
 . . .
 
-If you have not already:
+*teams-matches*: one row per *team* playing a *match*
 
-`usethis::use_import_from("rlang", ".env")`
+``` default
+# A tibble: 2 × 9
+  country tier  season team       date       at_home opponent   goals_for goals_against
+  <chr>   <fct>  <int> <chr>      <date>     <lgl>   <chr>          <int>         <int>
+1 Italy   1       1929 Juventus   1929-10-06 TRUE    SSC Napoli         3             2
+2 Italy   1       1929 SSC Napoli 1929-10-06 FALSE   Juventus           2             3
+```
+
+. . .
+
+`uss_make_teams_matches()`:
+
+  - takes a *matches* data frame
+  - returns a *teams-matches* data frame
 
 ## Use `.env` pronoun
 
@@ -295,25 +376,26 @@ It works only with [*dynamic dots*](https://rlang.r-lib.org/reference/dyn-dots.h
 . . . 
 
 ```r
-mtcars |>
-  dplyr::rename(mpg = "new_mpg", cyl = "new_cyl")
+library("dplyr")
+mtcars |> rename(new_mpg = "mpg", new_cyl = "cyl")
 ```
 
 . . .
 
 ```r
-new_names <- c(mpg = "new_mpg", cyl = "new_cyl")
+new_names <- c(new_mpg = "mpg", new_cyl = "cyl")
 
-mtcars |>
-  dplyr::rename(!!!new_names)
+mtcars |> rename(!!!new_names)
 ```
 
 . . .
 
-Remember:`!!!` reflects `...`
+`!!!` reflects `...`
+ 
+`!!!` evaluates the variable using the environment
 
 
-## Your turn `"2.3.3"`
+## Our turn `"2.3.3"`
 
 . . .
 
@@ -355,7 +437,7 @@ With [*dynamic dots*](https://rlang.r-lib.org/reference/dyn-dots.html) you can n
 prefix <- "new"
 
 mtcars |>
-  dplyr::rename("{prefix}_mpg" := .data$mpg)
+  dplyr::rename("{prefix}_mpg" := "mpg")
 ```
 
 . . .
@@ -373,7 +455,7 @@ To use in your package:
 usethis::use_import_from("rlang", ":=")
 ```
 
-## Your turn `"2.3.4"`
+## Our turn `"2.3.4"`
 
 . . .
 
@@ -531,7 +613,7 @@ Not using variable-names in *tidy-select* that could be confused for column-name
 - `devtools::check()`
 :::
 
-## Your turn `"2.3.6"`
+## Our turn `"2.3.6"`
 
 . . .
 
@@ -628,7 +710,7 @@ mutate_greet <- function(.data, greeting) {
 - function you call must be capable
 - tidyverse *data-masking* and *tidy-select* functions are capable
 
-## Your turn `"2.3.7"`
+## Our turn `"2.3.7"`
 
 . . .
 
