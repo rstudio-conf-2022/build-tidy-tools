@@ -750,6 +750,19 @@ and return a *seasons* data frame:
 
 This form is *final*.
 
+## Try out new code
+
+- go through code, tests
+
+- `document()`, `test()`, `check()`, `install()`
+
+```r
+italy_1929 <-
+  uss_get_matches("italy", season == 1929) |> 
+  uss_make_teams_matches() |>
+  uss_make_seasons_cumulative()
+```
+
 ## `uss_make_seasons_final()`
 
 - same args as `uss_make_seasons_cumulative()`
@@ -840,21 +853,36 @@ mutate_greet <- function(.data, greeting) {
  
 Get new files, `btt22::btt_get("2.3.7")`:
 
-- `points.R`, `seasons.R`
-- `test-points.R`, `test-seasons.R`
+- `plot.R`, `snapshot.R`
+- `test-plot.R`
 
 `usethis::use_package("ggplot2")`
 
 ## Relegation & promotion {.smaller}
 
-
-
 Take a *seasons* (final) data frame for an English team:
 
+``` default
+# Groups:   country, tier, season [89]
+   country tier  season team        date       matches  wins draws losses points goals_for goals_against
+   <chr>   <fct>  <int> <chr>       <date>       <int> <int> <int>  <int>  <int>     <int>         <int>
+ 1 England 2       1920 Leeds Unit… 1921-05-07      42    14    10     18     38        40            45
+ 2 England 2       1921 Leeds Unit… 1922-05-06      42    16    13     13     45        48            38
+ 3 England 2       1922 Leeds Unit… 1923-05-05      42    18    11     13     47        43            36
+ 4 England 2       1923 Leeds Unit… 1924-05-03      42    21    12      9     54        61            35
+ 5 England 1       1924 Leeds Unit… 1925-05-02      42    11    12     19     34        46            59
+ 6 England 1       1925 Leeds Unit… 1926-05-01      42    14     8     20     36        64            76
+ 7 England 1       1926 Leeds Unit… 1927-05-07      42    11     8     23     30        69            88
+ 8 England 2       1927 Leeds Unit… 1928-05-05      42    25     7     10     57        98            49
+```
 
-## Try it yourself {.smaller}
+What happens over time as we get promoted and relegated?
 
-`devtools::load_all()`
+## Try out new code {.smaller}
+
+- go through code, tests
+
+- `document()`, `test()`, `check()`, `install()`
 
 ```{r}
 #| echo: false
@@ -869,7 +897,7 @@ leeds_united <-
   uss_get_matches("england") |> 
   uss_make_teams_matches() |>
   dplyr::filter(team == "Leeds United") |>
-  uss_make_seasons_final()
+  uss_make_seasons_final() 
 ```
 
 . . .
@@ -884,7 +912,7 @@ leeds_united <-
  3 England 1       1926 Leeds Unit… 1927-05-07      42    11     8     23     30        69            88
 ```
 
-## Try it yourself (cont.)
+## Try out new code (cont.)
 
 ```{r}
 #| echo: true
