@@ -175,14 +175,17 @@ to set the following options....
 
 ## 🔥 Set up your `.Rprofile`
 
-    options(
-      usethis.full_name = "Emma Rand",
-      usethis.description = list(
-        `Authors@R` = 'person("Emma", "Rand", 
-          email = "emma.rand@york.ac.uk",     
-          role = c("aut", "cre"))'           
-      )
-    )
+```{r}
+#| eval: false
+options(
+  usethis.full_name = "Emma Rand",
+  usethis.description = list(
+    `Authors@R` = 'person("Emma", "Rand",
+          email = "emma.rand@york.ac.uk",
+          role = c("aut", "cre"))'
+  )
+)
+```
 
 ## 🔥 Set up your `.Rprofile`
 
