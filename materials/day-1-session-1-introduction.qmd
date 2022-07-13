@@ -1122,7 +1122,7 @@ Read more in [Choose a Licence](https://choosealicense.com/licenses/).
 ::: small
 -   It is useful to make a package
     -   it is fairly easy with `devtools`
-    -   it will help you work more reproducibly
+    -   it will help you work more reproducible
 -   Packages can be in one of 5 states:
     -   source - what you write
     -   bundled - source compressed to single file, submitted to CRAN
