@@ -76,7 +76,7 @@ Detailed instructions for installing these are covered in [Prerequisites](pre-re
 ## Day 1
 
 | Time          | Activity                                                                                 |
-|:--------------|:-----------------------------------------------------------------------------------------|
+|:--------------|:--------------------------------------------------------|
 | 09:00 - 10:30 | [Session 1: Introduction and the whole game](materials/day-1-session-1-introduction.qmd) |
 | 10:30 - 11:00 | ☕ *Coffee break*                                                                        |
 | 11:00 - 12:30 | [Session 2: Documentation - Minimal](materials/day-1-session-2-doc-minimal.qmd)          |
@@ -88,7 +88,7 @@ Detailed instructions for installing these are covered in [Prerequisites](pre-re
 ## Day 2
 
 | Time          | Activity                                                              |
-|:--------------|:----------------------------------------------------------------------|
+|:---------------|:-------------------------------------------------------|
 | 09:00 - 10:30 | [Session 1: Function design](materials/day-2-session-1-design.qmd)    |
 | 10:30 - 11:00 | ☕ *Coffee break*                                                     |
 | 11:00 - 12:30 | [Session 2: Side effects](materials/day-2-session-2-side-effects.qmd) |
@@ -805,7 +805,7 @@ uss_make_matches <- function(data_engsoc) {
     data_engsoc |>
     tibble::as_tibble() |>
     dplyr::transmute(
-      tier = as.integer(tier),
+      tier = factor(tier, levels = c("1", "2", "3", "4")),
       season = as.integer(Season),
       date = as.Date(Date),
       home = as.character(home),
