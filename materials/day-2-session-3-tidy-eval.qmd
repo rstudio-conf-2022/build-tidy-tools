@@ -494,6 +494,10 @@ usethis::use_import_from("rlang", ":=")
 
 *No* new files.
 
+`usethis::use_import_from("rlang", ":=")`
+
+. . .
+
 ### Goal
 
 Use naming operator, `:=`
