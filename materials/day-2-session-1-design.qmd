@@ -74,6 +74,30 @@ Standing on the shoulders of Building Tidy Tools, rstudio::conf(2020) [@wickham2
 
 -   anything else?
 
+## Acknowledgements
+
+- RStudio for putting this on (esp. Mine Çetinkaya-Rundel)
+
+. . .
+
+- Emma has been an amazing collaborator in this endeavour
+
+. . . 
+
+- All the TAs for helping these days run smoothly
+
+. . .
+
+- Hadley Wickham, Jenny Bryan, and Charlotte Wickham
+
+. . .
+
+- At SE: Gilles Perry and Abhijeet Shegokar for "suffering" through a practice run
+
+. . .
+
+- All of you for being here
+
 ## How we will work
 
 -   stickies
