@@ -192,12 +192,19 @@ gitcreds::gitcreds_set()
 You may need to install **`gitcreds`** [@gitcreds].
 :::
 
-You can check your set up by asking for a "situation report"
+You can check your set up by asking for a "situation report": 
 
 ```{r}
 usethis::git_sitrep()
 ```
 
+The output for this function shows information about the link between RStudio and GitHub, but not all of it is relevant now. It is essential to check whether your name and email are correct and the PAT is showing as "discovered":
+
+```
+Personal access token for 'https://github.com': '<discovered>'
+```
+
+
 ### Personal Access Token
 
-The [Managing Git(Hub) Credentials](https://usethis.r-lib.org/articles/articles/git-credentials.html) vignette in the **`usethis`** [@usethis]package has all the details on PATs!
+The [Managing Git(Hub) Credentials](https://usethis.r-lib.org/articles/articles/git-credentials.html) vignette in the **`usethis`** [@usethis] package has all the details on PATs!
