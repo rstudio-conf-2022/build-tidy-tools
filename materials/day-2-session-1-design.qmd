@@ -48,6 +48,24 @@ Standing on the shoulders of Building Tidy Tools, rstudio::conf(2020) [@wickham2
 
 ## Code of conduct
 
+[rstudio::conf code of conduct](https://www.rstudio.com/conference/2022/2022-conf-code-of-conduct/) highlights:
+
+. . .
+
+- wear a mask over your nose and mouth.
+
+. . .
+
+- treat everyone with respect.
+
+. . .
+
+- if there is a problem:
+
+  - talk to RStudio staff member (Elliot is our liason)
+  - email: `conf@rstudio.com`
+  - phone: +1 844-448-1212
+
 ## Housekeeping
 
 -   Toilets
