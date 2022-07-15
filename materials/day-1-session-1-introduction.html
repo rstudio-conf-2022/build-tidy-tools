@@ -8,7 +8,7 @@
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.18">
+<meta name="generator" content="quarto-1.0.25">
 <meta name="author" content="Emma Rand and Ian Lyttle">
 <title>Building tidy tools - 📦 Building tidy tools</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -421,6 +421,7 @@
 <div class="column" style="width:50%;">
 <p>Emma Rand 🐦<a href="https://twitter.com/er13_r">@er13_r</a></p>
 <p>Elliot Murphy</p>
+<p>Kailey Mulligan</p>
 <p>Beatriz Milz 🐦<a href="https://twitter.com/BeaMilz">@BeaMilz</a></p>
 </div><div class="column" style="width:50%;">
 <p>Ian Lyttle 🐦<a href="https://twitter.com/ijlyttle">@ijlyttle</a></p>
@@ -608,6 +609,20 @@
 </section></section><section><section id="why-make-a-package" class="title-slide slide level1 center"><h1>Why make a package?</h1>
 
 </section><section id="why-make-a-package-1" class="slide level2"><h2>Why make a package</h2>
+<ul>
+<li>makes it easier to reuse functions you write</li>
+<li>have a consistent framework which encourages you to better organise, document and test, your code</li>
+<li>using this consistent framework means you can use many standardised tools</li>
+<li>is the easiest way to distribute code and data</li>
+</ul></section><section id="be-nice-to-future-you" class="slide level2"><h2>Be nice to future you</h2>
+
+<img data-src="images/future_you.png" alt="Person working at a computer with an offstage person asking &quot;How is the analysis going?&quot; The person at the computer replies &quot;Can't understand the data...and the data collector does not answer my emails or calls&quot; Person offstage: &quot;That's terrible! So cruel! Who did collect the data? I will sack them!&quot; Person at the computer: &quot;um...I did, 3 years ago&quot;" class="r-stretch quarto-figure-center"><p class="caption">Future self: CC-BY-NC, by Julen Colomb, derived from Randall Munroe cartoon</p></section><section id="to-avoid" class="slide level2"><h2>To avoid</h2>
+<iframe src="https://giphy.com/embed/M11UVCRrc0LUk" width="480" height="277" frameborder="0" class="giphy-embed" allowfullscreen="">
+</iframe>
+<p>
+</p>
+<p><a href="https://giphy.com/gifs/M11UVCRrc0LUk">via GIPHY</a></p>
+
 </section><section id="script-vs-package" class="slide level2"><h2>Script vs package</h2>
 <div class="columns">
 <div class="column" style="width:35%;">
@@ -631,15 +646,6 @@
 </ul>
 </div>
 </div>
-</section><section id="be-nice-to-future-you" class="slide level2"><h2>Be nice to future you</h2>
-
-<img data-src="images/future_you.png" alt="Person working at a computer with an offstage person asking &quot;How is the analysis going?&quot; The person at the computer replies &quot;Can't understand the data...and the data collector does not answer my emails or calls&quot; Person offstage: &quot;That's terrible! So cruel! Who did collect the data? I will sack them!&quot; Person at the computer: &quot;um...I did, 3 years ago&quot;" class="r-stretch quarto-figure-center"><p class="caption">Future self: CC-BY-NC, by Julen Colomb, derived from Randall Munroe cartoon</p></section><section id="to-avoid" class="slide level2"><h2>To avoid</h2>
-<iframe src="https://giphy.com/embed/M11UVCRrc0LUk" width="480" height="277" frameborder="0" class="giphy-embed" allowfullscreen="">
-</iframe>
-<p>
-</p>
-<p><a href="https://giphy.com/gifs/M11UVCRrc0LUk">via GIPHY</a></p>
-
 </section></section><section><section id="where-packages-come-from-and-live" class="title-slide slide level1 center"><h1>Where packages come from and live?</h1>
 
 </section><section id="where-do-r-packages-come-from" class="slide level2"><h2>Where do R packages come from?</h2>
@@ -1634,7 +1640,10 @@ Wickham, Hadley, Jim Hester, Winston Chang, and Jennifer Bryan. 2021. <span>“D
         }
       }
       const toggleBodyColorPrimary = () => {
-        toggleBodyColorMode(window.document.querySelector("link#quarto-bootstrap"));
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
       }
       toggleBodyColorPrimary();  
       const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")

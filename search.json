@@ -263,7 +263,7 @@
     "href": "materials/day-1-session-1-introduction.html#the-team",
     "title": "📦 Building tidy tools",
     "section": "The team",
-    "text": "The team\n\n\nEmma Rand 🐦@er13_r\nElliot Murphy\nBeatriz Milz 🐦@BeaMilz\n\nIan Lyttle 🐦@ijlyttle\nHaley Jeppson\nTed Laderas 🐦@tladeras\n\n\n \nStanding on the shoulders of Building Tidy Tools, rstudio::conf(2020) (C. Wickham and Wickham 2021), R Packages (H. Wickham and Bryan 2020)"
+    "text": "The team\n\n\nEmma Rand 🐦@er13_r\nElliot Murphy\nKailey Mulligan\nBeatriz Milz 🐦@BeaMilz\n\nIan Lyttle 🐦@ijlyttle\nHaley Jeppson\nTed Laderas 🐦@tladeras\n\n\n \nStanding on the shoulders of Building Tidy Tools, rstudio::conf(2020) (C. Wickham and Wickham 2021), R Packages (H. Wickham and Bryan 2020)"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#housekeeping",
@@ -347,14 +347,7 @@
     "href": "materials/day-1-session-1-introduction.html#why-make-a-package-1",
     "title": "📦 Building tidy tools",
     "section": "Why make a package",
-    "text": "Why make a package"
-  },
-  {
-    "objectID": "materials/day-1-session-1-introduction.html#script-vs-package",
-    "href": "materials/day-1-session-1-introduction.html#script-vs-package",
-    "title": "📦 Building tidy tools",
-    "section": "Script vs package",
-    "text": "Script vs package\n\n\nScript\n\none-off data analysis\ndefined by .R extension\n\nlibrary() calls\ndocumentation in # comments\nsource()\n\n\nPackage\n\ndefines reusable components\ndefined by presence of DESCRIPTION file\nRequired packages specified in DESCRIPTION, made available in NAMESPACE file\ndocumentation in files and Roxygen comments\nInstall and restart"
+    "text": "Why make a package\n\nmakes it easier to reuse functions you write\nhave a consistent framework which encourages you to better organise, document and test, your code\nusing this consistent framework means you can use many standardised tools\nis the easiest way to distribute code and data"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#be-nice-to-future-you",
@@ -369,6 +362,13 @@
     "title": "📦 Building tidy tools",
     "section": "To avoid",
     "text": "To avoid\n\n\n\n\nvia GIPHY"
+  },
+  {
+    "objectID": "materials/day-1-session-1-introduction.html#script-vs-package",
+    "href": "materials/day-1-session-1-introduction.html#script-vs-package",
+    "title": "📦 Building tidy tools",
+    "section": "Script vs package",
+    "text": "Script vs package\n\n\nScript\n\none-off data analysis\ndefined by .R extension\n\nlibrary() calls\ndocumentation in # comments\nsource()\n\n\nPackage\n\ndefines reusable components\ndefined by presence of DESCRIPTION file\nRequired packages specified in DESCRIPTION, made available in NAMESPACE file\ndocumentation in files and Roxygen comments\nInstall and restart"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#where-do-r-packages-come-from",
