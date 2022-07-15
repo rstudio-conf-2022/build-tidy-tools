@@ -380,6 +380,7 @@ We need to add a usage example!
 ## Package-level help page
 
 🎬 What happens if you do:
+
 ```{r}
 ?ussie
 ```
@@ -411,6 +412,15 @@ usethis::use_package_doc()
 . . .
 
 🎬 Run `devtools::document()` then `devtools::load_all()` followed by `?ussie`
+
+
+## Commit and push
+
+Now would be a good time to commit your changes and push them to GitHub
+
+![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"}  ![GitHub, MIT \<http://opensource.org/licenses/mit-license.php\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){fig-alt="GitHub icon" width="300"}
+
+
 
 ## 
 
@@ -462,7 +472,6 @@ Duration: 40.4s
     Date Season hgoal home tier vgoal visitor
 
 0 errors ✔ | 2 warnings ✖ | 1 note ✖
-
 ```
 :::
 
@@ -528,8 +537,6 @@ Look how your `DESCRIPTION` file changed!
 Note: we get reminded to "Refer to functions with `dplyr::fun()`"
 
 That is, we do NOT use `library(dplyr)` to make functions available to our package.
-
-
 
 ## `devtools::check()`
 
@@ -617,6 +624,14 @@ Congratulations! This .cff file is valid
 :::
 
 # 🏷️Yee haw! 🏷️ <BR> Your package has documentation!
+
+
+## Commit and push
+
+Now would be a good time to commit your changes and push them to GitHub
+
+![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"}  ![GitHub, MIT \<http://opensource.org/licenses/mit-license.php\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){fig-alt="GitHub icon" width="300"}
+
 
 ## Summary
 
