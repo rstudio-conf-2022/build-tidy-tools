@@ -312,7 +312,7 @@
     "href": "materials/day-1-session-1-introduction.html#learning-objectives",
     "title": "📦 Building tidy tools",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\n\nAt the end of this section you will be able to:\n\nMake changes to your .Rprofile and RStudio set to make ease the package writing process\nexplain the rationale for writing packages\nfind and explore their own package library/libraries\ndescribe the key components of a minimal package\ndescribe the different states a package can be in\noutline the development of a package using devtools (H. Wickham et al. 2021)\n\ncreate a simple version controlled package with a remote repo on GitHub\nuse the package interactively with devtools::load_all()\n\ncheck package validity with devtools::check()"
+    "text": "Learning Objectives\n\nAt the end of this section you will be able to:\n\nMake changes to your .Rprofile and RStudio set to ease the package writing process\nexplain the rationale for writing packages\nfind and explore their own package library/libraries\ndescribe the key components of a minimal package\ndescribe the different states a package can be in\noutline the development of a package using devtools (H. Wickham et al. 2021)\n\ncreate a simple version controlled package with a remote repo on GitHub\nuse the package interactively with devtools::load_all()\n\ncheck package validity with devtools::check()"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#global-options",
@@ -644,6 +644,13 @@
     "text": "An answer\n\n\nuss_make_matches <- function(data_engsoc, country) {\n  result <-\n    data_engsoc |>\n    tibble::as_tibble() |>\n    dplyr::transmute(\n      country = as.character(country),\n      tier = as.integer(tier),\n      season = as.integer(Season),\n      date = as.Date(Date),\n      home = as.character(home),\n      visitor = as.character(visitor),\n      goals_home = as.integer(hgoal),\n      goals_visitor = as.integer(vgoal)\n    )\n  result\n}"
   },
   {
+    "objectID": "materials/day-1-session-1-introduction.html#commit-and-push",
+    "href": "materials/day-1-session-1-introduction.html#commit-and-push",
+    "title": "📦 Building tidy tools",
+    "section": "Commit and push",
+    "text": "Commit and push\nNow would be a good time to commit your changes and push them to GitHub"
+  },
+  {
     "objectID": "materials/day-1-session-1-introduction.html#check-your-package-1",
     "href": "materials/day-1-session-1-introduction.html#check-your-package-1",
     "title": "📦 Building tidy tools",
@@ -712,6 +719,13 @@
     "title": "📦 Building tidy tools",
     "section": "use_mit_license()",
     "text": "use_mit_license()\n🎬 What files have appeared?\n\n🎬 How has the DESCRIPTION file changed?\n\n🎬 Run devtools::check() again. Has one of the warnings disappeared?"
+  },
+  {
+    "objectID": "materials/day-1-session-1-introduction.html#commit-and-push-1",
+    "href": "materials/day-1-session-1-introduction.html#commit-and-push-1",
+    "title": "📦 Building tidy tools",
+    "section": "Commit and push",
+    "text": "Commit and push\nNow would be a good time to commit your changes and push them to GitHub"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#summary",
@@ -1225,6 +1239,13 @@
     "text": "Package-level help page\nWe can fix this with use_package_doc()\n🎬 Add a package-level help page:\n\nusethis::use_package_doc()\n\n\n✔ Writing 'R/ussie-package.R'\n• Modify 'R/ussie-package.R'\n\n\n🎬 Run devtools::document() then devtools::load_all() followed by ?ussie"
   },
   {
+    "objectID": "materials/day-1-session-2-doc-minimal.html#commit-and-push",
+    "href": "materials/day-1-session-2-doc-minimal.html#commit-and-push",
+    "title": "📦 Building tidy tools",
+    "section": "Commit and push",
+    "text": "Commit and push\nNow would be a good time to commit your changes and push them to GitHub"
+  },
+  {
     "objectID": "materials/day-1-session-2-doc-minimal.html#section-1",
     "href": "materials/day-1-session-2-doc-minimal.html#section-1",
     "title": "📦 Building tidy tools",
@@ -1328,6 +1349,13 @@
     "title": "📦 Building tidy tools",
     "section": "CITATION.cff",
     "text": "CITATION.cff\nThe cffr (Hernangómez 2021) package will write a citation file in Citation File Format (CFF) (Druskat et al. 2021) from the description file.\n\ncffr::cff_write()\n\n\n\nCITATION.cff generated\nAdding  CITATION.cff to .Rbuildignore\n\ncff_validate results-----\nCongratulations! This .cff file is valid"
+  },
+  {
+    "objectID": "materials/day-1-session-2-doc-minimal.html#commit-and-push-1",
+    "href": "materials/day-1-session-2-doc-minimal.html#commit-and-push-1",
+    "title": "📦 Building tidy tools",
+    "section": "Commit and push",
+    "text": "Commit and push\nNow would be a good time to commit your changes and push them to GitHub"
   },
   {
     "objectID": "materials/day-1-session-2-doc-minimal.html#summary",
