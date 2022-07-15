@@ -78,7 +78,7 @@ Detailed instructions for installing these are covered in [Prerequisites](pre-re
 ## Day 1
 
 | Time          | Activity                                                                                 |
-|:--------------|:-----------------------------------------------------------------------------------------|
+|:------------------|:----------------------------------------------------|
 | 09:00 - 10:30 | [Session 1: Introduction and the whole game](materials/day-1-session-1-introduction.qmd) |
 | 10:30 - 11:00 | ☕ *Coffee break*                                                                        |
 | 11:00 - 12:30 | [Session 2: Documentation - Minimal](materials/day-1-session-2-doc-minimal.qmd)          |
@@ -90,7 +90,7 @@ Detailed instructions for installing these are covered in [Prerequisites](pre-re
 ## Day 2
 
 | Time          | Activity                                                              |
-|:--------------|:----------------------------------------------------------------------|
+|:-------------------|:---------------------------------------------------|
 | 09:00 - 10:30 | [Session 1: Function design](materials/day-2-session-1-design.qmd)    |
 | 10:30 - 11:00 | ☕ *Coffee break*                                                     |
 | 11:00 - 12:30 | [Session 2: Side effects](materials/day-2-session-2-side-effects.qmd) |
@@ -126,7 +126,7 @@ Reporting:
 ::: small
 At the end of this section you will be able to:
 
--   Make changes to your `.Rprofile` and RStudio set to make ease the package writing process
+-   Make changes to your `.Rprofile` and RStudio set to ease the package writing process
 -   explain the rationale for writing packages
 -   find and explore their own package library/libraries
 -   describe the key components of a minimal package
@@ -943,6 +943,14 @@ uss_make_matches <- function(data_engsoc, country) {
 ```
 :::
 
+## Commit and push
+
+Now would be a good time to commit your changes and push them to GitHub
+
+![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"}  ![GitHub, MIT \<http://opensource.org/licenses/mit-license.php\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){fig-alt="GitHub icon" width="300"}
+
+
+
 # Check your package
 
 ## Check your package
@@ -1117,6 +1125,15 @@ usethis::use_mit_license("Emma Rand")
 🎬 Run `devtools::check()` again. Has one of the warnings disappeared?
 
 # 📦 Woo hoo📦 <BR> You made a package!
+
+
+## Commit and push
+
+Now would be a good time to commit your changes and push them to GitHub
+
+![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"}  ![GitHub, MIT \<http://opensource.org/licenses/mit-license.php\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){fig-alt="GitHub icon" width="300"}
+
+
 
 ## Summary
 
