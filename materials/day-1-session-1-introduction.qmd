@@ -37,6 +37,8 @@ Emma Rand 🐦[\@er13_r](https://twitter.com/er13_r)
 
 Elliot Murphy
 
+Kailey Mulligan
+
 Beatriz Milz 🐦[\@BeaMilz](https://twitter.com/BeaMilz)
 :::
 
@@ -76,7 +78,7 @@ Detailed instructions for installing these are covered in [Prerequisites](pre-re
 ## Day 1
 
 | Time          | Activity                                                                                 |
-|:--------------|:--------------------------------------------------------|
+|:--------------|:-----------------------------------------------------------------------------------------|
 | 09:00 - 10:30 | [Session 1: Introduction and the whole game](materials/day-1-session-1-introduction.qmd) |
 | 10:30 - 11:00 | ☕ *Coffee break*                                                                        |
 | 11:00 - 12:30 | [Session 2: Documentation - Minimal](materials/day-1-session-2-doc-minimal.qmd)          |
@@ -88,7 +90,7 @@ Detailed instructions for installing these are covered in [Prerequisites](pre-re
 ## Day 2
 
 | Time          | Activity                                                              |
-|:---------------|:-------------------------------------------------------|
+|:--------------|:----------------------------------------------------------------------|
 | 09:00 - 10:30 | [Session 1: Function design](materials/day-2-session-1-design.qmd)    |
 | 10:30 - 11:00 | ☕ *Coffee break*                                                     |
 | 11:00 - 12:30 | [Session 2: Side effects](materials/day-2-session-2-side-effects.qmd) |
@@ -204,6 +206,27 @@ if (interactive()) {
 
 ## Why make a package
 
+-   makes it easier to reuse functions you write
+-   have a consistent framework which encourages you to better organise, document and test, your code
+-   using this consistent framework means you can use many standardised tools
+-   is the easiest way to distribute code and data
+
+## Be nice to future you
+
+![Future self: CC-BY-NC, by Julen Colomb, derived from Randall Munroe cartoon](images/future_you.png){fig-alt="Person working at a computer with an offstage person asking \"How is the analysis going?\" The person at the computer replies \"Can't understand the data...and the data collector does not answer my emails or calls\" Person offstage: \"That's terrible! So cruel! Who did collect the data? I will sack them!\" Person at the computer: \"um...I did, 3 years ago\""}
+
+## To avoid
+
+<iframe src="https://giphy.com/embed/M11UVCRrc0LUk" width="480" height="277" frameBorder="0" class="giphy-embed" allowFullScreen>
+
+</iframe>
+
+<p>
+
+<a href="https://giphy.com/gifs/M11UVCRrc0LUk">via GIPHY</a>
+
+</p>
+
 ## Script vs package
 
 ::: columns
@@ -227,22 +250,6 @@ if (interactive()) {
 -   Install and restart
 :::
 :::
-
-## Be nice to future you
-
-![Future self: CC-BY-NC, by Julen Colomb, derived from Randall Munroe cartoon](images/future_you.png){fig-alt="Person working at a computer with an offstage person asking \"How is the analysis going?\" The person at the computer replies \"Can't understand the data...and the data collector does not answer my emails or calls\" Person offstage: \"That's terrible! So cruel! Who did collect the data? I will sack them!\" Person at the computer: \"um...I did, 3 years ago\""}
-
-## To avoid
-
-<iframe src="https://giphy.com/embed/M11UVCRrc0LUk" width="480" height="277" frameBorder="0" class="giphy-embed" allowFullScreen>
-
-</iframe>
-
-<p>
-
-<a href="https://giphy.com/gifs/M11UVCRrc0LUk">via GIPHY</a>
-
-</p>
 
 # Where packages come from and live?
 
