@@ -78,7 +78,7 @@ Detailed instructions for installing these are covered in [Prerequisites](pre-re
 ## Day 1
 
 | Time          | Activity                                                                                 |
-|:------------------|:----------------------------------------------------|
+|:-------------------|:---------------------------------------------------|
 | 09:00 - 10:30 | [Session 1: Introduction and the whole game](materials/day-1-session-1-introduction.qmd) |
 | 10:30 - 11:00 | ☕ *Coffee break*                                                                        |
 | 11:00 - 12:30 | [Session 2: Documentation - Minimal](materials/day-1-session-2-doc-minimal.qmd)          |
@@ -90,7 +90,7 @@ Detailed instructions for installing these are covered in [Prerequisites](pre-re
 ## Day 2
 
 | Time          | Activity                                                              |
-|:-------------------|:---------------------------------------------------|
+|:--------------------|:--------------------------------------------------|
 | 09:00 - 10:30 | [Session 1: Function design](materials/day-2-session-1-design.qmd)    |
 | 10:30 - 11:00 | ☕ *Coffee break*                                                     |
 | 11:00 - 12:30 | [Session 2: Side effects](materials/day-2-session-2-side-effects.qmd) |
@@ -474,7 +474,7 @@ Command line tool `R CMD INSTALL` powers all package installation
 ## Package states
 
 ::: columns
-::: {.column width="30%"}
+::: {.column width="40%"}
 -   source
 
 -   bundled
@@ -488,7 +488,7 @@ Command line tool `R CMD INSTALL` powers all package installation
     :::
 :::
 
-::: {.column style="width: 70%; background-color: #707070"}
+::: {.column style="width: 60%; background-color: #707070"}
 If a package is installed, `library()` makes its function available by loading the package into memory and attaching it to the search path.
 
 We do not use `library()` for packages we are working on
@@ -764,7 +764,7 @@ Functions will go in an `.R` file.
 
 . . .
 
-There's a `usethis` helper for adding `.R` files!
+There's a **`usethis`** helper for adding `.R` files!
 
 \
 
@@ -950,9 +950,7 @@ uss_make_matches <- function(data_engsoc, country) {
 
 Now would be a good time to commit your changes and push them to GitHub
 
-![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"}  ![GitHub, MIT \<http://opensource.org/licenses/mit-license.php\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){fig-alt="GitHub icon" width="300"}
-
-
+![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"} ![GitHub, MIT \<http://opensource.org/licenses/mit-license.php\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){fig-alt="GitHub icon" width="300"}
 
 # Check your package
 
@@ -1094,7 +1092,7 @@ Duration: 25.1s
 
 `use_mit_license()`, `use_agpl_license()`, `use_ccby_license()` etc
 
-\
+. . . 
 
 🎬 Add a MIT license[^1] - use your own name!
 
@@ -1131,14 +1129,11 @@ Read more in [Choose a Licence](https://choosealicense.com/licenses/).
 
 # 📦 Woo hoo📦 <BR> You made a package!
 
-
 ## Commit and push
 
 Now would be a good time to commit your changes and push them to GitHub
 
-![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"}  ![GitHub, MIT \<http://opensource.org/licenses/mit-license.php\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){fig-alt="GitHub icon" width="300"}
-
-
+![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"} ![GitHub, MIT \<http://opensource.org/licenses/mit-license.php\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){fig-alt="GitHub icon" width="300"}
 
 ## Summary
 

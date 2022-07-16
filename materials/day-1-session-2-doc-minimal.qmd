@@ -130,6 +130,22 @@ Description: This is a demo package for the "Building Tidy Tools" workshop at
 ```
 :::
 
+
+. . .
+
+👀 The full stop matters!
+
+
+## Commit and push
+
+Now would be a good time to commit your changes and push them to GitHub.
+
+\
+
+Or just commit
+
+![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"} ![GitHub, MIT \<http://opensource.org/licenses/mit-license.php\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){fig-alt="GitHub icon" width="300"}
+
 # Object documentation
 
 ## Object documentation
@@ -304,8 +320,13 @@ uss_make_matches <- function(data_engsoc, country) {
 #'
 #' @return a tibble with columns `country`, `date`, `season`, `tier`, `home`,
 #'    `visitor`, `goals_home`, `goals_visitor`.
+#' @export
+#'
+#' @examples
 ```
 :::
+
+. . . 
 
 🎬 Save `matches.R`
 
@@ -323,6 +344,8 @@ Writing uss_make_matches.Rd
 Warning message:
 [matches.R:13] @examples requires a value 
 ```
+
+. . . 
 
 We will that fix later!
 
@@ -413,33 +436,13 @@ usethis::use_package_doc()
 
 🎬 Run `devtools::document()` then `devtools::load_all()` followed by `?ussie`
 
-
 ## Commit and push
 
 Now would be a good time to commit your changes and push them to GitHub
 
-![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"}  ![GitHub, MIT \<http://opensource.org/licenses/mit-license.php\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){fig-alt="GitHub icon" width="300"}
+![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"} ![GitHub, MIT \<http://opensource.org/licenses/mit-license.php\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){fig-alt="GitHub icon" width="300"}
 
 
-
-## 
-
-rationale needed....why imports from for tibble but not dplyr??
-
-🎬 fgdg
-
-```{r}
-usethis::use_import_from("tibble", "tibble")
-```
-
-. . .
-
-``` default
-✔ Adding 'tibble' to Imports field in DESCRIPTION
-✔ Adding '@importFrom tibble tibble' to 'R/ussie-package.R'
-✔ Writing 'NAMESPACE'
-✔ Loading ussie
-```
 
 ## `devtools::check()`
 
@@ -455,7 +458,8 @@ This is a good time to run R CMD check using `devtools::check()` to ensure our p
 Duration: 40.4s
 
 ❯ checking dependencies in R code ... WARNING
-  '::' or ':::' import not declared from: 'dplyr'
+  '::' or ':::' imports not declared from:
+    'dplyr' 'tibble'
 
 ❯ checking for unstated dependencies in examples ... WARNING
   '::' or ':::' import not declared from: 'engsoccerdata'
@@ -500,7 +504,8 @@ We need to document our package dependencies
 ::: extrasmall
 ``` default
 ❯ checking dependencies in R code ... WARNING
-  '::' or ':::' import not declared from: 'dplyr'
+  '::' or ':::' imports not declared from:
+    'dplyr' 'tibble'
 
 ❯ checking for unstated dependencies in examples ... WARNING
   '::' or ':::' import not declared from: 'engsoccerdata'
@@ -546,8 +551,11 @@ That is, we do NOT use `library(dplyr)` to make functions available to our packa
 
 ::: extrasmall
 ``` default
-── R CMD check results ────────────────────────── ussie 0.0.0.9000 ────
-Duration: 48.2s
+── R CMD check results ─────────── ussie 0.0.0.9000 ────
+Duration: 24s
+
+❯ checking dependencies in R code ... WARNING
+  '::' or ':::' import not declared from: 'tibble'
 
 ❯ checking for unstated dependencies in examples ... WARNING
   '::' or ':::' import not declared from: 'engsoccerdata'
@@ -563,9 +571,52 @@ Duration: 48.2s
   Undefined global functions or variables:
     Date Season hgoal home tier vgoal visitor
 
-0 errors ✔ | 1 warning ✖ | 1 note ✖
+0 errors ✔ | 2 warnings ✖ | 1 note ✖
 ```
 :::
+
+## Imports
+
+Three wways
+
+-   Few functions from another package: put package name in the `Imports:` field of the `DESCRIPTION` file and call the function(s) explicitly using `::`, e.g., `pkg::fun()`.
+
+. . .
+
+-   Function repeatedly, uses you can avoid `::` by importing the function with `@importFrom pkg fun` in `ussie-package.R`. 
+
+. . .
+
+-   Repeatedly using many functions from another package: `@import package`. But beware, less transparent, higher likelihood of conflicting function names.
+
+
+## Imports
+
+We will use `tibble::tible()` multiple times. 
+
+. . . 
+
+Instead of using
+`usethis::use_package("tibble")` we can use `usethis::use_import_from("tibble", "tibble")` to add the package to the DESCRIPTION imports and to add that function to `ussie-package.R`
+
+
+. . .
+
+
+```{r}
+usethis::use_import_from("tibble", "tibble")
+```
+
+. . .
+
+```default
+✔ Adding 'tibble' to Imports field in DESCRIPTION
+✔ Adding '@importFrom tibble tibble' to 'R/ussie-package.R'
+✔ Writing 'NAMESPACE'
+✔ Loading ussie
+
+```
+
 
 ## Suggests
 
@@ -625,13 +676,11 @@ Congratulations! This .cff file is valid
 
 # 🏷️Yee haw! 🏷️ <BR> Your package has documentation!
 
-
 ## Commit and push
 
 Now would be a good time to commit your changes and push them to GitHub
 
-![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"}  ![GitHub, MIT \<http://opensource.org/licenses/mit-license.php\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){fig-alt="GitHub icon" width="300"}
-
+![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"} ![GitHub, MIT \<http://opensource.org/licenses/mit-license.php\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){fig-alt="GitHub icon" width="300"}
 
 ## Summary
 
