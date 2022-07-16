@@ -177,14 +177,17 @@ to set the following options....
 
 ## 🔥 Set up your `.Rprofile`
 
-    options(
-      usethis.full_name = "Emma Rand",
-      usethis.description = list(
-        `Authors@R` = 'person("Emma", "Rand", 
-          email = "emma.rand@york.ac.uk",     
-          role = c("aut", "cre"))'           
-      )
-    )
+```{r}
+#| eval: false
+options(
+  usethis.full_name = "Emma Rand",
+  usethis.description = list(
+    `Authors@R` = 'person("Emma", "Rand",
+          email = "emma.rand@york.ac.uk",
+          role = c("aut", "cre"))'
+  )
+)
+```
 
 ## 🔥 Set up your `.Rprofile`
 
@@ -377,7 +380,7 @@ Figure from [R Packages](https://r-pkgs.org/) [@wickham2020]
 -   in-memory
 :::
 
-::: {.column width="60%" style="background-color: #707070"}
+::: {.column style="width: 60%; background-color: #707070"}
 What you create and work on.
 
 Specific directory structure with some particular components e.g., `DESCRIPTION`, an `R/` directory.
@@ -401,7 +404,7 @@ Specific directory structure with some particular components e.g., `DESCRIPTION`
 -   in-memory
 :::
 
-::: {.column width="60%" style="background-color: #707070"}
+::: {.column style="width: 60%; background-color: #707070"}
 Also known as "source tarballs".
 
 Package files compressed to single file.
@@ -431,7 +434,7 @@ Unpacked it looks very like the source package
 -   in-memory
 :::
 
-::: {.column width="60%" style="background-color: #707070"}
+::: {.column style="width: 60%; background-color: #707070"}
 Package distribution for users w/o dev tools
 
 Also a single file
@@ -461,7 +464,7 @@ Package developers submit a bundle to CRAN; CRAN makes and distributes binaries
 -   in-memory
 :::
 
-::: {.column width="60%" style="background-color: #707070"}
+::: {.column style="width: 60%; background-color: #707070"}
 A binary package that's been decompressed into a package library
 
 Command line tool `R CMD INSTALL` powers all package installation
@@ -471,7 +474,7 @@ Command line tool `R CMD INSTALL` powers all package installation
 ## Package states
 
 ::: columns
-::: {.column width="40%"}
+::: {.column width="30%"}
 -   source
 
 -   bundled
@@ -485,7 +488,7 @@ Command line tool `R CMD INSTALL` powers all package installation
     :::
 :::
 
-::: {.column width="60%" style="background-color: #707070"}
+::: {.column style="width: 70%; background-color: #707070"}
 If a package is installed, `library()` makes its function available by loading the package into memory and attaching it to the search path.
 
 We do not use `library()` for packages we are working on
@@ -1100,6 +1103,8 @@ Duration: 25.1s
 ```{r}
 usethis::use_mit_license("Emma Rand") 
 ```
+
+Read more in [Choose a Licence](https://choosealicense.com/licenses/).
 
 ## 
 
