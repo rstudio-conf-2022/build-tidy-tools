@@ -333,7 +333,7 @@
     "href": "materials/day-1-session-1-introduction.html#set-up-your-.rprofile-1",
     "title": "📦 Building tidy tools",
     "section": "🔥 Set up your .Rprofile\n",
-    "text": "🔥 Set up your .Rprofile\n\noptions(\n  usethis.full_name = \"Emma Rand\",\n  usethis.description = list(\n    `Authors@R` = 'person(\"Emma\", \"Rand\", \n      email = \"emma.rand@york.ac.uk\",     \n      role = c(\"aut\", \"cre\"))'           \n  )\n)"
+    "text": "🔥 Set up your .Rprofile\n\n\noptions(\n  usethis.full_name = \"Emma Rand\",\n  usethis.description = list(\n    `Authors@R` = 'person(\"Emma\", \"Rand\",\n          email = \"emma.rand@york.ac.uk\",\n          role = c(\"aut\", \"cre\"))'\n  )\n)"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#set-up-your-.rprofile-2",
@@ -704,7 +704,7 @@
     "href": "materials/day-1-session-1-introduction.html#add-a-license",
     "title": "📦 Building tidy tools",
     "section": "Add a license",
-    "text": "Add a license\nusethis helps out again!\n\nuse_mit_license(), use_agpl_license(), use_ccby_license() etc\n\n🎬 Add a MIT license1 - use your own name!\n\nusethis::use_mit_license(\"Emma Rand\") \n\nMIT: Simple and permissive license that lets people use and freely distribute your code"
+    "text": "Add a license\nusethis helps out again!\n\nuse_mit_license(), use_agpl_license(), use_ccby_license() etc\n\n🎬 Add a MIT license1 - use your own name!\n\nusethis::use_mit_license(\"Emma Rand\") \n\nRead more in Choose a Licence.\nMIT: Simple and permissive license that lets people use and freely distribute your code"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#section-8",
@@ -1239,6 +1239,13 @@
     "text": "Package-level help page\nWe can fix this with use_package_doc()\n🎬 Add a package-level help page:\n\nusethis::use_package_doc()\n\n\n✔ Writing 'R/ussie-package.R'\n• Modify 'R/ussie-package.R'\n\n\n🎬 Run devtools::document() then devtools::load_all() followed by ?ussie"
   },
   {
+    "objectID": "materials/day-1-session-2-doc-minimal.html#commit-and-push",
+    "href": "materials/day-1-session-2-doc-minimal.html#commit-and-push",
+    "title": "📦 Building tidy tools",
+    "section": "Commit and push",
+    "text": "Commit and push\nNow would be a good time to commit your changes and push them to GitHub"
+  },
+  {
     "objectID": "materials/day-1-session-2-doc-minimal.html#section-1",
     "href": "materials/day-1-session-2-doc-minimal.html#section-1",
     "title": "📦 Building tidy tools",
@@ -1342,6 +1349,13 @@
     "title": "📦 Building tidy tools",
     "section": "CITATION.cff",
     "text": "CITATION.cff\nThe cffr (Hernangómez 2021) package will write a citation file in Citation File Format (CFF) (Druskat et al. 2021) from the description file.\n\ncffr::cff_write()\n\n\n\nCITATION.cff generated\nAdding  CITATION.cff to .Rbuildignore\n\ncff_validate results-----\nCongratulations! This .cff file is valid"
+  },
+  {
+    "objectID": "materials/day-1-session-2-doc-minimal.html#commit-and-push-1",
+    "href": "materials/day-1-session-2-doc-minimal.html#commit-and-push-1",
+    "title": "📦 Building tidy tools",
+    "section": "Commit and push",
+    "text": "Commit and push\nNow would be a good time to commit your changes and push them to GitHub"
   },
   {
     "objectID": "materials/day-1-session-2-doc-minimal.html#summary",
