@@ -823,7 +823,7 @@
 </div>
 </section><section id="package-states-7" class="slide level2"><h2>Package states</h2>
 <div class="columns">
-<div class="column" style="width:30%;">
+<div class="column" style="width:40%;">
 <ul>
 <li><p>source</p></li>
 <li><p>bundled</p></li>
@@ -833,7 +833,7 @@
 <p>in-memory</p>
 </div></li>
 </ul>
-</div><div class="column" style="width: 70%; background-color: #707070">
+</div><div class="column" style="width: 60%; background-color: #707070">
 <p>If a package is installed, <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> makes its function available by loading the package into memory and attaching it to the search path.</p>
 <p>We do not use <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> for packages we are working on</p>
 <p><code><a href="https://devtools.r-lib.org/reference/load_all.html">devtools::load_all()</a></code> loads a source package directly into memory.</p>
@@ -1063,7 +1063,7 @@ $ notes   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
 <p>Functions will go in an <code>.R</code> file.</p>
 <p><br></p>
 <div class="fragment">
-<p>There’s a <code>usethis</code> helper for adding <code>.R</code> files!</p>
+<p>There’s a <strong><code>usethis</code></strong> helper for adding <code>.R</code> files!</p>
 <p><br></p>
 </div>
 <div class="fragment">
@@ -1307,12 +1307,13 @@ Non-standard license specification<br>
 <p><code>usethis</code> helps out again!</p>
 <p><br></p>
 <p><code><a href="https://usethis.r-lib.org/reference/licenses.html">use_mit_license()</a></code>, <code><a href="https://usethis.r-lib.org/reference/licenses.html">use_agpl_license()</a></code>, <code><a href="https://usethis.r-lib.org/reference/licenses.html">use_ccby_license()</a></code> etc</p>
-<p><br></p>
+<div class="fragment">
 <p>🎬 Add a MIT license<sup>1</sup> - use your own name!</p>
 <div class="cell">
 <div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/licenses.html">use_mit_license</a></span><span class="op">(</span><span class="st">"Emma Rand"</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Read more in <a href="https://choosealicense.com/licenses/">Choose a Licence</a>.</p>
+</div>
 <aside><ol class="aside-footnotes"><li id="fn1" role="doc-endnote"><p>MIT: Simple and permissive license that lets people use and freely distribute your code</p></li></ol></aside></section><section id="section-8" class="slide level2"><h2></h2>
 <div class="small">
 <div class="sourceCode" id="cb45"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>✔ Setting License field in DESCRIPTION to 'MIT + file LICENSE'</span>

@@ -503,6 +503,14 @@
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    league data supplied by the engsoccerdata package (Curley 2016).</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
+<div class="fragment">
+<p>👀 The full stop matters!</p>
+</div>
+</section><section id="commit-and-push" class="slide level2"><h2>Commit and push</h2>
+<p>Now would be a good time to commit your changes and push them to GitHub.</p>
+<p><br></p>
+<p>Or just commit</p>
+<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg" alt="Git icon" width="300"><img data-src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub icon" width="300"></p>
 </section></section><section><section id="object-documentation" class="title-slide slide level1 center"><h1>Object documentation</h1>
 
 </section><section id="object-documentation-1" class="slide level2"><h2>Object documentation</h2>
@@ -651,9 +659,14 @@
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>#' @param country `character` scalar, specifies the league.</span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>#'</span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>#' @return a tibble with columns `country`, `date`, `season`, `tier`, `home`,</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>#'    `visitor`, `goals_home`, `goals_visitor`.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>#'    `visitor`, `goals_home`, `goals_visitor`.</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>#' @export</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>#'</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>#' @examples</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="fragment">
 <p>🎬 Save <code>matches.R</code></p>
+</div>
 </section><section id="build-documentation" class="slide level2"><h2>Build documentation</h2>
 <p>🎬 Run <code><a href="https://devtools.r-lib.org/reference/document.html">devtools::document()</a></code></p>
 <div class="fragment">
@@ -663,6 +676,8 @@
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>Writing uss_make_matches.Rd</span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>Warning message:</span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>[matches.R:13] @examples requires a value </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
 <p>We will that fix later!</p>
 </div>
 </section><section id="take-a-look-1" class="slide level2"><h2>Take a look 1</h2>
@@ -721,47 +736,36 @@
 <div class="fragment">
 <p>🎬 Run <code><a href="https://devtools.r-lib.org/reference/document.html">devtools::document()</a></code> then <code><a href="https://devtools.r-lib.org/reference/load_all.html">devtools::load_all()</a></code> followed by <code>?ussie</code></p>
 </div>
-</section><section id="commit-and-push" class="slide level2"><h2>Commit and push</h2>
+</section><section id="commit-and-push-1" class="slide level2"><h2>Commit and push</h2>
 <p>Now would be a good time to commit your changes and push them to GitHub</p>
 <p><img data-src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg" alt="Git icon" width="300"><img data-src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub icon" width="300"></p>
-</section><section id="section-1" class="slide level2"><h2></h2>
-<p>rationale needed….why imports from for tibble but not dplyr??</p>
-<p>🎬 fgdg</p>
-<div class="cell">
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_import_from.html">use_import_from</a></span><span class="op">(</span><span class="st">"tibble"</span>, <span class="st">"tibble"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="fragment">
-<div class="sourceCode" id="cb16"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>✔ Adding 'tibble' to Imports field in DESCRIPTION</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>✔ Adding '@importFrom tibble tibble' to 'R/ussie-package.R'</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>✔ Writing 'NAMESPACE'</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>✔ Loading ussie</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 </section><section id="devtoolscheck" class="slide level2"><h2><code>devtools::check()</code></h2>
 <p>This is a good time to run R CMD check using <code><a href="https://devtools.r-lib.org/reference/check.html">devtools::check()</a></code> to ensure our package is in full working order.</p>
 <p>🎬 <code><a href="https://devtools.r-lib.org/reference/check.html">devtools::check()</a></code></p>
-</section><section id="section-2" class="slide level2"><h2></h2>
+</section><section id="section-1" class="slide level2"><h2></h2>
 <div class="extrasmall">
-<div class="sourceCode" id="cb17"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>── R CMD check results ─────────────────────────────────── ussie 0.0.0.9000 ────</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>Duration: 40.4s</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>❯ checking dependencies in R code ... WARNING</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  '::' or ':::' import not declared from: 'dplyr'</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>❯ checking for unstated dependencies in examples ... WARNING</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  '::' or ':::' import not declared from: 'engsoccerdata'</span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>❯ checking R code for possible problems ... NOTE</span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable 'tier'</span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable 'Season'</span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable 'Date'</span>
-<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable 'home'</span>
-<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable 'visitor'</span>
-<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable 'hgoal'</span>
-<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable 'vgoal'</span>
-<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>  Undefined global functions or variables:</span>
-<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>    Date Season hgoal home tier vgoal visitor</span>
-<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>0 errors ✔ | 2 warnings ✖ | 1 note ✖</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>── R CMD check results ─────────────────────────────────── ussie 0.0.0.9000 ────</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>Duration: 40.4s</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>❯ checking dependencies in R code ... WARNING</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  '::' or ':::' imports not declared from:</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    'dplyr' 'tibble'</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>❯ checking for unstated dependencies in examples ... WARNING</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  '::' or ':::' import not declared from: 'engsoccerdata'</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>❯ checking R code for possible problems ... NOTE</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable 'tier'</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable 'Season'</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable 'Date'</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable 'home'</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable 'visitor'</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable 'hgoal'</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable 'vgoal'</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>  Undefined global functions or variables:</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>    Date Season hgoal home tier vgoal visitor</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>0 errors ✔ | 2 warnings ✖ | 1 note ✖</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We’ve gained a warning!</p>
 </section></section><section><section id="package-dependencies" class="title-slide slide level1 center"><h1>Package dependencies</h1>
@@ -775,13 +779,14 @@
 <li><p><strong>Imports:</strong> must be installed for your package to work. If they’re not, they will get installed.</p></li>
 <li><p><strong>Suggests:</strong> used by your package, but not required. Might provide data for examples, to run tests, build vignettes.</p></li>
 <li><p><strong>Depends:</strong> Avoid where possible. When your package requires a specific version of R, e.g.&nbsp;<code>Depends: R (&gt;= 3.4.0)</code>. Think critically: downstream effects on packages that depend on your package.</p></li>
-</ul></section><section id="section-3" class="slide level2"><h2></h2>
+</ul></section><section id="section-2" class="slide level2"><h2></h2>
 <div class="extrasmall">
-<div class="sourceCode" id="cb18"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>❯ checking dependencies in R code ... WARNING</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  '::' or ':::' import not declared from: 'dplyr'</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>❯ checking for unstated dependencies in examples ... WARNING</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  '::' or ':::' import not declared from: 'engsoccerdata'</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>❯ checking dependencies in R code ... WARNING</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  '::' or ':::' imports not declared from:</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    'dplyr' 'tibble'</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>❯ checking for unstated dependencies in examples ... WARNING</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  '::' or ':::' import not declared from: 'engsoccerdata'</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="package-dependencies-3" class="slide level2"><h2>Package dependencies</h2>
 <p><code>use_package(package, type = "Imports")</code></p>
@@ -791,11 +796,11 @@
 </ul></section><section id="usethisuse_package" class="slide level2"><h2><code>usethis::use_package()</code></h2>
 <p>🎬 Use <code><a href="https://usethis.r-lib.org/reference/use_package.html">usethis::use_package()</a></code> to add the <strong><code>dplyr</code></strong> package to <code>Imports</code></p>
 <div class="cell">
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_package.html">use_package</a></span><span class="op">(</span><span class="st">"dplyr"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_package.html">use_package</a></span><span class="op">(</span><span class="st">"dplyr"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
-<div class="sourceCode" id="cb20"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>✔ Adding 'dplyr' to Imports field in DESCRIPTION</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>• Refer to functions with `dplyr::fun()`</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>✔ Adding 'dplyr' to Imports field in DESCRIPTION</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>• Refer to functions with `dplyr::fun()`</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Look how your <code>DESCRIPTION</code> file changed!</p>
 </div>
 </section><section id="usethisuse_package-1" class="slide level2"><h2><code>usethis::use_package()</code></h2>
@@ -803,26 +808,60 @@
 <p>That is, we do NOT use <code><a href="https://dplyr.tidyverse.org">library(dplyr)</a></code> to make functions available to our package.</p>
 </section><section id="devtoolscheck-1" class="slide level2"><h2><code>devtools::check()</code></h2>
 <p>🎬 Run <code><a href="https://devtools.r-lib.org/reference/check.html">devtools::check()</a></code> on your package again</p>
-</section><section id="section-4" class="slide level2"><h2></h2>
+</section><section id="section-3" class="slide level2"><h2></h2>
 <div class="extrasmall">
-<div class="sourceCode" id="cb21"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>── R CMD check results ────────────────────────── ussie 0.0.0.9000 ────</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>Duration: 48.2s</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>❯ checking for unstated dependencies in examples ... WARNING</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  '::' or ':::' import not declared from: 'engsoccerdata'</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>❯ checking R code for possible problems ... NOTE</span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable 'tier'</span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable 'Season'</span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable 'Date'</span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable 'home'</span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable 'visitor'</span>
-<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable 'hgoal'</span>
-<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable 'vgoal'</span>
-<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>  Undefined global functions or variables:</span>
-<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>    Date Season hgoal home tier vgoal visitor</span>
-<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>0 errors ✔ | 1 warning ✖ | 1 note ✖</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>── R CMD check results ─────────── ussie 0.0.0.9000 ────</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>Duration: 24s</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>❯ checking dependencies in R code ... WARNING</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  '::' or ':::' import not declared from: 'tibble'</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>❯ checking for unstated dependencies in examples ... WARNING</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  '::' or ':::' import not declared from: 'engsoccerdata'</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>❯ checking R code for possible problems ... NOTE</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable 'tier'</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable 'Season'</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable 'Date'</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable 'home'</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable 'visitor'</span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable 'hgoal'</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>  uss_make_matches: no visible binding for global variable 'vgoal'</span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>  Undefined global functions or variables:</span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>    Date Season hgoal home tier vgoal visitor</span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>0 errors ✔ | 2 warnings ✖ | 1 note ✖</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="imports" class="slide level2"><h2>Imports</h2>
+<p>Three wways</p>
+<ul>
+<li>Few functions from another package: put package name in the&nbsp;<code>Imports:</code>&nbsp;field of the&nbsp;<code>DESCRIPTION</code>&nbsp;file and call the function(s) explicitly using&nbsp;<code>::</code>, e.g.,&nbsp;<code>pkg::fun()</code>.</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Function repeatedly, uses you can avoid&nbsp;<code>::</code>&nbsp;by importing the function with&nbsp;<code>@importFrom pkg fun</code> in <code>ussie-package.R</code>.</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Repeatedly using many functions from another package:&nbsp;<code>@import package</code>. But beware, less transparent, higher likelihood of conflicting function names.</li>
+</ul>
+</div>
+</section><section id="imports-1" class="slide level2"><h2>Imports</h2>
+<p>We will use <code>tibble::tible()</code> multiple times.</p>
+<div class="fragment">
+<p>Instead of using <code>usethis::use_package("tibble")</code> we can use <code>usethis::use_import_from("tibble", "tibble")</code> to add the package to the DESCRIPTION imports and to add that function to <code>ussie-package.R</code></p>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_import_from.html">use_import_from</a></span><span class="op">(</span><span class="st">"tibble"</span>, <span class="st">"tibble"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment">
+<div class="sourceCode" id="cb21"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>✔ Adding 'tibble' to Imports field in DESCRIPTION</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>✔ Adding '@importFrom tibble tibble' to 'R/ussie-package.R'</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>✔ Writing 'NAMESPACE'</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>✔ Loading ussie</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="suggests" class="slide level2"><h2>Suggests</h2>
 <ul>
@@ -863,7 +902,7 @@
 </div>
 </section></section><section><section id="yee-haw-your-package-has-documentation" class="title-slide slide level1 center"><h1>🏷️Yee haw! 🏷️ <br> Your package has documentation!</h1>
 
-</section><section id="commit-and-push-1" class="slide level2"><h2>Commit and push</h2>
+</section><section id="commit-and-push-2" class="slide level2"><h2>Commit and push</h2>
 <p>Now would be a good time to commit your changes and push them to GitHub</p>
 <p><img data-src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg" alt="Git icon" width="300"><img data-src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub icon" width="300"></p>
 </section><section id="summary" class="slide level2"><h2>Summary</h2>

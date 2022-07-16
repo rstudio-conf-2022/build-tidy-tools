@@ -704,7 +704,7 @@
     "href": "materials/day-1-session-1-introduction.html#add-a-license",
     "title": "📦 Building tidy tools",
     "section": "Add a license",
-    "text": "Add a license\nusethis helps out again!\n\nuse_mit_license(), use_agpl_license(), use_ccby_license() etc\n\n🎬 Add a MIT license1 - use your own name!\n\nusethis::use_mit_license(\"Emma Rand\") \n\nRead more in Choose a Licence.\nMIT: Simple and permissive license that lets people use and freely distribute your code"
+    "text": "Add a license\nusethis helps out again!\n\nuse_mit_license(), use_agpl_license(), use_ccby_license() etc\n\n🎬 Add a MIT license1 - use your own name!\n\nusethis::use_mit_license(\"Emma Rand\") \n\nRead more in Choose a Licence.\n\nMIT: Simple and permissive license that lets people use and freely distribute your code"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#section-8",
@@ -1117,7 +1117,14 @@
     "href": "materials/day-1-session-2-doc-minimal.html#update-description-2",
     "title": "📦 Building tidy tools",
     "section": "Update DESCRIPTION\n",
-    "text": "Update DESCRIPTION\n\n🎬 Edit the description\n\n\nDescription: This is a demo package for the \"Building Tidy Tools\" workshop at \n    at rstudio::conf(2022L). It allows you to work with European football \n    league data supplied by the engsoccerdata package (Curley 2016)."
+    "text": "Update DESCRIPTION\n\n🎬 Edit the description\n\n\nDescription: This is a demo package for the \"Building Tidy Tools\" workshop at \n    at rstudio::conf(2022L). It allows you to work with European football \n    league data supplied by the engsoccerdata package (Curley 2016).\n\n\n\n👀 The full stop matters!"
+  },
+  {
+    "objectID": "materials/day-1-session-2-doc-minimal.html#commit-and-push",
+    "href": "materials/day-1-session-2-doc-minimal.html#commit-and-push",
+    "title": "📦 Building tidy tools",
+    "section": "Commit and push",
+    "text": "Commit and push\nNow would be a good time to commit your changes and push them to GitHub.\n\nOr just commit"
   },
   {
     "objectID": "materials/day-1-session-2-doc-minimal.html#object-documentation-1",
@@ -1187,14 +1194,14 @@
     "href": "materials/day-1-session-2-doc-minimal.html#our-answer",
     "title": "📦 Building tidy tools",
     "section": "Our answer",
-    "text": "Our answer\n\n#' Make a standard league-play tibble\n#'\n#' Given a league-play data frame from {engsoccer}, returns a tibble with\n#' standardised column-names and types, e.g. `date` is a `Date`.\n#'\n#' @param data_engsoc  obtained from {engsoccerdata}.\n#' @param country `character` scalar, specifies the league.\n#'\n#' @return a tibble with columns `country`, `date`, `season`, `tier`, `home`,\n#'    `visitor`, `goals_home`, `goals_visitor`.\n\n🎬 Save matches.R"
+    "text": "Our answer\n\n#' Make a standard league-play tibble\n#'\n#' Given a league-play data frame from {engsoccer}, returns a tibble with\n#' standardised column-names and types, e.g. `date` is a `Date`.\n#'\n#' @param data_engsoc  obtained from {engsoccerdata}.\n#' @param country `character` scalar, specifies the league.\n#'\n#' @return a tibble with columns `country`, `date`, `season`, `tier`, `home`,\n#'    `visitor`, `goals_home`, `goals_visitor`.\n#' @export\n#'\n#' @examples\n\n\n🎬 Save matches.R"
   },
   {
     "objectID": "materials/day-1-session-2-doc-minimal.html#build-documentation",
     "href": "materials/day-1-session-2-doc-minimal.html#build-documentation",
     "title": "📦 Building tidy tools",
     "section": "Build documentation",
-    "text": "Build documentation\n🎬 Run devtools::document()\n\nℹ Updating ussie documentation\nℹ Loading ussie\nWriting NAMESPACE\nWriting uss_make_matches.Rd\nWarning message:\n[matches.R:13] @examples requires a value \nWe will that fix later!"
+    "text": "Build documentation\n🎬 Run devtools::document()\n\nℹ Updating ussie documentation\nℹ Loading ussie\nWriting NAMESPACE\nWriting uss_make_matches.Rd\nWarning message:\n[matches.R:13] @examples requires a value \n\n\nWe will that fix later!"
   },
   {
     "objectID": "materials/day-1-session-2-doc-minimal.html#take-a-look-1",
@@ -1239,18 +1246,11 @@
     "text": "Package-level help page\nWe can fix this with use_package_doc()\n🎬 Add a package-level help page:\n\nusethis::use_package_doc()\n\n\n✔ Writing 'R/ussie-package.R'\n• Modify 'R/ussie-package.R'\n\n\n🎬 Run devtools::document() then devtools::load_all() followed by ?ussie"
   },
   {
-    "objectID": "materials/day-1-session-2-doc-minimal.html#commit-and-push",
-    "href": "materials/day-1-session-2-doc-minimal.html#commit-and-push",
+    "objectID": "materials/day-1-session-2-doc-minimal.html#commit-and-push-1",
+    "href": "materials/day-1-session-2-doc-minimal.html#commit-and-push-1",
     "title": "📦 Building tidy tools",
     "section": "Commit and push",
     "text": "Commit and push\nNow would be a good time to commit your changes and push them to GitHub"
-  },
-  {
-    "objectID": "materials/day-1-session-2-doc-minimal.html#section-1",
-    "href": "materials/day-1-session-2-doc-minimal.html#section-1",
-    "title": "📦 Building tidy tools",
-    "section": "",
-    "text": "rationale needed….why imports from for tibble but not dplyr??\n🎬 fgdg\n\nusethis::use_import_from(\"tibble\", \"tibble\")\n\n\n✔ Adding 'tibble' to Imports field in DESCRIPTION\n✔ Adding '@importFrom tibble tibble' to 'R/ussie-package.R'\n✔ Writing 'NAMESPACE'\n✔ Loading ussie"
   },
   {
     "objectID": "materials/day-1-session-2-doc-minimal.html#devtoolscheck",
@@ -1260,11 +1260,11 @@
     "text": "devtools::check()\nThis is a good time to run R CMD check using devtools::check() to ensure our package is in full working order.\n🎬 devtools::check()"
   },
   {
-    "objectID": "materials/day-1-session-2-doc-minimal.html#section-2",
-    "href": "materials/day-1-session-2-doc-minimal.html#section-2",
+    "objectID": "materials/day-1-session-2-doc-minimal.html#section-1",
+    "href": "materials/day-1-session-2-doc-minimal.html#section-1",
     "title": "📦 Building tidy tools",
     "section": "",
-    "text": "── R CMD check results ─────────────────────────────────── ussie 0.0.0.9000 ────\nDuration: 40.4s\n\n❯ checking dependencies in R code ... WARNING\n  '::' or ':::' import not declared from: 'dplyr'\n\n❯ checking for unstated dependencies in examples ... WARNING\n  '::' or ':::' import not declared from: 'engsoccerdata'\n\n❯ checking R code for possible problems ... NOTE\n  uss_make_matches: no visible binding for global variable 'tier'\n  uss_make_matches: no visible binding for global variable 'Season'\n  uss_make_matches: no visible binding for global variable 'Date'\n  uss_make_matches: no visible binding for global variable 'home'\n  uss_make_matches: no visible binding for global variable 'visitor'\n  uss_make_matches: no visible binding for global variable 'hgoal'\n  uss_make_matches: no visible binding for global variable 'vgoal'\n  Undefined global functions or variables:\n    Date Season hgoal home tier vgoal visitor\n\n0 errors ✔ | 2 warnings ✖ | 1 note ✖\n\nWe’ve gained a warning!"
+    "text": "── R CMD check results ─────────────────────────────────── ussie 0.0.0.9000 ────\nDuration: 40.4s\n\n❯ checking dependencies in R code ... WARNING\n  '::' or ':::' imports not declared from:\n    'dplyr' 'tibble'\n\n❯ checking for unstated dependencies in examples ... WARNING\n  '::' or ':::' import not declared from: 'engsoccerdata'\n\n❯ checking R code for possible problems ... NOTE\n  uss_make_matches: no visible binding for global variable 'tier'\n  uss_make_matches: no visible binding for global variable 'Season'\n  uss_make_matches: no visible binding for global variable 'Date'\n  uss_make_matches: no visible binding for global variable 'home'\n  uss_make_matches: no visible binding for global variable 'visitor'\n  uss_make_matches: no visible binding for global variable 'hgoal'\n  uss_make_matches: no visible binding for global variable 'vgoal'\n  Undefined global functions or variables:\n    Date Season hgoal home tier vgoal visitor\n\n0 errors ✔ | 2 warnings ✖ | 1 note ✖\n\nWe’ve gained a warning!"
   },
   {
     "objectID": "materials/day-1-session-2-doc-minimal.html#package-dependencies-1",
@@ -1281,11 +1281,11 @@
     "text": "Package dependencies\n\nImports: must be installed for your package to work. If they’re not, they will get installed.\nSuggests: used by your package, but not required. Might provide data for examples, to run tests, build vignettes.\nDepends: Avoid where possible. When your package requires a specific version of R, e.g. Depends: R (>= 3.4.0). Think critically: downstream effects on packages that depend on your package."
   },
   {
-    "objectID": "materials/day-1-session-2-doc-minimal.html#section-3",
-    "href": "materials/day-1-session-2-doc-minimal.html#section-3",
+    "objectID": "materials/day-1-session-2-doc-minimal.html#section-2",
+    "href": "materials/day-1-session-2-doc-minimal.html#section-2",
     "title": "📦 Building tidy tools",
     "section": "",
-    "text": "❯ checking dependencies in R code ... WARNING\n  '::' or ':::' import not declared from: 'dplyr'\n\n❯ checking for unstated dependencies in examples ... WARNING\n  '::' or ':::' import not declared from: 'engsoccerdata'"
+    "text": "❯ checking dependencies in R code ... WARNING\n  '::' or ':::' imports not declared from:\n    'dplyr' 'tibble'\n\n❯ checking for unstated dependencies in examples ... WARNING\n  '::' or ':::' import not declared from: 'engsoccerdata'"
   },
   {
     "objectID": "materials/day-1-session-2-doc-minimal.html#package-dependencies-3",
@@ -1316,11 +1316,25 @@
     "text": "devtools::check()\n🎬 Run devtools::check() on your package again"
   },
   {
-    "objectID": "materials/day-1-session-2-doc-minimal.html#section-4",
-    "href": "materials/day-1-session-2-doc-minimal.html#section-4",
+    "objectID": "materials/day-1-session-2-doc-minimal.html#section-3",
+    "href": "materials/day-1-session-2-doc-minimal.html#section-3",
     "title": "📦 Building tidy tools",
     "section": "",
-    "text": "── R CMD check results ────────────────────────── ussie 0.0.0.9000 ────\nDuration: 48.2s\n\n❯ checking for unstated dependencies in examples ... WARNING\n  '::' or ':::' import not declared from: 'engsoccerdata'\n\n❯ checking R code for possible problems ... NOTE\n  uss_make_matches: no visible binding for global variable 'tier'\n  uss_make_matches: no visible binding for global variable 'Season'\n  uss_make_matches: no visible binding for global variable 'Date'\n  uss_make_matches: no visible binding for global variable 'home'\n  uss_make_matches: no visible binding for global variable 'visitor'\n  uss_make_matches: no visible binding for global variable 'hgoal'\n  uss_make_matches: no visible binding for global variable 'vgoal'\n  Undefined global functions or variables:\n    Date Season hgoal home tier vgoal visitor\n\n0 errors ✔ | 1 warning ✖ | 1 note ✖"
+    "text": "── R CMD check results ─────────── ussie 0.0.0.9000 ────\nDuration: 24s\n\n❯ checking dependencies in R code ... WARNING\n  '::' or ':::' import not declared from: 'tibble'\n\n❯ checking for unstated dependencies in examples ... WARNING\n  '::' or ':::' import not declared from: 'engsoccerdata'\n\n❯ checking R code for possible problems ... NOTE\n  uss_make_matches: no visible binding for global variable 'tier'\n  uss_make_matches: no visible binding for global variable 'Season'\n  uss_make_matches: no visible binding for global variable 'Date'\n  uss_make_matches: no visible binding for global variable 'home'\n  uss_make_matches: no visible binding for global variable 'visitor'\n  uss_make_matches: no visible binding for global variable 'hgoal'\n  uss_make_matches: no visible binding for global variable 'vgoal'\n  Undefined global functions or variables:\n    Date Season hgoal home tier vgoal visitor\n\n0 errors ✔ | 2 warnings ✖ | 1 note ✖"
+  },
+  {
+    "objectID": "materials/day-1-session-2-doc-minimal.html#imports",
+    "href": "materials/day-1-session-2-doc-minimal.html#imports",
+    "title": "📦 Building tidy tools",
+    "section": "Imports",
+    "text": "Imports\nThree wways\n\nFew functions from another package: put package name in the Imports: field of the DESCRIPTION file and call the function(s) explicitly using ::, e.g., pkg::fun().\n\n\n\nFunction repeatedly, uses you can avoid :: by importing the function with @importFrom pkg fun in ussie-package.R.\n\n\n\n\nRepeatedly using many functions from another package: @import package. But beware, less transparent, higher likelihood of conflicting function names."
+  },
+  {
+    "objectID": "materials/day-1-session-2-doc-minimal.html#imports-1",
+    "href": "materials/day-1-session-2-doc-minimal.html#imports-1",
+    "title": "📦 Building tidy tools",
+    "section": "Imports",
+    "text": "Imports\nWe will use tibble::tible() multiple times.\n\nInstead of using usethis::use_package(\"tibble\") we can use usethis::use_import_from(\"tibble\", \"tibble\") to add the package to the DESCRIPTION imports and to add that function to ussie-package.R\n\n\n\nusethis::use_import_from(\"tibble\", \"tibble\")\n\n\n\n✔ Adding 'tibble' to Imports field in DESCRIPTION\n✔ Adding '@importFrom tibble tibble' to 'R/ussie-package.R'\n✔ Writing 'NAMESPACE'\n✔ Loading ussie"
   },
   {
     "objectID": "materials/day-1-session-2-doc-minimal.html#suggests",
@@ -1351,8 +1365,8 @@
     "text": "CITATION.cff\nThe cffr (Hernangómez 2021) package will write a citation file in Citation File Format (CFF) (Druskat et al. 2021) from the description file.\n\ncffr::cff_write()\n\n\n\nCITATION.cff generated\nAdding  CITATION.cff to .Rbuildignore\n\ncff_validate results-----\nCongratulations! This .cff file is valid"
   },
   {
-    "objectID": "materials/day-1-session-2-doc-minimal.html#commit-and-push-1",
-    "href": "materials/day-1-session-2-doc-minimal.html#commit-and-push-1",
+    "objectID": "materials/day-1-session-2-doc-minimal.html#commit-and-push-2",
+    "href": "materials/day-1-session-2-doc-minimal.html#commit-and-push-2",
     "title": "📦 Building tidy tools",
     "section": "Commit and push",
     "text": "Commit and push\nNow would be a good time to commit your changes and push them to GitHub"
