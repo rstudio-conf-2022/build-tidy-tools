@@ -1663,7 +1663,7 @@
     "href": "materials/day-1-session-4-doc-sharing.html#learning-objectives",
     "title": "📦 Building tidy tools",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\nAt the end of this section you will be able to:\n\n\nAdd a README.mdby building and populating a README.Rmd\n\nSet up a GitHub action that will run\n\nrun R CMD check on multiple OS on GitHub and\nadd badge with the result to the README\n\n\nDescribe the additions made when adding a GitHub action\nAdd a package vignette\nUse pkgdown (Wickham, Hesselberth, and Salmon 2022) to create a website for your package\nDescribe additions made when making and hosting a pkgdown website"
+    "text": "Learning Objectives\nAt the end of this section you will be able to:\n\n\nAdd a README.md by building and populating a README.Rmd\n\nSet up a GitHub action that will run\n\nrun R CMD check on multiple OS on GitHub and\nadd badge with the result to the README\n\n\nDescribe the additions made when adding a GitHub action\nAdd a package vignette\nUse pkgdown (Wickham, Hesselberth, and Salmon 2022) to create a website for your package\nDescribe additions made when making and hosting a pkgdown website"
   },
   {
     "objectID": "materials/day-1-session-4-doc-sharing.html#overview-1",
@@ -1915,7 +1915,7 @@
     "href": "materials/day-1-session-4-doc-sharing.html#hosting-on-github",
     "title": "📦 Building tidy tools",
     "section": "Hosting on Github",
-    "text": "Hosting on Github\nSet up GitHub actions to automatically build and publish your site\nLet github build the page rather than building and hosting results usethis::use_pkgdown_github_pages()\n🎬 action\n\nusethis::use_pkgdown_github_pages()"
+    "text": "Hosting on Github\nSet up GitHub Actions to automatically build and publish your site\nLet github build the page rather than building and hosting results usethis::use_pkgdown_github_pages()\n🎬 action\n\nusethis::use_pkgdown_github_pages()"
   },
   {
     "objectID": "materials/day-1-session-4-doc-sharing.html#section-11",
@@ -1964,7 +1964,7 @@
     "href": "materials/day-1-session-4-doc-sharing.html#summary",
     "title": "📦 Building tidy tools",
     "section": "Summary",
-    "text": "Summary\n\n\nAlways include a README.md with the purpose of the package, installation instructions and a simple example\n\nusethis::use_readme_rmd() will generate a template README.Rmd and do other useful things\n\ndevtools::build_readme() will build README.md from README.Rmd\n\nA GitHub Action is “continuous integration” which allows you to automate package building, testing and deployment on github\n\nusethis::use_github_action_check_standard() will add the R CMD check action and a badge"
+    "text": "Summary\n\n\nAlways include a README.md with the purpose of the package, installation instructions and a simple example\n\nusethis::use_readme_rmd() will generate a template README.Rmd and do other useful things\n\ndevtools::build_readme() will build README.md from README.Rmd\n\nA GitHub Actions is a “continuous integration” tool which allows you to automate package building, testing and deployment on GitHub\n\nusethis::use_github_action_check_standard() will add the R CMD check action and a badge"
   },
   {
     "objectID": "materials/day-1-session-4-doc-sharing.html#summary-1",
