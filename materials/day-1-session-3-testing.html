@@ -420,6 +420,7 @@
 </li>
 <li>create a test and use some common ‘expectations’</li>
 <li>run all the tests in a file and in a package</li>
+<li>determine the test coverage in a package</li>
 </ul>
 </div>
 </section></section><section><section id="why-test" class="title-slide slide level1 center"><h1>Why test?</h1>
@@ -431,12 +432,20 @@
 </ul></section><section id="for-example" class="slide level2"><h2>For example</h2>
 <p>When we run:</p>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">italy</span> <span class="op">&lt;-</span> <span class="fu">uss_make_matches</span><span class="op">(</span><span class="fu">engsoccerdata</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/engsoccerdata/man/italy.html">italy</a></span>, <span class="st">"Italy"</span><span class="op">)</span></span>
-<span><span class="va">spain</span> <span class="op">&lt;-</span> <span class="fu">uss_make_matches</span><span class="op">(</span><span class="fu">engsoccerdata</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/engsoccerdata/man/spain.html">spain</a></span>, <span class="st">"Spain"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">italy</span> <span class="op">&lt;-</span> <span class="fu">uss_make_matches</span><span class="op">(</span><span class="fu">engsoccerdata</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/engsoccerdata/man/italy.html">italy</a></span>,</span>
+<span>                          <span class="st">"Italy"</span><span class="op">)</span></span>
+<span><span class="va">spain</span> <span class="op">&lt;-</span> <span class="fu">uss_make_matches</span><span class="op">(</span><span class="fu">engsoccerdata</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/engsoccerdata/man/spain.html">spain</a></span>,</span>
+<span>                          <span class="st">"Spain"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The objects <code>italy</code> and <code>spain</code> should be tibbles with the same columns: “country”, “tier”, “season”, “date”, “home”, “visitor”, “goals_home” and “goals_visitor”</p>
+<div class="fragment">
+<p>The objects <code>italy</code> and <code>spain</code> should be:</p>
+<ul>
+<li>tibbles</li>
+<li>have columns: “country”, “tier”, “season”, “date”, “home”, “visitor”, “goals_home” and “goals_visitor”</li>
+</ul>
 <p><br></p>
 <p>So we might…</p>
+</div>
 </section><section id="check-interactively" class="slide level2"><h2>Check interactively</h2>
 <p>Try these:</p>
 <div class="columns">
@@ -629,7 +638,15 @@
 <p>To set up your package to use <strong><code>testthat</code></strong>: <code>usethis::use_testthat(3)</code> which:</p>
 <ul>
 <li><p>makes <code>tests/testthat/</code>: this is where the test files live</p></li>
-<li><p>edits DESCRIPTION: Adds <code>Suggests:   testthat (&gt;= 3.0.0)</code> and <code>Config/testthat/edition: 3</code></p></li>
+<li>
+<p>edits <code>DESCRIPTION</code>:</p>
+<ul>
+<li>Adds <code>Suggests:   testthat (&gt;= 3.0.0)</code>
+</li>
+<li>Adds <code>Config/testthat/edition: 3</code>
+</li>
+</ul>
+</li>
 <li><p>makes <code>tests/testthat.R</code>: this runs the test when you do <code>devtools:check()</code> DO NOT EDIT</p></li>
 </ul></section><section id="set-up-2" class="slide level2"><h2>Set up</h2>
 <p>🎬 Set up your package to use <strong><code>testthat</code></strong>:</p>
@@ -789,38 +806,54 @@
 <span><span class="co"># test if the names are "a", "b", "c": no error</span></span>
 <span><span class="fu"><a href="https://testthat.r-lib.org/reference/expect_named.html">expect_named</a></span><span class="op">(</span><span class="va">x</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="testing-errors" class="slide level2"><h2>Testing errors</h2>
-<p>………..</p>
 </section></section><section><section id="making-a-test" class="title-slide slide level1 center"><h1>Making a test</h1>
 
 </section><section id="make-a-test" class="slide level2"><h2>Make a test</h2>
 <p>You can create and open (or just open) a test file for <code>blah.R</code> with <code>use_test("blah")</code>.</p>
+<div class="fragment">
 <p>🎬 Create a test file for <code>matches.R</code> . . .</p>
 <div class="cell">
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_r.html">use_test</a></span><span class="op">(</span><span class="st">"matches"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</div>
+<div class="fragment">
 <div class="sourceCode" id="cb27"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>✔ Writing 'tests/testthat/test-matches.R'</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>• Modify 'tests/testthat/test-matches.R'</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
+</div>
 <aside><div>
 <p>If matches.R is active in the editor, then <code><a href="https://usethis.r-lib.org/reference/use_r.html">usethis::use_test()</a></code> is enough</p>
 </div></aside></section><section id="test-file-structure" class="slide level2"><h2>Test file structure</h2>
+<p>For example:</p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>test_that("multiplication works", {</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  expect_equal(2 * 2, 4)</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><br></p>
+<div class="fragment">
+<p>Generally:</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>test_that("some thing in the function works", {</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  expect_zzzz()</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  expect_zzzz()</span>
 <span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  ...</span>
 <span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section><section id="make-a-test-1" class="slide level2"><h2>Make a test</h2>
 <p>We will add three expectations:</p>
 <ul>
-<li><p>test that the output of <code>uss_make_matches()</code> is a tibble with <code><a href="https://testthat.r-lib.org/reference/logical-expectations.html">expect_true()</a></code></p></li>
-<li><p>test that the output of <code>uss_make_matches()</code> has columns with the right names with <code><a href="https://testthat.r-lib.org/reference/expect_named.html">expect_named()</a></code></p></li>
-<li><p>test that the country column of the <code>uss_make_matches()</code> output is correct with <code><a href="https://testthat.r-lib.org/reference/equality-expectations.html">expect_identical()</a></code></p></li>
+<li>test that the output of <code>uss_make_matches()</code> is a tibble with <code><a href="https://testthat.r-lib.org/reference/logical-expectations.html">expect_true()</a></code>
+</li>
 </ul>
+<div class="fragment">
+<ul>
+<li>test that the output of <code>uss_make_matches()</code> has columns with the right names with <code><a href="https://testthat.r-lib.org/reference/expect_named.html">expect_named()</a></code>
+</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>test that the country column of the <code>uss_make_matches()</code> output is correct with <code><a href="https://testthat.r-lib.org/reference/equality-expectations.html">expect_identical()</a></code>
+</li>
+</ul>
+</div>
 <div class="fragment">
 <p>We will do them one at a time so you can practice the workflow.</p>
 </div>
@@ -936,7 +969,7 @@
 <p>🎬 Use <code><a href="https://testthat.r-lib.org/reference/equality-expectations.html">expect_identical()</a></code> in <code>test-matches.R</code> to compare the values in <code>italy$country</code> to “italy”</p>
 </div>
 <div class="fragment">
-<p>🎬 Run the tests.</p>
+<p>🎬 Run the tests</p>
 </div>
 </section><section id="my-answer" class="slide level2"><h2>My answer</h2>
 <div class="small">
@@ -978,10 +1011,40 @@
 <span><span class="op">}</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-</section><section id="test-coverage" class="slide level2"><h2>Test coverage</h2>
-<p>…</p>
+</section></section><section><section id="test-coverage" class="title-slide slide level1 center"><h1>Test coverage</h1>
+
+</section><section id="test-coverage-1" class="slide level2"><h2>Test coverage</h2>
+<p>Test coverage is the percentage of package code run when the test suite is run.</p>
+<ul>
+<li>provided by <strong><code>covr</code></strong> <span class="citation" data-cites="covr">(<a href="#/ref-covr" role="doc-biblioref" onclick="return false;">Hester 2020</a>)</span> package</li>
+<li>higher is better</li>
+<li>100% is notional goal but rarely achieved</li>
+</ul></section><section id="test-coverage-2" class="slide level2"><h2>Test coverage</h2>
+<p>There are two functions you might use interactively:</p>
+<ul>
+<li><p>coverage on the active file: <code><a href="https://devtools.r-lib.org/reference/test.html">devtools::test_coverage_active_file()</a></code></p></li>
+<li><p>coverage on the whole package:<code><a href="https://devtools.r-lib.org/reference/test.html">devtools::test_coverage()</a></code></p></li>
+</ul></section><section id="coverage-in-active-file" class="slide level2"><h2>Coverage in active file</h2>
+<p>🎬 Make sure <code>matches.R</code> is active in the editor and do:</p>
+<div class="cell">
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/test.html">test_coverage_active_file</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<p><img data-src="images/test-covr-active-file.png" width="500"></p>
+</div>
+</section><section id="coverage-in-package" class="slide level2"><h2>Coverage in package</h2>
+<p>🎬 Check the coverage over the whole package:</p>
+<div class="cell">
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/test.html">test_coverage</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<p><img data-src="images/test-covr-pkg.png" width="500"></p>
+</div>
 </section></section><section><section id="woo-hoo-you-wrote-a-unit-test" class="title-slide slide level1 center"><h1>☑️ Woo hoo ☑️<br> You wrote a unit test!</h1>
 
+</section><section id="commit-and-push" class="slide level2"><h2>Commit and push</h2>
+<p>Now would be a good time to commit your changes and push them to GitHub</p>
+<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg" alt="Git icon" width="300"><img data-src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub icon" width="300"></p>
 </section><section id="summary" class="slide level2"><h2>Summary</h2>
 <div class="small">
 <ul>
@@ -1022,6 +1085,14 @@
 <code><a href="https://devtools.r-lib.org/reference/test.html">devtools::test()</a></code> runs the tests in all the test files</li>
 </ul>
 </li>
+<li>Test coverage can be determined
+<ul>
+<li>on the active file with <code><a href="https://devtools.r-lib.org/reference/test.html">devtools::test_coverage_active_file()</a></code>
+</li>
+<li>on the whole package:<code><a href="https://devtools.r-lib.org/reference/test.html">devtools::test_coverage()</a></code>
+</li>
+</ul>
+</li>
 </ul>
 </div>
 </section><section id="references" class="slide level2 extrasmall smaller scrollable"><h2>References</h2>
@@ -1030,6 +1101,9 @@
 <p><a href="https://rstd.io/btt" class="uri">https://rstd.io/btt</a></p>
 </div>
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-covr" class="csl-entry" role="doc-biblioentry">
+Hester, Jim. 2020. <span>“Covr: Test Coverage for Packages.”</span> <a href="https://CRAN.R-project.org/package=covr">https://CRAN.R-project.org/package=covr</a>.
+</div>
 <div id="ref-testthat" class="csl-entry" role="doc-biblioentry">
 Wickham, Hadley. 2011. <span>“Testthat: Get Started with Testing”</span> 3. <a href="https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf">https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf</a>.
 </div>
