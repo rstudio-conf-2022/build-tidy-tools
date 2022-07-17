@@ -1327,28 +1327,35 @@
     "href": "materials/day-1-session-2-doc-minimal.html#imports",
     "title": "📦 Building tidy tools",
     "section": "Imports",
-    "text": "Imports\nThree wways\n\nFew functions from another package: put package name in the Imports: field of the DESCRIPTION file and call the function(s) explicitly using ::, e.g., pkg::fun().\n\n\n\nFunction repeatedly, uses you can avoid :: by importing the function with @importFrom pkg fun in ussie-package.R.\n\n\n\n\nRepeatedly using many functions from another package: @import package. But beware, less transparent, higher likelihood of conflicting function names."
+    "text": "Imports\nThree ways\n\nFew functions from another package: put package name in the Imports: field of the DESCRIPTION file and call the function(s) explicitly using ::, e.g., pkg::fun().\n\n\n\nFunction repeatedly, uses you can avoid :: by importing the function with @importFrom pkg fun in ussie-package.R.\n\n\n\n\nRepeatedly using many functions from another package: @import package. But beware, less transparent, higher likelihood of conflicting function names."
   },
   {
     "objectID": "materials/day-1-session-2-doc-minimal.html#imports-1",
     "href": "materials/day-1-session-2-doc-minimal.html#imports-1",
     "title": "📦 Building tidy tools",
     "section": "Imports",
-    "text": "Imports\nWe will use tibble::tible() multiple times.\n\nInstead of using usethis::use_package(\"tibble\") we can use usethis::use_import_from(\"tibble\", \"tibble\") to add the package to the DESCRIPTION imports and to add that function to ussie-package.R\n\n\n\nusethis::use_import_from(\"tibble\", \"tibble\")\n\n\n\n✔ Adding 'tibble' to Imports field in DESCRIPTION\n✔ Adding '@importFrom tibble tibble' to 'R/ussie-package.R'\n✔ Writing 'NAMESPACE'\n✔ Loading ussie"
+    "text": "Imports\nWe will use tibble::tible() multiple times.\n\nInstead of using:\n\nusethis::use_package(\"tibble\")\n\n\n\nwe can use\n\nusethis::use_import_from(\"tibble\", \"tibble\")\n\nwhich will:\n\nto add the package to the DESCRIPTION imports\nadd @importFrom tibble tibble to ussie-package.R and NAMESPACE\n\nmean we can avoid ::"
+  },
+  {
+    "objectID": "materials/day-1-session-2-doc-minimal.html#importfrom-pkg-fun",
+    "href": "materials/day-1-session-2-doc-minimal.html#importfrom-pkg-fun",
+    "title": "📦 Building tidy tools",
+    "section": "@importFrom pkg fun",
+    "text": "@importFrom pkg fun\n🎬 Import tibble() from tibble:\n\nusethis::use_import_from(\"tibble\", \"tibble\")\n\n\n✔ Adding 'tibble' to Imports field in DESCRIPTION\n✔ Adding '@importFrom tibble tibble' to 'R/ussie-package.R'\n✔ Writing 'NAMESPACE'\n✔ Loading ussie"
   },
   {
     "objectID": "materials/day-1-session-2-doc-minimal.html#suggests",
     "href": "materials/day-1-session-2-doc-minimal.html#suggests",
     "title": "📦 Building tidy tools",
     "section": "Suggests",
-    "text": "Suggests\n\nAre used by your package, but not required for it to work\nMight provide data for examples\n\nmatches.R\n#' @examples\n#' uss_make_matches(engsoccerdata::spain, \"Spain\")"
+    "text": "Suggests\n\nAre used by your package, but not required for it to work\nMight provide data for examples\n\n\nIn our case:\nmatches.R\n#' @examples\n#' uss_make_matches(engsoccerdata::spain, \"Spain\")"
   },
   {
     "objectID": "materials/day-1-session-2-doc-minimal.html#suggests-1",
     "href": "materials/day-1-session-2-doc-minimal.html#suggests-1",
     "title": "📦 Building tidy tools",
     "section": "Suggests",
-    "text": "Suggests\n🎬 Add engsoccerdata\n\nusethis::use_package(\"engsoccerdata\", type = \"Suggests\")\n\n \n\n✔ Adding 'engsoccerdata' to Suggests field in DESCRIPTION\n• Use `requireNamespace(\"engsoccerdata\", quietly = TRUE)` to test if package is installed\n• Then directly refer to functions with `engsoccerdata::fun()`"
+    "text": "Suggests\n🎬 Add engsoccerdata\n\nusethis::use_package(\"engsoccerdata\",\n                     type = \"Suggests\")\n\n \n\n✔ Adding 'engsoccerdata' to Suggests field in DESCRIPTION\n• Use `requireNamespace(\"engsoccerdata\", quietly = TRUE)` to test if package is installed\n• Then directly refer to functions with `engsoccerdata::fun()`"
   },
   {
     "objectID": "materials/day-1-session-2-doc-minimal.html#suggests-2",

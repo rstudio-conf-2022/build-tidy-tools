@@ -833,7 +833,7 @@
 <span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>0 errors ✔ | 2 warnings ✖ | 1 note ✖</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="imports" class="slide level2"><h2>Imports</h2>
-<p>Three wways</p>
+<p>Three ways</p>
 <ul>
 <li>Few functions from another package: put package name in the&nbsp;<code>Imports:</code>&nbsp;field of the&nbsp;<code>DESCRIPTION</code>&nbsp;file and call the function(s) explicitly using&nbsp;<code>::</code>, e.g.,&nbsp;<code>pkg::fun()</code>.</li>
 </ul>
@@ -850,37 +850,58 @@
 </section><section id="imports-1" class="slide level2"><h2>Imports</h2>
 <p>We will use <code>tibble::tible()</code> multiple times.</p>
 <div class="fragment">
-<p>Instead of using <code>usethis::use_package("tibble")</code> we can use <code>usethis::use_import_from("tibble", "tibble")</code> to add the package to the DESCRIPTION imports and to add that function to <code>ussie-package.R</code></p>
-</div>
-<div class="fragment">
+<p>Instead of using:</p>
 <div class="cell">
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_import_from.html">use_import_from</a></span><span class="op">(</span><span class="st">"tibble"</span>, <span class="st">"tibble"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_package.html">use_package</a></span><span class="op">(</span><span class="st">"tibble"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="fragment">
-<div class="sourceCode" id="cb21"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>✔ Adding 'tibble' to Imports field in DESCRIPTION</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>✔ Adding '@importFrom tibble tibble' to 'R/ussie-package.R'</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>✔ Writing 'NAMESPACE'</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>✔ Loading ussie</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>we can use</p>
+<div class="cell">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_import_from.html">use_import_from</a></span><span class="op">(</span><span class="st">"tibble"</span>, <span class="st">"tibble"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>which will:</p>
+<ul>
+<li>to add the package to the <code>DESCRIPTION</code> imports</li>
+<li>add <code>@importFrom tibble tibble</code> to <code>ussie-package.R</code> and <code>NAMESPACE</code>
+</li>
+<li>mean we can avoid <code>::</code>
+</li>
+</ul>
+</div>
+</section><section id="importfrom-pkg-fun" class="slide level2"><h2><code>@importFrom pkg fun</code></h2>
+<p>🎬 Import <code>tibble()</code> from <strong><code>tibble</code></strong>:</p>
+<div class="cell">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_import_from.html">use_import_from</a></span><span class="op">(</span><span class="st">"tibble"</span>, <span class="st">"tibble"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<div class="sourceCode" id="cb23"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>✔ Adding 'tibble' to Imports field in DESCRIPTION</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>✔ Adding '@importFrom tibble tibble' to 'R/ussie-package.R'</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>✔ Writing 'NAMESPACE'</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>✔ Loading ussie</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="suggests" class="slide level2"><h2>Suggests</h2>
 <ul>
 <li><p>Are used by your package, but not required for it to work</p></li>
 <li><p>Might provide data for examples</p></li>
 </ul>
+<div class="fragment">
+<p>In our case:</p>
 <p><code>matches.R</code></p>
 <pre><code>#' @examples
 #' uss_make_matches(engsoccerdata::spain, "Spain")</code></pre>
+</div>
 </section><section id="suggests-1" class="slide level2"><h2>Suggests</h2>
 <p>🎬 Add <strong><code>engsoccerdata</code></strong></p>
 <div class="cell">
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_package.html">use_package</a></span><span class="op">(</span><span class="st">"engsoccerdata"</span>, type <span class="op">=</span> <span class="st">"Suggests"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_package.html">use_package</a></span><span class="op">(</span><span class="st">"engsoccerdata"</span>,</span>
+<span>                     type <span class="op">=</span> <span class="st">"Suggests"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>&nbsp;</p>
-<div class="extrasmall">
-<div class="sourceCode" id="cb24"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>✔ Adding 'engsoccerdata' to Suggests field in DESCRIPTION</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>• Use `requireNamespace("engsoccerdata", quietly = TRUE)` to test if package is installed</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>• Then directly refer to functions with `engsoccerdata::fun()`</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="small">
+<div class="sourceCode" id="cb26"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>✔ Adding 'engsoccerdata' to Suggests field in DESCRIPTION</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>• Use `requireNamespace("engsoccerdata", quietly = TRUE)` to test if package is installed</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>• Then directly refer to functions with `engsoccerdata::fun()`</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="suggests-2" class="slide level2"><h2>Suggests</h2>
 <ul>
@@ -889,15 +910,15 @@
 </ul></section><section id="citation.cff" class="slide level2"><h2>CITATION.cff</h2>
 <p>The <strong><code>cffr</code></strong> <span class="citation" data-cites="cffr">(<a href="#/ref-cffr" role="doc-biblioref" onclick="return false;">Hernangómez 2021</a>)</span> package will write a citation file in Citation File Format (CFF) <span class="citation" data-cites="druskat2021">(<a href="#/ref-druskat2021" role="doc-biblioref" onclick="return false;">Druskat et al. 2021</a>)</span> from the description file.</p>
 <div class="cell">
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">cffr</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/cffr/reference/cff_write.html">cff_write</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">cffr</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/cffr/reference/cff_write.html">cff_write</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <div class="small">
-<div class="sourceCode" id="cb26"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>CITATION.cff generated</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>Adding  CITATION.cff to .Rbuildignore</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>cff_validate results-----</span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>Congratulations! This .cff file is valid</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>CITATION.cff generated</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>Adding  CITATION.cff to .Rbuildignore</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>cff_validate results-----</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>Congratulations! This .cff file is valid</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section></section><section><section id="yee-haw-your-package-has-documentation" class="title-slide slide level1 center"><h1>🏷️Yee haw! 🏷️ <br> Your package has documentation!</h1>
