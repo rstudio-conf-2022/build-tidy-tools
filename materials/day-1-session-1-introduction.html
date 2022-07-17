@@ -1192,7 +1192,7 @@ $ notes   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
 <span id="cb39-4"><a href="#cb39-4"></a>    tibble<span class="sc">::</span><span class="fu">as_tibble</span>() <span class="sc">|&gt;</span></span>
 <span id="cb39-5"><a href="#cb39-5"></a>    dplyr<span class="sc">::</span><span class="fu">transmute</span>(</span>
 <span id="cb39-6"><a href="#cb39-6"></a>      <span class="at">country =</span> <span class="fu">as.character</span>(country),</span>
-<span id="cb39-7"><a href="#cb39-7"></a>      <span class="at">tier =</span> <span class="fu">as.integer</span>(tier),</span>
+<span id="cb39-7"><a href="#cb39-7"></a>      <span class="at">tier =</span> <span class="fu">factor</span>(tier, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"1"</span>, <span class="st">"2"</span>, <span class="st">"3"</span>, <span class="st">"4"</span>)),</span>
 <span id="cb39-8"><a href="#cb39-8"></a>      <span class="at">season =</span> <span class="fu">as.integer</span>(Season),</span>
 <span id="cb39-9"><a href="#cb39-9"></a>      <span class="at">date =</span> <span class="fu">as.Date</span>(Date),</span>
 <span id="cb39-10"><a href="#cb39-10"></a>      <span class="at">home =</span> <span class="fu">as.character</span>(home),</span>

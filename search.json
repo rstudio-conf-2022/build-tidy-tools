@@ -641,7 +641,7 @@
     "href": "materials/day-1-session-1-introduction.html#an-answer",
     "title": "📦 Building tidy tools",
     "section": "An answer",
-    "text": "An answer\n\n\nuss_make_matches <- function(data_engsoc, country) {\n  result <-\n    data_engsoc |>\n    tibble::as_tibble() |>\n    dplyr::transmute(\n      country = as.character(country),\n      tier = as.integer(tier),\n      season = as.integer(Season),\n      date = as.Date(Date),\n      home = as.character(home),\n      visitor = as.character(visitor),\n      goals_home = as.integer(hgoal),\n      goals_visitor = as.integer(vgoal)\n    )\n  result\n}"
+    "text": "An answer\n\n\nuss_make_matches <- function(data_engsoc, country) {\n  result <-\n    data_engsoc |>\n    tibble::as_tibble() |>\n    dplyr::transmute(\n      country = as.character(country),\n      tier = factor(tier, levels = c(\"1\", \"2\", \"3\", \"4\")),\n      season = as.integer(Season),\n      date = as.Date(Date),\n      home = as.character(home),\n      visitor = as.character(visitor),\n      goals_home = as.integer(hgoal),\n      goals_visitor = as.integer(vgoal)\n    )\n  result\n}"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#commit-and-push",
