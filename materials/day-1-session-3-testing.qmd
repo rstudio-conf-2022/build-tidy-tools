@@ -31,6 +31,7 @@ At the end of this section you will be able to:
 -   set up a package to use **`testthat`**
 -   create a test and use some common 'expectations'
 -   run all the tests in a file and in a package
+-   determine the test coverage in a package
 :::
 
 # Why test?
@@ -46,11 +47,18 @@ At the end of this section you will be able to:
 When we run:
 
 ```{r}
-italy <- uss_make_matches(engsoccerdata::italy, "Italy")
-spain <- uss_make_matches(engsoccerdata::spain, "Spain")
+italy <- uss_make_matches(engsoccerdata::italy,
+                          "Italy")
+spain <- uss_make_matches(engsoccerdata::spain,
+                          "Spain")
 ```
 
-The objects `italy` and `spain` should be tibbles with the same columns: "country", "tier", "season", "date", "home", "visitor", "goals_home" and "goals_visitor"
+. . .
+
+The objects `italy` and `spain` should be:
+
+-   tibbles
+-   have columns: "country", "tier", "season", "date", "home", "visitor", "goals_home" and "goals_visitor"
 
 \
 
@@ -260,7 +268,10 @@ To set up your package to use **`testthat`**: `usethis::use_testthat(3)` which:
 
 -   makes `tests/testthat/`: this is where the test files live
 
--   edits DESCRIPTION: Adds `Suggests:   testthat (>= 3.0.0)` and `Config/testthat/edition: 3`
+-   edits `DESCRIPTION`:
+
+    -   Adds `Suggests:   testthat (>= 3.0.0)`
+    -   Adds `Config/testthat/edition: 3`
 
 -   makes `tests/testthat.R`: this runs the test when you do `devtools:check()` DO NOT EDIT
 
@@ -455,21 +466,21 @@ expect_named(x)
 expect_named(x, c("a", "b", "c"))
 ```
 
-## Testing errors
-
-...........
-
 # Making a test
 
 ## Make a test
 
 You can create and open (or just open) a test file for `blah.R` with `use_test("blah")`.
 
+. . .
+
 🎬 Create a test file for `matches.R` . . .
 
 ```{r}
 usethis::use_test("matches")
 ```
+
+. . .
 
 ``` default
 ✔ Writing 'tests/testthat/test-matches.R'
@@ -482,13 +493,17 @@ If matches.R is active in the editor, then `usethis::use_test()` is enough
 
 ## Test file structure
 
+For example:
+
 ``` default
 test_that("multiplication works", {
   expect_equal(2 * 2, 4)
 })
 ```
 
-\
+. . .
+
+Generally:
 
 ``` default
 test_that("some thing in the function works", {
@@ -504,7 +519,11 @@ We will add three expectations:
 
 -   test that the output of `uss_make_matches()` is a tibble with `expect_true()`
 
+. . .
+
 -   test that the output of `uss_make_matches()` has columns with the right names with `expect_named()`
+
+. . .
 
 -   test that the country column of the `uss_make_matches()` output is correct with `expect_identical()`
 
@@ -666,7 +685,7 @@ Now check that the country column of the `uss_make_matches()` output is correct 
 
 . . .
 
-🎬 Run the tests.
+🎬 Run the tests
 
 ## My answer
 
@@ -713,11 +732,58 @@ test_that("uss_make_matches works", {
 ```
 :::
 
+# Test coverage
+
 ## Test coverage
 
-...
+Test coverage is the percentage of package code run when the test suite is run.
+
+-   provided by **`covr`** [@covr] package
+-   higher is better
+-   100% is notional goal but rarely achieved
+
+## Test coverage
+
+There are two functions you might use interactively:
+
+-   coverage on the active file: `devtools::test_coverage_active_file()`
+
+-   coverage on the whole package:`devtools::test_coverage()`
+
+## Coverage in active file
+
+🎬 Make sure `matches.R` is active in the editor and do:
+
+```{r}
+devtools::test_coverage_active_file()
+```
+
+. . .
+
+![](images/test-covr-active-file.png){width="500"}
+
+## Coverage in package
+
+🎬 Check the coverage over the whole package:
+
+```{r}
+devtools::test_coverage()
+```
+
+. . .
+
+![](images/test-covr-pkg.png){width="500"}
 
 # ☑️ Woo hoo ☑️<BR> You wrote a unit test!
+
+
+## Commit and push
+
+Now would be a good time to commit your changes and push them to GitHub
+
+![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"}  ![GitHub, MIT \<http://opensource.org/licenses/mit-license.php\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){fig-alt="GitHub icon" width="300"}
+
+
 
 ## Summary
 
@@ -740,6 +806,9 @@ test_that("uss_make_matches works", {
     -   `usethis::use_test(xxxx)` creates `test-xxxx.R`
     -   `testthat::test_file()` runs the tests in a test file
     -   `devtools::test()` runs the tests in all the test files
+-   Test coverage can be determined
+    -   on the active file with `devtools::test_coverage_active_file()`
+    -   on the whole package:`devtools::test_coverage()`
 :::
 
 ## References {.extrasmall}
