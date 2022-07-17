@@ -1086,7 +1086,7 @@ Duration: 25.1s
 
 ## Add a license
 
-`usethis` helps out again!
+**`usethis`** helps out again!
 
 \
 

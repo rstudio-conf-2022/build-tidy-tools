@@ -577,7 +577,7 @@ Duration: 24s
 
 ## Imports
 
-Three wways
+Three ways
 
 -   Few functions from another package: put package name in the `Imports:` field of the `DESCRIPTION` file and call the function(s) explicitly using `::`, e.g., `pkg::fun()`.
 
@@ -596,12 +596,30 @@ We will use `tibble::tible()` multiple times.
 
 . . . 
 
-Instead of using
-`usethis::use_package("tibble")` we can use `usethis::use_import_from("tibble", "tibble")` to add the package to the DESCRIPTION imports and to add that function to `ussie-package.R`
+Instead of using:
 
+```{r}
+usethis::use_package("tibble")
+```
 
 . . .
 
+we can use 
+
+
+```{r}
+usethis::use_import_from("tibble", "tibble")
+```
+
+which will:
+
+-   to add the package to the `DESCRIPTION` imports
+-   add `@importFrom tibble tibble` to `ussie-package.R` and `NAMESPACE`
+-   mean we can avoid `::`
+
+## `@importFrom pkg fun`
+
+🎬 Import `tibble()` from **`tibble`**:
 
 ```{r}
 usethis::use_import_from("tibble", "tibble")
@@ -624,6 +642,10 @@ usethis::use_import_from("tibble", "tibble")
 
 -   Might provide data for examples
 
+. . .
+
+In our case:
+
 `matches.R`
 
     #' @examples
@@ -634,12 +656,13 @@ usethis::use_import_from("tibble", "tibble")
 🎬 Add **`engsoccerdata`**
 
 ```{r}
-usethis::use_package("engsoccerdata", type = "Suggests")
+usethis::use_package("engsoccerdata",
+                     type = "Suggests")
 ```
 
  
 
-::: extrasmall
+::: small
 ``` default
 ✔ Adding 'engsoccerdata' to Suggests field in DESCRIPTION
 • Use `requireNamespace("engsoccerdata", quietly = TRUE)` to test if package is installed
