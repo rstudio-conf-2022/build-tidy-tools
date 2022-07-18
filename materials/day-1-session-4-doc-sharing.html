@@ -414,17 +414,17 @@
 <div class="small">
 <ul>
 <li><p>Add a <code>README.md</code> by building and populating a <code>README.Rmd</code></p></li>
-<li>
-<p>Set up a GitHub action that will run</p>
-<ul>
-<li>run <code>R CMD check</code> on multiple OS on GitHub and</li>
-<li>add badge with the result to the README</li>
-</ul>
-</li>
-<li><p>Describe the additions made when adding a GitHub action</p></li>
 <li><p>Add a package vignette</p></li>
 <li><p>Use <strong><code>pkgdown</code></strong> <span class="citation" data-cites="pkgdown">(<a href="#/ref-pkgdown" role="doc-biblioref" onclick="return false;">Wickham, Hesselberth, and Salmon 2022</a>)</span> to create a website for your package</p></li>
 <li><p>Describe additions made when making and hosting a <strong><code>pkgdown</code></strong> website</p></li>
+<li>
+<p>Describe what GitHub Actions are and set them up to:</p>
+<ul>
+<li>run <code>R CMD check</code> on multiple OS on GitHub</li>
+<li>build and publish your <strong><code>pkgdown</code></strong> site</li>
+<li>Run test coverage on your package.</li>
+</ul>
+</li>
 </ul>
 </div>
 </section></section><section><section id="overview" class="title-slide slide level1 center"><h1>Overview</h1>
@@ -538,7 +538,7 @@
 </h2>
 <p>🎬 Complete: “The goal of ussie is to …”</p>
 <p><br></p>
-<p>🎬 Add: an example with <code>uss_make_maches()</code></p>
+<p>🎬 Add: an example with <code>uss_make_matches()</code></p>
 <p>&nbsp;</p>
 <p>🎬 Remove: non-relevant sections</p>
 </section><section id="an-answer" class="slide level2"><h2>An answer</h2>
@@ -560,7 +560,7 @@
 </section><section id="add-a-badge-to-the-readme.rmd" class="slide level2"><h2>Add a badge to the <code>README.Rmd</code>?</h2>
 <p>Badges give information to the user about the state of the package</p>
 <div class="fragment">
-<p>For example: <img data-src="https://github.com/3mmaRand/ussie/actions/workflows/R-CMD-check.yaml/badge.svg" width="300" height="39"></p>
+<p>For example: <a href="R%20cmd%20check%20badge"><img data-src="images/r-cmd-check-badge.svg" width="200" height="26"></a></p>
 </div>
 <div class="fragment">
 <p>To add this badge, we set up a “GitHub Action”</p>
@@ -670,14 +670,13 @@ jobs:
           upload-snapshots: true</code></pre>
 </div>
 </section><section id="commit-and-push" class="slide level2"><h2>Commit and push</h2>
-<p>🎬 Stage and commit</p>
-<p><br></p>
-<p>🎬 Push to GitHub</p>
-</section><section id="section-2" class="slide level2"><h2></h2>
+<p>Now would be a good time to commit your changes and push them to GitHub</p>
+<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg" alt="Git icon" width="300"><img data-src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub icon" width="300"></p>
+</section><section id="on-github" class="slide level2"><h2>On GitHub</h2>
 
-<img data-src="images/badge-check-no-status.png" class="r-stretch"></section><section id="section-3" class="slide level2"><h2></h2>
+<img data-src="images/badge-check-no-status.png" class="r-stretch"></section><section id="on-github-1" class="slide level2"><h2>On GitHub</h2>
 
-<img data-src="images/badge-check-progress.png" class="r-stretch"></section><section id="section-4" class="slide level2"><h2></h2>
+<img data-src="images/badge-check-progress.png" class="r-stretch"></section><section id="on-github-2" class="slide level2"><h2>On GitHub</h2>
 
 <img data-src="images/badge-check-passing-status-01.png" class="r-stretch"></section><section id="other-github-actions" class="slide level2"><h2>Other GitHub Actions</h2>
 <ul>
@@ -730,23 +729,30 @@ jobs:
 </div>
 </div>
 </section><section id="preview-the-vignette" class="slide level2"><h2>Preview the Vignette</h2>
-<p>🎬 hit knit</p>
-<p>🎬</p>
+<p>🎬 Build the vignette with:</p>
 <div class="cell">
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/build_rmd.html">build_rmd</a></span><span class="op">(</span><span class="st">"vignettes/ussie.Rmd"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="sourceCode" id="cb19"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>ℹ Installing ussie in temporary library</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>ℹ Building C:/Users/er13/Desktop/ussie/vignettes/ussie.Rmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section></section><section><section id="pkgdown-sites" class="title-slide slide level1 center"><h1>pkgdown sites</h1>
+</section><section id="commit-and-push-1" class="slide level2"><h2>Commit and push</h2>
+<p>Now would be a good time to commit your changes and push them to GitHub</p>
+<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg" alt="Git icon" width="300"><img data-src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub icon" width="300"></p>
+</section></section><section><section id="pkgdown-sites" class="title-slide slide level1 center"><h1>
+<strong><code>pkgdown</code></strong> sites</h1>
 
-</section><section id="section-5" class="slide level2"><h2></h2>
-<p>pkgdown is designed to make it quick and easy to build a website for your package</p>
+</section><section id="pkgdown-will" class="slide level2"><h2>
+<strong><code>pkgdown</code></strong> will 🤯</h2>
+<p><strong><code>pkgdown</code></strong> <span class="citation" data-cites="pkgdown">(<a href="#/ref-pkgdown" role="doc-biblioref" onclick="return false;">Wickham, Hesselberth, and Salmon 2022</a>)</span> is designed to make it quick and easy to build a website for your package.</p>
+<div class="fragment">
+<p>Examples</p>
 <ul>
 <li><p><a href="https://allisonhorst.github.io/palmerpenguins/">palmerpenguins</a></p></li>
 <li><p><a href="https://ggplot2.tidyverse.org/">ggplot2</a></p></li>
 </ul>
 <p>Very widely used</p>
-</section><section id="section-6" class="slide level2"><h2></h2>
+</div>
+</section><section id="section-2" class="slide level2"><h2></h2>
 <p>Uses your existing documentation</p>
 <ul>
 <li>Home page - from <code>README.md</code>
@@ -757,10 +763,11 @@ jobs:
 <li>Articles - from other vignettes</li>
 </ul></section><section id="workflow" class="slide level2"><h2>Workflow</h2>
 <ul>
-<li><p>Configure package to use pkgdown with <code><a href="https://usethis.r-lib.org/reference/use_pkgdown.html">usethis::use_pkgdown()</a></code> ONCE</p></li>
+<li><p>Configure package to use <strong><code>pkgdown</code></strong> with <code><a href="https://usethis.r-lib.org/reference/use_pkgdown.html">usethis::use_pkgdown()</a></code> ONCE</p></li>
 <li><p>build the website locally <code><a href="https://pkgdown.r-lib.org/reference/build_site.html">pkgdown::build_site()</a></code></p></li>
-</ul></section><section id="section-7" class="slide level2"><h2></h2>
-<p>🎬 config</p>
+</ul></section><section id="configure-for-pkgdown" class="slide level2"><h2>Configure for <strong><code>pkgdown</code></strong>
+</h2>
+<p>🎬 Run:</p>
 <div class="cell">
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_pkgdown.html">use_pkgdown</a></span><span class="op">(</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -777,8 +784,8 @@ jobs:
 <ul>
 <li><a href="https://github.com/tidyverse/ggplot2/blob/main/_pkgdown.yml">ggplot2 <code>_pkgdown.yml</code></a></li>
 <li><a href="https://github.com/allisonhorst/palmerpenguins/blob/master/_pkgdown.yml">palmerpenguins <code>_pkgdown.yml</code></a></li>
-</ul></section><section id="section-8" class="slide level2"><h2></h2>
-<p>🎬 build</p>
+</ul></section><section id="build-locally" class="slide level2"><h2>Build locally</h2>
+<p>🎬 We can build the site locally with:</p>
 <div class="cell">
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">pkgdown</span><span class="fu">::</span><span class="fu"><a href="https://pkgdown.r-lib.org/reference/build_site.html">build_site</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -788,10 +795,9 @@ jobs:
 </div>
 <script type="text/javascript" async="" src="https://tenor.com/embed.js"></script>
 </div>
-</section><section id="section-9" class="slide level2"><h2></h2>
+</section><section id="section-3" class="slide level2"><h2></h2>
 <div class="extrasmall">
 <pre><code>-- Installing package into temporary library -----------
-Warning: package ‘ussie’ is in use and will not be installed
 == Building pkgdown site =======================================================
 Reading from: 'C:/Users/er13/OneDrive - University of York/Desktop/Desktop/rstudio-conf-2022/ussie'
 Writing to:   'C:/Users/er13/OneDrive - University of York/Desktop/Desktop/rstudio-conf-2022/ussie/docs'
@@ -820,27 +826,33 @@ Writing 'sitemap.xml'
 == DONE ========================================================================
 -- Previewing site -------------------------------------</code></pre>
 </div>
-</section><section id="section-10" class="slide level2"><h2></h2>
+</section><section id="what-has-happenned" class="slide level2"><h2>What has happenned</h2>
 <ul>
 <li>
 <code>docs/</code> is created</li>
-<li>
-</li><li>
-</li></ul></section><section id="hosting-on-github" class="slide level2"><h2>Hosting on Github</h2>
-<p>Set up GitHub Actions to automatically build and publish your site</p>
-<p>Let github build the page rather than building and hosting results <code><a href="https://usethis.r-lib.org/reference/use_pkgdown.html">usethis::use_pkgdown_github_pages()</a></code></p>
-<p>🎬 action</p>
+<li>files are copied to <code>docs/</code>
+</li>
+<li>everything for the site is put in <code>.Rbuildignore</code>
+</li>
+<li>Your site opens!</li>
+</ul></section><section id="build-and-host-on-github" class="slide level2"><h2>Build and host on Github</h2>
+<p>Rather than building our pages locally and hosting results on GitHub, we can set up GitHub Actions to automatically build and publish our site</p>
+<div class="fragment">
+<p>The pkgdown workflow Action is added with: <code><a href="https://usethis.r-lib.org/reference/use_pkgdown.html">usethis::use_pkgdown_github_pages()</a></code></p>
+</div>
+</section><section id="build-and-host-on-github-1" class="slide level2"><h2>Build and host on Github</h2>
+<p>🎬 Add CI to build package site:</p>
 <div class="cell">
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_pkgdown.html">use_pkgdown_github_pages</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="section-11" class="slide level2"><h2></h2>
+</section><section id="section-4" class="slide level2"><h2></h2>
 <div class="sourceCode" id="cb26"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>Overwrite pre-existing file '_pkgdown.yml'?</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>1: Yup</span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>2: Nope</span>
 <span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>3: Negative</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>🎬 Chose the option that means Yes</p>
-</section><section id="section-12" class="slide level2"><h2></h2>
+</section><section id="section-5" class="slide level2"><h2></h2>
 <div class="small">
 <div class="sourceCode" id="cb27"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>✔ Writing '_pkgdown.yml'</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>• Modify '_pkgdown.yml'</span>
@@ -856,7 +868,6 @@ Writing 'sitemap.xml'
 <span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>• Run `devtools::document()` to update package-level documentation.</span>
 <span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>✔ Setting 'https://3mmarand.github.io/ussie/' as homepage of GitHub repo '3mmaRand/ussie'</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="section-13" class="slide level2"><h2></h2>
 </section><section id="pkgdown.yml-1" class="slide level2"><h2><code>_pkgdown.yml</code></h2>
 <p>Simple</p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>url: https://3mmarand.github.io/ussie/</span>
@@ -915,11 +926,102 @@ jobs:
           branch: gh-pages
           folder: docs</code></pre>
 </div>
-</section><section id="commit-and-push-1" class="slide level2"><h2>Commit and push</h2>
-<p>🎬 Stage and commit</p>
-<p><br></p>
-<p>🎬 Push to GitHub</p>
-</section><section id="section-14" class="slide level2"><h2></h2>
+</section><section id="commit-and-push-2" class="slide level2"><h2>Commit and push</h2>
+<p>Now would be a good time to commit your changes and push them to GitHub</p>
+<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg" alt="Git icon" width="300"><img data-src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub icon" width="300"></p>
+</section><section id="look" class="slide level2"><h2>Look!</h2>
+<p>🎬 Look at your website hosted on GH Pages:</p>
+<p><a href="https://3mmarand.github.io/ussie/">https://3mmarand.github.io/ussie/</a></p>
+<p>Replace <code>3mmaRand</code> with your own username</p>
+</section><section id="gha-for-test-coverage" class="slide level2"><h2>GHA for test coverage</h2>
+<p>In the last session we used:</p>
+<div class="cell">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/test.html">test_coverage</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>to run <code>covr::codecov()</code> to determine the % of our code covered by tests</p>
+<div class="fragment">
+<p>We can have this run as a GitHub Actions and add a test coverage badge to our <code>README.md</code></p>
+</div>
+<div class="fragment">
+<p>We first add the workflow for the Action and then add the badge.</p>
+</div>
+</section><section id="add-the-workflow" class="slide level2"><h2>Add the workflow</h2>
+<p>🎬 Add <code>.github/workflows/test-coverage.yaml</code> with</p>
+<div class="cell">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/github_actions.html">use_github_action</a></span><span class="op">(</span><span class="st">"test-coverage"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<div class="sourceCode" id="cb32"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>✔ Saving 'r-lib/actions/examples/test-coverage.yaml@v2' to '.github/workflows/test-coverage.yaml'</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>• Learn more at &lt;https://github.com/r-lib/actions/blob/v2/examples/README.md&gt;.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="add-the-coverage-badge" class="slide level2"><h2>Add the coverage badge</h2>
+<p>🎬 Add the badge to <code>README.Rmd</code> with</p>
+<div class="cell">
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/github_actions.html">use_github_actions_badge</a></span><span class="op">(</span><span class="st">"test-coverage"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<div class="sourceCode" id="cb34"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>✔ Adding test-coverage badge to 'README.Rmd'</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>• Re-knit 'README.Rmd' with `devtools::build_readme()`</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<p>🎬 Build <code>README.md</code> with:</p>
+<div class="cell">
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/build_rmd.html">build_readme</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment">
+<div class="sourceCode" id="cb36"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>ℹ Installing ussie in temporary library</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>ℹ Building C:/Users/er13/OneDrive - University of York/Desktop/Desktop/rstudio-conf-2022/ussie/README.Rmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section><section id="news.md" class="title-slide slide level1 center"><h1><code>NEWS.md</code></h1>
+
+</section><section id="news.md-1" class="slide level2"><h2><code>NEWS.md</code></h2>
+<ul>
+<li><p><code>README.md</code> what the package does - for new users</p></li>
+<li><p><code>NEWS.md</code> what’s changed since the previous version - for existing users</p></li>
+</ul>
+<div class="fragment">
+<p>🎬 Take a look at the <code>NEWS.md</code> for <strong><code>ggplot2</code></strong> <span class="citation" data-cites="ggplot2">(<a href="#/ref-ggplot2" role="doc-biblioref" onclick="return false;">Wickham 2016</a>)</span>:</p>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/ggplot2/news/news.html">CRAN Package page</a></li>
+<li><a href="https://ggplot2.tidyverse.org/news/index.html">pkgdown site</a></li>
+</ul>
+</div>
+</section><section id="news.md-2" class="slide level2"><h2><code>NEWS.md</code></h2>
+<p>🎬 Add a <code>NEWS.md</code></p>
+<div class="cell">
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_news_md.html">use_news_md</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>✔ Writing 'NEWS.md'</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>• Modify 'NEWS.md'</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>There is 1 uncommitted file:</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>* 'NEWS.md'</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>Is it ok to commit it?</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>1: Absolutely not</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>2: Nope</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>3: Yup</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>🎬 Choose the option that means Yes!</p>
+</section><section id="section-6" class="slide level2"><h2></h2>
+<div class="sourceCode" id="cb39"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>✔ Adding files</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>✔ Making a commit with message 'Add NEWS.md'</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section><section id="what-happens" class="slide level2"><h2>What happens?</h2>
+<p>Changelog is added to : <a href="https://3mmarand.github.io/ussie/">https://3mmarand.github.io/ussie/</a></p>
+</section><section id="keep-news.md-up-to-date" class="slide level2"><h2>Keep <code>NEWS.md</code> up-to-date</h2>
+<ul>
+<li>top level header (<code># ussie 1.0.0</code>) for each release, most recent at the top</li>
+<li>each change in bulleted list</li>
+<li>add issue number and pull request numbers if the change relates to a specific issue or PR</li>
+</ul></section><section id="commit-and-push-3" class="slide level2"><h2>Commit and push</h2>
+<p>Now would be a good time to commit your changes and push them to GitHub</p>
+<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg" alt="Git icon" width="300"><img data-src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub icon" width="300"></p>
+</section><section id="commit-and-push-4" class="slide level2"><h2>Commit and push</h2>
+<p>Now would be a good time to commit your changes and push them to GitHub</p>
+<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg" alt="Git icon" width="300"><img data-src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub icon" width="300"></p>
+</section><section id="look-1" class="slide level2"><h2>Look!</h2>
+<p>🎬 Look at your website hosted on GH Pages:</p>
+<p><a href="https://3mmarand.github.io/ussie/">https://3mmarand.github.io/ussie/</a></p>
+<p>Replace <code>3mmaRand</code> with your own username</p>
 </section></section><section><section id="woo-hoo-you-have-shared-your-package" class="title-slide slide level1 center"><h1>🌐 Woo hoo 🌐 <br> You have shared your package!</h1>
 
 </section><section id="summary" class="slide level2"><h2>Summary</h2>
@@ -960,6 +1062,9 @@ jobs:
 <p><a href="https://rstd.io/btt" class="uri">https://rstd.io/btt</a></p>
 </div>
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-ggplot2" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley. 2016. <span>“Ggplot2: Elegant Graphics for Data Analysis.”</span> <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
+</div>
 <div id="ref-usethis" class="csl-entry" role="doc-biblioentry">
 Wickham, Hadley, Jennifer Bryan, and Malcolm Barrett. 2022. <span>“Usethis: Automate Package and Project Setup.”</span> <a href="https://CRAN.R-project.org/package=usethis">https://CRAN.R-project.org/package=usethis</a>.
 </div>

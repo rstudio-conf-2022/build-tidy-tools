@@ -361,7 +361,7 @@
     "href": "materials/day-1-session-1-introduction.html#to-avoid",
     "title": "📦 Building tidy tools",
     "section": "To avoid",
-    "text": "To avoid\n\n\n\n\nvia GIPHY"
+    "text": "To avoid\n\n\n\nvia GIPHY"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#script-vs-package",
@@ -1705,7 +1705,7 @@
     "href": "materials/day-1-session-4-doc-sharing.html#learning-objectives",
     "title": "📦 Building tidy tools",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\nAt the end of this section you will be able to:\n\n\nAdd a README.md by building and populating a README.Rmd\n\nSet up a GitHub action that will run\n\nrun R CMD check on multiple OS on GitHub and\nadd badge with the result to the README\n\n\nDescribe the additions made when adding a GitHub action\nAdd a package vignette\nUse pkgdown (Wickham, Hesselberth, and Salmon 2022) to create a website for your package\nDescribe additions made when making and hosting a pkgdown website"
+    "text": "Learning Objectives\nAt the end of this section you will be able to:\n\n\nAdd a README.md by building and populating a README.Rmd\nAdd a package vignette\nUse pkgdown (Wickham, Hesselberth, and Salmon 2022) to create a website for your package\nDescribe additions made when making and hosting a pkgdown website\n\nDescribe what GitHub Actions are and set them up to:\n\nrun R CMD check on multiple OS on GitHub\nbuild and publish your pkgdown site\nRun test coverage on your package."
   },
   {
     "objectID": "materials/day-1-session-4-doc-sharing.html#overview-1",
@@ -1775,7 +1775,7 @@
     "href": "materials/day-1-session-4-doc-sharing.html#edit-readme.rmd",
     "title": "📦 Building tidy tools",
     "section": "Edit README.Rmd\n",
-    "text": "Edit README.Rmd\n\n🎬 Complete: “The goal of ussie is to …”\n\n🎬 Add: an example with uss_make_maches()\n \n🎬 Remove: non-relevant sections"
+    "text": "Edit README.Rmd\n\n🎬 Complete: “The goal of ussie is to …”\n\n🎬 Add: an example with uss_make_matches()\n \n🎬 Remove: non-relevant sections"
   },
   {
     "objectID": "materials/day-1-session-4-doc-sharing.html#an-answer",
@@ -1845,7 +1845,28 @@
     "href": "materials/day-1-session-4-doc-sharing.html#commit-and-push",
     "title": "📦 Building tidy tools",
     "section": "Commit and push",
-    "text": "Commit and push\n🎬 Stage and commit\n\n🎬 Push to GitHub"
+    "text": "Commit and push\nNow would be a good time to commit your changes and push them to GitHub"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#on-github",
+    "href": "materials/day-1-session-4-doc-sharing.html#on-github",
+    "title": "📦 Building tidy tools",
+    "section": "On GitHub",
+    "text": "On GitHub"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#on-github-1",
+    "href": "materials/day-1-session-4-doc-sharing.html#on-github-1",
+    "title": "📦 Building tidy tools",
+    "section": "On GitHub",
+    "text": "On GitHub"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#on-github-2",
+    "href": "materials/day-1-session-4-doc-sharing.html#on-github-2",
+    "title": "📦 Building tidy tools",
+    "section": "On GitHub",
+    "text": "On GitHub"
   },
   {
     "objectID": "materials/day-1-session-4-doc-sharing.html#other-github-actions",
@@ -1894,18 +1915,25 @@
     "href": "materials/day-1-session-4-doc-sharing.html#preview-the-vignette",
     "title": "📦 Building tidy tools",
     "section": "Preview the Vignette",
-    "text": "Preview the Vignette\n🎬 hit knit\n🎬\n\ndevtools::build_rmd(\"vignettes/ussie.Rmd\")\n\nℹ Installing ussie in temporary library\nℹ Building C:/Users/er13/Desktop/ussie/vignettes/ussie.Rmd"
+    "text": "Preview the Vignette\n🎬 Build the vignette with:\n\ndevtools::build_rmd(\"vignettes/ussie.Rmd\")\n\nℹ Installing ussie in temporary library\nℹ Building C:/Users/er13/Desktop/ussie/vignettes/ussie.Rmd"
   },
   {
-    "objectID": "materials/day-1-session-4-doc-sharing.html#section-5",
-    "href": "materials/day-1-session-4-doc-sharing.html#section-5",
+    "objectID": "materials/day-1-session-4-doc-sharing.html#commit-and-push-1",
+    "href": "materials/day-1-session-4-doc-sharing.html#commit-and-push-1",
     "title": "📦 Building tidy tools",
-    "section": "",
-    "text": "pkgdown is designed to make it quick and easy to build a website for your package\n\npalmerpenguins\nggplot2\n\nVery widely used"
+    "section": "Commit and push",
+    "text": "Commit and push\nNow would be a good time to commit your changes and push them to GitHub"
   },
   {
-    "objectID": "materials/day-1-session-4-doc-sharing.html#section-6",
-    "href": "materials/day-1-session-4-doc-sharing.html#section-6",
+    "objectID": "materials/day-1-session-4-doc-sharing.html#pkgdown-will",
+    "href": "materials/day-1-session-4-doc-sharing.html#pkgdown-will",
+    "title": "📦 Building tidy tools",
+    "section": "\npkgdown will 🤯",
+    "text": "pkgdown will 🤯\npkgdown (Wickham, Hesselberth, and Salmon 2022) is designed to make it quick and easy to build a website for your package.\n\nExamples\n\npalmerpenguins\nggplot2\n\nVery widely used"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#section-2",
+    "href": "materials/day-1-session-4-doc-sharing.html#section-2",
     "title": "📦 Building tidy tools",
     "section": "",
     "text": "Uses your existing documentation\n\nHome page - from README.md\n\nGet started - from overall pkg vignette\nFunction Reference - from documentation in man/\n\nArticles - from other vignettes"
@@ -1918,11 +1946,11 @@
     "text": "Workflow\n\nConfigure package to use pkgdown with usethis::use_pkgdown() ONCE\nbuild the website locally pkgdown::build_site()"
   },
   {
-    "objectID": "materials/day-1-session-4-doc-sharing.html#section-7",
-    "href": "materials/day-1-session-4-doc-sharing.html#section-7",
+    "objectID": "materials/day-1-session-4-doc-sharing.html#configure-for-pkgdown",
+    "href": "materials/day-1-session-4-doc-sharing.html#configure-for-pkgdown",
     "title": "📦 Building tidy tools",
-    "section": "",
-    "text": "🎬 config\n\nusethis::use_pkgdown() \n\n✔ Adding '^_pkgdown\\\\.yml$', '^docs$', '^pkgdown$' to '.Rbuildignore'\n✔ Adding 'docs' to '.gitignore'\n✔ Writing '_pkgdown.yml'\n• Modify '_pkgdown.yml'"
+    "section": "Configure for pkgdown\n",
+    "text": "Configure for pkgdown\n\n🎬 Run:\n\nusethis::use_pkgdown() \n\n✔ Adding '^_pkgdown\\\\.yml$', '^docs$', '^pkgdown$' to '.Rbuildignore'\n✔ Adding 'docs' to '.gitignore'\n✔ Writing '_pkgdown.yml'\n• Modify '_pkgdown.yml'"
   },
   {
     "objectID": "materials/day-1-session-4-doc-sharing.html#pkgdown.yml",
@@ -1932,43 +1960,50 @@
     "text": "_pkgdown.yml\nSimple\nurl: ~\ntemplate:\n  bootstrap: 5\nCan be customised:\n\nggplot2 _pkgdown.yml\npalmerpenguins _pkgdown.yml"
   },
   {
-    "objectID": "materials/day-1-session-4-doc-sharing.html#section-8",
-    "href": "materials/day-1-session-4-doc-sharing.html#section-8",
+    "objectID": "materials/day-1-session-4-doc-sharing.html#build-locally",
+    "href": "materials/day-1-session-4-doc-sharing.html#build-locally",
+    "title": "📦 Building tidy tools",
+    "section": "Build locally",
+    "text": "Build locally\n🎬 We can build the site locally with:\n\npkgdown::build_site()\n\n\n\nCharlie Brown Snoopy GIFfrom Charlie Brown GIFs"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#section-3",
+    "href": "materials/day-1-session-4-doc-sharing.html#section-3",
     "title": "📦 Building tidy tools",
     "section": "",
-    "text": "🎬 build\n\npkgdown::build_site()\n\n\n\nCharlie Brown Snoopy GIFfrom Charlie Brown GIFs"
+    "text": "-- Installing package into temporary library -----------\n== Building pkgdown site =======================================================\nReading from: 'C:/Users/er13/OneDrive - University of York/Desktop/Desktop/rstudio-conf-2022/ussie'\nWriting to:   'C:/Users/er13/OneDrive - University of York/Desktop/Desktop/rstudio-conf-2022/ussie/docs'\n-- Initialising site -----------------------------------------------------------\nCopying '../../../../Program Files/R/R-4.2.0/library/pkgdown/BS5/assets/link.svg' to 'link.svg'\nCopying '../../../../Program Files/R/R-4.2.0/library/pkgdown/BS5/assets/pkgdown.js' to 'pkgdown.js'\n-- Building home ---------------------------------------------------------------\nWriting 'authors.html'\nReading 'LICENSE.md'\nWriting 'LICENSE.html'\nWriting 'LICENSE-text.html'\nCopying 'man/figures/README-pressure-1.png' to 'reference/figures/README-pressure-1.png'\nWriting '404.html'\n-- Building function reference -------------------------------------------------\nWriting 'reference/index.html'\nReading 'man/ussie-package.Rd'\nWriting 'reference/ussie-package.html'\nReading 'man/uss_make_matches.Rd'\nWriting 'reference/uss_make_matches.html'\n-- Building articles -----------------------------------------------------------\nWriting 'articles/index.html'\nReading 'vignettes/ussie.Rmd'\nWriting 'articles/ussie.html'\nWriting 'sitemap.xml'\n-- Building search index -------------------------------------------------------\n== DONE ========================================================================\n-- Previewing site -------------------------------------"
   },
   {
-    "objectID": "materials/day-1-session-4-doc-sharing.html#section-9",
-    "href": "materials/day-1-session-4-doc-sharing.html#section-9",
+    "objectID": "materials/day-1-session-4-doc-sharing.html#what-has-happenned",
+    "href": "materials/day-1-session-4-doc-sharing.html#what-has-happenned",
     "title": "📦 Building tidy tools",
-    "section": "",
-    "text": "-- Installing package into temporary library -----------\nWarning: package ‘ussie’ is in use and will not be installed\n== Building pkgdown site =======================================================\nReading from: 'C:/Users/er13/OneDrive - University of York/Desktop/Desktop/rstudio-conf-2022/ussie'\nWriting to:   'C:/Users/er13/OneDrive - University of York/Desktop/Desktop/rstudio-conf-2022/ussie/docs'\n-- Initialising site -----------------------------------------------------------\nCopying '../../../../Program Files/R/R-4.2.0/library/pkgdown/BS5/assets/link.svg' to 'link.svg'\nCopying '../../../../Program Files/R/R-4.2.0/library/pkgdown/BS5/assets/pkgdown.js' to 'pkgdown.js'\n-- Building home ---------------------------------------------------------------\nWriting 'authors.html'\nReading 'LICENSE.md'\nWriting 'LICENSE.html'\nWriting 'LICENSE-text.html'\nCopying 'man/figures/README-pressure-1.png' to 'reference/figures/README-pressure-1.png'\nWriting '404.html'\n-- Building function reference -------------------------------------------------\nWriting 'reference/index.html'\nReading 'man/ussie-package.Rd'\nWriting 'reference/ussie-package.html'\nReading 'man/uss_make_matches.Rd'\nWriting 'reference/uss_make_matches.html'\n-- Building articles -----------------------------------------------------------\nWriting 'articles/index.html'\nReading 'vignettes/ussie.Rmd'\nWriting 'articles/ussie.html'\nWriting 'sitemap.xml'\n-- Building search index -------------------------------------------------------\n== DONE ========================================================================\n-- Previewing site -------------------------------------"
+    "section": "What has happenned",
+    "text": "What has happenned\n\n\ndocs/ is created\nfiles are copied to docs/\n\neverything for the site is put in .Rbuildignore\n\nYour site opens!"
   },
   {
-    "objectID": "materials/day-1-session-4-doc-sharing.html#section-10",
-    "href": "materials/day-1-session-4-doc-sharing.html#section-10",
+    "objectID": "materials/day-1-session-4-doc-sharing.html#build-and-host-on-github",
+    "href": "materials/day-1-session-4-doc-sharing.html#build-and-host-on-github",
     "title": "📦 Building tidy tools",
-    "section": "",
-    "text": "docs/ is created"
+    "section": "Build and host on Github",
+    "text": "Build and host on Github\nRather than building our pages locally and hosting results on GitHub, we can set up GitHub Actions to automatically build and publish our site\n\nThe pkgdown workflow Action is added with: usethis::use_pkgdown_github_pages()"
   },
   {
-    "objectID": "materials/day-1-session-4-doc-sharing.html#hosting-on-github",
-    "href": "materials/day-1-session-4-doc-sharing.html#hosting-on-github",
+    "objectID": "materials/day-1-session-4-doc-sharing.html#build-and-host-on-github-1",
+    "href": "materials/day-1-session-4-doc-sharing.html#build-and-host-on-github-1",
     "title": "📦 Building tidy tools",
-    "section": "Hosting on Github",
-    "text": "Hosting on Github\nSet up GitHub Actions to automatically build and publish your site\nLet github build the page rather than building and hosting results usethis::use_pkgdown_github_pages()\n🎬 action\n\nusethis::use_pkgdown_github_pages()"
+    "section": "Build and host on Github",
+    "text": "Build and host on Github\n🎬 Add CI to build package site:\n\nusethis::use_pkgdown_github_pages()"
   },
   {
-    "objectID": "materials/day-1-session-4-doc-sharing.html#section-11",
-    "href": "materials/day-1-session-4-doc-sharing.html#section-11",
+    "objectID": "materials/day-1-session-4-doc-sharing.html#section-4",
+    "href": "materials/day-1-session-4-doc-sharing.html#section-4",
     "title": "📦 Building tidy tools",
     "section": "",
     "text": "Overwrite pre-existing file '_pkgdown.yml'?\n\n1: Yup\n2: Nope\n3: Negative\n🎬 Chose the option that means Yes"
   },
   {
-    "objectID": "materials/day-1-session-4-doc-sharing.html#section-12",
-    "href": "materials/day-1-session-4-doc-sharing.html#section-12",
+    "objectID": "materials/day-1-session-4-doc-sharing.html#section-5",
+    "href": "materials/day-1-session-4-doc-sharing.html#section-5",
     "title": "📦 Building tidy tools",
     "section": "",
     "text": "✔ Writing '_pkgdown.yml'\n• Modify '_pkgdown.yml'\n✔ Initializing empty, orphan 'gh-pages' branch in GitHub repo '3mmaRand/ussie'\n✔ GitHub Pages is publishing from:\n• URL: 'https://3mmarand.github.io/ussie/'\n• Branch: 'gh-pages'\n• Path: '/'\n✔ Saving 'r-lib/actions/examples/pkgdown.yaml@v2' to '.github/workflows/pkgdown.yaml'\n• Learn more at <https://github.com/r-lib/actions/blob/v2/examples/README.md>.\n✔ Recording 'https://3mmarand.github.io/ussie/' as site's url in '_pkgdown.yml'\n✔ Adding 'https://3mmarand.github.io/ussie/' to URL field in DESCRIPTION\n• Run `devtools::document()` to update package-level documentation.\n✔ Setting 'https://3mmarand.github.io/ussie/' as homepage of GitHub repo '3mmaRand/ussie'"
@@ -1995,11 +2030,95 @@
     "text": "pkgdown.yaml\n\n# Workflow derived from https://github.com/r-lib/actions/tree/v2/examples\n# Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help\non:\n  push:\n    branches: [main, master]\n  pull_request:\n    branches: [main, master]\n  release:\n    types: [published]\n  workflow_dispatch:\n\nname: pkgdown\n\njobs:\n  pkgdown:\n    runs-on: ubuntu-latest\n    # Only restrict concurrency for non-PR jobs\n    concurrency:\n      group: pkgdown-${{ github.event_name != 'pull_request' || github.run_id }}\n    env:\n      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}\n    steps:\n      - uses: actions/checkout@v2\n\n      - uses: r-lib/actions/setup-pandoc@v2\n\n      - uses: r-lib/actions/setup-r@v2\n        with:\n          use-public-rspm: true\n\n      - uses: r-lib/actions/setup-r-dependencies@v2\n        with:\n          extra-packages: any::pkgdown, local::.\n          needs: website\n\n      - name: Build site\n        run: pkgdown::build_site_github_pages(new_process = FALSE, install = FALSE)\n        shell: Rscript {0}\n\n      - name: Deploy to GitHub pages 🚀\n        if: github.event_name != 'pull_request'\n        uses: JamesIves/github-pages-deploy-action@4.1.4\n        with:\n          clean: false\n          branch: gh-pages\n          folder: docs"
   },
   {
-    "objectID": "materials/day-1-session-4-doc-sharing.html#commit-and-push-1",
-    "href": "materials/day-1-session-4-doc-sharing.html#commit-and-push-1",
+    "objectID": "materials/day-1-session-4-doc-sharing.html#commit-and-push-2",
+    "href": "materials/day-1-session-4-doc-sharing.html#commit-and-push-2",
     "title": "📦 Building tidy tools",
     "section": "Commit and push",
-    "text": "Commit and push\n🎬 Stage and commit\n\n🎬 Push to GitHub"
+    "text": "Commit and push\nNow would be a good time to commit your changes and push them to GitHub"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#look",
+    "href": "materials/day-1-session-4-doc-sharing.html#look",
+    "title": "📦 Building tidy tools",
+    "section": "Look!",
+    "text": "Look!\n🎬 Look at your website hosted on GH Pages:\nhttps://3mmarand.github.io/ussie/\nReplace 3mmaRand with your own username"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#gha-for-test-coverage",
+    "href": "materials/day-1-session-4-doc-sharing.html#gha-for-test-coverage",
+    "title": "📦 Building tidy tools",
+    "section": "GHA for test coverage",
+    "text": "GHA for test coverage\nIn the last session we used:\n\ndevtools::test_coverage()\n\nto run covr::codecov() to determine the % of our code covered by tests\n\nWe can have this run as a GitHub Actions and add a test coverage badge to our README.md\n\n\nWe first add the workflow for the Action and then add the badge."
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#add-the-workflow",
+    "href": "materials/day-1-session-4-doc-sharing.html#add-the-workflow",
+    "title": "📦 Building tidy tools",
+    "section": "Add the workflow",
+    "text": "Add the workflow\n🎬 Add .github/workflows/test-coverage.yaml with\n\nusethis::use_github_action(\"test-coverage\")\n\n\n✔ Saving 'r-lib/actions/examples/test-coverage.yaml@v2' to '.github/workflows/test-coverage.yaml'\n• Learn more at <https://github.com/r-lib/actions/blob/v2/examples/README.md>."
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#add-the-coverage-badge",
+    "href": "materials/day-1-session-4-doc-sharing.html#add-the-coverage-badge",
+    "title": "📦 Building tidy tools",
+    "section": "Add the coverage badge",
+    "text": "Add the coverage badge\n🎬 Add the badge to README.Rmd with\n\nusethis::use_github_actions_badge(\"test-coverage\")\n\n\n✔ Adding test-coverage badge to 'README.Rmd'\n• Re-knit 'README.Rmd' with `devtools::build_readme()`\n\n\n🎬 Build README.md with:\n\ndevtools::build_readme()\n\n\n\nℹ Installing ussie in temporary library\nℹ Building C:/Users/er13/OneDrive - University of York/Desktop/Desktop/rstudio-conf-2022/ussie/README.Rmd"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#news.md-1",
+    "href": "materials/day-1-session-4-doc-sharing.html#news.md-1",
+    "title": "📦 Building tidy tools",
+    "section": "NEWS.md",
+    "text": "NEWS.md\n\nREADME.md what the package does - for new users\nNEWS.md what’s changed since the previous version - for existing users\n\n\n🎬 Take a look at the NEWS.md for ggplot2 (Wickham 2016):\n\nCRAN Package page\npkgdown site"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#news.md-2",
+    "href": "materials/day-1-session-4-doc-sharing.html#news.md-2",
+    "title": "📦 Building tidy tools",
+    "section": "NEWS.md",
+    "text": "NEWS.md\n🎬 Add a NEWS.md\n\nusethis::use_news_md()\n\n✔ Writing 'NEWS.md'\n• Modify 'NEWS.md'\nThere is 1 uncommitted file:\n* 'NEWS.md'\nIs it ok to commit it?\n\n1: Absolutely not\n2: Nope\n3: Yup\n🎬 Choose the option that means Yes!"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#section-6",
+    "href": "materials/day-1-session-4-doc-sharing.html#section-6",
+    "title": "📦 Building tidy tools",
+    "section": "",
+    "text": "✔ Adding files\n✔ Making a commit with message 'Add NEWS.md'"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#what-happens",
+    "href": "materials/day-1-session-4-doc-sharing.html#what-happens",
+    "title": "📦 Building tidy tools",
+    "section": "What happens?",
+    "text": "What happens?\nChangelog is added to : https://3mmarand.github.io/ussie/"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#keep-news.md-up-to-date",
+    "href": "materials/day-1-session-4-doc-sharing.html#keep-news.md-up-to-date",
+    "title": "📦 Building tidy tools",
+    "section": "Keep NEWS.md up-to-date",
+    "text": "Keep NEWS.md up-to-date\n\ntop level header (# ussie 1.0.0) for each release, most recent at the top\neach change in bulleted list\nadd issue number and pull request numbers if the change relates to a specific issue or PR"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#commit-and-push-3",
+    "href": "materials/day-1-session-4-doc-sharing.html#commit-and-push-3",
+    "title": "📦 Building tidy tools",
+    "section": "Commit and push",
+    "text": "Commit and push\nNow would be a good time to commit your changes and push them to GitHub"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#commit-and-push-4",
+    "href": "materials/day-1-session-4-doc-sharing.html#commit-and-push-4",
+    "title": "📦 Building tidy tools",
+    "section": "Commit and push",
+    "text": "Commit and push\nNow would be a good time to commit your changes and push them to GitHub"
+  },
+  {
+    "objectID": "materials/day-1-session-4-doc-sharing.html#look-1",
+    "href": "materials/day-1-session-4-doc-sharing.html#look-1",
+    "title": "📦 Building tidy tools",
+    "section": "Look!",
+    "text": "Look!\n🎬 Look at your website hosted on GH Pages:\nhttps://3mmarand.github.io/ussie/\nReplace 3mmaRand with your own username"
   },
   {
     "objectID": "materials/day-1-session-4-doc-sharing.html#summary",
@@ -2020,7 +2139,7 @@
     "href": "materials/day-1-session-4-doc-sharing.html#references",
     "title": "📦 Building tidy tools",
     "section": "References",
-    "text": "References\n\n\nhttps://rstd.io/btt\n\n\n\nWickham, Hadley, Jennifer Bryan, and Malcolm Barrett. 2022. “Usethis: Automate Package and Project Setup.” https://CRAN.R-project.org/package=usethis.\n\n\nWickham, Hadley, Jay Hesselberth, and Maëlle Salmon. 2022. “Pkgdown: Make Static HTML Documentation for a Package.” https://CRAN.R-project.org/package=pkgdown."
+    "text": "References\n\n\nhttps://rstd.io/btt\n\n\n\nWickham, Hadley. 2016. “Ggplot2: Elegant Graphics for Data Analysis.” https://ggplot2.tidyverse.org.\n\n\nWickham, Hadley, Jennifer Bryan, and Malcolm Barrett. 2022. “Usethis: Automate Package and Project Setup.” https://CRAN.R-project.org/package=usethis.\n\n\nWickham, Hadley, Jay Hesselberth, and Maëlle Salmon. 2022. “Pkgdown: Make Static HTML Documentation for a Package.” https://CRAN.R-project.org/package=pkgdown."
   },
   {
     "objectID": "materials/day-2-session-2-side-effects.html#learning-objectives",
