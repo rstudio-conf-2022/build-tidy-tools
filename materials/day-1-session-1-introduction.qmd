@@ -78,7 +78,7 @@ Detailed instructions for installing these are covered in [Prerequisites](pre-re
 ## Day 1
 
 | Time          | Activity                                                                                 |
-|:-------------------|:---------------------------------------------------|
+|:--------------------|:--------------------------------------------------|
 | 09:00 - 10:30 | [Session 1: Introduction and the whole game](materials/day-1-session-1-introduction.qmd) |
 | 10:30 - 11:00 | ☕ *Coffee break*                                                                        |
 | 11:00 - 12:30 | [Session 2: Documentation - Minimal](materials/day-1-session-2-doc-minimal.qmd)          |
@@ -90,7 +90,7 @@ Detailed instructions for installing these are covered in [Prerequisites](pre-re
 ## Day 2
 
 | Time          | Activity                                                              |
-|:--------------------|:--------------------------------------------------|
+|:---------------------|:-------------------------------------------------|
 | 09:00 - 10:30 | [Session 1: Function design](materials/day-2-session-1-design.qmd)    |
 | 10:30 - 11:00 | ☕ *Coffee break*                                                     |
 | 11:00 - 12:30 | [Session 2: Side effects](materials/day-2-session-2-side-effects.qmd) |
@@ -224,11 +224,7 @@ if (interactive()) {
 
 </iframe>
 
-<p>
-
-<a href="https://giphy.com/gifs/M11UVCRrc0LUk">via GIPHY</a>
-
-</p>
+<p><a href="https://giphy.com/gifs/M11UVCRrc0LUk">via GIPHY</a></p>
 
 ## Script vs package
 
@@ -1092,7 +1088,7 @@ Duration: 25.1s
 
 `use_mit_license()`, `use_agpl_license()`, `use_ccby_license()` etc
 
-. . . 
+. . .
 
 🎬 Add a MIT license[^1] - use your own name!
 
