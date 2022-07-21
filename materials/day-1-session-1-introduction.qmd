@@ -55,6 +55,16 @@ Ted Laderas 🐦[\@tladeras](https://twitter.com/tladeras)
 
 Standing on the shoulders of Building Tidy Tools, rstudio::conf(2020) [@wickham2021a], R Packages [@wickham2020]
 
+## 🙏 to
+
+-   the TAs
+
+-   colleagues, friends and learners at Schneider Electric, University of York and RForwards!
+
+-   RStudio team and especially Mine Çetinkaya-Rundel 
+
+
+
 ## Housekeeping
 
 -   Toilets
