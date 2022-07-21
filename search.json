@@ -11,7 +11,7 @@
     "href": "pre-reqs.html#install-r-and-rstudio",
     "title": "Prerequisites",
     "section": "Install R and RStudio",
-    "text": "Install R and RStudio\nYou will need:\n\nR 4.x. Version 3.6.x will likely be fine but we recommend that you install the latest versions if possible.\nRStudio 2022.02.1 or above\n\n\nInstalling R\nDownload the pre-compiled binary for your OS from https://cloud.r-project.org/ and install.\n\nFor Windows\nClick “Download R for Windows”, then “base”, then “Download R #.#.# for Windows”. This will download an .exe file; once downloaded, open to start the installation. If you do not have administrator rights, the installer will default to install in your Documents folder - if you prefer, you can change the location to another folder that you have write access to.\n\n\nFor Mac\nClick “Download R for (Mac) OS X”, then “R-#.#.#.pkg” to download the installer. Run the installer to complete installation.\n\n\nFor Linux\nClick “Download R for Linux”. Instructions on installing are given for Debian, Redhat, Suse and Ubuntu distributions. Where there is a choice, install both r-base and r-base-dev.\n\n\n\nInstalling R Studio\nDownloads are available from https://www.rstudio.com/products/rstudio/download/ (scroll to the end of the page to see the downloads). You want RStudio Desktop (Open Source License).\n\nFor Windows with no admin rights\nDownload the .zip source archive under “Zip/Tarballs”. Extract the files to a folder where you have write access, e.g. C:\\Users\\username\\RStudio. In this folder, open the bin directory and find the RStudio program: it is named rstudio.exe, but the file extension will typically be hidden, so look for rstudio. Right-click this executable to create a desktop shortcut. Double-click the executable or use the shortcut to open.\n\n\nFor all other operating systems\nDownload the relevant installer for your OS listed under “Installers for Supported Platforms”. Run the installer to complete installation."
+    "text": "Install R and RStudio\nYou will need:\n\nR version >= 4.1\nRStudio >= 2022.02.1\n\n\nInstalling R\nDownload the pre-compiled binary for your OS from https://cloud.r-project.org/ and install.\n\nFor Windows\nClick “Download R for Windows”, then “base”, then “Download R #.#.# for Windows”. This will download an .exe file; once downloaded, open to start the installation. If you do not have administrator rights, the installer will default to install in your Documents folder - if you prefer, you can change the location to another folder that you have write access to.\n\n\nFor Mac\nClick “Download R for (Mac) OS X”, then “R-#.#.#.pkg” to download the installer. Run the installer to complete installation.\n\n\nFor Linux\nClick “Download R for Linux”. Instructions on installing are given for Debian, Redhat, Suse and Ubuntu distributions. Where there is a choice, install both r-base and r-base-dev.\n\n\n\nInstalling R Studio\nDownloads are available from https://www.rstudio.com/products/rstudio/download/ (scroll to the end of the page to see the downloads). You want RStudio Desktop (Open Source License).\n\nFor Windows with no admin rights\nDownload the .zip source archive under “Zip/Tarballs”. Extract the files to a folder where you have write access, e.g. C:\\Users\\username\\RStudio. In this folder, open the bin directory and find the RStudio program: it is named rstudio.exe, but the file extension will typically be hidden, so look for rstudio. Right-click this executable to create a desktop shortcut. Double-click the executable or use the shortcut to open.\n\n\nFor all other operating systems\nDownload the relevant installer for your OS listed under “Installers for Supported Platforms”. Run the installer to complete installation."
   },
   {
     "objectID": "pre-reqs.html#install-r-package-development-toolchain",
@@ -802,7 +802,7 @@
     "href": "materials/day-1-session-1-introduction.html#prerequisites",
     "title": "📦 Building tidy tools",
     "section": "Prerequisites",
-    "text": "Prerequisites\nYou need a laptop with the following installed:\n\nR and RStudio\nR package development toolchain: Rtools(windows) or XCode (mac) or r-base-dev\nThe following packages: devtools and btt22\n\nGit\nGitHub account linked to RStudio\n\nDetailed instructions for installing these are covered in Prerequisites"
+    "text": "Prerequisites\nYou need a laptop with the following installed:\n\nR version >= 4.1 and RStudio >= 2022.02.1\nR package development toolchain: Rtools(windows) or XCode (mac) or r-base-dev\nThe following packages: devtools and btt22\n\nGit\nGitHub account linked to RStudio\n\n🎬 Detailed instructions for installing these are covered in Prerequisites"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#day-1",
@@ -830,7 +830,7 @@
     "href": "materials/day-1-session-1-introduction.html#how-we-will-work",
     "title": "📦 Building tidy tools",
     "section": "How we will work",
-    "text": "How we will work\n\nstickies 🟨 🟩\nno stupid questions"
+    "text": "How we will work\n\nstickies 🟨 🟩\nno stupid questions\n🎬 Action! (today)"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#learning-objectives",
