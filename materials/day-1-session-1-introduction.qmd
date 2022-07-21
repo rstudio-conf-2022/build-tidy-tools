@@ -77,13 +77,13 @@ Standing on the shoulders of Building Tidy Tools, rstudio::conf(2020) [@wickham2
 
 You need a laptop with the following installed:
 
--   R and RStudio
+-   R version >= 4.1 and RStudio >= 2022.02.1
 -   R package development toolchain: Rtools(windows) or XCode (mac) or r-base-dev
 -   The following packages: **`devtools`** and **`btt22`**
 -   Git
 -   GitHub account linked to RStudio
 
-Detailed instructions for installing these are covered in [Prerequisites](pre-reqs.qmd)
+🎬 Detailed instructions for installing these are covered in [Prerequisites](pre-reqs.qmd)
 
 ## Day 1
 
@@ -129,7 +129,7 @@ Reporting:
 
 -   no stupid questions
 
--   
+-   🎬 Action! (today)
 
 ## Learning Objectives
 
