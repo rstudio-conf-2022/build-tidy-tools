@@ -238,6 +238,13 @@
     "text": "Additional material: S3 usage\n\n\n\n\n\n\n\n\n\nAt rstudio::conf(2020), Jesse Sadler shows an implementation."
   },
   {
+    "objectID": "materials/day-2-session-4-miscellany.html#survey",
+    "href": "materials/day-2-session-4-miscellany.html#survey",
+    "title": "📦 Building tidy tools",
+    "section": "Survey",
+    "text": "Survey\nPlease go to rstd.io/conf-workshop-survey.\nYour feedback is crucial! Data from the survey informs curriculum and format decisions for future conf workshops and we really appreciate you taking the time to provide it."
+  },
+  {
     "objectID": "materials/day-2-session-4-miscellany.html#references",
     "href": "materials/day-2-session-4-miscellany.html#references",
     "title": "📦 Building tidy tools",
@@ -2055,21 +2062,35 @@
     "href": "materials/day-2-session-1-design.html#the-team",
     "title": "📦 Building tidy tools",
     "section": "The Team",
-    "text": "The Team\n\n\nEmma Rand 🐦er13_r\nElliot Murphy\nBeatriz Milz\n\nIan Lyttle 🐦ijlyttle\nHaley Jeppson\nTed Laderas\n\n\nStanding on the shoulders of Building Tidy Tools, rstudio::conf(2020) (C. Wickham and Wickham 2021), R Packages (H. Wickham and Bryan 2020)"
+    "text": "The Team\n\n\nEmma Rand 🐦er13_r\nElliot Murphy\nBeatriz Milz\nKailey Mulligan\n\nIan Lyttle 🐦ijlyttle\nHaley Jeppson\nTed Laderas\n\n\nStanding on the shoulders of Building Tidy Tools, rstudio::conf(2020) (C. Wickham and Wickham 2021), R Packages (H. Wickham and Bryan 2020)"
   },
   {
     "objectID": "materials/day-2-session-1-design.html#code-of-conduct",
     "href": "materials/day-2-session-1-design.html#code-of-conduct",
     "title": "📦 Building tidy tools",
     "section": "Code of conduct",
-    "text": "Code of conduct"
+    "text": "Code of conduct\nrstudio::conf code of conduct highlights:\n\n\nwear a mask over your nose and mouth.\n\n\n\n\ntreat everyone with respect.\n\n\n\n\n\nif there is a problem:\n\ntalk to RStudio staff member (Elliot is our liason)\nemail: conf@rstudio.com\n\nphone: +1 844-448-1212"
+  },
+  {
+    "objectID": "materials/day-2-session-1-design.html#code-of-conduct-1",
+    "href": "materials/day-2-session-1-design.html#code-of-conduct-1",
+    "title": "📦 Building tidy tools",
+    "section": "Code of conduct",
+    "text": "Code of conduct\nThe Code of Conduct and COVID policies can be found at https://www.rstudio.com/conference/2022/2022-conf-code-of-conduct/. Please review them carefully.\nRStudio requires that you wear a mask that fully covers your mouth and nose at all times in all public spaces. We strongly recommend that you use a correctly fitted N95, KN95, or similar particulate filtering mask; we will have a limited supply available upon request.\nYou can report Code of Conduct violations in person, by email, or by phone. Please see the policy linked above for contact information."
   },
   {
     "objectID": "materials/day-2-session-1-design.html#housekeeping",
     "href": "materials/day-2-session-1-design.html#housekeeping",
     "title": "📦 Building tidy tools",
     "section": "Housekeeping",
-    "text": "Housekeeping\n\nToilets\nFire exits and alarms\nanything else?"
+    "text": "Housekeeping\n\nWiFi:\n\nUsername: conf22\n\nPassword: together!\n\n\n\nThere are gender neutral bathrooms located on the river side of the Potomac Ballroom.\nThe meditation room is located at Potomac Dressing Room. Open 8am - 5pm, Monday - Thursday.\nThe lactation room is located at National Harbor 9. Open 8am - 5pm, Monday - Thursday. The hotel also has a dedicated room behind the reception.\nParticipants who do not wish to be photographed have red lanyards, please note everyone’s lanyard colors befor taking a photo and respect their choices."
+  },
+  {
+    "objectID": "materials/day-2-session-1-design.html#acknowledgements",
+    "href": "materials/day-2-session-1-design.html#acknowledgements",
+    "title": "📦 Building tidy tools",
+    "section": "Acknowledgements",
+    "text": "Acknowledgements\n\nRStudio for putting this on (esp. Mine Çetinkaya-Rundel)\n\n\n\nEmma has been an amazing collaborator in this endeavour\n\n\n\n\nAll the TAs for helping these days run smoothly\n\n\n\n\nHadley Wickham, Jenny Bryan, and Charlotte Wickham\n\n\n\n\nAt SE: Gilles Perry and Abhijeet Shegokar for “suffering” through a practice run\n\n\n\n\nAll of you for being here"
   },
   {
     "objectID": "materials/day-2-session-1-design.html#how-we-will-work",
