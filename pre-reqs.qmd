@@ -13,16 +13,16 @@ You will need
 -   [R and RStudio](#install-r-and-rstudio)
 -   [R package development toolchain](#install-r-package-development-toolchain): Rtools(windows) or XCode (mac) or r-base-dev
 -   To [install the **`devtools`** and **`btt22`** packages](#packages)
--   [Git](#git)
--   [GitHub account](#github-account)
+-   [Git]
+-   [GitHub account]
 -   [GitHub to be linked to RStudio](#check-link-between-rstudio-and-github)
 
 ## Install R and RStudio {#install-r-and-rstudio}
 
 You will need:
 
--   R 4.x. Version 3.6.x will likely be fine but we recommend that you install the latest versions if possible.
--   RStudio 2022.02.1 or above
+-   R version >= 4.1
+-   RStudio  >= 2022.02.1
 
 ### Installing R
 
@@ -108,7 +108,7 @@ Install **`btt22`** from GitHub:
 devtools::install_github("rstudio-conf-2022/btt22")
 ```
 
-## Git {#git}
+## Git
 
 ### Windows
 
@@ -144,7 +144,7 @@ If `which git` didn't find Git installed, and if you weren't prompted to install
 
     -   Use Homebrew: Run the following in the Terminal: `brew install git`
 
-## GitHub account {#github-account}
+## GitHub account
 
 Register a GitHub account at [github.com](https://github.com/).
 
@@ -192,7 +192,7 @@ gitcreds::gitcreds_set()
 You may need to install **`gitcreds`** [@gitcreds].
 :::
 
-You can check your set up by asking for a "situation report": 
+You can check your set up by asking for a "situation report":
 
 ```{r}
 usethis::git_sitrep()
@@ -200,10 +200,7 @@ usethis::git_sitrep()
 
 The output for this function shows information about the link between RStudio and GitHub, but not all of it is relevant now. It is essential to check whether your name and email are correct and the PAT is showing as "discovered":
 
-```
-Personal access token for 'https://github.com': '<discovered>'
-```
-
+    Personal access token for 'https://github.com': '<discovered>'
 
 ### Personal Access Token
 

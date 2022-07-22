@@ -37,6 +37,8 @@ Emma Rand 🐦[\@er13_r](https://twitter.com/er13_r)
 
 Elliot Murphy
 
+Kailey Mulligan
+
 Beatriz Milz 🐦[\@BeaMilz](https://twitter.com/BeaMilz)
 :::
 
@@ -53,6 +55,14 @@ Ted Laderas 🐦[\@tladeras](https://twitter.com/tladeras)
 
 Standing on the shoulders of Building Tidy Tools, rstudio::conf(2020) [@wickham2021a], R Packages [@wickham2020]
 
+## 🙏 to
+
+-   the TAs
+
+-   colleagues, friends and learners at Schneider Electric, University of York and RForwards!
+
+-   RStudio team and especially Mine Çetinkaya-Rundel
+
 ## Housekeeping
 
 -   Toilets
@@ -65,19 +75,19 @@ Standing on the shoulders of Building Tidy Tools, rstudio::conf(2020) [@wickham2
 
 You need a laptop with the following installed:
 
--   R and RStudio
+-   R version \>= 4.1 and RStudio \>= 2022.02.1
 -   R package development toolchain: Rtools(windows) or XCode (mac) or r-base-dev
 -   The following packages: **`devtools`** and **`btt22`**
 -   Git
 -   GitHub account linked to RStudio
 
-Detailed instructions for installing these are covered in [Prerequisites](pre-reqs.qmd)
+🎬 Detailed instructions for installing these are covered in [Prerequisites](pre-reqs.qmd)
 
 ## Day 1
 
 | Time          | Activity                                                                                 |
-|:--------------|:--------------------------------------------------------|
-| 09:00 - 10:30 | [Session 1: Introduction and the whole game](materials/day-1-session-1-introduction.qmd) |
+|:-------------------------|:-------------------------------------------------|
+| 09:00 - 10:30 | [Session 1: Introduction & whole game](materials/day-1-session-1-introduction.qmd) |
 | 10:30 - 11:00 | ☕ *Coffee break*                                                                        |
 | 11:00 - 12:30 | [Session 2: Documentation - Minimal](materials/day-1-session-2-doc-minimal.qmd)          |
 | 12:30 - 13:30 | 🍱 *Lunch break*                                                                         |
@@ -88,7 +98,7 @@ Detailed instructions for installing these are covered in [Prerequisites](pre-re
 ## Day 2
 
 | Time          | Activity                                                              |
-|:---------------|:-------------------------------------------------------|
+|:----------------------|:------------------------------------------------|
 | 09:00 - 10:30 | [Session 1: Function design](materials/day-2-session-1-design.qmd)    |
 | 10:30 - 11:00 | ☕ *Coffee break*                                                     |
 | 11:00 - 12:30 | [Session 2: Side effects](materials/day-2-session-2-side-effects.qmd) |
@@ -117,14 +127,14 @@ Reporting:
 
 -   no stupid questions
 
--   
+-   🎬 Action! (today)
 
 ## Learning Objectives
 
 ::: small
 At the end of this section you will be able to:
 
--   Make changes to your `.Rprofile` and RStudio set to make ease the package writing process
+-   Make changes to your `.Rprofile` and RStudio set to ease the package writing process
 -   explain the rationale for writing packages
 -   find and explore their own package library/libraries
 -   describe the key components of a minimal package
@@ -175,14 +185,17 @@ to set the following options....
 
 ## 🔥 Set up your `.Rprofile`
 
-    options(
-      usethis.full_name = "Emma Rand",
-      usethis.description = list(
-        `Authors@R` = 'person("Emma", "Rand", 
-          email = "emma.rand@york.ac.uk",     
-          role = c("aut", "cre"))'           
-      )
-    )
+```{r}
+#| eval: false
+options(
+  usethis.full_name = "Emma Rand",
+  usethis.description = list(
+    `Authors@R` = 'person("Emma", "Rand",
+          email = "emma.rand@york.ac.uk",
+          role = c("aut", "cre"))'
+  )
+)
+```
 
 ## 🔥 Set up your `.Rprofile`
 
@@ -203,6 +216,23 @@ if (interactive()) {
 # Why make a package?
 
 ## Why make a package
+
+-   makes it easier to reuse functions you write
+-   have a consistent framework which encourages you to better organise, document and test, your code
+-   using this consistent framework means you can use many standardised tools
+-   is the easiest way to distribute code and data
+
+## Be nice to future you
+
+![Future self: CC-BY-NC, by Julen Colomb, derived from Randall Munroe cartoon](images/future_you.png){fig-alt="Person working at a computer with an offstage person asking \"How is the analysis going?\" The person at the computer replies \"Can't understand the data...and the data collector does not answer my emails or calls\" Person offstage: \"That's terrible! So cruel! Who did collect the data? I will sack them!\" Person at the computer: \"um...I did, 3 years ago\""}
+
+## To avoid
+
+<iframe src="https://giphy.com/embed/M11UVCRrc0LUk" width="480" height="277" frameBorder="0" class="giphy-embed" allowFullScreen>
+
+</iframe>
+
+<p><a href="https://giphy.com/gifs/M11UVCRrc0LUk">via GIPHY</a></p>
 
 ## Script vs package
 
@@ -227,22 +257,6 @@ if (interactive()) {
 -   Install and restart
 :::
 :::
-
-## Be nice to future you
-
-![Future self: CC-BY-NC, by Julen Colomb, derived from Randall Munroe cartoon](images/future_you.png){fig-alt="Person working at a computer with an offstage person asking \"How is the analysis going?\" The person at the computer replies \"Can't understand the data...and the data collector does not answer my emails or calls\" Person offstage: \"That's terrible! So cruel! Who did collect the data? I will sack them!\" Person at the computer: \"um...I did, 3 years ago\""}
-
-## To avoid
-
-<iframe src="https://giphy.com/embed/M11UVCRrc0LUk" width="480" height="277" frameBorder="0" class="giphy-embed" allowFullScreen>
-
-</iframe>
-
-<p>
-
-<a href="https://giphy.com/gifs/M11UVCRrc0LUk">via GIPHY</a>
-
-</p>
 
 # Where packages come from and live?
 
@@ -370,7 +384,7 @@ Figure from [R Packages](https://r-pkgs.org/) [@wickham2020]
 -   in-memory
 :::
 
-::: {.column width="60%" style="background-color: #707070"}
+::: {.column style="width: 60%; background-color: #707070"}
 What you create and work on.
 
 Specific directory structure with some particular components e.g., `DESCRIPTION`, an `R/` directory.
@@ -394,7 +408,7 @@ Specific directory structure with some particular components e.g., `DESCRIPTION`
 -   in-memory
 :::
 
-::: {.column width="60%" style="background-color: #707070"}
+::: {.column style="width: 60%; background-color: #707070"}
 Also known as "source tarballs".
 
 Package files compressed to single file.
@@ -424,7 +438,7 @@ Unpacked it looks very like the source package
 -   in-memory
 :::
 
-::: {.column width="60%" style="background-color: #707070"}
+::: {.column style="width: 60%; background-color: #707070"}
 Package distribution for users w/o dev tools
 
 Also a single file
@@ -454,7 +468,7 @@ Package developers submit a bundle to CRAN; CRAN makes and distributes binaries
 -   in-memory
 :::
 
-::: {.column width="60%" style="background-color: #707070"}
+::: {.column style="width: 60%; background-color: #707070"}
 A binary package that's been decompressed into a package library
 
 Command line tool `R CMD INSTALL` powers all package installation
@@ -478,7 +492,7 @@ Command line tool `R CMD INSTALL` powers all package installation
     :::
 :::
 
-::: {.column width="60%" style="background-color: #707070"}
+::: {.column style="width: 60%; background-color: #707070"}
 If a package is installed, `library()` makes its function available by loading the package into memory and attaching it to the search path.
 
 We do not use `library()` for packages we are working on
@@ -754,7 +768,7 @@ Functions will go in an `.R` file.
 
 . . .
 
-There's a `usethis` helper for adding `.R` files!
+There's a **`usethis`** helper for adding `.R` files!
 
 \
 
@@ -922,7 +936,7 @@ uss_make_matches <- function(data_engsoc, country) {
     tibble::as_tibble() |>
     dplyr::transmute(
       country = as.character(country),
-      tier = as.integer(tier),
+      tier = factor(tier, levels = c("1", "2", "3", "4")),
       season = as.integer(Season),
       date = as.Date(Date),
       home = as.character(home),
@@ -935,6 +949,12 @@ uss_make_matches <- function(data_engsoc, country) {
 
 ```
 :::
+
+## Commit and push
+
+Now would be a good time to commit your changes and push them to GitHub
+
+![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"} ![GitHub, MIT \<http://opensource.org/licenses/mit-license.php\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){fig-alt="GitHub icon" width="300"}
 
 # Check your package
 
@@ -1070,13 +1090,13 @@ Duration: 25.1s
 
 ## Add a license
 
-`usethis` helps out again!
+**`usethis`** helps out again!
 
 \
 
 `use_mit_license()`, `use_agpl_license()`, `use_ccby_license()` etc
 
-\
+. . .
 
 🎬 Add a MIT license[^1] - use your own name!
 
@@ -1085,6 +1105,8 @@ Duration: 25.1s
 ```{r}
 usethis::use_mit_license("Emma Rand") 
 ```
+
+Read more in [Choose a Licence](https://choosealicense.com/licenses/).
 
 ## 
 
@@ -1110,6 +1132,12 @@ usethis::use_mit_license("Emma Rand")
 🎬 Run `devtools::check()` again. Has one of the warnings disappeared?
 
 # 📦 Woo hoo📦 <BR> You made a package!
+
+## Commit and push
+
+Now would be a good time to commit your changes and push them to GitHub
+
+![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"} ![GitHub, MIT \<http://opensource.org/licenses/mit-license.php\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){fig-alt="GitHub icon" width="300"}
 
 ## Summary
 

@@ -26,20 +26,18 @@ bibliography: references.bib
 At the end of this section you will be able to:
 
 ::: small
-
--   Add a `README.md`by building and populating a `README.Rmd` 
-
--   Set up a GitHub action that will run 
-    -   run `R CMD check` on multiple OS on GitHub and
-    -   add badge with the result to the README
-
--   Describe the additions made when adding a GitHub action
+-   Add a `README.md` by building and populating a `README.Rmd`
 
 -   Add a package vignette
 
 -   Use **`pkgdown`** [@pkgdown] to create a website for your package
 
 -   Describe additions made when making and hosting a **`pkgdown`** website
+
+-   Describe what GitHub Actions are and set them up to:
+    -   run `R CMD check` on multiple OS on GitHub
+    -   build and publish your **`pkgdown`** site
+    -   Run test coverage on your package.
 
 :::
 
@@ -167,7 +165,7 @@ devtools::build_readme()
 
 \
 
-🎬 Add: an example with `uss_make_maches()`
+🎬 Add: an example with `uss_make_matches()`
 
  
 
@@ -203,7 +201,7 @@ Badges give information to the user about the state of the package
 
 . . .
 
-For example: ![](https://github.com/3mmaRand/ussie/actions/workflows/R-CMD-check.yaml/badge.svg){width="300" height="39"}
+For example: [![](images/r-cmd-check-badge.svg){width="200" height="26"}](R%20cmd%20check%20badge)
 
 . . .
 
@@ -344,21 +342,19 @@ devtools::build_readme()
 
 ## Commit and push
 
-🎬 Stage and commit
+Now would be a good time to commit your changes and push them to GitHub
 
-\
+![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"} ![GitHub, MIT \<http://opensource.org/licenses/mit-license.php\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){fig-alt="GitHub icon" width="300"}
 
-🎬 Push to GitHub
-
-## 
+## On GitHub
 
 ![](images/badge-check-no-status.png)
 
-## 
+## On GitHub
 
 ![](images/badge-check-progress.png)
 
-## 
+## On GitHub
 
 ![](images/badge-check-passing-status-01.png)
 
@@ -428,9 +424,7 @@ glimpse(matches_italy)
 
 ## Preview the Vignette
 
-🎬 hit knit
-
-🎬
+🎬 Build the vignette with:
 
 ```{r}
 devtools::build_rmd("vignettes/ussie.Rmd")
@@ -441,11 +435,21 @@ devtools::build_rmd("vignettes/ussie.Rmd")
 ℹ Building C:/Users/er13/Desktop/ussie/vignettes/ussie.Rmd
 ```
 
-# pkgdown sites
+## Commit and push
 
-## 
+Now would be a good time to commit your changes and push them to GitHub
 
-pkgdown is designed to make it quick and easy to build a website for your package
+![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"} ![GitHub, MIT \<http://opensource.org/licenses/mit-license.php\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){fig-alt="GitHub icon" width="300"}
+
+# **`pkgdown`** sites
+
+## **`pkgdown`** will 🤯
+
+**`pkgdown`** [@pkgdown] is designed to make it quick and easy to build a website for your package.
+
+. . .
+
+Examples
 
 -   [palmerpenguins](https://allisonhorst.github.io/palmerpenguins/)
 
@@ -464,13 +468,13 @@ Uses your existing documentation
 
 ## Workflow
 
--   Configure package to use pkgdown with `usethis::use_pkgdown()` ONCE
+-   Configure package to use **`pkgdown`** with `usethis::use_pkgdown()` ONCE
 
 -   build the website locally `pkgdown::build_site()`
 
-## 
+## Configure for **`pkgdown`**
 
-🎬 config
+🎬 Run:
 
 ```{r}
 usethis::use_pkgdown() 
@@ -498,9 +502,9 @@ Can be customised:
 -   [ggplot2 `_pkgdown.yml`](https://github.com/tidyverse/ggplot2/blob/main/_pkgdown.yml)
 -   [palmerpenguins `_pkgdown.yml`](https://github.com/allisonhorst/palmerpenguins/blob/master/_pkgdown.yml)
 
-## 
+## Build locally
 
-🎬 build
+🎬 We can build the site locally with:
 
 ```{r}
 pkgdown::build_site()
@@ -519,7 +523,6 @@ pkgdown::build_site()
 
 ::: extrasmall
     -- Installing package into temporary library -----------
-    Warning: package ‘ussie’ is in use and will not be installed
     == Building pkgdown site =======================================================
     Reading from: 'C:/Users/er13/OneDrive - University of York/Desktop/Desktop/rstudio-conf-2022/ussie'
     Writing to:   'C:/Users/er13/OneDrive - University of York/Desktop/Desktop/rstudio-conf-2022/ussie/docs'
@@ -549,19 +552,26 @@ pkgdown::build_site()
     -- Previewing site -------------------------------------
 :::
 
-## 
+## What has happenned
 
 -   `docs/` is created
--   
--   
+-   files are copied to `docs/`
+-   everything for the site is put in `.Rbuildignore`
+-   Your site opens!
 
-## Hosting on Github
+## Build and host on Github
 
-Set up GitHub actions to automatically build and publish your site
+Rather than building our pages locally and hosting results on GitHub, we can set up GitHub Actions to automatically build and publish our site
 
-Let github build the page rather than building and hosting results `usethis::use_pkgdown_github_pages()`
+. . .
 
-🎬 action
+The pkgdown workflow Action is added with: `usethis::use_pkgdown_github_pages()`
+
+. . .
+
+## Build and host on Github
+
+🎬 Add CI to build package site:
 
 ```{r}
 usethis::use_pkgdown_github_pages()
@@ -598,8 +608,6 @@ Overwrite pre-existing file '_pkgdown.yml'?
 ✔ Setting 'https://3mmarand.github.io/ussie/' as homepage of GitHub repo '3mmaRand/ussie'
 ```
 :::
-
-## 
 
 ## `_pkgdown.yml`
 
@@ -672,13 +680,168 @@ template:
 
 ## Commit and push
 
-🎬 Stage and commit
+Now would be a good time to commit your changes and push them to GitHub
 
-\
+![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"} ![GitHub, MIT \<http://opensource.org/licenses/mit-license.php\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){fig-alt="GitHub icon" width="300"}
 
-🎬 Push to GitHub
+## Look!
+
+🎬 Look at your website hosted on GH Pages:
+
+[https://3mmarand.github.io/ussie/](https://3mmarand.github.io/ussie/)
+
+
+Replace `3mmaRand` with your own username
+
+
+
+## GHA for test coverage
+
+In the last session we used:
+
+```{r}
+devtools::test_coverage()
+```
+
+to run  `covr::codecov()` to determine the % of our code covered by tests
+
+. . . 
+
+
+We can have this run as a GitHub Actions and add a test coverage badge to our `README.md`
+
+
+. . . 
+
+We first add the workflow for the Action and then add the badge.
+
+## Add the workflow
+
+🎬 Add `.github/workflows/test-coverage.yaml` with
+
+```{r}
+usethis::use_github_action("test-coverage")
+```
+
+. . .
+
+``` default
+✔ Saving 'r-lib/actions/examples/test-coverage.yaml@v2' to '.github/workflows/test-coverage.yaml'
+• Learn more at <https://github.com/r-lib/actions/blob/v2/examples/README.md>.
+```
+
+
+## Add the coverage badge
+
+🎬 Add the badge to `README.Rmd` with
+
+```{r}
+usethis::use_github_actions_badge("test-coverage")
+```
+
+. . . 
+
+``` default
+✔ Adding test-coverage badge to 'README.Rmd'
+• Re-knit 'README.Rmd' with `devtools::build_readme()`
+```
+
+. . . 
+
+🎬 Build `README.md` with:
+
+
+```{r}
+devtools::build_readme()
+```
+
+. . .
+
+``` default
+ℹ Installing ussie in temporary library
+ℹ Building C:/Users/er13/OneDrive - University of York/Desktop/Desktop/rstudio-conf-2022/ussie/README.Rmd
+```
+
+
+# `NEWS.md`
+
+## `NEWS.md`
+
+-   `README.md` what the package does - for new users
+
+-   `NEWS.md` what's changed since the previous version - for existing users
+
+. . . 
+
+🎬 Take a look at the `NEWS.md` for **`ggplot2`** [@ggplot2]:  
+
+-   [CRAN Package page](https://cran.r-project.org/web/packages/ggplot2/news/news.html)
+-   [pkgdown site](https://ggplot2.tidyverse.org/news/index.html)
+
+
+## `NEWS.md`
+
+🎬 Add a `NEWS.md`
+
+```{r}
+usethis::use_news_md()
+```
+
+``` default
+✔ Writing 'NEWS.md'
+• Modify 'NEWS.md'
+There is 1 uncommitted file:
+* 'NEWS.md'
+Is it ok to commit it?
+
+1: Absolutely not
+2: Nope
+3: Yup
+```
+
+🎬 Choose the option that means Yes!
 
 ## 
+
+``` default
+✔ Adding files
+✔ Making a commit with message 'Add NEWS.md'
+```
+
+
+## What happens?
+
+Changelog is added to : [https://3mmarand.github.io/ussie/](https://3mmarand.github.io/ussie/)
+
+
+## Keep `NEWS.md` up-to-date
+
+-   top level header (`# ussie 1.0.0`) for each release, most recent at the top
+-   each change in bulleted list
+-   add issue number and pull request numbers if the change relates to a specific issue or PR
+
+
+## Commit and push
+
+Now would be a good time to commit your changes and push them to GitHub
+
+![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"} ![GitHub, MIT \<http://opensource.org/licenses/mit-license.php\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){fig-alt="GitHub icon" width="300"} 
+
+
+## Commit and push
+
+Now would be a good time to commit your changes and push them to GitHub
+
+![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"} ![GitHub, MIT \<http://opensource.org/licenses/mit-license.php\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){fig-alt="GitHub icon" width="300"}
+
+## Look!
+
+🎬 Look at your website hosted on GH Pages:
+
+[https://3mmarand.github.io/ussie/](https://3mmarand.github.io/ussie/)
+
+
+Replace `3mmaRand` with your own username
 
 # 🌐 Woo hoo 🌐 <BR> You have shared your package!
 
@@ -688,12 +851,8 @@ template:
 -   Always include a `README.md` with the purpose of the package, installation instructions and a simple example
 -   `usethis::use_readme_rmd()` will generate a template `README.Rmd` and do other useful things
 -   `devtools::build_readme()` will build `README.md` from `README.Rmd`
--   A GitHub Action is “continuous integration” which allows you to automate package building, testing and deployment on github
--  `usethis::use_github_action_check_standard()` will add the `R CMD check` action and a badge
-
-
-
-
+-   A GitHub Actions is a "continuous integration" tool which allows you to automate package building, testing and deployment on GitHub
+-   `usethis::use_github_action_check_standard()` will add the `R CMD check` action and a badge
 :::
 
 ## Summary
@@ -706,7 +865,6 @@ template:
 -   `pkgdown::build_site()` will build the wqebsite so you can examine it locally
 -   `usethis::use_pkgdown_github_pages()` sets up a GitHub action to automatically build and publish your site on pushing.
 -   **`usethis`** really rocks!
-
 :::
 
 ## References {.extrasmall}
