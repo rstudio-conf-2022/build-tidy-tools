@@ -455,5 +455,13 @@ vembedr::embed_youtube("UHwp8T_fmEI", height = 400)
 ```
 
 At rstudio::conf(2020), Jesse Sadler shows an implementation.
+
+# 🙏 Thank you
+
+## Survey
+
+Please go to [rstd.io/conf-workshop-survey](https://rstd.io/conf-workshop-survey). 
+
+Your feedback is crucial! Data from the survey informs curriculum and format decisions for future conf workshops and we really appreciate you taking the time to provide it.
  
 ## References
