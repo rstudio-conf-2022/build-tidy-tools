@@ -13,6 +13,8 @@ format:
     margin: 0.07
     code-link: true
     code-line-numbers: false
+    height: 900
+    width: 1600
 execute:
   echo: true
   eval: false

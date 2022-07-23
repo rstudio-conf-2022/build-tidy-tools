@@ -13,6 +13,8 @@ format:
     margin: 0.07
     code-link: true
     code-line-numbers: false
+    height: 900
+    width: 1600
 execute:
   echo: true
   eval: false
@@ -130,11 +132,9 @@ Description: This is a demo package for the "Building Tidy Tools" workshop at
 ```
 :::
 
-
 . . .
 
 👀 The full stop matters!
-
 
 ## Commit and push
 
@@ -326,7 +326,7 @@ uss_make_matches <- function(data_engsoc, country) {
 ```
 :::
 
-. . . 
+. . .
 
 🎬 Save `matches.R`
 
@@ -345,7 +345,7 @@ Warning message:
 [matches.R:13] @examples requires a value 
 ```
 
-. . . 
+. . .
 
 We will that fix later!
 
@@ -441,8 +441,6 @@ usethis::use_package_doc()
 Now would be a good time to commit your changes and push them to GitHub
 
 ![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"} ![GitHub, MIT \<http://opensource.org/licenses/mit-license.php\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){fig-alt="GitHub icon" width="300"}
-
-
 
 ## `devtools::check()`
 
@@ -583,18 +581,17 @@ Three ways
 
 . . .
 
--   Function repeatedly, uses you can avoid `::` by importing the function with `@importFrom pkg fun` in `ussie-package.R`. 
+-   Function repeatedly, uses you can avoid `::` by importing the function with `@importFrom pkg fun` in `ussie-package.R`.
 
 . . .
 
 -   Repeatedly using many functions from another package: `@import package`. But beware, less transparent, higher likelihood of conflicting function names.
 
-
 ## Imports
 
-We will use `tibble::tible()` multiple times. 
+We will use `tibble::tible()` multiple times.
 
-. . . 
+. . .
 
 Instead of using:
 
@@ -604,8 +601,7 @@ usethis::use_package("tibble")
 
 . . .
 
-we can use 
-
+we can use
 
 ```{r}
 usethis::use_import_from("tibble", "tibble")
@@ -627,14 +623,12 @@ usethis::use_import_from("tibble", "tibble")
 
 . . .
 
-```default
+``` default
 ✔ Adding 'tibble' to Imports field in DESCRIPTION
 ✔ Adding '@importFrom tibble tibble' to 'R/ussie-package.R'
 ✔ Writing 'NAMESPACE'
 ✔ Loading ussie
-
 ```
-
 
 ## Suggests
 
