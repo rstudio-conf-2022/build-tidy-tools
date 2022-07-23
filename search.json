@@ -781,28 +781,42 @@
     "href": "materials/day-1-session-1-introduction.html#introductions",
     "title": "📦 Building tidy tools",
     "section": "Introductions",
-    "text": "Introductions\nThis is a two-day, hands-on workshop for those who have embraced the tidyverse and want to build their own packages.\n\nHave you written a few of your own R functions?\nAre you ready to start sharing your code (or data) through R packages?\nAre you curious what you can do to make your first R packages easy for your users to use, and for you to maintain?"
+    "text": "Introductions\nThis is a two-day, hands-on workshop for those who have embraced the tidyverse and want to build their own packages.\n\nHave you written a few of your own R functions?\nAre you ready to start sharing your code (or data) through R packages?\nAre you curious what you can do to make your first R packages easy for your users to use, and for you to maintain?\n\n\nWiFi\n\nUsername: conf22\n\nPassword: together!"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#the-team",
     "href": "materials/day-1-session-1-introduction.html#the-team",
     "title": "📦 Building tidy tools",
     "section": "The team",
-    "text": "The team\n\n\nEmma Rand 🐦@er13_r\nElliot Murphy\nKailey Mulligan\nBeatriz Milz 🐦@BeaMilz\n\nIan Lyttle 🐦@ijlyttle\nHaley Jeppson\nTed Laderas 🐦@tladeras\n\n\n \nStanding on the shoulders of Building Tidy Tools, rstudio::conf(2020) (C. Wickham and Wickham 2021), R Packages (H. Wickham and Bryan 2020)"
+    "text": "The team\n\n\nEmma Rand 🐦@er13_r\nElliot Murphy\nKailey Mulligan\nBeatriz Milz 🐦@BeaMilz\n\nIan Lyttle 🐦@ijlyttle\nHaley Jeppson\nTed Laderas 🐦@tladeras\n\n\n \nStanding on the shoulders of Building Tidy Tools, rstudio::conf(2020) (C. Wickham and Wickham 2021), R Packages (H. Wickham and Bryan 2020)\n\nWiFi\n\nUsername: conf22\n\nPassword: together!"
   },
   {
-    "objectID": "materials/day-1-session-1-introduction.html#to",
-    "href": "materials/day-1-session-1-introduction.html#to",
+    "objectID": "materials/day-1-session-1-introduction.html#introductions-1",
+    "href": "materials/day-1-session-1-introduction.html#introductions-1",
     "title": "📦 Building tidy tools",
-    "section": "🙏 to",
-    "text": "🙏 to\n\nthe TAs\ncolleagues, friends and learners at Schneider Electric, University of York and RForwards!\nRStudio team and especially Mine Çetinkaya-Rundel"
+    "section": "Introductions",
+    "text": "Introductions\nTo each other with help from Yorkshire!\n\n\n\n\n\nIngredients: Sugar, Glucose syrup, Cocoa mass, Vegetable fats (Palm, Rapeseed, Sunflower, Coconut,Mango kernel/ Sal/ Shea), Sweetened condensed skimmed milk (Skimmed milk, Sugar), Cocoa butter, Dried whole milk, Glucose-fructose syrup, Coconut, Lactose and proteins from whey (from Milk), Whey powder (from Milk), Hazelnuts, Skimmed milk powder, Butter (from Milk), Emulsifiers (Sunflower lecithin, E471), Flavourings, Butterfat (from Milk), Fat-reduced cocoa powder, Salt, Lactic acid.\n\n\n\n\nIngredients: Sugar, Semi-Sweet Chocolate (Sugar, Chocolate, Cocoa Butter, Milkfat, Soy and Sunflower Lecithin, Natural Vanilla Flavor), Glucose Syrup, Peppermint Oil, Citric Acid, Invertase.\n\n\n\n\nIngredients: Sugar, Glucose Syrup, Starch, Acids (Malic Acid, Citric Acid, Lactic Acid), Concentrated Fruit Juices (1%) (Apple, Grape, Blackcurrant, Orange, Lemon, Lime, Strawberry), Acidity Regulator (Trisodium Citrate), Flavourings, Naturally Sourced Colours (Anthocyanins, Copper Complexes of Chlorophyllins, Carotenes, Curcumin)."
+  },
+  {
+    "objectID": "materials/day-1-session-1-introduction.html#code-of-conduct",
+    "href": "materials/day-1-session-1-introduction.html#code-of-conduct",
+    "title": "📦 Building tidy tools",
+    "section": "Code of Conduct",
+    "text": "Code of Conduct\nFull Code of Conduct & COVID. Please Review\n\n😷 Please wear a mask\n💙 Treat everyone with respect\n🧡 Everyone should feel welcome\n\nReporting:\n\n🗣️ any rstudio::conf staff member, Elliot is our contact\n📧 conf@rstudio.com\n\n☎️ + 1 844-448-1212"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#housekeeping",
     "href": "materials/day-1-session-1-introduction.html#housekeeping",
     "title": "📦 Building tidy tools",
     "section": "Housekeeping",
-    "text": "Housekeeping\n\nToilets\nFire exits and alarms\nanything else?"
+    "text": "Housekeeping\n\nWiFi:\n\nUsername: conf22\n\nPassword: together!\n\n\n\nThere are gender neutral bathrooms located on the river side of the Potomac Ballroom.\nThe meditation room is located at Potomac Dressing Room. Open 8am - 5pm, Monday - Thursday.\nThe lactation room is located at National Harbor 9. Open 8am - 5pm, Monday - Thursday. The hotel also has a dedicated room behind the reception.\nParticipants who do not wish to be photographed have red lanyards, please note everyone’s lanyard colors befor taking a photo and respect their choices."
+  },
+  {
+    "objectID": "materials/day-1-session-1-introduction.html#to",
+    "href": "materials/day-1-session-1-introduction.html#to",
+    "title": "📦 Building tidy tools",
+    "section": "🙏 to",
+    "text": "🙏 to\n\nthe TAs\ncolleagues, friends and learners at Schneider Electric, University of York and RForwards!\nRStudio team and especially Mine Çetinkaya-Rundel\n\n\n\nIan!"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#prerequisites",
@@ -824,13 +838,6 @@
     "title": "📦 Building tidy tools",
     "section": "Day 2",
     "text": "Day 2\n\n\nTime\nActivity\n\n\n\n09:00 - 10:30\nSession 1: Function design\n\n\n10:30 - 11:00\n☕ Coffee break\n\n\n\n11:00 - 12:30\nSession 2: Side effects\n\n\n12:30 - 13:30\n🍱 Lunch break\n\n\n\n13:30 - 15:00\nSession 3: Tidy eval\n\n\n15:00 - 15:30\n☕ Coffee break\n\n\n\n15:30 - 17:00\nSession 4: Miscellany"
-  },
-  {
-    "objectID": "materials/day-1-session-1-introduction.html#code-of-conduct",
-    "href": "materials/day-1-session-1-introduction.html#code-of-conduct",
-    "title": "📦 Building tidy tools",
-    "section": "Code of Conduct",
-    "text": "Code of Conduct\nCode of Conduct & COVID\n\n😷 Please wear a mask\nEveryone should feel welcome\nNo harassing, intimidating or discriminatory verbal, physical or visual conduct in any form\n\nReporting:\n\n🗣️ any rstudio::conf staff member\n📧 conf@rstudio.com\n☎️ 844-448-1212"
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#how-we-will-work",
