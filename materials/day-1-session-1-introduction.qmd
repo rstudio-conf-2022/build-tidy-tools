@@ -31,6 +31,13 @@ This is a two-day, hands-on workshop for those who have embraced the tidyverse a
 -   Are you ready to start sharing your code (or data) through R packages?
 -   Are you curious what you can do to make your first R packages easy for your users to use, and for you to maintain?
 
+\
+
+### WiFi
+
+-   Username: `conf22`
+-   Password: `together!`
+
 ## The team
 
 ::: columns
@@ -57,6 +64,69 @@ Ted Laderas 🐦[\@tladeras](https://twitter.com/tladeras)
 
 Standing on the shoulders of Building Tidy Tools, rstudio::conf(2020) [@wickham2021a], R Packages [@wickham2020]
 
+\
+
+### WiFi
+
+-   Username: `conf22`
+-   Password: `together!`
+
+## Introductions
+
+To each other with help from Yorkshire!
+
+. . .
+
+::: columns
+::: {.column width="33%"}
+::: extrasmall
+![](images/quality-street.png){width="400"}
+
+*Ingredients*: Sugar, Glucose syrup, Cocoa mass, Vegetable fats (Palm, Rapeseed, Sunflower, Coconut,Mango kernel/ Sal/ Shea), Sweetened condensed skimmed milk (Skimmed milk, Sugar), Cocoa butter, Dried whole milk, Glucose-fructose syrup, Coconut, Lactose and proteins from whey (from Milk), Whey powder (from Milk), Hazelnuts, Skimmed milk powder, Butter (from Milk), Emulsifiers (Sunflower lecithin, E471), Flavourings, Butterfat (from Milk), Fat-reduced cocoa powder, Salt, Lactic acid.
+:::
+:::
+
+::: {.column width="33%"}
+::: extrasmall
+![](images/after-eight-thin-mint-squares-25-piece-box.jpg){width="400"}
+
+*Ingredients*: Sugar, Semi-Sweet Chocolate (Sugar, Chocolate, Cocoa Butter, Milkfat, Soy and Sunflower Lecithin, Natural Vanilla Flavor), Glucose Syrup, Peppermint Oil, Citric Acid, Invertase.
+:::
+:::
+
+::: {.column width="33%"}
+::: extrasmall
+![](images/rowntrees-jelly-tots-sweets-bag-42g.png){width="400"}
+
+*Ingredients*: Sugar, Glucose Syrup, Starch, Acids (Malic Acid, Citric Acid, Lactic Acid), Concentrated Fruit Juices (1%) (Apple, Grape, Blackcurrant, Orange, Lemon, Lime, Strawberry), Acidity Regulator (Trisodium Citrate), Flavourings, Naturally Sourced Colours (Anthocyanins, Copper Complexes of Chlorophyllins, Carotenes, Curcumin).
+:::
+:::
+:::
+
+## Code of Conduct
+
+[Full Code of Conduct & COVID](https://www.rstudio.com/conference/2022/2022-conf-code-of-conduct/). **Please Review**
+
+-   😷 Please wear a mask
+-   💙 Treat everyone with respect
+-   🧡 Everyone should feel welcome
+
+Reporting:
+
+-   🗣️ any rstudio::conf staff member, Elliot is our contact
+-   📧 `conf@rstudio.com`
+-   ☎️ + 1 844-448-1212
+
+## Housekeeping
+
+-   WiFi:
+    -   Username: `conf22`
+    -   Password: `together!`
+-   There are gender neutral bathrooms located on the river side of the Potomac Ballroom.
+-   The meditation room is located at Potomac Dressing Room. Open 8am - 5pm, Monday - Thursday.
+-   The lactation room is located at National Harbor 9. Open 8am - 5pm, Monday - Thursday. The hotel also has a dedicated room behind the reception.
+-   Participants who do not wish to be photographed have red lanyards, please note everyone's lanyard colors befor taking a photo and respect their choices.
+
 ## 🙏 to
 
 -   the TAs
@@ -65,13 +135,9 @@ Standing on the shoulders of Building Tidy Tools, rstudio::conf(2020) [@wickham2
 
 -   RStudio team and especially Mine Çetinkaya-Rundel
 
-## Housekeeping
+. . .
 
--   Toilets
-
--   Fire exits and alarms
-
--   anything else?
+-   Ian!
 
 ## Prerequisites
 
@@ -87,20 +153,20 @@ You need a laptop with the following installed:
 
 ## Day 1
 
-| Time          | Activity                                                                                 |
-|:-------------------------|:-------------------------------------------------|
+| Time          | Activity                                                                           |
+|:------------------------|:----------------------------------------------|
 | 09:00 - 10:30 | [Session 1: Introduction & whole game](materials/day-1-session-1-introduction.qmd) |
-| 10:30 - 11:00 | ☕ *Coffee break*                                                                        |
-| 11:00 - 12:30 | [Session 2: Documentation - Minimal](materials/day-1-session-2-doc-minimal.qmd)          |
-| 12:30 - 13:30 | 🍱 *Lunch break*                                                                         |
-| 13:30 - 15:00 | [Session 3: Unit testing](materials/day-1-session-3-testing.qmd)                         |
-| 15:00 - 15:30 | ☕ *Coffee break*                                                                        |
-| 15:30 - 17:00 | [Session 4: Documentation - Sharing](materials/day-1-session-4-doc-sharing.qmd)          |
+| 10:30 - 11:00 | ☕ *Coffee break*                                                                  |
+| 11:00 - 12:30 | [Session 2: Documentation - Minimal](materials/day-1-session-2-doc-minimal.qmd)    |
+| 12:30 - 13:30 | 🍱 *Lunch break*                                                                   |
+| 13:30 - 15:00 | [Session 3: Unit testing](materials/day-1-session-3-testing.qmd)                   |
+| 15:00 - 15:30 | ☕ *Coffee break*                                                                  |
+| 15:30 - 17:00 | [Session 4: Documentation - Sharing](materials/day-1-session-4-doc-sharing.qmd)    |
 
 ## Day 2
 
 | Time          | Activity                                                              |
-|:----------------------|:------------------------------------------------|
+|:-----------------------|:-----------------------------------------------|
 | 09:00 - 10:30 | [Session 1: Function design](materials/day-2-session-1-design.qmd)    |
 | 10:30 - 11:00 | ☕ *Coffee break*                                                     |
 | 11:00 - 12:30 | [Session 2: Side effects](materials/day-2-session-2-side-effects.qmd) |
@@ -108,20 +174,6 @@ You need a laptop with the following installed:
 | 13:30 - 15:00 | [Session 3: Tidy eval](materials/day-2-session-3-tidy-eval.qmd)       |
 | 15:00 - 15:30 | ☕ *Coffee break*                                                     |
 | 15:30 - 17:00 | [Session 4: Miscellany](materials/day-2-session-4-miscellany.qmd)     |
-
-## Code of Conduct
-
-[Code of Conduct & COVID](https://www.rstudio.com/conference/2022/2022-conf-code-of-conduct/)
-
--   😷 Please wear a mask
--   Everyone should feel welcome
--   No harassing, intimidating or discriminatory verbal, physical or visual conduct in any form
-
-Reporting:
-
--   🗣️ any rstudio::conf staff member
--   📧 conf\@rstudio.com
--   ☎️ 844-448-1212
 
 ## How we will work
 
