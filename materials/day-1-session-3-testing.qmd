@@ -13,6 +13,8 @@ format:
     margin: 0.07
     code-link: true
     code-line-numbers: false
+    height: 900
+    width: 1600
 execute:
   echo: true
   eval: false
@@ -776,14 +778,11 @@ devtools::test_coverage()
 
 # ☑️ Woo hoo ☑️<BR> You wrote a unit test!
 
-
 ## Commit and push
 
 Now would be a good time to commit your changes and push them to GitHub
 
-![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"}  ![GitHub, MIT \<http://opensource.org/licenses/mit-license.php\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){fig-alt="GitHub icon" width="300"}
-
-
+![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"} ![GitHub, MIT \<http://opensource.org/licenses/mit-license.php\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){fig-alt="GitHub icon" width="300"}
 
 ## Summary
 

@@ -13,6 +13,8 @@ format:
     margin: 0.07
     code-link: true
     code-line-numbers: false
+    height: 900
+    width: 1600
 execute:
   echo: true
   eval: false
@@ -35,10 +37,10 @@ At the end of this section you will be able to:
 -   Describe additions made when making and hosting a **`pkgdown`** website
 
 -   Describe what GitHub Actions are and set them up to:
+
     -   run `R CMD check` on multiple OS on GitHub
     -   build and publish your **`pkgdown`** site
     -   Run test coverage on your package.
-
 :::
 
 # Overview
@@ -688,12 +690,9 @@ Now would be a good time to commit your changes and push them to GitHub
 
 🎬 Look at your website hosted on GH Pages:
 
-[https://3mmarand.github.io/ussie/](https://3mmarand.github.io/ussie/)
-
+<https://3mmarand.github.io/ussie/>
 
 Replace `3mmaRand` with your own username
-
-
 
 ## GHA for test coverage
 
@@ -703,15 +702,13 @@ In the last session we used:
 devtools::test_coverage()
 ```
 
-to run  `covr::codecov()` to determine the % of our code covered by tests
+to run `covr::codecov()` to determine the % of our code covered by tests
 
-. . . 
-
+. . .
 
 We can have this run as a GitHub Actions and add a test coverage badge to our `README.md`
 
-
-. . . 
+. . .
 
 We first add the workflow for the Action and then add the badge.
 
@@ -730,7 +727,6 @@ usethis::use_github_action("test-coverage")
 • Learn more at <https://github.com/r-lib/actions/blob/v2/examples/README.md>.
 ```
 
-
 ## Add the coverage badge
 
 🎬 Add the badge to `README.Rmd` with
@@ -739,17 +735,16 @@ usethis::use_github_action("test-coverage")
 usethis::use_github_actions_badge("test-coverage")
 ```
 
-. . . 
+. . .
 
 ``` default
 ✔ Adding test-coverage badge to 'README.Rmd'
 • Re-knit 'README.Rmd' with `devtools::build_readme()`
 ```
 
-. . . 
+. . .
 
 🎬 Build `README.md` with:
-
 
 ```{r}
 devtools::build_readme()
@@ -762,7 +757,6 @@ devtools::build_readme()
 ℹ Building C:/Users/er13/OneDrive - University of York/Desktop/Desktop/rstudio-conf-2022/ussie/README.Rmd
 ```
 
-
 # `NEWS.md`
 
 ## `NEWS.md`
@@ -771,13 +765,12 @@ devtools::build_readme()
 
 -   `NEWS.md` what's changed since the previous version - for existing users
 
-. . . 
+. . .
 
-🎬 Take a look at the `NEWS.md` for **`ggplot2`** [@ggplot2]:  
+🎬 Take a look at the `NEWS.md` for **`ggplot2`** [@ggplot2]:
 
 -   [CRAN Package page](https://cran.r-project.org/web/packages/ggplot2/news/news.html)
 -   [pkgdown site](https://ggplot2.tidyverse.org/news/index.html)
-
 
 ## `NEWS.md`
 
@@ -808,11 +801,9 @@ Is it ok to commit it?
 ✔ Making a commit with message 'Add NEWS.md'
 ```
 
-
 ## What happens?
 
-Changelog is added to : [https://3mmarand.github.io/ussie/](https://3mmarand.github.io/ussie/)
-
+Changelog is added to : <https://3mmarand.github.io/ussie/>
 
 ## Keep `NEWS.md` up-to-date
 
@@ -820,13 +811,11 @@ Changelog is added to : [https://3mmarand.github.io/ussie/](https://3mmarand.git
 -   each change in bulleted list
 -   add issue number and pull request numbers if the change relates to a specific issue or PR
 
-
 ## Commit and push
 
 Now would be a good time to commit your changes and push them to GitHub
 
-![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"} ![GitHub, MIT \<http://opensource.org/licenses/mit-license.php\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){fig-alt="GitHub icon" width="300"} 
-
+![Jason Long, CC BY 3.0 \<https://creativecommons.org/licenses/by/3.0\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg){fig-alt="Git icon" width="300"} ![GitHub, MIT \<http://opensource.org/licenses/mit-license.php\>, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){fig-alt="GitHub icon" width="300"}
 
 ## Commit and push
 
@@ -838,8 +827,7 @@ Now would be a good time to commit your changes and push them to GitHub
 
 🎬 Look at your website hosted on GH Pages:
 
-[https://3mmarand.github.io/ussie/](https://3mmarand.github.io/ussie/)
-
+<https://3mmarand.github.io/ussie/>
 
 Replace `3mmaRand` with your own username
 
