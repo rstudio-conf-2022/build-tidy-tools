@@ -10,7 +10,7 @@ by Emma Rand + Ian Lyttle
 
 🗓 July 25 and 26, 2022  
 ⏰ 9:00 - 17:00  
-🏨 [ADD ROOM]  
+🏨 Chesapeake F  
 ✍️ [rstd.io/conf](http://rstd.io/conf)
 
 
