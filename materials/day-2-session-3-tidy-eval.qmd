@@ -756,7 +756,7 @@ and return a *seasons* data frame:
 
 This form is *final*.
 
-## Season: intermediate form
+## Season: intermediate form {.smaller}
 
 ```{r}
 #| echo: false
