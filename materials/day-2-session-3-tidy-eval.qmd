@@ -853,23 +853,31 @@ mutate_greet <- function(.data, greeting) {
 
 ```r
 library("palmerpenguins")
-mutate_greet(penguins, species)
+
+my_name <- "Ian"
+penguins |>  mutate_greet(my_name) # works with vars in environment
 ```
 
 . . .
 
 ```r
-mutate_greet(penguins, paste(species, island))
+penguins |> mutate_greet(species) # works with vars in data
+```
+
+. . .
+
+```r
+# compute on data
+penguins |> mutate_greet(paste(species, island)) 
 ```
 
 . . .
 
 
 ```r
-mutate_greet(
-  penguins, 
-  paste(species, island) |> greet()
-)
+# getting a little silly
+penguins |> 
+  mutate_greet(paste(species, island) |> greet())
 ```
 
 ## Curly-curly, revisited
