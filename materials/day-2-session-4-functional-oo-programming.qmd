@@ -177,7 +177,10 @@ There have been a lot of class systems implemented in R:
 For now, S3 remains the simplest thing that works:
 
  - declare that an object has a class
- - define methods for generic functions, specific to that class, e.g. `format()`
+ - define methods for generic functions, specific to that class, e.g. `format()`:
+   - `format.factor()`
+   - `format.data.frame()`
+   - `tibble:::format.tbl_df()`
  
 ## {vctrs} package
 
