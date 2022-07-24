@@ -19,7 +19,7 @@ title: schedule
 | 12:30 - 13:30 | *Lunch break*                                                                            |
 | 13:30 - 15:00 | [Session 3: Unit testing](materials/day-1-session-3-testing.qmd)                         |
 | 15:00 - 15:30 | *Coffee break*                                                                           |
-| 15:30 - 17:00 | [Session 4: Documentation - Sharing](day-1-session-4-doc-sharing.qmd)                                                   |
+| 15:30 - 17:00 | [Session 4: Documentation - Sharing](day-1-session-4-doc-sharing.qmd)                    |
 
 # Day 2
 
@@ -27,8 +27,8 @@ title: schedule
 |:----------------------------------|:------------------------------------|
 | 09:00 - 10:30 | [Session 1: Function design](materials/day-2-session-1-design.qmd)             |
 | 10:30 - 11:00 | *Coffee break*                                                                 |
-| 11:00 - 12:30 | [Session 2: Managing Side Effects](materials/day-2-session-2-side-effects.qmd) |
+| 11:00 - 12:30 | [Session 2: Managing side effects](materials/day-2-session-2-side-effects.qmd) |
 | 12:30 - 13:30 | *Lunch break*                                                                  |
 | 13:30 - 15:00 | [Session 3: Tidy eval](materials/day-2-session-3-tidy-eval.qmd)                |
 | 15:00 - 15:30 | *Coffee break*                                                                 |
-| 15:30 - 17:00 | [Session 4: Miscellany](materials/day-2-session-4-miscellany.qmd)              |
+| 15:30 - 17:00 | [Session 4: Functional and object-oriented programming](materials/day-2-session-4-functional-oo-programming.qmd)              |

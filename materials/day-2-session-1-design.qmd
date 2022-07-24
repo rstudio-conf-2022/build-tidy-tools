@@ -124,7 +124,7 @@ You can report Code of Conduct violations in person, by email, or by phone. Plea
  
  - Tidy eval
  
- - Miscellany: functional & OO programming
+ - Functional & object-oriented programming
 
 ## State of play
 

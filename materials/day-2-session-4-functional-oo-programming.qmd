@@ -1,6 +1,6 @@
 ---
 title: "📦 <br>Building tidy tools"
-subtitle: "Day 2 Session 4: Miscellany"
+subtitle: "Day 2 Session 4: Functional and Object-Oriented Programming"
 author: "Emma Rand and Ian Lyttle"
 date: "<br>🔗 [rstd.io/btt](https://rstd.io/btt)"
 format:
@@ -30,7 +30,11 @@ At the end of this section you will be able to:
 - accept a function an argument to a function using a formula (purrr-style) [@purrr]
 - create an S3 class using {vctrs} [@vctrs]
   - recognize that implementing a `format()` method gets you a long way 
-  
+
+This will be the *briefest* of introductions to these topics.
+
+. . .
+
 We will also recap all of today's material and discuss.  
   
 ## Functions as arguments
