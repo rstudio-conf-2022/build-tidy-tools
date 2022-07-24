@@ -756,6 +756,47 @@ and return a *seasons* data frame:
 
 This form is *final*.
 
+## Season: intermediate form {.smaller}
+
+```{r}
+#| echo: false
+#| eval: false
+
+ussie::uss_get_matches("italy", season == 1929) |> 
+  ussie::uss_make_teams_matches() |>
+  ussie:::seasons_intermediate(ussie::uss_points_per_win) |>
+  print()
+```
+
+Both the *cumulative* and the *final* can be derived from the same *intermediate* form:
+
+``` default
+# A tibble: 612 × 12
+# Groups:   country, tier, season, team [18]
+   country tier  season team     date       matches wins  draws losses points goals_for goals_against
+   <chr>   <fct>  <int> <chr>    <date>     <lgl>   <lgl> <lgl> <lgl>   <int>     <int>         <int>
+ 1 Italy   1       1929 AC Milan 1929-10-06 TRUE    TRUE  FALSE FALSE       2         4             1
+ 2 Italy   1       1929 AC Milan 1929-10-13 TRUE    TRUE  FALSE FALSE       2         1             0
+ 3 Italy   1       1929 AC Milan 1929-10-20 TRUE    FALSE FALSE TRUE        0         1             2
+```
+
+`group_by()`: `country`, `tier`, `season`, `team`
+
+. . .
+
+*cumulative*: 
+
+ - keep `date`, `cumsum()`: `matches`, `wins`, `draws`, ...
+
+. . .
+
+*final*: 
+  
+  - max `date`, `sum()`: `matches`, `wins`, `draws`, ...
+
+
+
+
 ## Try out new code
 
 - go through code, tests
@@ -812,23 +853,31 @@ mutate_greet <- function(.data, greeting) {
 
 ```r
 library("palmerpenguins")
-mutate_greet(penguins, species)
+
+my_name <- "Ian"
+penguins |>  mutate_greet(my_name) # works with vars in environment
 ```
 
 . . .
 
 ```r
-mutate_greet(penguins, paste(species, island))
+penguins |> mutate_greet(species) # works with vars in data
+```
+
+. . .
+
+```r
+# compute on data
+penguins |> mutate_greet(paste(species, island)) 
 ```
 
 . . .
 
 
 ```r
-mutate_greet(
-  penguins, 
-  paste(species, island) |> greet()
-)
+# getting a little silly
+penguins |> 
+  mutate_greet(paste(species, island) |> greet())
 ```
 
 ## Curly-curly, revisited

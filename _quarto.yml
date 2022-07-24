@@ -35,8 +35,8 @@ website:
           href: materials/day-2-session-2-side-effects.html
         - text: Tidy Eval
           href: materials/day-2-session-3-tidy-eval.html
-        - text: Miscellany
-          href: materials/day-2-session-4-miscellany.html
+        - text: Functional and Object-Oriented Programming
+          href: materials/day-2-session-4-functional-oo-programming.html
 
 
 format:
