@@ -73,12 +73,12 @@ Standing on the shoulders of Building Tidy Tools, rstudio::conf(2020) [@wickham2
 
 ## Introductions
 
-To each other with help from Yorkshire!
+To each other! With help from Yorkshire!
 
 . . .
 
 ::: columns
-::: {.column width="33%"}
+::: {.column width="36%"}
 ::: extrasmall
 ![](images/quality-street.png){width="400"}
 
@@ -86,7 +86,7 @@ To each other with help from Yorkshire!
 :::
 :::
 
-::: {.column width="33%"}
+::: {.column width="32%"}
 ::: extrasmall
 ![](images/after-eight-thin-mint-squares-25-piece-box.jpg){width="400"}
 
@@ -94,7 +94,7 @@ To each other with help from Yorkshire!
 :::
 :::
 
-::: {.column width="33%"}
+::: {.column width="32%"}
 ::: extrasmall
 ![](images/rowntrees-jelly-tots-sweets-bag-42g.png){width="400"}
 
@@ -122,10 +122,10 @@ Reporting:
 -   WiFi:
     -   Username: `conf22`
     -   Password: `together!`
--   There are gender neutral bathrooms located on the river side of the Potomac Ballroom.
--   The meditation room is located at Potomac Dressing Room. Open 8am - 5pm, Monday - Thursday.
--   The lactation room is located at National Harbor 9. Open 8am - 5pm, Monday - Thursday. The hotel also has a dedicated room behind the reception.
--   Participants who do not wish to be photographed have red lanyards, please note everyone's lanyard colors befor taking a photo and respect their choices.
+-   Gender neutral bathrooms by the National Harbor rooms.
+-   The meditation room is at National Harbor 9. Open 8am - 5pm, Monday - Thursday. The hotel also has a dedicated room behind the reception.
+-   The lactation room is located at Potomac Dressing Room. Open 8am - 5pm, Monday - Thursday.
+-   Participants who do not wish to be photographed have red lanyards, please note lanyard colors before taking a photo and respect their choices.
 
 ## 🙏 to
 
@@ -153,31 +153,37 @@ You need a laptop with the following installed:
 
 ## Day 1
 
-| Time          | Activity                                                                           |
-|:------------------------|:---------------------------------------------|
-| 09:00 - 10:30 | [Session 1: Introduction & whole game](materials/day-1-session-1-introduction.qmd) |
-| 10:30 - 11:00 | ☕ *Coffee break*                                                                  |
-| 11:00 - 12:30 | [Session 2: Documentation - Minimal](materials/day-1-session-2-doc-minimal.qmd)    |
-| 12:30 - 13:30 | 🍱 *Lunch break*                                                                   |
-| 13:30 - 15:00 | [Session 3: Unit testing](materials/day-1-session-3-testing.qmd)                   |
-| 15:00 - 15:30 | ☕ *Coffee break*                                                                  |
-| 15:30 - 17:00 | [Session 4: Documentation - Sharing](materials/day-1-session-4-doc-sharing.qmd)    |
+| Time          | Activity                                                                 |
+|:-----------------|:-----------------------------------------------------|
+| 09:00 - 10:30 | [Session 1: Introduction & whole game](day-1-session-1-introduction.qmd) |
+| 10:30 - 11:00 | ☕ *Coffee break*                                                        |
+| 11:00 - 12:30 | [Session 2: Documentation - Minimal](day-1-session-2-doc-minimal.qmd)    |
+| 12:30 - 13:30 | 🍱 *Lunch break*                                                         |
+| 13:30 - 15:00 | [Session 3: Unit testing](day-1-session-3-testing.qmd)                   |
+| 15:00 - 15:30 | ☕ *Coffee break*                                                        |
+| 15:30 - 17:00 | [Session 4: Documentation - Sharing](day-1-session-4-doc-sharing.qmd)    |
 
 ## Day 2
 
-| Time          | Activity                                                              |
-|:-----------------------|:----------------------------------------------|
-| 09:00 - 10:30 | [Session 1: Function design](materials/day-2-session-1-design.qmd)    |
-| 10:30 - 11:00 | ☕ *Coffee break*                                                     |
-| 11:00 - 12:30 | [Session 2: Side effects](materials/day-2-session-2-side-effects.qmd) |
-| 12:30 - 13:30 | 🍱 *Lunch break*                                                      |
-| 13:30 - 15:00 | [Session 3: Tidy eval](materials/day-2-session-3-tidy-eval.qmd)       |
-| 15:00 - 15:30 | ☕ *Coffee break*                                                     |
-| 15:30 - 17:00 | [Session 4: Functional and object-oriented programming](materials/day-2-session-4-functional-oo-programming.qmd)     |
+| Time          | Activity                                                    |
+|:------------------|:----------------------------------------------------|
+| 09:00 - 10:30 | [Session 1: Function design](day-2-session-1-design.qmd)    |
+| 10:30 - 11:00 | ☕ *Coffee break*                                           |
+| 11:00 - 12:30 | [Session 2: Side effects](day-2-session-2-side-effects.qmd) |
+| 12:30 - 13:30 | 🍱 *Lunch break*                                            |
+| 13:30 - 15:00 | [Session 3: Tidy eval](day-2-session-3-tidy-eval.qmd)       |
+| 15:00 - 15:30 | ☕ *Coffee break*                                           |
+| 15:30 - 17:00 | [Session 4: Miscellany](day-2-session-4-miscellany.qmd)     |
 
 ## How we will work
 
--   stickies 🟨 🟩
+-   stickies 
+
+    -   🟪 I'm all good, I'm done
+   
+    -   🟧 I could do with some help
+
+-   Discord
 
 -   no stupid questions
 
@@ -205,6 +211,8 @@ At the end of this section you will be able to:
 
 🎬 Tools \| Global Options \| General
 
+\
+
 ::: {style="background-color: #707070"}
 🔲 Restore .RData into workspace at startup: **unchecked**
 
@@ -213,7 +221,11 @@ Save workspace to .RData on exit: **Never**
 
 . . .
 
+\
+
 🎬 Tools \| Global Options \| Code \| Display
+
+\
 
 ::: {style="background-color: #707070"}
 ☑️ Show margin: **checked**
@@ -265,6 +277,8 @@ if (interactive()) {
 
 ```
 
+\
+
 🎬 Restart R for these to take an effect.
 
 # Why make a package?
@@ -282,7 +296,7 @@ if (interactive()) {
 
 ## To avoid
 
-<iframe src="https://giphy.com/embed/M11UVCRrc0LUk" width="480" height="277" frameBorder="0" class="giphy-embed" allowFullScreen>
+<iframe src="https://giphy.com/embed/M11UVCRrc0LUk" width="960" height="554" frameBorder="0" class="giphy-embed" allowFullScreen>
 
 </iframe>
 
@@ -322,11 +336,15 @@ CRAN:
 install.packages("praise")
 ```
 
+. . .
+
 GitHub:
 
 ```{r}
 remotes::install_github("rladies/praise")
 ```
+
+. . .
 
 Bioconductor
 
@@ -597,6 +615,8 @@ Do not nest inside another RStudio project, R package or git repo.
 
 \
 
+. . .
+
 🎬 Create a package:
 
 ```{r}
@@ -607,7 +627,7 @@ usethis::create_package("~/Desktop/ussie")
 You may want a different path
 :::
 
-##  {.extrasmall}
+##  {.small}
 
 ``` default
 ✔ Creating 'ussie/'
@@ -940,6 +960,8 @@ devtools::load_all()
 
 🎬 Try out the `uss_make_matches()` function in the console.
 
+. . .
+
 ```{r}
 uss_make_matches(engsoccerdata::italy)
 ```
@@ -962,6 +984,8 @@ uss_make_matches(engsoccerdata::italy)
 # … with 25,394 more rows
 ```
 :::
+
+. . .
 
 🤔 There's no column for the country - that could be confusing
 
@@ -1159,6 +1183,8 @@ Duration: 25.1s
 ```{r}
 usethis::use_mit_license("Emma Rand") 
 ```
+
+. . .
 
 Read more in [Choose a Licence](https://choosealicense.com/licenses/).
 

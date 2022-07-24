@@ -74,13 +74,13 @@ At the end of this section you will be able to:
 
 -   Version
 
--   for release: MAJOR.MINOR.PATCH version.
+   -   for release: MAJOR.MINOR.PATCH version.
 
--   for development version: MAJOR.MINOR.PATCH.9000
+   -   for development version: MAJOR.MINOR.PATCH.9000
 
 -   Authors\@R:
 
--   "aut" means author, "cre" means creator, "ctb" means contributor.
+   -   "aut" means author, "cre" means creator, "ctb" means contributor.
 
 ## Update `DESCRIPTION`
 
@@ -124,13 +124,13 @@ RoxygenNote: 7.2.0
 
 . . .
 
-::: small
+
 ``` default
 Description: This is a demo package for the "Building Tidy Tools" workshop at 
     at rstudio::conf(2022L). It allows you to work with European football 
     league data supplied by the engsoccerdata package (Curley 2016).
 ```
-:::
+
 
 . . .
 
@@ -152,11 +152,27 @@ Or just commit
 
 -   Object documentation is what you see when you use `?` or `help()`
 
+
+. . . 
+
+🎬 Try this now:
+
+```{r}
+?uss_make_matches
+```
+
+. . .
+
 -   Files are written in a special "R documentation" format: `.Rd`
 
 -   `.Rd` resembles LaTeX,
 
 ## `man/uss_make_matches.Rd`
+
+
+[man/uss_make_matches.Rd](https://github.com/rstudio-conf-2022/ussie/blob/2.1.1/man/uss_make_matches.Rd)
+
+\
 
 ::: extrasmall
 ``` default
@@ -194,6 +210,10 @@ uss_make_matches(engsoccerdata::spain, "Spain")
 . . .
 
 -   We write "roxygen comments" in the `.R` files
+
+-   These get turned into `.Rd` format
+
+. . . 
 
 -   Functions from **`roxygen2`** [@roxygen2] do the work but we can use **`devtools`** functions to call them
 
@@ -240,17 +260,34 @@ uss_make_matches <- function(data_engsoc, country) {
 
 -   Add roxygen comments to your `.R` files.
 
+. . . 
+
 -   Run `devtools::document()` to convert roxygen comments to `.Rd` files.
+
+. . .
 
 -   Load the package with `devtools::load_all()`
 
+. . .
+
 -   Preview documentation with `?`
+
+. . .
 
 -   Repeat until the documentation looks the way you want.
 
 ## Document your function
 
 🎬 Open `matches.R`
+
+. . .
+
+```{r}
+usethis::use_r("matches")
+```
+
+\
+. . .
 
 🎬 Put your cursor anywhere in the function and do Code \| Insert Roxygen Documentation (Ctrl-Alt-Shift-R)
 
@@ -302,7 +339,11 @@ uss_make_matches <- function(data_engsoc, country) {
 
 🎬 Give your function a title and a brief description
 
+\
+
 🎬 Define the two parameters
+
+\
 
 🎬 Describe what the function returns
 
@@ -328,11 +369,19 @@ uss_make_matches <- function(data_engsoc, country) {
 
 . . .
 
+\
+
 🎬 Save `matches.R`
 
 ## Build documentation
 
-🎬 Run `devtools::document()`
+🎬 Run `devtools::document()` to turn roxygen comments to `.Rd`
+
+```{r}
+devtools::document()
+```
+
+
 
 . . .
 
@@ -364,13 +413,28 @@ We will that fix later!
 ```
 
 -   `NAMESPACE` now lists the exported function
+
 -   `man/uss_make_matches.Rd` has been written
 
 ## Take a look 2
 
 🎬 Load the package : `devtools::load_all()`
 
-🎬 Preview the documentation with `?uss_make_matches`
+\
+
+🎬 Preview the documentation with:
+
+
+```{r}
+?uss_make_matches
+```
+
+. . .
+
+\
+
+😮 🥳
+
 
 ## Fix warning
 
@@ -396,6 +460,8 @@ We need to add a usage example!
 
 🎬 Save `matches.R`, run `devtools::document()` followed by `devtools::load_all()`
 
+\
+
 . . .
 
 🎬 Preview the documentation with `?uss_make_matches` and edit if needed
@@ -418,6 +484,9 @@ you could try '??ussie'
 ## Package-level help page
 
 We can fix this with `use_package_doc()`
+\
+
+. . .
 
 🎬 Add a package-level help page:
 
@@ -427,12 +496,16 @@ usethis::use_package_doc()
 
 . . .
 
+\
+
 ``` default
 ✔ Writing 'R/ussie-package.R'
 • Modify 'R/ussie-package.R'
 ```
 
 . . .
+
+\
 
 🎬 Run `devtools::document()` then `devtools::load_all()` followed by `?ussie`
 
@@ -444,9 +517,20 @@ Now would be a good time to commit your changes and push them to GitHub
 
 ## `devtools::check()`
 
-This is a good time to run R CMD check using `devtools::check()` to ensure our package is in full working order.
+This is a good time to run R CMD check to ensure our package is in full working order.
 
-🎬 `devtools::check()`
+. . .
+
+🎬 Use **`devtools`** to run R CMD check
+
+
+. . .
+
+
+```{r}
+devtools::check()
+```
+
 
 ## 
 
@@ -477,7 +561,13 @@ Duration: 40.4s
 ```
 :::
 
+\
+
 We've gained a warning!
+
+\
+
+Our warnings are about Package dependencies
 
 # Package dependencies
 
@@ -489,17 +579,33 @@ Our warnings are because we have used packages that we have not declared officia
 
 We need to document our package dependencies
 
+
+\
+
+. . .
+
+Our users, and the package installation machinery, need to know what our package depends on before installing
+
+
 ## Package dependencies
+
+
+Levels of dependency
 
 -   **Imports:** must be installed for your package to work. If they're not, they will get installed.
 
+
+. . .
+
 -   **Suggests:** used by your package, but not required. Might provide data for examples, to run tests, build vignettes.
+
+. . .
 
 -   **Depends:** Avoid where possible. When your package requires a specific version of R, e.g. `Depends: R (>= 3.4.0)`. Think critically: downstream effects on packages that depend on your package.
 
 ## 
 
-::: extrasmall
+
 ``` default
 ❯ checking dependencies in R code ... WARNING
   '::' or ':::' imports not declared from:
@@ -508,13 +614,20 @@ We need to document our package dependencies
 ❯ checking for unstated dependencies in examples ... WARNING
   '::' or ':::' import not declared from: 'engsoccerdata'
 ```
-:::
+
 
 ## Package dependencies
+
+
+**`usethis`** again!
+
+. . .
 
 `use_package(package, type = "Imports")`
 
 -   Type -- one of "Imports", "Depends", "Suggests", "Enhances", or "LinkingTo"
+
+. . .
 
 -   The default is "Imports"
 
@@ -522,9 +635,13 @@ We need to document our package dependencies
 
 🎬 Use `usethis::use_package()` to add the **`dplyr`** package to `Imports`
 
+. . .
+
 ```{r}
 usethis::use_package("dplyr")
 ```
+
+\
 
 . . .
 
@@ -533,11 +650,19 @@ usethis::use_package("dplyr")
 • Refer to functions with `dplyr::fun()`
 ```
 
+
+\
+
+
 Look how your `DESCRIPTION` file changed!
 
 ## `usethis::use_package()`
 
 Note: we get reminded to "Refer to functions with `dplyr::fun()`"
+
+\ 
+
+. . .
 
 That is, we do NOT use `library(dplyr)` to make functions available to our package.
 
@@ -547,7 +672,7 @@ That is, we do NOT use `library(dplyr)` to make functions available to our packa
 
 ## 
 
-::: extrasmall
+
 ``` default
 ── R CMD check results ─────────── ussie 0.0.0.9000 ────
 Duration: 24s
@@ -571,21 +696,25 @@ Duration: 24s
 
 0 errors ✔ | 2 warnings ✖ | 1 note ✖
 ```
-:::
+
 
 ## Imports
 
-Three ways
-
--   Few functions from another package: put package name in the `Imports:` field of the `DESCRIPTION` file and call the function(s) explicitly using `::`, e.g., `pkg::fun()`.
+Three types, according to how much your are using the imported package.
 
 . . .
 
--   Function repeatedly, uses you can avoid `::` by importing the function with `@importFrom pkg fun` in `ussie-package.R`.
+If you are using....
+
+-   a few functions from another package: put package name in the `Imports:` field of the `DESCRIPTION` file and call the function(s) explicitly using `::`, e.g., `pkg::fun()`.
 
 . . .
 
--   Repeatedly using many functions from another package: `@import package`. But beware, less transparent, higher likelihood of conflicting function names.
+-   a function repeatedly, uses you can avoid `::` by importing the function with `@importFrom pkg fun` in `ussie-package.R`.
+
+. . .
+
+-   many functions from another package repeatedly: `@import package`. But beware, less transparent, higher likelihood of conflicting function names.
 
 ## Imports
 
@@ -606,6 +735,8 @@ we can use
 ```{r}
 usethis::use_import_from("tibble", "tibble")
 ```
+
+. . .
 
 which will:
 
@@ -649,6 +780,9 @@ In our case:
 
 🎬 Add **`engsoccerdata`**
 
+. . .
+
+
 ```{r}
 usethis::use_package("engsoccerdata",
                      type = "Suggests")
@@ -656,13 +790,13 @@ usethis::use_package("engsoccerdata",
 
  
 
-::: small
+
 ``` default
 ✔ Adding 'engsoccerdata' to Suggests field in DESCRIPTION
 • Use `requireNamespace("engsoccerdata", quietly = TRUE)` to test if package is installed
 • Then directly refer to functions with `engsoccerdata::fun()`
 ```
-:::
+
 
 ## Suggests
 
@@ -674,6 +808,10 @@ usethis::use_package("engsoccerdata",
 
 The **`cffr`** [@cffr] package will write a citation file in Citation File Format (CFF) [@druskat2021] from the description file.
 
+. . .
+
+🎬 Add a CFF file with:
+
 ```{r}
 cffr::cff_write()
 
@@ -681,7 +819,7 @@ cffr::cff_write()
 
 . . .
 
-::: small
+
 ``` default
 CITATION.cff generated
 Adding  CITATION.cff to .Rbuildignore
@@ -689,7 +827,7 @@ Adding  CITATION.cff to .Rbuildignore
 cff_validate results-----
 Congratulations! This .cff file is valid
 ```
-:::
+
 
 # 🏷️Yee haw! 🏷️ <BR> Your package has documentation!
 

@@ -42,6 +42,10 @@ At the end of this section you will be able to:
 
 -   To make sure our code works
 
+. . .
+
+\
+
 -   To make sure our code keeps working after we add features
 
 ## For example
@@ -55,7 +59,11 @@ spain <- uss_make_matches(engsoccerdata::spain,
                           "Spain")
 ```
 
+
+\
+
 . . .
+
 
 The objects `italy` and `spain` should be:
 
@@ -84,6 +92,7 @@ class(italy)
 ```{r}
 class(spain)
 ```
+
 
 ``` default
 "tbl_df"     "tbl"        "data.frame" 
@@ -128,7 +137,9 @@ country"       "tier"          "season"        "date"
 
 ## Interactive testing ...
 
-...is informal testing:
+...is informal testing. We:
+
+. . .
 
 -   wrote `uss_make_matches()`
 -   loaded package with `devtools::load_all()`
@@ -160,6 +171,8 @@ country"       "tier"          "season"        "date"
 
 Problem: you forget all the interactive testing you've done
 
+\
+
 . . .
 
 Solution: have a system to store and re-run the tests!
@@ -188,7 +201,7 @@ Read more about testing in the recently updated chapter in R Packages [@wickham2
 
   flowchart LR
       id1("Reload code: \n load_all()") --> 
-      id2("Run automated tests: \n test() or test_file()") --> 
+      id2("Run automated tests: \n test() or \n test_file()") --> 
       id3("Modify \n code")
       id3 --> id1
       style id1 id2 id3 stroke:#3F3F3F,stroke-width:2px
@@ -268,14 +281,21 @@ Read more about testing in the recently updated chapter in R Packages [@wickham2
 
 To set up your package to use **`testthat`**: `usethis::use_testthat(3)` which:
 
+. . .
+
 -   makes `tests/testthat/`: this is where the test files live
+
+. . .
 
 -   edits `DESCRIPTION`:
 
     -   Adds `Suggests:   testthat (>= 3.0.0)`
     -   Adds `Config/testthat/edition: 3`
 
+. . .
+
 -   makes `tests/testthat.R`: this runs the test when you do `devtools:check()` DO NOT EDIT
+
 
 ## Set up
 
@@ -291,7 +311,7 @@ usethis::use_testthat(3)
 
 3 means **`testthat`** edition 3 (**`testthat 3e`**)
 
-As well as installing that version of the package, you have to explicitly opt in the edition behaviours.
+As well as installing that version of the package, you have to explicitly opt in to the edition behaviours.
 
 ## 
 
@@ -331,7 +351,11 @@ Form: `expect_zzzz(actual_result, expectation)`
 # but, you do *not* do that in a package.
 library(testthat)
 local_edition(3)
+```
 
+. . .
+
+```{r}
 # when the actual result is 42
 result <- 42
 
@@ -451,7 +475,24 @@ expect_equal(result, 42, tolerance = 0.1)
 #| eval: true
 #| error: true
 
-expect_true("a" == "a")
+# when the result is "bill"
+a <- "bill"
+
+# and we expect the result not to be "bob": no error
+expect_true(a != "bob")
+```
+
+. . .
+
+```{r}
+#| eval: true
+#| error: true
+
+# when the result is "bill"
+a <- "bob"
+
+# and we expect the result not to be "bob": error
+expect_true(a != "bob")
 ```
 
 ## Testing whether objects have names
@@ -465,7 +506,11 @@ x <- c(a = 1, b = 2, c = 3)
 # test whether x has names: no error
 expect_named(x)
 # test if the names are "a", "b", "c": no error
+
 expect_named(x, c("a", "b", "c"))
+
+# test if the names are "b", "a", "c":  error
+expect_named(x, c("b", "a", "c"))
 ```
 
 # Making a test
@@ -476,7 +521,10 @@ You can create and open (or just open) a test file for `blah.R` with `use_test("
 
 . . .
 
-🎬 Create a test file for `matches.R` . . .
+🎬 Create a test file for `matches.R` 
+
+. . .
+
 
 ```{r}
 usethis::use_test("matches")
@@ -515,6 +563,19 @@ test_that("some thing in the function works", {
 })
 ```
 
+\
+
+You list the expectations inside `test_that(  ,  {  })`
+
+You can have as many expectations as you need.
+
+. . .
+
+Ideally, 2 - 6 ish or consider breaking the function into simpler functions.
+
+
+
+
 ## Make a test
 
 We will add three expectations:
@@ -539,7 +600,7 @@ We will do them one at a time so you can practice the workflow.
 
 . . .
 
-::: small
+
 ```{r}
 test_that("uss_make_matches works", {
 
@@ -550,7 +611,7 @@ test_that("uss_make_matches works", {
 })
 
 ```
-:::
+
 
 . . .
 
@@ -566,7 +627,6 @@ We use `uss_make_matches()` and examine the output with an expectation.
 testthat::test_file("tests/testthat/test-matches.R")
 ```
 
-You can also use the "Runs Tests" button
 
 . . .
 
@@ -576,6 +636,15 @@ You can also use the "Runs Tests" button
 ```
 
 🥳
+
+\
+
+. . . 
+
+You can also use the "Runs Tests" button
+
+
+
 
 ## `devtools::test()`
 
