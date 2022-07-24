@@ -932,12 +932,37 @@
 <span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a> 3 Italy   1       1929 Juventus    1930-07-06      34    19     7      8     45        56            31</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This form is <em>final</em>.</p>
 </div>
+</section><section id="season-intermediate-form" class="slide level2 smaller"><h2>Season: intermediate form</h2>
+<div class="cell">
+
+</div>
+<p>Both the <em>cumulative</em> and the <em>final</em> can be derived from the same <em>intermediate</em> form:</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a># A tibble: 612 × 12</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a># Groups:   country, tier, season, team [18]</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>   country tier  season team     date       matches wins  draws losses points goals_for goals_against</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>   &lt;chr&gt;   &lt;fct&gt;  &lt;int&gt; &lt;chr&gt;    &lt;date&gt;     &lt;lgl&gt;   &lt;lgl&gt; &lt;lgl&gt; &lt;lgl&gt;   &lt;int&gt;     &lt;int&gt;         &lt;int&gt;</span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a> 1 Italy   1       1929 AC Milan 1929-10-06 TRUE    TRUE  FALSE FALSE       2         4             1</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a> 2 Italy   1       1929 AC Milan 1929-10-13 TRUE    TRUE  FALSE FALSE       2         1             0</span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a> 3 Italy   1       1929 AC Milan 1929-10-20 TRUE    FALSE FALSE TRUE        0         1             2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code>: <code>country</code>, <code>tier</code>, <code>season</code>, <code>team</code></p>
+<div class="fragment">
+<p><em>cumulative</em>:</p>
+<ul>
+<li>keep <code>date</code>, <code><a href="https://rdrr.io/r/base/cumsum.html">cumsum()</a></code>: <code>matches</code>, <code>wins</code>, <code>draws</code>, …</li>
+</ul>
+</div>
+<div class="fragment">
+<p><em>final</em>:</p>
+<ul>
+<li>max <code>date</code>, <code><a href="https://rdrr.io/r/base/sum.html">sum()</a></code>: <code>matches</code>, <code>wins</code>, <code>draws</code>, …</li>
+</ul>
+</div>
 </section><section id="try-out-new-code-1" class="slide level2"><h2>Try out new code</h2>
 <ul>
 <li><p>go through code, tests</p></li>
 <li><p><code>document()</code>, <code>test()</code>, <code>check()</code>, <code>install()</code></p></li>
 </ul>
-<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">italy_1929</span> <span class="op">&lt;-</span></span>
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">italy_1929</span> <span class="op">&lt;-</span></span>
 <span>  <span class="fu">uss_get_matches</span><span class="op">(</span><span class="st">"italy"</span>, <span class="va">season</span> <span class="op">==</span> <span class="fl">1929</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu">uss_make_teams_matches</span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">uss_make_seasons_cumulative</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -945,7 +970,7 @@
 <ul>
 <li>
 <p>same args as <code>uss_make_seasons_cumulative()</code></p>
-<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#' @rdname uss_make_seasons_cumulative</span></span>
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#' @rdname uss_make_seasons_cumulative</span></span>
 <span><span class="co">#' @export</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </li>
 <li><p>same validation, test by uncommenting</p></li>
@@ -957,31 +982,36 @@
 </ul></section><section id="curly-curly" class="slide level2"><h2>Curly-curly: <code>{{}}</code>
 </h2>
 <p>glue lets you interpolate strings:</p>
-<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">greet</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">name</span><span class="op">)</span> <span class="op">{</span></span>
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">greet</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">name</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span><span class="st">"Hello {name}"</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">greet</span><span class="op">(</span><span class="st">"there"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">greet</span><span class="op">(</span><span class="st">"there"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="fragment">
 <p>Tidy eval lets you interpolate arguments:</p>
-<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mutate_greet</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">.data</span>, <span class="va">greeting</span><span class="op">)</span> <span class="op">{</span></span>
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mutate_greet</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">.data</span>, <span class="va">greeting</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">.data</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>greeting <span class="op">=</span> <span class="op">{</span><span class="op">{</span> <span class="va">greeting</span> <span class="op">}</span><span class="op">}</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="try-out-greeting-functions" class="slide level2"><h2>Try out greeting functions</h2>
-<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://allisonhorst.github.io/palmerpenguins/">"palmerpenguins"</a></span><span class="op">)</span></span>
-<span><span class="fu">mutate_greet</span><span class="op">(</span><span class="va">penguins</span>, <span class="va">species</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://allisonhorst.github.io/palmerpenguins/">"palmerpenguins"</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">my_name</span> <span class="op">&lt;-</span> <span class="st">"Ian"</span></span>
+<span><span class="va">penguins</span> <span class="op">|&gt;</span>  <span class="fu">mutate_greet</span><span class="op">(</span><span class="va">my_name</span><span class="op">)</span> <span class="co"># works with vars in environment</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="fragment">
-<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">mutate_greet</span><span class="op">(</span><span class="va">penguins</span>, <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">species</span>, <span class="va">island</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">penguins</span> <span class="op">|&gt;</span> <span class="fu">mutate_greet</span><span class="op">(</span><span class="va">species</span><span class="op">)</span> <span class="co"># works with vars in data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
-<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">mutate_greet</span><span class="op">(</span></span>
-<span>  <span class="va">penguins</span>, </span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">species</span>, <span class="va">island</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">greet</span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># compute on data</span></span>
+<span><span class="va">penguins</span> <span class="op">|&gt;</span> <span class="fu">mutate_greet</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">species</span>, <span class="va">island</span><span class="op">)</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># getting a little silly</span></span>
+<span><span class="va">penguins</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu">mutate_greet</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">species</span>, <span class="va">island</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">greet</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="curly-curly-revisited" class="slide level2"><h2>Curly-curly, revisited</h2>
-<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mutate_greet</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">.data</span>, <span class="va">greeting</span><span class="op">)</span> <span class="op">{</span></span>
+<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mutate_greet</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">.data</span>, <span class="va">greeting</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">.data</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>greeting <span class="op">=</span> <span class="op">{</span><span class="op">{</span> <span class="va">greeting</span> <span class="op">}</span><span class="op">}</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1010,17 +1040,17 @@
 </div>
 </section><section id="relegation-promotion" class="slide level2 smaller"><h2>Relegation &amp; promotion</h2>
 <p>Take a <em>seasons</em> (final) data frame for an English team:</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a># Groups:   country, tier, season [89]</span>
-<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>   country tier  season team        date       matches  wins draws losses points goals_for goals_against</span>
-<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>   &lt;chr&gt;   &lt;fct&gt;  &lt;int&gt; &lt;chr&gt;       &lt;date&gt;       &lt;int&gt; &lt;int&gt; &lt;int&gt;  &lt;int&gt;  &lt;int&gt;     &lt;int&gt;         &lt;int&gt;</span>
-<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a> 1 England 2       1920 Leeds Unit… 1921-05-07      42    14    10     18     38        40            45</span>
-<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a> 2 England 2       1921 Leeds Unit… 1922-05-06      42    16    13     13     45        48            38</span>
-<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a> 3 England 2       1922 Leeds Unit… 1923-05-05      42    18    11     13     47        43            36</span>
-<span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a> 4 England 2       1923 Leeds Unit… 1924-05-03      42    21    12      9     54        61            35</span>
-<span id="cb55-8"><a href="#cb55-8" aria-hidden="true" tabindex="-1"></a> 5 England 1       1924 Leeds Unit… 1925-05-02      42    11    12     19     34        46            59</span>
-<span id="cb55-9"><a href="#cb55-9" aria-hidden="true" tabindex="-1"></a> 6 England 1       1925 Leeds Unit… 1926-05-01      42    14     8     20     36        64            76</span>
-<span id="cb55-10"><a href="#cb55-10" aria-hidden="true" tabindex="-1"></a> 7 England 1       1926 Leeds Unit… 1927-05-07      42    11     8     23     30        69            88</span>
-<span id="cb55-11"><a href="#cb55-11" aria-hidden="true" tabindex="-1"></a> 8 England 2       1927 Leeds Unit… 1928-05-05      42    25     7     10     57        98            49</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a># Groups:   country, tier, season [89]</span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>   country tier  season team        date       matches  wins draws losses points goals_for goals_against</span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>   &lt;chr&gt;   &lt;fct&gt;  &lt;int&gt; &lt;chr&gt;       &lt;date&gt;       &lt;int&gt; &lt;int&gt; &lt;int&gt;  &lt;int&gt;  &lt;int&gt;     &lt;int&gt;         &lt;int&gt;</span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a> 1 England 2       1920 Leeds Unit… 1921-05-07      42    14    10     18     38        40            45</span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a> 2 England 2       1921 Leeds Unit… 1922-05-06      42    16    13     13     45        48            38</span>
+<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a> 3 England 2       1922 Leeds Unit… 1923-05-05      42    18    11     13     47        43            36</span>
+<span id="cb57-7"><a href="#cb57-7" aria-hidden="true" tabindex="-1"></a> 4 England 2       1923 Leeds Unit… 1924-05-03      42    21    12      9     54        61            35</span>
+<span id="cb57-8"><a href="#cb57-8" aria-hidden="true" tabindex="-1"></a> 5 England 1       1924 Leeds Unit… 1925-05-02      42    11    12     19     34        46            59</span>
+<span id="cb57-9"><a href="#cb57-9" aria-hidden="true" tabindex="-1"></a> 6 England 1       1925 Leeds Unit… 1926-05-01      42    14     8     20     36        64            76</span>
+<span id="cb57-10"><a href="#cb57-10" aria-hidden="true" tabindex="-1"></a> 7 England 1       1926 Leeds Unit… 1927-05-07      42    11     8     23     30        69            88</span>
+<span id="cb57-11"><a href="#cb57-11" aria-hidden="true" tabindex="-1"></a> 8 England 2       1927 Leeds Unit… 1928-05-05      42    25     7     10     57        98            49</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>What happens over time as we get promoted and relegated?</p>
 <p>This sounds like a job for {ggplot2}!</p>
 </section><section id="try-out-new-code-2" class="slide level2 smaller"><h2>Try out new code</h2>
@@ -1032,27 +1062,27 @@
 
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">leeds_united</span> <span class="op">&lt;-</span></span>
+<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">leeds_united</span> <span class="op">&lt;-</span></span>
 <span>  <span class="fu">uss_get_matches</span><span class="op">(</span><span class="st">"england"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu">uss_make_teams_matches</span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">team</span> <span class="op">==</span> <span class="st">"Leeds United"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">uss_make_seasons_final</span><span class="op">(</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
-<div class="sourceCode" id="cb57"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a># A tibble: 89 × 12</span>
-<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a># Groups:   country, tier, season [89]</span>
-<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>   country tier  season team        date       matches  wins draws losses points goals_for goals_against</span>
-<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>   &lt;chr&gt;   &lt;fct&gt;  &lt;int&gt; &lt;chr&gt;       &lt;date&gt;       &lt;int&gt; &lt;int&gt; &lt;int&gt;  &lt;int&gt;  &lt;int&gt;     &lt;int&gt;         &lt;int&gt;</span>
-<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a> 1 England 1       1924 Leeds Unit… 1925-05-02      42    11    12     19     34        46            59</span>
-<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a> 2 England 1       1925 Leeds Unit… 1926-05-01      42    14     8     20     36        64            76</span>
-<span id="cb57-7"><a href="#cb57-7" aria-hidden="true" tabindex="-1"></a> 3 England 1       1926 Leeds Unit… 1927-05-07      42    11     8     23     30        69            88</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a># A tibble: 89 × 12</span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a># Groups:   country, tier, season [89]</span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>   country tier  season team        date       matches  wins draws losses points goals_for goals_against</span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>   &lt;chr&gt;   &lt;fct&gt;  &lt;int&gt; &lt;chr&gt;       &lt;date&gt;       &lt;int&gt; &lt;int&gt; &lt;int&gt;  &lt;int&gt;  &lt;int&gt;     &lt;int&gt;         &lt;int&gt;</span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a> 1 England 1       1924 Leeds Unit… 1925-05-02      42    11    12     19     34        46            59</span>
+<span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a> 2 England 1       1925 Leeds Unit… 1926-05-01      42    14     8     20     36        64            76</span>
+<span id="cb59-7"><a href="#cb59-7" aria-hidden="true" tabindex="-1"></a> 3 England 1       1926 Leeds Unit… 1927-05-07      42    11     8     23     30        69            88</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="try-out-new-code-cont." class="slide level2"><h2>Try out new code (cont.)</h2>
 <div class="cell">
-<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">uss_plot_seasons_tiers</span><span class="op">(</span><span class="va">leeds_united</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">uss_plot_seasons_tiers</span><span class="op">(</span><span class="va">leeds_united</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="day-2-session-3-tidy-eval_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"></section><section id="uss_plot_seasons_tiers" class="slide level2"><h2><code>uss_plot_seasons_tiers()</code></h2>
+<img data-src="day-2-session-3-tidy-eval_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section><section id="uss_plot_seasons_tiers" class="slide level2"><h2><code>uss_plot_seasons_tiers()</code></h2>
 <p>We want to specify what to plot on the y-axis. So let’s add an argument <code>aes_y</code> to the function:</p>
 <ul>
 <li>make default value <code>.data$wins</code>
@@ -1067,7 +1097,7 @@
 <li><code><a href="https://devtools.r-lib.org/reference/check.html">devtools::check()</a></code></li>
 </ul></section><section id="our-turn" class="slide level2"><h2>Our turn</h2>
 <p>In <code>uss_plot_seasons_tiers()</code>:</p>
-<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span></span>
+<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span></span>
 <span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span></span>
 <span>    x <span class="op">=</span> <span class="va">.data</span><span class="op">$</span><span class="va">season</span>,</span>
 <span>    y <span class="op">=</span> <span class="op">{</span><span class="op">{</span> <span class="va">aes_y</span> <span class="op">}</span><span class="op">}</span>,</span>
@@ -1113,13 +1143,13 @@
 </div>
 </section><section id="summary-disambiguation" class="slide level2"><h2>Summary: disambiguation</h2>
 <p>For <em>data-masking</em> functions, use <code>.data</code>, <code>.env</code> pronouns:</p>
-<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://dplyr.tidyverse.org">"dplyr"</a></span><span class="op">)</span></span>
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://dplyr.tidyverse.org">"dplyr"</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">cyl</span> <span class="op">&lt;-</span> <span class="fl">4</span></span>
 <span><span class="va">mtcars</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">.data</span><span class="op">$</span><span class="va">cyl</span> <span class="op">==</span> <span class="va">.env</span><span class="op">$</span><span class="va">cyl</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="fragment">
 <p>For <em>tidy-select</em> functions, use <code><a href="https://tidyselect.r-lib.org/reference/all_of.html">all_of()</a></code>, <code><a href="https://tidyselect.r-lib.org/reference/all_of.html">any_of()</a></code>:</p>
-<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cyl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"mpg"</span>, <span class="st">"wt"</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cyl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"mpg"</span>, <span class="st">"wt"</span><span class="op">)</span></span>
 <span><span class="va">mtcars</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/all_of.html">all_of</a></span><span class="op">(</span><span class="va">cyl</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="additional-material" class="slide level2 smaller"><h2>Additional material</h2>

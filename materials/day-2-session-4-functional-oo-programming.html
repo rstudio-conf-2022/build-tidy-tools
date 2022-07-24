@@ -405,7 +405,7 @@
     <div class="slides">
 
 <section id="title-slide" class="center"><h1 class="title">📦 <br>Building tidy tools</h1>
-  <p class="subtitle">Day 2 Session 4: Miscellany</p>
+  <p class="subtitle">Day 2 Session 4: Functional and Object-Oriented Programming</p>
   <p class="author">Emma Rand and Ian Lyttle</p>
   <p class="date"><br>🔗 <a href="https://rstd.io/btt">rstd.io/btt</a></p>
 </section><section id="learning-objectives" class="slide level2"><h2>Learning objectives</h2>
@@ -420,7 +420,10 @@
 </ul>
 </li>
 </ul>
+<p>This will be the <em>briefest</em> of introductions to these topics.</p>
+<div class="fragment">
 <p>We will also recap all of today’s material and discuss.</p>
+</div>
 </section><section id="functions-as-arguments" class="slide level2"><h2>Functions as arguments</h2>
 <p>Using functions as arguments is a foundation of functional programming.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="http://purrr.tidyverse.org">"purrr"</a></span><span class="op">)</span></span>
@@ -524,7 +527,12 @@
 <p>For now, S3 remains the simplest thing that works:</p>
 <ul>
 <li>declare that an object has a class</li>
-<li>define methods for generic functions, specific to that class, e.g.&nbsp;<code><a href="https://rdrr.io/r/base/format.html">format()</a></code>
+<li>define methods for generic functions, specific to that class, e.g.&nbsp;<code><a href="https://rdrr.io/r/base/format.html">format()</a></code>:
+<ul>
+<li><code><a href="https://rdrr.io/r/base/format.html">format.factor()</a></code></li>
+<li><code><a href="https://rdrr.io/r/base/format.html">format.data.frame()</a></code></li>
+<li><code>tibble:::format.tbl_df()</code></li>
+</ul>
 </li>
 </ul>
 </div>
