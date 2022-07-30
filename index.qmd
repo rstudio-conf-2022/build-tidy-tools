@@ -2,6 +2,7 @@
 title: Building tidy tools
 ---
 
+✏️ Emma Rand and Ian Lyttle\
 🗓 July 25 and 26, 2022\
 ⏰ 9:00 - 17:00\
 🏨 Chesapeake F\
