@@ -725,7 +725,7 @@
     "href": "materials/day-1-session-1-introduction.html#where-do-packages-live",
     "title": "📦 Building tidy tools",
     "section": "Where do packages live?",
-    "text": "Where do packages live?\nIn a library! In\n\nR.home()\n\n[1] \"/opt/R/4.2.0/lib/R\"\n\n\nThe R home directory is the top-level directory of your R installation.\nNote: this is not the same as your working directory or your home directory."
+    "text": "Where do packages live?\nIn a library! In\n\nR.home()\n\n[1] \"/opt/R/4.2.1/lib/R\"\n\n\nThe R home directory is the top-level directory of your R installation.\nNote: this is not the same as your working directory or your home directory."
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#your-r-installation",
@@ -739,7 +739,7 @@
     "href": "materials/day-1-session-1-introduction.html#your-library",
     "title": "📦 Building tidy tools",
     "section": "Your library",
-    "text": "Your library\n\n.Library\n\n[1] \"/opt/R/4.2.0/lib/R/library\""
+    "text": "Your library\n\n.Library\n\n[1] \"/opt/R/4.2.1/lib/R/library\""
   },
   {
     "objectID": "materials/day-1-session-1-introduction.html#your-library-1",
@@ -2713,7 +2713,7 @@
     "href": "index.html",
     "title": "Building tidy tools",
     "section": "",
-    "text": "🗓 July 25 and 26, 2022\n⏰ 9:00 - 17:00\n🏨 Chesapeake F\n✍️ rstd.io/conf"
+    "text": "✏️ Emma Rand and Ian Lyttle\n🗓 July 25 and 26, 2022\n⏰ 9:00 - 17:00\n🏨 Chesapeake F\n✍️ rstd.io/conf"
   },
   {
     "objectID": "index.html#overview",
