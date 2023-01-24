@@ -974,7 +974,7 @@ leeds_united <-
 ```{r}
 #| echo: true
 #| eval: true
-uss_plot_seasons_tiers(leeds_united) 
+# uss_plot_seasons_tiers(leeds_united) throwing error
 ```
 
 ## `uss_plot_seasons_tiers()` 
