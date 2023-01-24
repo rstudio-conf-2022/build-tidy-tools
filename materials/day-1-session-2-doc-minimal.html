@@ -8,7 +8,7 @@
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.37">
+<meta name="generator" content="quarto-1.2.313">
 <meta name="author" content="Emma Rand and Ian Lyttle">
 <title>Building tidy tools - 📦 Building tidy tools</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -19,10 +19,15 @@
 <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -403,10 +408,18 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="center"><h1 class="title">📦 <br>Building tidy tools</h1>
+<section id="title-slide" class="quarto-title-block center"><h1 class="title">📦 <br>Building tidy tools</h1>
   <p class="subtitle">Day 1 Session 2: 🏷️Documentation - Minimal</p>
-  <p class="author">Emma Rand and Ian Lyttle</p>
-  <p class="date"><br>🔗 <a href="https://rstd.io/btt">rstd.io/btt</a></p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Emma Rand and Ian Lyttle 
+</div>
+</div>
+</div>
+
+  <p class="date">Invalid Date</p>
 </section><section><section id="document-your-package" class="title-slide slide level1 center"><h1>🏷️ Document your package</h1>
 
 </section><section id="learning-objectives" class="slide level2"><h2>Learning Objectives</h2>
@@ -436,7 +449,7 @@
 </ul>
 <!-- generally discussing how to use a number of functions from the - package together and/or how a package fits into a larger ecosystem of packages --><ul>
 <li>
-<strong><code>pkgdown</code></strong> <span class="citation" data-cites="pkgdown">(<a href="#/ref-pkgdown" role="doc-biblioref" onclick="return false;">Wickham, Hesselberth, and Salmon 2022</a>)</span> sites: Websites for your package!</li>
+<strong><code>pkgdown</code></strong> <span class="citation" data-cites="pkgdown">(<a href="#/references" role="doc-biblioref" onclick="">Wickham, Hesselberth, and Salmon 2022</a>)</span> sites: Websites for your package!</li>
 </ul></section></section><section><section id="description" class="title-slide slide level1 center"><h1><code>DESCRIPTION</code></h1>
 
 </section><section id="sample-description" class="slide level2"><h2>Sample <code>DESCRIPTION</code>
@@ -444,14 +457,14 @@
 <p>🎬 Take a look at the <code>DESCRIPTION</code> for the following packages. What’s common? What’s different?</p>
 <ul>
 <li>
-<strong><code>ggplot2</code></strong> <span class="citation" data-cites="ggplot2">(<a href="#/ref-ggplot2" role="doc-biblioref" onclick="return false;">Wickham 2016</a>)</span>
+<strong><code>ggplot2</code></strong> <span class="citation" data-cites="ggplot2">(<a href="#/references" role="doc-biblioref" onclick="">Wickham 2016</a>)</span>
 <ul>
 <li><a href="https://cran.r-project.org/web/packages/ggplot2/index.html">CRAN Package page</a></li>
 <li><a href="https://github.com/tidyverse/ggplot2/blob/main/DESCRIPTION">DESCRIPTION on GitHub</a></li>
 </ul>
 </li>
 <li>
-<strong><code>palmerpenguins</code></strong> <span class="citation" data-cites="palmerpenguins">(<a href="#/ref-palmerpenguins" role="doc-biblioref" onclick="return false;">Horst, Hill, and Gorman 2020</a>)</span>
+<strong><code>palmerpenguins</code></strong> <span class="citation" data-cites="palmerpenguins">(<a href="#/references" role="doc-biblioref" onclick="">Horst, Hill, and Gorman 2020</a>)</span>
 <ul>
 <li><a href="https://cran.r-project.org/web/packages/palmerpenguins/index.html">CRAN Package page</a></li>
 <li><a href="https://github.com/allisonhorst/palmerpenguins/blob/master/DESCRIPTION">DESCRIPTION on GitHub</a></li>
@@ -567,7 +580,7 @@
 </div>
 <div class="fragment">
 <ul>
-<li>Functions from <strong><code>roxygen2</code></strong> <span class="citation" data-cites="roxygen2">(<a href="#/ref-roxygen2" role="doc-biblioref" onclick="return false;">Wickham et al. 2022</a>)</span> do the work but we can use <strong><code>devtools</code></strong> functions to call them</li>
+<li>Functions from <strong><code>roxygen2</code></strong> <span class="citation" data-cites="roxygen2">(<a href="#/references" role="doc-biblioref" onclick="">Wickham et al. 2022</a>)</span> do the work but we can use <strong><code>devtools</code></strong> functions to call them</li>
 </ul>
 </div>
 </section><section id="roxygen-comments" class="slide level2"><h2>Roxygen comments</h2>
@@ -1011,7 +1024,7 @@
 <li><p>Packages listed in Suggests are not automatically installed along with your package.</p></li>
 <li><p>This means that you can’t assume the package is available</p></li>
 </ul></section><section id="citation.cff" class="slide level2"><h2>CITATION.cff</h2>
-<p>The <strong><code>cffr</code></strong> <span class="citation" data-cites="cffr">(<a href="#/ref-cffr" role="doc-biblioref" onclick="return false;">Hernangómez 2021</a>)</span> package will write a citation file in Citation File Format (CFF) <span class="citation" data-cites="druskat2021">(<a href="#/ref-druskat2021" role="doc-biblioref" onclick="return false;">Druskat et al. 2021</a>)</span> from the description file.</p>
+<p>The <strong><code>cffr</code></strong> <span class="citation" data-cites="cffr">(<a href="#/references" role="doc-biblioref" onclick="">Hernangómez 2021</a>)</span> package will write a citation file in Citation File Format (CFF) <span class="citation" data-cites="druskat2021">(<a href="#/references" role="doc-biblioref" onclick="">Druskat et al. 2021</a>)</span> from the description file.</p>
 <div class="fragment">
 <p>🎬 Add a CFF file with:</p>
 <div class="cell">
@@ -1293,12 +1306,15 @@ Wickham, Hadley, Jay Hesselberth, and Maëlle Salmon. 2022. <span>“Pkgdown: Ma
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
       // slide changes (different for each slide format).
       (function () {
-        function fireSlideChanged(previousSlide, currentSlide) {
-
-          // dispatch for htmlwidgets
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
           const event = window.document.createEvent("Event");
           event.initEvent("slideenter", true, true);
           window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
 
           // dispatch for shiny
           if (window.jQuery) {
@@ -1309,13 +1325,6 @@ Wickham, Hadley, Jay Hesselberth, and Maëlle Salmon. 2022. <span>“Pkgdown: Ma
               window.jQuery(currentSlide).trigger("shown");
             }
           }
-        }
-
-        // hookup for reveal
-        if (window.Reveal) {
-          window.Reveal.addEventListener("slidechanged", function(event) {
-            fireSlideChanged(event.previousSlide, event.currentSlide);
-          });
         }
 
         // hookup for slidy
@@ -1365,7 +1374,24 @@ Wickham, Hadley, Jay Hesselberth, and Maëlle Salmon. 2022. <span>“Pkgdown: Ma
         button.classList.add('code-copy-button-checked');
         var currentTitle = button.getAttribute("title");
         button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
         setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
           button.setAttribute("title", currentTitle);
           button.classList.remove('code-copy-button-checked');
         }, 1000);
@@ -1395,31 +1421,50 @@ Wickham, Hadley, Jay Hesselberth, and Maëlle Salmon. 2022. <span>“Pkgdown: Ma
       for (var i=0; i<noterefs.length; i++) {
         const ref = noterefs[i];
         tippyHover(ref, function() {
-          let href = ref.getAttribute('href');
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
           return note.innerHTML;
         });
       }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
       var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
       for (var i=0; i<bibliorefs.length; i++) {
         const ref = bibliorefs[i];
-        const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-        tippyHover(ref, function() {
-          var popup = window.document.createElement('div');
-          cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
-            }
-            popup.appendChild(citeDiv);
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
           });
-          return popup.innerHTML;
-        });
+        }
       }
     });
     </script>

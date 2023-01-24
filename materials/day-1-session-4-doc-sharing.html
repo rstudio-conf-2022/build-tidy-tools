@@ -8,7 +8,7 @@
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.37">
+<meta name="generator" content="quarto-1.2.313">
 <meta name="author" content="Emma Rand and Ian Lyttle">
 <title>Building tidy tools - 📦 Building tidy tools</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -19,10 +19,15 @@
 <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -403,10 +408,18 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="center"><h1 class="title">📦 <br>Building tidy tools</h1>
+<section id="title-slide" class="quarto-title-block center"><h1 class="title">📦 <br>Building tidy tools</h1>
   <p class="subtitle">Day 1 Session 4: Documentation - Sharing</p>
-  <p class="author">Emma Rand and Ian Lyttle</p>
-  <p class="date"><br>🔗 <a href="https://rstd.io/btt">rstd.io/btt</a></p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Emma Rand and Ian Lyttle 
+</div>
+</div>
+</div>
+
+  <p class="date">Invalid Date</p>
 </section><section><section id="share-your-package" class="title-slide slide level1 center"><h1>🌐 Share your package</h1>
 
 </section><section id="learning-objectives" class="slide level2"><h2>Learning Objectives</h2>
@@ -415,7 +428,7 @@
 <ul>
 <li><p>Add a <code>README.md</code> by building and populating a <code>README.Rmd</code></p></li>
 <li><p>Add a package vignette</p></li>
-<li><p>Use <strong><code>pkgdown</code></strong> <span class="citation" data-cites="pkgdown">(<a href="#/ref-pkgdown" role="doc-biblioref" onclick="return false;">Wickham, Hesselberth, and Salmon 2022</a>)</span> to create a website for your package</p></li>
+<li><p>Use <strong><code>pkgdown</code></strong> <span class="citation" data-cites="pkgdown">(<a href="#/references" role="doc-biblioref" onclick="">Wickham, Hesselberth, and Salmon 2022</a>)</span> to create a website for your package</p></li>
 <li><p>Describe additions made when making and hosting a <strong><code>pkgdown</code></strong> website</p></li>
 <li>
 <p>Describe what GitHub Actions are and set them up to:</p>
@@ -445,7 +458,7 @@
 </ul>
 </div>
 <div class="fragment">
-<p>🦸‍♀️ <strong><code>usethis</code></strong> <span class="citation" data-cites="usethis">(<a href="#/ref-usethis" role="doc-biblioref" onclick="return false;">Wickham, Bryan, and Barrett 2022</a>)</span></p>
+<p>🦸‍♀️ <strong><code>usethis</code></strong> <span class="citation" data-cites="usethis">(<a href="#/references" role="doc-biblioref" onclick="">Wickham, Bryan, and Barrett 2022</a>)</span></p>
 </div>
 </section></section><section><section id="readme" class="title-slide slide level1 center"><h1>README</h1>
 
@@ -560,7 +573,7 @@
 </section><section id="add-a-badge-to-the-readme.rmd" class="slide level2"><h2>Add a badge to the <code>README.Rmd</code>?</h2>
 <p>Badges give information to the user about the state of the package</p>
 <div class="fragment">
-<p>For example: <a href="R%20cmd%20check%20badge"><img data-src="images/r-cmd-check-badge.svg" width="200" height="26"></a></p>
+<p>For example: <a href="R cmd check badge"><img data-src="images/r-cmd-check-badge.svg" width="200" height="26"></a></p>
 </div>
 <div class="fragment">
 <p>To add this badge, we set up a “GitHub Action”</p>
@@ -743,7 +756,7 @@ jobs:
 
 </section><section id="pkgdown-will" class="slide level2"><h2>
 <strong><code>pkgdown</code></strong> will 🤯</h2>
-<p><strong><code>pkgdown</code></strong> <span class="citation" data-cites="pkgdown">(<a href="#/ref-pkgdown" role="doc-biblioref" onclick="return false;">Wickham, Hesselberth, and Salmon 2022</a>)</span> is designed to make it quick and easy to build a website for your package.</p>
+<p><strong><code>pkgdown</code></strong> <span class="citation" data-cites="pkgdown">(<a href="#/references" role="doc-biblioref" onclick="">Wickham, Hesselberth, and Salmon 2022</a>)</span> is designed to make it quick and easy to build a website for your package.</p>
 <div class="fragment">
 <p>Examples</p>
 <ul>
@@ -981,7 +994,7 @@ jobs:
 <li><p><code>NEWS.md</code> what’s changed since the previous version - for existing users</p></li>
 </ul>
 <div class="fragment">
-<p>🎬 Take a look at the <code>NEWS.md</code> for <strong><code>ggplot2</code></strong> <span class="citation" data-cites="ggplot2">(<a href="#/ref-ggplot2" role="doc-biblioref" onclick="return false;">Wickham 2016</a>)</span>:</p>
+<p>🎬 Take a look at the <code>NEWS.md</code> for <strong><code>ggplot2</code></strong> <span class="citation" data-cites="ggplot2">(<a href="#/references" role="doc-biblioref" onclick="">Wickham 2016</a>)</span>:</p>
 <ul>
 <li><a href="https://cran.r-project.org/web/packages/ggplot2/news/news.html">CRAN Package page</a></li>
 <li><a href="https://ggplot2.tidyverse.org/news/index.html">pkgdown site</a></li>
@@ -1273,12 +1286,15 @@ Wickham, Hadley, Jay Hesselberth, and Maëlle Salmon. 2022. <span>“Pkgdown: Ma
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
       // slide changes (different for each slide format).
       (function () {
-        function fireSlideChanged(previousSlide, currentSlide) {
-
-          // dispatch for htmlwidgets
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
           const event = window.document.createEvent("Event");
           event.initEvent("slideenter", true, true);
           window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
 
           // dispatch for shiny
           if (window.jQuery) {
@@ -1289,13 +1305,6 @@ Wickham, Hadley, Jay Hesselberth, and Maëlle Salmon. 2022. <span>“Pkgdown: Ma
               window.jQuery(currentSlide).trigger("shown");
             }
           }
-        }
-
-        // hookup for reveal
-        if (window.Reveal) {
-          window.Reveal.addEventListener("slidechanged", function(event) {
-            fireSlideChanged(event.previousSlide, event.currentSlide);
-          });
         }
 
         // hookup for slidy
@@ -1345,7 +1354,24 @@ Wickham, Hadley, Jay Hesselberth, and Maëlle Salmon. 2022. <span>“Pkgdown: Ma
         button.classList.add('code-copy-button-checked');
         var currentTitle = button.getAttribute("title");
         button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
         setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
           button.setAttribute("title", currentTitle);
           button.classList.remove('code-copy-button-checked');
         }, 1000);
@@ -1375,31 +1401,50 @@ Wickham, Hadley, Jay Hesselberth, and Maëlle Salmon. 2022. <span>“Pkgdown: Ma
       for (var i=0; i<noterefs.length; i++) {
         const ref = noterefs[i];
         tippyHover(ref, function() {
-          let href = ref.getAttribute('href');
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
           return note.innerHTML;
         });
       }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
       var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
       for (var i=0; i<bibliorefs.length; i++) {
         const ref = bibliorefs[i];
-        const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-        tippyHover(ref, function() {
-          var popup = window.document.createElement('div');
-          cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
-            }
-            popup.appendChild(citeDiv);
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
           });
-          return popup.innerHTML;
-        });
+        }
       }
     });
     </script>

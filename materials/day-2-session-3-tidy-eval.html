@@ -8,7 +8,7 @@
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.37">
+<meta name="generator" content="quarto-1.2.313">
 <meta name="author" content="Emma Rand and Ian Lyttle">
 <title>Building tidy tools - 📦 Building tidy tools</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -19,10 +19,15 @@
 <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -404,10 +409,18 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="center"><h1 class="title">📦 <br>Building tidy tools</h1>
+<section id="title-slide" class="quarto-title-block center"><h1 class="title">📦 <br>Building tidy tools</h1>
   <p class="subtitle">Day 2 Session 3: Tidy Eval</p>
-  <p class="author">Emma Rand and Ian Lyttle</p>
-  <p class="date"><br>🔗 <a href="https://rstd.io/btt">rstd.io/btt</a></p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Emma Rand and Ian Lyttle 
+</div>
+</div>
+</div>
+
+  <p class="date">Invalid Date</p>
 </section><section id="learning-objectives" class="slide level2"><h2>Learning objectives</h2>
 <p>At the end of this section you will be able to:</p>
 <ul>
@@ -427,8 +440,8 @@
 </ul></section><section id="source-material" class="slide level2"><h2>Source material</h2>
 <p>Vignettes:</p>
 <ul>
-<li><p><a href="https://dplyr.tidyverse.org/articles/programming.html">Programming with dplyr</a> <span class="citation" data-cites="dplyr">(<a href="#/ref-dplyr" role="doc-biblioref" onclick="return false;">Wickham et al. 2022</a>)</span></p></li>
-<li><p><a href="https://ggplot2.tidyverse.org/articles/ggplot2-in-packages.html">Using ggplot2 in packages</a> <span class="citation" data-cites="ggplot2">(<a href="#/ref-ggplot2" role="doc-biblioref" onclick="return false;">Wickham 2016</a>)</span></p></li>
+<li><p><a href="https://dplyr.tidyverse.org/articles/programming.html">Programming with dplyr</a> <span class="citation" data-cites="dplyr">(<a href="#/references" role="doc-biblioref" onclick="">Wickham et al. 2022</a>)</span></p></li>
+<li><p><a href="https://ggplot2.tidyverse.org/articles/ggplot2-in-packages.html">Using ggplot2 in packages</a> <span class="citation" data-cites="ggplot2">(<a href="#/references" role="doc-biblioref" onclick="">Wickham 2016</a>)</span></p></li>
 </ul></section><section id="motivation-for-tidy-eval" class="slide level2"><h2>Motivation for tidy eval</h2>
 <p>Tidy eval (and non-standard evaluation generally in R) exists so that we can refer to data columns using bare names.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">mtcars</span>, <span class="va">cyl</span> <span class="op">==</span> <span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -595,7 +608,7 @@
 <pre><code>[1] 11</code></pre>
 </div>
 </section><section id="pronouns" class="slide level2"><h2>Pronouns</h2>
-<p>The <code>.data</code> and <code>.env</code> pronouns are provided by {rlang} <span class="citation" data-cites="rlang">(<a href="#/ref-rlang" role="doc-biblioref" onclick="return false;">Henry and Wickham 2022a</a>)</span>.</p>
+<p>The <code>.data</code> and <code>.env</code> pronouns are provided by {rlang} <span class="citation" data-cites="rlang">(<a href="#/references" role="doc-biblioref" onclick="">Henry and Wickham 2022a</a>)</span>.</p>
 <div class="fragment">
 <p>For <em>data-masking</em> functions, make explicit how to evaluate variables.</p>
 </div>
@@ -805,7 +818,7 @@
 </section><section id="all_of-any_of" class="slide level2"><h2>
 <code>all_of()</code>, <code>any_of()</code>
 </h2>
-<p>Exported by {dplyr} <span class="citation" data-cites="dplyr">(<a href="#/ref-dplyr" role="doc-biblioref" onclick="return false;">Wickham et al. 2022</a>)</span>; part of {tidyselect} <span class="citation" data-cites="tidyselect">(<a href="#/ref-tidyselect" role="doc-biblioref" onclick="return false;">Henry and Wickham 2022b</a>)</span></p>
+<p>Exported by {dplyr} <span class="citation" data-cites="dplyr">(<a href="#/references" role="doc-biblioref" onclick="">Wickham et al. 2022</a>)</span>; part of {tidyselect} <span class="citation" data-cites="tidyselect">(<a href="#/references" role="doc-biblioref" onclick="">Henry and Wickham 2022b</a>)</span></p>
 <p>Used to disambiguate external- vector of column names:</p>
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">placeholder</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"wt"</span>, <span class="st">"mpg"</span>, <span class="st">"not_in_mtcars"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="fragment">
@@ -1079,10 +1092,9 @@
 </div>
 </section><section id="try-out-new-code-cont." class="slide level2"><h2>Try out new code (cont.)</h2>
 <div class="cell">
-<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">uss_plot_seasons_tiers</span><span class="op">(</span><span class="va">leeds_united</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># uss_plot_seasons_tiers(leeds_united) throwing error</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<img data-src="day-2-session-3-tidy-eval_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section><section id="uss_plot_seasons_tiers" class="slide level2"><h2><code>uss_plot_seasons_tiers()</code></h2>
+</section><section id="uss_plot_seasons_tiers" class="slide level2"><h2><code>uss_plot_seasons_tiers()</code></h2>
 <p>We want to specify what to plot on the y-axis. So let’s add an argument <code>aes_y</code> to the function:</p>
 <ul>
 <li>make default value <code>.data$wins</code>
@@ -1412,12 +1424,15 @@ Wickham, Hadley, Romain François, Lionel Henry, and Kirill Müller. 2022. <span
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
       // slide changes (different for each slide format).
       (function () {
-        function fireSlideChanged(previousSlide, currentSlide) {
-
-          // dispatch for htmlwidgets
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
           const event = window.document.createEvent("Event");
           event.initEvent("slideenter", true, true);
           window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
 
           // dispatch for shiny
           if (window.jQuery) {
@@ -1428,13 +1443,6 @@ Wickham, Hadley, Romain François, Lionel Henry, and Kirill Müller. 2022. <span
               window.jQuery(currentSlide).trigger("shown");
             }
           }
-        }
-
-        // hookup for reveal
-        if (window.Reveal) {
-          window.Reveal.addEventListener("slidechanged", function(event) {
-            fireSlideChanged(event.previousSlide, event.currentSlide);
-          });
         }
 
         // hookup for slidy
@@ -1484,7 +1492,24 @@ Wickham, Hadley, Romain François, Lionel Henry, and Kirill Müller. 2022. <span
         button.classList.add('code-copy-button-checked');
         var currentTitle = button.getAttribute("title");
         button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
         setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
           button.setAttribute("title", currentTitle);
           button.classList.remove('code-copy-button-checked');
         }, 1000);
@@ -1514,31 +1539,50 @@ Wickham, Hadley, Romain François, Lionel Henry, and Kirill Müller. 2022. <span
       for (var i=0; i<noterefs.length; i++) {
         const ref = noterefs[i];
         tippyHover(ref, function() {
-          let href = ref.getAttribute('href');
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
           return note.innerHTML;
         });
       }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
       var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
       for (var i=0; i<bibliorefs.length; i++) {
         const ref = bibliorefs[i];
-        const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-        tippyHover(ref, function() {
-          var popup = window.document.createElement('div');
-          cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
-            }
-            popup.appendChild(citeDiv);
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
           });
-          return popup.innerHTML;
-        });
+        }
       }
     });
     </script>
